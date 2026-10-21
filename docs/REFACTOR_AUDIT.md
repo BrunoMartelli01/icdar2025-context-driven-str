@@ -1,61 +1,58 @@
-# Refactor di navigazione e reporting — 17 ottobre 2026
+# Navigation and reporting refactor — 17 October 2026
 
-Scelta di reporting classificata `ASSUMPTION`, `REPORTING-INDEX-001`.
-I risultati proiettati restano **approximate reproduction** con i protocolli
-originari. Il refactor non modifica modelli, valutatori, checkpoint o ambienti.
+Reporting choice classified as `ASSUMPTION`, `REPORTING-INDEX-001`.
+Projected results remain **approximate reproduction** under their original
+protocols. This refactor does not change models, evaluators, checkpoints, or environments.
 
-## Problemi rilevati e interventi
+## Findings and changes
 
-| Problema osservato | Intervento |
+| Observed problem | Change |
 | --- | --- |
-| Ricerche generiche attraversano milioni di artifact | `.rgignore` e scoperta documentale con radici/profondità/esclusioni dichiarate |
-| Registro ambiguità di oltre 560KB, storia distribuita in molti audit | Indice con hash, sezioni e righe; `find` e `section` leggono le fonti originali |
-| Vecchie milestone descrivono come pendenti esperimenti poi completati | Guida per seguire la fonte specifica senza cancellare i paragrafi storici |
-| “V1” designa pipeline e reti diverse | Gruppi espliciti con percorso del report, protocollo e identità delle varianti |
-| Accuracy, membership, F1 pixel, geometria e word OCR confusi | Tabelle separate per unità/metrica; conteggi e denominatori visibili |
-| Copia manuale di numeri e percorsi non verificati | Registro di JSON pointer e SHA256; fallimento esplicito su evidenza assente o incoerente |
-| Host di esecuzione implicito | Istruzioni permanenti in AGENTS e guida locale/SSH per PAPER |
+| Generic searches traverse millions of artifacts | `.rgignore` and document discovery with declared roots/depth/exclusions |
+| Ambiguity log larger than 560KB, history spread across audits | Index with hashes, sections, and line positions; `find` and `section` read source evidence |
+| Old milestones mark subsequently completed experiments as pending | Guide to specific sources without deleting historical paragraphs |
+| “V1” names different pipelines and networks | Explicit groups with report paths, protocols, and variant identities |
+| Accuracy, membership, pixel F1, geometry, and word OCR are confused | Separate tables by unit/metric, with visible counts and denominators |
+| Manual copying of numbers and unverified paths | JSON-pointer/SHA256 registry; explicit failure on missing or inconsistent evidence |
+| Execution host is implicit | Permanent AGENTS instructions and local/SSH guide for PAPER |
 
-La raccolta comprende documenti in `docs/`, `provenance/`, audit/report negli
-artifact locali e nelle due radici esterne dichiarate. Il perimetro preciso e
-gli hash sono nel catalogo. Cache, campioni e file fuori profondità non sono
-qualificati come audit indipendenti. Nessun risultato storico viene promosso
-perché possiede un receipt che riporta PASS.
+The collection covers `docs/`, `provenance/`, local artifact audits/reports, and
+the two declared external roots. Exact scope and hashes are in the catalog.
+Caches, samples, and files beyond the depth limit are not qualified as independent
+audits. A receipt reporting PASS does not promote a historical result.
 
-## Conservazione verificata
+## Verified preservation
 
-Confronto con gli hash acquisiti prima delle modifiche: **123 documenti
-scientifici/provenance preesistenti identici**. README e AGENTS ricevono solo
-aggiunte di navigazione e host. La cronologia delle ambiguità è conservata:
-durante il lavoro un'altra attività ha inserito il record `WORD-GT-003`
-(3.021 byte), che non è stato alterato o rimosso da questo refactor.
+Compared with hashes captured before the changes: **123 existing scientific/
+provenance documents remain identical**. README and AGENTS receive only
+navigation/host additions. Ambiguity history is preserved: another concurrent
+activity inserted `WORD-GT-003` (3.021 bytes), which this refactor neither altered
+nor removed.
 
-Rimuovendo soltanto quell'inserimento concomitante e la nuova appendice
-`REPORTING-INDEX-001`, il contenuto ricostruito coincide esattamente con lo
-SHA256 iniziale:
+Removing only that concurrent insertion and the new `REPORTING-INDEX-001`
+appendix reconstructs content matching the initial SHA256 exactly:
 `bb2b3e4da65c3e9e578a880ce679464632406006090dccb7ae199f86913153a9`.
-Le aggiunte concomitanti di implementazione/config/test GT V3 sono estranee
-al refactor e sono state lasciate intatte.
+Concurrent GT V3 implementation/config/test additions are outside this refactor
+and were left intact.
 
-## Verifica eseguita
+## Checks performed
 
-- **51 test** del nuovo reporting/indice superati nell'ambiente main esistente.
-  Coprono fonti mancanti/cambiate, modalità, popolazioni, contatori impossibili,
-  formule, rate non finite, recuperi/perdite, pointer, path, fonti esterne,
-  esportazione senza sovrascrittura, pruning delle cache e freschezza degli indici.
-- **26 gruppi / 225 righe** reali verificati sui report salvati: SHA256,
-  qualifiche dichiarate, campi e popolazioni attese, rate originali disponibili.
-  Questa verifica non riesegue il matching per campione o qualifica i checkpoint.
-- Smoke della CLI con Python standard senza site-packages, query/sezioni reali,
-  panoramica, export JSON/CSV e controllo degli indici.
-- Diff delle modifiche ispezionato; `git diff --check` superato.
+- **51 tests** for new reporting/indexing passed in the existing main environment.
+  They cover missing/changed sources, modes, populations, impossible counts,
+  formulas, non-finite rates, gains/losses, pointers, paths, external sources,
+  exclusive exports, cache pruning, and index freshness.
+- **26 groups / 225 real rows** verified against saved reports: SHA256,
+  declared qualifications, expected fields/populations, and available original
+  rates. This does not rerun per-sample matching or qualify checkpoints.
+- Standard-Python CLI smoke without site-packages, actual queries/sections,
+  overview, JSON/CSV exports, and index checks.
+- Change diff inspected; `git diff --check` passed.
 
-Il primo giro dei test ha avuto un fallimento: l'asserzione contava anche una
-variante chiamata `variant` come intestazione Markdown. Corretto il conteggio
-del test, rieseguita l'intera suite; nessun controllo è stato disabilitato.
-La verifica iniziale della sola appendice delle ambiguità ha rilevato la modifica
-concomitante; il confronto ricostruito sopra ne conferma la conservazione.
+The first test run had one failure: the assertion also counted a variant named
+`variant` as a Markdown header. The assertion was corrected and the entire suite
+rerun; no check was disabled. The initial ambiguity-appendix-only check detected
+the concurrent modification; the reconstruction above confirms preservation.
 
-Nessuna nuova inferenza/training GPU, installazione, cancellazione di artifact
-o commit. I blocchi STRICT e l'equivalenza con le tabelle del paper restano
-quelli delle fonti scientifiche, senza nuove rivendicazioni di riproduzione.
+No new GPU inference/training, installation, artifact deletion, or commit.
+STRICT blockers and equivalence to paper tables remain as recorded in the
+scientific sources, without new reproduction claims.

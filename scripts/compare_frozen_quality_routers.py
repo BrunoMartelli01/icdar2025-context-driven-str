@@ -12,13 +12,14 @@ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def read(path):return json.loads(Path(path).read_text())
 
 
-def compare(root,iterations,seed):
+def compare(root,iterations,seed,output_name):
     plan=read(root/'resolved_configuration.json');result=read(root/'results.json')
     base=plan.get('input_plan',plan)
     source=Path(base['paths']['coverage_run']);source_result=read(source/'results.json')
     branches=source_result['resolutions']['640']['branch_metrics']['test'];ids=sorted(s['sample_id']for s in plan['samples']['test'])
     if result['status']!='SUCCESS' or len(ids)!=300:raise ValueError('Only completed full TEST comparisons are eligible')
-    labels=np.array([2*branches[s]['light']['tp']/(2*branches[s]['light']['tp']+branches[s]['light']['fp']+branches[s]['light']['fn'])>=.8 for s in ids])
+    labels=np.array([10*branches[s]['light']['tp']>=4*(2*branches[s]['light']['tp']+branches[s]['light']['fp']+branches[s]['light']['fn'])
+        and 2*branches[s]['light']['tp']+branches[s]['light']['fp']+branches[s]['light']['fn']>0 for s in ids])
     rng=np.random.default_rng(seed);weights=rng.multinomial(len(ids),np.full(len(ids),1/len(ids)),size=iterations).astype(np.float64)
     points=result['splits']['test']['families'];statistics={};ties={}
     features={s:read(root/'test/features'/(s.replace(':','__')+'.json'))for s in ids}
@@ -57,7 +58,11 @@ def compare(root,iterations,seed):
         'unit':'paired image bootstrap; fixed gates; no gate/model fitting',
         'multiplicity_correction':False,'test_hypotheses_are_exploratory':True,
         'comparisons':comparisons,'budget_tie_diagnostics':ties}
-    target=root/'analysis/paired_comparisons.json';target.parent.mkdir(exist_ok=True)
+    if Path(output_name).name!=output_name:raise ValueError('Analysis output must be a basename')
+    target=root/'analysis'/output_name;target.parent.mkdir(exist_ok=True)
+    snapshot=target.parent/'code_snapshot'/str(output['analysis_code_sha256']+'.py')
+    snapshot.parent.mkdir(exist_ok=True)
+    if not snapshot.exists():snapshot.write_bytes(Path(__file__).read_bytes())
     if target.exists()and read(target)!=output:raise ValueError('Immutable analysis differs; choose a new name/version')
     target.write_text(json.dumps(output,indent=2,sort_keys=True)+'\n');print(json.dumps({'status':'SUCCESS','path':str(target),'comparisons':len(comparisons)}))
 
@@ -65,4 +70,5 @@ def compare(root,iterations,seed):
 if __name__=='__main__':
     p=argparse.ArgumentParser(__doc__);p.add_argument('--run',type=Path,required=True)
     p.add_argument('--iterations',type=int,default=10000);p.add_argument('--seed',type=int,default=20261021)
-    args=p.parse_args();compare(args.run,args.iterations,args.seed)
+    p.add_argument('--output-name',default='paired_comparisons_v2.json')
+    args=p.parse_args();compare(args.run,args.iterations,args.seed,args.output_name)

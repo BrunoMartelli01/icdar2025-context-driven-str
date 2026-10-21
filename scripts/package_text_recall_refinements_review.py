@@ -45,7 +45,7 @@ def main():
              sorted(ids, key=lambda s: (-delta(s)[1], delta(s)[0], s)),
              sorted(ids, key=lambda s: (typical(s), s)),
              sorted(ids, key=lambda s: (-len(before[s]["ground_truth"]), s))]
-    categories = ["Parole recuperate", "Parole perse / limiti", "Casi tipici", "Immagini dense"]
+    categories = ["Recovered words", "Lost words / limitations", "Typical cases", "Dense images"]
     examples = []; used = set()
     for i in range(12):
         category = i % 4; sid = next(s for s in ranks[category] if s not in used); used.add(sid)
@@ -76,10 +76,10 @@ def main():
             predictions = [[p for p in d[sid]["predictions_all"] if p["instance_id"] not in d[sid]["ignored_prediction_ids"]] for d in (before, after)]
             matched = [matched_crop_to_word(p, before[sid]["ground_truth"]) for p in predictions]
             board = Image.new("RGB", (1800, 780 + max(map(len, predictions)) * 25), "white"); draw = ImageDraw.Draw(board)
-            draw.text((16, 12), f'{sid} | {sample["category"]} | recuperate {sample["gained"]}, perse {sample["lost"]}', font=bold, fill="black")
-            draw.text((16, 46), f'Approximate reproduction | nuovo confronto CPU | {best["branch"]}/{best["method"]}', font=font, fill="#333333")
-            draw.text((16, 73), 'Verde = bbox IoU>=0.50 e testo casefold corretto; rosso = errore. GT solo nel pannello blu.', font=font, fill="#555555")
-            titles = [f'RGB + GT: {len(before[sid]["ground_truth"])} parole', f'Text+Kernel512: {len(matched[0])} corrette', f'Variante osservata migliore: {len(matched[1])} corrette']
+            draw.text((16, 12), f'{sid} | {sample["category"]} | gained {sample["gained"]}, lost {sample["lost"]}', font=bold, fill="black")
+            draw.text((16, 46), f'Approximate reproduction | new CPU comparison | {best["branch"]}/{best["method"]}', font=font, fill="#333333")
+            draw.text((16, 73), 'Green = bbox IoU>=0.50 and correct casefold text; red = error. GT only in blue panel.', font=font, fill="#555555")
+            titles = [f'RGB + GT: {len(before[sid]["ground_truth"])} words', f'Text+Kernel512: {len(matched[0])} correct', f'Best observed variant: {len(matched[1])} correct']
             for column in range(3):
                 left = 12 + column * 596; draw.text((left, 115), titles[column], font=bold, fill="black")
                 px, py, pw, ph = _fit(board, rgb, (left, 153, left + 580, 716))
@@ -91,9 +91,9 @@ def main():
                               px + (x2 - 1) * pw / rgb.width, py + (y2 - 1) * ph / rgb.height)
                     draw.rectangle(coords, outline=color, width=2); draw.text(coords[:2], str(j + 1), font=small, fill=color)
             for column, (preds, matches) in enumerate(zip(predictions, matched)):
-                draw.text((16 + column * 896, 745), "Text+Kernel512 / PARSeq" if column == 0 else "Variante / PARSeq", font=font, fill="black")
+                draw.text((16 + column * 896, 745), "Text+Kernel512 / PARSeq" if column == 0 else "Variant / PARSeq", font=font, fill="black")
                 for j, p in enumerate(preds):
-                    label = f'{j+1:02d} {"OK" if j in matches else "ERRORE"}: {p["text"]!r}'
+                    label = f'{j+1:02d} {"OK" if j in matches else "ERROR"}: {p["text"]!r}'
                     draw.text((16 + column * 896, 778 + j * 25), label[:94], font=small, fill="#117733" if j in matches else "#bb2222")
             stream = BytesIO(); board.save(stream, format="JPEG", quality=91, optimize=True)
             name = f'images/{i:02d}_{sid.replace(":", "__")}.jpg'; add(archive, name, stream.getvalue()); sample["image"] = name
@@ -101,8 +101,8 @@ def main():
                 "gt_crop_diagnosis": [w for w in diagnosis["branches"][best_key][best["method"]]["per_word"] if w["sample_id"] == sid]}, ensure_ascii=False, indent=2))
             if i == 1: board.save("/tmp/text-recall-refinements-review-preview.jpg")
         cards = "".join(f'<article><h2>{html.escape(s["sample_id"])} — {s["category"]}</h2><a href="{s["image"]}"><img src="{s["image"]}" loading="lazy"></a></article>' for s in examples)
-        add(archive, "index.html", '<!doctype html><html lang="it"><meta charset="utf-8"><title>Crop refinements + PARSeq</title><style>body{font:16px system-ui;background:#eee;margin:24px}article{background:white;padding:12px;margin:20px 0}img{width:100%;max-width:1800px}</style><h1>Text+Kernel: nuovi confronti sui crop</h1><p>Approximate reproduction,125 immagini TRAIN holdout /983 parole.15 varianti predefinite; il riferimento e ogni suo crop sono rivalutati su CPU. La variante visualizzata ha il maggiore Hmean osservato su questa validation riutilizzata, senza validazione indipendente. Il risultato GT-box è un diagnostico separato.</p><p><a href="metrics_15_arms_and_separate_oracle.csv">Tutte le metriche</a> | <a href="reports/summary.json">Report JSON</a> | <a href="gt_diagnostic_counts.json">Diagnosi GT crop</a></p>' + cards + '</html>')
-        add(archive, "README.txt", "Estrarre e aprire index.html.12 esempi diagnostici:3 per categoria, inclusi guadagni e perdite. Non stimare metriche dai soli esempi. Il CSV include15 bracci predetti e un oracle GT separato. Tutti i risultati sono esplorativi sulla validation TRAIN riutilizzata. Nessun checkpoint incluso.\n")
+        add(archive, "index.html", '<!doctype html><html lang="en"><meta charset="utf-8"><title>Crop refinements + PARSeq</title><style>body{font:16px system-ui;background:#eee;margin:24px}article{background:white;padding:12px;margin:20px 0}img{width:100%;max-width:1800px}</style><h1>Text+Kernel: new crop comparisons</h1><p>Approximate reproduction,125 TRAIN holdout images /983 words.15 predeclared variants; reference and every crop reevaluated on CPU. Displayed variant has highest observed Hmean on reused validation, without independent validation. GT-box result is a separate diagnostic.</p><p><a href="metrics_15_arms_and_separate_oracle.csv">All metrics</a> | <a href="reports/summary.json">Report JSON</a> | <a href="gt_diagnostic_counts.json">GT crop diagnosis</a></p>' + cards + '</html>')
+        add(archive, "README.txt", "Extract and open index.html.12 diagnostic examples:3 per category, including gains/losses. Do not estimate metrics from examples alone. CSV includes15 prediction arms and a separate GT oracle. All results are exploratory on reused TRAIN validation. No checkpoint included.\n")
         add(archive, "package_source.py", Path(__file__).read_bytes())
         archive.writestr("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     with ZipFile(output) as archive:

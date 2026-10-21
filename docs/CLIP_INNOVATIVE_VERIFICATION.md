@@ -1,169 +1,154 @@
-# Nuovi utilizzi di CLIP e comando per il confronto su GPU
+# New CLIP uses and GPU comparison command
 
-Questa è una batteria **approximate reproduction**, su Total-Text TRAIN125 già
-usato per sviluppo. Confronta tre checkpoint congelati su identiche parole
-PARSeq e box; non è una valutazione TEST indipendente o una Table5 riprodotta.
-La [batteria precedente](CLIP_WORD_VERIFICATION.md) e i relativi risultati
-rimangono separati.
+This **approximate reproduction** battery uses Total-Text TRAIN125 already
+used for development. It compares three frozen checkpoints on identical PARSeq
+words/boxes; it is neither independent TEST nor reproduced Table5. The
+[previous battery](CLIP_WORD_VERIFICATION.md) and its results remain separate.
 
-## Un comando dal terminale dell'host
+## One command from the host terminal
 
 ```bash
 bash /extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/run_clip_verification_suite_host.sh
 ```
 
-Il comando esegue i test, verifica accesso CUDA e input scientifici, riusa il
-ViT-B/32 locale e scarica gli snapshot fissati ViT-B/16 e ViT-L/14 mancanti.
-Non installa pacchetti. I processi usano una GPU, float32 e batch16; i modelli
-si caricano separatamente. Si registrano GPU effettiva, forme degli input,
-peak allocated/reserved e fallimenti/OOM. Non viene cambiata automaticamente
-precisione, device, modello o batch dopo un errore.
+The command runs tests, checks CUDA/scientific inputs, reuses local ViT-B/32,
+and downloads missing pinned ViT-B/16 and ViT-L/14 snapshots. It installs no
+packages. Processes use one GPU, float32, batch 16; models load separately.
+Actual GPU, input shapes, allocated/reserved peaks, failures/OOM are recorded.
+Precision, device, model, and batch never change automatically after an error.
 
-I download sono limitati ai file del modello/processore/tokenizer richiesti,
-senza scaricare copie TensorFlow/Flax dei pesi. Il downloader verifica commit
-completo, ETag LFS SHA256 e bytes dei pesi. Anche per B/16, il cui checksum
-upstream nel vecchio config era irrisolto, viene conservata la ricevuta
-verificata; il vecchio config non viene mutato. In modalità `--offline`,
-un checksum upstream assente resta esplicitamente non verificato.
+Downloads include only required model/processor/tokenizer files, excluding
+TensorFlow/Flax weight copies. The downloader checks full commit, LFS SHA256
+ETag, and weight bytes. A verified receipt is retained for B/16 too, whose
+upstream checksum was unresolved in the old config; that config is not changed.
+In `--offline` mode, an absent upstream checksum remains explicitly unverified.
 
-Log: `/tmp/clip-verification-host-suite.log`, personalizzabile con
-`CLIP_SUITE_LOG`. I risultati sono in
-`/tmp/clip-verification-host-suite/<protocol-hash>/`:
+Log: `/tmp/clip-verification-host-suite.log`, configurable with `CLIP_SUITE_LOG`.
+Results under `/tmp/clip-verification-host-suite/<protocol-hash>/`:
 
-* `COMPARISON.md`: tabella delle regole per ogni modello;
-* `comparison.json`: confronto completo e provenienza dei download;
-* `classic/`: tutti i confronti v1, inclusi prompt con descrizione;
-* `innovative/`: nuovi confronti, con prompt/score/scelte e hash dei rendering;
-* `downloads/`, `hardware.json`, `launch.json`: provenienza e configurazione;
-* `suite_failure.json` e/o `failure.json`: errori propagati, quando presenti.
+* `COMPARISON.md`: rule table per model;
+* `comparison.json`: complete comparison and download provenance;
+* `classic/`: all v1 comparisons, including description prompts;
+* `innovative/`: new comparisons with prompts/scores/choices/rendering hashes;
+* `downloads/`, `hardware.json`, `launch.json`: provenance/configuration;
+* `suite_failure.json` and/or `failure.json`: propagated errors when present.
 
-Il percorso viene stampato nella riga finale `COMPLETED`. Il codice,
-configurazione, software, device e limite di immagini definiscono un nuovo
-albero di output; una ripetizione dello stesso protocollo riusa gli intermedi
-compatibili. Si preservano i vecchi esperimenti CPU. Per cambiare il percorso
-di output usare `--output-root /percorso/scelto`.
+The path is printed in the final `COMPLETED` line. Code, config, software,
+device, and image limit define a new output tree; repeated identical protocols
+reuse compatible intermediates. Old CPU experiments are preserved. Change
+output location with `--output-root /path/of/your/choice`.
 
-Per un controllo locale senza download e con il modello già disponibile:
+For a local check without downloads, with the model already available:
 
 ```bash
 bash scripts/run_clip_verification_suite_host.sh --models vit_b32 --device cpu --offline --limit 1
 ```
 
-Per uno smoke GPU iniziale sui tre checkpoint, aggiungere `--limit 1` al
-comando completo; i risultati restano etichettati smoke. Il run senza limite
-usa tutte le 125 immagini e tutte le 983 care GT. Lo script non apre TEST.
+For an initial three-checkpoint GPU smoke, add `--limit 1` to the full command;
+results stay labeled smoke. An unlimited run uses all 125 images and 983 care
+GT. The script does not open TEST.
 
-## Ipotesi implementate
+## Implemented hypotheses
 
-1. **Dipendenza dalla regione scritta.** Per ogni candidata `w`:
-   `score(w) = cos(crop_ampio,w) - cos(crop_ampio_con_target_coperto,w)`.
-   Un punteggio alto misura quanto la presenza del target sostiene quella
-   candidata. Le alternative condividono entrambi gli input. Si copre l'intero
-   box, quindi anche lo sfondo al suo interno: non è una prova causale che il
-   modello abbia riconosciuto ogni lettera. Si provano raw/quoted/ensemble e
-   residuo contestuale, oltre a un gate di accordo con PARSeq.
-2. **Parole candidate come immagini.** Ogni stringa PARSeq completa è scritta
-   in DejaVu Sans, Serif e Mono, con nero su bianco e bianco su nero. Si confronta
-   il crop reale con la media normalizzata delle feature visuali di queste
-   immagini. Anche la candidata entra nel ramo visivo, evitando la sua
-   tokenizzazione testuale per questo punteggio. Non è garantita la rimozione
-   dei bias semantici: l'encoder visivo di CLIP può rappresentare il significato
-   del testo. Font/forma/lunghezza possono diventare scorciatoie.
-3. **Ordine delle lettere.** Si sottrae la similarità della stessa stringa
-   renderizzata al contrario: medesimi caratteri, font e polarità, diverso
-   ordine. `STOP`/`POTS` è un esempio di controllo, non un nuovo output OCR.
-   Le stringhe invertite non entrano mai nel pool selezionabile. Palindromi e
-   caratteri ripetuti identici al loro inverso producono zero evidenza d'ordine.
-   Non si ottiene così un puro misuratore di spelling: significato e kerning
-   possono comunque cambiare.
-4. **Più spazio per il testo nell'input.** Il crop viene anche deformato fino
-   a riempire il quadrato della risoluzione ufficiale CLIP, con resize bicubico.
-   Con parole molto larghe, il canvas quadrato precedente lascia al testo pochi
-   pixel in altezza. Si prova l'ingrandimento con template testuali e rendering
-   visivi, separatamente dal canvas che conserva le proporzioni. La deformazione
-   è un'assunzione sperimentale, non una modifica del preprocessore STRICT.
+1. **Dependence on the written region.** For candidate `w`:
+   `score(w) = cos(wide_crop,w) - cos(wide_crop_with_target_covered,w)`.
+   A high score measures support from the target's presence. Alternatives share
+   both inputs. The whole box is covered, including background within it: this
+   does not causally prove every letter was recognized. Raw/quoted/ensemble,
+   contextual residual, and a PARSeq agreement gate are tested.
+2. **Candidate words as images.** Each complete PARSeq string is rendered in
+   DejaVu Sans, Serif, Mono, black-on-white/white-on-black. Compare the real crop
+   with their normalized mean visual features. Candidates also enter the visual
+   branch, avoiding text tokenization for this score. Semantic bias is not
+   guaranteed to disappear: CLIP's visual encoder can encode text meaning.
+   Font/shape/length may become shortcuts.
+3. **Letter order.** Subtract similarity of the same reversed rendered string:
+   identical characters/fonts/polarities, different order. `STOP`/`POTS` is a
+   control example, not a new OCR output. Reversed strings never enter the
+   selectable pool. Palindromes/repeated characters identical to their reverse
+   provide zero order evidence. Meaning/kerning can still change, so this is
+   not a pure spelling measure.
+4. **More input space for text.** Also stretch crops to fill the official CLIP
+   resolution's square using bicubic resize. With very wide words, the previous
+   square canvas leaves few vertical text pixels. Test enlargement with textual
+   templates and visual renderings, separately from aspect-preserving canvases.
+   Stretching is an experimental assumption, not a STRICT-preprocessor change.
 
-La selezione conserva sempre i box e le stringhe raw PARSeq. Il gate dei
-glyph richiede accordo tra confidence PARSeq, effetto della regione scritta e
-confronto visuale multiview, con margini fissi. Nessun GT o testo del captioner
-viene usato per generare nuove candidate. Si salvano testo, font/checksum,
-polarità, geometria e hash RGB per ricreare ogni probe sintetico. Il charset
-del rendering è ASCII stampabile: input vuoti, invisibili o non supportati
-falliscono esplicitamente, senza glyph sostitutivi.
+Selection always retains PARSeq boxes/raw strings. The glyph gate requires
+agreement among PARSeq confidence, written-region effect, and multiview visual
+comparison, with fixed margins. No GT/caption text generates candidates. Text,
+font/checksum, polarity, geometry, and RGB hashes recreate every synthetic probe.
+Rendering charset is printable ASCII: empty/invisible/unsupported inputs fail
+explicitly, without replacement glyphs.
 
-Il confronto completo dell'host è ora terminato per **B/32, B/16 e L/14**:
-[risultati verificati e interpretazione](CLIP_VERIFICATION_RESULTS.md).
-Il report è `/tmp/clip-verification-host-suite/6920d0b0c030/comparison.json`.
+The complete host comparison is now finished for **B/32, B/16, and L/14**:
+[verified results and interpretation](CLIP_VERIFICATION_RESULTS.md).
+Report: `/tmp/clip-verification-host-suite/6920d0b0c030/comparison.json`.
 
-La batteria completa ha **40 regole per checkpoint**, inclusi tutti i 28
-controlli precedenti. Quella solo controfattuale ha 33 regole e non dichiara
-di aver valutato rendering o stretching. Il protocollo, le assunzioni e le
-deviazioni hardware sono in
+The complete battery has **40 rules per checkpoint**, including all previous 28
+controls. The counterfactual-only battery has 33 rules and does not claim to
+evaluate rendering/stretching. Protocol, assumptions, hardware deviations:
 [config v2](../configs/approximate/clip_innovative_verification_train_v2.json)
-e `CLIP-INNOVATIVE-VERIFICATION-V2` in `PAPER_AMBIGUITIES.md`.
+and `CLIP-INNOVATIVE-VERIFICATION-V2` in `PAPER_AMBIGUITIES.md`.
 
-## Fonti e ulteriori idee
+## Sources and further ideas
 
-[FDP, ACM MM2024](https://arxiv.org/abs/2408.00441) identifica sia la scala
-percettiva limitata del testo sia l'intreccio tra concetti visuali e semantici
-come problemi di CLIP per scene-text retrieval. Include componenti apprese:
-le nostre prove di scala/spelling sono ipotesi ispirate da questa diagnosi,
-non una riproduzione della sua architettura o dei suoi risultati.
+[FDP, ACM MM2024](https://arxiv.org/abs/2408.00441) identifies limited text
+perceptual scale and entangled visual/semantic concepts as CLIP scene-text
+retrieval problems. It includes learned components; these scale/spelling tests
+are hypotheses inspired by that diagnosis, not reproductions of its architecture
+or results.
 
-[T-MARS, ICLR2024](https://arxiv.org/abs/2307.03132) maschera testo e ricalcola
-similarità CLIP per filtrare dati di pretraining in cui il testo domina la scena.
-Qui usiamo il confronto prima/dopo per studiare il contributo del target a
-ciascuna candidata: compito e criterio di selezione sono differenti.
+[T-MARS, ICLR2024](https://arxiv.org/abs/2307.03132) masks text/recalculates CLIP
+similarity to filter pretraining data dominated by text. Here before/after
+comparison studies target contribution for each candidate: task/selection differ.
 
 [Disentangling visual and written concepts in CLIP](https://joaanna.github.io/disentangling_spelling_in_clip/)
-studia anche parole senza significato e proiezioni che separano spelling e
-concetti visuali. Proiezioni ufficiali già apprese potrebbero essere usate
-congelate, qualificando compatibilità, versione e checkpoint; non sono ancora
-scaricate o integrate nella batteria. Un'altra estensione sarebbe confrontare
-coppie di parole con un'unica lettera diversa e usare i patch visivi della zona
-differente, ma il mapping fra patch CLIP e caratteri è ancora da definire.
+also studies meaningless words and projections separating spelling/visual
+concepts. Official pretrained projections could be frozen after qualifying
+compatibility/version/checkpoint; they have not been downloaded/integrated.
+Another extension could compare single-letter-difference word pairs using visual
+patches in the differing region; CLIP-patch-to-character mapping remains undefined.
 
-## Verifiche già eseguite in questa sessione
+## Checks performed in this session
 
-**53 test passano**, inclusi integrità dei checkpoint scaricati, ordine/charset
-dei rendering, pooling di font, pool immutabili, selezioni v1 preservate,
-denominatori vuoti e OOM simulato e propagato. Un primo test aveva rilevato
-un errore di parentesi nel nuovo ramo; è stato corretto prima dell'inferenza.
-Lo script host completo ha terminato un vero smoke B/32 CPU, con tutte le
-40 regole, in `/tmp/clip-verification-host-suite/47395c888c47/`. È un controllo
-ingegneristico su una immagine, non prova del beneficio dei glyph.
+**53 tests pass**, including downloaded-checkpoint integrity, rendering order/
+charset, font pooling, immutable pools, preserved v1 selections, empty
+ denominators, and simulated/propagated OOM. An initial test detected a bracket
+error in the new branch; it was fixed before inference. Full host script
+completed a real B/32 CPU smoke with all 40 rules under
+`/tmp/clip-verification-host-suite/47395c888c47/`. This is engineering verification
+on one image, not evidence of glyph benefit.
 
-La sola parte controfattuale è stata valutata su tutti i vecchi score B/32
-TRAIN125, senza nuova inferenza e senza alterare i 28 controlli originali:
+Only the counterfactual portion was evaluated on all prior B/32 TRAIN125 scores,
+without new inference or changing the original 28 controls:
 
-| Regola | Corrette /983 | Recuperate | Perse | Parole cambiate |
+| Rule | Correct /983 | Gained | Lost | Changed words |
 |---|---:|---:|---:|---:|
-| Baseline PARSeq |368|0|0|0|
-| Confidence PARSeq sulle alternative |383|26|11|351|
-| Differenza prima/dopo, prompt scritto |362|14|20|360|
-| Differenza prima/dopo, residuo contestuale |366|19|21|378|
-| Accordo PARSeq + effetto della regione scritta |372|4|0|23|
+| PARSeq baseline |368|0|0|0|
+| PARSeq confidence over alternatives |383|26|11|351|
+| Before/after difference, written prompt |362|14|20|360|
+| Before/after difference, contextual residual |366|19|21|378|
+| PARSeq + written-region-effect agreement |372|4|0|23|
 
-Il gate recupera 4 parole senza perdite osservate; gli altri 19 cambiamenti
-non aumentano l'exact matching. La scelta libera del massimo score resta
-insufficiente e la confidence PARSeq raggiunge un totale maggiore. Sulle
-67 coppie a un edit, l'effetto del prompt scritto sceglie la corretta nel
-68.7%, contro 59.7% del prompt scritto sul crop nel confronto precedente e
-82.1% del controllo PARSeq. Sono osservazioni su dati di sviluppo correlati,
-non significatività o garanzia di sicurezza delle correzioni.
+The gate recovers 4 words without observed losses; the other 19 changes do not
+increase exact matching. Unrestricted maximum-score selection remains
+insufficient; PARSeq confidence reaches a higher total. Among 67 one-edit pairs,
+written-prompt effect chooses correctly in 68.7%, versus 59.7% for the previous
+crop written prompt and 82.1% for PARSeq control. These are correlated development
+data, not significance or correction-safety guarantees.
 
-Report completo:
+Complete report:
 `/tmp/clip-innovative-verification-v2/vit_b32/counterfactual/results.json`,
 SHA256 `0901ef57307bac7b0b361ad0b4844906cfc5d4a1d3e273609b5448075ab138c6`.
-Metriche, matching e denominatori sono quelli della v1: exact casefold con
-punteggiatura conservata, matching uno a uno bboxIoU>=0.5 e tutte le care GT.
+Metrics/matching/denominators follow v1: exact casefold with punctuation,
+one-to-one bboxIoU>=0.5 matching, all care GT.
 
-Il preflight CUDA fallisce nella sessione Codex; il run dell'host ha invece
-completato tutte le 40 regole per ognuno dei tre checkpoint su TRAIN125,
-con una RTX 3090. La verifica CPU ha ricalcolato tutti i sei report dai
-750 shard e controllato che codice, input, selezioni e output originali
-restino coerenti. L/14 con fusione PARSeq/CLIP ottiene 386/983; con candidate
-renderizzate 383/983; con il gate conservativo PARSeq/crop/crop ampio 376/983,
-otto recuperi e zero danni osservati. La descrizione aggiunta al prompt del
-crop peggiora l'exact matching per tutti i checkpoint. Questi sono risultati
-di sviluppo APPROXIMATE, non conferma indipendente o qualifica della RTX 3070.
+CUDA preflight fails in the Codex session; the host run completed all 40 rules
+per checkpoint on TRAIN125 using RTX 3090. CPU verification recalculated all six
+reports from 750 shards and checked consistency of code, inputs, original
+selections/outputs. L/14 PARSeq/CLIP fusion reaches 386/983; rendered candidates
+383/983; conservative PARSeq/crop/wide-crop gate 376/983, eight recoveries, zero
+observed harm. Adding descriptions to crop prompts worsens exact matching for
+all checkpoints. These are APPROXIMATE development results, not independent
+confirmation or RTX 3070 qualification.

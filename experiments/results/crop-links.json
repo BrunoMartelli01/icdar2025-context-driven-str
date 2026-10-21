@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "crop-links",
+    "title": "Learned crop word/kernel and pixel links",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "unet-crop-links-v1/comparison.json",
+      "sha256": "e680d21bb67a8a15a6c9ee9b0d2d13900b282b21406794befc61a7b680f8f8f5"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+    ],
+    "evidence": [
+      "docs/UNET_CROP_LINKS.md"
+    ],
+    "expected_rows": 4,
+    "paired_baseline": "control"
+  },
+  "source_path": "runs:unet-crop-links-v1/comparison.json",
+  "source_sha256": "e680d21bb67a8a15a6c9ee9b0d2d13900b282b21406794befc61a7b680f8f8f5",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "control",
+      "source_pointer": "/branches/control",
+      "tp": 521,
+      "predictions": 1054,
+      "gt": 983,
+      "fp": 533,
+      "fn": 462,
+      "precision": 0.49430740037950666,
+      "recall": 0.5300101729399797,
+      "f1": 0.5115365733922435,
+      "tn0": 0.34366754617414247,
+      "extra": {
+        "epoch": 2,
+        "gained": 0,
+        "lost": 0
+      }
+    },
+    {
+      "variant": "crop_links",
+      "source_pointer": "/branches/crop_links",
+      "tp": 476,
+      "predictions": 18851,
+      "gt": 983,
+      "fp": 18375,
+      "fn": 507,
+      "precision": 0.02525064983290011,
+      "recall": 0.4842319430315361,
+      "f1": 0.047998386608853486,
+      "tn0": 0.02458931707821056,
+      "extra": {
+        "epoch": 4,
+        "gained": 63,
+        "lost": 108
+      }
+    },
+    {
+      "variant": "crop_word",
+      "source_pointer": "/branches/crop_word",
+      "tp": 524,
+      "predictions": 1301,
+      "gt": 983,
+      "fp": 777,
+      "fn": 459,
+      "precision": 0.4027671022290546,
+      "recall": 0.5330620549338759,
+      "f1": 0.45884413309982486,
+      "tn0": 0.29772727272727273,
+      "extra": {
+        "epoch": 16,
+        "gained": 75,
+        "lost": 72
+      }
+    },
+    {
+      "variant": "global_links",
+      "source_pointer": "/branches/global_links",
+      "tp": 490,
+      "predictions": 20298,
+      "gt": 983,
+      "fp": 19808,
+      "fn": 493,
+      "precision": 0.024140309390087693,
+      "recall": 0.49847405900305186,
+      "f1": 0.046050467553216484,
+      "tn0": 0.023567889952383243,
+      "extra": {
+        "epoch": 33,
+        "gained": 20,
+        "lost": 51
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

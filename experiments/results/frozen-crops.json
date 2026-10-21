@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "frozen-crops",
+    "title": "Frozen Crops: selected thresholds",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+    "source": {
+      "root": "repository",
+      "path": "artifacts/text-recall-parseq-crops-v1/summary.json",
+      "sha256": "0fdef4221694c9f94f7a5794b990078e75c234814a607d2428db770b0f48184f"
+    },
+    "population": {
+      "gt": 983,
+      "images": 125
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+    ],
+    "evidence": [
+      "docs/TEXT_RECALL_CROPS.md"
+    ],
+    "expected_rows": 16
+  },
+  "source_path": "repository:artifacts/text-recall-parseq-crops-v1/summary.json",
+  "source_sha256": "0fdef4221694c9f94f7a5794b990078e75c234814a607d2428db770b0f48184f",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "control512 / connected_components",
+      "source_pointer": "/rows/0",
+      "tp": 418,
+      "predictions": 892,
+      "gt": 983,
+      "images": 125,
+      "fp": 474,
+      "fn": 565,
+      "precision": 0.46860986547085204,
+      "recall": 0.4252288911495422,
+      "f1": 0.4458666666666667,
+      "tn0": 0.2868908716540837,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.5696
+      }
+    },
+    {
+      "variant": "control512 / findcontours",
+      "source_pointer": "/rows/1",
+      "tp": 418,
+      "predictions": 891,
+      "gt": 983,
+      "images": 125,
+      "fp": 473,
+      "fn": 565,
+      "precision": 0.4691358024691358,
+      "recall": 0.4252288911495422,
+      "f1": 0.44610458911419426,
+      "tn0": 0.28708791208791207,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.5699039487726788
+      }
+    },
+    {
+      "variant": "control512 / distance_watershed",
+      "source_pointer": "/rows/2",
+      "tp": 321,
+      "predictions": 1328,
+      "gt": 983,
+      "images": 125,
+      "fp": 1007,
+      "fn": 662,
+      "precision": 0.24171686746987953,
+      "recall": 0.32655137334689727,
+      "f1": 0.2778018173950671,
+      "tn0": 0.16130653266331657,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.4110774556469061
+      }
+    },
+    {
+      "variant": "control512 / offset_watershed",
+      "source_pointer": "/rows/3",
+      "tp": 331,
+      "predictions": 1071,
+      "gt": 983,
+      "images": 125,
+      "fp": 740,
+      "fn": 652,
+      "precision": 0.30905695611577966,
+      "recall": 0.3367243133265514,
+      "f1": 0.3222979552093476,
+      "tn0": 0.19210679048171794,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.46153846153846156
+      }
+    },
+    {
+      "variant": "tversky512 / connected_components",
+      "source_pointer": "/rows/8",
+      "tp": 418,
+      "predictions": 892,
+      "gt": 983,
+      "images": 125,
+      "fp": 474,
+      "fn": 565,
+      "precision": 0.46860986547085204,
+      "recall": 0.4252288911495422,
+      "f1": 0.4458666666666667,
+      "tn0": 0.2868908716540837,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.5696
+      }
+    },
+    {
+      "variant": "tversky512 / findcontours",
+      "source_pointer": "/rows/9",
+      "tp": 418,
+      "predictions": 891,
+      "gt": 983,
+      "images": 125,
+      "fp": 473,
+      "fn": 565,
+      "precision": 0.4691358024691358,
+      "recall": 0.4252288911495422,
+      "f1": 0.44610458911419426,
+      "tn0": 0.28708791208791207,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.5699039487726788
+      }
+    },
+    {
+      "variant": "tversky512 / distance_watershed",
+      "source_pointer": "/rows/10",
+      "tp": 321,
+      "predictions": 1328,
+      "gt": 983,
+      "images": 125,
+      "fp": 1007,
+      "fn": 662,
+      "precision": 0.24171686746987953,
+      "recall": 0.32655137334689727,
+      "f1": 0.2778018173950671,
+      "tn0": 0.16130653266331657,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.4110774556469061
+      }
+    },
+    {
+      "variant": "tversky512 / offset_watershed",
+      "source_pointer": "/rows/11",
+      "tp": 331,
+      "predictions": 1071,
+      "gt": 983,
+      "images": 125,
+      "fp": 740,
+      "fn": 652,
+      "precision": 0.30905695611577966,
+      "recall": 0.3367243133265514,
+      "f1": 0.3222979552093476,
+      "tn0": 0.19210679048171794,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.46153846153846156
+      }
+    },
+    {
+      "variant": "control768 / connected_components",
+      "source_pointer": "/rows/16",
+      "tp": 414,
+      "predictions": 946,
+      "gt": 983,
+      "images": 125,
+      "fp": 532,
+      "fn": 569,
+      "precision": 0.4376321353065539,
+      "recall": 0.4211597151576806,
+      "f1": 0.42923794712286156,
+      "tn0": 0.2732673267326733,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.5640228097459824
+      }
+    },
+    {
+      "variant": "control768 / findcontours",
+      "source_pointer": "/rows/17",
+      "tp": 414,
+      "predictions": 946,
+      "gt": 983,
+      "images": 125,
+      "fp": 532,
+      "fn": 569,
+      "precision": 0.4376321353065539,
+      "recall": 0.4211597151576806,
+      "f1": 0.42923794712286156,
+      "tn0": 0.2732673267326733,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.5640228097459824
+      }
+    },
+    {
+      "variant": "control768 / distance_watershed",
+      "source_pointer": "/rows/18",
+      "tp": 335,
+      "predictions": 1353,
+      "gt": 983,
+      "images": 125,
+      "fp": 1018,
+      "fn": 648,
+      "precision": 0.24759793052475979,
+      "recall": 0.340793489318413,
+      "f1": 0.2868150684931507,
+      "tn0": 0.16741629185407297,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.4400684931506849
+      }
+    },
+    {
+      "variant": "control768 / offset_watershed",
+      "source_pointer": "/rows/19",
+      "tp": 328,
+      "predictions": 1059,
+      "gt": 983,
+      "images": 125,
+      "fp": 731,
+      "fn": 655,
+      "precision": 0.3097261567516525,
+      "recall": 0.3336724313326551,
+      "f1": 0.32125367286973555,
+      "tn0": 0.19136522753792298,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.4593535749265426
+      }
+    },
+    {
+      "variant": "tversky768 / connected_components",
+      "source_pointer": "/rows/24",
+      "tp": 443,
+      "predictions": 975,
+      "gt": 983,
+      "images": 125,
+      "fp": 532,
+      "fn": 540,
+      "precision": 0.4543589743589744,
+      "recall": 0.4506612410986775,
+      "f1": 0.4525025536261491,
+      "tn0": 0.29240924092409243,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.567926455566905
+      }
+    },
+    {
+      "variant": "tversky768 / findcontours",
+      "source_pointer": "/rows/25",
+      "tp": 443,
+      "predictions": 975,
+      "gt": 983,
+      "images": 125,
+      "fp": 532,
+      "fn": 540,
+      "precision": 0.4543589743589744,
+      "recall": 0.4506612410986775,
+      "f1": 0.4525025536261491,
+      "tn0": 0.29240924092409243,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.567926455566905
+      }
+    },
+    {
+      "variant": "tversky768 / distance_watershed",
+      "source_pointer": "/rows/26",
+      "tp": 345,
+      "predictions": 1407,
+      "gt": 983,
+      "images": 125,
+      "fp": 1062,
+      "fn": 638,
+      "precision": 0.24520255863539445,
+      "recall": 0.35096642929806715,
+      "f1": 0.28870292887029286,
+      "tn0": 0.1687041564792176,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.4276150627615063
+      }
+    },
+    {
+      "variant": "tversky768 / offset_watershed",
+      "source_pointer": "/rows/27",
+      "tp": 355,
+      "predictions": 1155,
+      "gt": 983,
+      "images": 125,
+      "fp": 800,
+      "fn": 628,
+      "precision": 0.30735930735930733,
+      "recall": 0.3611393692777213,
+      "f1": 0.33208606173994387,
+      "tn0": 0.19910263600673023,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.4536950420954163
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

@@ -1,15 +1,15 @@
-# Macchina PAPER e comandi
+# PAPER host and commands
 
-Destinazione indicata dall'utente: **`bmartelli@paper.dinfo.unfi.it`**.
-La grafia è conservata esattamente. Alcuni documenti storici riportano
-`paper.dinfo.unifi.it`; questa differenza non è stata risolta cambiando
-silenziosamente la destinazione. Verificare DNS/connessione quando serve SSH.
+User-designated destination: **`bmartelli@paper.dinfo.unfi.it`**.
+The spelling is preserved exactly. Some historical documents contain
+`paper.dinfo.unifi.it`; this discrepancy has not been resolved by silently
+changing the destination. Verify DNS/connectivity when SSH is needed.
 
-Il controllo di questo refactor ha restituito `hostname -f = paper` e
-`whoami = bmartelli`: in questa sessione i comandi vengono già eseguiti su PAPER.
-Non occorre una seconda connessione SSH per eseguirli sulla stessa macchina.
+The host check during this refactor returned `hostname -f = paper` and
+`whoami = bmartelli`: commands in this session already run on PAPER.
+No second SSH connection to the same machine is needed.
 
-## Prima di eseguire
+## Before running commands
 
 ```bash
 hostname -f
@@ -17,42 +17,42 @@ whoami
 pwd
 ```
 
-Repository su PAPER:
+Repository on PAPER:
 `/extra1/bmartelli/projects/icdar2025-context-driven-str`.
-Se ci si trova già su PAPER:
+When already on PAPER:
 
 ```bash
 cd /extra1/bmartelli/projects/icdar2025-context-driven-str
 python3 -m research groups
 ```
 
-Da una macchina diversa, per un comando remoto di sola lettura:
+From another machine, for a read-only remote command:
 
 ```bash
 ssh bmartelli@paper.dinfo.unfi.it \
   'cd /extra1/bmartelli/projects/icdar2025-context-driven-str && python3 -m research groups'
 ```
 
-Se il nome indicato non risolve, riportare l'errore e verificare la destinazione;
-non modificare alias, chiavi SSH o configurazioni di rete per aggirarlo.
+If the designated name does not resolve, report the error and verify the
+destination; do not change aliases, SSH keys, or network settings to bypass it.
 
-## Posizioni operative
+## Operational locations
 
-| Contenuto | Posizione storica su PAPER |
+| Content | Historical location on PAPER |
 | --- | --- |
 | Repository | `/extra1/bmartelli/projects/icdar2025-context-driven-str` |
-| Run persistenti | `/extra1/bmartelli/context-str-runs` |
-| Pesi e artifact esterni | `/extra1/bmartelli/context-str-artifacts` |
-| Dataset | `/extra1/bmartelli/datasets/context-str` |
-| Main Python esistente | `.venvs/context-str-main-py311/bin/python` nel repository |
-| YOLO Python esistente | `.venvs/context-str-yolo-py311/bin/python` nel repository |
-| DeepSolo legacy esistente | `.venvs/context-str-deepsolo-host/` nel repository |
+| Persistent runs | `/extra1/bmartelli/context-str-runs` |
+| External weights and artifacts | `/extra1/bmartelli/context-str-artifacts` |
+| Datasets | `/extra1/bmartelli/datasets/context-str` |
+| Existing main Python | `.venvs/context-str-main-py311/bin/python` inside the repository |
+| Existing YOLO Python | `.venvs/context-str-yolo-py311/bin/python` inside the repository |
+| Existing legacy DeepSolo | `.venvs/context-str-deepsolo-host/` inside the repository |
 
-Sono riferimenti operativi, non default da incorporare nei modelli o nei config
-scientifici. Non tutti i run vivono qui: alcune prove usano `/var/tmp` o `/tmp`;
-la loro presenza deve essere verificata, non assunta.
+These are operational references, not defaults to embed in scientific models or
+configs. Some runs use `/var/tmp` or `/tmp`; verify their presence rather than
+assuming it.
 
-Per i report senza modelli usare `python3`, senza attivare ambienti pesanti:
+For reports without models, use `python3` without activating a heavy environment:
 
 ```bash
 cd /extra1/bmartelli/projects/icdar2025-context-driven-str
@@ -62,11 +62,11 @@ python3 -m research check
 python3 -m research compare yolo-test-equal
 ```
 
-Per inferenza e training scegliere l'ambiente documentato dal componente.
-Prima di intervenire su DeepSolo leggere [DEEPSOLO_RUNTIME.md](DEEPSOLO_RUNTIME.md),
-il manifest M6 e le voci DeepSolo dello stato STRICT. Non unificare gli ambienti
-e non installare pacchetti durante una semplice consultazione.
+For inference/training, select the environment documented for that component.
+Before working on DeepSolo, read [DEEPSOLO_RUNTIME.md](DEEPSOLO_RUNTIME.md),
+the M6 manifest, and the DeepSolo entries in STRICT status. Do not merge the
+environments or install packages merely to inspect reports.
 
-Prima di un run GPU leggere `nvidia-smi` e verificare i processi attivi.
-Le qualifiche RTX 3070, i run su RTX 3090 e la configurazione del paper restano
-evidenze hardware distinte. Registrare il device effettivo e le deviazioni nel run.
+Before a GPU run, inspect `nvidia-smi` and active processes. RTX 3070
+qualifications, RTX 3090 runs, and the paper's environment remain distinct
+hardware evidence. Record the actual device and deviations in the run.

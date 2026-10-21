@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "kernel-extracted",
+    "title": "Jointly trained kernel: extracted single output and padding",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "kernel-only-padding-v1-20261016/results.json",
+      "sha256": "7919ab722c3cbc7156225e2e3aa297b20344ca166b88cf84ee6a4eef4962b557"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+      "Padding is in native-mask pixels; extraction from joint training and a newly initialized network are separate experiments."
+    ],
+    "evidence": [
+      "docs/KERNEL_ONLY_PADDING.md"
+    ],
+    "expected_rows": 12
+  },
+  "source_path": "runs:kernel-only-padding-v1-20261016/results.json",
+  "source_sha256": "7919ab722c3cbc7156225e2e3aa297b20344ca166b88cf84ee6a4eef4962b557",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "kernel_only/pad0",
+      "source_pointer": "/arms/kernel_only~1pad0",
+      "tp": 249,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 727,
+      "fn": 734,
+      "precision": 0.2551229508196721,
+      "recall": 0.2533062054933876,
+      "f1": 0.2542113323124043,
+      "tn0": 0.1456140350877193,
+      "extra": {}
+    },
+    {
+      "variant": "kernel_only/pad12",
+      "source_pointer": "/arms/kernel_only~1pad12",
+      "tp": 107,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 869,
+      "fn": 876,
+      "precision": 0.1096311475409836,
+      "recall": 0.10885045778229908,
+      "f1": 0.10923940786115365,
+      "tn0": 0.05777537796976242,
+      "extra": {}
+    },
+    {
+      "variant": "kernel_only/pad2",
+      "source_pointer": "/arms/kernel_only~1pad2",
+      "tp": 483,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 493,
+      "fn": 500,
+      "precision": 0.4948770491803279,
+      "recall": 0.491353001017294,
+      "f1": 0.49310872894333846,
+      "tn0": 0.32723577235772355,
+      "extra": {}
+    },
+    {
+      "variant": "kernel_only/pad4",
+      "source_pointer": "/arms/kernel_only~1pad4",
+      "tp": 422,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 554,
+      "fn": 561,
+      "precision": 0.4323770491803279,
+      "recall": 0.42929806714140384,
+      "f1": 0.43083205717202655,
+      "tn0": 0.2745608327911516,
+      "extra": {}
+    },
+    {
+      "variant": "kernel_only/pad6",
+      "source_pointer": "/arms/kernel_only~1pad6",
+      "tp": 303,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 673,
+      "fn": 680,
+      "precision": 0.3104508196721312,
+      "recall": 0.3082400813835198,
+      "f1": 0.3093415007656968,
+      "tn0": 0.18297101449275363,
+      "extra": {}
+    },
+    {
+      "variant": "kernel_only/pad8",
+      "source_pointer": "/arms/kernel_only~1pad8",
+      "tp": 231,
+      "predictions": 976,
+      "gt": 983,
+      "fp": 745,
+      "fn": 752,
+      "precision": 0.23668032786885246,
+      "recall": 0.23499491353001017,
+      "f1": 0.23583460949464014,
+      "tn0": 0.13368055555555555,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad0",
+      "source_pointer": "/arms/text_kernel~1pad0",
+      "tp": 524,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 514,
+      "fn": 459,
+      "precision": 0.5048169556840078,
+      "recall": 0.5330620549338759,
+      "f1": 0.5185551707075705,
+      "tn0": 0.3500334001336005,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad12",
+      "source_pointer": "/arms/text_kernel~1pad12",
+      "tp": 42,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 996,
+      "fn": 941,
+      "precision": 0.04046242774566474,
+      "recall": 0.042726347914547304,
+      "f1": 0.04156358238495794,
+      "tn0": 0.021222839818089943,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad2",
+      "source_pointer": "/arms/text_kernel~1pad2",
+      "tp": 476,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 562,
+      "fn": 507,
+      "precision": 0.45857418111753373,
+      "recall": 0.4842319430315361,
+      "f1": 0.47105393369619003,
+      "tn0": 0.3080906148867314,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad4",
+      "source_pointer": "/arms/text_kernel~1pad4",
+      "tp": 313,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 725,
+      "fn": 670,
+      "precision": 0.3015414258188825,
+      "recall": 0.31841302136317395,
+      "f1": 0.30974764967837703,
+      "tn0": 0.1832552693208431,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad6",
+      "source_pointer": "/arms/text_kernel~1pad6",
+      "tp": 195,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 843,
+      "fn": 788,
+      "precision": 0.18786127167630057,
+      "recall": 0.19837232960325535,
+      "f1": 0.1929737753587333,
+      "tn0": 0.10679079956188389,
+      "extra": {}
+    },
+    {
+      "variant": "text_kernel/pad8",
+      "source_pointer": "/arms/text_kernel~1pad8",
+      "tp": 102,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 936,
+      "fn": 881,
+      "precision": 0.09826589595375723,
+      "recall": 0.10376398779247202,
+      "f1": 0.10094012864918357,
+      "tn0": 0.053152683689421575,
+      "extra": {}
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

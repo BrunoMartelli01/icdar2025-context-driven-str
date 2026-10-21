@@ -182,51 +182,51 @@ def audit(root):
 def report(root, render):
     r=read(root/'results.json');p=read(root/'resolved_configuration.json')
     pct=lambda v:'—' if v is None else f'{100*v:.2f}%'
-    lines=['# YOLO: confronto appaiato dei router','',
-        '**Approximate reproduction; confronto esplorativo, non replica STRICT.**','',
-        'Stesse immagini, stesse parole YOLO640+PARSeq (joint0.60/NMS0.5), stesso DeepSolo R50.',
-        'TRAIN125 (983 parole) e TEST300 (2204 parole) restano separati. CDF e soglie fit solo su TRAIN80;',
-        'il gate CLIP B16 e i prompt sono fissati prima del nuovo esperimento, senza scelta della famiglia su TEST.',
-        'Il detector/selelettore YOLO era già stato esplorato su TEST: non è una nuova validazione indipendente.','',
-        'Metrica primaria: multiset di parole per immagine, casefold esatto, punteggiatura mantenuta, senza IoU.',
-        'P=TP/(TP+FP); TN0=TP/(TP+FP+FN); F1=2TP/(2TP+FP+FN). Le parole mancate restano FN.',
-        'Ignore solo in valutazione: supporto nativo256 interamente invalido, rettangolo YOLO / poligono DeepSolo.',
-        'Questa regola differisce dal precedente report YOLO con neutralizzazione polygon-overlap>0.5.','']
+    lines=['# YOLO: paired router comparison','',
+        '**Approximate reproduction; exploratory comparison, not STRICT reproduction.**','',
+        'Same images, same YOLO640+PARSeq words (joint0.60/NMS0.5), same DeepSolo R50.',
+        'TRAIN125 (983 words) and TEST300 (2204 words) remain separate. CDFs/thresholds fit TRAIN80 only;',
+        'CLIP B16 gate/prompts are fixed before this experiment, with no TEST family selection.',
+        'YOLO detector/selector was previously explored on TEST: this is not fresh independent validation.','',
+        'Primary metric: per-image word multiset, exact casefold, punctuation retained, no IoU.',
+        'P=TP/(TP+FP); TN0=TP/(TP+FP+FN); F1=2TP/(2TP+FP+FN). Missing words remain FN.',
+        'Evaluation-only ignore: wholly invalid native256 support, YOLO rectangle / DeepSolo polygon.',
+        'This differs from the earlier YOLO report using polygon-overlap>0.5 neutralization.','']
     labels=['yolo_only','deepsolo_only','paper_selected/paper_tau','clip/train_coverage_0.5',
             'paper_selected/train_coverage_0.5','native/train_coverage_0.5','joint/train_coverage_0.5']
     for split,data in r['splits'].items():
-        lines += [f'## {split.upper()} — soglie trasferite dal TRAIN','',
-            '| Metodo | YOLO/T1 accettate | DeepSolo | Parole finali | Precisione | Recall | F1 | TN0 |',
+        lines += [f'## {split.upper()} — thresholds transferred from TRAIN','',
+            '| Method | Accepted YOLO/T1 | DeepSolo | Final words | Precision | Recall | F1 | TN0 |',
             '|---|---:|---:|---:|---:|---:|---:|---:|']
         for label in labels:
             point=data['points'][label];m=point['combined']
             lines.append(f"| {label} | {point['accepted_images']} | {point['fallback_images']} | {m['detected_words']} | {pct(m['precision'])} | {pct(m['recall'])} | {pct(m['f1'])} | {pct(m['accuracy_tn0'])} |")
-        lines += ['',f'## {split.upper()} — parità di chiamate a DeepSolo','',
-            'Budget descrittivi: ordinamento dei punteggi, con spareggio per ID; non sono soglie scalari trasferite.','',
-            '| Accettate | CLIP P parole accettate | CLIP complete | CLIP F1 finale | Paper F1 finale | CLIP TN0 | Paper TN0 | ΔTN0 [IC95%] |',
+        lines += ['',f'## {split.upper()} — equal DeepSolo call counts','',
+            'Descriptive budgets: score ordering with ID ties, not transferred scalar thresholds.','',
+            '| Accepted | CLIP accepted-word P | CLIP complete | CLIP final F1 | Paper final F1 | CLIP TN0 | Paper TN0 | ΔTN0 [CI95%] |',
             '|---:|---:|---:|---:|---:|---:|---:|---|']
         for frac in p['config']['coverage_targets']:
             budget=round(data['images']*frac);a=data['points'][f'clip/same_budget_{budget}'];b=data['points'][f'paper_selected/same_budget_{budget}']
             ci=r['paired_bootstrap'][f'{split}/same_budget_{budget}']
             lines.append(f"| {budget} | {pct(a['accepted_metrics']['precision'])} | {a['accepted_metrics']['complete_images']}/{a['accepted_images']} | {pct(a['combined']['f1'])} | {pct(b['combined']['f1'])} | {pct(a['combined']['accuracy_tn0'])} | {pct(b['combined']['accuracy_tn0'])} | {100*ci['estimate']:+.2f} [{100*ci['ci95'][0]:+.2f}, {100*ci['ci95'][1]:+.2f}] pp |")
         ideal=data['oracle']
-        lines += ['',f"Oracolo GT YOLO/DeepSolo: F1 {pct(ideal['combined']['f1'])}, TN0 {pct(ideal['combined']['accuracy_tn0'])}, "
-                  f"{ideal['accepted_images']} immagini YOLO e {ideal['fallback_images']} DeepSolo. Non è un router utilizzabile.",'']
-    lines += ['## Confronto sostenibile con il paper','',
-        'La Table5 riporta recognition accuracy TotalText78.4% (R50) e79.8% (ViTAEv2-S), senza definire',
-        'adeguatamente denominatore, matching e ignore. I nostri F1/TN0/precision non sono quella metrica.',
-        'Un eventuale superamento numerico non dimostra di aver superato il paper. Qui il confronto valido',
-        'è CLIP contro la nostra baseline approssimata del router del paper con lo stesso detector/fallback.',
-        'Manca anche il checkpoint DeepSolo esatto degli autori. La baseline con tau0.8 che manda tutto a',
-        'DeepSolo non dimostra la qualità della selezione: confrontare sempre costo e accuracy insieme.','',
-        'Gli IC sono bootstrap appaiati di5000 ricampionamenti di immagini, condizionati a gate fissi;',
-        'nessuna correzione per confronti multipli. TRAIN è diagnostico: DeepSolo è stato fine-tuned su TotalTextTRAIN.','',
-        '## Riproduzione','',
+        lines += ['',f"GT YOLO/DeepSolo oracle: F1 {pct(ideal['combined']['f1'])}, TN0 {pct(ideal['combined']['accuracy_tn0'])}, "
+                  f"{ideal['accepted_images']} YOLO images and {ideal['fallback_images']} DeepSolo. This is not a usable router.",'']
+    lines += ['## Supported comparison with the paper','',
+        'Table5 reports TotalText recognition accuracy78.4% (R50) and79.8% (ViTAEv2-S), without adequately defining',
+        'denominator, matching, or ignore. Our F1/TN0/precision are not that metric.',
+        'A larger number does not establish better performance than the paper. The valid comparison here',
+        'is CLIP versus our approximate paper-router baseline with identical detector/fallback.',
+        'The exact author DeepSolo checkpoint is missing too. A tau0.8 baseline routing every image to',
+        'DeepSolo does not establish selection quality: compare cost and accuracy together.','',
+        'CIs use5000 paired image-bootstrap resamples, conditioned on fixed gates;',
+        'no multiple-comparison correction. TRAIN is diagnostic: DeepSolo was fine-tuned on TotalTextTRAIN.','',
+        '## Reproduction','',
         '```bash','.venvs/context-str-yolo-py311/bin/python -m scripts.run_yolo_router_comparison --mode approximate','```','',
-        'Configurazioni isolate: `configs/approximate/yolo_router_comparison_v1.json` e relativo local_paths.',
-        'Output: `resolved_configuration.json`, `frozen_train_thresholds.json` (zero feature TEST al freeze),',
+        'Isolated configurations: `configs/approximate/yolo_router_comparison_v1.json` and its local_paths file.',
+        'Output: `resolved_configuration.json`, `frozen_train_thresholds.json` (zero TEST features at freeze),',
         '`word_branch_metrics.json`, `results.json`, `comparison.csv`, per-image OCR/CLIP/MPNet,',
-        '`independent_audit.json` e snapshot delle implementazioni. Nessun pacchetto installato.','']
+        '`independent_audit.json` and implementation snapshots. No package installed.','']
     (root/'comparison.md').write_text('\n'.join(lines))
     if render:
         import matplotlib

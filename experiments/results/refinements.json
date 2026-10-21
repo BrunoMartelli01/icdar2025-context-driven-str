@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "refinements",
+    "title": "Refinements: selected thresholds",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+    "source": {
+      "root": "repository",
+      "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+      "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+    },
+    "population": {
+      "gt": 983,
+      "images": 125
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+    ],
+    "evidence": [
+      "docs/TEXT_RECALL_REFINEMENTS.md"
+    ],
+    "expected_rows": 15
+  },
+  "source_path": "repository:artifacts/text-recall-refinements-v1-qualified/summary.json",
+  "source_sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "hybrid256 / baseline",
+      "source_pointer": "/rows/0",
+      "tp": 525,
+      "predictions": 1143,
+      "gt": 983,
+      "images": 125,
+      "fp": 618,
+      "fn": 458,
+      "precision": 0.45931758530183725,
+      "recall": 0.5340793489318413,
+      "f1": 0.49388523047977423,
+      "tn0": 0.3279200499687695,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6180620884289746
+      }
+    },
+    {
+      "variant": "hybrid256 / bounded_growth",
+      "source_pointer": "/rows/1",
+      "tp": 524,
+      "predictions": 1173,
+      "gt": 983,
+      "images": 125,
+      "fp": 649,
+      "fn": 459,
+      "precision": 0.44671781756180734,
+      "recall": 0.5330620549338759,
+      "f1": 0.48608534322820035,
+      "tn0": 0.32107843137254904,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6428571428571429
+      }
+    },
+    {
+      "variant": "hybrid256 / refined",
+      "source_pointer": "/rows/2",
+      "tp": 523,
+      "predictions": 1127,
+      "gt": 983,
+      "images": 125,
+      "fp": 604,
+      "fn": 460,
+      "precision": 0.4640638864241349,
+      "recall": 0.5320447609359105,
+      "f1": 0.4957345971563981,
+      "tn0": 0.3295526149968494,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6218009478672986
+      }
+    },
+    {
+      "variant": "hybrid256 / seeded_only",
+      "source_pointer": "/rows/3",
+      "tp": 514,
+      "predictions": 960,
+      "gt": 983,
+      "images": 125,
+      "fp": 446,
+      "fn": 469,
+      "precision": 0.5354166666666667,
+      "recall": 0.5228891149542217,
+      "f1": 0.5290787442099846,
+      "tn0": 0.35969209237228833,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6577457539886773
+      }
+    },
+    {
+      "variant": "hybrid256 / soft_fallback",
+      "source_pointer": "/rows/4",
+      "tp": 514,
+      "predictions": 968,
+      "gt": 983,
+      "images": 125,
+      "fp": 454,
+      "fn": 469,
+      "precision": 0.53099173553719,
+      "recall": 0.5228891149542217,
+      "f1": 0.5269092772936955,
+      "tn0": 0.35768963117606123,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6560738083034341
+      }
+    },
+    {
+      "variant": "hybrid384 / baseline",
+      "source_pointer": "/rows/5",
+      "tp": 528,
+      "predictions": 1213,
+      "gt": 983,
+      "images": 125,
+      "fp": 685,
+      "fn": 455,
+      "precision": 0.43528441879637264,
+      "recall": 0.5371312309257376,
+      "f1": 0.4808743169398907,
+      "tn0": 0.31654676258992803,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6074681238615665
+      }
+    },
+    {
+      "variant": "hybrid384 / bounded_growth",
+      "source_pointer": "/rows/6",
+      "tp": 530,
+      "predictions": 1234,
+      "gt": 983,
+      "images": 125,
+      "fp": 704,
+      "fn": 453,
+      "precision": 0.42949756888168555,
+      "recall": 0.5391658189216684,
+      "f1": 0.47812359043752817,
+      "tn0": 0.3141671606401897,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6260712674785747
+      }
+    },
+    {
+      "variant": "hybrid384 / refined",
+      "source_pointer": "/rows/7",
+      "tp": 525,
+      "predictions": 1196,
+      "gt": 983,
+      "images": 125,
+      "fp": 671,
+      "fn": 458,
+      "precision": 0.4389632107023411,
+      "recall": 0.5340793489318413,
+      "f1": 0.48187241854061497,
+      "tn0": 0.3174123337363966,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6112895823772373
+      }
+    },
+    {
+      "variant": "hybrid384 / seeded_only",
+      "source_pointer": "/rows/8",
+      "tp": 516,
+      "predictions": 979,
+      "gt": 983,
+      "images": 125,
+      "fp": 463,
+      "fn": 467,
+      "precision": 0.5270684371807968,
+      "recall": 0.5249237029501526,
+      "f1": 0.5259938837920489,
+      "tn0": 0.35684647302904565,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6605504587155964
+      }
+    },
+    {
+      "variant": "hybrid384 / soft_fallback",
+      "source_pointer": "/rows/9",
+      "tp": 517,
+      "predictions": 990,
+      "gt": 983,
+      "images": 125,
+      "fp": 473,
+      "fn": 466,
+      "precision": 0.5222222222222223,
+      "recall": 0.525940996948118,
+      "f1": 0.5240750126710593,
+      "tn0": 0.3550824175824176,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6588950836289914
+      }
+    },
+    {
+      "variant": "reference512 / baseline",
+      "source_pointer": "/rows/11",
+      "tp": 520,
+      "predictions": 1037,
+      "gt": 983,
+      "images": 125,
+      "fp": 517,
+      "fn": 463,
+      "precision": 0.5014464802314368,
+      "recall": 0.5289928789420142,
+      "f1": 0.5148514851485149,
+      "tn0": 0.3466666666666667,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6405940594059406
+      }
+    },
+    {
+      "variant": "reference512 / bounded_growth",
+      "source_pointer": "/rows/12",
+      "tp": 521,
+      "predictions": 1044,
+      "gt": 983,
+      "images": 125,
+      "fp": 523,
+      "fn": 462,
+      "precision": 0.4990421455938697,
+      "recall": 0.5300101729399797,
+      "f1": 0.5140601874691663,
+      "tn0": 0.3459495351925631,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6452886038480513
+      }
+    },
+    {
+      "variant": "reference512 / refined",
+      "source_pointer": "/rows/13",
+      "tp": 520,
+      "predictions": 1035,
+      "gt": 983,
+      "images": 125,
+      "fp": 515,
+      "fn": 463,
+      "precision": 0.5024154589371981,
+      "recall": 0.5289928789420142,
+      "f1": 0.5153617443012884,
+      "tn0": 0.3471295060080107,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6412289395441031
+      }
+    },
+    {
+      "variant": "reference512 / seeded_only",
+      "source_pointer": "/rows/14",
+      "tp": 520,
+      "predictions": 1006,
+      "gt": 983,
+      "images": 125,
+      "fp": 486,
+      "fn": 463,
+      "precision": 0.5168986083499006,
+      "recall": 0.5289928789420142,
+      "f1": 0.5228758169934641,
+      "tn0": 0.35398230088495575,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6505781799899447
+      }
+    },
+    {
+      "variant": "reference512 / soft_fallback",
+      "source_pointer": "/rows/15",
+      "tp": 520,
+      "predictions": 1006,
+      "gt": 983,
+      "images": 125,
+      "fp": 486,
+      "fn": 463,
+      "precision": 0.5168986083499006,
+      "recall": 0.5289928789420142,
+      "f1": 0.5228758169934641,
+      "tn0": 0.35398230088495575,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6505781799899447
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

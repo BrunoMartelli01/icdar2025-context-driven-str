@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "research-v2-heads",
+    "title": "Corrective word research V2: heads",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "unet-word-research-v2/comparison.json",
+      "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+      "Staged glyph also needs the continued control; no automatic model promotion."
+    ],
+    "evidence": [
+      "docs/UNET_WORD_RESEARCH_V2.md",
+      "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md"
+    ],
+    "expected_rows": 7,
+    "paired_baseline": "reference_control"
+  },
+  "source_path": "runs:unet-word-research-v2/comparison.json",
+  "source_sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "reference_control",
+      "source_pointer": "/ocr/reference_control",
+      "tp": 520,
+      "predictions": 1037,
+      "gt": 983,
+      "fp": 517,
+      "fn": 463,
+      "precision": 0.5014464802314368,
+      "recall": 0.5289928789420142,
+      "f1": 0.5148514851485149,
+      "tn0": 0.3466666666666667,
+      "extra": {
+        "epoch": 2,
+        "gained": 0,
+        "lost": 0
+      }
+    },
+    {
+      "variant": "control",
+      "source_pointer": "/ocr/control",
+      "tp": 520,
+      "predictions": 1037,
+      "gt": 983,
+      "fp": 517,
+      "fn": 463,
+      "precision": 0.5014464802314368,
+      "recall": 0.5289928789420142,
+      "f1": 0.5148514851485149,
+      "tn0": 0.3466666666666667,
+      "extra": {
+        "epoch": 0,
+        "gained": 0,
+        "lost": 0
+      }
+    },
+    {
+      "variant": "db_core",
+      "source_pointer": "/ocr/db_core",
+      "tp": 522,
+      "predictions": 1050,
+      "gt": 983,
+      "fp": 528,
+      "fn": 461,
+      "precision": 0.49714285714285716,
+      "recall": 0.5310274669379451,
+      "f1": 0.5135268076733891,
+      "tn0": 0.3454665784248842,
+      "extra": {
+        "epoch": 14,
+        "gained": 5,
+        "lost": 3
+      }
+    },
+    {
+      "variant": "glyph_isolated",
+      "source_pointer": "/ocr/glyph_isolated",
+      "tp": 520,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 518,
+      "fn": 463,
+      "precision": 0.5009633911368016,
+      "recall": 0.5289928789420142,
+      "f1": 0.5145967342899554,
+      "tn0": 0.346435709526982,
+      "extra": {
+        "epoch": 50,
+        "gained": 0,
+        "lost": 0
+      }
+    },
+    {
+      "variant": "glyph_staged",
+      "source_pointer": "/ocr/glyph_staged",
+      "tp": 520,
+      "predictions": 1037,
+      "gt": 983,
+      "fp": 517,
+      "fn": 463,
+      "precision": 0.5014464802314368,
+      "recall": 0.5289928789420142,
+      "f1": 0.5148514851485149,
+      "tn0": 0.3466666666666667,
+      "extra": {
+        "epoch": 7,
+        "gained": 0,
+        "lost": 0
+      }
+    },
+    {
+      "variant": "links_isolated",
+      "source_pointer": "/ocr/links_isolated",
+      "tp": 490,
+      "predictions": 20200,
+      "gt": 983,
+      "fp": 19710,
+      "fn": 493,
+      "precision": 0.024257425742574258,
+      "recall": 0.49847405900305186,
+      "f1": 0.04626351319454279,
+      "tn0": 0.023679505146667956,
+      "extra": {
+        "epoch": 33,
+        "gained": 20,
+        "lost": 50
+      }
+    },
+    {
+      "variant": "threshold_frozen",
+      "source_pointer": "/ocr/threshold_frozen",
+      "tp": 520,
+      "predictions": 1037,
+      "gt": 983,
+      "fp": 517,
+      "fn": 463,
+      "precision": 0.5014464802314368,
+      "recall": 0.5289928789420142,
+      "f1": 0.5148514851485149,
+      "tn0": 0.3466666666666667,
+      "extra": {
+        "epoch": 0,
+        "gained": 0,
+        "lost": 0
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

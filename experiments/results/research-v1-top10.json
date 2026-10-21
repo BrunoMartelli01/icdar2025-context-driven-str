@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "research-v1-top10",
+    "title": "Word research V1: fixed top10 budget",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "unet-word-research-v1/comparison.json",
+      "sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+      "Top10 quality-area baseline only; do not compare its gain directly with uncapped520-word control."
+    ],
+    "evidence": [
+      "docs/UNET_WORD_RESEARCH.md"
+    ],
+    "expected_rows": 2
+  },
+  "source_path": "runs:unet-word-research-v1/comparison.json",
+  "source_sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "quality_area10",
+      "source_pointer": "/ocr/quality_area10",
+      "tp": 429,
+      "predictions": 816,
+      "gt": 983,
+      "fp": 387,
+      "fn": 554,
+      "precision": 0.5257352941176471,
+      "recall": 0.43641912512716174,
+      "f1": 0.47693162868260147,
+      "tn0": 0.31313868613138685,
+      "extra": {
+        "gained_vs_control": 22,
+        "lost_vs_control": 113
+      }
+    },
+    {
+      "variant": "quality_rank10",
+      "source_pointer": "/ocr/quality_rank10",
+      "tp": 438,
+      "predictions": 813,
+      "gt": 983,
+      "fp": 375,
+      "fn": 545,
+      "precision": 0.5387453874538746,
+      "recall": 0.44557477110885046,
+      "f1": 0.48775055679287305,
+      "tn0": 0.3225331369661267,
+      "extra": {
+        "gained_vs_control": 21,
+        "lost_vs_control": 103
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

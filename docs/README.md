@@ -1,41 +1,47 @@
-# Guida al lavoro e ai confronti
+# Research and comparison guide
 
-Questa è la porta d'ingresso al workspace di riproduzione. Gli audit originali
-rimangono le evidenze: l'indice e le tabelle sono viste derivate, senza nuova
-inferenza, training o modifiche alle implementazioni scientifiche.
+Browse [experiment families](../experiments/README.md), [code by package](../experiments/CODE_INDEX.md),
+and [offline numerical summaries](../experiments/results/README.md).
+Use `python3 -m research experiments`, `experiment ID`, and `results GROUP` to
+follow an experiment from its guide to implementation, configuration, tests,
+and results. `compare GROUP` rechecks the original external report instead.
 
-Per una nuova clone collaborativa partire da [GETTING_STARTED.md](GETTING_STARTED.md),
-[REPOSITORY_MAP.md](REPOSITORY_MAP.md) e [EXTERNAL_ASSETS.md](EXTERNAL_ASSETS.md).
-La clone contiene codice e metadati; i report esterni richiedono un ripristino
-esplicito. L'inventario storico completo è conservato in
+This is the entry point to the reproduction workspace. Original audits remain
+the evidence: the index and tables are derived views, with no new inference,
+training, or changes to scientific implementations.
+
+For a new collaboration clone, start with [GETTING_STARTED.md](GETTING_STARTED.md),
+[REPOSITORY_MAP.md](REPOSITORY_MAP.md), and [EXTERNAL_ASSETS.md](EXTERNAL_ASSETS.md).
+The clone contains code and metadata; external reports require explicit restoration.
+The complete historical inventory is preserved in
 [history/WORKSPACE_AUDIT_INDEX.json](history/WORKSPACE_AUDIT_INDEX.json).
 
-## Dove iniziare
+## Where to start
 
-| Necessità | Fonte o comando |
+| Need | Source or command |
 | --- | --- |
-| Macchina corretta, directory, ambienti, SSH | [HOST_OPERATIONS.md](HOST_OPERATIONS.md) |
-| Confronti leggibili già preparati | [RESULTS_OVERVIEW.md](RESULTS_OVERVIEW.md) |
-| Elenco completo dei confronti registrati | `python3 -m research groups` |
-| Tutti i documenti e gli audit nel perimetro indicizzato | [AUDIT_INDEX.md](AUDIT_INDEX.md) |
-| Posizioni delle sezioni, hash e metadati originali | [AUDIT_INDEX.json](AUDIT_INDEX.json) |
-| Esito del refactor e verifiche di conservazione | [REFACTOR_AUDIT.md](REFACTOR_AUDIT.md) |
-| Stato STRICT e qualifiche storiche | [STRICT_REPRODUCTION_STATUS.md](STRICT_REPRODUCTION_STATUS.md) |
-| Specifica e chiarimenti degli autori | [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md), [chiarimenti](<Author Clarifications and Reproduction Update.md>) |
-| Decisioni, assunzioni e ambiguità | [PAPER_AMBIGUITIES.md](PAPER_AMBIGUITIES.md) |
-| Identità delle fonti e dei pesi | [SOURCES.yaml](../provenance/SOURCES.yaml), [ARTIFACTS.yaml](../provenance/ARTIFACTS.yaml) |
-| Nuove prove su istanze word e controllo delle duplicazioni | [WORD_INSTANCE_EXTENSIONS.md](WORD_INSTANCE_EXTENSIONS.md), [audit di novità locale](WORD_INSTANCE_NOVELTY_AUDIT.json) |
-| Piccoli correttori RGB/maschere/probabilità: architetture e training | [MASK_PROBABILITY_REFINER.md](MASK_PROBABILITY_REFINER.md), [audit di novità locale](MASK_PROBABILITY_REFINER_NOVELTY.json) |
+| Correct machine, directories, environments, SSH | [HOST_OPERATIONS.md](HOST_OPERATIONS.md) |
+| Prepared readable comparisons | [RESULTS_OVERVIEW.md](RESULTS_OVERVIEW.md) |
+| Complete list of registered comparisons | `python3 -m research groups` |
+| Documents and audits within the indexed scope | [AUDIT_INDEX.md](AUDIT_INDEX.md) |
+| Section positions, hashes, and original metadata | [AUDIT_INDEX.json](AUDIT_INDEX.json) |
+| Refactor outcome and preservation checks | [REFACTOR_AUDIT.md](REFACTOR_AUDIT.md) |
+| STRICT status and historical qualifications | [STRICT_REPRODUCTION_STATUS.md](STRICT_REPRODUCTION_STATUS.md) |
+| Specification and author clarifications | [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md), [clarifications](<Author Clarifications and Reproduction Update.md>) |
+| Decisions, assumptions, and ambiguities | [PAPER_AMBIGUITIES.md](PAPER_AMBIGUITIES.md) |
+| Source and weight identities | [SOURCES.yaml](../provenance/SOURCES.yaml), [ARTIFACTS.yaml](../provenance/ARTIFACTS.yaml) |
+| New word-instance experiments and duplication checks | [WORD_INSTANCE_EXTENSIONS.md](WORD_INSTANCE_EXTENSIONS.md), [local novelty audit](WORD_INSTANCE_NOVELTY_AUDIT.json) |
+| Small RGB/mask/probability correctors: architectures and training | [MASK_PROBABILITY_REFINER.md](MASK_PROBABILITY_REFINER.md), [local novelty audit](MASK_PROBABILITY_REFINER_NOVELTY.json) |
 
-La parte iniziale di `STRICT_REPRODUCTION_STATUS.md`, il README upstream e alcune
-note di implementazione descrivono milestone storiche. Non dedurre lo stato di
-un esperimento recente dalla sola data di un vecchio paragrafo. Seguire audit,
-receipt e report specifici, conservando eventuali contraddizioni come tali.
+The opening of `STRICT_REPRODUCTION_STATUS.md`, the upstream README, and some
+implementation notes describe historical milestones. Do not infer a recent
+experiment's status from the date of an older paragraph alone. Follow its
+specific audit, receipt, and report, preserving contradictions as such.
 
-## Cercare senza caricare tutta la cronologia
+## Search without loading the entire history
 
-La CLI richiede soltanto Python3 standard. Non importa PyTorch, non installa
-pacchetti e non modifica gli esperimenti. Dalla directory del repository:
+The CLI requires only standard Python3. It does not import PyTorch, install
+packages, or modify experiments. From the repository directory:
 
 ```bash
 python3 -m research find 'native128'
@@ -44,13 +50,13 @@ python3 -m research section TABLE5-SOURCE-METRIC-AUDIT-001
 python3 -m research find 'DeepSolo' --limit 10
 ```
 
-`section` restituisce il testo originale con percorso e numero di riga; se il
-titolo non è univoco richiede una ricerca più precisa o `--file`. `find` cerca
-letteralmente, senza interpretare una query come comando o espressione regolare.
-Le normali ricerche `rg` escludono artifact ed environment tramite `.rgignore`.
-Per un audit escluso usare `rg --no-ignore 'PATTERN' percorso/esatto/audit.json`.
+`section` returns the source text with its path and line number; ambiguous titles
+require a more specific query or `--file`. `find` searches literally, without
+interpreting queries as commands or regular expressions. Ordinary `rg` searches
+exclude artifacts and environments through `.rgignore`. For an excluded audit,
+use `rg --no-ignore 'PATTERN' exact/path/to/audit.json`.
 
-## Confrontare i risultati
+## Compare results
 
 ```bash
 python3 -m research groups
@@ -60,7 +66,7 @@ python3 -m research compare refinements --format json
 python3 -m research compare multitask-geometry --format csv
 ```
 
-Le sorgenti esterne richiedono radici esplicite. Su PAPER:
+External sources require explicit roots. On PAPER:
 
 ```bash
 export CONTEXT_STR_RUNS_ROOT=/extra1/bmartelli/context-str-runs
@@ -73,75 +79,75 @@ python3 -m research overview
 python3 -m research check
 ```
 
-Sono accettate anche `--runs-root` e `--artifacts-root` **prima** del sottocomando.
-Nessun percorso esterno viene indovinato. In assenza dei file o con hash diverso,
-il comando fallisce indicando la fonte; non ricrea risultati tramite inferenza.
-`groups` funziona anche senza dataset, checkpoint e directory dei run.
+`--runs-root` and `--artifacts-root` are also accepted **before** the subcommand.
+No external path is guessed. Missing files or changed hashes produce an error
+identifying the source; the command does not recreate results through inference.
+`groups` works without datasets, checkpoints, or run directories.
 
-`--format json` conserva valori numerici completi, protocollo, riferimenti e
-puntatori alle righe originali. Il CSV ripete per ogni riga protocollo, split,
-classe e hash della fonte. Il Markdown arrotonda soltanto la visualizzazione.
-Per salvare aggiungere `--output /percorso/nuovo.csv` oppure `.json` al confronto;
-la creazione esclusiva impedisce di sovrascrivere fonti o esportazioni esistenti.
+`--format json` preserves full numerical values, protocol, references, and
+pointers to original rows. CSV repeats the protocol, split, class, and source
+hash for every row. Markdown rounds only the display. To save a comparison,
+add `--output /path/to/new.csv` or `.json`; exclusive creation prevents
+existing sources or exports from being overwritten.
 
-## Quali confronti sono disponibili
+## Available comparisons
 
-| Famiglia | Gruppi | Limite essenziale |
+| Family | Groups | Essential limitation |
 | --- | --- | --- |
-| Checkpoint a uscita128 | `native128-pad0/1/2/4/6/8`, `native128-padoriginal6` | 15 checkpoint/14 stati; TEST300 esplorato; variante storica bbox-area150, cap10, nessun ignore sulle predizioni |
-| Text, Kernel, Center | `multitask-geometry` | Geometria delle istanze native; non OCR né F1 pixel |
-| Word research | `research-v1`, `research-v1-top10`, `research-v2-heads`, `research-v2-postprocess` | Controlli e budget distinti; epoch50 postprocessing separato dalle nuove teste |
-| Crop e copertura | `crop-links`, `frozen-crops`, `learned-crops`, `refinements`, `center-votes` | TRAIN125 riutilizzato; ignore e coordinate specifici della suite |
-| Gap e Kernel-only | `gap`, `kernel-extracted`, `kernel-fresh` | Estrarre la testa di una rete joint e addestrare una nuova rete sono prove diverse |
-| YOLO e router | `yolo-test-equal`, `yolo-train-equal`, `yolo-test-transferred` | Matching lessicale senza IoU; budget descrittivo distinto da soglia trasferita |
-| Encoder CLIP specializzati | `clip-encoders-budget`, `clip-encoders-threshold` | Famiglia prompt `margin_scene_en` fissata, non i diversi winner di ogni encoder |
-| GT crop | `gt-crop-diagnostic` | Oracle diagnostico, escluso dalla panoramica dei metodi di inferenza |
+| Checkpoints with output128 | `native128-pad0/1/2/4/6/8`, `native128-padoriginal6` | 15 checkpoints/14 states; explored TEST300; historical bbox-area150, cap10, no ignored predictions |
+| Text, Kernel, Center | `multitask-geometry` | Native instance geometry; neither OCR nor pixel F1 |
+| Word research | `research-v1`, `research-v1-top10`, `research-v2-heads`, `research-v2-postprocess` | Distinct controls and budgets; epoch 50 postprocessing separate from new heads |
+| Crops and coverage | `crop-links`, `frozen-crops`, `learned-crops`, `refinements`, `center-votes` | Reused TRAIN125; suite-specific ignore and coordinate policies |
+| Gap and Kernel-only | `gap`, `kernel-extracted`, `kernel-fresh` | Extracting a jointly trained head and training a fresh network are different experiments |
+| YOLO and routers | `yolo-test-equal`, `yolo-train-equal`, `yolo-test-transferred` | Lexical matching without IoU; descriptive budgets separate from transferred thresholds |
+| Specialized CLIP encoders | `clip-encoders-budget`, `clip-encoders-threshold` | Fixed `margin_scene_en` prompt family, rather than each encoder's different winner |
+| GT crops | `gt-crop-diagnostic` | Diagnostic oracle, excluded from the inference-method overview |
 
-Il registro iniziale contiene **26 gruppi / 225 righe** selezionate da report
-strutturati ispezionati. Non ogni audit è un risultato numerico importabile:
-fonti mancanti, risultati storici non rieseguibili, qualifiche, fallimenti e
-proposte restano consultabili nell'indice e nei documenti originali. Le altre
-righe dei report sorgente restano disponibili e non vengono eliminate.
+The initial registry contains **26 groups / 225 rows**, selected from inspected
+structured reports. Not every audit is an importable numerical result: missing
+sources, historical results that cannot be rerun, qualifications, failures, and
+proposals remain accessible through the index and source documents. Other rows
+in the source reports remain available and are not deleted.
 
-Non aggregare i gruppi in una classifica globale. Precisione, recall, F1 e
-`TN0=TP/(TP+FP+FN)` vengono ricavati soltanto dai conteggi del protocollo
-dichiarato, verificando le rate originali quando presenti. `None`/`UNRESOLVED`
-indica una divisione senza denominatore; non viene trasformata in successo.
-Le predizioni vuote contano secondo il valutatore originale, non vengono
-rimosse dal comparatore. `images` viene verificato solo quando disponibile
-nel riepilogo sorgente; non viene inventato negli altri riepiloghi.
+Do not merge groups into a global ranking. Precision, recall, F1, and
+`TN0=TP/(TP+FP+FN)` are derived only from counts under the declared protocol,
+checking recorded rates when available. `None`/`UNRESOLVED` denotes division
+without a denominator; it is not converted into success. Empty predictions
+count according to the original evaluator and are not removed by the comparator.
+`images` is checked only when present in the source summary; it is not invented.
 
-Le colonne VRAM di `multitask-geometry` sono picchi **training** originali;
-i secondi di `clip-encoders-*` riguardano l'export delle feature. Non sono
-tempi end-to-end confrontabili. Modello, precisione, batch, shape, checkpoint,
-device e altre misure restano nei report originali identificati dall'hash.
-Non viene fabbricato un benchmark di latenza/FLOP quando manca un protocollo comune.
+VRAM columns in `multitask-geometry` are original **training** peaks; seconds in
+`clip-encoders-*` concern feature export. These are not comparable end-to-end
+timings. Model, precision, batch, shape, checkpoint, device, and other measurements
+remain in the hash-identified source reports. No latency/FLOP benchmark is
+fabricated when a common protocol is absent.
 
-## Aggiornare senza perdere evidenze
+## Update without losing evidence
 
-1. Leggere la fonte specifica, il relativo audit e la sezione del paper prima
-   di cambiare un componente scientifico. Un confronto descrittivo non autorizza
-   la promozione automatica di un modello nella pipeline.
-2. Conservare report, configurazione risolta, dati per campione e qualifiche.
-   Aggiornare `research/experiments.json` solo dopo aver verificato protocollo,
-   provenienza, SHA256, split, denominatori, budget e selezione delle righe.
-   Una nuova comparazione deve restare separata se cambia uno di questi confini.
-3. Eseguire `python3 -m research check` con le radici necessarie. Ogni errore
-   rimane un errore; il comando non salta le righe fallite per produrre una tabella.
-4. Per la panoramica creare un nuovo export con `overview --output`, confrontarlo
-   con `RESULTS_OVERVIEW.md`, quindi aggiornare consapevolmente la vista derivata.
-   `overview --check docs/RESULTS_OVERVIEW.md` ne verifica la freschezza.
-5. Dopo gli aggiornamenti documentali rigenerare l'indice:
+1. Read the specific source, audit, and paper section before changing a scientific
+   component. A descriptive comparison does not authorize automatic promotion
+   of a model into the pipeline.
+2. Preserve reports, resolved configurations, per-sample data, and qualifications.
+   Update `research/experiments.json` only after checking protocol, provenance,
+   SHA256, split, denominators, budget, and row selection. Keep a comparison
+   separate if any of these boundaries change.
+3. Run `python3 -m research check` with the necessary roots. Every error remains
+   an error; the command does not skip failed rows to produce a table.
+4. Create a new overview export using `overview --output`, compare it with
+   `RESULTS_OVERVIEW.md`, then deliberately update the derived view.
+   `overview --check docs/RESULTS_OVERVIEW.md` verifies freshness.
+5. Regenerate the index after documentation changes:
 
 ```bash
-python3 -m research catalog
-python3 -m research catalog --check
+python3 -m research catalog --source-only
+python3 -m research catalog --source-only --check
 ```
 
-Per mantenere anche le fonti esterne nell'indice usare le stesse due variabili
-PAPER dei comandi precedenti. Il catalogo registra radici selezionate, profondità
-massima ed esclusioni; non dichiara di indicizzare ogni file di ogni cache o disco.
-Gli hash del catalogo verificano la freschezza dei documenti, non le affermazioni
-scientifiche dei loro autori. L'indice ignora se stesso, evitando dipendenze circolari.
+These commands build the portable source index. To index a full workspace,
+omit `--source-only` and supply the same two PAPER variables above.
+The catalog records selected roots, maximum depth, and exclusions; it does not
+claim to index every file on every disk or in every cache. Catalog hashes verify
+document freshness, not their authors' scientific claims. The index excludes
+itself to avoid circular dependencies.
 
-Decisione di reporting: `REPORTING-INDEX-001` in `PAPER_AMBIGUITIES.md`.
+Reporting decision: `REPORTING-INDEX-001` in `PAPER_AMBIGUITIES.md`.

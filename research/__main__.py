@@ -8,6 +8,7 @@ from pathlib import Path
 
 from research.comparison import EvidenceError, compare, digest, load_registry, overview, render
 from research.documents import index_markdown, inventory, search, section
+from research.library import load_library, select_experiments, experiment_markdown, load_saved_result, saved_result_markdown
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
@@ -38,9 +39,39 @@ def main(argv=None):
     read.add_argument("--file", help="Disambiguate with a path substring")
     catalog = commands.add_parser("catalog", help="Build or verify the bounded audit inventory")
     catalog.add_argument("--check", action="store_true", help="Check both generated index files without writing")
+    catalog.add_argument("--source-only", action="store_true", help="Index repository documentation only, excluding local/external run artifacts")
+    library = commands.add_parser("experiments", help="Browse experiments by family; no external data needed")
+    library.add_argument("--family")
+    library.add_argument("--query")
+    library.add_argument("--format", choices=("markdown", "json"), default="markdown")
+    experiment = commands.add_parser("experiment", help="Show an experiment's guide, code, configs, tests and results")
+    experiment.add_argument("id")
+    saved = commands.add_parser("results", help="Read a verified saved numerical summary without restoring raw runs")
+    saved.add_argument("group")
+    saved.add_argument("--format", choices=("markdown", "json", "csv"), default="markdown")
     args = parser.parse_args(argv)
     roots = dict(repository=args.repo_root.resolve(), runs=args.runs_root, external_artifacts=args.artifacts_root)
     try:
+        if args.command in ("experiments", "experiment"):
+            library = load_library(args.repo_root)
+            if args.command == "experiment":
+                rows = [row for row in library["experiments"] if row["id"] == args.id]
+                if len(rows) != 1:
+                    raise EvidenceError("Unknown experiment; run 'python3 -m research experiments'")
+                print(experiment_markdown(rows[0]), end="")
+            else:
+                rows = select_experiments(library, args.family, args.query)
+                if args.format == "json":
+                    print(json.dumps(rows, indent=2, ensure_ascii=False))
+                else:
+                    print("| Family | Experiment ID | Guide | Numerical groups |\n| --- | --- | --- | --- |")
+                    for row in rows:
+                        print("| {} | {} | {} | {} |".format(row["family"], row["id"], row["guide"], ", ".join(row["result_groups"]) or "See guide"))
+            return 0
+        if args.command == "results":
+            report = load_saved_result(args.repo_root, args.group)
+            print(saved_result_markdown(report) if args.format == "markdown" else render(report, args.format), end="")
+            return 0
         if args.command == "find":
             if args.limit < 1 or not args.query.strip():
                 raise EvidenceError("Search requires a nonempty query and positive limit")
@@ -51,6 +82,8 @@ def main(argv=None):
             print(section(roots, args.query, args.file), end="")
             return 0
         if args.command == "catalog":
+            if args.source_only:
+                roots = dict(repository=args.repo_root.resolve(), source_only=True)
             index = inventory(roots)
             outputs = {
                 args.repo_root / "docs/AUDIT_INDEX.json": json.dumps(index, indent=2, ensure_ascii=False) + "\n",

@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "learned-crops",
+    "title": "Learned Crops: selected thresholds",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+    "source": {
+      "root": "repository",
+      "path": "artifacts/text-recall-learned-crops-v1/summary.json",
+      "sha256": "c023bb79264181992a99e8f063514bd598ba68d61b806c32f03f5be36068eba3"
+    },
+    "population": {
+      "gt": 983,
+      "images": 125
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+    ],
+    "evidence": [
+      "docs/TEXT_RECALL_REFINEMENTS.md"
+    ],
+    "expected_rows": 8
+  },
+  "source_path": "repository:artifacts/text-recall-learned-crops-v1/summary.json",
+  "source_sha256": "c023bb79264181992a99e8f063514bd598ba68d61b806c32f03f5be36068eba3",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "control512 / kernel_watershed",
+      "source_pointer": "/rows/2",
+      "tp": 501,
+      "predictions": 1070,
+      "gt": 983,
+      "images": 125,
+      "fp": 569,
+      "fn": 482,
+      "precision": 0.46822429906542057,
+      "recall": 0.5096642929806714,
+      "f1": 0.4880662445202143,
+      "tn0": 0.3228092783505155,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.6264003896736483
+      }
+    },
+    {
+      "variant": "control512 / offset_votes_v2",
+      "source_pointer": "/rows/3",
+      "tp": 348,
+      "predictions": 1074,
+      "gt": 983,
+      "images": 125,
+      "fp": 726,
+      "fn": 635,
+      "precision": 0.3240223463687151,
+      "recall": 0.3540183112919634,
+      "f1": 0.33835683033543995,
+      "tn0": 0.20362785254534815,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.4725328147788041
+      }
+    },
+    {
+      "variant": "control768 / kernel_watershed",
+      "source_pointer": "/rows/6",
+      "tp": 499,
+      "predictions": 1126,
+      "gt": 983,
+      "images": 125,
+      "fp": 627,
+      "fn": 484,
+      "precision": 0.44316163410301956,
+      "recall": 0.5076297049847406,
+      "f1": 0.47321005215742057,
+      "tn0": 0.3099378881987578,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.6126126126126126
+      }
+    },
+    {
+      "variant": "control768 / offset_votes_v2",
+      "source_pointer": "/rows/7",
+      "tp": 335,
+      "predictions": 1083,
+      "gt": 983,
+      "images": 125,
+      "fp": 748,
+      "fn": 648,
+      "precision": 0.30932594644506,
+      "recall": 0.340793489318413,
+      "f1": 0.324298160696999,
+      "tn0": 0.19352975158867705,
+      "extra": {
+        "threshold": 0.65,
+        "geometry_hmean": 0.46950629235237173
+      }
+    },
+    {
+      "variant": "tversky512 / kernel_watershed",
+      "source_pointer": "/rows/10",
+      "tp": 501,
+      "predictions": 1070,
+      "gt": 983,
+      "images": 125,
+      "fp": 569,
+      "fn": 482,
+      "precision": 0.46822429906542057,
+      "recall": 0.5096642929806714,
+      "f1": 0.4880662445202143,
+      "tn0": 0.3228092783505155,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.6264003896736483
+      }
+    },
+    {
+      "variant": "tversky512 / offset_votes_v2",
+      "source_pointer": "/rows/11",
+      "tp": 348,
+      "predictions": 1074,
+      "gt": 983,
+      "images": 125,
+      "fp": 726,
+      "fn": 635,
+      "precision": 0.3240223463687151,
+      "recall": 0.3540183112919634,
+      "f1": 0.33835683033543995,
+      "tn0": 0.20362785254534815,
+      "extra": {
+        "threshold": 0.5,
+        "geometry_hmean": 0.4725328147788041
+      }
+    },
+    {
+      "variant": "tversky768 / kernel_watershed",
+      "source_pointer": "/rows/14",
+      "tp": 525,
+      "predictions": 1143,
+      "gt": 983,
+      "images": 125,
+      "fp": 618,
+      "fn": 458,
+      "precision": 0.45931758530183725,
+      "recall": 0.5340793489318413,
+      "f1": 0.49388523047977423,
+      "tn0": 0.3279200499687695,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.6180620884289746
+      }
+    },
+    {
+      "variant": "tversky768 / offset_votes_v2",
+      "source_pointer": "/rows/15",
+      "tp": 358,
+      "predictions": 1161,
+      "gt": 983,
+      "images": 125,
+      "fp": 803,
+      "fn": 625,
+      "precision": 0.30835486649440136,
+      "recall": 0.3641912512716175,
+      "f1": 0.333955223880597,
+      "tn0": 0.20044792833146696,
+      "extra": {
+        "threshold": 0.9,
+        "geometry_hmean": 0.46175373134328357
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

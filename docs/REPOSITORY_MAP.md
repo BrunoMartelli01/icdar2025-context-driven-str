@@ -18,6 +18,7 @@ audits identify past runs, not portable defaults.
 | `pipeline/`, `cli/` | Mode validation and orchestration; `pipeline/config.py`, `pipeline/approximate_e2e.py` |
 | `diagnostics/` | Exploratory analyses with experiment-specific metrics and assumptions |
 | `research/` | Standard-library evidence navigation; `experiments.json` pins saved report identities |
+| `experiments/` | Family guides, a package-level code index, the experiment catalog, and small verified result summaries |
 | `scripts/` | Executable modules and historical host launchers; `collaboration.py` checks/exports source |
 | `configs/strict/` | Evidence-gated specifications; blockers must fail explicitly |
 | `configs/approximate/` | Labeled assumptions, candidate artifacts and research experiments |
@@ -68,3 +69,9 @@ The export can start its own Git history; upstream attribution and base identity
 remain recorded without claiming an official author release.
 It includes the workspace's existing uncommitted research code. A focused
 onboarding test run does not qualify every included experimental component.
+
+The package layout and Python entry points remain stable so historical commands
+and source snapshots stay meaningful. The refactor adds a navigable experiment
+layer instead of moving scientific modules between packages. Use
+`python3 -m research experiment ID` to find one experiment's exact code,
+configuration and tests; `experiments/CODE_INDEX.md` covers all Python modules.

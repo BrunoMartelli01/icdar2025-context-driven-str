@@ -25,7 +25,7 @@ def source(tmp_path):
     (root / ".gitignore").write_text("artifacts/\n.venvs/\n.aws/\n*.pt\n.env\n", encoding="utf-8")
     # Use the actual bounded catalog implementation, without any ML dependency.
     (root / "research").mkdir(exist_ok=True)
-    for name in ("__init__.py", "__main__.py", "comparison.py", "documents.py"):
+    for name in ("__init__.py", "__main__.py", "comparison.py", "documents.py", "library.py"):
         (root / "research" / name).write_bytes((REPOSITORY / "research" / name).read_bytes())
     return root
 
@@ -98,7 +98,7 @@ def test_export_preserves_original_and_records_hashes_modes_and_new_catalog(sour
     row = next(entry for entry in manifest["files"] if entry["path"] == "docs/AUDIT_INDEX.json")
     assert row["source_sha256"] == hashlib.sha256(before).hexdigest()
     assert row["source_sha256"] != row["sha256"]
-    subprocess.run(["python3", "-m", "research", "catalog", "--check"], cwd=target, check=True, capture_output=True)
+    subprocess.run(["python3", "-m", "research", "catalog", "--source-only", "--check"], cwd=target, check=True, capture_output=True)
 
 
 def test_export_refuses_existing_destination_or_source_child(source, tmp_path):
@@ -112,3 +112,36 @@ def test_unlisted_source_is_not_silently_dropped(source):
     (source / "unknown.txt").write_text("new source")
     with pytest.raises(SourceError, match="outside the documented source allowlist"):
         check_source(source)
+
+
+def test_small_result_tables_are_allowed_only_in_summary_directory(source):
+    result = source / "experiments/results/example.csv"
+    result.parent.mkdir(parents=True)
+    result.write_text("variant,tp\nexample,1\n")
+    assert "experiments/results/example.csv" in check_source(source)[0]
+    (source / "docs/dataset.csv").write_text("raw,data\n")
+    with pytest.raises(SourceError, match="unsupported source format"):
+        check_source(source)
+
+
+def test_result_csv_bytes_survive_git_storage(source):
+    (source / ".gitattributes").write_bytes((REPOSITORY / ".gitattributes").read_bytes())
+    result = source / "experiments/results/example.csv"
+    result.parent.mkdir(parents=True)
+    raw = b"variant,tp\r\nexample,1\r\n"
+    result.write_bytes(raw)
+    subprocess.run(["git", "-C", str(source), "add", ".gitattributes", "experiments/results/example.csv"], check=True)
+    stored = subprocess.check_output(["git", "-C", str(source), "show", ":experiments/results/example.csv"])
+    assert stored == raw
+    subprocess.run(["git", "-C", str(source), "diff", "--cached", "--check"], check=True, capture_output=True)
+
+
+def test_result_csv_still_rejects_trailing_spaces(source):
+    (source / ".gitattributes").write_bytes((REPOSITORY / ".gitattributes").read_bytes())
+    result = source / "experiments/results/example.csv"
+    result.parent.mkdir(parents=True)
+    result.write_bytes(b"variant,tp\r\nexample,1 \r\n")
+    subprocess.run(["git", "-C", str(source), "add", ".gitattributes", "experiments/results/example.csv"], check=True)
+    checked = subprocess.run(["git", "-C", str(source), "diff", "--cached", "--check"], capture_output=True, text=True)
+    assert checked.returncode == 2
+    assert "trailing whitespace" in checked.stdout

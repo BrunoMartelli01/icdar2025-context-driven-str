@@ -35,7 +35,7 @@ def document_paths(roots):
         for path in walk(repository / folder, 3):
             if path.name not in GENERATED and path.suffix.lower() in (".md", ".json", ".yaml", ".txt"):
                 yield "repository", path.relative_to(repository).as_posix(), path
-    for name, base in (("repository", repository / "artifacts"),
+    for name, base in (("repository", None if roots.get("source_only") else repository / "artifacts"),
                        ("runs", roots.get("runs")), ("external_artifacts", roots.get("external_artifacts"))):
         if base is None:
             continue
@@ -95,7 +95,8 @@ def inventory(roots):
                 }
         entries.append(entry)
     return dict(schema_version=1, scope={
-        "roots": sorted(k for k, v in roots.items() if v is not None),
+        "roots": sorted(k for k, v in roots.items() if v is not None and k != "source_only"),
+        "local_artifacts_included": not roots.get("source_only", False),
         "discovery": "docs/provenance depth3; named audit/review and report summaries depth5; no symlinks or sample caches",
         "excluded_directories": sorted(SKIP_DIRS),
         "verification": "inventory and content hashes only; reported statuses are historical claims, not rerun qualifications",

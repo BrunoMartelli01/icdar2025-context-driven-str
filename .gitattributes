@@ -5,4 +5,6 @@
 *.json text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
+# Preserve the CSV renderer's CRLF bytes across Git checkouts and hash checks.
+*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 *.png binary

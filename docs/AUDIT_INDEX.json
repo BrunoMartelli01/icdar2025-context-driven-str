@@ -4,6 +4,7 @@
     "roots": [
       "repository"
     ],
+    "local_artifacts_included": false,
     "discovery": "docs/provenance depth3; named audit/review and report summaries depth5; no symlinks or sample caches",
     "excluded_directories": [
       ".aws",
@@ -39,46 +40,46 @@
     {
       "root": "repository",
       "path": "docs/ADASpot_GAP.md",
-      "bytes": 12365,
-      "sha256": "15a68d77739937ad5d80f81a12ee61e5a5390cd6c77a1675450314f76541f77d",
+      "bytes": 11595,
+      "sha256": "b68e9b8452666bed0876406e0bd12d55e5e234293e4ebb20dd4d312a4f8f19d4",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+          "title": "AdaSpot: Text + Kernel + Gap, first controlled experiment"
         },
         {
           "line": 16,
           "level": 2,
-          "title": "Protocollo e riuso"
+          "title": "Protocol and reuse"
         },
         {
           "line": 36,
           "level": 2,
-          "title": "Target, loss e decoder"
+          "title": "Targets, loss, and decoder"
         },
         {
-          "line": 67,
+          "line": 68,
           "level": 2,
-          "title": "Metriche, checkpoint e risultati"
+          "title": "Metrics, checkpoints, and results"
         },
         {
-          "line": 94,
+          "line": 93,
           "level": 2,
-          "title": "Avvio GPU e controllo"
+          "title": "GPU launch and monitoring"
         },
         {
-          "line": 121,
+          "line": 120,
           "level": 2,
-          "title": "Qualifica dell'implementazione"
+          "title": "Implementation qualification"
         },
         {
-          "line": 147,
+          "line": 146,
           "level": 2,
-          "title": "Verifica dei precedenti, 15 ottobre 2026"
+          "title": "Prior-work audit, 15 October 2026"
         }
       ],
-      "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+      "title": "AdaSpot: Text + Kernel + Gap, first controlled experiment"
     },
     {
       "root": "repository",
@@ -225,71 +226,71 @@
     {
       "root": "repository",
       "path": "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md",
-      "bytes": 18601,
-      "sha256": "3d1253f676da8312ea56abec5e1b8a1cfe341cfe390bceb090adfd0e5db43545",
+      "bytes": 16287,
+      "sha256": "9ad574ded2197e24549a679d0807660e8591a44110cb940e39e221250a632658",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+          "title": "Agent experiment audit —11 October2026"
         },
         {
           "line": 9,
           "level": 2,
-          "title": "Esito principale"
+          "title": "Main finding"
         },
         {
-          "line": 25,
+          "line": 22,
           "level": 2,
-          "title": "Protocollo e comparabilità"
+          "title": "Protocol and comparability"
         },
         {
-          "line": 54,
+          "line": 50,
           "level": 2,
-          "title": "Research V2: risultati completi"
+          "title": "Research V2: complete results"
         },
         {
-          "line": 89,
+          "line": 85,
           "level": 3,
-          "title": "Perché i pixel links falliscono qui"
+          "title": "Why pixel links fail here"
         },
         {
-          "line": 116,
+          "line": 112,
           "level": 2,
-          "title": "Secondo passaggio addestrato sui crop"
+          "title": "Second pass trained on crops"
         },
         {
-          "line": 146,
+          "line": 141,
           "level": 2,
-          "title": "Text+Kernel, centri e scelta conservativa dei crop"
+          "title": "Text+Kernel, centers, and conservative crops"
         },
         {
-          "line": 189,
+          "line": 181,
           "level": 2,
-          "title": "Risoluzione, recall e regole frozen"
+          "title": "Resolution, recall, and frozen rules"
         },
         {
-          "line": 217,
+          "line": 209,
           "level": 3,
-          "title": "GT crop: 838/983, non una conferma del precedente 93%"
+          "title": "GT crops:838/983, not confirmation of earlier93%"
         },
         {
-          "line": 233,
+          "line": 223,
           "level": 2,
-          "title": "Evitare duplicazioni e delimitare la nuova prova"
+          "title": "Avoid duplication and bound the new experiment"
         },
         {
-          "line": 256,
+          "line": 243,
           "level": 2,
-          "title": "Evidenza e limiti dell'audit"
+          "title": "Audit evidence and limitations"
         },
         {
-          "line": 281,
+          "line": 267,
           "level": 2,
-          "title": "Priorità dei prossimi test"
+          "title": "Priorities for next tests"
         }
       ],
-      "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+      "title": "Agent experiment audit —11 October2026"
     },
     {
       "root": "repository",
@@ -554,46 +555,46 @@
     {
       "root": "repository",
       "path": "docs/CLIP_HIGH_RECALL_ADMISSION.md",
-      "bytes": 10063,
-      "sha256": "d96751c298641fa28fe404b4b5e46515bb69b33d44edaee32aecdea3d6a80671",
+      "bytes": 9249,
+      "sha256": "9213e4075d097ade0f381da4c6e9ef48f8b7d2c9b3956b974f76e8bc5f7b8c5b",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "CLIP e PARSeq sul pool ad alto recall"
+          "title": "CLIP and PARSeq on the high-recall pool"
         },
         {
           "line": 8,
           "level": 2,
-          "title": "Quali esperimenti sono stati trovati"
+          "title": "Existing experiments found"
         },
         {
           "line": 39,
           "level": 2,
-          "title": "Input autentici e separazione delle annotazioni"
+          "title": "Authentic inputs and annotation separation"
         },
         {
-          "line": 60,
+          "line": 59,
           "level": 2,
-          "title": "Segnali provati"
+          "title": "Signals tested"
         },
         {
-          "line": 87,
+          "line": 85,
           "level": 2,
-          "title": "Precisione a recall conservato"
+          "title": "Precision while retaining recall"
         },
         {
-          "line": 102,
+          "line": 99,
           "level": 2,
-          "title": "Esecuzione"
+          "title": "Execution"
         },
         {
-          "line": 130,
+          "line": 125,
           "level": 2,
-          "title": "Verifiche"
+          "title": "Checks"
         }
       ],
-      "title": "CLIP e PARSeq sul pool ad alto recall"
+      "title": "CLIP and PARSeq on the high-recall pool"
     },
     {
       "root": "repository",
@@ -622,36 +623,36 @@
     {
       "root": "repository",
       "path": "docs/CLIP_INNOVATIVE_VERIFICATION.md",
-      "bytes": 9860,
-      "sha256": "fcef31091b432895c21c51ab90e02301f6fbb4bffefd05fe9893d0b3d60fbeb2",
+      "bytes": 8684,
+      "sha256": "b288fc9fe966391c65e0c97dbb6862241e7f4dd45414f792e9329159a629f483",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+          "title": "New CLIP uses and GPU comparison command"
         },
         {
-          "line": 9,
+          "line": 8,
           "level": 2,
-          "title": "Un comando dal terminale dell'host"
+          "title": "One command from the host terminal"
         },
         {
-          "line": 56,
+          "line": 51,
           "level": 2,
-          "title": "Ipotesi implementate"
+          "title": "Implemented hypotheses"
         },
         {
-          "line": 105,
+          "line": 94,
           "level": 2,
-          "title": "Fonti e ulteriori idee"
+          "title": "Sources and further ideas"
         },
         {
-          "line": 126,
+          "line": 113,
           "level": 2,
-          "title": "Verifiche già eseguite in questa sessione"
+          "title": "Checks performed in this session"
         }
       ],
-      "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+      "title": "New CLIP uses and GPU comparison command"
     },
     {
       "root": "repository",
@@ -846,139 +847,139 @@
     {
       "root": "repository",
       "path": "docs/CLIP_VERIFICATION_RESULTS.md",
-      "bytes": 7780,
-      "sha256": "25c327d5c30bf0b1409a8a6a1e6c09e61d121a537810db60c0b240d60cdf7a84",
+      "bytes": 6971,
+      "sha256": "6a18ca03676d2d1becc9ee9dac52e72eb3e839f1551207bc490266686e6c288e",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+          "title": "Completed CLIP comparison: B/32, B/16, and L/14"
         },
         {
-          "line": 10,
+          "line": 9,
           "level": 2,
-          "title": "Risultati principali"
+          "title": "Main results"
         },
         {
-          "line": 51,
+          "line": 48,
           "level": 2,
-          "title": "Le descrizioni aiutano il prompt?"
+          "title": "Do descriptions help the prompt?"
         },
         {
-          "line": 66,
+          "line": 62,
           "level": 2,
-          "title": "«La parola è corretta?» e discriminazione delle lettere"
+          "title": "Word correctness and letter discrimination"
         },
         {
-          "line": 96,
+          "line": 90,
           "level": 2,
-          "title": "Provenienza, hardware e verifiche"
+          "title": "Provenance, hardware, and checks"
         }
       ],
-      "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+      "title": "Completed CLIP comparison: B/32, B/16, and L/14"
     },
     {
       "root": "repository",
       "path": "docs/CLIP_WORD_VERIFICATION.md",
-      "bytes": 17006,
-      "sha256": "eee550e205fcf89235b8e97935e439f5e452a5e7073cf35c27aaf60c8b34c12a",
+      "bytes": 14959,
+      "sha256": "17aa3baffcbaa2edd528362d9e4c82abe4839436ccb26cd457b673145297dd58",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "CLIP per verificare le trascrizioni PARSeq"
+          "title": "CLIP verification of PARSeq transcriptions"
         },
         {
           "line": 7,
           "level": 2,
-          "title": "Come si inserisce nel progetto"
+          "title": "Place in the project"
         },
         {
-          "line": 22,
+          "line": 21,
           "level": 2,
-          "title": "Implementazioni CLIP esistenti"
+          "title": "Existing CLIP implementations"
         },
         {
-          "line": 37,
+          "line": 34,
           "level": 2,
-          "title": "Idee dalla letteratura"
+          "title": "Literature ideas"
         },
         {
-          "line": 58,
+          "line": 55,
           "level": 2,
-          "title": "Confronto controllato"
+          "title": "Controlled comparison"
         },
         {
-          "line": 108,
+          "line": 99,
           "level": 2,
-          "title": "Metriche e limiti"
+          "title": "Metrics and limitations"
         },
         {
-          "line": 131,
+          "line": 119,
           "level": 2,
-          "title": "Ripetere il test e confrontare i checkpoint"
+          "title": "Repeat and compare checkpoints"
         },
         {
-          "line": 205,
+          "line": 190,
           "level": 2,
-          "title": "Risultati misurati il 7 ottobre 2026"
+          "title": "Results measured on 7 October2026"
         }
       ],
-      "title": "CLIP per verificare le trascrizioni PARSeq"
+      "title": "CLIP verification of PARSeq transcriptions"
     },
     {
       "root": "repository",
       "path": "docs/CONTEXTUAL_OCR_CORRECTION_TRAIN_V1.md",
-      "bytes": 7700,
-      "sha256": "833e95cb50b3debebd478f123d180f40667076da395c7a7bfc2d8da9354fd63f",
+      "bytes": 7034,
+      "sha256": "e523668c64c144ddbf3d4d329c9c2cc63c0ff324d62066d772b90c6ca6f1d87d",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+          "title": "Contextual OCR correction: frozen TRAIN comparison v1"
         },
         {
           "line": 3,
           "level": 2,
-          "title": "Scopo e confini"
+          "title": "Scope and boundaries"
         },
         {
           "line": 14,
           "level": 2,
-          "title": "Modelli e input congelati prima dei risultati"
+          "title": "Models and inputs frozen before outcomes"
         },
         {
           "line": 45,
           "level": 2,
-          "title": "Prompt, output e protezioni"
+          "title": "Prompts, outputs, and safeguards"
         },
         {
-          "line": 64,
+          "line": 63,
           "level": 2,
-          "title": "Provenienza, cache e ripresa"
+          "title": "Provenance, cache, and resume"
         },
         {
-          "line": 81,
+          "line": 80,
           "level": 2,
-          "title": "Metriche e interpretazione"
+          "title": "Metrics and interpretation"
         },
         {
-          "line": 100,
+          "line": 99,
           "level": 2,
-          "title": "Comando PAPER"
+          "title": "PAPER command"
         },
         {
-          "line": 115,
+          "line": 114,
           "level": 2,
-          "title": "Classificazione scientifica"
+          "title": "Scientific classification"
         },
         {
-          "line": 123,
+          "line": 122,
           "level": 2,
-          "title": "Verifiche completate prima del run GPU"
+          "title": "Checks completed before GPU run"
         }
       ],
-      "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+      "title": "Contextual OCR correction: frozen TRAIN comparison v1"
     },
     {
       "root": "repository",
@@ -1313,6 +1314,35 @@
     },
     {
       "root": "repository",
+      "path": "docs/ENGLISH_REFACTOR.md",
+      "bytes": 4989,
+      "sha256": "ae9b78dc3255f6d4ddf97217991f75f00ea1b3a80627e1b33d3427478f96edbb",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "English experiment-library refactor"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "What to read"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "title": "Preservation checks"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Validation"
+        }
+      ],
+      "title": "English experiment-library refactor"
+    },
+    {
+      "root": "repository",
       "path": "docs/ENVIRONMENTS.md",
       "bytes": 20857,
       "sha256": "f6e4d68f0783296fea6b953a750ce825dbbd090f427b1f642cce40748c3923e3",
@@ -1590,8 +1620,8 @@
     {
       "root": "repository",
       "path": "docs/GETTING_STARTED.md",
-      "bytes": 6477,
-      "sha256": "4c394a034a4f1579b56fe5dddb6885c177df15133f7bc9a7aef3bb65e638161a",
+      "bytes": 6733,
+      "sha256": "a4d8ff7ab093f553a2f4e84b935a55e5dde477277dac738c072a174f928796da",
       "headings": [
         {
           "line": 1,
@@ -1604,27 +1634,27 @@
           "title": "1. Clone and explore"
         },
         {
-          "line": 26,
+          "line": 30,
           "level": 2,
           "title": "2. Create an isolated main environment when needed"
         },
         {
-          "line": 59,
+          "line": 63,
           "level": 2,
           "title": "3. Run offline component checks"
         },
         {
-          "line": 85,
+          "line": 89,
           "level": 2,
           "title": "4. Obtain scientific inputs and qualify the host"
         },
         {
-          "line": 117,
+          "line": 121,
           "level": 2,
           "title": "5. Prepare data, then launch one explicit experiment"
         },
         {
-          "line": 145,
+          "line": 149,
           "level": 2,
           "title": "6. Work on a branch"
         }
@@ -1726,8 +1756,8 @@
     {
       "root": "repository",
       "path": "docs/GUARDED_WORD_GT_V3.md",
-      "bytes": 7902,
-      "sha256": "631a85f34227a9867be7ee0ca1b9f6f55b781a08c41f4ba1d654986407c86643",
+      "bytes": 7889,
+      "sha256": "807d2b2e1b4242778b061fee1932307ae5557c9420018aa41cfdc0ad9f785c95",
       "headings": [
         {
           "line": 1,
@@ -1765,26 +1795,26 @@
     {
       "root": "repository",
       "path": "docs/HOST_OPERATIONS.md",
-      "bytes": 2899,
-      "sha256": "aff3f98f83c2128a2e415c62020bc0b01130948014faf86dc6383a8689234c7f",
+      "bytes": 2794,
+      "sha256": "ffbde8fecc141d517aff89c86fa662f5bf653d3374b96a804c6815a4d9855429",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Macchina PAPER e comandi"
+          "title": "PAPER host and commands"
         },
         {
           "line": 12,
           "level": 2,
-          "title": "Prima di eseguire"
+          "title": "Before running commands"
         },
         {
           "line": 39,
           "level": 2,
-          "title": "Posizioni operative"
+          "title": "Operational locations"
         }
       ],
-      "title": "Macchina PAPER e comandi"
+      "title": "PAPER host and commands"
     },
     {
       "root": "repository",
@@ -1884,47 +1914,61 @@
     },
     {
       "root": "repository",
-      "path": "docs/MASK_CROP_THREE_TESTS.md",
-      "bytes": 9646,
-      "sha256": "9335b2501b718b31ea6636ca5b2fbc558537bca21a8e4aa7fa993fbaae41c92f",
+      "path": "docs/LANGUAGE_POLICY.md",
+      "bytes": 2224,
+      "sha256": "db18686f3e48233dae3e7d5cdc16c69bcb1b07097c4581bd107c0422720d616d",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Tre test: dalla maschera V3 a crop leggibili"
+          "title": "English source and evidence policy"
+        }
+      ],
+      "title": "English source and evidence policy"
+    },
+    {
+      "root": "repository",
+      "path": "docs/MASK_CROP_THREE_TESTS.md",
+      "bytes": 8421,
+      "sha256": "b59be01621005355604cbe978fcddc8a529a0cb34c7c853d0c06da7cd463b5d5",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Three tests: from V3 masks to readable crops"
         },
         {
           "line": 11,
           "level": 2,
-          "title": "Protocollo congelato"
+          "title": "Frozen protocol"
         },
         {
-          "line": 28,
+          "line": 26,
           "level": 2,
-          "title": "Test1: budget dei crop — completato"
+          "title": "Test1: crop budget — complete"
         },
         {
-          "line": 50,
+          "line": 47,
           "level": 2,
-          "title": "Test2: separazioni/unioni e selettore"
+          "title": "Test2: splits/merges and selector"
         },
         {
-          "line": 66,
+          "line": 61,
           "level": 2,
-          "title": "Test3: rifinitore supervisionato dal riconoscimento"
+          "title": "Test3: recognition-supervised refiner"
         },
         {
-          "line": 87,
+          "line": 79,
           "level": 2,
-          "title": "Risultati completi: test2/3"
+          "title": "Complete test2/3 results"
         },
         {
-          "line": 128,
+          "line": 118,
           "level": 2,
-          "title": "Esecuzione e controllo"
+          "title": "Execution and monitoring"
         }
       ],
-      "title": "Tre test: dalla maschera V3 a crop leggibili"
+      "title": "Three tests: from V3 masks to readable crops"
     },
     {
       "root": "repository",
@@ -2080,8 +2124,8 @@
     {
       "root": "repository",
       "path": "docs/PAPER_AMBIGUITIES.md",
-      "bytes": 663004,
-      "sha256": "0328d9c1e7fc304bf60bc87adad59adf3fad60d1c178f3c8b1001e948653e424",
+      "bytes": 669040,
+      "sha256": "d52b86cf3e313fa1687d1cd89de9148760282e4641fe4f47efd47934ebcfb82d",
       "headings": [
         {
           "line": 1,
@@ -3437,6 +3481,16 @@
           "line": 9156,
           "level": 3,
           "title": "YOLO-CONTEXT-QUALITY-001 — Frozen context for per-image F1>=0.8 (2026-10-21)"
+        },
+        {
+          "line": 9202,
+          "level": 3,
+          "title": "YOLO-RESIDUAL-VQA-001 — Frozen visual missing-text probe (2026-10-21)"
+        },
+        {
+          "line": 9252,
+          "level": 2,
+          "title": "REPORTING-ENGLISH-LIBRARY-001 — English experiment navigation and saved summaries"
         }
       ],
       "title": "Paper Ambiguities and Reproduction Blockers"
@@ -3483,46 +3537,46 @@
     {
       "root": "repository",
       "path": "docs/PAPER_TABLE5_SOURCE_AUDIT.md",
-      "bytes": 8454,
-      "sha256": "005b0905a95575c4e7b2bb59bd02b78e5b280ce61de239487efd0e6e87c64d91",
+      "bytes": 7441,
+      "sha256": "cadff29411e44849748db70097cdce9026d475cc0bdde66f512159cdeeb0e73f",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Table5: verifica delle fonti e significato di accuracy"
+          "title": "Table5: source verification and meaning of accuracy"
         },
         {
-          "line": 14,
+          "line": 13,
           "level": 2,
-          "title": "Corrispondenze Total-Text"
+          "title": "Total-Text correspondences"
         },
         {
-          "line": 27,
+          "line": 26,
           "level": 2,
-          "title": "Verifica delle righe ICDAR"
+          "title": "ICDAR row verification"
         },
         {
-          "line": 56,
+          "line": 52,
           "level": 2,
-          "title": "DeepSolo e le differenze dichiarate"
+          "title": "DeepSolo and stated differences"
         },
         {
-          "line": 72,
+          "line": 67,
           "level": 2,
-          "title": "Come viene calcolato il punteggio"
+          "title": "Score calculation"
         },
         {
-          "line": 105,
+          "line": 98,
           "level": 2,
-          "title": "Implicazioni per i nostri esperimenti"
+          "title": "Implications for our experiments"
         },
         {
-          "line": 122,
+          "line": 113,
           "level": 2,
-          "title": "Evidenza e riproducibilità"
+          "title": "Evidence and reproducibility"
         }
       ],
-      "title": "Table5: verifica delle fonti e significato di accuracy"
+      "title": "Table5: source verification and meaning of accuracy"
     },
     {
       "root": "repository",
@@ -3551,41 +3605,41 @@
     {
       "root": "repository",
       "path": "docs/README.md",
-      "bytes": 8910,
-      "sha256": "653f0ba716015db43bd414c83574737229001efa8670dd4474503651b445a3d7",
+      "bytes": 8976,
+      "sha256": "a88881b799997a059fa537cb9036efe73aaba5afc2d5b8767eef2548126d8b2d",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Guida al lavoro e ai confronti"
+          "title": "Research and comparison guide"
         },
         {
-          "line": 13,
+          "line": 19,
           "level": 2,
-          "title": "Dove iniziare"
+          "title": "Where to start"
         },
         {
-          "line": 35,
+          "line": 41,
           "level": 2,
-          "title": "Cercare senza caricare tutta la cronologia"
+          "title": "Search without loading the entire history"
         },
         {
-          "line": 53,
+          "line": 59,
           "level": 2,
-          "title": "Confrontare i risultati"
+          "title": "Compare results"
         },
         {
-          "line": 87,
+          "line": 93,
           "level": 2,
-          "title": "Quali confronti sono disponibili"
+          "title": "Available comparisons"
         },
         {
-          "line": 120,
+          "line": 125,
           "level": 2,
-          "title": "Aggiornare senza perdere evidenze"
+          "title": "Update without losing evidence"
         }
       ],
-      "title": "Guida al lavoro e ai confronti"
+      "title": "Research and comparison guide"
     },
     {
       "root": "repository",
@@ -3604,31 +3658,31 @@
     {
       "root": "repository",
       "path": "docs/REFACTOR_AUDIT.md",
-      "bytes": 3840,
-      "sha256": "1ce56ecfec2f2c0b489a2d0fec5387e55b7c3006dd68af423425ede8bf9189b4",
+      "bytes": 3492,
+      "sha256": "849d6b48e57d32c1fafa7b7a91bc2424c9f035085cc8d61dc4ea24e5c5bb5017",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+          "title": "Navigation and reporting refactor — 17 October 2026"
         },
         {
           "line": 7,
           "level": 2,
-          "title": "Problemi rilevati e interventi"
+          "title": "Findings and changes"
         },
         {
-          "line": 25,
+          "line": 24,
           "level": 2,
-          "title": "Conservazione verificata"
+          "title": "Verified preservation"
         },
         {
-          "line": 40,
+          "line": 38,
           "level": 2,
-          "title": "Verifica eseguita"
+          "title": "Checks performed"
         }
       ],
-      "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+      "title": "Navigation and reporting refactor — 17 October 2026"
     },
     {
       "root": "repository",
@@ -3667,8 +3721,8 @@
     {
       "root": "repository",
       "path": "docs/REPOSITORY_MAP.md",
-      "bytes": 4966,
-      "sha256": "9d04cadca2cfc0bc7b1ae6a555c0fc60468f0807990b87599abe1dc78c17ab9b",
+      "bytes": 5468,
+      "sha256": "6dc2a2bfa945b08f49791bcd788d72224d9104c4bd3da7056a5fdcd22024ea29",
       "headings": [
         {
           "line": 1,
@@ -3681,17 +3735,17 @@
           "title": "Code by responsibility"
         },
         {
-          "line": 32,
+          "line": 33,
           "level": 2,
           "title": "Choose a starting point"
         },
         {
-          "line": 48,
+          "line": 49,
           "level": 2,
           "title": "Scientific boundaries"
         },
         {
-          "line": 59,
+          "line": 60,
           "level": 2,
           "title": "Source-export boundary"
         }
@@ -4004,56 +4058,56 @@
     {
       "root": "repository",
       "path": "docs/RESEARCH_SYNTHESIS_20261021.md",
-      "bytes": 13363,
-      "sha256": "08fb5c9775c52b2ff8f773e111f050a6554eaa1a2eab6044ecf05a9766447d29",
+      "bytes": 11283,
+      "sha256": "8d429111eb7778c4900348f4c8b74ee52d1430536059000d6a6304899462af46",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+          "title": "Research status and directions: masks, instances, crops"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "Conclusione operativa"
+          "title": "Operational conclusion"
         },
         {
-          "line": 27,
+          "line": 25,
           "level": 2,
-          "title": "Aggiornamento sui filoni paralleli"
+          "title": "Parallel research update"
         },
         {
-          "line": 59,
+          "line": 55,
           "level": 2,
-          "title": "Analisi aggiuntiva effettuata"
+          "title": "Additional analysis performed"
         },
         {
-          "line": 80,
+          "line": 74,
           "level": 3,
-          "title": "Complementarità dei crop: potenziale, non nuovo risultato"
+          "title": "Crop complementarity: potential, not a new result"
         },
         {
-          "line": 105,
+          "line": 97,
           "level": 3,
-          "title": "Il costo finora non quantificato"
+          "title": "Previously unquantified cost"
         },
         {
-          "line": 115,
+          "line": 106,
           "level": 2,
-          "title": "Direzioni promettenti, in ordine"
+          "title": "Promising directions, in order"
         },
         {
-          "line": 168,
+          "line": 151,
           "level": 2,
-          "title": "Cosa de-prioritizzare e come verificare"
+          "title": "Lower priorities and validation"
         },
         {
-          "line": 184,
+          "line": 166,
           "level": 2,
-          "title": "Evidenze e riproducibilità"
+          "title": "Evidence and reproducibility"
         }
       ],
-      "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+      "title": "Research status and directions: masks, instances, crops"
     },
     {
       "root": "repository",
@@ -4521,51 +4575,51 @@
     {
       "root": "repository",
       "path": "docs/TOTALTEXT_BERT_CORRECTION.md",
-      "bytes": 15377,
-      "sha256": "496b1cf5ccc0473064654500b88ba5a8b141ecf52ebfbb0eaf63768c8e2fe9fd",
+      "bytes": 13052,
+      "sha256": "a56d3e6d9808a50aeee40a6dba23a0149f8fcd5b68921c871cb4ddcf933395bb",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "BERT dopo PARSeq: Total-Text letterbox"
+          "title": "BERT after PARSeq: Total-Text letterbox"
         },
         {
           "line": 6,
           "level": 2,
-          "title": "Percorso effettivo del progetto"
+          "title": "Actual project path"
         },
         {
-          "line": 37,
+          "line": 33,
           "level": 2,
-          "title": "Modello e ricerca"
+          "title": "Model and research"
         },
         {
-          "line": 67,
+          "line": 61,
           "level": 2,
-          "title": "Esperimento congelato"
+          "title": "Frozen experiment"
         },
         {
-          "line": 110,
+          "line": 98,
           "level": 2,
-          "title": "Esecuzione"
+          "title": "PAPER command"
         },
         {
-          "line": 165,
+          "line": 146,
           "level": 2,
-          "title": "Metriche e stato verificato"
+          "title": "Metrics and verified state"
+        },
+        {
+          "line": 175,
+          "level": 2,
+          "title": "Completed real results —6 October2026"
         },
         {
           "line": 199,
-          "level": 2,
-          "title": "Risultati reali completati — 6 ottobre 2026"
-        },
-        {
-          "line": 225,
           "level": 3,
-          "title": "Diagnosi e ablation della protezione"
+          "title": "Protection diagnosis and ablation"
         }
       ],
-      "title": "BERT dopo PARSeq: Total-Text letterbox"
+      "title": "BERT after PARSeq: Total-Text letterbox"
     },
     {
       "root": "repository",
@@ -5255,66 +5309,66 @@
     {
       "root": "repository",
       "path": "docs/TRAIN_GROUPING_FAILURES_AND_RECOVERY.md",
-      "bytes": 10420,
-      "sha256": "39285c49a8eec2bc0a8d68ba52c2ebb3e31ea8a8a2b56cc4c369a9c6955f03a2",
+      "bytes": 9191,
+      "sha256": "dc963361eb070f7a5202feab21d99f77b47a8b4a4147dbc85c7a64eded6c7256",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+          "title": "TRAIN: localization errors, crop completeness, and OCR recovery"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "1. Stato congelato e vincoli"
+          "title": "1. Frozen state and constraints"
         },
         {
           "line": 24,
           "level": 2,
-          "title": "2. Baseline TRAIN verificata"
+          "title": "2. Verified TRAIN baseline"
         },
         {
           "line": 40,
           "level": 2,
-          "title": "3. Primo audit: quale crop riceve PARSeq?"
+          "title": "3. First audit: which crop reaches PARSeq?"
         },
         {
           "line": 61,
           "level": 2,
-          "title": "4. Secondo audit: glifi mancanti e testo estraneo"
+          "title": "4. Second audit: missing glyphs and extraneous text"
         },
         {
           "line": 93,
           "level": 2,
-          "title": "5. Oracle geometrico: quanto recuperano i componenti già predetti?"
+          "title": "5. Geometric oracle: recovery from existing predicted components"
         },
         {
-          "line": 118,
+          "line": 117,
           "level": 2,
-          "title": "6. Prova OCR GPU sugli80 casi"
+          "title": "6. GPU OCR on 80 cases"
         },
         {
-          "line": 146,
+          "line": 145,
           "level": 2,
-          "title": "7. Conclusioni e decisioni"
+          "title": "7. Conclusions and decisions"
         },
         {
-          "line": 159,
+          "line": 158,
           "level": 2,
-          "title": "8. Prossimo passo proposto, non ancora eseguito"
+          "title": "8. Proposed next step, not performed"
         },
         {
-          "line": 171,
+          "line": 170,
           "level": 2,
-          "title": "9. Artifact, hash e comandi"
+          "title": "9. Artifacts, hashes, and commands"
         },
         {
-          "line": 198,
+          "line": 197,
           "level": 2,
-          "title": "10. Provenienza scientifica e limiti ancora aperti"
+          "title": "10. Scientific provenance and open limitations"
         }
       ],
-      "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+      "title": "TRAIN: localization errors, crop completeness, and OCR recovery"
     },
     {
       "root": "repository",
@@ -5595,46 +5649,46 @@
     {
       "root": "repository",
       "path": "docs/WORD_CENTERLINE.md",
-      "bytes": 11500,
-      "sha256": "0784fe336acf05c64f9fb4154519c16466e31d3abe5d750db331c3f635095977",
+      "bytes": 10521,
+      "sha256": "2366506bb4f225d32edd53a9adde91353dbbc8ad76c1ab9155cd0d6f1b268f7f",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+          "title": "Centerline and radius: a new experiment on the frozen U-Net"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "Perché questa prova"
+          "title": "Motivation"
         },
         {
-          "line": 25,
+          "line": 24,
           "level": 2,
-          "title": "Protocollo fissato prima del training"
+          "title": "Protocol fixed before training"
         },
         {
-          "line": 63,
+          "line": 61,
           "level": 2,
-          "title": "Tre crop sulle stesse immagini e lo stesso checkpoint"
+          "title": "Three crops on the same images and checkpoint"
         },
         {
-          "line": 91,
+          "line": 86,
           "level": 2,
-          "title": "Qualifica locale e limiti"
+          "title": "Local qualification and limitations"
         },
         {
-          "line": 126,
+          "line": 120,
           "level": 2,
-          "title": "Comando sul computer con GPU"
+          "title": "Command on the GPU machine"
         },
         {
-          "line": 169,
+          "line": 161,
           "level": 2,
-          "title": "Altre direzioni nuove, da provare separatamente"
+          "title": "Other new directions to test separately"
         }
       ],
-      "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+      "title": "Centerline and radius: a new experiment on the frozen U-Net"
     },
     {
       "root": "repository",
@@ -5925,36 +5979,41 @@
     {
       "root": "repository",
       "path": "docs/YOLO_CONTEXT_QUALITY_ROUTER.md",
-      "bytes": 4870,
-      "sha256": "835274a1de723301aa6365813d19f997edfe4d002dca6fe3f2a6d80d2dc7d06b",
+      "bytes": 7140,
+      "sha256": "4b90ffdc2a1a13b48e8f92681069001e05ae31996d3007c82b2026f75497bcf9",
       "headings": [
         {
           "line": 1,
           "level": 1,
-          "title": "Routing contestuale della qualità dell'immagine, senza addestramento"
+          "title": "Training-free contextual image-quality routing"
         },
         {
-          "line": 9,
+          "line": 8,
           "level": 2,
-          "title": "Protocollo congelato"
+          "title": "Frozen protocol"
         },
         {
-          "line": 26,
+          "line": 25,
           "level": 2,
-          "title": "Prove"
+          "title": "Experiments"
         },
         {
-          "line": 53,
+          "line": 52,
           "level": 2,
-          "title": "Metriche"
+          "title": "Metrics"
         },
         {
-          "line": 69,
+          "line": 67,
           "level": 2,
-          "title": "Esecuzione e stato"
+          "title": "Execution and status"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Results"
         }
       ],
-      "title": "Routing contestuale della qualità dell'immagine, senza addestramento"
+      "title": "Training-free contextual image-quality routing"
     },
     {
       "root": "repository",
@@ -6062,6 +6121,40 @@
         }
       ],
       "title": "YOLO/PARSeq: four TEST datasets and per-image compute estimates"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_RESIDUAL_TEXT_VQA.md",
+      "bytes": 6285,
+      "sha256": "ccb479599b177b44fa71ab0df705398bc975e832c51246ebc4625368d259e361",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Training-free visual residual-text test"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Hypothesis and controls"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "title": "Runtime and qualification"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Command"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Completed results"
+        }
+      ],
+      "title": "Training-free visual residual-text test"
     },
     {
       "root": "repository",
@@ -6173,8 +6266,8 @@
     {
       "root": "repository",
       "path": "docs/history/WORKSPACE_AUDIT_INDEX.json",
-      "bytes": 264491,
-      "sha256": "3d1e71588e78b80e1ad46321e19ddb22db65f09accbf8b409d7babfd99aea116",
+      "bytes": 264103,
+      "sha256": "b7b5746221ac6b3d596e08c65b66033e506436b38d345e4fb072b2ed9298b14e",
       "title": "WORKSPACE_AUDIT_INDEX",
       "reported_metadata": {}
     },
@@ -6236,6 +6329,14 @@
       "bytes": 185185,
       "sha256": "357d62eecc4a17c0bbf19c5025abf3c51642f3d013fb515bba3ea2d63686464a",
       "title": "EXTERNAL_ASSETS",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "provenance/LANGUAGE_MIGRATION.json",
+      "bytes": 12022,
+      "sha256": "9089b9e25df57cd4c4955ddfbbc9869cbe0cbf3635e587c1713957c7097c2100",
+      "title": "LANGUAGE_MIGRATION",
       "reported_metadata": {}
     },
     {
@@ -6325,8 +6426,8 @@
     {
       "root": "repository",
       "path": "provenance/kernel_only_training_v1_deletion.json",
-      "bytes": 1205,
-      "sha256": "4ffac6c54280c0101741e46b055a6f5544a586fd2e253bba59546d5de9107dcb",
+      "bytes": 1341,
+      "sha256": "dc795a85d7d030fde03336104095b23f58e552bb21dd856cc569c6cbbfa50df3",
       "title": "kernel_only_training_v1_deletion",
       "reported_metadata": {
         "status": "DELETED_AT_USER_REQUEST"

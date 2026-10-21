@@ -227,17 +227,17 @@
         {
           "line": 30,
           "level": 2,
-          "title": "TRAIN: più recall, anche più falsi positivi"
+          "title": "TRAIN: higher recall and more false positives"
         },
         {
           "line": 34,
           "level": 2,
-          "title": "Effetto sul routing già salvato"
+          "title": "Effect on previously saved routing"
         },
         {
           "line": 47,
           "level": 2,
-          "title": "Integrità e memoria"
+          "title": "Integrity and memory"
         }
       ],
       "title": "Analisi DeepSolo ViTAEv2-S+TextOCR — Total-Text"
@@ -256,22 +256,22 @@
         {
           "line": 5,
           "level": 2,
-          "title": "Costo del routing misurato con lo stesso protocollo"
+          "title": "Routing cost measured under the same protocol"
         },
         {
           "line": 46,
           "level": 2,
-          "title": "Scarto nominale del DeepSolo di riferimento"
+          "title": "Nominal difference from reference DeepSolo"
         },
         {
           "line": 65,
           "level": 2,
-          "title": "Quanto margine ha la selezione?"
+          "title": "How much headroom does selection have?"
         },
         {
           "line": 77,
           "level": 2,
-          "title": "Conclusione operativa"
+          "title": "Operational conclusion"
         }
       ],
       "title": "Dove perdiamo punti: diagnosi su Total-Text TEST"
@@ -317,40 +317,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Table5: verifica delle fonti e significato di accuracy"
+          "title": "Table5: source verification and meaning of accuracy"
         },
         {
           "line": 14,
           "level": 2,
-          "title": "Corrispondenze Total-Text"
+          "title": "Total-Text correspondences"
         },
         {
           "line": 27,
           "level": 2,
-          "title": "Verifica delle righe ICDAR"
+          "title": "ICDAR row verification"
         },
         {
           "line": 56,
           "level": 2,
-          "title": "DeepSolo e le differenze dichiarate"
+          "title": "DeepSolo and stated differences"
         },
         {
           "line": 72,
           "level": 2,
-          "title": "Come viene calcolato il punteggio"
+          "title": "Score calculation"
         },
         {
           "line": 105,
           "level": 2,
-          "title": "Implicazioni per i nostri esperimenti"
+          "title": "Implications for our experiments"
         },
         {
           "line": 122,
           "level": 2,
-          "title": "Evidenza e riproducibilità"
+          "title": "Evidence and reproducibility"
         }
       ],
-      "title": "Table5: verifica delle fonti e significato di accuracy"
+      "title": "Table5: source verification and meaning of accuracy"
     },
     {
       "root": "external_artifacts",
@@ -568,7 +568,7 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Nuova loss dei centri: risultati e analisi"
+          "title": "New center loss: results and analysis"
         },
         {
           "line": 17,
@@ -578,17 +578,17 @@
         {
           "line": 27,
           "level": 2,
-          "title": "Perché il miglioramento non basta"
+          "title": "Why the improvement is insufficient"
         },
         {
           "line": 35,
           "level": 2,
-          "title": "Training e scelta del checkpoint"
+          "title": "Training and checkpoint selection"
         },
         {
           "line": 39,
           "level": 2,
-          "title": "Confronto per immagine e per parola"
+          "title": "Per-image and per-word comparison"
         },
         {
           "line": 46,
@@ -601,7 +601,7 @@
           "title": "Verifiche e limiti"
         }
       ],
-      "title": "Nuova loss dei centri: risultati e analisi"
+      "title": "New center loss: results and analysis"
     },
     {
       "root": "repository",
@@ -612,32 +612,32 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Perché i centri peggiorano il numero di parole corrette"
+          "title": "Why centers reduce correct-word counts"
         },
         {
           "line": 11,
           "level": 2,
-          "title": "1. Il problema principale è la sostituzione dei crop"
+          "title": "1. Crop replacement is the main problem"
         },
         {
           "line": 41,
           "level": 2,
-          "title": "2. Dove finiscono le 152 parole perse"
+          "title": "2. Where the 152 lost words go"
         },
         {
           "line": 79,
           "level": 2,
-          "title": "3. Perché la nuova loss migliora poco il sistema"
+          "title": "3. Why the new loss barely improves the system"
         },
         {
           "line": 116,
           "level": 2,
-          "title": "4. Prove concrete con gli stessi crop e senza nuovo training"
+          "title": "4. Concrete tests with identical crops and no new training"
         },
         {
           "line": 146,
           "level": 2,
-          "title": "5. Un'alternativa già misurata nel repository"
+          "title": "5. An alternative already measured in the repository"
         },
         {
           "line": 172,
@@ -647,10 +647,10 @@
         {
           "line": 204,
           "level": 2,
-          "title": "7. Verifiche, fonti e riproducibilità"
+          "title": "7. Checks, sources, and reproducibility"
         }
       ],
-      "title": "Perché i centri peggiorano il numero di parole corrette"
+      "title": "Why centers reduce correct-word counts"
     },
     {
       "root": "repository",
@@ -972,37 +972,37 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Confronto GT e modelli con uscita128 — 16 ottobre2026"
+          "title": "GT and output128 model comparison — 16 October2026"
         },
         {
           "line": 14,
           "level": 2,
-          "title": "OCR con identico protocollo per tutti"
+          "title": "OCR with identical protocol for all models"
         },
         {
           "line": 53,
           "level": 2,
-          "title": "Il valore6 e le unità"
+          "title": "Value6 and its units"
         },
         {
           "line": 68,
           "level": 2,
-          "title": "Interazione con il filtro d'area"
+          "title": "Interaction with area filtering"
         },
         {
           "line": 92,
           "level": 2,
-          "title": "Dimensione e connettività delle GT realmente fornite alla rete"
+          "title": "Size and connectivity of GT actually supplied to the network"
         },
         {
           "line": 119,
           "level": 2,
-          "title": "Cosa sostiene l'evidenza"
+          "title": "What the evidence supports"
         },
         {
           "line": 138,
           "level": 2,
-          "title": "Immagini"
+          "title": "Images"
         },
         {
           "line": 153,
@@ -1010,7 +1010,7 @@
           "title": "Qualifica, provenienza e limiti"
         }
       ],
-      "title": "Confronto GT e modelli con uscita128 — 16 ottobre2026"
+      "title": "GT and output128 model comparison — 16 October2026"
     },
     {
       "root": "repository",
@@ -1502,7 +1502,7 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Risultati conclusi: `unet-crop-links-v1`"
+          "title": "Completed results: `unet-crop-links-v1`"
         },
         {
           "line": 14,
@@ -1512,12 +1512,12 @@
         {
           "line": 37,
           "level": 2,
-          "title": "Risultati misurati"
+          "title": "Measured results"
         },
         {
           "line": 62,
           "level": 2,
-          "title": "Perché peggiora"
+          "title": "Why performance worsens"
         },
         {
           "line": 124,
@@ -1535,7 +1535,7 @@
           "title": "Verifica, hardware e limiti"
         }
       ],
-      "title": "Risultati conclusi: `unet-crop-links-v1`"
+      "title": "Completed results: `unet-crop-links-v1`"
     },
     {
       "root": "repository",
@@ -1594,10 +1594,10 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Riesame delle GT e delle reti — 14 ottobre 2026"
+          "title": "GT and network review — 14 October 2026"
         }
       ],
-      "title": "Riesame delle GT e delle reti — 14 ottobre 2026"
+      "title": "GT and network review — 14 October 2026"
     },
     {
       "root": "repository",
@@ -1726,40 +1726,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+          "title": "AdaSpot: Text + Kernel + Gap, first controlled experiment"
         },
         {
           "line": 16,
           "level": 2,
-          "title": "Protocollo e riuso"
+          "title": "Protocol and reuse"
         },
         {
           "line": 36,
           "level": 2,
-          "title": "Target, loss e decoder"
+          "title": "Targets, loss, and decoder"
         },
         {
           "line": 67,
           "level": 2,
-          "title": "Metriche, checkpoint e risultati"
+          "title": "Metrics, checkpoints, and results"
         },
         {
           "line": 94,
           "level": 2,
-          "title": "Avvio GPU e controllo"
+          "title": "GPU launch and monitoring"
         },
         {
           "line": 121,
           "level": 2,
-          "title": "Qualifica dell'implementazione"
+          "title": "Implementation qualification"
         },
         {
           "line": 147,
           "level": 2,
-          "title": "Verifica dei precedenti, 15 ottobre 2026"
+          "title": "Prior-work audit, 15 October 2026"
         }
       ],
-      "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+      "title": "AdaSpot: Text + Kernel + Gap, first controlled experiment"
     },
     {
       "root": "repository",
@@ -1912,65 +1912,65 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+          "title": "Agent experiment audit —11 October2026"
         },
         {
           "line": 9,
           "level": 2,
-          "title": "Esito principale"
+          "title": "Main finding"
         },
         {
           "line": 25,
           "level": 2,
-          "title": "Protocollo e comparabilità"
+          "title": "Protocol and comparability"
         },
         {
           "line": 54,
           "level": 2,
-          "title": "Research V2: risultati completi"
+          "title": "Research V2:complete results"
         },
         {
           "line": 89,
           "level": 3,
-          "title": "Perché i pixel links falliscono qui"
+          "title": "Why pixel links fail here"
         },
         {
           "line": 116,
           "level": 2,
-          "title": "Secondo passaggio addestrato sui crop"
+          "title": "Second pass trained on crops"
         },
         {
           "line": 146,
           "level": 2,
-          "title": "Text+Kernel, centri e scelta conservativa dei crop"
+          "title": "Text+Kernel,centers,and conservative crops"
         },
         {
           "line": 189,
           "level": 2,
-          "title": "Risoluzione, recall e regole frozen"
+          "title": "Resolution,recall,and frozen rules"
         },
         {
           "line": 217,
           "level": 3,
-          "title": "GT crop: 838/983, non una conferma del precedente 93%"
+          "title": "GT crops:838/983,not confirmation of earlier93%"
         },
         {
           "line": 233,
           "level": 2,
-          "title": "Evitare duplicazioni e delimitare la nuova prova"
+          "title": "Avoid duplication and bound the new experiment"
         },
         {
           "line": 256,
           "level": 2,
-          "title": "Evidenza e limiti dell'audit"
+          "title": "Audit evidence and limitations"
         },
         {
           "line": 281,
           "level": 2,
-          "title": "Priorità dei prossimi test"
+          "title": "Priorities for next tests"
         }
       ],
-      "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+      "title": "Agent experiment audit —11 October2026"
     },
     {
       "root": "repository",
@@ -2241,40 +2241,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "CLIP e PARSeq sul pool ad alto recall"
+          "title": "CLIP and PARSeq on the high-recall pool"
         },
         {
           "line": 8,
           "level": 2,
-          "title": "Quali esperimenti sono stati trovati"
+          "title": "Existing experiments found"
         },
         {
           "line": 39,
           "level": 2,
-          "title": "Input autentici e separazione delle annotazioni"
+          "title": "Authentic inputs and annotation separation"
         },
         {
           "line": 60,
           "level": 2,
-          "title": "Segnali provati"
+          "title": "Signals tested"
         },
         {
           "line": 87,
           "level": 2,
-          "title": "Precisione a recall conservato"
+          "title": "Precision while retaining recall"
         },
         {
           "line": 102,
           "level": 2,
-          "title": "Esecuzione"
+          "title": "Execution"
         },
         {
           "line": 130,
           "level": 2,
-          "title": "Verifiche"
+          "title": "Checks"
         }
       ],
-      "title": "CLIP e PARSeq sul pool ad alto recall"
+      "title": "CLIP and PARSeq on the high-recall pool"
     },
     {
       "root": "repository",
@@ -2309,30 +2309,30 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+          "title": "New CLIP uses and GPU comparison command"
         },
         {
           "line": 9,
           "level": 2,
-          "title": "Un comando dal terminale dell'host"
+          "title": "One command from the host terminal"
         },
         {
           "line": 56,
           "level": 2,
-          "title": "Ipotesi implementate"
+          "title": "Implemented hypotheses"
         },
         {
           "line": 105,
           "level": 2,
-          "title": "Fonti e ulteriori idee"
+          "title": "Sources and further ideas"
         },
         {
           "line": 126,
           "level": 2,
-          "title": "Verifiche già eseguite in questa sessione"
+          "title": "Checks performed in this session"
         }
       ],
-      "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+      "title": "New CLIP uses and GPU comparison command"
     },
     {
       "root": "repository",
@@ -2533,30 +2533,30 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+          "title": "Completed CLIP comparison: B/32, B/16, and L/14"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "Risultati principali"
+          "title": "Main results"
         },
         {
           "line": 51,
           "level": 2,
-          "title": "Le descrizioni aiutano il prompt?"
+          "title": "Do descriptions help the prompt?"
         },
         {
           "line": 66,
           "level": 2,
-          "title": "«La parola è corretta?» e discriminazione delle lettere"
+          "title": "Word correctness and letter discrimination"
         },
         {
           "line": 96,
           "level": 2,
-          "title": "Provenienza, hardware e verifiche"
+          "title": "Provenance, hardware, and checks"
         }
       ],
-      "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+      "title": "Completed CLIP comparison: B/32, B/16, and L/14"
     },
     {
       "root": "repository",
@@ -2567,45 +2567,45 @@
         {
           "line": 1,
           "level": 1,
-          "title": "CLIP per verificare le trascrizioni PARSeq"
+          "title": "CLIP verification of PARSeq transcriptions"
         },
         {
           "line": 7,
           "level": 2,
-          "title": "Come si inserisce nel progetto"
+          "title": "Place in the project"
         },
         {
           "line": 22,
           "level": 2,
-          "title": "Implementazioni CLIP esistenti"
+          "title": "Existing CLIP implementations"
         },
         {
           "line": 37,
           "level": 2,
-          "title": "Idee dalla letteratura"
+          "title": "Literature ideas"
         },
         {
           "line": 58,
           "level": 2,
-          "title": "Confronto controllato"
+          "title": "Controlled comparison"
         },
         {
           "line": 108,
           "level": 2,
-          "title": "Metriche e limiti"
+          "title": "Metrics and limitations"
         },
         {
           "line": 131,
           "level": 2,
-          "title": "Ripetere il test e confrontare i checkpoint"
+          "title": "Repeat and compare checkpoints"
         },
         {
           "line": 205,
           "level": 2,
-          "title": "Risultati misurati il 7 ottobre 2026"
+          "title": "Results measured on7 October2026"
         }
       ],
-      "title": "CLIP per verificare le trascrizioni PARSeq"
+      "title": "CLIP verification of PARSeq transcriptions"
     },
     {
       "root": "repository",
@@ -2616,50 +2616,50 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+          "title": "Contextual OCR correction: frozen TRAIN comparison v1"
         },
         {
           "line": 3,
           "level": 2,
-          "title": "Scopo e confini"
+          "title": "Scope and boundaries"
         },
         {
           "line": 14,
           "level": 2,
-          "title": "Modelli e input congelati prima dei risultati"
+          "title": "Models and inputs frozen before outcomes"
         },
         {
           "line": 45,
           "level": 2,
-          "title": "Prompt, output e protezioni"
+          "title": "Prompts, outputs, and safeguards"
         },
         {
           "line": 64,
           "level": 2,
-          "title": "Provenienza, cache e ripresa"
+          "title": "Provenance, cache, and resume"
         },
         {
           "line": 81,
           "level": 2,
-          "title": "Metriche e interpretazione"
+          "title": "Metrics and interpretation"
         },
         {
           "line": 100,
           "level": 2,
-          "title": "Comando PAPER"
+          "title": "PAPER command"
         },
         {
           "line": 115,
           "level": 2,
-          "title": "Classificazione scientifica"
+          "title": "Scientific classification"
         },
         {
           "line": 123,
           "level": 2,
-          "title": "Verifiche completate prima del run GPU"
+          "title": "Checks completed before GPU run"
         }
       ],
-      "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+      "title": "Contextual OCR correction: frozen TRAIN comparison v1"
     },
     {
       "root": "repository",
@@ -3344,20 +3344,20 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Macchina PAPER e comandi"
+          "title": "PAPER host and commands"
         },
         {
           "line": 12,
           "level": 2,
-          "title": "Prima di eseguire"
+          "title": "Before running commands"
         },
         {
           "line": 39,
           "level": 2,
-          "title": "Posizioni operative"
+          "title": "Operational locations"
         }
       ],
-      "title": "Macchina PAPER e comandi"
+      "title": "PAPER host and commands"
     },
     {
       "root": "repository",
@@ -3464,40 +3464,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Tre test: dalla maschera V3 a crop leggibili"
+          "title": "Three tests: from V3 masks to readable crops"
         },
         {
           "line": 11,
           "level": 2,
-          "title": "Protocollo congelato"
+          "title": "Frozen protocol"
         },
         {
           "line": 28,
           "level": 2,
-          "title": "Test1: budget dei crop — completato"
+          "title": "Test1: crop budget — complete"
         },
         {
           "line": 50,
           "level": 2,
-          "title": "Test2: separazioni/unioni e selettore"
+          "title": "Test2: splits/merges and selector"
         },
         {
           "line": 66,
           "level": 2,
-          "title": "Test3: rifinitore supervisionato dal riconoscimento"
+          "title": "Test3: recognition-supervised refiner"
         },
         {
           "line": 87,
           "level": 2,
-          "title": "Risultati completi: test2/3"
+          "title": "Complete test2/3 results"
         },
         {
           "line": 128,
           "level": 2,
-          "title": "Esecuzione e controllo"
+          "title": "Execution and monitoring"
         }
       ],
-      "title": "Tre test: dalla maschera V3 a crop leggibili"
+      "title": "Three tests: from V3 masks to readable crops"
     },
     {
       "root": "repository",
@@ -5052,40 +5052,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Table5: verifica delle fonti e significato di accuracy"
+          "title": "Table5: source verification and meaning of accuracy"
         },
         {
           "line": 14,
           "level": 2,
-          "title": "Corrispondenze Total-Text"
+          "title": "Total-Text correspondences"
         },
         {
           "line": 27,
           "level": 2,
-          "title": "Verifica delle righe ICDAR"
+          "title": "ICDAR row verification"
         },
         {
           "line": 56,
           "level": 2,
-          "title": "DeepSolo e le differenze dichiarate"
+          "title": "DeepSolo and stated differences"
         },
         {
           "line": 72,
           "level": 2,
-          "title": "Come viene calcolato il punteggio"
+          "title": "Score calculation"
         },
         {
           "line": 105,
           "level": 2,
-          "title": "Implicazioni per i nostri esperimenti"
+          "title": "Implications for our experiments"
         },
         {
           "line": 122,
           "level": 2,
-          "title": "Evidenza e riproducibilità"
+          "title": "Evidence and reproducibility"
         }
       ],
-      "title": "Table5: verifica delle fonti e significato di accuracy"
+      "title": "Table5: source verification and meaning of accuracy"
     },
     {
       "root": "repository",
@@ -5120,35 +5120,35 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Guida al lavoro e ai confronti"
+          "title": "Research and comparison guide"
         },
         {
           "line": 7,
           "level": 2,
-          "title": "Dove iniziare"
+          "title": "Where to start"
         },
         {
           "line": 29,
           "level": 2,
-          "title": "Cercare senza caricare tutta la cronologia"
+          "title": "Search without loading the entire history"
         },
         {
           "line": 47,
           "level": 2,
-          "title": "Confrontare i risultati"
+          "title": "Compare results"
         },
         {
           "line": 81,
           "level": 2,
-          "title": "Quali confronti sono disponibili"
+          "title": "Available comparisons"
         },
         {
           "line": 114,
           "level": 2,
-          "title": "Aggiornare senza perdere evidenze"
+          "title": "Update without losing evidence"
         }
       ],
-      "title": "Guida al lavoro e ai confronti"
+      "title": "Research and comparison guide"
     },
     {
       "root": "repository",
@@ -5173,25 +5173,25 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+          "title": "Navigation and reporting refactor — 17 October 2026"
         },
         {
           "line": 7,
           "level": 2,
-          "title": "Problemi rilevati e interventi"
+          "title": "Findings and changes"
         },
         {
           "line": 25,
           "level": 2,
-          "title": "Conservazione verificata"
+          "title": "Verified preservation"
         },
         {
           "line": 40,
           "level": 2,
-          "title": "Verifica eseguita"
+          "title": "Checks performed"
         }
       ],
-      "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+      "title": "Navigation and reporting refactor — 17 October 2026"
     },
     {
       "root": "repository",
@@ -5539,50 +5539,50 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+          "title": "Research status and directions:masks,instances,crops"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "Conclusione operativa"
+          "title": "Operational conclusion"
         },
         {
           "line": 27,
           "level": 2,
-          "title": "Aggiornamento sui filoni paralleli"
+          "title": "Parallel research update"
         },
         {
           "line": 59,
           "level": 2,
-          "title": "Analisi aggiuntiva effettuata"
+          "title": "Additional analysis performed"
         },
         {
           "line": 80,
           "level": 3,
-          "title": "Complementarità dei crop: potenziale, non nuovo risultato"
+          "title": "Crop complementarity:potential,not a new result"
         },
         {
           "line": 105,
           "level": 3,
-          "title": "Il costo finora non quantificato"
+          "title": "Previously unquantified cost"
         },
         {
           "line": 115,
           "level": 2,
-          "title": "Direzioni promettenti, in ordine"
+          "title": "Promising directions,in order"
         },
         {
           "line": 168,
           "level": 2,
-          "title": "Cosa de-prioritizzare e come verificare"
+          "title": "Lower priorities and validation"
         },
         {
           "line": 184,
           "level": 2,
-          "title": "Evidenze e riproducibilità"
+          "title": "Evidence and reproducibility"
         }
       ],
-      "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+      "title": "Research status and directions:masks,instances,crops"
     },
     {
       "root": "repository",
@@ -6056,45 +6056,45 @@
         {
           "line": 1,
           "level": 1,
-          "title": "BERT dopo PARSeq: Total-Text letterbox"
+          "title": "BERT after PARSeq:Total-Text letterbox"
         },
         {
           "line": 6,
           "level": 2,
-          "title": "Percorso effettivo del progetto"
+          "title": "Actual project path"
         },
         {
           "line": 37,
           "level": 2,
-          "title": "Modello e ricerca"
+          "title": "Model and research"
         },
         {
           "line": 67,
           "level": 2,
-          "title": "Esperimento congelato"
+          "title": "Frozen experiment"
         },
         {
           "line": 110,
           "level": 2,
-          "title": "Esecuzione"
+          "title": "Execution"
         },
         {
           "line": 165,
           "level": 2,
-          "title": "Metriche e stato verificato"
+          "title": "Metrics and verified state"
         },
         {
           "line": 199,
           "level": 2,
-          "title": "Risultati reali completati — 6 ottobre 2026"
+          "title": "Completed real results —6 October2026"
         },
         {
           "line": 225,
           "level": 3,
-          "title": "Diagnosi e ablation della protezione"
+          "title": "Protection diagnosis and ablation"
         }
       ],
-      "title": "BERT dopo PARSeq: Total-Text letterbox"
+      "title": "BERT after PARSeq:Total-Text letterbox"
     },
     {
       "root": "repository",
@@ -6790,60 +6790,60 @@
         {
           "line": 1,
           "level": 1,
-          "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+          "title": "TRAIN: localization errors, crop completeness, and OCR recovery"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "1. Stato congelato e vincoli"
+          "title": "1. Frozen state and constraints"
         },
         {
           "line": 24,
           "level": 2,
-          "title": "2. Baseline TRAIN verificata"
+          "title": "2. Verified TRAIN baseline"
         },
         {
           "line": 40,
           "level": 2,
-          "title": "3. Primo audit: quale crop riceve PARSeq?"
+          "title": "3. First audit: which crop reaches PARSeq?"
         },
         {
           "line": 61,
           "level": 2,
-          "title": "4. Secondo audit: glifi mancanti e testo estraneo"
+          "title": "4. Second audit: missing glyphs and extraneous text"
         },
         {
           "line": 93,
           "level": 2,
-          "title": "5. Oracle geometrico: quanto recuperano i componenti già predetti?"
+          "title": "5. Geometric oracle: recovery from existing predicted components"
         },
         {
           "line": 118,
           "level": 2,
-          "title": "6. Prova OCR GPU sugli80 casi"
+          "title": "6. GPU OCR on80 cases"
         },
         {
           "line": 146,
           "level": 2,
-          "title": "7. Conclusioni e decisioni"
+          "title": "7. Conclusions and decisions"
         },
         {
           "line": 159,
           "level": 2,
-          "title": "8. Prossimo passo proposto, non ancora eseguito"
+          "title": "8. Proposed next step,not performed"
         },
         {
           "line": 171,
           "level": 2,
-          "title": "9. Artifact, hash e comandi"
+          "title": "9. Artifacts,hashes,and commands"
         },
         {
           "line": 198,
           "level": 2,
-          "title": "10. Provenienza scientifica e limiti ancora aperti"
+          "title": "10. Scientific provenance and open limitations"
         }
       ],
-      "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+      "title": "TRAIN: localization errors, crop completeness, and OCR recovery"
     },
     {
       "root": "repository",
@@ -7130,40 +7130,40 @@
         {
           "line": 1,
           "level": 1,
-          "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+          "title": "Centerline and radius: a new experiment on the frozen U-Net"
         },
         {
           "line": 10,
           "level": 2,
-          "title": "Perché questa prova"
+          "title": "Motivation"
         },
         {
           "line": 25,
           "level": 2,
-          "title": "Protocollo fissato prima del training"
+          "title": "Protocol fixed before training"
         },
         {
           "line": 63,
           "level": 2,
-          "title": "Tre crop sulle stesse immagini e lo stesso checkpoint"
+          "title": "Three crops on the same images and checkpoint"
         },
         {
           "line": 91,
           "level": 2,
-          "title": "Qualifica locale e limiti"
+          "title": "Local qualification and limitations"
         },
         {
           "line": 126,
           "level": 2,
-          "title": "Comando sul computer con GPU"
+          "title": "Command on the GPU machine"
         },
         {
           "line": 169,
           "level": 2,
-          "title": "Altre direzioni nuove, da provare separatamente"
+          "title": "Other new directions to test separately"
         }
       ],
-      "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+      "title": "Centerline and radius: a new experiment on the frozen U-Net"
     },
     {
       "root": "repository",
@@ -8124,7 +8124,7 @@
         {
           "line": 1,
           "level": 1,
-          "title": "AdaSpot Gap: audit del run completo — 16 ottobre 2026"
+          "title": "AdaSpot Gap: complete-run audit — 16 October 2026"
         },
         {
           "line": 5,
@@ -8134,17 +8134,17 @@
         {
           "line": 13,
           "level": 2,
-          "title": "Risultati dei checkpoint selezionati"
+          "title": "Selected-checkpoint results"
         },
         {
           "line": 25,
           "level": 2,
-          "title": "Evidenze sul mancato guadagno"
+          "title": "Evidence of absent improvement"
         },
         {
           "line": 32,
           "level": 2,
-          "title": "Indicazione successiva, senza nuovi esperimenti avviati"
+          "title": "Subsequent instruction, without launching new experiments"
         },
         {
           "line": 36,
@@ -8152,7 +8152,7 @@
           "title": "Tracce di verifica"
         }
       ],
-      "title": "AdaSpot Gap: audit del run completo — 16 ottobre 2026"
+      "title": "AdaSpot Gap: complete-run audit — 16 October 2026"
     },
     {
       "root": "runs",
@@ -8972,5 +8972,6 @@
         "result_class": "approximate reproduction"
       }
     }
-  ]
+  ],
+  "presentation_language": "English translation; original evidence hashes, byte counts, paths and line numbers retained"
 }

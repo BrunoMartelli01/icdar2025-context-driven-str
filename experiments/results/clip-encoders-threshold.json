@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "clip-encoders-threshold",
+    "title": "Long-CLIP B/L and LLM2CLIP: fixed margin_scene_en / train_threshold",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TEST official / explored",
+    "metric": "word_multiset_casefold",
+    "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+    "source": {
+      "root": "external_artifacts",
+      "path": "clip-specialized-comparison-v1/final/comparison.json",
+      "sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681"
+    },
+    "population": {
+      "gt": 2204,
+      "images": 300
+    },
+    "limitations": [
+      "Fixed prompt family, not an assertion that it is every encoder's TRAIN-selected winner.",
+      "Descriptive TEST budgets and transferred TRAIN cuts remain separate; acceptance counts are displayed.",
+      "Feature timing scopes differ from OCR/training. No Table5 or strict claim."
+    ],
+    "evidence": [
+      "docs/CLIP_SPECIALIZED_ROUTERS.md"
+    ],
+    "performance_scope": "Feature seconds are the original model feature-export duration; not end-to-end latency or a matched timing benchmark.",
+    "expected_rows": 3
+  },
+  "source_path": "external_artifacts:clip-specialized-comparison-v1/final/comparison.json",
+  "source_sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "PASS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction",
+    "doc:/claim_label": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "llm2clip_l14_336",
+      "source_pointer": "/models/llm2clip_l14_336",
+      "tp": 1464,
+      "predictions": 2158,
+      "gt": 2204,
+      "images": 300,
+      "fp": 694,
+      "fn": 740,
+      "precision": 0.6784059314179796,
+      "recall": 0.6642468239564429,
+      "f1": 0.671251719394773,
+      "tn0": 0.505175983436853,
+      "extra": {
+        "accepted_images": 174,
+        "fallback_images": 126,
+        "feature_seconds_reported": 1443.6267311596312
+      }
+    },
+    {
+      "variant": "longclip_b",
+      "source_pointer": "/models/longclip_b",
+      "tp": 1456,
+      "predictions": 2155,
+      "gt": 2204,
+      "images": 300,
+      "fp": 699,
+      "fn": 748,
+      "precision": 0.6756380510440835,
+      "recall": 0.6606170598911071,
+      "f1": 0.6680431291580637,
+      "tn0": 0.5015501205649329,
+      "extra": {
+        "accepted_images": 176,
+        "fallback_images": 124,
+        "feature_seconds_reported": 245.9825597642921
+      }
+    },
+    {
+      "variant": "longclip_l",
+      "source_pointer": "/models/longclip_l",
+      "tp": 1451,
+      "predictions": 2180,
+      "gt": 2204,
+      "images": 300,
+      "fp": 729,
+      "fn": 753,
+      "precision": 0.6655963302752294,
+      "recall": 0.6583484573502723,
+      "f1": 0.6619525547445255,
+      "tn0": 0.49471530855779067,
+      "extra": {
+        "accepted_images": 186,
+        "fallback_images": 114,
+        "feature_seconds_reported": 402.66949955327436
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "kernel-fresh",
+    "title": "New Kernel-only U-Net: padding",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "kernel-only-fresh-v1-20261016/results.json",
+      "sha256": "d11e6ed5c4c37bd15acccb6e4dd24d246616e9abed5e37364ee469b1279ff43e"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+      "Padding is in native-mask pixels; extraction from joint training and a newly initialized network are separate experiments."
+    ],
+    "evidence": [
+      "docs/KERNEL_ONLY_FRESH.md"
+    ],
+    "expected_rows": 6
+  },
+  "source_path": "runs:kernel-only-fresh-v1-20261016/results.json",
+  "source_sha256": "d11e6ed5c4c37bd15acccb6e4dd24d246616e9abed5e37364ee469b1279ff43e",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "pad0",
+      "source_pointer": "/arms/pad0",
+      "tp": 262,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 794,
+      "fn": 721,
+      "precision": 0.2481060606060606,
+      "recall": 0.26653102746693796,
+      "f1": 0.25698871996076506,
+      "tn0": 0.14743950478334272,
+      "extra": {}
+    },
+    {
+      "variant": "pad12",
+      "source_pointer": "/arms/pad12",
+      "tp": 93,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 963,
+      "fn": 890,
+      "precision": 0.08806818181818182,
+      "recall": 0.09460834181078331,
+      "f1": 0.09122118685630211,
+      "tn0": 0.047790339157245634,
+      "extra": {}
+    },
+    {
+      "variant": "pad2",
+      "source_pointer": "/arms/pad2",
+      "tp": 463,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 593,
+      "fn": 520,
+      "precision": 0.4384469696969697,
+      "recall": 0.47100712105798576,
+      "f1": 0.45414418832761155,
+      "tn0": 0.29378172588832485,
+      "extra": {}
+    },
+    {
+      "variant": "pad4",
+      "source_pointer": "/arms/pad4",
+      "tp": 404,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 652,
+      "fn": 579,
+      "precision": 0.38257575757575757,
+      "recall": 0.41098677517802645,
+      "f1": 0.39627268268759197,
+      "tn0": 0.2470948012232416,
+      "extra": {}
+    },
+    {
+      "variant": "pad6",
+      "source_pointer": "/arms/pad6",
+      "tp": 280,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 776,
+      "fn": 703,
+      "precision": 0.26515151515151514,
+      "recall": 0.28484231943031535,
+      "f1": 0.2746444335458558,
+      "tn0": 0.15918135304150086,
+      "extra": {}
+    },
+    {
+      "variant": "pad8",
+      "source_pointer": "/arms/pad8",
+      "tp": 204,
+      "predictions": 1056,
+      "gt": 983,
+      "fp": 852,
+      "fn": 779,
+      "precision": 0.19318181818181818,
+      "recall": 0.20752797558494404,
+      "f1": 0.20009808729769496,
+      "tn0": 0.1111716621253406,
+      "extra": {}
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

@@ -1,136 +1,135 @@
-# Correzione contestuale OCR: confronto TRAIN congelato v1
+# Contextual OCR correction: frozen TRAIN comparison v1
 
-## Scopo e confini
+## Scope and boundaries
 
-PRACTICAL_APPROXIMATION / modalità APPROXIMATE. Nuovo diagnostico, non sostituisce
-Algorithm1, practical-remap-v1/v2, MPNet/scoring, routing o DeepSolo. Non è Table5.
-Nessuna nuova segmentation, PARSeq, caption o training. Nessun TEST.
+PRACTICAL_APPROXIMATION / APPROXIMATE mode. New diagnostic; it does not replace
+Algorithm1, practical-remap-v1/v2, MPNet/scoring, routing, or DeepSolo. Not Table5.
+No new segmentation, PARSeq, captions, training, or TEST.
 
-Si tiene fisso V1 come controllo già auditato (502/849 exact,578/849 fuzzy), non
-come affermazione che sia il migliore per ogni metrica. Cambiare contemporaneamente
-localizer e correttore impedirebbe di isolare l'effetto del modello linguistico.
-L'oracle GT-dependent che recupera78/80 non entra nel generatore o nel prompt.
+V1 stays fixed as an audited control (502/849 exact,578/849 fuzzy), not a claim
+that it is best for every metric. Changing localizer and corrector together
+would prevent isolating the language-model effect. The GT-dependent78/80
+recovery oracle never enters generation or prompts.
 
-## Modelli e input congelati prima dei risultati
+## Models and inputs frozen before outcomes
 
-| Modello | Revisione | Precisione |
+| Model | Revision | Precision |
 |---|---|---|
 |google/flan-t5-base|7bcac572ce56db69c1ea7c8af255c5d7c9672fc2|FP32|
 |Qwen/Qwen2.5-0.5B-Instruct|7ae557604adf67be50417f59c2c2f167def9a775|BF16|
 |Qwen/Qwen2.5-1.5B-Instruct|989aa7980e4cf806f80c7fef2b1adb7bc71aa306|BF16|
 
-Fonti ufficiali: [FLAN-T5](https://huggingface.co/google/flan-t5-base),
+Official sources: [FLAN-T5](https://huggingface.co/google/flan-t5-base),
 [Qwen0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct),
 [Qwen1.5B](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/commit/989aa7980e4cf806f80c7fef2b1adb7bc71aa306).
-Revisioni verificate tramite repository/config ufficiali, non mutable main al run.
+Revisions checked against official repositories/configs, not mutable main at runtime.
 
-Per ogni modello si confrontano tre condizioni, una chiamata per immagine:
+Three conditions per model, one call per image:
 
-1. `ocr_only`: tutti i testi dei crop e bbox in ordine geometrico.
-2. `ocr_caption`: stessi input più caption InstructBLIP completa già cached.
-3. `caption_only`: estrazione del testo dichiarato visibile dalla sola caption;
-   controllo senza OCR e senza corrispondenza spaziale.
+1. `ocr_only`: all crop texts/bboxes in geometric order.
+2. `ocr_caption`: identical inputs plus complete cached InstructBLIP caption.
+3. `caption_only`: extract text claimed visible from caption alone; no OCR or
+   spatial correspondence.
 
-Totale massimo2061 generazioni (3 modelli x3 condizioni x229 immagini).
-Modelli caricati uno alla volta nell'ambiente principale esistente. Nessuna
-installazione/upgrade. Download solo snapshot necessari in cache HF persistente,
-soli safetensors/tokenizer/config, non copie PyTorch/TF/Flax. Circa5GB di nuovi
-pesi se nessuno è già cached; nessun salvataggio duplicato di immagini/crop.
+Maximum2061 generations (3 models x3 conditions x229 images). Models load one
+at a time in the existing main environment. No installation/upgrade. Download
+only necessary snapshots to persistent HF cache: safetensors/tokenizer/config,
+not PyTorch/TF/Flax copies. Approximately5GB new weights if none are cached;
+no duplicate image/crop storage.
 
 Config: `configs/approximate/contextual_ocr_correction_train_v1.json`.
-Greedy,beam1,max768 nuovi token,max2048 token input,batch1,seed0. Nessun tuning
-dopo risultati. Input oltre limite non troncati di nascosto: astensione esplicita.
-Le differenze FP32/BF16 sono registrate come HARDWARE_DEVIATION.
+Greedy, beam1, max768 new tokens, max2048 input tokens, batch 1, seed 0. No outcome-based
+tuning. Over-limit inputs are not silently truncated: explicit abstention.
+FP32/BF16 differences are HARDWARE_DEVIATION.
 
-## Prompt, output e protezioni
+## Prompts, outputs, and safeguards
 
-- I prompt completi sono nella config e salvati con ogni generazione.
-- Testi dei blocchi e caption sono dati, mai istruzioni da eseguire.
-- Non passare GT, sample ID, percorsi, risultati dell'oracle o esattezza precedente.
-- Non inventare confidenze: l'input congelato usato qui espone bbox e testo,
-  non confidenze calibrate. Non aggiungere una stima artificiale.
-- Output JSON con esattamente gli ID originali e azioni keep/correct/uncertain.
-- Keep/uncertain devono mantenere identico il testo. Nessun ID nuovo, fusione
-  di ID, riempimento di blocchi originariamente vuoti o cancellazione con correct.
-- Un output malformato viene conservato con errore e astensione esplicita:
-  per l'immagine si mantengono tutti gli OCR originali; caption_only produce
-  output vuoto. Non sparisce dal denominatore e non si riprova con altri prompt.
-- Runtime/OOM/checkpoint mismatch interrompono il run con errore, non sostituiscono
-  modello o precisione. L'astensione di schema è parte dichiarata del protocollo,
-  non un errore runtime ignorato.
-- Il prompt NON garantisce assenza di allucinazioni; JSON corretto non significa
-  testo corretto. Per questo si misurano esplicitamente danni e surplus.
+- Complete prompts are in config and saved with each generation.
+- Block text/captions are data, never instructions to execute.
+- Never provide GT, sample IDs, paths, oracle results, or prior correctness.
+- Do not invent confidences: these frozen inputs expose boxes/text, not
+  calibrated confidences; no artificial estimate is added.
+- JSON output must contain exactly original IDs and keep/correct/uncertain actions.
+- Keep/uncertain preserve text exactly. No new/merged IDs, filling originally
+  empty blocks, or deletion through correct.
+- Malformed output is retained with error/explicit abstention: preserve all
+  original OCR for that image; caption_only emits empty output. It stays in
+  denominators and is not retried with different prompts.
+- Runtime/OOM/checkpoint mismatch aborts with error, without model/precision
+  substitution. Schema abstention is declared protocol, not ignored runtime error.
+- Prompts do NOT guarantee hallucination-free output; valid JSON need not be
+  correct text. Harm/surplus are explicitly measured.
 
-## Provenienza, cache e ripresa
+## Provenance, cache, and resume
 
-Input da `context-str-runs/caption-routing-five-models-train-v1`, report SHA:
+Inputs: `context-str-runs/caption-routing-five-models-train-v1`, report SHA:
 `389219133531817df915413a14ef01f727f0e6d710dc1d1eb177ad843e43b46b`.
-Verificati protocol seal,hash input,229 caption,modello caption e immagini associate.
-Il preparatore produce solo testo/bbox, nessun GT e nessuna lettura di immagini.
+Protocol seal, input hashes,229 captions, caption model, associated images verified.
+Preparation emits text/bboxes only, without GT or image reads.
 
-Per evaluation soltanto: audit
+Evaluation-only audit:
 `artifacts/diagnostics/train-v1-ocr-failure-audit-v1/results.json`, SHA
 `82acfe8d860aee1a0f7bf70b9308a83aefb4abc17561105c74324d8b990fc56a`.
 
-Protocollo e generazioni sono atomici e sigillati. Il restart verifica identità
-di prompt,codice,modello/runtime e riusa ogni risultato valido, inclusi gli output
-malformati già osservati. Un modello interamente completato non viene ricaricato.
-Hash dei pesi/config/tokenizer salvati al primo caricamento. Non sovrascrivere
-report con protocollo diverso; richiede un nuovo output directory/versione.
+Protocol/generations are atomic and sealed. Restart verifies prompt, code, model/
+runtime identity and reuses every valid result, including previously malformed
+outputs. Completed models are not reloaded. Weight/config/tokenizer hashes are
+saved on first load. Different protocols require a new output directory/version;
+never overwrite earlier reports.
 
-## Metriche e interpretazione
+## Metrics and interpretation
 
-- Exact casefold e fuzzy>=.8 sulle849 GT con associazione storica del crop fissa:
-  baseline502/578 riprodotta prima di qualsiasi GPU. Non scegliere un altro crop
-  usando il nuovo testo o la GT. Parole senza crop restano nel denominatore.
-- Conteggio errori corretti e parole corrette rovinate, per-word prima/dopo.
-- Conteggi lessicali separati: multiset casefold dei token whitespace per immagine,
-  duplicati limitati alla molteplicità GT. Recall,precision,surplus,missing.
-- Caption-only ha solo metriche lessicali: NON confrontare queste come se fossero
-  exact per crop. Surplus è proxy diagnostico, non prova di allucinazione, anche
-  a causa di Don't Care e della tokenizzazione.
-- Numero output invalidi e token-limit; tempi di correzione e VRAM per immagine;
-  loading e numero parametri nel metadata modello.
-- La latenza misurata NON comprende segmentation/PARSeq/caption/fallback. Nessuna
-  conclusione sul risparmio end-to-end prima di misurare l'intero sistema.
-- Nessuna promozione automatica: discutere guadagno netto, danni, surplus e costo.
-  Il TRAIN è stato esplorato ripetutamente; generalizzazione richiede validazione
-  indipendente dopo congelamento, non ottimizzazione sui suoi singoli errori.
+- Exact casefold and fuzzy>=.8 over 849 GT with fixed historical crop association:
+  baseline502/578 reproduced before GPU work. New text/GT never selects a
+  different crop. Words without crops remain in the denominator.
+- Per-word errors corrected and correct words harmed, before/after.
+- Separate lexical counts: per-image whitespace-token casefold multiset,
+  duplicates capped at GT multiplicity. Recall, precision, surplus, missing.
+- Caption-only has lexical metrics only: do NOT treat them as crop exactness.
+  Surplus is diagnostic, not hallucination proof, also because of Don't Care
+  and tokenization.
+- Invalid-output/token-limit counts; correction time/VRAM per image;
+  loading/parameter counts in model metadata.
+- Measured latency excludes segmentation/PARSeq/caption/fallback. No
+  end-to-end savings conclusion before measuring the whole system.
+- No automatic promotion: discuss net benefit, harm, surplus, cost. Repeatedly
+  explored TRAIN needs independent validation after freezing to establish
+  generalization, not optimization on individual known errors.
 
-## Comando PAPER
+## PAPER command
 
 ```bash
 cd /extra1/bmartelli/projects/icdar2025-context-driven-str
 bash diagnostics/run_contextual_ocr_correction_host.sh /extra1/bmartelli
 ```
 
-Foreground,progress visibile; usa `.venvs/context-str-main-py311` già esistente.
-Solo l'utente esegue GPU. Codex può eseguire prepare,evaluate e unit test CPU.
+Foreground with visible progress; uses existing `.venvs/context-str-main-py311`.
+Only the user runs GPU. Codex may run preparation, evaluation, CPU unit tests.
 
-Output persistenti sotto `artifacts/diagnostics/contextual-ocr-correction-train-v1/`:
+Persistent outputs: `artifacts/diagnostics/contextual-ocr-correction-train-v1/`:
 `protocol.json`, `inputs.json`, `baseline.json`, `models/`, `generations/`,
-`results.json`, `results.md`; errori in `errors/`. Il report finale viene prodotto
-solo quando tutte le generazioni richieste sono presenti e verificate.
+`results.json`, `results.md`; errors under `errors/`. Final report requires all
+requested generations to exist and pass verification.
 
-## Classificazione scientifica
+## Scientific classification
 
-`ASSUMPTION`: correzione generativa, prompt/schema/astensione, metriche diagnostiche
-e scelta V1 come controllo. `HARDWARE_DEVIATION`: caricamento sequenziale,batch1,
-FLAN FP32/Qwen BF16. `UNRESOLVED`: risultati Table5 comparabili e risparmio reale
-di fallback. Il paper sezioni3.3/3.4 descrive localizzazione e contesto, non questa
-correzione: nessuna modifica o pretesa di fedeltà del nuovo componente.
+`ASSUMPTION`: generative correction, prompts/schema/abstention, diagnostic metrics,
+V1 control choice. `HARDWARE_DEVIATION`: sequential loading, batch 1, FLAN FP32/
+Qwen BF16. `UNRESOLVED`: comparable Table5 results and actual fallback savings.
+Paper sections3.3/3.4 describe localization/context, not this correction;
+no original-component changes or new fidelity claim.
 
-## Verifiche completate prima del run GPU
+## Checks completed before GPU run
 
-- 36 test CPU passati: isolamento prompt, schema/ID, astensione, corruzione cache,
-  metriche recupero/danno/duplicati, regressioni caption-routing e joined-T3.
-- Import reali Transformers4.47.1, AutoConfig Qwen2 e GenerationConfig superati;
-  nessun modello caricato e nessuna chiamata CUDA eseguita.
-- py_compile, bash -n e git diff--check superati.
-- Prepare ed evaluation baseline eseguiti due volte: ripresa idempotente verificata,
-  229 immagini/1203 crop/229 caption,502 exact/578 fuzzy.
-- SHA protocol:`15d4eef2a0227969fd64944936b98f5e64cb898317f6b6432974cdffaf11c80a`.
-- SHA inputs:`a1b7320caceabd56f3816fcfbb4a84bd2e2bf4a885c65b97d35a7eb947fc33a4`.
-- SHA baseline:`2b700b21e3fe25e7568426869faa6f29ce26e0cad77acc1517a2d91f1a1b3c6c`.
+- 36 CPU tests passed: prompt isolation, schema/IDs, abstention, cache corruption,
+  recovery/harm/duplicate metrics, caption-routing/joined-T3 regressions.
+- Real Transformers4.47.1, Qwen2 AutoConfig, GenerationConfig imports passed;
+  no model loaded or CUDA call performed.
+- py_compile, bash -n, git diff--check passed.
+- Preparation/baseline evaluation executed twice: idempotent resume verified,
+  229 images/1203 crops/229 captions,502 exact/578 fuzzy.
+- Protocol SHA:`15d4eef2a0227969fd64944936b98f5e64cb898317f6b6432974cdffaf11c80a`.
+- Inputs SHA:`a1b7320caceabd56f3816fcfbb4a84bd2e2bf4a885c65b97d35a7eb947fc33a4`.
+- Baseline SHA:`2b700b21e3fe25e7568426869faa6f29ce26e0cad77acc1517a2d91f1a1b3c6c`.
 
-I risultati dei tre correttori sono ancora PENDING_GPU, non zero e non misurati.
+The three corrector results remain PENDING_GPU, unmeasured rather than zero.

@@ -1,168 +1,156 @@
-# Tre test: dalla maschera V3 a crop leggibili
+# Three tests: from V3 masks to readable crops
 
-2026-10-21 — **approximate reproduction**, ricerca esplorativa.
-Avviati su PAPER dopo autorizzazione dell'utente. Il TEST e l'holdout TRAIN
-sono già stati esplorati; questi esperimenti non sono una validazione indipendente
-né una riproduzione STRICT/Table5. Decisione: `MASK-CROP-TEST-001`.
+2026-10-21 — **approximate reproduction**, exploratory research.
+Launched on PAPER with user authorization. TEST and TRAIN holdout have already
+been explored; these experiments are neither independent validation nor
+STRICT/Table5 reproduction. Decision: `MASK-CROP-TEST-001`.
 
-Run esterno:
+External run:
 `/extra1/bmartelli/context-str-runs/mask-crop-three-tests-20261021-v1/`.
 
-## Protocollo congelato
+## Frozen protocol
 
-U-Net GuardedV3 epoca447, selezionata sulla validation TRAIN bboxWordF1,
+GuardedV3 U-Net epoch 447, selected on TRAIN validation bboxWordF1,
 SHA256 `5b44de7b88b5b1d636e8f53c586565f6491aabaae3ccea361e96e32d540c1faa`.
-U-Net e PARSeq restano congelati. Input RGB256, maschera nativa128, geometria
-stretch, soglia0.5, nessun filtro di area, padding1 nativo, ordinamento storico
-per bbox allargata. Riconoscimento PARSeq qualificato, AR+refine1, stesso
-checkpoint e trasformazione PIL bicubica32x128 per ogni confronto.
+U-Net/PARSeq remain frozen. RGB256, native 128 mask, stretch geometry, threshold 0.5,
+no area filter, native padding1, historical expanded-bbox ordering. Qualified
+PARSeq, AR+refine1, same checkpoint/PIL bicubic32x128 transform in every comparison.
 
-Metrica primaria: matching massimo uno-a-uno bbox **non allargata** IoU>=0.5
-e testo Unicode casefold esatto; punteggiatura mantenuta. Tutte le predizioni
-e tutte le annotazioni care contano, anche immagini senza proposte; nessuna
-neutralizzazione delle predizioni su ignore. Micro precisione/recall/F1.
-Per il rifinitore il box di localizzazione originale resta fisso: cambia il
-ritaglio RGB letto da PARSeq. I guadagni non possono derivare dal cambiare il
-box usato per valutare lo stesso testo.
+Primary metric: maximum one-to-one **unpadded** bbox IoU>=0.5 and exact Unicode
+casefold text, retaining punctuation. Every prediction/care annotation counts,
+including proposal-free images; no prediction neutralization on ignore.
+Micro precision/recall/F1. Refinement keeps original localization boxes fixed;
+only RGB crops read by PARSeq change. Gains cannot arise from changing the
+box used to evaluate the same text.
 
-## Test1: budget dei crop — completato
+## Test1: crop budget — complete
 
-300 immagini TEST,2204 parole. OCR effettivo sui crop aggiuntivi, non stima
-geometrica. Ogni crop identico mantiene la stessa lettura PARSeq congelata.
+300 TEST images,2204 words. Actual OCR on additional crops, not geometric
+estimation. Identical crops retain identical frozen PARSeq readings.
 
-| Limite | Crop | Corrette | Precisione | Recall | F1 | Recuperate/perse |
+| Limit | Crops | Correct | Precision | Recall | F1 | Gained/lost |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 10 | 2086 | 795 | 38,11% | 36,07% | 37,06% | 0/0 |
 | 20 | 2552 | 876 | 34,33% | 39,75% | 36,84% | 81/0 |
-| Tutte | 2688 | 904 | 33,63% | 41,02% | 36,96% | 109/0 |
+| All | 2688 | 904 | 33,63% | 41,02% | 36,96% | 109/0 |
 
-Le602 proposte aggiuntive richiedono568 nuove letture uniche; alcune erano già
-disponibili nella cache congelata di altre varianti di padding. La rimozione
-del cap recupera109 parole ma introduce493 ulteriori proposte che non aumentano
-i match esatti: F1 sostanzialmente invariato e precisione inferiore. Questo
-motiva una selezione migliore, non la promozione automatica del budget illimitato.
-Il cap10 del paper rimane il riferimento.
+The602 extra proposals require568 new unique readings; some already existed in
+frozen caches from other padding variants. Removing the cap recovers109 words
+but adds 493 proposals without more exact matches: F1 essentially unchanged,
+precision lower. This motivates better selection, not automatic unlimited-budget
+promotion. Paper cap10 remains the reference.
 
-Audit indipendente PASS:1800 cardinalità di matching ricontrollate con SciPy,
-denominatori completi, replay795 della baseline e hash delle fonti verificati.
-Risultati: `budget/results.json`, `budget/per_image.json`, `budget/audit.json`.
+Independent audit PASS:1800 matching cardinalities rechecked with SciPy,
+complete denominators, baseline795 replay, verified source hashes.
+Results: `budget/results.json`, `budget/per_image.json`, `budget/audit.json`.
 
-## Test2: separazioni/unioni e selettore
+## Test2: splits/merges and selector
 
-Ogni crop originale resta un'alternativa. Si generano gruppi di2–4 parti da
-semi ad alta soglia, erosione con ricostruzione geodetica e seam RGB/probabilità;
-unioni di coppie vicine ricompongono possibili frammenti. Si riusano i generatori
-esistenti conservando la corretta mappa stretch nativa128→RGB. Pool massimo64
-crop per immagine; generazione priva di GT.
+Every original crop remains an alternative. Generate groups of 2–4 parts using
+high-threshold seeds, geodesic-reconstruction erosion, and RGB/probability seams;
+neighbor-pair merges reconstruct possible fragments. Existing generators retain
+correct native 128→RGB stretch mapping. Maximum64 crops/image; GT-free generation.
 
-Un piccolo classificatore di correttezza usa geometria, supporto della maschera,
-testo/confidence PARSeq e tipo di proposta. Si addestra sulle1130 immagini TRAIN,
-con negativi incompleti, multiword e mal localizzati. Costo per crop e margine
-per sostituire un gruppo sono scelti sulle125 immagini TRAIN di holdout
-(983 care word), includendo la politica identità. Nessuna scelta dipende dal
-TEST. Il confronto salva sia le parole potenzialmente presenti nel pool sia
-quelle effettivamente emesse: il primo è un diagnostico, non un selettore.
+A small correctness classifier uses geometry, mask support, PARSeq text/confidence,
+and proposal type. Train on 1130 TRAIN images with incomplete, multiword, poorly
+localized negatives. Crop cost/group replacement margin are chosen on 125
+TRAIN holdout images (983 care words), including identity policy. TEST selects
+nothing. The comparison saves both potential pool words and emitted words:
+the former is a diagnostic, not a selector.
 
-## Test3: rifinitore supervisionato dal riconoscimento
+## Test3: recognition-supervised refiner
 
-Una piccola CNN riceve un contesto RGB+probabilità e il crop iniziale, e predice
-traslazione/scala limitate. Inizializzazione identità: gli hash dei crop RGB e
-il conteggio OCR devono riprodurre esattamente la baseline prima del training.
-Loss: cross-entropy causale PARSeq con EOS, copertura GT, contaminazione dei
-vicini e regressione geometrica. Il gradiente della sola loss PARSeq rispetto
-alle coordinate è verificato esplicitamente sul primo batch reale.
+A small CNN receives RGB+probability context and initial crop, predicting bounded
+translation/scale. Identity initialization: crop RGB hashes/OCR count must exactly
+reproduce baseline before training. Loss: causal PARSeq cross-entropy with EOS,
+GT coverage, neighbor contamination, geometry regression. Gradient from PARSeq loss
+alone to coordinates is explicitly checked on the first real batch.
 
-Massimo4096 proposte TRAIN selezionate con seed,8 epoche, batch16; esclusioni
-di charset/lunghezza/IoU riguardano soltanto gli esempi del training, mai il
-denominatore della valutazione. Si sceglie la migliore epoca **appresa** usando
-l'OCR reale sul completo holdout125. Il confronto registra anche l'identità
-e la politica accettata sul holdout, per non nascondere eventuali regressioni.
-Gli hash dei tensori PARSeq prima/dopo devono coincidere e i suoi parametri
-non ricevono gradienti né aggiornamenti.
+At most4096 seeded TRAIN proposals,8 epochs, batch 16; charset/length/IoU exclusions
+apply to training examples only, never evaluation denominators. Select best
+**learned** epoch using real OCR on the complete holdout125. Record identity
+and accepted holdout policy too, exposing regressions. Before/after PARSeq tensor
+hashes must match; its parameters receive neither gradients nor updates.
 
-Il campionatore bilineare differenziabile è un proxy di training; la valutazione
-usa sempre box interi sul RGB originale e il preprocessore PARSeq qualificato.
-La validità di questo trasferimento è una domanda sperimentale, non un'equivalenza.
+Differentiable bilinear sampling is a training proxy; evaluation always uses
+integer boxes on original RGB and qualified PARSeq preprocessing. Transfer
+validity is an experimental question, not an equivalence.
 
-## Risultati completi: test2/3
+## Complete test2/3 results
 
-Entrambi terminati,8 epoche del rifinitore completate. Audit indipendente PASS:
-4800 cardinalità di matching SciPy, popolazioni/denominatori, hash di pesi e
-codice, selezioni congelate prima del TEST e box di detection fissi verificati.
+Both finished, all 8 refiner epochs completed. Independent audit PASS:4800 SciPy
+matching cardinalities, populations/denominators, weight/code hashes, selections
+frozen before TEST, fixed detection boxes.
 
-| Variante | Crop | Corrette | Precisione | Recall | F1 | Recuperate/perse |
+| Variant | Crops | Correct | Precision | Recall | F1 | Gained/lost |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Baseline | 2086 | 795 | 38,11% | 36,07% | 37,06% | 0/0 |
-| **Test2: tagli/unioni selezionati** | **2190** | **870** | **39,73%** | **39,47%** | **39,60%** | **92/17** |
-| Test3: rifinitore appreso, epoca7 | 2086 | 768 | 36,82% | 34,85% | 35,80% | 32/59 |
-| Test3: politica accettata sul holdout | 2086 | 795 | 38,11% | 36,07% | 37,06% | 0/0 |
+| **Test2: selected splits/merges** | **2190** | **870** | **39,73%** | **39,47%** | **39,60%** | **92/17** |
+| Test3: learned refiner, epoch 7 | 2086 | 768 | 36,82% | 34,85% | 35,80% | 32/59 |
+| Test3: holdout-accepted policy | 2086 | 795 | 38,11% | 36,07% | 37,06% | 0/0 |
 
-Il selettore sceglie189 sostituzioni:78 threshold split,13 erosion split,
-40 seam split,58 unioni. Costo0.15/margine0 sono scelti sull'holdout TRAIN,
-dove si passa320→365 corrette (F1 35,01→39,00%). Sul TEST il beneficio netto
-è75 parole e2,54 punti F1, con precisione e recall entrambe migliori.
-Il pool completo contiene1032 match esatti potenziali in5537 proposte:
-è un diagnostico con GT, non l'accuratezza di un selettore disponibile.
+The selector chooses189 replacements:78 threshold splits,13 erosion splits,
+40 seam splits,58 merges. Cost0.15/margin 0 were selected on TRAIN holdout,
+where correct words improve320→365 (F1 35,01→39,00%). TEST net benefit is75
+words and 2,54 F1 points, with higher precision/recall. Full pool contains1032
+potential exact matches in5537 proposals: GT-assisted diagnostic, not accuracy
+of an available selector.
 
-Il rifinitore non supera la baseline sull'holdout: la migliore epoca appresa
-è7,309 corrette contro320; per questo la politica accettata mantiene i crop
-originali, prima di osservare il TEST. Si riporta comunque il suo risultato
-appreso negativo768/2204. La loss TRAIN scende ma32 recuperi sul TEST non
-compensano59 perdite. Il trasferimento tra proxy bilineare/teacher forcing e
-riconoscimento reale AR+refine1 resta una possibile causa da isolare, non una
-causalità dimostrata. In questa forma il rifinitore non va promosso.
+Refinement does not beat holdout baseline: best learned epoch 7 gives309 correct
+versus 320, so the accepted policy retains original crops before observing TEST.
+Its negative learned result768/2204 is still reported. TRAIN loss decreases,
+but32 TEST recoveries do not offset59 losses. Bilinear/teacher-forcing to real
+AR+refine1 transfer is a possible factor to isolate, not established causation.
+This refiner should not be promoted in its current form.
 
-L'audit trova inoltre **due file immagine identici nel TRAIN e nel TEST locali**:
-TRAIN212↔TEST578 e TRAIN81↔TEST656, verificati tramite SHA256. Il risultato
-primario conserva tutte300 immagini; nessun dato o protocollo originale è
-modificato. La sensibilità secondaria sulle298 immagini/2187 parole rimanenti
-mantiene il beneficio del test2:782→858 corrette, F1 36,73→39,35%; il rifinitore
-resta negativo755. Non è una nuova valutazione ufficiale né una ricerca
-esaustiva di quasi duplicati. Fonti/casi e numeri in
-`duplicate_image_sensitivity.json` nel run esterno.
+The audit also finds **two identical image files across local TRAIN/TEST**:
+TRAIN212↔TEST578 and TRAIN81↔TEST656, SHA256-verified. Primary results retain
+all 300 images; no original data/protocol changes. Secondary sensitivity on
+remaining298 images/2187 words retains test2 benefit:782→858 correct,
+F1 36,73→39,35%; refiner stays negative755. This is neither a new official
+evaluation nor exhaustive near-duplicate search. Sources/cases/counts:
+`duplicate_image_sensitivity.json` in the external run.
 
-Confronto completo: `comparison.md`, dati `comparison.json`, controllo
-`independent_audit.json` nella radice del run. Nessuna promozione automatica
-nella pipeline di produzione o nella configurazione STRICT.
+Complete comparison: `comparison.md`, data `comparison.json`, check
+`independent_audit.json` at run root. No automatic production-pipeline/STRICT
+configuration promotion.
 
-## Esecuzione e controllo
+## Execution and monitoring
 
-Gli output di test2/3 sono in `learned/`; stato aggiornato `learned/status.json`,
-log `learned.log`, selezioni congelate prima del TEST in
-`learned/choices_frozen_before_test.json`, risultati finali `learned/results.json`.
-Il job completo non richiede un ulteriore comando per avviare il TEST.
-`launch.json` è la ricevuta di avvio, non lo stato aggiornato del processo.
+Test2/3 outputs: `learned/`; current status `learned/status.json`, log
+`learned.log`, pre-TEST frozen choices `learned/choices_frozen_before_test.json`,
+final results `learned/results.json`. Full job needs no extra TEST-launch command.
+`launch.json` records launch, not current process status.
 
-Codice eseguito da copie isolate: `source_budget_v2/` e `source_learned/`, con
-manifest SHA256 completi. Il primo tentativo di avvio budget è fallito prima
-dell'inferenza per una dipendenza `pipeline` omessa dalla copia; log e ricevuta
-falliti sono conservati. La copia completa ha passato gli import, e il run
-budget successivo è completo e verificato. Lo smoke di test2/3 è passato anche
-dalla copia isolata prima dell'avvio completo; non è un risultato di efficacia.
+Code ran from isolated copies `source_budget_v2/` and `source_learned/`, with
+complete SHA256 manifests. Initial budget launch failed before inference because
+`pipeline` was omitted; failed log/receipt remain preserved. Complete copy passed
+imports; subsequent budget run is complete/verified. Test2/3 smoke passed from
+the isolated copy before full launch; this is not efficacy evidence.
 
-GPU effettiva NVIDIA RTX3090/24GiB, FP32, niente AMP/TF32, modelli caricati per
-fasi; batch1 U-Net,32 OCR,16 rifinitore. Ogni fase registra picchi allocated e
-reserved e segnala OOM/errori. Altri job restano in esecuzione: non confrontare
-questi tempi con benchmark su GPU esclusiva. Il backward CUDA di `grid_sample`
-è esplicitamente non deterministico durante il training; seed fissati e
-inferenza deterministica ripristinata. Nessuna installazione o download.
+Actual GPU NVIDIA RTX3090/24GiB, FP32, no AMP/TF32, models loaded by stage;
+batch 1 U-Net,32 OCR,16 refiner. Each stage records allocated/reserved peaks and
+reports OOM/errors. Other jobs remain active: do not compare these timings with
+exclusive-GPU benchmarks. CUDA `grid_sample` backward is explicitly
+nondeterministic during training; seeds fixed, deterministic inference restored.
+No installation/download.
 
-Configurazione con tutti i percorsi, hash e parametri:
+All paths/hashes/parameters:
 [`mask_crop_three_tests_v1.json`](../configs/approximate/mask_crop_three_tests_v1.json).
-Per ripetere scegliere output nuovi e passare esplicitamente modalità/config:
+Repeat with new output paths and explicit mode/config:
 
 ```bash
 CUBLAS_WORKSPACE_CONFIG=:4096:8 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
 .venvs/context-str-main-py311/bin/python -u -m scripts.run_mask_crop_budget \
   --mode approximate --config configs/approximate/mask_crop_three_tests_v1.json \
-  --output /percorso/nuovo/budget
+  --output /path/to/new/budget
 
 CUBLAS_WORKSPACE_CONFIG=:4096:8 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
 .venvs/context-str-main-py311/bin/python -u -m scripts.run_mask_crop_learned_tests \
   --mode approximate --config configs/approximate/mask_crop_three_tests_v1.json \
-  --output /percorso/nuovo/learned
+  --output /path/to/new/learned
 ```
 
-46 test focalizzati PASS, smoke GPU dei tre percorsi PASS, gradiente reale del
-riconoscitore verso il crop PASS. Il controllo scientifico precedente è in
+46 focused tests PASS, all three GPU-path smokes PASS, real recognizer-to-crop
+gradient PASS. Earlier scientific review:
 `artifacts/diagnostics/mask-to-crop-research-20261020/README.md`.

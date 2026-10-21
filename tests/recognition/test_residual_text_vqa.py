@@ -37,3 +37,32 @@ def test_risk_uses_strongest_mask_and_same_context_control():
     assert scores['vqa_visual_drop_plain']==pytest.approx(.7)
     assert scores['vqa_visual_drop_context']==pytest.approx(.4)
     assert scores['vqa_context_specific']==pytest.approx(-.3)
+
+
+def test_empty_ocr_cannot_be_rescued_by_high_visual_score(tmp_path):
+    import json
+    (tmp_path/'resolved_configuration.json').write_text(json.dumps({'smoke':True}))
+    fields=('vqa_residual_plain','vqa_residual_context','vqa_visual_drop_plain','vqa_visual_drop_context','vqa_context_specific')
+    names=['coverage_baseline','all_checks_softcrop',*fields,*('base_'+f for f in fields)]
+    r={'eligible':False,'signals':dict.fromkeys(fields,1.),
+       'source_scores':{'coverage_baseline':None,'all_checks_softcrop':None}}
+    features,_=score_features({'families':names},{'selection_ids':['empty']},tmp_path,'train',{'empty':r})
+    assert set(features['empty']['scores'].values())=={None}
+
+
+def test_gpu_oom_propagates_with_explicit_failure_receipt(tmp_path,monkeypatch):
+    import json
+    from types import SimpleNamespace
+    import torch
+    from scripts import run_yolo_residual_vqa as runner
+    cfg={'execution':{'cpu_threads':1,'seed':0,'device':'cpu'}}
+    monkeypatch.setattr(runner,'prepare',lambda args:(cfg,{'code_sha256':{}},tmp_path,
+        {'train':{}},{'train':{}}))
+    def fail(*args):raise torch.cuda.OutOfMemoryError('injected qualification OOM')
+    monkeypatch.setattr(runner,'probe_split',fail)
+    with pytest.raises(torch.cuda.OutOfMemoryError,match='qualification OOM'):
+        runner.run(SimpleNamespace(preflight=False))
+    receipt=json.loads((tmp_path/'failure.json').read_text())
+    assert receipt['status']=='FAILED' and receipt['out_of_memory'] is True
+    assert receipt['optimizer_steps']==0 and receipt['partial_results_are_not_final'] is True
+    assert not(tmp_path/'results.json').exists()

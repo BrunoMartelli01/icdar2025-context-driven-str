@@ -13,6 +13,8 @@ git clone https://github.com/BrunoMartelli01/icdar2025-context-driven-str.git
 cd icdar2025-context-driven-str
 python3 -m scripts.collaboration check
 python3 -m research groups
+python3 -m research experiments --family crops
+python3 -m research results native128-pad0
 python3 -m research find 'DeepSolo' --limit 5
 ```
 
@@ -21,7 +23,9 @@ confirmed when publishing. A private repository requires an invited account.
 Read [AGENTS.md](../AGENTS.md), [the map](REPOSITORY_MAP.md), and
 [external assets](EXTERNAL_ASSETS.md). For documentation-only work no model or
 dataset download is needed. `research compare/check/overview` require exact saved
-reports; `groups/find/section` work on code/documentation alone.
+reports; `groups/find/section/experiments/experiment/results` work on the clone
+alone. The experiment library links code, configs, tests and dated conclusions;
+saved summaries retain their source identity and protocol limitations.
 
 ## 2. Create an isolated main environment when needed
 

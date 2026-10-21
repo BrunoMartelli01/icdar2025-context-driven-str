@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "classification": "ASSUMPTION",
+  "purpose": "Navigation categories only; never imply common metrics, cost, or scientific comparability",
+  "families": {
+    "paper": {
+      "title": "Paper baseline and scientific specification",
+      "prefixes": [
+        "AG_UNET",
+        "REPRODUCTION",
+        "STRICT_REPRODUCTION",
+        "RECOGNITION_CONTEXT",
+        "Author Clarifications"
+      ]
+    },
+    "datasets": {
+      "title": "Datasets, targets, and annotation preparation",
+      "prefixes": [
+        "SCENE_TEXT_DATASETS",
+        "SYNTHTEXT",
+        "CTW1500",
+        "GUARDED_WORD_GT",
+        "TIGHTER_WORD_GT",
+        "SEPARATED_WORD",
+        "TOTALTEXT_CURVED_WORD",
+        "TOTALTEXT_STRUCTURAL"
+      ]
+    },
+    "word-instances": {
+      "title": "Word instances, kernels, links, centers, and Gap",
+      "prefixes": [
+        "ADASpot",
+        "WORD_CENTER",
+        "WORD_MULTITASK",
+        "WORD_EVIDENCE",
+        "WORD_INSTANCE",
+        "KERNEL_ONLY",
+        "UNET_WORD",
+        "UNET_CROP_LINKS",
+        "UNET_DETECTION",
+        "UNET_AUXILIARY",
+        "UNET_SEEDED"
+      ]
+    },
+    "crops": {
+      "title": "Crop generation, selection, and refinement",
+      "prefixes": [
+        "MASK_",
+        "CROP_",
+        "TEXT_RECALL",
+        "TOTALTEXT_CROP",
+        "TOTALTEXT_LETTERBOX",
+        "TRAIN_GROUPING",
+        "UNET_CROP_REFINEMENT",
+        "GUARDED_V3",
+        "REPOSITORY_CONTOURS"
+      ]
+    },
+    "recognition": {
+      "title": "Recognition, language correction, and candidate verification",
+      "prefixes": [
+        "TOTALTEXT_BERT",
+        "TOTALTEXT_NEUSPELL",
+        "CONTEXTUAL_OCR",
+        "OCR_",
+        "PARSEQ_VISUAL",
+        "CLIP_WORD",
+        "CLIP_INNOVATIVE",
+        "CLIP_VERIFICATION",
+        "CLIP_HIGH_RECALL"
+      ]
+    },
+    "routing": {
+      "title": "Context, captioning, CLIP and YOLO routing",
+      "prefixes": [
+        "CLIP_",
+        "YOLO_",
+        "SCENE_TEXT_YOLO",
+        "TOTALTEXT_YOLO",
+        "TOTALTEXT_INDEPENDENT",
+        "TOTALTEXT_TEXT_DETECTORS",
+        "ROUTER_",
+        "BUDGETED_",
+        "PAPER_IMAGE",
+        "TRAINING_FREE",
+        "CAPTION_"
+      ]
+    },
+    "runtime": {
+      "title": "Environments and isolated model runtimes",
+      "prefixes": [
+        "ENVIRONMENTS",
+        "DEEPSOLO_RUNTIME"
+      ]
+    },
+    "analysis": {
+      "title": "Diagnostics, audits, ablations and research synthesis",
+      "prefixes": []
+    }
+  },
+  "guide_links": {
+    "ADASpot_GAP_DECODER": [
+      "scripts/train_adaspot_gap_decoder.py",
+      "models/adaspot_gap_decoder.py",
+      "configs/approximate/adaspot_gap_decoder_v1.json",
+      "tests/scripts/test_adaspot_gap_decoder.py"
+    ],
+    "ADASpot_GAP_NORMALIZED": [
+      "scripts/train_adaspot_gap_normalized.py",
+      "models/adaspot_gap_normalized.py",
+      "configs/approximate/adaspot_gap_normalized_v1.json",
+      "tests/scripts/test_adaspot_gap_normalized.py"
+    ],
+    "ADASpot_GAP_OCR_SELECTION": [
+      "scripts/audit_adaspot_gap_ocr_selection.py",
+      "configs/approximate/adaspot_gap_ocr_selection_v1.json",
+      "tests/scripts/test_adaspot_gap_ocr_selection.py"
+    ],
+    "WORD_EVIDENCE_SUITE": [
+      "scripts/run_word_evidence_suite.py",
+      "configs/approximate/word_evidence_suite_v1.json",
+      "tests/segmentation/test_word_evidence_suite.py"
+    ],
+    "WORD_MULTITASK_RESULTS_V1": [
+      "scripts/run_word_multitask.py",
+      "scripts/compare_word_multitask.py",
+      "models/word_multitask.py",
+      "configs/approximate/word_multitask_v1.json",
+      "tests/segmentation/test_word_multitask.py"
+    ],
+    "PARSEQ_VISUAL_MARGIN_CONTEXT_GATE_TRAIN_V1": [
+      "diagnostics/parseq_visual_margin_context_gate_train.py",
+      "configs/approximate/parseq_visual_margin_context_gate_train_v1.json",
+      "tests/recognition/test_parseq_visual_margin_context_gate_train.py"
+    ]
+  }
+}

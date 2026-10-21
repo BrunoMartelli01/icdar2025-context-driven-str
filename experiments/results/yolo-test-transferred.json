@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "yolo-test-transferred",
+    "title": "YOLO/PARSeq router comparison: test / transferred",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TEST official / explored",
+    "metric": "word_multiset_casefold",
+    "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+    "source": {
+      "root": "external_artifacts",
+      "path": "yolo-paired-routers-v1/full/results.json",
+      "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+    },
+    "population": {
+      "gt": 2204,
+      "images": 300
+    },
+    "limitations": [
+      "Standalone rows are reference controls with different cost.",
+      "TRAIN-derived scalar cuts transfer to different TEST acceptance counts; costs are not equal.",
+      "Not official polygon matching or Table5. Previously explored TEST and single-seed training do not establish generalization."
+    ],
+    "evidence": [
+      "docs/YOLO_PAIRED_ROUTER_COMPARISON.md"
+    ],
+    "expected_rows": 7
+  },
+  "source_path": "external_artifacts:yolo-paired-routers-v1/full/results.json",
+  "source_sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "APPROXIMATE_EXPLORATORY_COMPARISON",
+    "doc:/claim_label": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "yolo_only",
+      "source_pointer": "/splits/test/points/yolo_only",
+      "tp": 1496,
+      "predictions": 2143,
+      "gt": 2204,
+      "images": 300,
+      "fp": 647,
+      "fn": 708,
+      "precision": 0.6980867942137191,
+      "recall": 0.6787658802177858,
+      "f1": 0.688290775247297,
+      "tn0": 0.5247281655559453,
+      "extra": {
+        "accepted_images": 300,
+        "fallback_images": 0,
+        "gained_vs_yolo": 0,
+        "lost_vs_yolo": 0
+      }
+    },
+    {
+      "variant": "deepsolo_only",
+      "source_pointer": "/splits/test/points/deepsolo_only",
+      "tp": 1595,
+      "predictions": 2008,
+      "gt": 2204,
+      "images": 300,
+      "fp": 413,
+      "fn": 609,
+      "precision": 0.7943227091633466,
+      "recall": 0.7236842105263158,
+      "f1": 0.7573599240265907,
+      "tn0": 0.6094764998089416,
+      "extra": {
+        "accepted_images": 0,
+        "fallback_images": 300,
+        "gained_vs_yolo": 226,
+        "lost_vs_yolo": 127
+      }
+    },
+    {
+      "variant": "clip/train_coverage_0.5",
+      "source_pointer": "/splits/test/points/clip~1train_coverage_0.5",
+      "tp": 1521,
+      "predictions": 1969,
+      "gt": 2204,
+      "images": 300,
+      "fp": 448,
+      "fn": 683,
+      "precision": 0.7724733367191468,
+      "recall": 0.6901088929219601,
+      "f1": 0.7289719626168224,
+      "tn0": 0.5735294117647058,
+      "extra": {
+        "accepted_images": 189,
+        "fallback_images": 111,
+        "gained_vs_yolo": 107,
+        "lost_vs_yolo": 82
+      }
+    },
+    {
+      "variant": "paper_selected/train_coverage_0.5",
+      "source_pointer": "/splits/test/points/paper_selected~1train_coverage_0.5",
+      "tp": 1518,
+      "predictions": 2077,
+      "gt": 2204,
+      "images": 300,
+      "fp": 559,
+      "fn": 686,
+      "precision": 0.7308618199325951,
+      "recall": 0.6887477313974592,
+      "f1": 0.7091800981079187,
+      "tn0": 0.5494028230184582,
+      "extra": {
+        "accepted_images": 197,
+        "fallback_images": 103,
+        "gained_vs_yolo": 77,
+        "lost_vs_yolo": 55
+      }
+    },
+    {
+      "variant": "joined_t3/train_coverage_0.5",
+      "source_pointer": "/splits/test/points/joined_t3~1train_coverage_0.5",
+      "tp": 1531,
+      "predictions": 2081,
+      "gt": 2204,
+      "images": 300,
+      "fp": 550,
+      "fn": 673,
+      "precision": 0.7357039884670832,
+      "recall": 0.6946460980036298,
+      "f1": 0.714585764294049,
+      "tn0": 0.555918663761801,
+      "extra": {
+        "accepted_images": 189,
+        "fallback_images": 111,
+        "gained_vs_yolo": 83,
+        "lost_vs_yolo": 48
+      }
+    },
+    {
+      "variant": "native/train_coverage_0.5",
+      "source_pointer": "/splits/test/points/native~1train_coverage_0.5",
+      "tp": 1530,
+      "predictions": 1999,
+      "gt": 2204,
+      "images": 300,
+      "fp": 469,
+      "fn": 674,
+      "precision": 0.7653826913456728,
+      "recall": 0.6941923774954628,
+      "f1": 0.728051391862955,
+      "tn0": 0.5723905723905723,
+      "extra": {
+        "accepted_images": 190,
+        "fallback_images": 110,
+        "gained_vs_yolo": 105,
+        "lost_vs_yolo": 71
+      }
+    },
+    {
+      "variant": "joint/train_coverage_0.5",
+      "source_pointer": "/splits/test/points/joint~1train_coverage_0.5",
+      "tp": 1511,
+      "predictions": 1973,
+      "gt": 2204,
+      "images": 300,
+      "fp": 462,
+      "fn": 693,
+      "precision": 0.7658388241256969,
+      "recall": 0.6855716878402904,
+      "f1": 0.7234857553267896,
+      "tn0": 0.5667666916729183,
+      "extra": {
+        "accepted_images": 164,
+        "fallback_images": 136,
+        "gained_vs_yolo": 101,
+        "lost_vs_yolo": 86
+      }
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

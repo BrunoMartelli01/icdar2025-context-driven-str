@@ -1,7 +1,7 @@
 {
   "status": "DELETED_AT_USER_REQUEST",
   "time_utc": "2026-10-16T16:15:29.457713+00:00",
-  "authorization": "elimina il kernel riaddestrato e crea una nuova u-net e riaddestrala usando le gt del kernel usa la gpu",
+  "authorization": "Delete the retrained kernel, create a new U-Net, and retrain it using kernel GT on the GPU",
   "removed_root": "/extra1/bmartelli/context-str-runs/kernel-only-training-v1-20261016",
   "best_checkpoint_sha256": "2a40805b828275b6e021c99cc89173bf5dec7087c38e1dfd73936a8f9326907b",
   "removed_bytes": 1031778056,
@@ -30,5 +30,6 @@
   ],
   "historical_result_receipt": "provenance/kernel_only_training_v1_completion.json",
   "preserved_reference_run": "/extra1/bmartelli/context-str-runs/kernel-only-padding-v1-20261016",
-  "preserved_dataset": "artifacts/totaltext-curved-word-boxes-v4"
+  "preserved_dataset": "artifacts/totaltext-curved-word-boxes-v4",
+  "authorization_presentation": "English translation; exact original wording retained in the archived source referenced by LANGUAGE_MIGRATION.json"
 }

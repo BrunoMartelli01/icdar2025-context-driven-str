@@ -92,7 +92,7 @@ import json,sys
 s=json.load(open(sys.argv[1]))['summary']
 r=s['recognition']; g=s['geometry']
 print(f"Accuracy end-to-end (casefold, IoU>=0.5): {100*r['exact_casefold_rate_all_gt']:.2f}%")
-print(f"Accuracy OCR sui word match disponibili: {100*r['exact_casefold_rate_geometry_available']:.2f}%")
-print(f"Parole GT: {g['gt_instances']}; crop: {g['retained_proposals']}")
+print(f"OCR accuracy on available word matches: {100*r['exact_casefold_rate_geometry_available']:.2f}%")
+print(f"GT words: {g['gt_instances']}; crop: {g['retained_proposals']}")
 print('Report:',sys.argv[1])
 PY

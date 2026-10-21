@@ -9190,3 +9190,88 @@ protocol remain unresolved. No threshold/model was retuned from TEST labels.
 
 Protocol and source links: `docs/YOLO_CONTEXT_QUALITY_ROUTER.md`. Initial20
 focused tests and genuine6-image smoke pass; full425 comparison/audit pending.
+
+Completed context-only evidence: full425, independent425-feature/3,227crop/
+884point/10state-receipt auditPASS, optimizer_steps0. Fixed-primary captionCLIP
+at20% bypass selects38/60goodTEST versus48/60 softcrop; no improvement. FLAN
+coherence improves local microF1 by0.257points at20% but its paired95% interval
+crosseszero, selects fewer goodimages and worsens30/50% results. All17 families
+and TRAIN-selected failures retained. No90% reliability demonstrated; unavailable
+calibration cuts abstain on all. See YOLO_CONTEXT_QUALITY_ROUTER.md for hashes.
+
+### YOLO-RESIDUAL-VQA-001 — Frozen visual missing-text probe (2026-10-21)
+
+- `PAPER_SPECIFIED`: §3.4/3.5/Figure4/Algorithm2 supply BLIP2 image context and
+  DeepSolo fallback; residual-text verification is an external extension.
+- `REPOSITORY_SPECIFIED`: same425 image/word/caption/fallback population and
+  audited old controls; same pinned Salesforce/blip2-flan-t5-xl checkpoint and
+  configuration/weight hashes as original captions.
+- `ASSUMPTION`: gray128 and blurred residuals mask only union of predicted
+  exclusive boxes; all outside pixels retained. Blur radius.05*min(image side).
+  Unrecognized text inside a known box can also be hidden. Save RGB hashes.
+- `ASSUMPTION`: fixed Yes/No text-existence questions, plain or with same
+  image-only caption; original/hard/blur/blank controls, teacher-forced sequence
+  probability withEOS. Largest residual probability is risk; original-minus-
+  residual is visual evidence drop. Blank controls expose caption prior bias.
+- `ASSUMPTION`: frozen staged vision/QFormer/projection reused across prompts,
+  native processor preserves32image-query tokens; qualify exact native-forward
+  logits on first real image, rtol/atol2e-4. This is VQA-inspired, not a claim
+  of reproducing VQAScore. No model/precision substitution after failures.
+- `ASSUMPTION`: predefine12families and primarybase_vqa_visual_drop_context;
+  no training or fitted weights. CDF/family selectionTRAIN80, cutsTRAIN45,
+  freeze before newTEST VQA. Test historically explored; this follow-up was
+  chosen after observing failure of context-only methods. Exploratory only.
+- `HARDWARE_DEVIATION`: single RTX3090 FP32 BLIP2, separate process/model,
+  no quantization/offload/AMP. Record peaks, shapes, batch1vision/2answers,
+  checkpoint/state hashes, failures and optimizer_steps0. Not8GB qualified.
+- `UNRESOLVED`:224pixel visual encoder can miss small text; mask edges and
+  semantic priors can hallucinate residual text. Existence alone cannot prove
+  spelling or F1. No guarantee from45calibration samples or full latency result.
+
+Initial residual smoke da648d652c5b explicitly failed before inference because
+the implementation guarded a legacy token path while the pinned checkpoint
+uses explicit image_token_index32100/32slots. No outputs or OOM; failure receipt
+preserved. Corrected to use the native processor and require forward-logit
+equivalence, with a new isolated code-hash run. Corrected6-image smoke9e0381dc8341
+and independent auditPASS; native max logit error1.52588e-5, states unchanged.
+
+Completed residual evidence: full83b4067d4722,425features/1,275RGBviews/624routing
+points independently auditedPASS, optimizer_steps0, no omissions or realOOM.
+Primary contextVQA at20%bypass selects37/60goodTEST vs48/60softcrop; plainVQA
+combination42/60. No newVQA family beats good-image classification at any
+20/30/40/50% budget; TRAIN80 selection retains previous controls. Grayblank
+with caption has median normalizedYes0.8884TEST versus 0.5241plain: strong
+language prior despite absent pixel text, not calibrated confidence. Runtime
+494.73s and 15.95GBallocated/16.09GBreserved; no end-to-end speed claim or8GB
+qualification. All families/cuts and paired intervals retained. No performance
+superiority or90% reliability established. See YOLO_RESIDUAL_TEXT_VQA.md for
+source/result hashes and the failed-smoke correction record. Cached replays
+of both completed studies preserve their result hashes without new inference;
+65focused tests pass, including injected OOM propagation.
+
+## REPORTING-ENGLISH-LIBRARY-001 — English experiment navigation and saved summaries
+
+- **Classification:** `ASSUMPTION`, presentation/reporting only. User-authorized
+  English translation and repository organization; no scientific algorithm,
+  threshold, checkpoint, training protocol, or evaluation matching is changed.
+- **Decision:** Keep scientific packages and entry points stable. Add experiment
+  families, explicit guide/code/config/test links, a package-level code index,
+  and portable summaries derived through the existing verified comparator.
+  Summaries retain each group's protocol, population, limitations, source hash,
+  and approximate result class. Original reports remain the raw evidence.
+- **Translation boundary:** Maintained prose, comments, and output labels use
+  English. Raw OCR strings, multilingual experimental prompts, dataset labels,
+  identifiers, and original paths retain their scientific meaning and bytes.
+  Archived original source and migration hashes preserve historical wording.
+- **Alternatives:** Moving scientific modules was rejected because it would
+  disturb historical commands and source provenance without improving scientific
+  behavior. A global metric ranking was rejected because protocols differ.
+  Translating scientific inputs was rejected because it would change outputs.
+- **Validation:** Navigation/reference consistency, missing/tampered summaries,
+  registry identity, strict-class rejection, offline operation, and original
+  source verification are tested. Translation checks preserve numerical tokens,
+  paths, hashes, and fenced commands except documented presentation placeholders.
+- **Limitations:** English summaries and source-code indexes do not requalify
+  checkpoints, hardware, per-sample matching, or unresolved paper results.
+  Experiments without a registered numerical projection remain linked through
+  their dated guides; missing results are not converted to zero or success.

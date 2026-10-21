@@ -45,14 +45,18 @@ instead of installing everything into the main environment.
 On a code-only clone, after changing documents:
 
 ```bash
-python3 -m research catalog
-python3 -m research catalog --check
+python3 -m scripts.build_experiment_library
+python3 -m scripts.build_experiment_library --check
+python3 -m research catalog --source-only
+python3 -m research catalog --source-only --check
 ```
 
 On a full workspace, supply the same explicit external roots used for that
 catalog; see [docs/README.md](docs/README.md). Preserve original audits and
 the [historical workspace inventory](docs/history/WORKSPACE_AUDIT_INDEX.json).
 A new catalog is a navigation view, not evidence of scientific success.
+Use English for maintained prose and labels. Preserve original scientific
+payloads and follow [the language policy](docs/LANGUAGE_POLICY.md).
 
 ## What belongs in a pull request
 

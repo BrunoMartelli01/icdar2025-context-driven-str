@@ -1,115 +1,103 @@
-# BERT dopo PARSeq: Total-Text letterbox
+# BERT after PARSeq: Total-Text letterbox
 
-Esperimento **APPROXIMATE / approximate reproduction**, diagnostico TRAIN-holdout.
-Non è una riproduzione strict, una misura Table 5 o un risultato sul TEST.
+**APPROXIMATE / approximate reproduction**, TRAIN-holdout diagnostic.
+Not strict reproduction, Table5 measurement, or TEST result.
 
-## Percorso effettivo del progetto
+## Actual project path
 
-Il modello in `models/unet_adv.py` segmenta l'immagine. I target v4 sono
-costruiti dalle regioni delle singole parole; la trasformazione letterbox
-preserva il rapporto d'aspetto, con input 512×512 e maschera nativa 256×256.
-Il localizzatore estrae contorni esterni con OpenCV e riporta i rettangoli
-attraverso l'inversa della letterbox all'RGB originale. PARSeq riconosce ogni
-crop e conserva testo, probabilità dei token e checksum. Il nuovo componente
-lavora **dopo** questi output: non cambia maschere, contorni, crop o PARSeq.
+`models/unet_adv.py` segments images. v4 targets come from individual-word
+regions; letterboxing preserves aspect ratio with 512×512 inputs/native 256×256
+masks. OpenCV external contours map rectangles through inverse letterbox to
+original RGB. PARSeq retains crop text, token probabilities, checksums. The new
+component operates **after** these outputs without changing masks, contours,
+crops, or PARSeq.
 
-Il riferimento scelto dopo l'indicazione dell'utente «ultima variante
-letterbox» è il controllo a una testa `word_f1_control`, selezionato per F1
-di localizzazione sulla validazione TRAIN, epoch 68. Questa identifica una
-scelta precisa tra le diverse varianti presenti; non deriva dalla migliore
-accuracy OCR osservata. Il ramo con testa ausiliaria di separazione è un altro
-modello e non entra in questo confronto.
+After the user's “latest letterbox variant” instruction, the chosen reference
+is single-head `word_f1_control`, selected by TRAIN-validation localization F1,
+epoch 68. This identifies a specific variant, not best observed OCR accuracy.
+The auxiliary-separator-head branch is another model, excluded here.
 
-Fonte: `context-str-runs/totaltext-letterbox-word-f1-separator-parseq-val-v1/`.
-Riutilizzo OCR dichiarato dal valutatore originale:
+Source:`context-str-runs/totaltext-letterbox-word-f1-separator-parseq-val-v1/`.
+Original evaluator's declared OCR reuse:
 `context-str-runs/totaltext-v4-image-frequency-ablation-v1/validation-pad0-parseq-v1/ocr/`.
-Entrambe le directory devono essere indicate esplicitamente alla preparazione.
-Il lettore verifica report, protocollo, maschere, checkpoint, bbox, hash RGB,
-testo e record OCR. Cache discordanti o mancanti bloccano il run.
+Preparation requires both directories explicitly. Reader checks report, protocol,
+masks, checkpoint, bboxes, RGB hashes, text, OCR records. Missing/conflicting caches
+block execution.
 
-Il protocollo preesistente usa soglia maschera 0,5, padding zero e contorni senza
-filtro d'area/cap top10. Sono scelte pratiche già presenti, diverse da Algorithm 1.
-La selezione word-F1 e la letterbox sono anch'esse approssimazioni. Le sezioni
-3.3–3.5 del PDF locale specificano localizzazione, BLIP-2 e scoring
-MPNet/Levenshtein con fallback DeepSolo; non specificano un correttore BERT.
-I percorsi strict, MPNet, BLIP-2 e DeepSolo non sono modificati.
+Existing protocol uses mask threshold 0,5, zero padding, contours without area
+filter/top10 cap: practical choices distinct from Algorithm1. Word-F1 selection
+and letterbox are also approximations. Local PDF sections3.3–3.5 specify
+localization, BLIP-2, MPNet/Levenshtein scoring, DeepSolo fallback, not a BERT corrector.
+Strict, MPNet, BLIP-2, DeepSolo paths stay unchanged.
 
-## Modello e ricerca
+## Model and research
 
-Modello iniziale: **google-bert/bert-base-uncased**, circa 110M parametri,
-revisione `86b5e0934494bd15c9632b12f734a8a67f723594`, FP32, congelato.
-La revisione è verificata nell'[API ufficiale del modello](https://huggingface.co/api/models/google-bert/bert-base-uncased).
-Il run scarica soltanto i pesi safetensors e i file di configurazione/tokenizer
-di quella revisione e registra SHA256 di ciascuno. Nessun training locale,
-quantizzazione, cambio di precisione automatico o installazione di pacchetti.
+Initial model:**google-bert/bert-base-uncased**, approximately110M parameters,
+revision `86b5e0934494bd15c9632b12f734a8a67f723594`, FP32, frozen. Revision checked
+against [official model API](https://huggingface.co/api/models/google-bert/bert-base-uncased).
+Download only that revision's safetensors/config/tokenizer; record each SHA256.
+No local training, quantization, automatic precision changes, or package installation.
 
-Fonti e decisioni:
+Sources/decisions:
 
-| Fonte primaria | Idea utilizzata o limite |
+| Primary source | Idea used or limitation |
 | --- | --- |
-| [Salazar et al., Masked Language Model Scoring, ACL 2020](https://aclanthology.org/2020.acl-main.240/) | Valutare alternative tramite likelihood pseudo-logaritmica di un MLM congelato. Il paper tratta ASR/NMT; il trasferimento a OCR è un'ipotesi. |
-| [Kauf e Ivanova, A Better Way to Do Masked Language Model Scoring, 2023](https://arxiv.org/abs/2305.10588) | Mascherare il sottotoken corrente e tutti i successivi della stessa parola, evitando che BERT ricopi sottotoken futuri del candidato. |
-| [Fang et al., ABINet, CVPR 2021](https://arxiv.org/abs/2103.06495) | Separare evidenza visiva e linguistica, con contesto bidirezionale. Questo correttore non implementa o riproduce ABINet. |
-| [Jayanthi et al., NeuSpell, EMNLP 2020](https://aclanthology.org/2020.emnlp-demos.21/) | BERT già adattato alla correzione ortografica inglese è una futura alternativa utile; la sua validazione non dimostra efficacia su Total-Text. |
+| [Salazar et al., Masked Language Model Scoring, ACL 2020](https://aclanthology.org/2020.acl-main.240/) | Score alternatives with frozen-MLM pseudo-log-likelihood. Paper concerns ASR/NMT; OCR transfer is a hypothesis. |
+| [Kauf and Ivanova, A Better Way to Do Masked Language Model Scoring, 2023](https://arxiv.org/abs/2305.10588) | Mask current/all later subtokens in the same word, preventing copying future candidate subtokens. |
+| [Fang et al., ABINet, CVPR 2021](https://arxiv.org/abs/2103.06495) | Separate visual/language evidence with bidirectional context. This corrector neither implements nor reproduces ABINet. |
+| [Jayanthi et al., NeuSpell, EMNLP 2020](https://aclanthology.org/2020.emnlp-demos.21/) | BERT adapted to English spelling correction is a future alternative; its validation does not establish Total-Text efficacy. |
 
-Ho esaminato anche [`murali1996/bert-base-cased-spell-correction`](https://huggingface.co/murali1996/bert-base-cased-spell-correction),
-revisione visibile `d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2`.
-Il [config originale](https://huggingface.co/murali1996/bert-base-cased-spell-correction/blob/main/config.json)
-ha una classificazione a 100.002 etichette. Lo
-[snippet degli autori](https://github.com/neuspell/neuspell/blob/master/scripts/huggingface/huggingface-snippet-for-neuspell.py)
-media le rappresentazioni dei sottotoken e applica una testa word-level,
-con mapping esterno `vocab.pkl`. Caricarlo come masked LM inizializzerebbe una
-testa diversa e non riprodurrebbe il correttore. Per il primo esperimento ho
-scelto il BERT-base MLM originale, il cui decoder è direttamente verificabile.
-**Non è un BERT fine-tuned per OCR.** La testa e il mapping NeuSpell richiedono
-un adattatore e una qualificazione distinti, non una sostituzione silenziosa.
+Also inspected:[`murali1996/bert-base-cased-spell-correction`](https://huggingface.co/murali1996/bert-base-cased-spell-correction),
+visible revision `d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2`.
+[Original config](https://huggingface.co/murali1996/bert-base-cased-spell-correction/blob/main/config.json)
+has100.002 classification labels.
+[Author snippet](https://github.com/neuspell/neuspell/blob/master/scripts/huggingface/huggingface-snippet-for-neuspell.py)
+averages subtoken representations/applies a word-level head with external
+`vocab.pkl` mapping. Loading as masked LM would initialize a different head,
+not reproduce that corrector. Original BERT-base MLM was chosen first because
+its decoder is directly verifiable. **It is not OCR-fine-tuned BERT.** NeuSpell
+head/mapping need a separate adapter/qualification, not silent substitution.
 
-## Esperimento congelato
+## Frozen experiment
 
-Config: `configs/approximate/totaltext_v4_bert_correction_v1.json`.
-Confronto tra `word_only` e `local_ocr`; se viene fornita una caption associata
-a ogni immagine, si aggiunge `local_ocr_caption`. Tutte le condizioni valutano
-gli stessi candidati per isolare l'effetto del contesto sullo scoring.
+Config:`configs/approximate/totaltext_v4_bert_correction_v1.json`.
+Compare `word_only`/`local_ocr`; add `local_ocr_caption` if every image has a
+caption. All conditions score identical candidates to isolate context effects.
 
-- KEEP è sempre il testo originale PARSeq, con capitalizzazione originale.
-- Si correggono soltanto parole ASCII di almeno tre caratteri. Numeri,
-  punteggiatura, stringhe vuote, crop multiword e nomi con maiuscole interne
-  restano invariati. Unchanged non significa riconosciuto correttamente.
-- Probabilità minima nativa PARSeq ≥0,95: KEEP. È una protezione euristica,
-  non una probabilità calibrata di correttezza.
-- Alternative dal vocabolario BERT a parola intera e dalle parole osservate
-  nei vicini/caption: distanza Levenshtein ≤1 per parole corte, ≤2 da sei
-  caratteri, distanza relativa ≤0,3; massimo 24 candidati incluso KEEP.
-  L'ordine è distanza, presenza nel contesto, ordine lessicografico. Il limite
-  può escludere una parola corretta; non usa vocabolari GT o dizionari Total-Text.
-- Vicini: sovrapposizione verticale ≥0,5, gap orizzontale ≤8 altezze e massimo
-  tre parole per lato. Testi originali congelati, nessuna correzione iterativa
-  che propaghi una parola già modificata agli altri crop.
-- Caption: primi 80 termini whitespace, dichiarati come budget; scena nel
-  primo segmento BERT e scritte locali nel secondo. Input oltre 256 token e
-  target sconosciuti/speciali causano astensione esplicita, senza troncamento
-  ulteriore o riempimento dell'output.
+- KEEP is original PARSeq text with original case.
+- Correct only ASCII words of at least three characters. Numbers, punctuation,
+  empty strings, multiword crops, internally capitalized names remain unchanged.
+  Unchanged does not mean correctly recognized.
+- Native minimum PARSeq probability ≥0,95: KEEP. Heuristic protection, not a
+  calibrated correctness probability.
+- Alternatives: whole-word BERT vocabulary and words observed in neighbors/
+  captions; Levenshtein ≤1 for short words,≤2 from six characters, relative
+  distance ≤0,3; maximum 24 candidates including KEEP. Order: distance, context
+  presence, lexicographic. Cap may exclude correct words; no GT/Total-Text dictionary.
+- Neighbors: vertical overlap ≥0,5, horizontal gap ≤8 heights, at most three words
+  per side. Frozen original text; no iterative corrected-word propagation.
+- Captions: first80 whitespace terms, declared budget; scene in BERT segment one,
+  local writing in segment two. Above256 tokens or unknown/special targets
+  causes explicit abstention, without further truncation/output filling.
 
-Score del candidato: media dei log-score dei suoi sottotoken con mascheramento
-PLL-word-l2r. Sono salvati anche somma, log-score individuali e numero di token.
-Il paper di Kauf/Ivanova usa una somma a livello di frase: la media sul solo
-target è una nostra **ASSUMPTION**, non un posterior OCR calibrato.
+Candidate score: mean subtoken log-scores under PLL-word-l2r masking. Sum,
+individual log-scores, token count also saved. Kauf/Ivanova use sentence-level
+sum; target-only mean is our **ASSUMPTION**, not calibrated OCR posterior.
 
 ```
 gain = mean_BERT(candidate) - mean_BERT(PARSeq) - 1.0 * edit_distance
-correggi soltanto se gain > 1.5; KEEP sulle parità
+correct only if gain > 1.5; KEEP on ties
 ```
 
-Tutti i parametri sono nella config. Non sono ottimizzati sui risultati BERT,
-non è prevista una ricerca sul TEST o promozione automatica.
-Lo scoring conserva l'evidenza visiva tramite limiti agli edit e protezione
-PARSeq; non possiede likelihood PARSeq delle nuove stringhe. Rischi residui:
-nomi propri, lingue diverse dall'inglese, bias verso parole comuni, crop fusi,
-contesto geometrico errato e testo inventato dalle caption.
+All config parameters are fixed, not optimized on BERT results. No TEST search/
+automatic promotion. Edit limits and PARSeq protection retain visual evidence;
+scoring has no PARSeq likelihood for new strings. Residual risks include proper
+names, non-English languages, common-word bias, merged crops, incorrect geometric
+context, and text invented by captions.
 
-## Esecuzione
+## PAPER command
 
-Sul computer con accesso alla rete, nell'ambiente esistente:
+From repository root, using the existing main environment:
 
 ```bash
 bash scripts/run_totaltext_bert_correction_host.sh \
@@ -120,30 +108,24 @@ bash scripts/run_totaltext_bert_correction_host.sh \
   --device cpu
 ```
 
-Per la GPU utilizzare esplicitamente `--device cuda:0`; indisponibilità/OOM
-interrompono il run. Il programma usa soltanto BERT durante la correzione.
-Registra modello, dtype, batch delle mascherature, limite input, device,
-software, seed, determinismo, tempo di caricamento e di correzione e picchi
-CUDA allocated/reserved. Su CPU i campi VRAM sono `null`, non zero misurato.
-Il tempo non comprende U-Net, contorni, PARSeq, caption o DeepSolo.
-Il caricamento accetta soltanto le eventuali chiavi inattive pooler/NSP
-elencate nella config e registra tutte le chiavi; missing/mismatch nella testa
-MLM o nel backbone sono fatali.
+GPU requires explicit `--device cuda:0`; unavailability/OOM aborts. Only BERT
+loads during correction. Record model, dtype, mask batch, input limit, device,
+software, seed, determinism, load/correction times, CUDA allocated/reserved peaks.
+CPU VRAM is `null`, not measured zero. Timing excludes U-Net, contours, PARSeq,
+caption, DeepSolo. Loading permits only config-listed inactive pooler/NSP keys
+and records every key; MLM/backbone missing/mismatched keys are fatal.
 
-Gli stadi sono `prepare`, `fetch-model`, `infer`, `evaluate`. Preparazione e
-valutazione possono essere ripetute; la ripresa dell'inferenza verifica
-provenienza e checksum di ogni shard. Cambiamenti di codice, configurazione,
-device o caption richiedono una nuova directory/versione.
-Il lanciatore scarica pesi, **non installa o aggiorna dipendenze**.
+Stages:`prepare`,`fetch-model`,`infer`,`evaluate`. Preparation/evaluation can
+repeat; inference resume checks each shard's provenance/checksum. Code/config/
+device/caption changes require a new directory/version. Launcher downloads
+weights,**does not install/upgrade dependencies**.
 
-`infer` legge `inputs.json`, mai `evaluation_labels.json`. Sample ID e hash
-servono solo al collegamento degli artefatti, non entrano nel tokenizer BERT.
-Ogni crop conserva bbox, ordine, testo originale, alternative, score e scelta.
-`results.json` viene prodotto soltanto dopo tutte le immagini/condizioni;
-gli errori sono salvati in `errors/` e propagati. Nessun campione fallito viene
-tolto dal denominatore.
+`infer` reads `inputs.json`, never `evaluation_labels.json`. Sample IDs/hashes
+link artifacts only, never enter BERT tokenizer. Each crop preserves bbox, order,
+original text, alternatives, scores, choice. `results.json` requires every image/
+condition; errors under `errors/` propagate. Failed samples stay in denominators.
 
-Caption opzionali, da passare con `--captions FILE`, schema:
+Optional captions via `--captions FILE`, schema:
 
 ```json
 {
@@ -158,103 +140,91 @@ Caption opzionali, da passare con `--captions FILE`, schema:
 }
 ```
 
-Richiesta copertura esatta delle 125 immagini, con checksum identici. Le
-caption attualmente trovate nel repository per ICDAR13 non sono riutilizzabili.
-Non sono state generate nuove caption Total-Text in questo intervento.
+Exact125-image coverage/matching checksums required. Existing ICDAR13 captions
+cannot be reused. No new Total-Text captions were generated in this change.
 
-## Metriche e stato verificato
+## Metrics and verified state
 
-Aggregazione micro sulle **983 care words**, incluse le parole senza un crop.
-Don't Care già esclusi dagli shard qualificati originali. Matching bipartito
-massimo uno-a-uno tra bbox a IoU≥0,5 e testo exact Unicode casefold,
-con punteggiatura conservata. Si riportano anche exact case-sensitive e
-RapidFuzz casefold ratio≥0,8. Empty output non corrisponde a una GT nonempty.
-Geometria e metriche sono riusate dal modulo di valutazione già presente;
-non sono il protocollo ufficiale polygon spotting di Total-Text.
+Micro aggregation over **983 care words**, including words without crops.
+Don't Care already excluded in original qualified shards. Maximum one-to-one
+bipartite bbox IoU≥0,5 plus exact Unicode-casefold matching, punctuation retained.
+Also report case-sensitive exact and RapidFuzz casefold ratio≥0,8. Empty outputs
+do not match nonempty GT. Existing geometry/evaluation reused; not official
+Total-Text polygon spotting protocol.
 
-Recuperi/danni sono differenze tra gli insiemi di GT corrette prima/dopo;
-la loro differenza deve coincidere con il miglioramento del totale exact.
-Si conservano GT, prediction e indici per immagine nella sola evaluation.
+Gains/harms are differences between before/after correct-GT sets; their difference
+must equal exact-total improvement. GT, prediction, per-image indices stay in
+evaluation only.
 
-Preflight reale su `word_f1_control`: **125 immagini, 949 crop, 983 parole**,
-503 match geometrici a IoU≥0,5, **384 exact casefold (39,06%)**, 372 exact
-case-sensitive, 475 fuzzy. 555 output hanno forma eleggibile; dopo la
-protezione PARSeq restano 137 possibili target, prima della disponibilità dei
-candidati BERT. Questo è il controllo originale, non un risultato BERT.
+Real `word_f1_control` preflight:**125 images,949 crops,983 words**,503 geometric
+IoU≥0,5 matches,**384 exact casefold(39,06%)**,372 case-sensitive exact,475 fuzzy.
+555 outputs have eligible form; native protection leaves137 possible targets
+before BERT candidate availability. Original control, not a BERT result.
 
-46 test CPU passati, inclusi esecuzione di una piccola istanza BERT casuale
-solo come fixture ingegneristica, mascheramento dei sottotoken, isolamento GT,
-config namespace, soglie, checksum, cache storica, astensioni, matching,
-denominatore e regressioni PARSeq/metriche. Il primo preflight ha esposto la
-serializzazione dell'hash upstream; il secondo la cache OCR esterna. Entrambi
-sono stati corretti rispettando il contratto originale e testati.
+46 CPU tests passed, including a tiny random BERT as engineering fixture only,
+subtoken masking, GT isolation, config namespaces, thresholds, checksums, historical
+cache, abstention, matching, denominators, PARSeq/metric regressions. First preflight
+exposed upstream-hash serialization; second exposed external OCR cache. Both
+were fixed/tested while respecting the original contract.
 
-Preflight salvato in `/tmp/totaltext-letterbox-bert-preflight-v3/`.
-Al preflight i pesi BERT mancavano; l'utente ha poi completato il lanciatore
-sul computer con rete. L'inferenza reale e la verifica sono ora completate
-su CPU. CUDA, VRAM GPU, effetto caption e TEST restano non misurati.
-Il TRAIN-holdout è già stato esplorato in altri esperimenti, quindi non
-costituisce validazione indipendente.
+Preflight:`/tmp/totaltext-letterbox-bert-preflight-v3/`. BERT weights were absent
+then; user later completed launcher on networked host. Real CPU inference/
+verification are complete. CUDA, GPU VRAM, caption effects, TEST remain unmeasured.
+Repeatedly explored TRAIN holdout is not independent validation.
 
-## Risultati reali completati — 6 ottobre 2026
+## Completed real results —6 October2026
 
-Il report completo originale è
+Original complete report:
 `/extra1/bmartelli/context-str-runs/totaltext-letterbox-bert-correction-v1/results.json`,
 SHA256 `a7ae0a603323c4d2d6696b7383dbc6c6dd2646432f8200f4e52e8f674ee788ef`.
-Verificati 250 shard (125 per condizione), hash, crop, gate e metriche
-ricomputate sul denominatore originale. Nessun errore runtime o astensione
-per token limit/UNK; nessun sample escluso. Il backbone e la testa MLM non
-presentano chiavi mancanti o mismatch; soltanto le quattro chiavi inattive
-pooler/NSP previste sono escluse. Pesi safetensors SHA256:
+250 shards(125 per condition), hashes, crops, gates, recomputed metrics on original
+denominator verified. No runtime errors/token-limit/UNK abstention; no omitted
+sample. Backbone/MLM have no missing/mismatched keys; only four expected inactive
+pooler/NSP keys excluded. Safetensors SHA256:
 `68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3`.
 
-| Regola | Exact / 983 | Recuperate | Rovinate | Crop modificati | Secondi di correzione CPU |
+| Rule | Exact / 983 | Gained | Harmed | Changed crops | CPU correction seconds |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| PARSeq congelato | 384 | 0 | 0 | 0 | — |
-| BERT `word_only`, protezione ≥0,95 | 381 | 0 | 3 | 10 | 4,41 |
-| BERT `local_ocr`, protezione ≥0,95 | 383 | 0 | 1 | 8 | 4,88 |
-| BERT `word_only`, protezione ≥1,0 | 341 | 1 | 44 | 62 | 13,31 |
-| BERT `local_ocr`, protezione ≥1,0 | 363 | 3 | 24 | 42 | 16,38 |
+| Frozen PARSeq | 384 | 0 | 0 | 0 | — |
+| BERT `word_only`, protection ≥0,95 | 381 | 0 | 3 | 10 | 4,41 |
+| BERT `local_ocr`, protection ≥0,95 | 383 | 0 | 1 | 8 | 4,88 |
+| BERT `word_only`, protection ≥1,0 | 341 | 1 | 44 | 62 | 13,31 |
+| BERT `local_ocr`, protection ≥1,0 | 363 | 3 | 24 | 42 | 16,38 |
 
-BERT senza contesto rovina `Kong → King`, `Attire → Lattice` e
-`MOTEL → MODEL`; il contesto locale preserva le prime due ma trasforma
-`MOTEL → HOTEL`. Altri crop modificati non hanno match GT a IoU≥0,5 e non
-costituiscono recuperi/danni exact in questa metrica. Questo non li rende
-semanticamente corretti e non è prova che tutti i cambiamenti siano innocui.
+Without context, BERT harms `Kong → King`,`Attire → Lattice`,`MOTEL → MODEL`;
+local context preserves the first two but changes `MOTEL → HOTEL`. Other changed
+crops lack IoU≥0,5 GT matches and are not exact gains/harms under this metric.
+That does not establish semantic correctness or harmlessness of every change.
 
-### Diagnosi e ablation della protezione
+### Protection diagnosis and ablation
 
-L'audit GT-assisted trova un limite teorico di 420 parole esatte scegliendo
-fra i candidati già salvati, con uno-a-uno per crop. Le 36 parole aggiuntive
-sono un **oracle**, non un selettore utilizzabile. In 29/36 casi la protezione
-native-confidence blocca la correzione, inclusi `MERICAN → AMERICAN` e
-`WORL → WORLD`; negli altri sette BERT mantiene il testo originale. Probabilità
-elevata sui caratteri prodotti non verifica che manchino altri caratteri.
+GT-assisted audit finds theoretical420 exact words by one-to-one-per-crop
+selection among saved candidates. Additional36 words form an **oracle**, not a
+usable selector. In29/36 cases, native-confidence protection blocks correction,
+including `MERICAN → AMERICAN`,`WORL → WORLD`; in the other seven, BERT keeps
+original text. High produced-character probability does not check missing letters.
 
-Per isolare questa causa ho eseguito una **ablation post-hoc sul TRAIN**,
-config `configs/approximate/totaltext_v4_bert_confidence_ablation_v1.json`.
-Cambia soltanto `protect_min_token_probability` da 0,95 a 1,0: il valore
-esattamente saturo resta protetto, tutte le altre regole sono identiche.
-Non è un protocollo scelto prima del primo run né una validazione indipendente;
-nessun tuning, grid o selezione sul TEST. Il run originale è preservato.
+To isolate this, a **post-hoc TRAIN ablation** used
+`configs/approximate/totaltext_v4_bert_confidence_ablation_v1.json`. Only
+`protect_min_token_probability` changes0,95→1,0: exact saturation stays protected;
+all other rules identical. Not predeclared before the first run or independent
+validation; no tuning, grid, TEST selection. Original run preserved.
 
-Report completo dell'ablation:
+Complete ablation report:
 `/tmp/totaltext-letterbox-bert-confidence-ablation-v1/results.json`, SHA256
 `6919040e863c2b18f0727a0458957ed7e9e0bf4c244ba5545dc3c9f3534de7d5`.
-Con contesto recupera `EVER → EVERY`, `Oper → Open` e `OPICAL → TROPICAL`,
-ma rovina 24 parole prima corrette. Il netto −21 mostra che allentare la
-protezione non risolve il problema di selezione in questa configurazione.
-La maggiore plausibilità linguistica non fornisce evidenza sufficiente che
-una scritta contenga realmente il candidato.
+With context, it recovers `EVER → EVERY`,`Oper → Open`,`OPICAL → TROPICAL`, but
+harms24 formerly correct words. Net−21 shows weaker protection does not solve
+selection in this configuration. Language plausibility does not sufficiently
+establish that the image contains the candidate.
 
-Entrambi i run usano BERT FP32, CPU a quattro thread, batch16; le latenze
-escludono caricamento e tutti i modelli upstream. Picchi VRAM sono `null`,
-non una misura GPU. Geometria invariata: 503 match IoU≥0,5 in ogni condizione.
-46 test CPU/regressione passati nuovamente. Non viene promossa nessuna regola
-di correzione sulla base di questi risultati negativi. Resta da qualificare un
-correttore spelling-fine-tuned o un contesto caption realmente riferito a
-Total-Text, oltre a una futura validazione indipendente.
+Both runs use FP32 BERT, four CPU threads, batch 16; timings exclude loading/all
+upstream models. VRAM peaks are `null`, not GPU measurements. Geometry unchanged:
+503 IoU≥0,5 matches in every condition.46 CPU/regression tests passed again.
+No correction rule is promoted from these negative results. Spelling-fine-tuned
+correctors or genuinely Total-Text captions remain to be qualified, along with
+future independent validation.
 
-Audit machine-readable in
-`/tmp/totaltext-letterbox-bert-completed-audit-v1.json` e
+Machine-readable audits:
+`/tmp/totaltext-letterbox-bert-completed-audit-v1.json` and
 `/tmp/totaltext-letterbox-bert-confidence-ablation-audit-v1.json`.

@@ -1,131 +1,125 @@
-# Centerline e raggio: prova nuova sulla U-Net frozen
+# Centerline and radius: a new experiment on the frozen U-Net
 
-**Approximate reproduction / estensione sperimentale.** La prova verifica se
-una linea longitudinale e lo spessore locale aiutano a ricostruire parole intere.
-Non sostituisce componenti del percorso STRICT e non riproduce TextSnake.
-La [configurazione](../configs/approximate/word_centerline_v1.json) registra
-scelte, hash e classificazioni; l'ambiguità scientifica è
+**Approximate reproduction / experimental extension.** This experiment tests
+whether a longitudinal line and local thickness help reconstruct complete words.
+It neither replaces STRICT components nor reproduces TextSnake. The
+[configuration](../configs/approximate/word_centerline_v1.json) records choices,
+hashes, and classifications; scientific ambiguity:
 [WCL-001](PAPER_AMBIGUITIES.md#wcl-001--word-centerline-and-radius-extension).
 
-## Perché questa prova
+## Motivation
 
-L'[audit degli agenti](AGENT_EXPERIMENT_REVIEW_2026_10_11.md) mostra che i nuclei
-Text+Kernel sono un riferimento più solido dei link per pixel. I nuovi ricrop
-guadagnano e perdono molte identità e aumentano i falsi positivi; una copertura
-maggiore della maschera non garantisce maggiore precisione OCR. I precedenti
-centers sono punti/offset verso il centro di parola, non linee longitudinali.
-Quei training sono già completati: questa suite non li rilancia.
+The [agent audit](AGENT_EXPERIMENT_REVIEW_2026_10_11.md) shows Text+Kernel kernels
+to be a stronger reference than pixel links. New recrops gain/lose many identities
+and increase false positives; greater mask coverage does not guarantee higher
+OCR precision. Previous centers are points/offsets toward word centers, not
+longitudinal lines. Those training runs are complete and are not relaunched here.
 
-Una linea da sola non determina l'altezza del crop. **TextSnake** descrive le
-parole tramite dischi lungo l'asse, con raggio e orientamento, e ricostruisce la
-regione dai dischi. La proposta qui implementata usa la stessa intuizione
-geometrica con una testa privata nella U-Net esistente.
-[Fonte primaria, ECCV 2018, sezioni 3.1–3.5](https://www.ecva.net/papers/eccv_2018/papers_ECCV/papers/Shangbang_Long_TextSnake_A_Flexible_ECCV_2018_paper.pdf).
+A line alone does not determine crop height. **TextSnake** represents words as
+disks along their axis, with radius/orientation, and reconstructs the region from
+those disks. This proposal uses the same geometric intuition with a private head
+in the existing U-Net.
+[Primary source, ECCV 2018, sections 3.1–3.5](https://www.ecva.net/papers/eccv_2018/papers_ECCV/papers/Shangbang_Long_TextSnake_A_Flexible_ECCV_2018_paper.pdf).
 
-## Protocollo fissato prima del training
+## Protocol fixed before training
 
-- Total-Text TRAIN1255: 1.130 immagini di training, 125 held-out, 983 parole care;
-  seed202503 e lista/hash identici ai confronti precedenti. Holdout riutilizzato,
-  non verifica indipendente sul TEST ufficiale.
-- Copia esatta del Text+Kernel control V1, best epoch2, con checksum verificati.
-  Tutti i pesi e buffer della rete sorgente, inclusi BatchNorm, restano frozen.
-  Non si riaddestra il controllo. Questo misura cosa può imparare una testa
-  dalle feature già disponibili; un insuccesso non esclude il beneficio di una
-  futura U-Net completamente riaddestrata sulla nuova supervisione.
-- Due convoluzioni private3x3, 128→32→32, seguite da1x1 a due canali. Input:
-  feature decoder e primo livello encoder. Output: probabilità della linea e
-  raggio locale positivo (`softplus + 0.5` pixel nativi). Inizializzazione della
-  linea a logit−2 e del raggio a2 pixel, ultimo layer con pesi zero.
-- RGB512×512 con letterbox, mappe256×256, stessi preprocessing e augmentations
-  della sorgente qualificata. Adam1e−4, weight decay0.01, batch8,20 epoche,
-  precisione FP32 e TF32 disabilitato. Tutti i valori sono nella configurazione.
-- Checkpoint scelto per F1 geometrico nativo del decoder `line_radius` a
-  IoU≥0.5; tie: meno GT fuse, recall, fgIoU, epoca più precoce. Include epoch0.
-  Non si sceglie il checkpoint guardando l'OCR dei tre metodi.
+- Total-Text TRAIN1255: 1.130 training images, 125 held out, 983 care words;
+  seed 202503 and identical lists/hashes to earlier comparisons. Reused holdout,
+  not independent verification on official TEST.
+- Exact copy of Text+Kernel control V1, best epoch 2, with verified checksums.
+  All source weights/buffers, including BatchNorm, remain frozen. The control
+  is not retrained. This measures what a head can learn from existing features;
+  failure does not rule out benefits from a future fully retrained U-Net with
+  the new supervision.
+- Two private3x3 convolutions, 128→32→32, followed by 1x1 with two channels.
+  Input: decoder and first-encoder-level features. Output: line probability and
+  positive local radius (`softplus + 0.5` native pixels). Initial line logit−2,
+  radius 2 pixels, zero final-layer weights.
+- Letterboxed RGB512×512, maps 256×256, identical preprocessing/augmentation to
+  the qualified source. Adam1e−4, weight decay0.01, batch 8,20 epochs, FP32,
+  TF32 disabled. Every value is recorded in the configuration.
+- Checkpoint selected by native geometric F1 of `line_radius` at IoU≥0.5;
+  ties: fewer merged GT words, recall, fgIoU, earliest epoch. Includes epoch 0.
+  OCR outcomes from the three methods do not select the checkpoint.
 
-I target sono aggiuntivi: le GT originali restano immutate. Si assottiglia
-deterministicamente ciascuna **regione piena della parola**, dopo la stessa
-augmentazione e il ridimensionamento. Il raggio è la distanza euclidea dal
-bordo, con zero padding. La supervisione della linea è una fascia di semilarghezza
-raggio/5, tagliata allo stesso owner. Il raggio della fascia proviene dal pixel
-di scheletro più vicino. Si conservano frammenti, pixel piccoli e ramificazioni
-con audit esplicito; un componente cancellato dall'assottigliamento conserva il
-pixel interno più lontano dal bordo, con tie row-major.
+Targets are additional; original GT stays unchanged. Each **filled word region**
+is deterministically thinned after the same augmentation/resizing. Radius is
+Euclidean distance to the boundary, with zero padding. Line supervision is a
+band of half-width radius/5, clipped to the same owner. Band radius comes from
+the nearest skeleton pixel. Fragments, small pixels, and branches are retained
+and explicitly audited; a component erased by thinning keeps its interior pixel
+farthest from the boundary, with row-major ties.
 
-È una **ASSUMPTION**: lo scheletro raster Zhang–Suen non coincide necessariamente
-con la centerline da coppie di lati del poligono usata da TextSnake. Non si
-predicono sin/cos dell'orientamento, non si accorciano le estremità, non si usa
-il suo algoritmo di striding. La loss è BCE+Dice per la linea, più SmoothL1
-su log-raggio; pesi uguali per owner entro ogni immagine, poi media per immagine
-per il raggio. Non è la loss originale di TextSnake. Questa prima prova non
-aggiunge clDice contemporaneamente, per non confondere due cambiamenti.
+This is an **ASSUMPTION**: the Zhang–Suen raster skeleton need not coincide with
+TextSnake's centerline from paired polygon sides. No orientation sin/cos is
+predicted, endpoints are not shortened, and its striding algorithm is not used.
+Loss is line BCE+Dice plus log-radius SmoothL1; radius weighting is equal per
+owner within each image, then averaged per image. This is not TextSnake's
+original loss. The first experiment does not also add clDice, avoiding two
+simultaneous changes.
 
-## Tre crop sulle stesse immagini e lo stesso checkpoint
+## Three crops on the same images and checkpoint
 
-| Metodo | Regola | Domanda sperimentale |
+| Method | Rule | Experimental question |
 | --- | --- | --- |
-| `baseline` | Identico watershed Text+Kernel attuale | Riferimento interno preservato |
-| `line_markers` | Componenti della linea predetta come seed, crescita entro il foreground frozen; fallback esplicito sui componenti senza seed | La linea separa meglio parole fuse? |
-| `line_radius` | Scheletro della linea predetta, dischi con raggio predetto, anche fuori dal foreground frozen | La nuova rappresentazione recupera crop incompleti? |
+| `baseline` | Identical current Text+Kernel watershed | Preserved internal reference |
+| `line_markers` | Predicted-line components seed growth inside frozen foreground; explicit fallback for components without seeds | Does the line separate fused words better? |
+| `line_radius` | Predicted-line skeleton and predicted-radius disks, including outside frozen foreground | Does the representation recover incomplete crops? |
 
-Le linee sono sogliate a0.5 e connesse a8 vicini. I dischi in competizione
-assegnano ogni pixel al minimo rapporto distanza/raggio; i tie conservano
-l'ordine row-major delle componenti. Si taglia al canvas RGB, non alla GT.
-Il raggio è limitato a128 pixel con conteggio delle limitazioni. Nessun filtro
-per area, nessun limite di crop, padding0: sono diagnostici approximate,
-separati dall'Algorithm1 del paper. I crop finali sono bbox RGB originali;
-questa prova **non** introduce anche una rettifica curva.
+Lines use threshold 0.5 and 8-neighbor connectivity. Competing disks assign each
+pixel to the smallest distance/radius ratio; ties retain row-major component
+order. Clipping uses the RGB canvas, not GT. Radius is capped at128 pixels,
+counting every cap. No area filter, crop limit, or padding beyond padding0:
+these are approximate diagnostics, separate from paper Algorithm1. Final crops
+are original-RGB bboxes; curved rectification is not introduced here.
 
-Il checkpoint pubblico PARSeq qualificato viene caricato in un processo successivo.
-È lo stesso candidato approximate dei confronti precedenti; l'identità esatta
-del PARSeq-S del paper resta [UNRESOLVED, R-001](PAPER_AMBIGUITIES.md#r-001--exact-parseq-s-artifact-is-unidentified).
-La metrica primaria
-richiede IoU bbox originale≥0.5 e testo esatto dopo Unicode casefold, con matching
-massimo uno-a-uno; la punteggiatura rimane. Tutte le983 parole restano nel
-denominatore. Si escludono soltanto predizioni interamente ignorate, dopo aver
-creato i crop senza GT. Si salvano precisione, recall e Hmean, più identità
-guadagnate/perse rispetto alla baseline. La metrica senza simboli è secondaria.
-F1 della linea e MAE del raggio sulla fascia GT aiutano a distinguere problemi
-di apprendimento da problemi del decoder.
+The qualified public PARSeq checkpoint loads in a subsequent process. It is the
+same approximate candidate as earlier comparisons; the paper's exact PARSeq-S
+identity remains [UNRESOLVED, R-001](PAPER_AMBIGUITIES.md#r-001--exact-parseq-s-artifact-is-unidentified).
+The primary metric requires original bbox IoU≥0.5 and exact Unicode-casefold
+text under maximum one-to-one matching, retaining punctuation. All983 words
+remain in the denominator. Only wholly ignored predictions are excluded, after
+GT-free crop construction. Precision, recall, Hmean, and baseline-relative GT
+identity gains/losses are saved. Symbol-free matching is secondary. Line F1 and
+radius MAE over the GT band help distinguish learning from decoder problems.
 
-## Qualifica locale e limiti
+## Local qualification and limitations
 
-La qualifica CPU è nel
-[JSON target/oracle](../artifacts/word-centerline-v1-qualified/target_qualification.json)
-e nello [smoke reale](../artifacts/word-centerline-v1-qualified/cpu-smoke/smoke.json).
-Passano **50 test mirati e132 test di regressione correlati**; sintassi shell
-e CLI sono verificate. Il [record leggero di qualifica](../provenance/word_centerline_v1_qualification.json)
-registra hash, verifiche svolte e lavoro ancora pendente.
-Sulle125 immagini, tutti i983 owner sopravvivono, ciascuno con uno scheletro
-connesso; nessuna componente della fascia unisce owner diversi.26 componenti
-hanno scheletro di un solo pixel.389 owner hanno pixel con oltre due vicini8:
-questo conteggio include geometria discreta dei raccordi, non dimostra389
-ramificazioni longitudinali reali.
+CPU qualification is in the
+[target/oracle JSON](../artifacts/word-centerline-v1-qualified/target_qualification.json)
+and [real smoke](../artifacts/word-centerline-v1-qualified/cpu-smoke/smoke.json).
+**50 focused tests and 132 related regressions** pass; shell syntax and CLI are
+checked. The [small qualification record](../provenance/word_centerline_v1_qualification.json)
+records hashes, completed checks, and pending work. Over125 images, all 983
+owners survive, each with a connected skeleton; no band component joins distinct
+owners.26 components have a one-pixel skeleton.389 owners have pixels with more
+than two8-neighbors: this includes discrete junction geometry and does not prove389
+actual longitudinal branches.
 
-Con **linea e raggio GT**, la ricostruzione produce983 proposte e968 matching
-nativi IoU≥0.5: precisione/recall/F1 **98,47%**, fgIoU macro85,02%, fgF1
-macro91,83%. Il decoder produce comunque due istanze con pixel su owner multipli
-e due parole con più istanze sovrapposte. I dischi discretizzati non ricostruiscono
-perfettamente ogni bbox. Questo è un **oracle dei target**, non performance della
-rete, non OCR e non un tetto assoluto di riconoscimento. Una linea ideale risulta
-una rappresentazione utile; la predizione rimane da verificare.
+With **GT line and radius**, reconstruction produces983 proposals and 968 native
+IoU≥0.5 matches: precision/recall/F1 **98,47%**, macro fgIoU85,02%, macro fgF1
+91,83%. The decoder still produces two instances containing pixels from multiple
+owners and two words with multiple overlapping instances. Discrete disks do not
+perfectly reconstruct every bbox. This is a **target oracle**, not network
+performance, OCR, or an absolute recognition ceiling. An ideal line is a useful
+representation; its prediction remains unverified.
 
-Lo smoke CPU usa due immagini512×512, batch2/workers0, forward/backward reali
-e tutti i decoder: la testa cambia, i tensori sorgente rimangono identici.
-Batch ridotto e CPU sono registrati come deviazioni hardware. In questo ambiente
-CUDA e il driver NVIDIA non sono disponibili: non sono stati eseguiti il training
-completo, la valutazione PARSeq o misure VRAM della nuova suite.
+The CPU smoke uses two512×512 images, batch 2/workers0, real forward/backward,
+and every decoder: the head changes while source tensors remain identical.
+Reduced batch and CPU are recorded as hardware deviations. CUDA/NVIDIA driver
+are unavailable in this environment: no full training, PARSeq evaluation, or
+new-suite VRAM measurements have been performed.
 
-Durante la preparazione, il primo preflight ha fallito un controllo troppo
-restrittivo: il riferimento storico contiene owner ridimensionati non ancora
-tagliati a target/validity, mentre il dataset li taglia. Il controllo ora confronta
-le stesse mappe tagliate, mantenendo tutti gli ID attesi nel denominatore; un
-test specifico verifica questo caso. L'errore iniziale è conservato nella
-qualifica preliminare `artifacts/word-centerline-v1-qualification/failure.json`.
+During preparation, the first preflight failed an overly restrictive check:
+the historical reference contains resized owners not yet clipped to target/
+validity, while the dataset clips them. The check now compares the same clipped
+maps, keeping all expected IDs in the denominator; a dedicated test covers this
+case. The original failure is preserved in
+`artifacts/word-centerline-v1-qualification/failure.json`.
 
-## Comando sul computer con GPU
+## Command on the GPU machine
 
-Dalla radice del repository:
+From the repository root:
 
 ```bash
 bash scripts/run_word_centerline_host.sh \
@@ -135,28 +129,26 @@ bash scripts/run_word_centerline_host.sh \
   /extra1/bmartelli/context-str-artifacts/parseq
 ```
 
-Il comando verifica artifact, esegue il target oracle, uno smoke GPU **batch8**,
-20 epoche della sola testa, tutti i crop, poi PARSeq. Non installa dipendenze,
-non scarica pesi e non rilancia le vecchie branche. `DEVICE=cuda:0` e `PYTHON`
-sono selezioni runtime esplicite opzionali. Usa il virtualenv principale già
-presente. Un lock della suite e uno single-GPU serializzano questo launcher;
-non controllano processi precedenti avviati senza quel lock.
+The command checks artifacts, runs the target oracle, a **batch 8** GPU smoke,
+20 head-only epochs, all crops, then PARSeq. It neither installs dependencies,
+downloads weights, nor relaunches old branches. `DEVICE=cuda:0` and `PYTHON` are
+optional explicit runtime selections. It uses the existing main virtualenv.
+Suite and single-GPU locks serialize this launcher; they do not control older
+processes started without that lock.
 
-Rilanciare lo stesso comando riprende da `last.pt` con optimizer e RNG, oppure
-verifica e riusa i risultati completi. Config, sorgenti, hardware/device,
-preprocessing, checkpoint e split modificati richiedono un nuovo output. Sono
-conservati `best.pt` e `last.pt`; non vengono prodotti checkpoint per ogni epoca.
-Una run incompleta non può accedere alla valutazione finale. Non si cambia batch,
-precisione o modello automaticamente dopo OOM; il fallimento viene registrato
-con modello, input, batch e picchi allocated/reserved.
+Rerunning the same command resumes `last.pt` with optimizer/RNG states, or
+verifies/reuses completed results. Changed config, source, hardware/device,
+preprocessing, checkpoint, or split requires a new output. `best.pt` and
+`last.pt` are retained, without per-epoch checkpoints. An incomplete run cannot
+perform final evaluation. OOM never changes batch, precision, or model
+automatically; the failure records model, input, batch, and allocated/reserved peaks.
 
-Risultato da leggere:
+Result to inspect:
 `/extra1/bmartelli/context-str-runs/word-centerline-v1/centerline_ocr_comparison.md`
-e il corrispondente JSON. Le mappe e ricette di ogni crop permettono di controllare
-perché una parola è stata guadagnata o persa. Il vantaggio del nuovo metodo è
-**UNRESOLVED** fino al completamento di quel confronto.
+and its JSON. Maps and crop recipes explain gained/lost words. The new method's
+benefit is **UNRESOLVED** until that comparison is complete.
 
-Test ingegneristici:
+Engineering tests:
 
 ```bash
 .venvs/context-str-main-py311/bin/python -m pytest -q \
@@ -166,26 +158,25 @@ Test ingegneristici:
   tests/scripts/test_word_centerline_ocr.py
 ```
 
-## Altre direzioni nuove, da provare separatamente
+## Other new directions to test separately
 
-**TextField** impara un campo orientato dal bordo più vicino verso l'interno,
-per raggruppare parole irregolari. È un'alternativa alle linee/raggi e differisce
-dagli offset al centro globale già provati; non è implementato in questa suite.
-La fonte primaria descrive magnitudine per testo/non-testo e direzione per
-separare istanze: [TextField](https://arxiv.org/abs/1812.01393).
+**TextField** learns a directed field pointing inward from the nearest boundary
+to group irregular words. It is an alternative to lines/radii and differs from
+previous global-center offsets; it is not implemented in this suite. Its primary
+source describes text/non-text magnitude and directions for separating instances:
+[TextField](https://arxiv.org/abs/1812.01393).
 
-**Soft-clDice** può essere una successiva ablation della loss per ridurre
-interruzioni della linea. È stato studiato per strutture tubulari quali vasi,
-neuroni e strade; non garantisce da solo che due parole vicine rimangano separate.
-Occorre misurare anche fusioni e OCR: [clDice, CVPR2021](https://arxiv.org/abs/2003.07311).
+**Soft-clDice** can be a later loss ablation to reduce line breaks. It was studied
+for tubular structures such as vessels, neurons, and roads; alone it does not
+guarantee separation of neighboring words. Measure merges and OCR too:
+[clDice, CVPR2021](https://arxiv.org/abs/2003.07311).
 
-Prima di cambiare anche il backbone, confrontare loss/recall della linea e
-qualità del raggio: se le feature frozen non riescono a impararli, il passo
-successivo ragionevole è una **nuova** ablation con decoder riaddestrato e
-controllo a pari budget, conservando questa baseline. La sua utilità è
-un'ipotesi, non un risultato disponibile.
+Before changing the backbone, compare line loss/recall and radius quality: if
+frozen features cannot learn them, a reasonable next step is a **new** decoder-
+retraining ablation with an equal-budget control, retaining this baseline.
+Its usefulness is a hypothesis, not an available result.
 
-Rettifica ruotata, Bezier, distance markers, watershed/kernel, embedding,
-pixel-links e threshold adattive sono già presenti nel repository. Non sono
-proposti come novità; la [rettifica Bezier esistente](../diagnostics/curve_rectification_train.py)
-potrà essere riusata in un confronto successivo sui crop nuovi.
+Rotated/Bezier rectification, distance markers, watershed/kernel, embeddings,
+pixel links, and adaptive thresholds already exist here. They are not proposed
+as novel; [existing Bezier rectification](../diagnostics/curve_rectification_train.py)
+can be reused in a later comparison on new crops.

@@ -85,6 +85,11 @@ def probe_split(cfg,plan,root,split,observed):
         for number,(sid,v)in enumerate(observed.items(),1):
             path=root/split/'probes'/(base.source.key(sid)+'.json')
             cached=base.receipt(path,ph)
+            if cached is not None and judge.provenance['native_forward_check']is None:
+                # A resumed all-cached stage still qualifies the freshly loaded model.
+                with Image.open(v['sample']['image_path'])as im:rgb=np.asarray(im.convert('RGB'))
+                views,_=residual_views(rgb,[r['bbox']for r in v['rows']],mask_value=cfg['mask_value'],blur_fraction=cfg['blur_fraction'])
+                judge.score(views,v['caption']['text'])
             if cached is None:
                 s=v['sample']
                 if sha(Path(s['image_path']))!=s['image_sha256']:raise ValueError('Original image changed')

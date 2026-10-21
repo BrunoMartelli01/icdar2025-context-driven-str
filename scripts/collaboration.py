@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIRS = {
-    ".github", "Figures", "caption", "cli", "configs", "deepsolo", "diagnostics",
+    ".github", "Figures", "caption", "cli", "configs", "deepsolo", "diagnostics", "experiments",
     "docker", "docs", "environments", "localize", "manifests", "models", "papers",
     "pipeline", "provenance", "recognition", "research", "scoring", "scripts",
     "segmentation", "tests",
@@ -128,7 +128,8 @@ def check_source(root):
             if not raw.startswith(b"\x89PNG\r\n\x1a\n"):
                 errors.append(name + ": invalid declared PNG fixture/illustration")
             continue
-        if path.suffix.lower() not in TEXT_SUFFIXES and name not in ROOT_FILES and path.name != "Dockerfile":
+        summary_csv = name.startswith("experiments/results/") and path.suffix.lower() == ".csv"
+        if path.suffix.lower() not in TEXT_SUFFIXES and not summary_csv and name not in ROOT_FILES and path.name != "Dockerfile":
             errors.append(name + ": unsupported source format")
             continue
         if any(pattern.search(raw) for pattern in SECRET_PATTERNS):
@@ -174,7 +175,7 @@ def export_source(root, destination):
     environment.pop("CONTEXT_STR_ARTIFACTS_ROOT", None)
     environment["PYTHONDONTWRITEBYTECODE"] = "1"
     catalog = subprocess.run(
-        [sys.executable, "-m", "research", "catalog"], cwd=str(destination),
+        [sys.executable, "-m", "research", "catalog", "--source-only"], cwd=str(destination),
         env=environment, capture_output=True, text=True,
     )
     if catalog.returncode:

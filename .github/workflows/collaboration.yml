@@ -24,5 +24,7 @@ jobs:
       - run: python -m pip install pytest==8.3.4
       - run: python -m scripts.collaboration check
       - run: python -m research groups
-      - run: python -m research catalog --check
-      - run: python -m pytest -q tests/research tests/scripts/test_collaboration.py
+      - run: python -m scripts.build_experiment_library --check
+      - run: python -m scripts.check_repository_language
+      - run: python -m research catalog --source-only --check
+      - run: python -m pytest -q tests/research tests/scripts/test_collaboration.py tests/scripts/test_repository_language.py

@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-21T19:41:23.457364+00:00",
+  "registry_sha256": "5e638d44a1b2e936111d20b9e12258dd6a6c549c42b6c8f99d44ed66769e879e",
+  "groups": [
+    {
+      "id": "multitask-geometry",
+      "path": "experiments/results/multitask-geometry.json",
+      "sha256": "1ce78c5fe1d875f3ba439b40d449e0f50c8c8d3a20bac8681e3af55c625c0309",
+      "rows": 3,
+      "source": {
+        "root": "repository",
+        "path": "provenance/word_multitask_v1_completion_audit.json",
+        "sha256": "74eb529408c7083349fcceb1f5513fb457721f8db486ed843dd5de484d39838c"
+      }
+    },
+    {
+      "id": "research-v1",
+      "path": "experiments/results/research-v1.json",
+      "sha256": "5562097da9294127299d97124c9abce4a79fe2d9c630360331185aab5128bcba",
+      "rows": 5,
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v1/comparison.json",
+        "sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d"
+      }
+    },
+    {
+      "id": "research-v1-top10",
+      "path": "experiments/results/research-v1-top10.json",
+      "sha256": "8c038da631014b1e6d5ff45e3800de556b7d0ae571e067c3eef009691500c674",
+      "rows": 2,
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v1/comparison.json",
+        "sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d"
+      }
+    },
+    {
+      "id": "research-v2-heads",
+      "path": "experiments/results/research-v2-heads.json",
+      "sha256": "e1ce9f31b1d7d7a91954c452ef49ffb6266335b96ef97a33ddba77572e917b23",
+      "rows": 7,
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v2/comparison.json",
+        "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010"
+      }
+    },
+    {
+      "id": "research-v2-postprocess",
+      "path": "experiments/results/research-v2-postprocess.json",
+      "sha256": "5a077f1a3228ba29c141b1c270a37e9c14bbaf36e7463c8449d0059934a7af15",
+      "rows": 3,
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v2/comparison.json",
+        "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010"
+      }
+    },
+    {
+      "id": "crop-links",
+      "path": "experiments/results/crop-links.json",
+      "sha256": "1e7114884209f3c09d259578706a80b3529120145c94bedfafe781d837095389",
+      "rows": 4,
+      "source": {
+        "root": "runs",
+        "path": "unet-crop-links-v1/comparison.json",
+        "sha256": "e680d21bb67a8a15a6c9ee9b0d2d13900b282b21406794befc61a7b680f8f8f5"
+      }
+    },
+    {
+      "id": "frozen-crops",
+      "path": "experiments/results/frozen-crops.json",
+      "sha256": "27480dbdca3ee5046767b4b02340e7d3a7730e3f26b9ec9b176516660a48f859",
+      "rows": 16,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-parseq-crops-v1/summary.json",
+        "sha256": "0fdef4221694c9f94f7a5794b990078e75c234814a607d2428db770b0f48184f"
+      }
+    },
+    {
+      "id": "learned-crops",
+      "path": "experiments/results/learned-crops.json",
+      "sha256": "45ae2c6db06b593b41c40f25c753e497c2ceac74409a037d0f43a86e86635eee",
+      "rows": 8,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-learned-crops-v1/summary.json",
+        "sha256": "c023bb79264181992a99e8f063514bd598ba68d61b806c32f03f5be36068eba3"
+      }
+    },
+    {
+      "id": "refinements",
+      "path": "experiments/results/refinements.json",
+      "sha256": "2714a1446b355da7c4be8f4cdbedfe4a0f33662db92c2a36e6b66f757ba71cfe",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+        "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+      }
+    },
+    {
+      "id": "gt-crop-diagnostic",
+      "path": "experiments/results/gt-crop-diagnostic.json",
+      "sha256": "08afbea58bed2584f005d66352e20afa606fedb4c5fac153bb82ce96d2af7f90",
+      "rows": 1,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+        "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+      }
+    },
+    {
+      "id": "center-votes",
+      "path": "experiments/results/center-votes.json",
+      "sha256": "f9b90e5e8cfb7a79aac79768eb8e99a74b521dec355a424678ed40765bf818ac",
+      "rows": 8,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/center-guided-word-crops-v2/summary.json",
+        "sha256": "f08981d713688389f91c7acfbc1bc454e3e8df6c58eb87acf481c73bc6629e67"
+      }
+    },
+    {
+      "id": "gap",
+      "path": "experiments/results/gap.json",
+      "sha256": "ff8f3118759587be01b6eb1546eb83bd836406975942d67e841b9957825d0722",
+      "rows": 3,
+      "source": {
+        "root": "runs",
+        "path": "adaspot-gap-v1-20261015T125256Z/ocr_comparison.json",
+        "sha256": "b40d2fdc9f46d7f7c6bcd1a946db25d6a8bfeb355d0460ac5feedd43852fd20d"
+      }
+    },
+    {
+      "id": "kernel-extracted",
+      "path": "experiments/results/kernel-extracted.json",
+      "sha256": "7a697e69fd5f5901758b7161a8a42aadbb51763b3d8f8686cfc1ab53730ae6e4",
+      "rows": 12,
+      "source": {
+        "root": "runs",
+        "path": "kernel-only-padding-v1-20261016/results.json",
+        "sha256": "7919ab722c3cbc7156225e2e3aa297b20344ca166b88cf84ee6a4eef4962b557"
+      }
+    },
+    {
+      "id": "kernel-fresh",
+      "path": "experiments/results/kernel-fresh.json",
+      "sha256": "1ddeed564ec7fe76cc6de897a4456b16683b3a70c59cf31b8be5cf4ac3a5565d",
+      "rows": 6,
+      "source": {
+        "root": "runs",
+        "path": "kernel-only-fresh-v1-20261016/results.json",
+        "sha256": "d11e6ed5c4c37bd15acccb6e4dd24d246616e9abed5e37364ee469b1279ff43e"
+      }
+    },
+    {
+      "id": "native128-pad0",
+      "path": "experiments/results/native128-pad0.json",
+      "sha256": "8e0b3fad023317c1a2dcaa71a7bf525f0bb2f4a5e9b2b6d219911450e6e9a61f",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-pad1",
+      "path": "experiments/results/native128-pad1.json",
+      "sha256": "c8259b3ac904439f8575acba32a4289cbbf6f94bf12e63bfc2fbaa0d5c18fb3f",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-pad2",
+      "path": "experiments/results/native128-pad2.json",
+      "sha256": "7cadd01dc6339e7c3f0a288fe8ec7e6ab65d70ff5478089b2f1885bb5edeb2da",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-pad4",
+      "path": "experiments/results/native128-pad4.json",
+      "sha256": "f38d890cdba38e9ff79ec36a9668f2e4d3ff4732d96b9d7c5865ea3711ebfe8e",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-pad6",
+      "path": "experiments/results/native128-pad6.json",
+      "sha256": "37fad76b9ad558498695d478180ff5ff74d2b3fd6073d14b77b3bab63387b258",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-pad8",
+      "path": "experiments/results/native128-pad8.json",
+      "sha256": "7d9ec11d6b5a103304ed05ab459c08afd3cf7304105539a82c9405381484523f",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "native128-padoriginal6",
+      "path": "experiments/results/native128-padoriginal6.json",
+      "sha256": "f62419a745de7964fd5c5801f095f2402d81ee4107feefb4e79ba61fed3dc777",
+      "rows": 15,
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      }
+    },
+    {
+      "id": "yolo-test-equal",
+      "path": "experiments/results/yolo-test-equal.json",
+      "sha256": "9aeffcdbba07542f9a0a0b74aaa6b1d1379356244722cf68492ab8972227f45d",
+      "rows": 7,
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      }
+    },
+    {
+      "id": "yolo-test-transferred",
+      "path": "experiments/results/yolo-test-transferred.json",
+      "sha256": "f5da070e2273af29689f31f777ad065cb398fd4a2d6cfa8d1a092fd292c803e9",
+      "rows": 7,
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      }
+    },
+    {
+      "id": "yolo-train-equal",
+      "path": "experiments/results/yolo-train-equal.json",
+      "sha256": "a85b43cde7941aa8d71a117a57021c4fa73956450566a2b9a66aabc3a0375090",
+      "rows": 7,
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      }
+    },
+    {
+      "id": "clip-encoders-budget",
+      "path": "experiments/results/clip-encoders-budget.json",
+      "sha256": "38c41e23ddc3c3db329c7b2b625b73f2648ab4af2f7b242276be43a7f123e7dd",
+      "rows": 3,
+      "source": {
+        "root": "external_artifacts",
+        "path": "clip-specialized-comparison-v1/final/comparison.json",
+        "sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681"
+      }
+    },
+    {
+      "id": "clip-encoders-threshold",
+      "path": "experiments/results/clip-encoders-threshold.json",
+      "sha256": "0e7710a360f2cb6c8b0194cfb1ead12a715ca3a35c151daf91e538afa7003a58",
+      "rows": 3,
+      "source": {
+        "root": "external_artifacts",
+        "path": "clip-specialized-comparison-v1/final/comparison.json",
+        "sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681"
+      }
+    }
+  ]
+}

@@ -1,143 +1,137 @@
-# Confronto CLIP completato: B/32, B/16 e L/14
+# Completed CLIP comparison: B/32, B/16, and L/14
 
-Il confronto richiesto è completato: tre checkpoint, 40 regole per checkpoint,
-125 immagini Total-Text TRAIN, 1.173 box fissi e tutte le 983 care GT nel
-denominatore. Sono risultati **approximate reproduction**, su dati già usati
-per sviluppo. Non sono TEST indipendente, riconoscimento di nuove parole o
-riproduzione della Table 5. L'esperimento DeepSolo sugli slot è separato e non
-contribuisce a questi risultati.
+The requested comparison is complete: three checkpoints, 40 rules each,
+125 Total-Text TRAIN images, 1.173 fixed boxes, all 983 care GT in the denominator.
+These are **approximate reproduction** results on development data, not
+independent TEST, recognition of new words, or reproduced Table 5. The separate
+DeepSolo slot experiment does not contribute to these results.
 
-## Risultati principali
+## Main results
 
-Ogni valore è il numero di letture esatte, dopo Unicode casefold e con
-punteggiatura conservata, con matching uno a uno dei box a IoU >=0.5.
-Tutte le alternative sono stringhe PARSeq già disponibili; tutti i metodi
-conservano i medesimi box. PARSeq originale ottiene 368/983; selezionare
-l'alternativa con confidence PARSeq massima ottiene 383/983 per tutti i modelli.
+Each value counts exact Unicode-casefold readings with punctuation retained,
+under one-to-one bbox matching at IoU >=0.5. Alternatives are existing PARSeq
+strings; all methods retain identical boxes. Original PARSeq reaches 368/983;
+selecting the highest-confidence PARSeq alternative reaches 383/983 for all models.
 
-| Regola | B/32 | B/16 | L/14 |
+| Rule | B/32 | B/16 | L/14 |
 |---|---:|---:|---:|
-| Crop + prompt della parola scritta |362|361|370|
-| Crop + ensemble di tre prompt |361|365|374|
-| Crop + parola e descrizione della scena |355|356|366|
-| Crop + residuo del contesto |369|364|371|
-| Fusion dei ranghi PARSeq/CLIP |378|382|386|
-| Accordo conservativo PARSeq/crop/crop ampio |370|370|376|
-| Confronto visivo con le candidate renderizzate |371|374|383|
-| Differenza prima/dopo copertura del target + accordo PARSeq |372|370|374|
-| Accordo PARSeq/target visibile/candidate renderizzate |369|370|371|
+| Crop + written-word prompt |362|361|370|
+| Crop + three-prompt ensemble |361|365|374|
+| Crop + word and scene description |355|356|366|
+| Crop + contextual residual |369|364|371|
+| PARSeq/CLIP rank fusion |378|382|386|
+| Conservative PARSeq/crop/wide-crop agreement |370|370|376|
+| Visual comparison with rendered candidates |371|374|383|
+| Before/after target-covering difference + PARSeq agreement |372|370|374|
+| PARSeq/visible-target/rendered-candidate agreement |369|370|371|
 
-La fusione usa la media a pari peso dei midrank della confidence PARSeq e dello
-score CLIP crop-ensemble. Era dichiarata prima di vedere gli esiti; non è una
-nuova soglia ottimizzata su questi risultati. L/14 è il miglior checkpoint
-osservato per questa regola: +18 rispetto alla baseline originale, +3 rispetto
-alla selezione per confidence. L'osservazione resta esplorativa tra 40 regole.
+Fusion uses equal-weight average midranks of PARSeq confidence and CLIP
+crop-ensemble score. It was declared before outcomes, not newly threshold-tuned
+on these results. L/14 is the best observed checkpoint under this rule: +18 over
+original baseline, +3 over confidence selection. This remains exploratory among
+40 rules.
 
-| Regola L/14 | Corrette /983 | Recuperate | Perse | Cambiate |
+| L/14 rule | Correct /983 | Gained | Lost | Changed |
 |---|---:|---:|---:|---:|
-| Confidence PARSeq |383|26|11|351|
-| Fusion dei ranghi PARSeq/CLIP |386|19|1|241|
-| Accordo conservativo PARSeq/crop/crop ampio |376|8|0|33|
-| Candidate renderizzate, canvas con proporzioni conservate |383|19|4|323|
-| Candidate renderizzate, crop deformato in quadrato |375|13|6|331|
-| Candidate renderizzate, media dei due crop |381|17|4|330|
-| Controllo visivo contro stringhe invertite |371|12|9|264|
+| PARSeq confidence |383|26|11|351|
+| PARSeq/CLIP rank fusion |386|19|1|241|
+| Conservative PARSeq/crop/wide-crop agreement |376|8|0|33|
+| Rendered candidates, aspect-preserving canvas |383|19|4|323|
+| Rendered candidates, square-stretched crop |375|13|6|331|
+| Rendered candidates, mean of both crops |381|17|4|330|
+| Visual control against reversed strings |371|12|9|264|
 
-Recuperi e perdite sono relativi alla baseline originale, con confronto degli
-ID GT corretti, non al braccio confidence. Un cambiamento può non incidere
-sull'exact matching. Nessuna perdita osservata sul campione non garantisce
-assenza di perdite su immagini nuove.
+Gains/losses compare correct GT IDs with the original baseline, not the
+confidence arm. A change need not affect exact matching. No observed sample loss
+does not guarantee no losses on new images.
 
-## Le descrizioni aiutano il prompt?
+## Do descriptions help the prompt?
 
-L'aggiunta diretta della descrizione al prompt peggiora la selezione sul crop
-in tutti e tre i modelli: B/32 362→355, B/16 361→356, L/14 370→366. Il
-residuo contestuale ha esiti misti e non supera il migliore controllo PARSeq.
-Con L/14, la descrizione vera dà 366, quella scambiata con un'altra immagine
-365: questo esperimento non dimostra un vantaggio utile del contesto reale.
+Directly adding descriptions worsens crop selection in every model:
+B/32 362→355, B/16 361→356, L/14 370→366. Contextual residual gives mixed results
+and does not beat the best PARSeq control. With L/14, true description gives
+366 versus 365 when swapped from another image: this experiment does not
+establish useful real-context benefit.
 
-Le descrizioni sono le cache verificate di Florence-2-large-ft, non BLIP-2.
-Contengono la parola GT in 160 dei 482 anchor con associazione GT univoca;
-possono quindi avere propri suggerimenti OCR. Non entrano nella generazione
-di candidate e non derivano dal GT. I prompt rispettano il limite di 77 token
-senza troncare la candidata. Questi risultati non escludono contesti più brevi,
-locali o separati dal testo, che non sono stati provati qui.
+Descriptions are verified Florence-2-large-ft caches, not BLIP-2. They contain
+the GT word in 160 of 482 uniquely GT-associated anchors and may include their
+own OCR suggestions. They neither generate candidates nor derive from GT.
+Prompts respect the 77-token limit without truncating candidates. Shorter,
+local, or text-separated contexts were not tested and are not ruled out.
 
-## «La parola è corretta?» e discriminazione delle lettere
+## Word correctness and letter discrimination
 
-Su 482 anchor con una sola care GT sovrapposta, la confidence PARSeq separa
-corrette/errate meglio dei singoli score CLIP. Le 688 associazioni mancanti e
-le tre ambigue sono escluse soltanto da questa diagnostica; tutte le 983 GT
-restano nella metrica principale. I 482 casi hanno 365 parole corrette e 117
-errate. AUROC non è una probabilità calibrata di correttezza.
+On 482 anchors overlapping exactly one care GT, PARSeq confidence separates
+correct/incorrect better than individual CLIP scores. The 688 missing and three
+ambiguous associations are excluded only from this diagnostic; all 983 GT stay
+in the main metric. These 482 cases contain 365 correct and 117 incorrect words.
+AUROC is not a calibrated probability of correctness.
 
-| Indicatore di correttezza | B/32 AUROC | B/16 AUROC | L/14 AUROC |
+| Correctness indicator | B/32 AUROC | B/16 AUROC | L/14 AUROC |
 |---|---:|---:|---:|
-| Confidence PARSeq |0.823|0.823|0.823|
-| CLIP crop + parola scritta |0.615|0.613|0.593|
-| CLIP crop + parola e descrizione |0.562|0.584|0.539|
-| CLIP visivo, candidata renderizzata |0.710|0.715|0.725|
+| PARSeq confidence |0.823|0.823|0.823|
+| CLIP crop + written word |0.615|0.613|0.593|
+| CLIP crop + word and description |0.562|0.584|0.539|
+| Visual CLIP, rendered candidate |0.710|0.715|0.725|
 
-La rappresentazione della candidata come immagine è quindi più promettente
-del semplice prompt per questa diagnostica. Tra 67 coppie corretto/errato a
-distanza Levenshtein uno, L/14 con candidate renderizzate sceglie la corretta
-nell'82.1%, come il controllo PARSeq; il prompt scritto raggiunge 68.7% e il
-prompt con descrizione 62.7%. Le coppie sono correlate e non costituiscono
-evidenza indipendente di significatività. Font, lunghezza, semantica e stile
-possono influire anche sul confronto visivo.
+Representing candidates as images is therefore more promising than simple
+prompts for this diagnostic. Among 67 correct/incorrect Levenshtein-distance-one
+pairs, L/14 rendered candidates choose correctly in82.1%, matching PARSeq control;
+written prompt reaches68.7%, description prompt62.7%. Correlated pairs do not
+provide independent significance evidence. Font, length, semantics, and style
+can also affect visual comparison.
 
-Una direzione motivata dai dati è conservare PARSeq come fonte delle candidate
-e usare L/14 per conferma visiva: la fusione offre più recuperi netti, il gate
-conservativo limita le modifiche. Entrambi richiedono una regola congelata e
-una verifica indipendente prima di una scelta definitiva. Il confronto con
-stringhe invertite e lo stretching non migliorano il confronto visivo semplice
-con L/14 in questa popolazione.
+A data-motivated direction retains PARSeq candidates and uses L/14 as visual
+confirmation: fusion gives more net recoveries; conservative gating limits
+changes. Both need a frozen rule and independent verification before final
+selection. Reversed strings/stretching do not improve simple L/14 visual
+comparison in this population.
 
-## Provenienza, hardware e verifiche
+## Provenance, hardware, and checks
 
-Il protocollo è quello di
-[v1](../configs/approximate/clip_word_verification_train_v1.json) e
+Protocols:
+[v1](../configs/approximate/clip_word_verification_train_v1.json) and
 [v2](../configs/approximate/clip_innovative_verification_train_v2.json).
-Le revisioni sono B/32 `3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268`,
+Revisions: B/32 `3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268`,
 B/16 `57c216476eefef5ab752ec549e440a49ae4ae5f3`,
-L/14 `32bd64288804d66eefd0ccbe215aa642df71cc41`. Tutti i pesi hanno
-checksum upstream verificato. La ricevuta B/16 risolve il precedente limite
-del checksum per questo run: SHA256
+L/14 `32bd64288804d66eefd0ccbe215aa642df71cc41`. All weights have verified
+upstream checksums. The B/16 receipt resolves the earlier checksum limitation
+for this run: SHA256
 `ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0`.
-Il config storico e i risultati CPU rimangono intatti.
+Historical config and CPU results remain intact.
 
-L'host ha usato una RTX 3090, modelli separati e sequenziali, float32, batch16,
-input [3,224,224], seed20261007, TF32 disattivato e backend deterministici.
-Questi sono `HARDWARE_DEVIATION`; non qualificano il target RTX 3070.
+Host: RTX 3090, separate sequential models, float32, batch 16, input [3,224,224],
+seed 20261007, TF32 disabled, deterministic backends. These are
+`HARDWARE_DEVIATION`; they do not qualify the RTX 3070 target.
 
-| Modello | Peak allocated bytes | Peak reserved bytes | Scoring v1 s | Scoring v2 s |
+| Model | Peak allocated bytes | Peak reserved bytes | v1 scoring s | v2 scoring s |
 |---|---:|---:|---:|---:|
 | B/32 |687653888|767557632|30.77|141.31|
 | B/16 |796634624|926941184|37.13|225.26|
 | L/14 |2023449600|2181038080|71.32|610.66|
 
-I tempi sono somme dello scoring registrato per immagine; escludono download,
-caricamento iniziale e valutazione. Non sono un benchmark di latenza end-to-end.
-Ogni variante è terminata con successo e senza OOM riportato. La sessione Codex
-non espone CUDA: la verifica qui eseguita usa gli output GPU dell'host.
+Timings sum per-image recorded scoring and exclude downloads, initial loading,
+and evaluation; they are not end-to-end latency benchmarks. Every variant
+completed successfully without reported OOM. Codex does not expose CUDA; this
+verification uses host GPU outputs.
 
-Una verifica indipendente ha ricalcolato dai 750 shard tutte le metriche dei
-sei report e verificato input, pool, selezioni, pesi, hash del codice e
-provenienza. Tutti i 28 controlli v1 sono conservati nelle 40 regole v2 per ogni
-checkpoint. I 53 test CLIP/controlli passano; 762 artefatti originali risultano
-immutati nell'audit. Nessun output originale è stato modificato. Si conservano i
-fallimenti storici del preflight CUDA e lo smoke CPU; non sono risultati GPU.
+Independent verification recalculated all metrics in six reports from 750 shards
+and checked inputs, pools, selections, weights, code hashes, and provenance.
+All28 v1 controls remain within 40 v2 rules for each checkpoint.53 CLIP/control
+tests pass;762 original artifacts are unchanged in the audit. No original output
+was modified. Historical CUDA-preflight failures/CPU smoke remain preserved
+and are not GPU results.
 
-Artefatti fuori Git:
+Artifacts outside Git:
 
-- Report originale: `/tmp/clip-verification-host-suite/6920d0b0c030/comparison.json`.
-- Tabella completa: `/tmp/clip-verification-host-suite/6920d0b0c030/COMPARISON.md`.
-- Audit e riepilogo: `/tmp/clip-verification-analysis-6920d0b0c030/verified_results.json`.
-- Ripetizione dell'audit: `.venvs/context-str-main-py311/bin/python /tmp/clip-verification-analysis-6920d0b0c030/audit_completed_suite.py`.
+- Original report: `/tmp/clip-verification-host-suite/6920d0b0c030/comparison.json`.
+- Complete table: `/tmp/clip-verification-host-suite/6920d0b0c030/COMPARISON.md`.
+- Audit/summary: `/tmp/clip-verification-analysis-6920d0b0c030/verified_results.json`.
+- Repeat audit: `.venvs/context-str-main-py311/bin/python /tmp/clip-verification-analysis-6920d0b0c030/audit_completed_suite.py`.
 
-SHA256 del report originale:
+Original report SHA256:
 `2cdbf5b858ad181eff5322a512d41264e613af109a2ef5287e34fcbcf6eb828a`.
-I rischi e la classificazione dei metodi restano in
-`CLIP-WORD-VERIFICATION-V1` e `CLIP-INNOVATIVE-VERIFICATION-V2` di
-`PAPER_AMBIGUITIES.md`. Calibrazione, generalizzazione TEST, altri captioner
-e proiezioni pretrained dello spelling restano `UNRESOLVED`.
+Method risks/classifications remain in `CLIP-WORD-VERIFICATION-V1` and
+`CLIP-INNOVATIVE-VERIFICATION-V2` in `PAPER_AMBIGUITIES.md`. Calibration, TEST
+generalization, other captioners, and pretrained spelling projections remain
+`UNRESOLVED`.

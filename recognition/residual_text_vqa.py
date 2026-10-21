@@ -51,8 +51,8 @@ class FrozenResidualVQA:
             use_safetensors=True)
         if any(loading.get(k) for k in ('missing_keys','unexpected_keys','mismatched_keys','error_msgs')):
             raise RuntimeError('BLIP2 checkpoint mismatch: '+str(loading))
-        if self.model.config.use_decoder_only_language_model or getattr(self.model.config,'image_token_index',None)is not None:
-            raise ValueError('Only pinned legacy BLIP2 FLAN-T5 conditional-query path is qualified')
+        if self.model.config.use_decoder_only_language_model or self.model.config.num_query_tokens!=32:
+            raise ValueError('Only pinned BLIP2 FLAN-T5 with32 visual queries is qualified')
         self.model.requires_grad_(False).eval().to(device)
         self.before=state_digest(self.model);self.plain_question=plain_question;self.context_template=context_template
         answer=self.processor.tokenizer(['Yes','No'],add_special_tokens=True,truncation=False)['input_ids']
@@ -63,7 +63,7 @@ class FrozenResidualVQA:
             'models_trained':False,'answer_ids':answer,'answer_score':'sum_logprob_with_EOS; normalized over Yes/No',
             'vision_batch_size':1,'language_batch_size':2,'query_tokens':self.model.config.num_query_tokens,
             'native_forward_check':None,'load_seconds':time.monotonic()-started,'cuda_peak':_cuda_peak(device)}
-        self.blank_queries=None;self.blank_results={};self.maximum_tokens=0
+        self.blank_queries=None;self.blank_results={};self.maximum_tokens=0;self.encoded_cache={}
 
     def queries(self,rgb):
         pixel=self.processor.image_processor(images=Image.fromarray(rgb),return_tensors='pt')['pixel_values'].to(self.device)
@@ -77,15 +77,29 @@ class FrozenResidualVQA:
         return projected,pixel
 
     def answer(self,queries,prompt):
-        encoded=self.processor.tokenizer(prompt,add_special_tokens=True,return_tensors='pt',truncation=False)
+        if prompt not in self.encoded_cache:
+            # Native processor supplies explicit image-token slots for this pinned revision.
+            # Dummy pixels here only format text; actual queries always come from the real view.
+            value=self.processor(images=Image.new('RGB',(224,224)),text=prompt,return_tensors='pt',truncation=False)
+            self.encoded_cache[prompt]={k:value[k]for k in ('input_ids','attention_mask')}
+        encoded=self.encoded_cache[prompt]
         tokens=encoded['input_ids'].shape[1];self.maximum_tokens=max(self.maximum_tokens,tokens)
-        if tokens+self.model.config.num_query_tokens>512:
+        image_index=getattr(self.model.config,'image_token_index',None)
+        total=tokens+(self.model.config.num_query_tokens if image_index is None else 0)
+        if total>512:
             raise ValueError('BLIP2 question exceeds512 total language inputs; refusing truncation')
         ids=encoded['input_ids'].to(self.device);attention=encoded['attention_mask'].to(self.device)
         with torch.inference_mode():
             text=self.model.language_model.get_input_embeddings()(ids)
-            combined=torch.cat([queries,text],dim=1).repeat_interleave(2,dim=0)
-            mask=torch.cat([torch.ones(queries.shape[:-1],dtype=torch.long,device=self.device),attention],dim=1).repeat_interleave(2,dim=0)
+            if image_index is None:
+                combined=torch.cat([queries,text],dim=1)
+                mask=torch.cat([torch.ones(queries.shape[:-1],dtype=torch.long,device=self.device),attention],dim=1)
+            else:
+                special=(ids==image_index).unsqueeze(-1).expand_as(text)
+                if int((ids==image_index).sum())!=queries.shape[1]:
+                    raise RuntimeError('Native BLIP2 processor did not preserve all visual query slots')
+                combined=text.masked_scatter(special,queries.to(text.dtype));mask=attention
+            combined=combined.repeat_interleave(2,dim=0);mask=mask.repeat_interleave(2,dim=0)
             logits=self.model.language_model(inputs_embeds=combined,attention_mask=mask,labels=self.labels,
                 use_cache=False,return_dict=True).logits
             logp=answer_log_probabilities(logits,self.labels)
@@ -122,6 +136,8 @@ class FrozenResidualVQA:
         return results
 
     def finish(self):
+        if self.provenance['native_forward_check']is None:
+            raise RuntimeError('Native BLIP2 forward equivalence was not checked in this process')
         after=state_digest(self.model)
         if after!=self.before:raise RuntimeError('BLIP2 state changed')
         return {**self.provenance,'model_state_sha256_after':after,'cuda_peak':_cuda_peak(self.device),

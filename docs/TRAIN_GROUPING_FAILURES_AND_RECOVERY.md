@@ -1,177 +1,176 @@
-# TRAIN: errori di localizzazione, completezza dei crop e recupero OCR
+# TRAIN: localization errors, crop completeness, and OCR recovery
 
-Aggiornamento: 19 settembre 2026.
+Updated:19 September2026.
 
-Questo documento è il punto di ripartenza per il lavoro sul grouping. Raccoglie
-risultati, conclusioni e limiti dell'analisi degli errori di practical-remap-v1.
-Classificazione: **APPROXIMATE_DIAGNOSTIC / approximate reproduction**.
-Non è una riproduzione della Table 5 e non contiene una nuova valutazione TEST.
+This is the starting point for grouping work, collecting results, conclusions,
+and limitations from practical-remap-v1 error analysis.
+Classification: **APPROXIMATE_DIAGNOSTIC / approximate reproduction**.
+Neither reproduced Table 5 nor a new TEST evaluation.
 
-## 1. Stato congelato e vincoli
+## 1. Frozen state and constraints
 
-- ICDAR13 TRAIN: 229 immagini, 849 parole GT care.
-- Checkpoint author-protocol epoch-0098:
+- ICDAR13 TRAIN:229 images,849 care GT words.
+- Author-protocol epoch-0098 checkpoint:
   SHA256 `b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2`.
-- Prediction binaria nativa128, sigmoid>=0.5; cache e backprojection nearest
-  storica verificate. Nessun cambio di risoluzione o threshold in questi audit.
-- Baseline practical-remap-v1 congelata, padding6 e top10 invariati.
-- Algorithm1 paper-faithful, v1, v2, segmentation, scoring e routing non modificati.
-- PARSeq qualificato; testo V1 riutilizzato dalla cache.
-- Analisi geometrica CPU. Solo il successivo OCR sui crop diagnostici è stato
-  eseguito dall'utente su PAPER; Codex non ha eseguito CUDA.
-- Nessun training, grid, nuova segmentation, uso del TEST o selezione di parametri.
+- Native128 binary prediction, sigmoid>=0.5; historical cache/nearest backprojection
+  verified. No resolution/threshold changes in these audits.
+- Frozen practical-remap-v1 baseline, padding6/top10 unchanged.
+- Paper-faithful Algorithm1, v1, v2, segmentation, scoring, routing unchanged.
+- Qualified PARSeq; V1 text reused from cache.
+- CPU geometry analysis. Only subsequent diagnostic-crop OCR was run by the
+  user on PAPER; Codex did not execute CUDA.
+- No training, grid, new segmentation, TEST use, or parameter selection.
 
-## 2. Baseline TRAIN verificata
+## 2. Verified TRAIN baseline
 
-| Metrica | Risultato |
+| Metric | Result |
 |---|---:|
-| Parole GT |849|
-| Predizioni disponibili per associazione diagnostica |745|
-| Crop V1 complessivi |1203|
+| GT words |849|
+| Predictions available for diagnostic association |745|
+| Total V1 crops |1203|
 | PARSeq exact casefold |502/849 = 59,13%|
 | PARSeq RapidFuzz casefold>=0,8 |578/849 = 68,08%|
-| GT con proposal IoU>=0,5 |568/849|
-| Errori exact, inclusi output mancanti |347|
+| GT with proposal IoU>=0,5 |568/849|
+| Exact errors, including missing outputs |347|
 
-Associazione storica: crop con massimo IoU verso ogni GT, disponibile soltanto
-con intersezione positiva. Nessuna predizione mancante esclusa dal denominatore.
-Questa associazione usa GT SOLO per diagnostica, non per routing.
+Historical association: maximum-IoU crop for each GT, available only with positive
+intersection. Missing predictions stay in denominators. GT association is ONLY
+diagnostic, never routing.
 
-## 3. Primo audit: quale crop riceve PARSeq?
+## 3. First audit: which crop reaches PARSeq?
 
-| Situazione osservata tra i347 errori | Parole GT |
+| Observed situation among 347 errors | GT words |
 |---|---:|
-| Nessun crop retained sovrapposto |104|
-| Crop IoU<0,5, non multiword |102|
-| Crop multiword |75|
-| Crop IoU>=0,5, non multiword, OCR errato |66|
+| No overlapping retained crop |104|
+| IoU<0,5 crop, not multiword |102|
+| Multiword crop |75|
+| IoU>=0,5 crop, not multiword, wrong OCR |66|
 
-Le quattro righe sono mutuamente esclusive. Non sono però quattro cause provate.
-I75 sono parole GT fallite, non il numero di crop multiword dell'intero dataset.
+These rows are mutually exclusive, not four established causes.75 counts failed
+GT words, not all dataset multiword crops.
 
-**Risultato chiave:** tra i66 errori con IoU>=0,5,49 escludono almeno un intero
-glifo annotato;62 tagliano almeno parte dei glifi. Solo4 contengono tutti i pixel
-dei glifi GT. Quindi bboxIoU>=0,5 NON garantisce una parola intera per PARSeq.
-Il nome storico `GOOD_BOX_OCR_ERROR` non significa errore intrinseco del recognizer.
+**Key finding:** among 66 IoU>=0,5 errors,49 exclude at least one entire annotated
+glyph;62 clip at least part of glyphs. Only4 contain all GT glyph pixels.
+BBoxIoU>=0,5 therefore does NOT guarantee a complete PARSeq word. Historical
+`GOOD_BOX_OCR_ERROR` does not imply intrinsic recognizer error.
 
-Inoltre, nessuno dei347 errori ha una trascrizione exact in un altro crop V1 già
-prodotto e geometricamente sovrapposto alla stessa parola. Un semplice reranking
-degli stessi output V1 non basta a recuperarli.
+None of 347 errors has an exact transcription in another already-generated V1
+crop geometrically overlapping the same word. Simply reranking existing V1
+outputs cannot recover them.
 
-## 4. Secondo audit: glifi mancanti e testo estraneo
+## 4. Second audit: missing glyphs and extraneous text
 
-Si contano pixel dei glifi GT originali, non area delle bbox. I pixel di altre
-parole care sono separati dai Don't Care. La presenza di un singolo pixel estraneo
-è registrata, ma non prova da sola una fusione significativa.
+Count original GT glyph pixels, not bbox area. Other care words are separated
+from Don't Care. Even one extraneous pixel is recorded, but alone does not prove
+a significant merge.
 
-| Stato del crop tra i347 errori | Parole |
+| Crop state among 347 errors | Words |
 |---|---:|
-| Assente |104|
-| Incompleto, senza pixel di altre parole care |159|
-| Incompleto, con pixel di altre parole care |28|
-| Completo, con pixel di altre parole care |52|
-| Completo, senza pixel di altre parole care |4|
+| Missing |104|
+| Incomplete, no other care-word pixels |159|
+| Incomplete, with other care-word pixels |28|
+| Complete, with other care-word pixels |52|
+| Complete, no other care-word pixels |4|
 
-Gli ultimi4 includono Don't Care: arlboro/Marlboro, ESP/ESPI, TO/MOTO, KIA/OKIA.
-Non correggere le annotazioni o le metriche per renderli corretti: documentare
-la differenza fra testo visibile e testo care da valutare.
+The last4 include Don't Care: arlboro/Marlboro, ESP/ESPI, TO/MOTO, KIA/OKIA.
+Do not change annotations/metrics to make them correct; document visible text
+versus evaluated care text.
 
-Tra i291 errori con crop incompleto o assente:
+Among291 incomplete/missing-crop errors:
 
-- 152 hanno almeno qualche pixel predetto su ogni glifo annotato;
-- 139 hanno almeno un glifo senza supporto predetto; 76 non ne hanno su alcun glifo;
-- 173 lasciano fuori pixel propri sui quali la segmentation ha predetto foreground.
+- 152 have some predicted support on every annotated glyph;
+- 139 have at least one unsupported glyph;76 have no support on any glyph;
+- 173 exclude own-word pixels predicted as segmentation foreground.
 
-Sono viste diverse e parzialmente sovrapposte, non conteggi da sommare.
-Un minimo di supporto predetto non prova che il glifo sia ben ricostruito.
-In83 errori la mask nativa ha precision e recall>=0,8 nella regione della parola,
-ma il crop ha IoU<0,5: esistono problemi a valle di una prediction localmente buona.
+These partially overlapping views must not be summed. Minimal predicted support
+does not establish good glyph reconstruction. In83 errors, native-mask precision
+and recall>=0,8 within the word region, but crop IoU<0,5: downstream problems
+can follow locally good predictions.
 
-La completezza perfetta non è necessaria per ogni riconoscimento:98 delle502
-parole corrette presentano comunque un taglio di qualche pixel dei glifi.
+Perfect completeness is not necessary for every recognition:98 of 502 correct
+words still clip some glyph pixels.
 
-## 5. Oracle geometrico: quanto recuperano i componenti già predetti?
+## 5. Geometric oracle: recovery from existing predicted components
 
-Controfattuale: union bbox dei raw predicted components associati alla GT, più
-padding6 congelato. Nessuna nuova prediction. Questa unione usa GT e NON è una
-regola utilizzabile in inference.
+Counterfactual: union bbox of raw predicted components associated with GT, plus
+frozen padding6. No new prediction. This GT-assisted union is NOT an inference rule.
 
-- 173 errori incompleti/assenti migliorano la quantità di foreground proprio incluso.
-- 89 diventano completamente inclusi.
-- 80 diventano completi senza pixel di altre parole care né Don't Care.
-- L'unione non è universalmente vantaggiosa: 8 errori peggiorano nella copertura;
-  9 aumentano i pixel di altre parole care.
+- 173 incomplete/missing errors improve included own foreground.
+- 89 become fully included.
+- 80 become complete without other care-word/Don't Care pixels.
+- Union is not universally beneficial:8 errors lose coverage;9 gain other
+  care-word pixels.
 
-Composizione degli80 casi selezionati prima dell'OCR:
+Composition of 80 cases selected before OCR:
 
-| Categoria geometrica precedente | Casi |
+| Previous geometric category | Cases |
 |---|---:|
 | GROUPING_UNDERMERGE |49|
-| SUCCESS per IoU>=0,5, ma crop tagliato |25|
+| SUCCESS by IoU>=0,5, but clipped crop |25|
 | TOP10_TRUNCATION |5|
 | OTHER |1|
 
-I5 casi top10 non vanno attribuiti automaticamente alla regola di collegamento.
-Questi80 sono selezionati usando GT e fallimenti noti: campione diagnostico
-condizionato, non una validazione indipendente.
+The5 top10 cases cannot automatically be attributed to the linking rule.
+These80 were selected using GT/known failures: a conditioned diagnostic sample,
+not independent validation.
 
-## 6. Prova OCR GPU sugli80 casi
+## 6. GPU OCR on 80 cases
 
-Report locale verificato contro lo SHA comunicato dall'utente; conteggi ricalcolati
-dalle80 righe per-word. PARSeq eseguito solo su crop RECOVERED e GT_BOX, V1 in cache.
+Local report checked against user-provided SHA; counts recalculated from 80
+per-word rows. PARSeq ran only on RECOVERED/GT_BOX crops; V1 stayed cached.
 
-| Input PARSeq | Exact casefold | Fuzzy>=0,8 |
+| PARSeq input | Exact casefold | Fuzzy>=0,8 |
 |---|---:|---:|
-| V1 originale |0/80|25/80|
-| RECOVERED, union diagnostica |78/80 = 97,5%|80/80|
+| Original V1 |0/80|25/80|
+| RECOVERED, diagnostic union |78/80 = 97,5%|80/80|
 | GT_BOX |78/80 = 97,5%|79/80|
 
-Le due parole ancora errate sono le stesse nei due controlli:
+The same two words remain wrong in both controls:
 
-| Sample / indice GT zero-based | GT | RECOVERED | GT_BOX |
+| Sample / zero-based GT index | GT | RECOVERED | GT_BOX |
 |---|---|---|---|
 |117 / 7|`(412)`|`(412")`|`(412")`|
 |313 / 0|`GENTLEMEN`|`CENTLEMEN`|`CENTLENIEN`|
 
-Per78 parole la correzione del crop è sufficiente a ottenere exact senza cambiare
-rete o recognizer. Sulle due residue anche GT_BOX fallisce: ulteriore grouping
-non è una soluzione dimostrata per questi casi.
+For78 words, crop correction alone enables exact reading without changing network/
+recognizer. GT_BOX also fails for both remaining words; further grouping is not
+a demonstrated solution for them.
 
-**Controfattuale contabile**, mantenendo invariati tutti gli altri output:
-502+78 =580/849 =68,32%, rispetto a59,13% (+9,19 punti).
-NON è una nuova accuracy end-to-end, NON garantisce il top10 globale e NON è una
-prestazione raggiunta da un localizer senza GT. Il fuzzy analogo sarebbe633/849,
-sempre solo sostituzione diagnostica, non pipeline valutata.
+**Accounting counterfactual**, keeping all other outputs unchanged:
+502+78 =580/849 =68,32%, versus 59,13% (+9,19 points).
+NOT new end-to-end accuracy, NOT a global top10 guarantee, NOT achieved performance
+of a GT-free localizer. Analogous fuzzy would be633/849, still diagnostic
+substitution rather than an evaluated pipeline.
 
-## 7. Conclusioni e decisioni
+## 7. Conclusions and decisions
 
-1. Dare priorità al grouping/crop per il sottoinsieme recuperabile prima di
-   riaddestrare U-Net: la prova OCR dimostra un margine reale a mask invariata.
-2. Non concludere che la segmentation sia sufficiente ovunque. Esistono glifi
-   senza supporto e testo piccolo perso; servono diagnosi separate per questi casi.
-3. Non ottimizzare solo IoU. Misurare anche copertura dei glifi, testo estraneo,
-   riconoscimento e perdita dei successi V1.
-4. Non aumentare indiscriminatamente gap o padding e non unire tutti i frammenti:
-   i precedenti overmerge e i controfattuali peggiorati restano un rischio reale.
-5. Non usare GT, testo corretto o esito OCR per decidere i gruppi in inference.
-6. Nessuna nuova regola è stata implementata o promossa con questo audit.
+1. Prioritize grouping/crops for the recoverable subset before U-Net retraining:
+   OCR demonstrates real headroom with unchanged masks.
+2. Segmentation is not proven sufficient everywhere. Unsupported glyphs/lost
+   small text need separate diagnosis.
+3. Optimize more than IoU: measure glyph coverage, extraneous text, recognition,
+   loss of V1 successes.
+4. Do not indiscriminately increase gaps/padding or merge every fragment:
+   prior overmerges/worsened counterfactuals remain real risks.
+5. Never use GT, correct text, or OCR outcome to decide inference groups.
+6. This audit implemented/promoted no new rule.
 
-## 8. Prossimo passo proposto, non ancora eseguito
+## 8. Proposed next step, not performed
 
-- Esaminare gli edge/componenti mancanti nei 78 recuperi e distinguere undermerge,
-  taglio non rilevato dall'IoU e top10.
-- Confrontarli con collegamenti geometricamente simili che fonderebbero parole diverse.
-- Verificare se una regola semplice basata solo su prediction/geometria distingue
-  i due casi; non inventare soglie per inseguire i78 esempi.
-- Confrontare una futura variante con V1 su tutto il TRAIN, contabilizzando sia
-  recuperi sia perdita delle502 parole corrette e nuovi overmerge.
-- Congelare il protocollo prima di eventuale TEST; i ripetuti studi sul TRAIN
-  rendono necessaria una validazione indipendente per affermare generalizzazione.
+- Inspect missing edges/components in78 recoveries; separate undermerge,
+  IoU-undetected clipping, and top10.
+- Compare geometrically similar links that would merge different words.
+- Test whether a simple prediction/geometry-only rule distinguishes these;
+  do not invent thresholds to fit78 examples.
+- Compare future variants with V1 across all TRAIN, counting recoveries,
+  losses among 502 correct words, and new overmerges.
+- Freeze protocol before any TEST; repeated TRAIN study requires independent
+  validation to establish generalization.
 
-## 9. Artifact, hash e comandi
+## 9. Artifacts, hashes, and commands
 
-Tutti i percorsi seguenti sono relativi alla root del repository. Nessun artifact
-precedente è stato sovrascritto per creare questo riepilogo.
+Paths below are repository-root-relative. No earlier artifact was overwritten
+for this summary.
 
 | Artifact | SHA256 |
 |---|---|
@@ -180,33 +179,33 @@ precedente è stato sovrascritto per creare questo riepilogo.
 |`artifacts/diagnostics/train-crop-completeness-v1/results.json`|`f49d244e1e6c439bb9ec72e7fdb004ef2029bfe5ee405877f7d5f7e32a269cf9`|
 |`artifacts/diagnostics/train-recovered-crops-parseq-v1/results.json`|`6dce36b5ac37f6a097a90dfcdc11bda74f6651377aa677f198a8cefe5dabf17c`|
 
-SHA dei quattro JSON verificati localmente il19 settembre2026. CSV e PNG degli
-audit precedenti hanno hash registrati nei rispettivi report/README.
-Cache OCR persistente: `artifacts/diagnostics/train-recovered-crops-parseq-v1/ocr-cache/`.
+All four JSON SHA values verified locally on 19 September2026. Earlier audit
+CSV/PNG hashes remain in their reports/READMEs. Persistent OCR cache:
+`artifacts/diagnostics/train-recovered-crops-parseq-v1/ocr-cache/`.
 
-Launcher PAPER, con progress e ripresa dalle letture già salvate:
+PAPER launcher, with progress/resume from saved readings:
 
 ```bash
 cd /extra1/bmartelli/projects/icdar2025-context-driven-str
 bash diagnostics/run_recovered_train_crops_host.sh /extra1/bmartelli
 ```
 
-Non occorre rilanciarlo per consultare questi risultati. Non riesegue segmentation.
-Test registrati:66 test mirati per audit/completezza;7 test per launcher OCR/helper;
-py_compile,bash syntax e git diff--check superati. Nessun test CUDA eseguito da Codex.
+No relaunch is needed to inspect results; segmentation is not rerun. Recorded
+checks:66 focused audit/completeness tests;7 OCR launcher/helper tests;
+py_compile, bash syntax, git diff--check passed. No Codex CUDA test.
 
-## 10. Provenienza scientifica e limiti ancora aperti
+## 10. Scientific provenance and open limitations
 
-- `PAPER_SPECIFIED`: componenti/contorni,bbox,padding,filtro area,top10 (sezione3.3).
-- `ASSUMPTION`: V1 pratico, associazione diagnostica best-IoU, contatori glyph-color,
-  oracle con GT, esattezza casefold e selezione condizionata degli80.
-- `HARDWARE_DEVIATION`: PARSeq standalone batch1 sul dispositivo PAPER.
-- `UNRESOLVED`: definizione comparabile di accuracy Table5; questi report non
-  risolvono recognition unit, matching o gestione multi-output del paper.
-- GT_BOX per-word ora disponibile per questi80, non per tutte le849 parole.
-  Il vecchio836/849 GT_BOX aggregato non permette di identificare tutti gli errori.
-- I README iniziali descrivono lo stato prima della prova GPU; questa sezione6
-  aggiorna il precedente limite «OCR dei crop recuperati non disponibile».
+- `PAPER_SPECIFIED`: components/contours, bboxes, padding, area filtering, top10(section3.3).
+- `ASSUMPTION`: practical V1, best-IoU diagnostic association, glyph-color counters,
+  GT oracle, casefold exactness, conditioned80-case selection.
+- `HARDWARE_DEVIATION`: standalone PARSeq batch 1 on PAPER.
+- `UNRESOLVED`: comparable Table5 accuracy; these reports do not resolve paper
+  recognition unit, matching, multi-output handling.
+- Per-word GT_BOX now exists for these 80, not all 849 words. Older aggregate
+ 836/849 GT_BOX cannot identify every error.
+- Initial READMEs predate GPU OCR; section6 updates the prior missing-recovered-
+  crop-OCR limitation.
 
-Riferimenti di decisione: TRAIN-V1-OCR-FAILURE-001 e TRAIN-CROP-COMPLETENESS-001
+Decision references: TRAIN-V1-OCR-FAILURE-001 and TRAIN-CROP-COMPLETENESS-001
 in [PAPER_AMBIGUITIES.md](PAPER_AMBIGUITIES.md).

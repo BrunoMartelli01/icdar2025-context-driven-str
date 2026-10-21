@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "gap",
+    "title": "Text+Kernel+Gap matched experiment",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "runs",
+      "path": "adaspot-gap-v1-20261015T125256Z/ocr_comparison.json",
+      "sha256": "b40d2fdc9f46d7f7c6bcd1a946db25d6a8bfeb355d0460ac5feedd43852fd20d"
+    },
+    "population": {
+      "gt": 983
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+    ],
+    "evidence": [
+      "docs/ADASpot_GAP.md"
+    ],
+    "expected_rows": 3
+  },
+  "source_path": "runs:adaspot-gap-v1-20261015T125256Z/ocr_comparison.json",
+  "source_sha256": "b40d2fdc9f46d7f7c6bcd1a946db25d6a8bfeb355d0460ac5feedd43852fd20d",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "control",
+      "source_pointer": "/arms/control",
+      "tp": 524,
+      "predictions": 1038,
+      "gt": 983,
+      "fp": 514,
+      "fn": 459,
+      "precision": 0.5048169556840078,
+      "recall": 0.5330620549338759,
+      "f1": 0.5185551707075705,
+      "tn0": 0.3500334001336005,
+      "extra": {}
+    },
+    {
+      "variant": "gap",
+      "source_pointer": "/arms/gap",
+      "tp": 521,
+      "predictions": 1035,
+      "gt": 983,
+      "fp": 514,
+      "fn": 462,
+      "precision": 0.5033816425120773,
+      "recall": 0.5300101729399797,
+      "f1": 0.5163528245787908,
+      "tn0": 0.34802939211756845,
+      "extra": {}
+    },
+    {
+      "variant": "gap_disabled",
+      "source_pointer": "/arms/gap_disabled",
+      "tp": 521,
+      "predictions": 1035,
+      "gt": 983,
+      "fp": 514,
+      "fn": 462,
+      "precision": 0.5033816425120773,
+      "recall": 0.5300101729399797,
+      "f1": 0.5163528245787908,
+      "tn0": 0.34802939211756845,
+      "extra": {}
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

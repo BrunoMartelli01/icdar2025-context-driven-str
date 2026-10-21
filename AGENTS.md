@@ -28,6 +28,14 @@ The authoritative local paper is `papers/2503.15639v2.pdf`. Before changing a sc
   Historical external evidence is inventoried in
   `docs/history/WORKSPACE_AUDIT_INDEX.json`; its presence there does not mean
   the external bytes are included or downloadable.
+- Follow experiments through `experiments/README.md`, `python3 -m research
+  experiments`, and `python3 -m research experiment ID`. Read portable saved
+  summaries with `research results GROUP`; `research compare GROUP` verifies
+  the original reports. These are distinct evidence checks.
+- Maintain English prose and labels under `docs/LANGUAGE_POLICY.md`; preserve
+  raw scientific input languages. Rebuild navigation with
+  `python3 -m scripts.build_experiment_library`, and the portable audit index
+  with `python3 -m research catalog --source-only`. Verify both with `--check`.
 - `.rgignore` excludes generated artifacts and environments from generic searches.
   Search a specific excluded audit with `rg --no-ignore` and its exact path.
   Preserve historical audits; summaries and indices are navigation aids, not

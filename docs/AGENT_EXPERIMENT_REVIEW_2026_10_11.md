@@ -1,205 +1,197 @@
-# Audit degli esperimenti degli agenti — 11 ottobre 2026
+# Agent experiment audit —11 October2026
 
-Classe dei risultati: **approximate reproduction / estensioni sperimentali**.
-Questo documento analizza risultati già prodotti; non avvia training, modifica
-checkpoint o promuove una variante nella pipeline. Le nuove proposte hanno
-beneficio **UNRESOLVED**. Le scelte sperimentali esistenti conservano le
-classificazioni e i riferimenti di [PAPER_AMBIGUITIES.md](PAPER_AMBIGUITIES.md).
+Result class:**approximate reproduction / experimental extensions**.
+This document analyzes existing results without launching training, changing
+checkpoints, or promoting pipeline variants. Benefits of new proposals remain
+**UNRESOLVED**. Existing choices retain classifications/references in
+[PAPER_AMBIGUITIES.md](PAPER_AMBIGUITIES.md).
 
-## Esito principale
+## Main finding
 
-Il segnale meglio sostenuto dai confronti controllati è la separazione tramite
-**nuclei di parola/kernel**. Diversi interventi aumentano la copertura o recuperano
-alcune parole, ma distruggono crop prima corretti oppure producono molti falsi
-positivi. Occorre misurare insieme corrette, perse, recuperate, precisione, recall
-e Hmean. Un aumento del solo numero di parole corrette non stabilisce il
-miglioramento complessivo.
+Controlled comparisons most strongly support **word kernels** for separation.
+Several changes increase coverage/recover words but destroy previously correct
+crops or add many false positives. Measure correct, lost, recovered, precision,
+recall, Hmean together. More correct words alone does not establish overall gain.
 
-Gli esperimenti `unet-word-research-v2` e `unet-crop-links-v1` sono ora completati:
-le sei branche di training V2 hanno 50 epoche registrate; `crop_word` e
-`crop_links` hanno 20 epoche. I relativi risultati OCR riportano `SUCCESS`.
-Le indicazioni di training ancora pendente nelle documentazioni di implementazione
-sono storiche e non descrivono questi nuovi artifact. Non occorre duplicare quei
-training per sapere come sono andati.
+`unet-word-research-v2` and `unet-crop-links-v1` are now complete: six V2 training
+branches have50 recorded epochs;`crop_word`/`crop_links` have20. Their OCR reports
+state `SUCCESS`. Pending-training statements in implementation guides are
+historical and do not describe these newer artifacts. No duplicate training
+is needed to inspect outcomes.
 
-## Protocollo e comparabilità
+## Protocol and comparability
 
-I confronti qui riportati usano il holdout TRAIN di Total-Text, 125 immagini e
-983 parole care, split seed 202503; il training usa le altre 1.130 immagini.
-Questo holdout è stato riutilizzato per molti esperimenti e selezioni: non è una
-verifica indipendente. Non sono risultati sul TEST ufficiale, Table 3 o Table 5.
+These comparisons use Total-Text TRAIN holdout125 images/983 care words,
+split seed 202503; training uses the other1.130 images. Repeated experiments/
+selections make this holdout non-independent. These are not official TEST,
+Table3, or Table5 results.
 
-Per l'OCR, un vero positivo richiede matching massimo uno-a-uno tra bbox RGB
-originali esclusivi, IoU >= 0,50 e trascrizione PARSeq esatta dopo `casefold`.
-La punteggiatura rimane nella metrica primaria. Dato `TP`, con `N` crop care:
+OCR true positives require maximum one-to-one matching of exclusive original-RGB
+bboxes, IoU >=0,50, and exact PARSeq transcription after `casefold`. Punctuation
+stays in the primary metric. Given `TP` and `N` care crops:
 
-- precisione = `TP / N`;
+- precision = `TP / N`;
 - recall = `TP / 983`;
 - Hmean = `2 * TP / (N + 983)`.
 
-Queste sono metriche end-to-end testo+crop, non accuratezza del recognizer a
-crop fissato. Tutte le 983 parole rimangono nel denominatore. Il protocollo
-esclude dopo localizzazione soltanto istanze interamente ignorate e mantiene
-interi i box parzialmente ignorati; i protocolli originali registrano il sistema
-di coordinate in cui si applica l'ignore. Le metriche geometriche native e quelle
-sui supporti proiettati in RGB non sono intercambiabili.
+These are text+crop end-to-end metrics, not fixed-crop recognizer accuracy.
+All983 words stay in denominators. Only wholly ignored instances are excluded
+after localization; partly ignored boxes stay whole. Original protocols state
+ignore-coordinate systems. Native geometry and RGB-projected support metrics
+are not interchangeable.
 
-I run V1/V2 e crop-links usano RTX 3090 FP32, con segmentazione e PARSeq caricati
-separatamente; V2 batch 8 e crop training batch 4. Sono deviazioni hardware
-registrate, non una qualifica della RTX 3070. Gli audit centers/refinements
-riutilizzano mappe esportate e letture PARSeq CPU qualificate. La verifica CPU dei
-refinements riproduce i testi storici GPU per tutti i 1.037 crop care del controllo;
-non generalizzare tale identità a mappe, dispositivi o batch diversi.
+V1/V2/crop-links use RTX3090 FP32 with separately loaded segmentation/PARSeq;
+V2 batch 8, crop-training batch 4. Recorded hardware deviations do not qualify
+RTX3070. Centers/refinements audits reuse exported maps and qualified CPU
+PARSeq readings. CPU refinement verification reproduces historical GPU text
+for all 1.037 control care crops; do not generalize this to different maps,
+devices, or batches.
 
-## Research V2: risultati completi
+## Research V2: complete results
 
-Fonte corrente: [comparison.json](/extra1/bmartelli/context-str-runs/unet-word-research-v2/comparison.json)
-e [comparison.md](/extra1/bmartelli/context-str-runs/unet-word-research-v2/comparison.md).
-La [documentazione V2](UNET_WORD_RESEARCH_V2.md) descrive le scelte e la precedente
-qualifica CPU; le righe CPU preliminari non vanno sostituite a questo run GPU.
+Current source:[comparison.json](/extra1/bmartelli/context-str-runs/unet-word-research-v2/comparison.json)
+and [comparison.md](/extra1/bmartelli/context-str-runs/unet-word-research-v2/comparison.md).
+[V2 guide](UNET_WORD_RESEARCH_V2.md) describes choices/earlier CPU qualification;
+preliminary CPU rows must not replace this GPU run.
 
-| Variante | Epoca selezionata | Word F1 nativo | Crop care | OCR /983 | Precisione OCR | Recall OCR | Hmean OCR |
+| Variant | Selected epoch | Native word F1 | Crop care | OCR /983 | OCR precision | OCR recall | OCR Hmean |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Riferimento frozen | 2 della sorgente | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
-| Continuazione control | 0 | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
+| Frozen reference | 2 from source | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
+| Control continuation | 0 | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
 | Glyph isolated | 50 | 64,32% | 1.038 | 520 | 50,10% | 52,90% | 51,46% |
 | Glyph staged | 7 | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
 | Threshold frozen | 0 | 64,26% | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
 | DB core | 14 | 64,34% | 1.050 | 522 | 49,71% | 53,10% | 51,35% |
 | Links isolated | 33 | 5,84% | 20.200 | 490 | 2,43% | 49,85% | 4,63% |
 
-DB core recupera cinque parole e ne perde tre: il saldo +2 non migliora Hmean.
-Le teste glyph non migliorano l'OCR. Per continuation e threshold il checkpoint
-selezionato è quello precedente al training aggiuntivo: le ulteriori 50 epoche
-non producono un modello preferibile secondo il criterio dichiarato.
+DB core recovers five/loses three words: net+2 does not improve Hmean. Glyph
+heads do not improve OCR. Continuation/threshold select the checkpoint before
+additional training; another 50 epochs do not yield a preferable model under
+the declared criterion.
 
-Il confronto postprocessing usa invece le **stesse mappe embedding epoch 50**
-del V1, che non sono le mappe del controllo o del best embedding epoch 0:
+Postprocessing instead uses **identical V1 embedding epoch 50 maps**, which are
+neither control maps nor best embedding epoch 0 maps:
 
-| Estrazione delle stesse mappe | Word F1 | Crop care | OCR /983 | Precisione | Recall | Hmean |
+| Extraction from identical maps | Word F1 | Crop care | OCR /983 | Precision | Recall | Hmean |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Hard | 50,90% | 1.563 | 498 | 31,86% | 50,66% | 39,12% |
 | Watershed | 61,24% | 1.104 | 500 | 45,29% | 50,86% | 47,92% |
 | Soft embedding cost | 61,52% | 1.104 | 494 | 44,75% | 50,25% | 47,34% |
 
-Watershed elimina molta frammentazione rispetto all'aggregazione hard; il costo
-embedding soft non dà un ulteriore guadagno OCR. Tutte e tre conservano lo stesso
-foreground. Non attribuire questo confronto a un miglioramento della segmentazione.
+Watershed removes substantial hard-aggregation fragmentation; soft embedding cost
+adds no OCR gain. All three preserve identical foreground. Do not attribute
+this to segmentation improvement.
 
-### Perché i pixel links falliscono qui
+### Why pixel links fail here
 
-L'audit degli export di tutte le 125 immagini, escludendo gli `ignored_instance_ids`
-registrati, conta l'area effettiva del supporto di ogni proposta:
+Auditing all 125 image exports, excluding recorded `ignored_instance_ids`, counts
+actual proposal-support area:
 
-| Variante | Crop care | Area mediana nativa | Area = 1 pixel | Area <= 4 pixel |
+| Variant | Crop care | Median native area | Area = 1 pixel | Area <= 4 pixel |
 | --- | ---: | ---: | ---: | ---: |
-| Riferimento | 1.037 | 182 | 5 | 25 |
+| Reference | 1.037 | 182 | 5 | 25 |
 | Links isolated | 20.200 | 1 | 17.022 | 18.410 |
 | DB core | 1.050 | 179 | 5 | 26 |
 
-L'84,27% delle proposte links è un singolo pixel. Le parole coinvolte in split
-sono 722/983, contro 83/983 del controllo. Questi sono **risultati osservati**.
+84,27% of links proposals are single pixels. Split-involved words:722/983 versus
+83/983 control. These are **observed results**.
 
-La [regola di inferenza](../localize/unet_word_research_v2.py) richiede che entrambe
-le direzioni di un link abbiano probabilità >= 0,5; ogni pixel foreground isolato diventa una
-propria istanza. La [loss](../segmentation/unet_word_research_v2.py) supervisiona
-anchor GT positivi, mentre l'inferenza usa il foreground predetto. La loss train
-scende 1,007 -> 0,548, ma l'epoca 50 produce 35.732 crop, peggio dell'epoca 33
-selezionata. Questi sono **fatti dell'implementazione e dei log**.
+The [inference rule](../localize/unet_word_research_v2.py) requires both link
+directions to have probability >=0,5; each isolated foreground pixel becomes its
+own instance. The [loss](../segmentation/unet_word_research_v2.py) supervises
+positive GT anchors; inference uses predicted foreground. Training loss falls
+1,007 ->0,548, but epoch 50 emits35.732 crops, worse than selected epoch 33.
+These are **implementation/log facts**.
 
-Che il collo di bottiglia dominante sia calibrazione delle affinità, falsi positivi
-foreground, soglia reciproca o capacità delle feature frozen rimane **UNRESOLVED**.
-Sono ipotesi da isolare. Un filtro d'area rimuoverebbe molti frammenti, senza
-dimostrare di ricostruire le lettere mancanti; non va applicato silenziosamente per
-nascondere il fallimento. Aumentare semplicemente le epoche non è sostenuto dai log.
+Whether the dominant bottleneck is affinity calibration, foreground false
+positives, reciprocal threshold, or frozen-feature capacity remains **UNRESOLVED**.
+These hypotheses need isolation. Area filtering would remove fragments without
+proving missing-letter reconstruction; never silently apply it to hide failure.
+Logs do not support simply increasing epochs.
 
-## Secondo passaggio addestrato sui crop
+## Second pass trained on crops
 
-Fonti: [comparison.json](/extra1/bmartelli/context-str-runs/unet-crop-links-v1/comparison.json),
-[comparison.md](/extra1/bmartelli/context-str-runs/unet-crop-links-v1/comparison.md)
-e [protocollo](UNET_CROP_LINKS.md).
+Sources:[comparison.json](/extra1/bmartelli/context-str-runs/unet-crop-links-v1/comparison.json),
+[comparison.md](/extra1/bmartelli/context-str-runs/unet-crop-links-v1/comparison.md),
+[protocol](UNET_CROP_LINKS.md).
 
-| Variante | Word F1 RGB | Crop care | OCR /983 | Precisione | Recall | Hmean | Recuperate / perse vs controllo |
+| Variant | RGB word F1 | Crop care | OCR /983 | Precision | Recall | Hmean | Gained / lost versus versusl |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Controllo | 63,62% | 1.054 | 521 | 49,43% | 53,00% | 51,15% | 0 / 0 |
+| Control | 63,62% | 1.054 | 521 | 49,43% | 53,00% | 51,15% | 0 / 0 |
 | Crop word/kernel | 60,25% | 1.301 | 524 | 40,28% | 53,31% | 45,88% | 75 / 72 |
 | Crop links | 6,43% | 18.851 | 476 | 2,53% | 48,42% | 4,80% | 63 / 108 |
-| Global links V2 riusato | 5,82% | 20.298 | 490 | 2,41% | 49,85% | 4,61% | 20 / 51 |
+| Reused global links V2 | 5,82% | 20.298 | 490 | 2,41% | 49,85% | 4,61% | 20 / 51 |
 
-Il crop training word/kernel aumenta gli abbinamenti geometrici da 648 a 688,
-ma quasi compensa recuperi e perdite OCR e abbassa nettamente la precisione.
-Le parole coinvolte in split passano da 124 a 217. Il secondo passaggio produce
-candidati utili ma sostituire in blocco i crop base non è una soluzione dimostrata.
-Il ramo links ripete il problema di frammentazione; il global-links riusa V2,
-non costituisce una seconda prova indipendente.
+Word/kernel crop training increases geometric matches648→688, but OCR gains/
+losses nearly cancel and precision drops sharply. Split-involved words rise
+124→217. The second pass produces useful candidates, but wholesale base-crop
+replacement is not a demonstrated solution. Links repeat fragmentation;
+global-links reuses V2 rather than providing independent replication.
 
-**Perché 520 e 521 non sono la stessa baseline:** V2 costruisce box dalla geometria
-nativa con inversione del letterbox; crop-links proietta i supporti alle coordinate
-RGB e valuta lì. Conteggi e ignore producono 1.037 contro 1.054 proposte care.
-Non attribuire il +1 a una nuova rete: il checkpoint di controllo è lo stesso.
-Ogni variante va confrontata con il controllo esportato dal proprio protocollo.
+**Why520 and 521 are different baselines:**V2 constructs boxes from native
+geometry with inverse letterbox; crop-links projects supports to RGB/evaluates
+there. Counts/ignore give1.037 versus 1.054 care proposals. Do not attribute+1
+to a new network: control checkpoint is identical. Compare each variant against
+its own protocol's exported control.
 
-Il precedente [ricrop senza training](UNET_CROP_REFINEMENT.md) aveva già mostrato,
-nel solo smoke su immagine 147, maggiore frammentazione di "MOTORS". Non era una
-misura quantitativa di miglioramento sul holdout e non va confuso con il run nuovo.
+Earlier [untrained recropping](UNET_CROP_REFINEMENT.md) already showed increased
+“MOTORS” fragmentation in image147 smoke only; it was not quantitative holdout
+improvement and must not be confused with the new run.
 
-## Text+Kernel, centri e scelta conservativa dei crop
+## Text+Kernel, centers, and conservative crops
 
-Il [confronto multitask completo](WORD_MULTITASK_RESULTS_V1.md) è il controllo
-causale più chiaro per l'aggiunta dei kernel: word F1 58,96% (Text), 62,13%
-(Text+Kernel), 58,41% (Text+Kernel+Center). I kernel riducono le parole coinvolte
-in fusioni da 293 a 171, con aumento degli split 48 -> 95. Il modello con centri
-ha migliori metriche pixel ma peggiori metriche di parola. La separazione delle
-istanze è un obiettivo distinto dal solo foreground.
+[Complete multitask comparison](WORD_MULTITASK_RESULTS_V1.md) provides the
+clearest kernel-addition causal control: word F1 58,96%(Text),62,13%(Text+Kernel),
+58,41%(Text+Kernel+Center). Kernels reduce merged words293→171, increasing
+splits48 ->95. Center model improves pixel metrics but worsens word metrics.
+Instance separation is distinct from foreground prediction alone.
 
-La successiva [ricerca V1](UNET_WORD_RESEARCH.md) porta il controllo Text+Kernel
-a 520 OCR. Il glyph con decoder condiviso dà 517, l'adaptive threshold 505.
-Il ranking appreso top10 migliora 429 -> 438 sul proprio insieme frozen; non è
-confrontabile come guadagno diretto con il controllo senza cap da 520.
+Later [V1 research](UNET_WORD_RESEARCH.md) reaches520 control OCR. Shared-decoder
+glyph gives517, adaptive threshold 505. Learned top10 ranking improves429 ->438
+on its own frozen set; not a directly comparable gain against uncapped520 control.
 
-Il [report centers V2](../artifacts/center-guided-word-crops-v2/REPORT.md) confronta
-una baseline diversa, da 425 OCR, con le reti di offset. V2 migliora V1 da 335 a
-348 parole, ma perde 152 successi della base recuperandone 75. Il
-[diagnostico delle perdite](../artifacts/diagnostics/center-guided-v2-word-loss-audit-v1/REPORT.md)
-separa le cause osservabili:
+[Centers V2 report](../artifacts/center-guided-word-crops-v2/REPORT.md) compares
+offset networks against a different425-OCR baseline. V2 improves V1 from 335 to
+348 words, but loses152 base successes while recovering75. The
+[loss diagnostic](../artifacts/diagnostics/center-guided-v2-word-loss-audit-v1/REPORT.md)
+separates observable factors:
 
-- 113/152 perdite non hanno più alcun box IoU >= 0,50; 39 hanno box geometricamente
-  ammissibile ma testo sbagliato. Nessuna è attribuita alla competizione del matching.
-- Sulle parole perse, la copertura mediana del supporto annotato nel crop scende
-  96,8% -> 71,1%; la contaminazione media da altre parole sale 3,9% -> 21,6%.
-- L'errore centro scende solo 8,66 -> 8,42 pixel; l'altezza mediana delle parole è
-  13 pixel. Rimangono 189 parole con più centri supportati e 128 centri assegnati
-  a pixel di più parole. Per 132 parole manca qualsiasi pixel della maschera base.
-- Crop incompleti o multiword possono ricevere confidence OCR altissima: FISHING
-  diventa FISH, THE/FINEST diventano THEFINEST. Confidence non certifica completezza.
+- 113/152 losses have no IoU >=0,50 box;39 have admissible geometry/wrong text.
+  None is attributed to matching competition.
+- Lost-word median annotated-support crop coverage falls96,8% ->71,1%; mean
+  other-word contamination rises3,9% ->21,6%.
+- Center error falls only 8,66 ->8,42 pixels; median word height13 pixels.
+ 189 words retain multiple supported centers;128 centers include pixels from
+  multiple words.132 words lack any base-mask pixel.
+- Incomplete/multiword crops can receive extremely high OCR confidence: FISHING
+  becomes FISH, THE/FINEST become THEFINEST. Confidence does not certify completeness.
 
-Una selezione conservativa è **già stata misurata**, non è una nuova proposta:
+Conservative selection **has already been measured**, not newly proposed:
 
-| Politica | Crop care | OCR /983 | Precisione | Recall | Hmean |
+| Policy | Crop care | OCR /983 | Precision | Recall | Hmean |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Base centers experiment | 886 | 425 | 47,97% | 43,23% | 45,48% |
-| V2 globale + espansione | 1.065 | 348 | 32,68% | 35,40% | 33,98% |
-| Vietare fusioni/mixed; modifiche locali solo se confidence migliora | 946 | 451 | 47,67% | 45,88% | 46,76% |
+| Global V2 + expansion | 1.065 | 348 | 32,68% | 35,40% | 33,98% |
+| Forbid merges/mixed; local changes only when confidence improves | 946 | 451 | 47,67% | 45,88% | 46,76% |
 
-La terza politica recupera 34 e perde 8 parole. È una prova post-hoc sul holdout
-riusato; non dimostra generalizzazione. Migliorare affidabilità dei voti,
-supervisionare lo sfondo o rendere le scale adattive sono **ASSUMPTION** da testare,
-con beneficio **UNRESOLVED**. Non sono spiegazioni causali già validate.
+Third policy recovers34/loses8. Post-hoc reused-holdout evidence does not prove
+generalization. Better vote reliability, background supervision, adaptive scales
+are **ASSUMPTION** with **UNRESOLVED** benefit, not validated causal explanations.
 
-## Risoluzione, recall e regole frozen
+## Resolution, recall, and frozen rules
 
-La [suite risoluzione](TEXT_RECALL_RESOLUTION.md) è completa nei JSON esterni.
-`control512` e `tversky512` selezionano entrambi epoch0; `control768` epoch50;
-`tversky768` epoch10, soglia 0,90. La maggiore copertura media per parola non dà
-automaticamente maggiore pixel recall o complete-word rate. Il confronto a
-maschera Tversky768 fissata legge 443 parole con contorni, 358 con offset V2 e
-525 con kernel trasferiti: qui il raggruppamento delle istanze cambia molto l'esito.
+[Resolution suite](TEXT_RECALL_RESOLUTION.md) is complete in external JSON.
+`control512`/`tversky512` both select epoch 0;`control768` epoch 50;`tversky768`
+epoch 10, threshold 0,90. Greater mean per-word coverage does not automatically
+improve pixel recall/complete-word rate. Fixed Tversky768 mask reads443 words
+with contours,358 with V2 offsets,525 with transferred kernels: instance grouping
+strongly affects outcomes here.
 
-La [suite refinements](TEXT_RECALL_REFINEMENTS.md), con
-[risultati machine-readable](../artifacts/text-recall-refinements-v1-qualified/summary.json),
-isola altre regole sulle mappe frozen:
+[Refinement suite](TEXT_RECALL_REFINEMENTS.md), with
+[machine-readable results](../artifacts/text-recall-refinements-v1-qualified/summary.json),
+isolates other frozen-map rules:
 
-| Fonte / regola | Crop care | OCR /983 | Precisione | Recall | Hmean |
+| Source / rule | Crop care | OCR /983 | Precision | Recall | Hmean |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Joint512 baseline | 1.037 | 520 | 50,14% | 52,90% | 51,49% |
 | Joint512 seeded-only / soft fallback | 1.006 | 520 | 51,69% | 52,90% | 52,29% |
@@ -208,63 +200,57 @@ isola altre regole sulle mappe frozen:
 | Hybrid384 baseline | 1.213 | 528 | 43,53% | 53,71% | 48,09% |
 | Hybrid384 bounded growth | 1.234 | 530 | 42,95% | 53,92% | 47,81% |
 
-Il filtro Joint512 conserva esattamente le stesse 520 parole corrette togliendo
-31 proposte errate. Il migliore Hmean osservato nella suite, Hybrid256 seeded-only,
-sacrifica 11 parole rispetto alla propria baseline; usa inoltre due checkpoint.
-La griglia 384 aggiunge soltanto tre parole rispetto a Hybrid256 e più falsi
-positivi. Non è evidenza che il semplice aumento di risoluzione risolva il problema.
+Joint512 filtering retains exactly520 correct words while removing31 wrong
+proposals. Highest observed suite Hmean, Hybrid256 seeded-only, sacrifices11 words
+relative to its baseline and uses two checkpoints. Grid384 adds only three
+words over Hybrid256 and more false positives. This does not establish that
+resolution increase alone solves the problem.
 
-### GT crop: 838/983, non una conferma del precedente 93%
+### GT crops:838/983, not confirmation of earlier93%
 
-Nel diagnostico riproducibile con lo stesso PARSeq e gli stessi 983 GT bbox,
-l'accuratezza a identità fissata è **838/983 = 85,25%**. Il precedente 93% era
-un dato riferito dall'utente, privo in questi artifact di protocollo/provenienza
-sufficienti per verificarne la comparabilità. Non si conclude che il 93% fosse
-sbagliato: non è il valore misurato da questo esperimento.
+Reproducible diagnostic with identical PARSeq/983 GT bboxes gives fixed-identity
+accuracy **838/983 =85,25%**. Earlier93% was user-reported, without enough protocol/
+provenance in these artifacts to verify comparability. This does not establish
+93% was wrong; it is not the value measured here.
 
-Delle 463 parole non lette dal Joint512, 334 non hanno bbox predetto IoU >= 0,50;
-262 di queste sono lette correttamente dal proprio GT bbox. Altre 129 hanno un
-bbox ammissibile ma nessun testo esatto, e 63 sono leggibili dal GT bbox. In tutto
-325 fallimenti correnti sono leggibili con quei crop annotati. Questo sostiene
-lavoro su copertura, purezza e geometria dei crop. Il GT bbox è un diagnostico,
-non un candidato di inferenza o un tetto assoluto: alcuni crop predetti leggono
-correttamente parole il cui rettangolo GT non è riconosciuto.
+Among463 Joint512-unread words,334 lack a predicted IoU >=0,50 bbox;262 of these
+are correctly read from their GT bbox. Another129 have admissible boxes but
+no exact text, and 63 are GT-box-readable. Total325 current failures are readable
+with annotated crops, supporting coverage, purity, geometry work. GT bbox is a
+diagnostic, not an inference candidate/absolute ceiling: some predictions correctly
+read words whose GT rectangles are not recognized.
 
-## Evitare duplicazioni e delimitare la nuova prova
+## Avoid duplication and bound the new experiment
 
-Sono già presenti kernel watershed/BFS, heatmap center, offset/voting/consenso,
-embedding PAN-like hard e soft, links globali e sui crop, adaptive threshold,
-DB core raster, glyph auxiliary, ranking top10, loss Tversky e input768, ricrop
-frozen e riaddestrato, distance markers, espansione limitata, fallback filtering,
-selezione conservativa delle famiglie, rettifica PCA/Bezier non appresa e
-erosione/ricostruzione. Per i dettagli: [crop recovery](TOTALTEXT_CROP_RECOVERY_SUITE.md),
-[text recall crops](TEXT_RECALL_CROPS.md), [center audit](../artifacts/diagnostics/center-guided-v2-word-loss-audit-v1/REPORT.md).
-Una variante di tali meccanismi va dichiarata come ablation/correzione, non come
-metodo completamente nuovo.
+Already implemented: kernel watershed/BFS, center heatmaps, offsets/voting/consensus,
+hard/soft PAN-like embeddings, global/crop links, adaptive thresholds, DB raster core,
+auxiliary glyphs, top10 ranking, Tversky loss/input 768, frozen/retrained recrops,
+distance markers, bounded expansion, fallback filtering, conservative family
+selection, unlearned PCA/Bezier rectification, erosion/reconstruction. Details:
+[crop recovery](TOTALTEXT_CROP_RECOVERY_SUITE.md),[text recall crops](TEXT_RECALL_CROPS.md),
+[center audit](../artifacts/diagnostics/center-guided-v2-word-loss-audit-v1/REPORT.md).
+Variants must be identified as ablations/corrections, not wholly new methods.
 
-La nuova suite in preparazione introduce una **testa privata centerline+raggio
-sulla baseline frozen**, classificata **ASSUMPTION**. Non è stata valutata e non
-ha benefici misurati. La proposta riguarda una linea longitudinale per parola,
-distinta dalla heatmap di un punto centrale e dagli offset verso quel punto.
-Una linea da sola non definisce l'altezza del crop: occorre il raggio oppure un
-legame esplicito con la maschera word. La
-[costruzione GT curva esistente](../segmentation/totaltext_curved_box_v4.py)
-usa già una centerline per costruire poligoni, ma non addestra una testa che
-predica linee. I nuovi target non devono sovrascrivere i target originali.
-Scelte precise e ambiguità appartengono alla documentazione della nuova suite.
+The suite being prepared adds a **private centerline+radius head on frozen
+baseline**, classified **ASSUMPTION**, not yet evaluated/no measured benefit.
+Longitudinal lines differ from center-point heatmaps/offsets. Lines alone do
+not define crop height: radius or explicit word-mask linkage is needed.
+[Existing curved-GT construction](../segmentation/totaltext_curved_box_v4.py)
+already uses centerlines to build polygons, but does not train a line-prediction
+head. New targets must not overwrite originals. Precise choices/ambiguities
+belong in the new suite documentation.
 
-## Evidenza e limiti dell'audit
+## Audit evidence and limitations
 
-Per V2 e crop-links sono stati letti `run_manifest.json` ed `epochs.jsonl` di
-ogni branca; verificati numero/ultima epoca, `SUCCESS` OCR e uguaglianza degli hash
-registrati `comparison -> ocr_comparison` e `comparison -> validation` per tutte
-le branche. Sono stati ricavati precisione/recall/Hmean dai conteggi OCR e letti
-i protocolli registrati. L'audit dei singleton usa `foreground_area` di tutti gli
-export V2, dopo l'esclusione degli ID ignorati registrati nella validazione.
-Non è stato ripetuto il training o l'OCR; non è una riqualifica completa di ogni
-checkpoint, crop, immagine e funzione del repository.
+For every V2/crop-links branch,`run_manifest.json`/`epochs.jsonl` were read;
+epoch count/final epoch, OCR `SUCCESS`, recorded `comparison -> ocr_comparison`/
+`comparison -> validation` hash equality checked. Precision/recall/Hmean were
+derived from OCR counts; recorded protocols inspected. Singleton audit uses
+`foreground_area` from every V2 export after recorded validation ignore-ID
+exclusions. Training/OCR were not rerun; this is not complete requalification of
+every checkpoint, crop, image, or repository function.
 
-Hash SHA256 rilevati per i file letti:
+SHA256 values of inspected files:
 
 | File | SHA256 |
 | --- | --- |
@@ -278,21 +264,18 @@ Hash SHA256 rilevati per i file letti:
 | `artifacts/center-guided-word-crops-v2/summary.json` | `f08981d713688389f91c7acfbc1bc454e3e8df6c58eb87acf481c73bc6629e67` |
 | `artifacts/diagnostics/center-guided-v2-word-loss-audit-v1/policy_ablation.json` | `bc80bfd4ae3d612db4668ec577e92e7aa70551182dfb42eb78a2592083b581d4` |
 
-## Priorità dei prossimi test
+## Priorities for next tests
 
-1. Conservare la baseline Text+Kernel e il suo crop come controllo. Misurare
-   separatamente segmentazione, ricostruzione di istanza e selezione del crop;
-   per ogni variante riportare recuperi e perdite della stessa identità GT.
-2. Qualificare centerline/raggio prima con test di target, pairing, coordinate,
-   ignore, parole piccole/curve/vicine, assenza di GT in inferenza e warm start
-   rigoroso; poi smoke reale con picchi allocated/reserved e OOM esplicito.
-   Confrontare alla baseline frozen sul medesimo protocollo senza promettere gain.
-3. Confrontare eventuale selezione conservativa con regole già misurate, stessa
-   popolazione/costo/cap e letture OCR qualificate. Non premiare solo il numero
-   di recuperi lasciando fuori le perdite o i falsi positivi.
-4. Congelare target, loss, soglie, criterio di checkpoint e ricette prima della
-   valutazione successiva. Usare una validazione indipendente da questo holdout
-   ripetutamente consultato e repliche con seed dichiarati prima di sostenere
-   generalizzazione; mantenere il TEST ufficiale distinto dalla ricerca delle
-   iperparametrizzazioni. Ogni futuro risultato resta approximate reproduction
-   finché non soddisfa le evidenze e il protocollo STRICT.
+1. Retain Text+Kernel/base crop as control. Separately measure segmentation,
+   instance reconstruction, crop selection; report same-GT-identity gains/losses.
+2. First qualify centerline/radius targets, pairing, coordinates, ignore, small/curved/
+   nearby words, GT-free inference, strict warm start; then real smoke with allocated/
+   reserved peaks/explicit OOM. Compare frozen baseline under identical protocol,
+   without promising gains.
+3. Compare conservative selection against existing measured rules, same population/
+   cost/cap/qualified readings. Do not reward recoveries while excluding losses/FP.
+4. Freeze targets, loss, thresholds, checkpoint criterion, recipes before subsequent
+   evaluation. Use validation independent of this repeatedly inspected holdout
+   and declared-seed replications before generalization claims; keep official
+   TEST separate from hyperparameter search. Future results remain approximate
+   reproduction until STRICT evidence/protocol are satisfied.

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "group": {
+    "id": "gt-crop-diagnostic",
+    "title": "GT crop oracle: diagnostic only",
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "classification": "ASSUMPTION",
+    "dataset": "Total-Text",
+    "split": "TRAIN holdout",
+    "metric": "word_e2e_bbox_casefold",
+    "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+    "source": {
+      "root": "repository",
+      "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+      "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+    },
+    "population": {
+      "gt": 983,
+      "images": 125
+    },
+    "limitations": [
+      "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+      "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+      "GT boxes supplied after the fact; this is not an inference method or fixed-identity recognizer accuracy. Fixed-identity diagnostic is separately linked in the original source."
+    ],
+    "evidence": [
+      "docs/TEXT_RECALL_REFINEMENTS.md"
+    ],
+    "expected_rows": 1
+  },
+  "source_path": "repository:artifacts/text-recall-refinements-v1-qualified/summary.json",
+  "source_sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc",
+  "verification": "source hash, declared population and registered rates; no model requalification",
+  "source_qualification": {
+    "doc:/status": "SUCCESS",
+    "doc:/reproduction_mode": "approximate",
+    "doc:/result_class": "approximate reproduction"
+  },
+  "rows": [
+    {
+      "variant": "oracle / gt_boxes",
+      "source_pointer": "/rows/10",
+      "tp": 838,
+      "predictions": 983,
+      "gt": 983,
+      "images": 125,
+      "fp": 145,
+      "fn": 145,
+      "precision": 0.8524923702950152,
+      "recall": 0.8524923702950152,
+      "f1": 0.8524923702950152,
+      "tn0": 0.7429078014184397,
+      "extra": {}
+    }
+  ],
+  "summary_scope": "Saved numerical projection; no new evaluation; original report hash checked at generation"
+}

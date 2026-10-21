@@ -8,7 +8,8 @@ Paper authors: Ritabrata Chakraborty, Palaiahnakote Shivakumara, Umapada Pal,
 and Cheng-Lin Liu. The historical introduction is preserved in
 [docs/history/UPSTREAM_README.md](docs/history/UPSTREAM_README.md).
 
-**Start here:** [setup](docs/GETTING_STARTED.md) · [code and task map](docs/REPOSITORY_MAP.md)
+**Start here:** [experiment families](experiments/README.md) · [saved results](experiments/results/README.md)
+· [code index](experiments/CODE_INDEX.md) · [setup](docs/GETTING_STARTED.md) · [code and task map](docs/REPOSITORY_MAP.md)
 · [external assets](docs/EXTERNAL_ASSETS.md) · [contributing](CONTRIBUTING.md)
 · [instructions for AI agents](AGENTS.md).
 
@@ -40,6 +41,9 @@ From the repository root, using Python 3.8+ and Git:
 ```bash
 python3 -m scripts.collaboration check
 python3 -m research groups
+python3 -m research experiments --family word-instances
+python3 -m research experiment mask-crop-three-tests
+python3 -m research results native128-pad0
 python3 -m research find 'Table 5' --limit 5
 python3 -m research section TABLE5-SOURCE-METRIC-AUDIT-001
 ```
@@ -61,10 +65,13 @@ is historical upstream material; it is not a complete environment specification.
 | Work on the PAPER machine | [Host operations](docs/HOST_OPERATIONS.md) |
 | Propose changes or report issues | [Contribution guide](CONTRIBUTING.md), GitHub templates |
 
-Saved comparisons require their exact source reports. A code-only clone can
-list groups and read documentation; `research compare/check/overview` may fail
-until reports are restored. Failures must stay visible. No historical external
-archive is claimed to be publicly available.
+The clone includes small numerical summaries in Markdown, JSON, and CSV.
+`research results GROUP` verifies and reads these summaries without model weights
+or run directories. `research compare/check/overview` verifies original reports
+and requires their exact sources. The summary does not replace per-sample evidence.
+Read the [English/evidence policy](docs/LANGUAGE_POLICY.md) and the
+[refactor audit](docs/ENGLISH_REFACTOR.md). No historical external archive is
+claimed to be publicly available.
 
 ## Attribution and reuse
 

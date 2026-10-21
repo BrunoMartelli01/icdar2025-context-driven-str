@@ -21,7 +21,7 @@ processing:
 2. Otherwise restore progressively more source pixels: grow the core inside
    the SAME V1 owner and valid region, using eight linearly spaced native
    radii0.25..2. If no candidate passes, try the full permitted reference owner.
-3. Exclude every pixel adjacent to another retained word in its8-neighbourhood.
+3. Exclude every pixel adjacent to another retained word in its 8-neighbourhood.
    A successful update never erases existing compact pixels or changes another
    word. Recompute the negative separator so restored foreground is not
    simultaneously supervised as background.
@@ -39,7 +39,7 @@ to manufacture a connected result.
 
 The resolved recipe is `configs/approximate/guarded_word_gt_v3.json`:
 
-- Max growth2 and8 steps reuse the previous native inset budget and backoff
+- Max growth2 and 8 steps reuse the previous native inset budget and backoff
   count. The linear native-growth schedule is a new `ASSUMPTION`.
 - Minimum area20% and span80% reuse V2 bounds, with span now checked on BOTH
   axes. Their suitability has not been independently selected.
@@ -98,9 +98,9 @@ started as part of target construction.
 
 ## Qualification and native previews
 
-The CPU qualification uses all1255 official TRAIN photographs and9285 source
+The CPU qualification uses all 1255 official TRAIN photographs and 9285 source
 word IDs, without TEST input. It compares before/after under no augmentation
-and the actual deterministic flip/rotation of epochs0 and1. OpenCV independently
+and the actual deterministic flip/rotation of epochs0 and 1. OpenCV independently
 checks the SciPy component decisions and verifies that no connected component
 contains more than one owner. Same-epoch/index replays check determinism.
 
@@ -121,7 +121,7 @@ The worker-boundary smoke is independently reproducible with:
   --sample-ids total_text:1006 total_text:114 total_text:1009
 ```
 
-`full/native_preview/` contains unaugmented native128 owner/mask PNGs and hashes
+`full/native_preview/` contains unaugmented native 128 owner/mask PNGs and hashes
 for inspection. They are NOT source-space training masks: feeding them to the
 old loader would rotate/resize already-native targets again. Use the runtime
 factory for training. Source photos, OCR crops and checkpoints are not copied.
@@ -133,12 +133,12 @@ augmentation epochs do not establish behavior for every future random view.
 
 ## Completed qualification,2026-10-17
 
-1255 immagini e9285 parole originali per ciascuna vista. Tutte le parole restano nei denominatori, anche se tagliate dalla rotazione o assenti sulla griglia128. Conteggi prima/dopo sullo stesso transform deterministico:
+1255 images and 9285 original words per view. All words remain in denominators, including rotation-clipped words or words absent on grid128. Before/after counts use the same deterministic transform:
 
-| Vista | Frammentate V2 | Frammentate V3 | Assenti V2 | Assenti V3 | Parole con vincoli ancora irrisolti | Contatti tra parole V3 |
+| View | Fragmented V2 | Fragmented V3 | Missing V2 | Missing V3 | Words with unresolved constraints | Inter-word contacts V3 |
 |---|---:|---:|---:|---:|---:|---:|
-| Senza augmentation | 275 | 23 | 8 | 5 | 240 | 0 |
-| Augmentation epoca0 | 300 | 28 | 30 | 19 | 267 | 0 |
-| Augmentation epoca1 | 278 | 22 | 25 | 18 | 248 | 0 |
+| Without augmentation | 275 | 23 | 8 | 5 | 240 | 0 |
+| Augmentation epoch 0 | 300 | 28 | 30 | 19 | 267 | 0 |
+| Augmentation epoch 1 | 278 | 22 | 25 | 18 | 248 | 0 |
 
-42 focused tests, the real3-image smoke and3765 independent OpenCV image checks pass. CPU batch2/2-worker DataLoader output matches direct indexing and the full epoch1 hashes. Complete resolved outputs: `artifacts/diagnostics/guarded-word-gt-v3-20261017/`. No training or OCR improvement is claimed. Unresolved per-word conditions remain recorded and retained, including31 unaugmented coverage failures.
+42 focused tests, the real3-image smoke and 3765 independent OpenCV image checks pass. CPU batch 2/2-worker DataLoader output matches direct indexing and the full epoch 1 hashes. Complete resolved outputs: `artifacts/diagnostics/guarded-word-gt-v3-20261017/`. No training or OCR improvement is claimed. Unresolved per-word conditions remain recorded and retained, including31 unaugmented coverage failures.
