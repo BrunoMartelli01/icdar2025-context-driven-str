@@ -1,0 +1,19 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "epochs": 20,
+  "learning_rate": 0.001,
+  "pixel_batch_size": 16384,
+  "image_batch_size": 8,
+  "negative_floor_per_image": 64,
+  "initial_bias": -2.0,
+  "num_workers": 2,
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "component": "frozen_source_and_targets", "rationale": "Reuse qualified Text+Kernel control and unchanged paired radius3 Gap targets, frozen TRAIN1130/125, RGB512/native256 and BFS thresholds.", "expected_effect": "No shared-feature interference or Text/Kernel parameter updates."},
+    {"classification": "ASSUMPTION", "component": "linear_probe", "rationale": "Train only a new 65-parameter 1x1 head on cached frozen FP32 feature points without augmentation. All positive pixels retained; each negative stratum samples without replacement at most max(64, image positive count). Strata are positive Gap, valid non-Gap predicted text, remaining valid non-Gap background. Inverse sampled-class-count BCE gives each stratum equal total weight.", "expected_effect": "Test whether existing features support Gap separation with explicit class balancing; sampled priors need not yield calibrated probabilities and may overcut words."},
+    {"classification": "ASSUMPTION", "component": "optimization_and_selection", "rationale": "Predeclare 20 epochs Adam1e-3 without weight decay, seed202503, pixel batch16384, no LR or threshold search. Include epoch0; select native word F1, then fewer fused words, earliest epoch. OCR never selects the checkpoint.", "expected_effect": "Small diagnostic, not optimal full-dataset/augmentation training. Reused validation is exploratory."},
+    {"classification": "HARDWARE_DEVIATION", "component": "cache_and_gpu", "rationale": "One pass frozen GPU feature extraction, sampled train vectors and full validation features cached on CPU/disk as FP32; head optimization and head inference on CUDA. Sequential PARSeq only after backbone release; record GPU, precision, shapes, allocated/reserved memory, OOM.", "expected_effect": "Avoid redundant backbone forwards over 20 probe epochs; no claim of end-to-end speed or RTX3070 fit."},
+    {"classification": "UNRESOLVED", "component": "full_gap_training", "rationale": "Frozen-feature separability, threshold calibration, joint adaptation after warmup and independent generalization remain to be measured.", "expected_effect": "Do not claim central AdaSpot reproduction or guaranteed benefit."}
+  ]
+}

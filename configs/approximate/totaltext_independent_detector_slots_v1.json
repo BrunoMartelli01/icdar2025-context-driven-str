@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; independent detector slot diagnostic on frozen Total-Text crops",
+  "table_5_claim": false,
+  "detector_candidate": "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE",
+  "detector_device": "cuda:0",
+  "detector_inference_score_threshold": 0.05,
+  "detector_score_controls": [0.05, 0.4],
+  "crop_slot_iou_controls": [0.1, 0.25, 0.5],
+  "evaluation_matching_iou": 0.5,
+  "source_selection": "guarded_consolidated",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "The paper uses DeepSolo as fallback but does not specify independent word-slot filtering of PARSeq crops. This detector-slot diagnostic is outside the strict path."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse the frozen Total-Text TEST crop/PARSeq predictions and the already qualified ResNet-50 DeepSolo candidate/runtime."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "The low detector threshold 0.05 probes recall; 0.4 is the frozen DeepSolo config default. Cross them with predeclared crop-slot box IoU controls 0.1, 0.25, 0.5. No TEST outcome chooses a setting."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use DeepSolo polygon envelopes as slots, retain all overlapping crop memberships, and make a one-crop-per-slot/one-slot-per-crop maximum assignment using the geometric mean of crop score and box IoU. DeepSolo transcription is ignored."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Run qualified DeepSolo sequentially in an isolated host Python 3.8 subprocess with CUDA; record each image's peak VRAM and timing."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "The available checkpoint is a Total-Text model-zoo candidate; transfer to other datasets and performance of a detector with no Total-Text training remain untested."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "branches": ["control512", "tversky512", "control768", "tversky768"],
+  "methods": ["connected_components", "findcontours", "distance_watershed", "offset_watershed"],
+  "threshold_policies": ["selected", "common"],
+  "common_threshold": 0.5,
+  "distance": {
+    "smoothing_sigma": 1.0,
+    "relative_peak_height": 0.6,
+    "min_peak_radius": 1.0,
+    "min_peak_distance": 8
+  },
+  "offset": {
+    "reproduction_mode": "approximate",
+    "text_threshold": 0.5,
+    "growth_text_threshold": 0.35,
+    "smoothing_sigma": 3.0,
+    "min_peak_density": 0.5,
+    "min_center_distance": 8,
+    "min_center_support": 8,
+    "assignment_radius": 12.0,
+    "growth_distance": 0
+  },
+  "crop": {"padding": 0, "min_area": 0, "max_instances": null},
+  "recognition": {"decode_ar": true, "refine_iters": 1, "batch_size": 8, "casefold": true, "symbol_normalized_secondary_metric": true},
+  "scientific_choices": [
+    {"component": "frozen_maps_and_protocol", "classification": "REPOSITORY_SPECIFIED", "rationale": "Reuse four selected text-recall checkpoints, canonical256 predictions, the trained offset epoch82, original exclusive GT boxes and pinned PARSeq helpers; all125 holdout images/983 care words.", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "threshold_comparison", "classification": "ASSUMPTION", "rationale": "Keep training-selected thresholds and compare common0.50 separately; no OCR checkpoint reselection or threshold search. Duplicate crops across512 checkpoints/policies reuse identical RGB hashes.", "reference": "docs/PAPER_AMBIGUITIES.md#trc-001--frozen-text-recall-crops-and-parseq"},
+    {"component": "distance_markers", "classification": "ASSUMPTION", "rationale": "Per-component Gaussian-smoothed distance maxima with relative height0.6/radius1/spacing8 seed the existing minimax watershed. Retain every foreground pixel and one marker for tiny components. Shapes may over-split; these settings are predeclared diagnostics.", "source": "https://docs.opencv.org/4.x/d2/dbd/tutorial_distance_transform.html", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "offset_transfer", "classification": "ASSUMPTION", "rationale": "Reuse existing global endpoint consensus with sigma3/density0.5/spacing8/support8/radius12 and disable growth. Offset outputs remain512/256 and are aligned with every canonical256 text map; no offset retraining for768. Existing poor baseline results are retained, not repeated.", "reference": "docs/CENTER_GUIDED_WORD_CROPS.md"},
+    {"component": "diagnostic_crops_and_metrics", "classification": "ASSUMPTION", "rationale": "Identical pad0/no area/no cap isolates shape/instance effects; not strict paper localization. Geometry and exact-casefold text require one-to-one IoU>=0.50. Only fully invalid predicted instances are ignored after inference; punctuation retained, all983 GT words remain counted.", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "cpu_and_cache", "classification": "HARDWARE_DEVIATION", "rationale": "Fuse frozen RTX3090 FP32 maps on CPU and run only PARSeq CPU FP32/batch8. Reuse OCR only with exact RGB hashes, pinned artifacts, checked source-record hashes and16-crop replay; no simultaneous model or RTX3070 claim.", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Repeated TRAIN holdout is exploratory; official TEST, rotated/rectified crop effects, different padding and improved learned kernels remain separate experiments.", "reference": "docs/TEXT_RECALL_CROPS.md"}
+  ]
+}

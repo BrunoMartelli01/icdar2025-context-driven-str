@@ -1,0 +1,110 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+
+run:
+  kind: real_training
+  name: total-text-curved-word-regions-refined-fusion-v2
+  result_class: approximate reproduction
+  variant_class: PRACTICAL_APPROXIMATION
+
+architecture:
+  implementation: author_clarified_ag_unet
+  identity: author-clarified-ag-unet-2048x1024-v1
+  contract_schema_version: 1
+  encoder: resnet50
+  encoder_weights: IMAGENET1K_V2
+  encoder_weights_artifact_id: ART-RESNET50-IMAGENET1K-V2-CANDIDATE
+  freeze_encoder: true
+  frozen_batchnorm_state: true
+  bottleneck_channels: 1024
+  bottleneck_width_classification: ASSUMPTION
+  bottleneck_evidence_basis: AUTHOR_RECALLED_UNCONFIRMED
+  bottleneck_block: single_3x3_conv_batchnorm_relu
+  bottleneck_block_classification: ASSUMPTION
+  decoder_channels: [512, 256, 128, 64]
+  decoder_operations_classification: ASSUMPTION
+  attention_intermediate_channels: decoder_output_half_minimum_16
+  attention_intermediate_channels_classification: ASSUMPTION
+  output_stride: 2
+
+data:
+  train:
+    role: train
+    artifact_id: ART-TOTALTEXT-OFFICIAL-SPLIT
+    manifest: manifests/total_text_train.yaml
+    manifest_sha256: 2207d60c0eb13d4638669cf42b0608d0c75ae0bf69e3923d2d313beb3b9d7f76
+    expected_sample_count: 1255
+    datasets: [total_text]
+
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  horizontal_flip_probability: 0.5
+  rotation_probability: 0.5
+  rotation_degrees: [-15.0, 15.0]
+  rotation_degrees_classification: ASSUMPTION
+  operation_order: flip_rotate_resize
+  resize_geometry: stretch
+  image_interpolation: bilinear
+  mask_interpolation: bilinear
+  target_binarization_threshold: 0.5
+  validity_interpolation: nearest
+  image_fill: [0, 0, 0]
+  mask_fill: 0
+  normalization: imagenet
+
+training:
+  protocol: paper_hyperparameters_scene_text_v1
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  batch_size: 8
+  loss: masked_BCEWithLogitsLoss
+  separation_weight: 4.0
+  bce_reduction: valid_pixel_mean
+  adam_betas: [0.9, 0.999]
+  adam_epsilon: 1.0e-8
+  epochs: 100
+  learning_rate_schedule: none
+  checkpoint_selection: training_foreground_iou
+  seed: 202503
+  deterministic_algorithms: true
+  precision: float32
+  num_workers: 8
+  drop_last: false
+  sampling:
+    strategy: epoch_shuffle
+
+checkpoint_selection:
+  dataset: training_complete_population
+  metric: foreground_iou
+  aggregation: per_image_macro
+  probability_threshold: 0.5
+  tie_break: earliest_epoch
+  augmentation: disabled
+  dont_care: excluded_by_validity_mask
+
+validation:
+  enabled: false
+  held_out_count: 0
+
+localization:
+  min_area: 4
+  pad: 2
+  nmax: 10
+  connectivity: 8
+
+strict_blockers: [A-002, A-003, A-004, A-006, A-007, A-008, T-001, T-002, T-003, DS-003]
+
+scientific_choices:
+- component: total_text_separate_training
+  classification: ASSUMPTION
+  rationale: Uses paper hyperparameters with a newly prepared target population; it is not a strict paper result.
+- component: curved_word_region_target_refinement
+  classification: ASSUMPTION
+  rationale: Preserve disjoint Total-Text word ownership while using official source pixel GT to create the smallest connected within-polygon envelope at source resolution; this is a practical word-level target, not the paper target.
+- component: interword_fusion_penalty
+  classification: ASSUMPTION
+  rationale: Separator background BCE weight 4.0 is fixed in advance; compare with the identical target using weight 1.0.

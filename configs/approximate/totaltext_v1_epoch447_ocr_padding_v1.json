@@ -1,0 +1,71 @@
+{
+  "baseline_padding_native_pixels": 6,
+  "checkpoint_epoch": 447,
+  "checkpoint_sha256": "e9146a514adc91bb39a36b394a646710cf5028539c2e2bec8a82fdc55b0ddc30",
+  "expected_care_words": 2204,
+  "expected_images": 300,
+  "max_proposals_per_image": 10,
+  "min_unpadded_bbox_area_native": 150,
+  "output_budget_bytes": 16777216,
+  "output_policy": "Numeric JSON, OCR text and pixel hashes only; no saved rasters or weight copies.",
+  "padding_native_pixels": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "probability_threshold": 0.5,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction; complete TEST300 OCR diagnostic of TRAIN-Word-F1-selected v1 epoch447; no independent metric validation",
+  "runtime": {
+    "device": "cpu",
+    "parseq_batch_size": 16,
+    "parseq_threads": 2,
+    "precision": "float32",
+    "seed": 202503,
+    "segmentation_batch_size": 1,
+    "segmentation_threads": 8
+  },
+  "schema_version": 1,
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "decision": "Crop padding and a maximum of ten text blocks",
+      "evidence": "papers/2503.15639v2.pdf section 3.3"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "decision": "RETR_EXTERNAL contours, unpadded bounding-box area filter, clipped padded-box area sorting",
+      "evidence": "localize/repository_contours.py; source commit 363cdeec0eda8999bf10d14c8f4ca6036dd422a2"
+    },
+    {
+      "ambiguity": "docs/PAPER_AMBIGUITIES.md#v2-word-pad-001",
+      "classification": "ASSUMPTION",
+      "decision": "Frozen v1 epoch447 from the previous TRAIN-used native Word-F1 comparison; compare identical six padding values and original TEST300 care GT with v1 epoch485. This is evidence about two selected checkpoints, not exhaustive or independent metric validation.",
+      "rationale": "Distinguish improved recognition from changes in IoU caused by larger crop boxes"
+    },
+    {
+      "ambiguity": "docs/PAPER_AMBIGUITIES.md#padgt-001",
+      "classification": "ASSUMPTION",
+      "decision": "Predeclared six-value grid and existing one-to-one IoU>=0.50 casefold-exact care-word metric",
+      "rationale": "User-requested post-hoc diagnostic on all TEST300 images; cannot independently validate a selected padding"
+    },
+    {
+      "ambiguity": "docs/PAPER_AMBIGUITIES.md#v2-word-pad-001",
+      "classification": "HARDWARE_DEVIATION",
+      "decision": "CPU FP32 segmentation/batch1/eight threads and sequential PARSeq/batch16/two threads because CUDA is unavailable in this session; stream crops in RAM to avoid filling /extra1.",
+      "rationale": "Leave the GPU available to compact-v2 training; rerun padding6 and audit CPU/GPU text parity"
+    },
+    {
+      "ambiguity": "docs/PAPER_AMBIGUITIES.md#padgt-001",
+      "classification": "UNRESOLVED",
+      "decision": "Exact paper PARSeq-S checkpoint unresolved; qualified official PARSeq used approximately. v1 completed500 epochs, prior Word-F1 selection used128 TRAIN-used images; new TEST result does not turn that into independent validation."
+    }
+  ],
+  "segmentation_config_sha256": "40b0b9748852318378aebbe9aad519ca80c2eb7439249fcd95a724c3afa43d37",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "train_selection_results_sha256": "196d24f4263c2759b9a9b75b8259983e17eb7ff96bf0373c98471049e6c948cf",
+  "variant": "separated-v1-447-streaming-padding-test-v1"
+}

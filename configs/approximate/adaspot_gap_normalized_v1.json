@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "epochs": 20,
+  "checkpoint_epochs": [5, 10, 15, 20],
+  "arms": ["linear", "nonlinear"],
+  "hidden": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "pixel_batch_size": 16384,
+  "image_batch_size": 8,
+  "num_workers": 2,
+  "cpu_threads": 4,
+  "normalization_std_floor": 0.001,
+  "initial_bias": -2.0,
+  "calibration_images": 100,
+  "thresholds": [0.5, 0.75, 0.9, 0.95, 0.99],
+  "decoders": ["cut", "preserve"],
+  "scientific_choices": [
+    {"classification":"ASSUMPTION","component":"fit_calibration_split","rationale":"Deterministically hold out100 of the existing1130 TRAIN images for Gap-head decision threshold/checkpoint/decoder calibration; fit heads and normalization on remaining1030 only. Frozen backbone previously saw these TRAIN images; calibration is independent of head optimization, not backbone training. Never use the125evaluation images for any choice.","expected_effect":"Separate optimization, calibration and final evaluation and prevent repeated evaluation-driven checkpoint selection."},
+    {"classification":"ASSUMPTION","component":"normalized_heads","rationale":"Fit per-feature mean/std on sampled fit pixels only; compare normalized3x3 linear head and3x3 hidden32 ReLU head, zero output weights/bias-2. Matched four-stratum balanced BCE, AdamW1e-3/decay1e-4,20epochs; fresh fit-derived class weights and identical permutations.","expected_effect":"Stabilize different feature scales and test nonlinear separability without changing pretrained M/K."},
+    {"classification":"ASSUMPTION","component":"decision_calibration","rationale":"At epochs0/5/10/15/20 evaluate only the100head-calibration images over fixed thresholds.5/.75/.9/.95/.99 and cut/preserve decoders; off baseline eligible. Select native word F1, fewer fused words, earlier epoch, higher threshold, conservative decoder tie. This is decision calibration, not calibrated posterior/temperature scaling.","expected_effect":"Account for class weighting without tuning thresholds on evaluation data. No guaranteed nonzero epoch or improvement."},
+    {"classification":"ASSUMPTION","component":"preserve_text_decoder","rationale":"Optional experimental decoder restores all predicted M foreground by deterministic8-neighbor propagation from Gap-cut instance IDs; unseeded support gets explicit fallback. It never restores or uses GT pixels and does not merge instance IDs. Cut remains a matched control.","expected_effect":"Separate instance partition from pixel erasure; false split seeds and excess boxes may remain."},
+    {"classification":"REPOSITORY_SPECIFIED","component":"source_cache_metrics","rationale":"Qualified frozen Text+Kernel control, existing sampled580938TRAIN patches and125image feature cache, unchanged targets and PARSeq AR1; same full983care-word original-RGB bbox matching and exact casefold.","expected_effect":"Reproducible comparison with the524word reference; no official metric claim."},
+    {"classification":"HARDWARE_DEVIATION","component":"gpu_cached_execution","rationale":"Single actual CUDA GPU FP32, fit patches on GPU, calibration/evaluation feature caches CPU/disk, sequential model loading; record memory/OOM and no automatic fallback.","expected_effect":"Avoid repeated backbone training; RTX3090 is not RTX3070 qualification."},
+    {"classification":"UNRESOLVED","component":"scientific_limits","rationale":"Repeated evaluation holdout, calibration variance, residual backbone exposure, independent transfer, joint training and full AdaSpot heads remain unresolved.","expected_effect":"Approximate reproduction extension only; retaining epoch0 remains legitimate if all trained candidates fail."}
+  ]
+}

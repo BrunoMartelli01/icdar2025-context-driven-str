@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "cpu_threads": 4,
+  "image_batch_size": 8,
+  "expected_images": 300,
+  "expected_words": 2204,
+  "expected_proposals": 2624,
+  "expected_baseline_exact": 1311,
+  "selected_source_arm": "full_selected",
+  "light_grid": [8, 32],
+  "deep_grid": [16, 64],
+  "rgb_proxy_grid": [32, 128],
+  "geometry": {
+    "radius_floor": 0.5,
+    "maximum_outside_fraction": 0.25,
+    "reverse_step_tolerance": 0.5
+  },
+  "deterministic_cpu_backward": true,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "component": "proposal_mask_align", "rationale": "Author proposal section4.3 specifies mask skeleton, cubic centerline, EDT height, normal sampling8x32 and rotated fallback for branches. This extension is absent from original paper3.2-3.3; no paper-exact claim. Reuse repository Zhang-Suen thinning; remove redundant graph diagonals; fit transverse cubic over the dominant rotated-rectangle axis, sample uniform projected coordinate across full pixel support and extend endpoint EDT radii constantly. Fall back for disconnected, cyclic, short, folded, rank-deficient or outside-mask fits. Numeric safeguards predeclared; no TEST tuning.", "expected_effect": "Shape-aligned shared features; failure reasons retained per instance."},
+    {"classification": "REPOSITORY_SPECIFIED", "component": "frozen_source", "rationale": "Use audited full1255 Gap epoch1/.9/preserve chosen before TEST, unchanged predicted labels, care admission, boxes and genuine frozen PARSeq AR1. Freeze segmentation and OCR weights; verify all source hashes before adding new sources. Existing F64/native256 from original Text/Kernel decoder, not Gap-specific features.", "expected_effect": "Paired comparison isolates sampling geometry."},
+    {"classification": "ASSUMPTION", "component": "feature_boundary", "rationale": "Existing RGB512/native256 F64 is not proposal stride4 F. Both8x32 and16x64 use this same F; no higher-resolution second feature map yet. Fixed detached geometry; differentiable only in F, bilinear align_corners=false, zero padding. Deep grid is interface qualification, not a trained deep OCR head.", "expected_effect": "Reusable feature sampler without altering previously trained checkpoints."},
+    {"classification": "ASSUMPTION", "component": "rgb_diagnostic", "rationale": "Compare originalPILaxis, matched bilinear axis, rotated rectangle and Mask-Align geometry at32x128 RGB using frozen PARSeq. This is a geometry proxy only: PARSeq re-encodes RGB, not U-Net F. Retain original bboxes, punctuation, empty outputs and one-to-one bboxIoU>=.5 Unicodecasefold. All300/2204 primary and same298/2187 hash-disjoint secondary; historically exploredTEST, no tuning/selection.", "expected_effect": "Expose gains and regressions without claiming trained feature OCR or H2 validation."},
+    {"classification": "HARDWARE_DEVIATION", "component": "gpu_and_gradient", "rationale": "Actual GPU verified before execution, FP32, single-image segmentation and batched sequential PARSeq; unload segmentation first. CUDA grid_sample inference; explicit CPU bilinear backward with autograd transfers for deterministic training because CUDA backward is nondeterministic. No silent fallback, installation, mixed precision or new training.", "expected_effect": "Deterministic feature gradients at a transfer/CPU cost; no paper hardware or shared-backbone latency claim."},
+    {"classification": "UNRESOLVED", "component": "future_heads", "rationale": "Light/deep OCR heads, calibrated gate, jointtraining and actual feature-space recognition improvement remain future isolated stages. No GT enters geometry; GT used only in frozen scoring.", "expected_effect": "This stage tests the sampler and geometry, not complete AdaSpot."}
+  ]
+}

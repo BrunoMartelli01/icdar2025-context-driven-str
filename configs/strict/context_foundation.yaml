@@ -1,0 +1,15 @@
+mode: STRICT
+runnable: false
+blocking_ambiguities:
+  - R-001
+  - R-003
+  - L-004
+  - C-001
+  - C-002
+  - C-003
+  - C-004
+  - S-001
+  - S-002
+  - S-004
+  - S-005
+error: "STRICT recognition/context cannot run until authoritative artifacts and protocols resolve every blocker above."

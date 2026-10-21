@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_config": "configs/approximate/clip_router_e2e_v1.json",
+  "source_paths": "configs/approximate/clip_router_e2e_local_paths_v1.json",
+  "runtime_paths": "configs/approximate/clip_image_router_fallback_local_paths_v1.json",
+  "comparison_paths": "configs/approximate/yolo_router_comparison_local_paths_v1.json",
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "baseline_branches_sha256": "a364ddcb451cbad5a17195c7b8fcc2c4eaa933c59fc623238d91ac18b53462ed",
+  "score_threshold": 0.4,
+  "device": "cuda:0",
+  "models": {
+    "r50": {
+      "candidate": "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE",
+      "official_e2e_none_f1": 0.797
+    },
+    "r50_textocr": {
+      "candidate": "ART-DEEPSOLO-R50-TOTALTEXT-TEXTOCR-CANDIDATE",
+      "official_e2e_none_f1": 0.825,
+      "official_checkpoint_url": "https://1drv.ms/u/s!AimBgYV7JjTlgcd138p8HaXViFk-tw?e=r15pMR"
+    },
+    "vitae_textocr": {
+      "candidate": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE",
+      "official_e2e_none_f1": 0.836,
+      "official_checkpoint_url": "https://1drv.ms/u/s!AimBgYV7JjTlgcd6XGlbZ-I7WvGslQ?e=rrkXLx"
+    }
+  },
+  "metric": "image_word_multiset_casefold_exact; punctuation retained; no bbox IoU",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Algorithm 2 sends the full image to DeepSolo."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use each pinned official candidate's native preprocessing: R50 shortest1000/max1892; ViTAEv2-S shortest1024/max1892 and divisor32 padding; FP32, threshold0.4, no lexicon."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Paired comparison on frozen TRAIN125 and TEST300, with their original care/ignore rules and word matching. TRAIN is diagnostic because the upstream models were fine-tuned on Total-Text TRAIN. No router changes or TEST threshold selection."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Existing isolated legacy host subprocess, batch1, sequential model execution. Preserve strict checkpoint-load validation, full raw outputs, CUDA allocated/reserved peaks and failures. Main-process seed20261016; legacy worker retains qualified cuDNN settings and no explicit RNG seed, with complete checkpoint loading and eval-mode inference."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Exact context-driven-paper checkpoint selection and recognition accuracy protocol remain unresolved. Official F1 uses different matching/ignore rules from our local word metric. User-supplied ViTAE bytes are pinned but no author-published checksum is available. R50+TextOCR remains truncated; IC13 shared pretraining is not IC13 adaptation and its training targets/Generic evaluation resources remain missing."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use the complete user-provided Total-Text ViTAEv2-S+TextOCR checkpoint after archive CRC, exact SHA256 and real GPU strict-load/inference qualification. Preserve existing source/runtime/preprocessing, frozen baseline and all evaluation populations; no scientific source changes."
+    }
+  ],
+  "ambiguity_record": "DEEPSOLO-VITAE-GPU-20261019",
+  "experiment_date": "2026-10-19",
+  "observed_artifacts": {
+    "vitae_textocr": {
+      "sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "bytes": 135515957,
+      "status": "user_attachment; archive CRC and real CUDA smoke passed"
+    },
+    "ic13_shared_r50_pretrain": {
+      "sha256": "320aeed0ec431f3e8074a757d8d61f3787db1554ea2b9b3442365bd994fe6d29",
+      "bytes": 171032379,
+      "status": "user_attachment; archive CRC passed; not IC13 adapted"
+    },
+    "r50_textocr": {
+      "sha256": "a79184198c23969f9c9c3a56bb7553f5905161f717ac7ce770628604aed370c0",
+      "bytes": 12136448,
+      "status": "TRUNCATED; excluded from execution"
+    }
+  }
+}

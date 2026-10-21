@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reproduction_mode": "approximate",
+  "result_class": "smoke-test result",
+  "unit_tests": {
+    "passed": 93,
+    "failed": 0,
+    "command": "See docs/UNET_DETECTION_METHODS.md; 9 focused/related test files"
+  },
+  "initial_failures": [
+    {
+      "type": "pytest collection module-name collisions",
+      "count": 3,
+      "resolution": "Renamed the four new test modules uniquely; final collection and tests pass"
+    }
+  ],
+  "target_qualification": {
+    "path": "/tmp/unet-detection-methods-qualification-v2/target_qualification.json",
+    "sha256": "7497be4daf6e548a30872d191fe46f500f537f22e850c7becdd8cead5fede38d",
+    "images": 125,
+    "words": 983
+  },
+  "real_checkpoint_cpu_smokes": {
+    "reference": {
+      "path": "/tmp/unet-detection-methods-cpu-smokes-v3/reference/smoke.json",
+      "sha256": "0feb04fbfcdeeae735b0ac761f75e7634740cc9471dfef2c14f6927aa060d158",
+      "result_class": "smoke-test result",
+      "parameters": {
+        "total": 58155146,
+        "trainable": 32598114
+      },
+      "optimizer_steps": 0,
+      "memory": {
+        "batch_size": 1,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "control": {
+      "path": "/tmp/unet-detection-methods-cpu-smokes-v3/control/smoke.json",
+      "sha256": "6d6de8af886635d080a49e32d2ce06671c596736cb19beddded7decbd19ce059",
+      "result_class": "smoke-test result",
+      "parameters": {
+        "total": 58155146,
+        "trainable": 56053026
+      },
+      "optimizer_steps": 1,
+      "memory": {
+        "batch_size": 1,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "scale_fusion": {
+      "path": "/tmp/unet-detection-methods-cpu-smokes-v3/scale_fusion/smoke.json",
+      "sha256": "656e4df49c7d83357a8ce70d2066e788c54fb49054d48c2e37a34357d67e6c0b",
+      "result_class": "smoke-test result",
+      "parameters": {
+        "total": 58171981,
+        "trainable": 56069861
+      },
+      "optimizer_steps": 1,
+      "memory": {
+        "batch_size": 1,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "progressive_kernels": {
+      "path": "/tmp/unet-detection-methods-cpu-smokes-v3/progressive_kernels/smoke.json",
+      "sha256": "1d4e9049b1e717b1b13760f480af4077643bbc4b54b38c0652421809e4cb80d9",
+      "result_class": "smoke-test result",
+      "parameters": {
+        "total": 58155276,
+        "trainable": 56053156
+      },
+      "optimizer_steps": 1,
+      "memory": {
+        "batch_size": 1,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "fusion_progressive": {
+      "path": "/tmp/unet-detection-methods-cpu-smokes-v3/fusion_progressive/smoke.json",
+      "sha256": "0375ce7b03e3a2b420fd4b2abf621bd0f05ed0fcdf3f1b062706acb854ce006b",
+      "result_class": "smoke-test result",
+      "parameters": {
+        "total": 58172111,
+        "trainable": 56069991
+      },
+      "optimizer_steps": 1,
+      "memory": {
+        "batch_size": 1,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          1,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    }
+  },
+  "synthetic_pretraining_fixture_smoke": {
+    "path": "/tmp/unet-detection-methods-synthetic-fixture-smoke-v1/smoke.json",
+    "sha256": "53483a2191a46803f8849acf0e2df08bd5eed5332cb72a0156516927bb833d99",
+    "fixture_data": true,
+    "real_external_SynthText_result": false,
+    "encoder_update_linf": 1.0013580322265625e-05,
+    "encoder_bn_unchanged": true
+  },
+  "real_parseq_crop_smoke": {
+    "path": "/tmp/unet-detection-methods-cpu-smokes-v3/comparison.json",
+    "sha256": "f1084d77750c433f31d204b2aee7c51645e52f30374ce803c0b81b256b1674c6",
+    "arms": 15,
+    "unique_crops": 18,
+    "cached_replay": "PASS; no new inference, identical results"
+  },
+  "source_code_sha256": {
+    "diagnostics/fixed_group_curve_geometry.py": "9379bb0f4773260087986e72253931737af6bd1c1ba0f7c32a08c8c4e33389ed",
+    "localize/crop_recovery.py": "341150a869343d09efc10d3fd91a64736011fff234c242c0f0b8963ae5e6e71f",
+    "localize/unet_detection_methods.py": "cb99e5560e7137abb68055b97fbf5b3538938af69e44a5a2a38922b832a39231",
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/totaltext_word_kernel.py": "d48a302ddb4a1aca2af3360192a99d8bfad42584c640d5453e25ed3c370a71bd",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "models/unet_detection_methods.py": "60c723ca9d7faf52d6106f9d0d61fb99a36a65fbe831da1339fe3bf126475ffe",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "recognition/scene_text_datasets.py": "1d6921fd05f57fbe0fc074b31728de6b319988810f232db98b60028cbde67428",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/evaluate_totaltext_highres_contour_padding.py": "09f981cf40de2359418051307b0dc3459a8c6f4fc7c1c39847563f5ea9d5ed1a",
+    "scripts/evaluate_totaltext_v4_image_frequency_val_parseq.py": "207e4ae6c2667d163a8630e631cf1b115b694b2cb16457554fc2c064fdd2de70",
+    "scripts/evaluate_unet_detection_methods.py": "3bb5f820e8c17919b8d858447c0f9cc741f486800c31d9b9decb07afe2768eda",
+    "scripts/evaluate_word_multitask_crops.py": "0b7ba463776945e8e58d8434ce677b45a743d15701ac60d0371c3fc241d1d69a",
+    "scripts/rescore_totaltext_highres_padding_symbols.py": "cd068767ccaaf718c6d3873f0e35581d3365949c6cd544d17774d3a97d1ec438",
+    "scripts/run_unet_detection_methods.py": "3a6b53f0461b82550193debb40863a50e9784106fa1c43074e0e28998ed13c66",
+    "scripts/run_unet_detection_methods_host.sh": "21275b6d8af52298364768a7eeea3460145cdae18be08a8aab0527be10ea3760",
+    "scripts/run_unet_word_research_v2.py": "892d701d962845ef9c1bce007147b2986494dff355d32e03269713182ac0a4f8",
+    "scripts/run_word_multitask.py": "ddb60cfeba198a1796377517212d917e779a0bd8500f3d1b1cbd212129cf0fc9",
+    "scripts/train_totaltext_letterbox_word_f1_separator_head.py": "713437cc958a82cb5655d0fa25ab86c4f189b051f23bd685ea8ea648e7f0b73d",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/evaluate.py": "f0af56d95c5991c21245bafe194ebca6aab5c5cc443bb04e28cbf7a0071d51f4",
+    "segmentation/synthtext_words.py": "85b7dc10c751affc16917d427700c06950b8fb7e169474eeffa23e60128d9627",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/totaltext_word_regions.py": "ad29f2f55c36d9c9ad97e6a7dd2b28ddbab665a38754f61fffdf3a5561dd4174",
+    "segmentation/train.py": "25b8ba78565e9763f97a8ea6f7abcc3b0d04ab64c24f5f23744c418d0e43cbff",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/unet_detection_methods.py": "461e194440f76a1fcf713391e37614cac5729ba3f2de9fdc2b9d72e45deafbd4",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d",
+    "segmentation/word_multitask_evaluation.py": "1b85d88178eae55246954d01eb4e9ff6e650827e4636ffde51a920108011480d"
+  },
+  "config_sha256": "fb17ff8fbd620a445ae9af17dfa6337e7fb2373a2510ecdddce54257a2d333ba",
+  "review": {
+    "preview": "/tmp/unet-detection-methods-preview.png",
+    "visual_inspection": "PASS"
+  },
+  "scope": {
+    "task_diff": "/tmp/unet-detection-methods-task.diff",
+    "task_diff_sha256": "4f4395b71e5040d948a87176ea155cd056c1d486df8ab0883536b8f5a2e236d6",
+    "paper_ambiguities_prior_content_preserved": true,
+    "initial_git_status_sha256": "f06f7e2703f4c5274f5815cfb8e2fe673f6f0f3e68afd613dd7f37f5828e8a28",
+    "final_git_status_sha256": "79170321ced65f77a370a51bda73ffbd6cdaf7ba6f473743f283d320e2d3f8f2",
+    "no_original_model_training_or_artifact_overwrite": true,
+    "git_status_snapshot_taken_before_qualification_receipt": true,
+    "concurrent_user_changes_observed_and_preserved": [
+      "unet_seeded_selective files",
+      "word_centerline files"
+    ],
+    "task_diff_excludes_generated_qualification_receipt": true
+  },
+  "limits": {
+    "gpu_qualified": false,
+    "new_full_training_performance_available": false,
+    "external_synthtext_training": "Not run; actual external dataset path was not supplied",
+    "80percent_end_to_end_achieved": false,
+    "independent_generalization_qualified": false
+  }
+}

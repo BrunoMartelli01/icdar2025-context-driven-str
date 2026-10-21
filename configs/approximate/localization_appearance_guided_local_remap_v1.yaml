@@ -1,0 +1,78 @@
+schema_version: 1
+experiment_kind: appearance_remap_train_diagnostic
+reproduction_mode: approximate
+claim_label: approximate reproduction
+result_class: PRACTICAL_APPROXIMATION
+table_5_accuracy: null
+status: prototype_not_calibrated_or_promoted
+
+localization:
+  mode: appearance-guided-local-remap-v1
+  v1:
+    horizontal_gap_ratio: 0.35
+    vertical_overlap_min: 0.7
+    max_center_y_ratio: 0.5
+    max_height_ratio: 2.5
+    pad: 6
+    connectivity: 8
+    tie_break: top_to_bottom_then_left_to_right
+    nmax: 10
+  appearance:
+    enabled: true
+    # Geometry transferred from the existing TRAIN-only rescue candidate.
+    max_normalized_gap: 0.4
+    max_gap_to_internal_ratio: 1.5
+    min_vertical_overlap: 0.5
+    max_center_y_ratio: 0.5
+    max_height_ratio: 2.5
+    # Engineering starting values. NOT calibrated, not selected on any results.
+    max_color_delta_e76: 20.0
+    min_abs_contrast_l: 5.0
+    max_contrast_ratio: 2.5
+    max_stroke_ratio: 2.0
+    background_ring_height_ratio: 0.25
+    min_native_foreground_pixels: 3
+    min_background_pixels: 9
+    # Original-image true foreground pixels, AFTER grouping. Also applied to
+    # the matched-v1 control, while the frozen-v1 output remains unchanged.
+    min_area_original: 150
+
+qualification:
+  cache_manifest_sha256: e9a7ce5badfbc3d99885fef5e655b20f7f5f167f29defa2d3f3c7e91c6d5851a
+  checkpoint_sha256: b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2
+  v1_calibration_sha256: 6c0e4cb36fe49f2c1d2306fc7226a5a7d7938208b7b223b4490a6dae377a659f
+  split: official-training-all-229-author-protocol
+  sample_count: 229
+  gt_word_count: 849
+  significant_gt_coverage: 0.25
+
+scientific_choices:
+- component: component_area_padding_and_top10
+  classification: PAPER_SPECIFIED
+  evidence: papers/2503.15639v2.pdf section 3.3 Algorithm 1
+- component: numeric_area_and_padding
+  classification: REPOSITORY_SPECIFIED
+  rationale: Preserve repository Amin=150 and padding=6; do not tune them.
+- component: one_hop_appearance_grouping_and_thresholds
+  classification: ASSUMPTION
+  ambiguity_id: L-APP-001
+  rationale: >
+    Compare only mutual immediate neighbours of immutable v1 groups. At most
+    three base groups can be consumed once. All raw descriptors in a candidate
+    must agree; missing evidence forbids a new merge but never drops its base.
+    These appearance values are unvalidated engineering hypotheses, not paper
+    parameters. Existing modes, network, recognition and routing are unchanged.
+- component: foreground_thickness_proxy
+  classification: ASSUMPTION
+  ambiguity_id: L-APP-001
+  rationale: >
+    Twice the median ridge radius of an exact L2 distance transform on the
+    projected original foreground. This is not RGB SWT and cannot recover
+    stroke detail lost at native128. Zero padding at ROI boundaries is explicit.
+- component: geometry_and_evaluation
+  classification: ASSUMPTION
+  ambiguity_id: L-APP-001
+  rationale: >
+    Exact integer nearest projection for v1 identity; all gap/thickness/area
+    measurements in original-image pixels. Report frozen v1 and a matched-area
+    v1 control. GT is used only for geometry diagnostics after proposals exist.

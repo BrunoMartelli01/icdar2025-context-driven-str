@@ -1,0 +1,38 @@
+experiment_kind: localization_diagnostic
+reproduction_mode: approximate
+claim_label: approximate reproduction
+classification: APPROXIMATE_PAPER_ALGORITHM1
+runnable: true
+
+segmentation:
+  probability_activation: sigmoid
+  probability_threshold: 0.5
+  threshold_comparison: greater_than_or_equal
+  mask_frame: native_128x128
+
+localization:
+  min_area: 150
+  min_area_unit: native_foreground_pixels
+  pad: 6
+  padding_unit: native_pixels
+  connectivity: 8
+  tie_break: top_to_bottom_then_left_to_right
+  nmax: 10
+  bbox_mapping: floor_lower_ceil_upper_xyxy_exclusive
+  crop_source: original_rgb
+
+scientific_choices:
+  - component: algorithm1_mechanics
+    classification: PAPER_SPECIFIED
+    rationale: Connected regions, component-area filtering and ordering, padded boxes, original-image crops, and top-10 follow Section 3.3 and Algorithm 1.
+  - component: numeric_area_and_padding
+    classification: REPOSITORY_SPECIFIED
+    rationale: Amin=150 and p=6 are the only frozen upstream repository values; the paper omits both numbers.
+  - component: native_coordinate_frame_and_component_area_interpretation
+    classification: ASSUMPTION
+    rationale: Apply the numeric values at native 128x128 and interpret area as true foreground component pixels; neither detail is resolved by the paper.
+  - component: connectivity_and_tie_break
+    classification: ASSUMPTION
+    rationale: Use 8-connectivity and deterministic spatial ordering for equal-area components.
+
+blocking_ambiguity_ids: [A-008, L-001, L-003, L-005]

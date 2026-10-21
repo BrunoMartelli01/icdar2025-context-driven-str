@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "result_class": "approximate reproduction",
+  "kind": "read_only_existing_experiment_audit",
+  "matched_epoch_sample_orders": true,
+  "historical_checkpoint_sha256_verification": "passed in direct read-only audit before this receipt",
+  "historical_ocr_result_path": "/extra1/bmartelli/context-str-runs/totaltext-letterbox-word-f1-separator-parseq-val-v1/results.json",
+  "historical_ocr_result_sha256": "92169d7338e6d5302bdf4ecd96981d2e29c3bcd543d9f23ef8e13320fbf0a1b1",
+  "runs": {
+    "word_f1_control": {
+      "run_root": "/extra1/bmartelli/context-str-runs/totaltext-letterbox-word-f1-separator-v1/word_f1_control",
+      "run_manifest_sha256": "919875a19c31dc5fc704cc706b7bd081dd0dd05125e2760f7e4a88c733cf38b4",
+      "epoch_log_sha256": "a49cd09deedd6e4baefd70d3c30b5b5503ed4eef526804b9b07d7c70c3c1e1c7",
+      "complete_epochs": 100,
+      "checkpoint": {
+        "epoch": 68,
+        "path": "best.pt",
+        "sha256": "a3308015aa1b898b1a8ceb03128d6a113bd9c01a01726fba930dd65794c3a552"
+      },
+      "native_word_geometry": {
+        "final_mask_iou": 0.6261245981583892,
+        "foreground_iou": 0.6261245981583892,
+        "gt_with_predicted_bbox_iou_ge_0_5": 504,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 77,
+        "gt_words_touched_by_fused_components": 199,
+        "matched_gt_iou_ge_25": 628,
+        "matched_gt_iou_ge_50": 503,
+        "matched_gt_iou_ge_75": 291,
+        "predicted_components": 949,
+        "predicted_components_touching_multiple_gt_words": 89,
+        "proposal_f1_iou_50": 0.520703933747412,
+        "proposal_precision_iou_50": 0.530031612223393,
+        "raw_proposals": 949,
+        "word_recall_iou_50": 0.5116988809766022
+      },
+      "ocr_aggregate": {
+        "exact_casefold_iou_ge_50": 384,
+        "exact_casefold_rate_all_gt": 0.3906408952187182,
+        "exact_no_symbols_iou_ge_50": 402,
+        "exact_no_symbols_rate_all_gt": 0.40895218718209564,
+        "geometry_iou_ge_25": 632,
+        "geometry_iou_ge_50": 503,
+        "geometry_iou_ge_75": 272,
+        "gt_words": 983,
+        "proposals": 949
+      },
+      "ocr_hmean": 0.39751552795031053
+    },
+    "word_f1_separator_head": {
+      "run_root": "/extra1/bmartelli/context-str-runs/totaltext-letterbox-word-f1-separator-v1/word_f1_separator_head",
+      "run_manifest_sha256": "e76ad1225e3d2eddd282401d7e0cceb8b49566d52412e5619180da183ebb6cef",
+      "epoch_log_sha256": "2968ff5a4ad14787b17691bd8acb6edf77ec1b46efd9d18749b1a15f08242d75",
+      "complete_epochs": 100,
+      "checkpoint": {
+        "epoch": 94,
+        "path": "best.pt",
+        "sha256": "500516b0cf29d808aa77f13f93aecf8acef19ce17fb43385d66881db3bfe3227"
+      },
+      "native_word_geometry": {
+        "final_mask_iou": 0.6228675410930282,
+        "foreground_iou": 0.6455364270405505,
+        "gt_with_predicted_bbox_iou_ge_0_5": 485,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 99,
+        "gt_words_touched_by_fused_components": 162,
+        "matched_gt_iou_ge_25": 629,
+        "matched_gt_iou_ge_50": 485,
+        "matched_gt_iou_ge_75": 292,
+        "predicted_components": 1002,
+        "predicted_components_touching_multiple_gt_words": 78,
+        "proposal_f1_iou_50": 0.48866498740554154,
+        "proposal_precision_iou_50": 0.48403193612774453,
+        "raw_proposals": 1002,
+        "word_recall_iou_50": 0.4933875890132248
+      },
+      "ocr_aggregate": {
+        "exact_casefold_iou_ge_50": 362,
+        "exact_casefold_rate_all_gt": 0.36826042726347913,
+        "exact_no_symbols_iou_ge_50": 383,
+        "exact_no_symbols_rate_all_gt": 0.3896236012207528,
+        "geometry_iou_ge_25": 627,
+        "geometry_iou_ge_50": 477,
+        "geometry_iou_ge_75": 281,
+        "gt_words": 983,
+        "proposals": 1002
+      },
+      "ocr_hmean": 0.36473551637279594
+    }
+  },
+  "sources": [
+    "https://arxiv.org/abs/1705.05483",
+    "https://gitlab.com/rex-yue-wu/ISI-PPT-Text-Detector",
+    "https://openaccess.thecvf.com/content_ICCV_2017/papers/Wu_Self-Organized_Text_Detection_ICCV_2017_paper.pdf",
+    "https://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Liu_An_Accurate_Segmentation-Based_Scene_Text_Detector_With_Context_Attention_and_CVPRW_2020_paper.pdf",
+    "https://crabwq.github.io/pdf/2022%20CM-Net%20Concentric%20Mask%20based%20Arbitrary-Shaped.pdf"
+  ],
+  "conclusion": "Gap/border principle predates this suite; M+K+G is an ablation, exact-combination novelty and benefit unresolved. Historical results do not causally compare to the new matched controls."
+}

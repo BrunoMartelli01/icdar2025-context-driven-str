@@ -1,0 +1,65 @@
+mode: APPROXIMATE
+result_label: approximate reproduction
+
+parseq:
+  checkpoint_path: null  # required at runtime; never inferred
+  checkpoint_name: parseq-bb5792a6.pt
+  checkpoint_sha256: bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00
+  runtime_source_path: null  # required at runtime; never inferred
+  runtime_revision: 1902db043c029a7e03a3818c616c06600af574be
+  decode_ar: true
+  refine_iters: 1
+  full_image_T1_semantics: UNRESOLVED
+
+blip2:
+  model_id: Salesforce/blip2-flan-t5-xl
+  revision: 0eb0d3b46c14c1f8c7680bca2693baafdb90bb28
+  prompt: "Describe this image comprehensively, focusing on all visible text elements. Mention the environment, text-bearing objects, positions, and how the text relates to the scene context."
+  generation:
+    max_new_tokens: 80
+    min_new_tokens: 40
+    length_penalty: 1.0
+    num_beams: 3
+    do_sample: false
+  device: explicit_runtime_value
+  dtype: explicit_runtime_value
+  placement: explicit_runtime_value
+  quantization: none
+  cpu_offload_profile:
+    classification: HARDWARE_DEVIATION
+    dtype: float16
+    placement: cpu_offload
+    transformers_device_map: auto
+    quantization: none
+    status: PENDING_PHYSICAL_HOST
+
+mpnet:
+  model_id: sentence-transformers/all-mpnet-base-v2
+  revision: e8c3b32edf5434bc2275fc9bab85f82640a19130
+  pooling: mean
+  normalize_embeddings: true
+  truncation: true
+  max_sequence_length: 384
+  precision: float32
+
+lexical:
+  nominal_mode: raw
+  function: rapidfuzz.fuzz.ratio
+  library_version: 3.11.0
+
+scoring:
+  strategies:
+    - figure2_independent_max
+    - selected_candidate_paired
+    - repository_paired_threshold
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+  semantic_tie: T1
+  confidence_tie: T1
+
+lightweight_pipeline:
+  t3_selection: "ASSUMPTION: rank-1/largest component"
+  deepsolo_invocation: forbidden_in_M5
+  output_schema_version: 1
+  caption_cache_root: required_external_path

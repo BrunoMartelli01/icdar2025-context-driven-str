@@ -1,0 +1,325 @@
+{
+  "claim_label": "approximate reproduction",
+  "gallery_train_ids": [
+    "total_text:11",
+    "total_text:427",
+    "total_text:1085"
+  ],
+  "gt_versions": [
+    {
+      "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+      "id": "pixel",
+      "manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_train.yaml",
+      "manifest_sha256": "05c41d87cf83e6d3d25cfc465eea9345ebd19b7cb0034030b87438486ff9be9b"
+    },
+    {
+      "data_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-regions-v1",
+      "id": "curved",
+      "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-regions-v1/manifests/total_text_train.yaml",
+      "manifest_sha256": "1fc9776750389caf656235ece027d59e3fa55a1af62aa936d8666ee0cf28765c"
+    },
+    {
+      "data_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+      "id": "v4",
+      "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+      "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea"
+    },
+    {
+      "data_root": "/extra1/bmartelli",
+      "id": "separated",
+      "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v1/v4-wider-gaps/training/manifests/total_text_train.yaml",
+      "manifest_sha256": "9fcc8b4a0ee3a50c0139963214234e9ab7317aaff94f24cd9206ff9b69bad1c7"
+    },
+    {
+      "data_root": "/extra1/bmartelli",
+      "id": "compact",
+      "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v2/compact-cores/training/manifests/total_text_train.yaml",
+      "manifest_sha256": "67a2cd2c8e702f40badb91c54595fe322ba814033f470e13b07e879a3db6d179"
+    }
+  ],
+  "historical_missing_model": {
+    "cached_result": "artifacts/diagnostics/tighter-v2-word-padding-20261013/results.json",
+    "id": "old_compact_319",
+    "reason": "all_old_compact_v2_weights_deleted_at_explicit_user_request_on_20261014"
+  },
+  "max_proposals": 10,
+  "models": [
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/total-text-author-hyperparameters-approximate/checkpoints/epoch-0100.pt",
+      "checkpoint_sha256": "9437a20035525649af235d4ef2a4da7527e4272375eabd4c625d12a3b9eb105f",
+      "config": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/total-text-author-hyperparameters-approximate/resolved_config.yaml",
+      "config_sha256": "11fe21566263599823bc9e16943617c291c1850b951c53dfea807e22750b82a1",
+      "epoch": 100,
+      "family": "pixel_tt",
+      "id": "pixel_tt",
+      "run_directory": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/total-text-author-hyperparameters-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/total-text-author-hyperparameters-approximate/run_manifest.json",
+      "source_manifest_sha256": "0e8c008a18559406f918f7438072011bb77e082443384b16a122303c0344f0e2"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/scene-text3-balanced-approximate/checkpoints/epoch-0054.pt",
+      "checkpoint_sha256": "724ccac56020ff367f3ffb3a6b100d259d8d10f3d9258bcaf8f0b4beeac7429c",
+      "config": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/scene-text3-balanced-approximate/resolved_config.yaml",
+      "config_sha256": "b6a68ba901176b312c039f5985559fca5d75b8a8c534b97dcdf72b44e962b9c8",
+      "epoch": 54,
+      "family": "pixel_mixed",
+      "id": "pixel_mix",
+      "run_directory": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/scene-text3-balanced-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/scene-text3-balanced-approximate/run_manifest.json",
+      "source_manifest_sha256": "c486af0aa34ca39e8a785c9888430aaa915b4350b7ce7bd4d7e94ffb6f52a087"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/icdar2015-author-hyperparameters-approximate/checkpoints/epoch-0054.pt",
+      "checkpoint_sha256": "22ea7c7aec27b70d619b180937527a3191c100ae9ea4fcb25ad3447272a81513",
+      "config": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/icdar2015-author-hyperparameters-approximate/resolved_config.yaml",
+      "config_sha256": "27ed05c1883f388d94c186e4c4f894063e1055d46d38a5116bcf0b0994cc8ca1",
+      "epoch": 54,
+      "family": "cross_domain",
+      "id": "pixel_icdar15",
+      "run_directory": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/icdar2015-author-hyperparameters-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/icdar2015-author-hyperparameters-approximate/run_manifest.json",
+      "source_manifest_sha256": "7cd6d69bfaa703fca3b3582e66e35bc5db5212014db76fc9bc9fbba9937c11b8"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/ctw1500-author-hyperparameters-approximate/checkpoints/epoch-0097.pt",
+      "checkpoint_sha256": "f02f0d86ae47bdcd8bcc6c832f17ad56f8d846dffebdb3cf3ce33331007bec67",
+      "config": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/ctw1500-author-hyperparameters-approximate/resolved_config.yaml",
+      "config_sha256": "a143734d0bd0d963942d1e058220e9c47b0b082a8214e1cefdea0e4a35613788",
+      "epoch": 97,
+      "family": "cross_domain",
+      "id": "pixel_ctw",
+      "run_directory": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/ctw1500-author-hyperparameters-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/scene-text-segmentation-v1/ctw1500-author-hyperparameters-approximate/run_manifest.json",
+      "source_manifest_sha256": "0afdba2651995313d90a878524f7713df3cd48e1aa6eaa4fda54d353db5729ba"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/ap-full-20260901-174246/icdar13-author-protocol-approximate/checkpoints/epoch-0098.pt",
+      "checkpoint_sha256": "b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2",
+      "config": "/extra1/bmartelli/context-str-runs/ap-full-20260901-174246/icdar13-author-protocol-approximate/resolved_config.yaml",
+      "config_sha256": "22c9cd2d4c6be659a48da409ee754416fae46b58c3a6024b07258a770d27f5b1",
+      "epoch": 98,
+      "family": "cross_domain",
+      "id": "pixel_icdar13_a",
+      "run_directory": "/extra1/bmartelli/context-str-runs/ap-full-20260901-174246/icdar13-author-protocol-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/ap-full-20260901-174246/icdar13-author-protocol-approximate/run_manifest.json",
+      "source_manifest_sha256": "461b38231b0260e6d0fb96dcdfed970abe3129c6db653a56e30efc516440d198"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/author-protocol-full/icdar13-author-protocol-approximate/checkpoints/epoch-0098.pt",
+      "checkpoint_sha256": "b6d739407b762d3a3ccedb9e11dc27177474d437569842f197fdafb2d46dc8fe",
+      "config": "/extra1/bmartelli/context-str-runs/author-protocol-full/icdar13-author-protocol-approximate/resolved_config.yaml",
+      "config_sha256": "779d8b7a87538ebc5d76d912d18b959b605044e92221fe4772557cb0763f02ea",
+      "epoch": 98,
+      "family": "cross_domain",
+      "id": "pixel_icdar13_b",
+      "run_directory": "/extra1/bmartelli/context-str-runs/author-protocol-full/icdar13-author-protocol-approximate",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/author-protocol-full/icdar13-author-protocol-approximate/run_manifest.json",
+      "source_manifest_sha256": "b53fe2564b26c1a31d7712c59a92a2c0a98a52f42527c0f48ccaf8a398ec10e9"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-regions-v1/total-text-curved-word-regions-v1/checkpoints/epoch-0092.pt",
+      "checkpoint_sha256": "60dc1fb39f4df439f48871b9acbe9beef43d9ba6553386a1baf6bc8500123310",
+      "config": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-regions-v1/total-text-curved-word-regions-v1/resolved_config.yaml",
+      "config_sha256": "a21445d559dcb8784a2e1243c6c410e207805ffcb72e741c263cf03485b1d0cb",
+      "epoch": 92,
+      "family": "curved",
+      "id": "curved",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-regions-v1/total-text-curved-word-regions-v1",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-regions-v1/total-text-curved-word-regions-v1/run_manifest.json",
+      "source_manifest_sha256": "909bc3addd468d1d9152b3b2b4dd3b559920a42621555f782a9b55b8c2783112"
+    },
+    {
+      "areas": [
+        150,
+        0
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-boxes-v4-500ep/total-text-filled-curved-word-boxes-v4-500ep/checkpoints/epoch-0458.pt",
+      "checkpoint_sha256": "e31a493d2752734d9d75f35a8cec077ff779655145be7735c0e3267ceea64985",
+      "config": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-boxes-v4-500ep/total-text-filled-curved-word-boxes-v4-500ep/resolved_config.yaml",
+      "config_sha256": "bf3bdac12dd9fba07425086cea09bc9f6416fbbe9c0e360b8a4d57b3d7deb50f",
+      "epoch": 458,
+      "family": "v4",
+      "id": "v4",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-boxes-v4-500ep/total-text-filled-curved-word-boxes-v4-500ep",
+      "selection": "training_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-curved-word-boxes-v4-500ep/total-text-filled-curved-word-boxes-v4-500ep/run_manifest.json",
+      "source_manifest_sha256": "d16f35dc90804c1d8ba5dcdec5229b65871aaa63b601788e304c51c5a23ec9a4"
+    },
+    {
+      "areas": [
+        150,
+        0
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/checkpoints/epoch-0447.pt",
+      "checkpoint_sha256": "e9146a514adc91bb39a36b394a646710cf5028539c2e2bec8a82fdc55b0ddc30",
+      "config": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/resolved_config.yaml",
+      "config_sha256": "40b0b9748852318378aebbe9aad519ca80c2eb7439249fcd95a724c3afa43d37",
+      "epoch": 447,
+      "family": "separated",
+      "id": "sep_447",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep",
+      "selection": "posthoc_TRAIN_mask_word_f1",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/run_manifest.json",
+      "source_manifest_sha256": "5b059fcc42f51be74dd7560a89e6d98519fb8d672946e85bca7f349f939860d1"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/checkpoints/epoch-0485.pt",
+      "checkpoint_sha256": "dc85f29ba3826166f709bb56401fb2ff0f1a8785750f82da659f7499ec87eb7c",
+      "config": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/resolved_config.yaml",
+      "config_sha256": "40b0b9748852318378aebbe9aad519ca80c2eb7439249fcd95a724c3afa43d37",
+      "epoch": 485,
+      "family": "separated",
+      "id": "sep_485",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep",
+      "selection": "TRAIN_pixel_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/run_manifest.json",
+      "source_manifest_sha256": "5b059fcc42f51be74dd7560a89e6d98519fb8d672946e85bca7f349f939860d1"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/checkpoints/epoch-0500.pt",
+      "checkpoint_sha256": "f3a1ab73582c5639f83c809e6d4af68542d6d34c83ff17bfe313a8b9b02202e6",
+      "config": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/resolved_config.yaml",
+      "config_sha256": "40b0b9748852318378aebbe9aad519ca80c2eb7439249fcd95a724c3afa43d37",
+      "epoch": 500,
+      "family": "separated",
+      "id": "sep_500",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep",
+      "selection": "last",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-separated-words-v1-500ep/total-text-separated-words-v1-500ep/run_manifest.json",
+      "source_manifest_sha256": "5b059fcc42f51be74dd7560a89e6d98519fb8d672946e85bca7f349f939860d1"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/checkpoints/epoch-0126.pt",
+      "checkpoint_sha256": "fd9a8321188dbcb09202a4bd7d285f4497fbf72fc0dcb8132d9d097102b95121",
+      "config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+      "config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+      "epoch": 126,
+      "family": "compact",
+      "id": "compact_126",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1",
+      "selection": "best_foreground_iou",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/run_manifest.json",
+      "source_manifest_sha256": "611a40db3e8d5dcb271244f1b1db152f9f41da3482908168b384144a54775c3a"
+    },
+    {
+      "areas": [
+        150,
+        0
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/checkpoints/epoch-0361.pt",
+      "checkpoint_sha256": "14fba46acabc622851240a6c9270ca24b6a3ceaa1dec56097197c82de0653fa1",
+      "config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+      "config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+      "epoch": 361,
+      "family": "compact",
+      "id": "compact_361",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1",
+      "selection": "best_bbox_word_f1",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/run_manifest.json",
+      "source_manifest_sha256": "611a40db3e8d5dcb271244f1b1db152f9f41da3482908168b384144a54775c3a"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/checkpoints/epoch-0382.pt",
+      "checkpoint_sha256": "67417c9d35ee55bbc0d346093574f824b8f0a87803f7ba88bbb8065457e06930",
+      "config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+      "config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+      "epoch": 382,
+      "family": "compact",
+      "id": "compact_382",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1",
+      "selection": "best_native_word_f1",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/run_manifest.json",
+      "source_manifest_sha256": "611a40db3e8d5dcb271244f1b1db152f9f41da3482908168b384144a54775c3a"
+    },
+    {
+      "areas": [
+        150
+      ],
+      "checkpoint": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/checkpoints/epoch-0500.pt",
+      "checkpoint_sha256": "5fa92ea894b229a85c7d567a83c5303f63090cad802de5ade4258832ae80a11d",
+      "config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+      "config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+      "epoch": 500,
+      "family": "compact",
+      "id": "compact_500",
+      "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1",
+      "selection": "last",
+      "source_manifest": "/extra1/bmartelli/context-str-runs/totaltext-tighter-words-v2-word-selection-v1/total-text-compact-v2-word-selection-500ep-v1/run_manifest.json",
+      "source_manifest_sha256": "611a40db3e8d5dcb271244f1b1db152f9f41da3482908168b384144a54775c3a"
+    }
+  ],
+  "native_paddings": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "original_padding": 6,
+  "output_budget_bytes": 201326592,
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "probability_threshold": 0.5,
+  "reproduction_mode": "approximate",
+  "runtime": {
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "deterministic": true,
+    "device": "cuda:0",
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "seed": 202503,
+    "segmentation_batch_size": 1,
+    "tf32": false
+  },
+  "schema_version": 1,
+  "scientific_ambiguity": "NATIVE128-GT-REVIEW-001",
+  "test_care_words": 2204,
+  "test_data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "test_images": 300,
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "variant": "all-native128-gt-review-v1"
+}

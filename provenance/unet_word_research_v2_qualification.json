@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "smoke-test result",
+  "claim_label": "approximate reproduction",
+  "task": "corrective U-Net experiments v2",
+  "paper_inspected": "papers/2503.15639v2.pdf sections3.2/3.3 and Algorithm1",
+  "paper_sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+  "source_sha256": {
+    "models/unet_word_research_v2.py": "9e13a0917059b2b81568b49bb2ba2fbeb815e89f1d3297d70f3ba1e96c54e17f",
+    "localize/unet_word_research_v2.py": "7845262f9a41269313866b29f12873eaa8d9761c13c33968bfbdd29012f3298b",
+    "segmentation/unet_word_research_v2.py": "9ed4b447bb26b4998e0692f2cf491ae3c1da3875a07dd5c770e8c7e22e0a883b",
+    "scripts/run_unet_word_research_v2.py": "892d701d962845ef9c1bce007147b2986494dff355d32e03269713182ac0a4f8",
+    "scripts/run_unet_word_research_v2_postprocess.py": "45e1a95d35aabe05fea63b002ce9c905fb66073e59082dbafcd3b658cbf9880f",
+    "scripts/evaluate_unet_word_research_v2_ocr.py": "1fa27bbc26d77fc428d7f6760978f86a2cc2bb473deeb6ff22de3ef59f6f190e",
+    "scripts/summarize_unet_word_research_v2.py": "f547a41f6f966a161a27951dc754ac98b59a2e7abd526b91efba3bccc8abf4f7",
+    "scripts/run_unet_word_research_v2_host.sh": "72cacf281b71ca44305676026d16de1355c1ca9d402aee83ceb6c1bdd847976e",
+    "configs/approximate/unet_word_research_v2.json": "79b793bd0b4282b92a7e0a25c30d93bd81b1a3dba438f48fac8aaf1609d7948d",
+    "docs/UNET_WORD_RESEARCH_V2.md": "6217fb8df3d2341eaa5c695436701a51c75e9ff411cc4fb79d3c2637a164e206",
+    "tests/segmentation/test_unet_word_research_v2.py": "b6cdf7c8bf5faeed6dfb61bdddc99c2a92b4f84cd41fc0e2c8ad01f4299fb7b6",
+    "tests/scripts/test_unet_word_research_v2_runner.py": "f5ef5a7183cbfad73cfd015518ff7abf2cf9d5123cd0ea17fa26ed2ad068f810"
+  },
+  "tests": {
+    "passed": 116,
+    "failed": 0,
+    "command": ".venvs/context-str-main-py311/bin/python -m pytest -q tests/segmentation/test_unet_word_research_v2.py tests/scripts/test_unet_word_research_v2_runner.py tests/segmentation/test_unet_word_research.py tests/scripts/test_unet_word_research_runner.py tests/segmentation/test_totaltext_word_kernel.py tests/segmentation/test_word_multitask.py tests/segmentation/test_word_multitask_provenance.py tests/scripts/test_word_multitask_crops.py"
+  },
+  "real_cpu_smokes": {
+    "reference_control": {
+      "path": "/tmp/unet-word-v2-smoke-v1/reference_control/smoke.json",
+      "sha256": "9df8f77dc241fad65ea50f9fb0ee868fa9bc9aaf23c95fb71cf3c8ca1d204e04",
+      "head_updates": {
+        "head.bias": 0.0,
+        "head.weight": 0.0
+      },
+      "joint_phase": null
+    },
+    "control": {
+      "path": "/tmp/unet-word-v2-smoke-v1/control/smoke.json",
+      "sha256": "175002068e1b4319c2510278245261412fe8a665ccecdeb2e7259c2b55939bf4",
+      "head_updates": {
+        "head.bias": 1.0013580322265625e-05,
+        "head.weight": 1.0013580322265625e-05
+      },
+      "joint_phase": null
+    },
+    "glyph_isolated": {
+      "path": "/tmp/unet-word-v2-smoke-v1/glyph_isolated/smoke.json",
+      "sha256": "7be14768d1163807bf291a3c1a42243b8fc247236e55eb8e2c1b8f28b7a0434f",
+      "head_updates": {
+        "glyph_private.0.bias": 9.999610483646393e-05,
+        "glyph_private.0.weight": 9.999610483646393e-05,
+        "glyph_private.2.bias": 9.999796748161316e-05,
+        "glyph_private.2.weight": 9.999796748161316e-05,
+        "glyph_private.4.bias": 9.989738464355469e-05,
+        "glyph_private.4.weight": 0.00010000000474974513,
+        "head.bias": 0.0,
+        "head.weight": 0.0
+      },
+      "joint_phase": null
+    },
+    "glyph_staged": {
+      "path": "/tmp/unet-word-v2-smoke-v1/glyph_staged/smoke.json",
+      "sha256": "a70a06a4d6cd6e3c346173e899a61125b57ae433b5ae71377e1a90d130a09c02",
+      "head_updates": {
+        "glyph_private.0.bias": 9.999610483646393e-05,
+        "glyph_private.0.weight": 9.999610483646393e-05,
+        "glyph_private.2.bias": 9.999796748161316e-05,
+        "glyph_private.2.weight": 9.999796748161316e-05,
+        "glyph_private.4.bias": 9.989738464355469e-05,
+        "glyph_private.4.weight": 0.00010000000474974513,
+        "head.bias": 0.0,
+        "head.weight": 0.0
+      },
+      "joint_phase": {
+        "glyph": 1.1337372064590454,
+        "glyph_coefficient": 0.010000000000000002,
+        "glyph_gradient_norm": 4.470773637876846e-05,
+        "gradient_cosine": 0.15947632491588593,
+        "kernel": 0.16688752174377441,
+        "loss": 0.3096104562282562,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1,
+        "word": 0.13138556480407715,
+        "word_gradient_norm": 0.8608381748199463
+      }
+    },
+    "links_isolated": {
+      "path": "/tmp/unet-word-v2-smoke-v1/links_isolated/smoke.json",
+      "sha256": "ef778bb581166af42bd9c521bb1f6f8afe1c81a9d4acdce93525673a9b2c8474",
+      "head_updates": {
+        "head.bias": 0.0,
+        "head.weight": 0.0,
+        "links_private.0.bias": 9.999983012676239e-05,
+        "links_private.0.weight": 0.000100000761449337,
+        "links_private.2.bias": 0.00010000169277191162,
+        "links_private.2.weight": 0.00010000169277191162,
+        "links_private.4.bias": 0.00010000169277191162,
+        "links_private.4.weight": 0.00010000169277191162
+      },
+      "joint_phase": null
+    },
+    "threshold_frozen": {
+      "path": "/tmp/unet-word-v2-smoke-v1/threshold_frozen/smoke.json",
+      "sha256": "7aaed518daf4aac96462f040c0d24cd4a487f28e68604e3d45365315a6accf92",
+      "head_updates": {
+        "head.bias": 0.0,
+        "head.weight": 0.0,
+        "threshold_private.0.bias": 9.999610483646393e-05,
+        "threshold_private.0.weight": 9.999610483646393e-05,
+        "threshold_private.2.bias": 9.999796748161316e-05,
+        "threshold_private.2.weight": 9.999796748161316e-05,
+        "threshold_private.4.bias": 9.999998292187229e-05,
+        "threshold_private.4.weight": 9.999999747378752e-05
+      },
+      "joint_phase": null
+    },
+    "db_core": {
+      "path": "/tmp/unet-word-v2-smoke-v1/db_core/smoke.json",
+      "sha256": "104fae490ac8a5d499b2670034b21ac985c527453eb397045258b116f792e10a",
+      "head_updates": {
+        "db_private.0.bias": 9.999610483646393e-05,
+        "db_private.0.weight": 9.999610483646393e-05,
+        "db_private.2.bias": 9.999796748161316e-05,
+        "db_private.2.weight": 9.999796748161316e-05,
+        "db_private.4.bias": 9.999998292187229e-05,
+        "db_private.4.weight": 9.999999747378752e-05,
+        "head.bias": 0.0,
+        "head.weight": 0.0
+      },
+      "joint_phase": null
+    }
+  },
+  "paired_preflight": {
+    "path": "/tmp/unet-word-v2-preflight-v1/paired_target_qualification.json",
+    "images": 1255,
+    "source_words": 9285,
+    "native_words": 9284,
+    "native_lost": 1,
+    "validation_words": 983,
+    "db_words_with_core": 983,
+    "db_farthest_pixel_fallbacks": 0
+  },
+  "postprocess_result_class": "approximate reproduction",
+  "postprocess_cpu_results": {
+    "embedding50_hard": {
+      "geometry": {
+        "foreground_f1_macro": 0.812888957743652,
+        "foreground_iou": 0.7000223320825572,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 273,
+        "gt_words_touched_by_fused_components": 208,
+        "matched_gt_iou_ge_25": 749,
+        "matched_gt_iou_ge_50": 645,
+        "matched_gt_iou_ge_75": 441,
+        "merge_rate": 0.2115971515768057,
+        "merged_proposal_rate": 0.06794871794871794,
+        "predicted_components_touching_multiple_gt_words": 106,
+        "proposal_f1_iou_50": 0.5072748721981911,
+        "proposal_precision_iou_50": 0.41346153846153844,
+        "raw_proposals": 1560,
+        "split_rate": 0.2777212614445575,
+        "word_recall_iou_50": 0.6561546286876907
+      },
+      "validation_sha256": "8a55affb24467c8ad2384f412a37a934adcafadcf1a93e5aca19593abfcdc30b",
+      "ocr": {
+        "aggregate": {
+          "exact_casefold_iou_ge_50": 497,
+          "exact_casefold_iou_ge_50_recall_all_gt": 0.5055951169888098,
+          "exact_no_symbols_iou_ge_50": 537,
+          "exact_no_symbols_iou_ge_50_recall_all_gt": 0.5462868769074263,
+          "geometry_iou_ge_50": 648,
+          "gt_words": 983,
+          "proposals": 1560
+        },
+        "exact_casefold_changes_vs_control": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0
+        },
+        "exact_casefold_changes_vs_embedding50_hard": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0
+        }
+      }
+    },
+    "embedding50_watershed": {
+      "geometry": {
+        "foreground_f1_macro": 0.812888957743652,
+        "foreground_iou": 0.7000223320825572,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 98,
+        "gt_words_touched_by_fused_components": 204,
+        "matched_gt_iou_ge_25": 743,
+        "matched_gt_iou_ge_50": 637,
+        "matched_gt_iou_ge_75": 452,
+        "merge_rate": 0.20752797558494404,
+        "merged_proposal_rate": 0.09165154264972777,
+        "predicted_components_touching_multiple_gt_words": 101,
+        "proposal_f1_iou_50": 0.6110311750599521,
+        "proposal_precision_iou_50": 0.5780399274047187,
+        "raw_proposals": 1102,
+        "split_rate": 0.09969481180061038,
+        "word_recall_iou_50": 0.6480162767039674
+      },
+      "validation_sha256": "909ecdb010ba24532f51c5ec575bf947bab55d4704c6aedb58df912828f4d447",
+      "ocr": {
+        "aggregate": {
+          "exact_casefold_iou_ge_50": 499,
+          "exact_casefold_iou_ge_50_recall_all_gt": 0.5076297049847406,
+          "exact_no_symbols_iou_ge_50": 540,
+          "exact_no_symbols_iou_ge_50_recall_all_gt": 0.5493387589013224,
+          "geometry_iou_ge_50": 642,
+          "gt_words": 983,
+          "proposals": 1102
+        },
+        "exact_casefold_changes_vs_control": {
+          "gained": 6,
+          "lost": 4,
+          "net": 2
+        },
+        "exact_casefold_changes_vs_embedding50_hard": {
+          "gained": 6,
+          "lost": 4,
+          "net": 2
+        }
+      }
+    },
+    "embedding50_soft": {
+      "geometry": {
+        "foreground_f1_macro": 0.812888957743652,
+        "foreground_iou": 0.7000223320825572,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 109,
+        "gt_words_touched_by_fused_components": 223,
+        "matched_gt_iou_ge_25": 745,
+        "matched_gt_iou_ge_50": 640,
+        "matched_gt_iou_ge_75": 443,
+        "merge_rate": 0.2268565615462869,
+        "merged_proposal_rate": 0.10072595281306715,
+        "predicted_components_touching_multiple_gt_words": 111,
+        "proposal_f1_iou_50": 0.6139088729016786,
+        "proposal_precision_iou_50": 0.5807622504537205,
+        "raw_proposals": 1102,
+        "split_rate": 0.11088504577822991,
+        "word_recall_iou_50": 0.6510681586978637
+      },
+      "validation_sha256": "5fd41859359c46d971f48f988997f3d9bee9a8089401742d922cc8a0d8646389",
+      "ocr": {
+        "aggregate": {
+          "exact_casefold_iou_ge_50": 493,
+          "exact_casefold_iou_ge_50_recall_all_gt": 0.5015259409969481,
+          "exact_no_symbols_iou_ge_50": 537,
+          "exact_no_symbols_iou_ge_50_recall_all_gt": 0.5462868769074263,
+          "geometry_iou_ge_50": 642,
+          "gt_words": 983,
+          "proposals": 1102
+        },
+        "exact_casefold_changes_vs_control": {
+          "gained": 6,
+          "lost": 10,
+          "net": -4
+        },
+        "exact_casefold_changes_vs_embedding50_hard": {
+          "gained": 6,
+          "lost": 10,
+          "net": -4
+        }
+      }
+    }
+  },
+  "postprocess_report": "/tmp/unet-word-v2-postprocess-cpu-v1/postprocess_comparison.md",
+  "postprocess_ocr_sha256": "e82bf0c1214378f3112ab7f48cf8c4ae1b3167c89d3c7486d299a5894a6ea692",
+  "new_head_training_complete": false,
+  "cuda_accessible_in_session": false,
+  "gpu_memory_qualified": false,
+  "failures": [],
+  "unrelated_existing_files_changed": [],
+  "historical_v1_files_unchanged": true,
+  "strict_configuration_unchanged": true,
+  "committed": false
+}

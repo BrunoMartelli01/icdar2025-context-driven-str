@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-15T12:58:35.637677+00:00",
+  "implementation_status": "QUALIFIED_FOR_APPROXIMATE_GPU_TRAINING",
+  "result_class": "smoke-test result",
+  "reproduction_mode": "approximate",
+  "git_head": "cd9e19db785d3fddeacdbed655e7f427b7f2f8e0",
+  "tests": {
+    "new_tests_passed": 36,
+    "relevant_regressions_passed": 64,
+    "total_unique_tests_passed": 100,
+    "syntax_and_git_diff_check": "PASS"
+  },
+  "initial_failure": {
+    "stage": "pytest collection",
+    "cause": "duplicate basenames in different test directories",
+    "resolution": "renamed model and localization test files; all tests collected and passed"
+  },
+  "source_sha256": {
+    "localize/adaspot_gap.py": "b139df133a8d07314bcb8ddd34022a3dabfe2e02bc9406260c8e4d5f3dcbae2c",
+    "localize/crop_recovery.py": "341150a869343d09efc10d3fd91a64736011fff234c242c0f0b8963ae5e6e71f",
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/adaspot_gap.py": "c016ee7156f6f37a567094b1c8369fba2e12f878328a7003170176cf4c296f67",
+    "models/totaltext_word_kernel.py": "d48a302ddb4a1aca2af3360192a99d8bfad42584c640d5453e25ed3c370a71bd",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "models/unet_word_research.py": "d135e581f9bb65700d5279d9cb990a27aec185d867e6ea7ec856655927e8198d",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/prune_segmentation_checkpoints.py": "f5865b87650e6ec7ac434b583f6e813054c6df95e7a43f7b4ee903c1adf5ceae",
+    "scripts/run_adaspot_gap.py": "bc76bc709669217043aba46e6b30bad75812d418d856df04c6a2826901d8e8fa",
+    "scripts/run_unet_word_research.py": "1814d48158803d2a082e27caa9bed366b1afd61f07a95b97b76141e9c09c22cb",
+    "scripts/run_word_multitask.py": "ddb60cfeba198a1796377517212d917e779a0bd8500f3d1b1cbd212129cf0fc9",
+    "scripts/train_totaltext_letterbox_word_f1_separator_head.py": "713437cc958a82cb5655d0fa25ab86c4f189b051f23bd685ea8ea648e7f0b73d",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/adaspot_gap.py": "49194b2f249a1aefc59d2193f9fd22da831d3193c198934013cd3bbbbe7e117f",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/evaluate.py": "f0af56d95c5991c21245bafe194ebca6aab5c5cc443bb04e28cbf7a0071d51f4",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/train.py": "1d77b20d73aee8183f8a37105febc9424642654da74c91514015a8e918d7ebd0",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d",
+    "segmentation/word_multitask_evaluation.py": "1b85d88178eae55246954d01eb4e9ff6e650827e4636ffde51a920108011480d",
+    "segmentation/word_multitask_provenance.py": "2d3743258316fcd6c5aa8bb4d1ec70329b7d39a575721c3c171b32949ea3543d"
+  },
+  "config_sha256": "768b31a3f0e016d585973bfa107c4e9e7a355163e60d37c43d256ac7753c9241",
+  "target_qualification": {
+    "path": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/target_qualification.json",
+    "sha256": "65827dfe36708269c80645f74f1a1362b1ef5073168e11122310bff8ced86020",
+    "images": 1255,
+    "expected_words": 9285,
+    "native_words": 9284,
+    "native_word_losses": 1,
+    "validation_expected_words": 983,
+    "loss_note": "One previously documented TRAIN word is already lost at native resolution; no validation word is lost."
+  },
+  "cuda_smoke": {
+    "path": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/gap/smoke.json",
+    "sha256": "74d0482f10f5c2a2d0d64f6846ff622b65287e65251e33de61eb00e908c0526a",
+    "train": {
+      "compute_device": "cuda:0",
+      "gap": 1.12692391872406,
+      "kernel": 0.19420009851455688,
+      "loss": 1.493527889251709,
+      "sample_order_sha256": "1a91887ae9d55c7dfc10e46d515915877f7710356b6c80cb1a561938128111b9",
+      "samples": 8,
+      "skipped_all_invalid_batches": 0,
+      "steps": 1,
+      "text": 0.17240393161773682
+    },
+    "head_update_linf": {
+      "gap.bias": 9.989738464355469e-05,
+      "gap.weight": 9.999999747378752e-05,
+      "head.bias": 1.0013580322265625e-05,
+      "head.weight": 1.0013580322265625e-05
+    },
+    "memory": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 3971970048,
+      "gpu_peak_reserved_bytes": 4276092928,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "one ResNet50 attention U-Net with text/kernel and optional gap; no OCR resident",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    },
+    "environment": {
+      "cuda_available": true,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "cudnn_version": 90100,
+      "deterministic_algorithms": true,
+      "execution_device": "cuda:0",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "numpy": "1.26.4",
+      "opencv": "4.10.0",
+      "pillow": "10.4.0",
+      "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+      "python": "3.11.11 (main, Mar 17 2025, 21:02:09) [Clang 20.1.0 ]",
+      "scipy": "1.17.1",
+      "torch": "2.4.1+cu124",
+      "torch_cuda_build": "12.4",
+      "torchvision": "0.19.1+cu124"
+    }
+  },
+  "training": {
+    "status": "RUNNING_ON_CUDA",
+    "launcher_pid": 1407798,
+    "train_pid": 1408036,
+    "run_root": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z",
+    "log": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/training.log",
+    "latest_observed_batch_in_epoch": 25,
+    "latest_observed_optimizer_step_in_epoch": 25,
+    "latest_observed_loss": 1.34958,
+    "training_complete": false,
+    "scope": "50 additional epochs Gap, then50 matched control, frozen exports, qualified PARSeq",
+    "observation_time_utc": "2026-10-15T13:00:29.108421+00:00",
+    "completed_gap_epochs": 3,
+    "completed_optimizer_steps": 426,
+    "measured_training_peaks": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 4239452672,
+      "gpu_peak_reserved_bytes": 5840568320,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "one ResNet50 attention U-Net with text/kernel and optional gap; no OCR resident",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    }
+  },
+  "installed_distributions": {
+    "path": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/installed_distributions.json",
+    "sha256": "2d62f5fbb39000cd30b69a18ca521264a480cdbdb1df227593a4ae559b12ea39"
+  },
+  "prior_art_audit": "provenance/adaspot_gap_prior_audit_20261015.json",
+  "not_claimed": [
+    "novel gap principle",
+    "completed training",
+    "new full OCR comparison",
+    "official benchmark score",
+    "strict reproduction",
+    "RTX3070 qualification"
+  ]
+}

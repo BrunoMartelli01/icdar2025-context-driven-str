@@ -1,0 +1,80 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+
+run:
+  kind: real_evaluation
+  name: icdar13-author-protocol-test-native128-task1-conservative-ignore-approximate
+  result_class: approximate reproduction
+
+architecture:
+  implementation: author_clarified_ag_unet
+  identity: author-clarified-ag-unet-2048x1024-v1
+  contract_schema_version: 1
+  encoder: resnet50
+  encoder_weights: IMAGENET1K_V2
+  freeze_encoder: true
+  frozen_batchnorm_state: true
+  bottleneck_channels: 1024
+  decoder_channels: [512, 256, 128, 64]
+
+checkpoint:
+  artifact_id: ART-ICDAR13-AUTHOR-PROTOCOL-APPROX-TRAINED-CHECKPOINT
+  sha256: b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2
+  selection: training_foreground_iou
+  selected_epoch: 98
+  global_step: 2842
+  training_run_manifest_sha256: 461b38231b0260e6d0fb96dcdfed970abe3129c6db653a56e30efc516440d198
+
+data:
+  test:
+    role: test
+    artifact_id: ART-ICDAR13-M10-TASK1-OVERLAP-IGNORE-TEST-MANIFEST
+    manifest: manifests/icdar13_segmentation_test_task1_care_boxes.yaml
+    manifest_sha256: 7e9267e39fd439a28374875c250bacef9a1c1a6d3a0b98c8647dcac7e69f7d15
+
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  resize_geometry: stretch
+  normalization: imagenet
+
+evaluation:
+  seed: 202503
+  batch_size: 1
+  probability_activation: sigmoid
+  probability_threshold: 0.5
+  threshold_comparison: greater_than_or_equal
+  threshold_resolution: native_128x128_logits
+  binary_mask_backprojection: none
+  evaluation_resolution: native_128x128
+  evaluation_resolution_classification: ASSUMPTION
+  gt_resize_interpolation: bilinear
+  gt_binarization_threshold: 0.5
+  validity_resize_interpolation: nearest
+  gt_conversion: icdar13-task2.2-task1-box-zero-overlap-validity-v1
+  dont_care: excluded_by_validity_mask
+  dont_care_classification: ASSUMPTION
+  valid_mask: task1_care_box_zero_overlap_colors
+  primary_aggregation: per_image_macro
+  diagnostic_aggregation: global_micro
+  empty_foreground_policy: perfect_if_both_empty
+  failure_policy: retain_all_records_and_suppress_aggregate_claim_on_any_failure
+
+localization:
+  nmax: 10
+
+scientific_choices:
+  - classification: PAPER_SPECIFIED
+    choice: author-clarified architecture and 128x128 segmentation logits
+  - classification: ASSUMPTION
+    choice: author-recalled 2048-to-1024 bottleneck
+  - classification: REPOSITORY_SPECIFIED
+    choice: inclusive threshold 0.5 at native logits
+  - classification: ASSUMPTION
+    choice: Task 1 care-box zero-overlap conservative Don't Care exclusion
+  - classification: ASSUMPTION
+    choice: native-128x128 evaluation; per-image macro primary and global micro diagnostic
+
+strict_blockers: [A-002, A-003, A-004, A-006, A-007, A-008, T-001, T-002, T-003, T-004, DS-001, DS-003, E-002, E-003]

@@ -1,0 +1,20 @@
+experiment_kind: segmentation
+reproduction_mode: strict
+claim_label: strict reproduction
+runnable: false
+strict_blockers:
+  - A-001
+  - A-002
+  - A-003
+  - A-004
+  - A-005
+  - A-006
+  - A-007
+  - A-008
+  - T-001
+  - T-002
+  - T-003
+  - DS-001
+  - DS-003
+  - E-002
+  - E-003

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "result_class": "smoke-test result",
+  "reproduction_mode": "approximate",
+  "qualification_scope": "implementation/target/gradient/resume/CPU-smoke only; no new100-epoch or GPU performance result",
+  "source_sha256": {
+    "segmentation/word_center_votes.py": "3f257dfdac02132c74e522dce4b0027a6d69cb3d885cebdb72ceda24f5a060b4",
+    "scripts/train_word_center_votes.py": "6fa4a195493392ae6d5893ed4a831f7a216bf841f51a8fa6050c15cad3c8bc99",
+    "configs/approximate/word_center_votes_totaltext_train_v2.json": "421ed487b654f11b1b434ff06d9700883212f870e15071aa40543b29b254397c",
+    "tests/segmentation/test_center_vote_objective.py": "51f0afb92f6e6bc6a8e8655f4ac12e28daadc5cec7e7c3646b10907471d2234e",
+    "tests/scripts/test_center_vote_training_launcher.py": "ecfd88de0ac5c6c8eb4c0299890d679d33c6eb4d6358155b246cb5c3f0643d0f"
+  },
+  "paper": {
+    "path": "papers/2503.15639v2.pdf",
+    "sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "sections_inspected": [
+      "3.2",
+      "3.3"
+    ]
+  },
+  "tests": {
+    "passed": 104,
+    "initial_failures": [
+      "Unsquared own/rival distance contrast had flat restoring gradients; changed to squared-distance contrast and verified finite nonzero restoring gradients.",
+      "Vote loss separation_weight collided with existing segmentation field; renamed neighbor_weight and tested distinct values."
+    ],
+    "relevant_regressions": "v1 training/targets/warm-start, local/global crops, configuration isolation, checkpoint/resume and synthetic OOM propagation"
+  },
+  "target_preflight": {
+    "path": "/tmp/word-center-votes-v2-preflight/coherent/target_qualification.json",
+    "sha256": "c2d473d44eacca529823f8383651eb8ffa3b78a8e398e668830a440ca9b7cd3e",
+    "images": 1255,
+    "train_images": 1130,
+    "validation_images": 125,
+    "expected_words": 9285,
+    "surviving_words": 9284,
+    "validation_expected_and_surviving_words": 983,
+    "maximum_perfect_vote_loss": 1.1102230246251565e-12,
+    "coincident_centroid_words": 0
+  },
+  "real_cpu_smokes": {
+    "control": {
+      "path": "/tmp/word-center-votes-v2-smoke/control/smoke/smoke.json",
+      "sha256": "ff01588304a8cba98068dc8eca18eb1978d42bbb6d7e91573c7c1079bbbc71be",
+      "train": {
+        "claim_label": "approximate reproduction",
+        "coincident_centroid_words": 0,
+        "competing_words": 15,
+        "consensus_loss": 0.023173468187451363,
+        "empty_batches_without_update": 0,
+        "endpoint_error_native_pixels": 11.514013290405273,
+        "endpoint_scatter_native_pixels": 12.764883041381836,
+        "loss": 0.023173466324806213,
+        "offset_loss": 0.023173466324806213,
+        "reproduction_mode": "approximate",
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "separation_loss": 0.0027084029279649258,
+        "steps": 1,
+        "supervised_images": 2,
+        "surviving_words": 15,
+        "wrong_neighbor_vote_rate": 0.07148034870624542
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "auxiliary center-offset U-Net only; base warm start loaded on CPU then released",
+        "peak_allocated_bytes": null,
+        "peak_reserved_bytes": null,
+        "precision": "float32"
+      }
+    },
+    "coherent": {
+      "path": "/tmp/word-center-votes-v2-smoke/coherent/smoke/smoke.json",
+      "sha256": "55716bb538537b94717dac373b6e1201e1194b67fdcebb72e2dc4fca4cff39a9",
+      "train": {
+        "claim_label": "approximate reproduction",
+        "coincident_centroid_words": 0,
+        "competing_words": 15,
+        "consensus_loss": 0.023173468187451363,
+        "empty_batches_without_update": 0,
+        "endpoint_error_native_pixels": 11.514013290405273,
+        "endpoint_scatter_native_pixels": 12.764883041381836,
+        "loss": 0.036114402115345,
+        "offset_loss": 0.023173466324806213,
+        "reproduction_mode": "approximate",
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "separation_loss": 0.0027084029279649258,
+        "steps": 1,
+        "supervised_images": 2,
+        "surviving_words": 15,
+        "wrong_neighbor_vote_rate": 0.07148034870624542
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "auxiliary center-offset U-Net only; base warm start loaded on CPU then released",
+        "peak_allocated_bytes": null,
+        "peak_reserved_bytes": null,
+        "precision": "float32"
+      }
+    }
+  },
+  "historical_files_preserved_sha256": {
+    "segmentation/word_center_offsets.py": "3fcf3ae85971b53da6a3b844572913de3d616119cef6607ede746d886ca79d94",
+    "scripts/train_word_center_offsets.py": "77fee68e4ef14b09ff279bd72a7367c6c08c5fec6722093e6863ea054d9c576a",
+    "models/word_center_offsets.py": "1c7a95ed8021098843a59aa560e1c6ceb530e07c553f01e5165c4673a8212794",
+    "docs/WORD_CENTER_OFFSETS.md": "30cbc5c14e231c87b8752942b873f6e0d4545c82b18211248d59c5a44885a023"
+  },
+  "base_checkpoint_sha256": "db9db69f77f1e62b03b82d073e8a37c603ff6ff8feceafc3623644980625e964",
+  "gpu_qualification": {
+    "status": "NOT_RUN",
+    "reason": "CUDA unavailable here; nvidia-smi could not communicate with the driver",
+    "peak_allocated_bytes": null,
+    "peak_reserved_bytes": null,
+    "physical_oom_test": false
+  },
+  "complete_training": "NOT_RUN",
+  "centers_crops_ocr_benefit": "UNRESOLVED",
+  "assumptions_record": "docs/PAPER_AMBIGUITIES.md#WCO-004",
+  "protocol": "docs/WORD_CENTER_VOTE_LOSS.md"
+}

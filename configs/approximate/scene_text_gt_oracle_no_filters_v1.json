@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "classification": "ASSUMPTION",
+  "result_class": "PRACTICAL_APPROXIMATION",
+  "name": "scene-text-gt-oracle-no-filters-v1",
+  "scope": {
+    "datasets": ["total_text", "icdar2015", "ctw1500"],
+    "branch": "GT-oracle localization diagnostics only",
+    "existing_runs": "immutable; no retroactive reinterpretation",
+    "strict_paper_path": "unchanged"
+  },
+  "localization": {
+    "component_area_filter": "disabled",
+    "maximum_blocks_per_image": "disabled",
+    "padding": 0,
+    "contour_extraction": "retain the separately declared diagnostic method"
+  },
+  "rationale": "User-requested diagnostic: GT masks already identify text; native-128 Amin=150 removed 1171 of 2204 Total-Text GT-v4 contours, including 1086 that would match a GT word at IoU>=0.5. The top-10 cap removed only 3. Removing both isolates mask-resolution and OCR effects.",
+  "paper_difference": "Algorithm 1 specifies area filtering and a maximum of 10 blocks; this policy is not a paper reproduction claim."
+}

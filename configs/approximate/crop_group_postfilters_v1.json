@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; frozen crop-group output filtering diagnostic",
+  "table_5_claim": false,
+  "input_method": "mask_completeness_confidence",
+  "methods": ["duplicate_suppression", "evidence_abstention", "abstention_then_suppression"],
+  "duplicate_suppression": {
+    "box_iou_min": 0.5,
+    "soft_mask_iou_min": 0.5,
+    "shared_parent_exception": "preserve overlapping groups with different readings when they share an ambiguous parent crop",
+    "ranking": "frozen input-method score descending; stable group/candidate ID ties"
+  },
+  "evidence_abstention": {
+    "rule": "retain if a core candidate is an original baseline crop OR at least two distinct core RGB crops have the selected normalized reading",
+    "shared_parent_crops_count_as_core": false,
+    "lexicon_or_word_length_rule": false,
+    "confidence_cutoff": null
+  },
+  "evaluation": {
+    "matching_iou": 0.5,
+    "normalization": "casefold_remove_unicode_P_S",
+    "metric": "one-to-one exact text and axis-aligned bbox IoU; local diagnostic, not official Total-Text Hmean"
+  },
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper section 3.3 specifies contour crops and PARSeq recognition, not group-output suppression or abstention."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Frozen original crop groups, OCR readings, soft probabilities and selected outputs supply all inference inputs."},
+    {"classification": "ASSUMPTION", "choice": "Generic 0.5 box/soft-mask overlap, greedy duplicate selection, multiword-parent exception and baseline-or-distinct-crop corroboration; no TEST metric or annotation chooses a rule."},
+    {"classification": "UNRESOLVED", "choice": "Transfer of these fixed postfilters and matching to official polygon spotting evaluation remains unqualified."}
+  ],
+  "ambiguity_record": "CROP-GROUP-POSTFILTERS-V1"
+}

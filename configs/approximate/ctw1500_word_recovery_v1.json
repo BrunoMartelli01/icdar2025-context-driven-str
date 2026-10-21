@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "ctw1500",
+  "split": "TEST",
+  "table_5_claim": false,
+  "evaluation": {
+    "metric_id": "line_supported_word_occurrences_bbox_v1",
+    "normalization": "Unicode casefold; remove punctuation/symbols; split on whitespace",
+    "minimum_prediction_coverage": 0.5,
+    "matching": "maximum one-to-one exact token and line bbox support; repeated tokens retain separate occurrences",
+    "ignore": "exclude ignored GT; predictions on ignored regions remain FP",
+    "empty": "normalized-empty GT lines contribute zero words and are reported; empty predictions count as one FP",
+    "limitation": "line-supported recovery proxy; no GT word boxes and no word-position validation; not official polygon Hmean"
+  },
+  "selection": {
+    "joint_threshold": 0.6,
+    "same_text_nms_iou": 0.5,
+    "prefilter_thresholds": [0.05, 0.36, 0.4, 0.5, 0.6, 0.7],
+    "reference_prefilter": 0.05
+  },
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "User-requested CTW word recovery extension. The paper does not evaluate CTW1500 or define this protocol. See CWR-001 in docs/PAPER_AMBIGUITIES.md."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse frozen qualified YOLO/PARSeq TEST proposals, readings, Unicode normalization, joint confidence and same-reading NMS. GT only enters evaluation."},
+    {"classification": "ASSUMPTION", "choice": "Whitespace tokens after normalization are word occurrences. Preserve repeated tokens, count empty GT lines explicitly, and use maximum one-to-one matching."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse the earlier line-fragment diagnostic spatial rule: at least half of the prediction box lies in the GT line axis bbox. This is a relaxed line support proxy, not a word IoU test."},
+    {"classification": "ASSUMPTION", "choice": "Report the same prefilter controls at fixed joint 0.60; do not tune or replace inference parameters from TEST word scores. Cache analysis assumes frozen OCR; actual new batches require qualification."},
+    {"classification": "UNRESOLVED", "choice": "Exact GT positions for words inside lines, duplicated detections of repeated words, official word/polygon evaluation and ignored-region prediction treatment are not established by this proxy."}
+  ]
+}

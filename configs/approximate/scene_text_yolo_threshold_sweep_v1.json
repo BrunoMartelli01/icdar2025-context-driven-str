@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; exploratory TEST analysis",
+  "table_5_claim": false,
+  "exploratory_test_analysis": true,
+  "datasets": ["icdar13", "icdar2015", "ctw1500"],
+  "families": ["detector_score", "joint_text_nms"],
+  "threshold_grid": {"minimum": 0.05, "maximum": 0.99, "step": 0.01},
+  "baseline_joint_threshold": 0.6,
+  "text_nms_iou": 0.5,
+  "matching_iou": 0.5,
+  "diagnostic_minimum_prediction_overlap": 0.5,
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse all frozen 1233-image GPU TEST detector boxes, direct PARSeq readings and care/ignore annotations. Preserve exact casefold plus punctuation/symbol removal, spaces, bbox IoU0.5 and one-to-one matching."},
+    {"classification": "ASSUMPTION", "choice": "Explore the same scalar threshold grid for raw detector confidence and existing joint confidence with same-reading NMS. No new crops, model inference, retraining, geometry changes or ignore-policy changes."},
+    {"classification": "ASSUMPTION", "choice": "Select exploratory per-dataset maxima by Hmean, then correct count, then lower threshold. Also seek one shared joint threshold improving all three baselines; maximize the smallest absolute Hmean gain, breaking ties by average gain then lower threshold. This uses TEST labels and cannot establish final generalization or change the frozen deployment setting."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "For fixed deterministic descending joint-score NMS, filtering its survivors at a higher score is identical to applying the same score threshold before NMS. Verify baseline candidate IDs and focused equivalence tests."},
+    {"classification": "ASSUMPTION", "choice": "CTW1500 failure analysis partitions full-line GT by normalized whitespace tokens; proper contiguous token fragments count only if at least half the predicted box lies within the GT axis bbox. GT affects diagnostics only, never prediction selection."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "The qualified PARSeq config uses the 94-character training vocabulary without whitespace and max label length25. Preserve the existing whitespace-sensitive metric and report its incompatibility with multiword line annotations."},
+    {"classification": "UNRESOLVED", "choice": "Detector floors below0.05, changed YOLO proposal NMS, line grouping, official polygon/ignore protocol and independent validation of TEST-selected thresholds are separate experiments."}
+  ]
+}

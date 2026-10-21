@@ -1,0 +1,155 @@
+"""Independent audit of saved crop/OCR counts; does not rerun segmentation."""
+import argparse
+from collections import Counter
+import json
+from pathlib import Path
+
+import numpy as np
+from PIL import Image
+
+from recognition.scene_text_v1_evaluation import box_iou
+from scripts.evaluate_totaltext_highres_contour_padding import crop_array_hash
+from scripts.prune_segmentation_checkpoints import sha256_file
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--root', type=Path, default=Path('artifacts/text-recall-refinements-v1-qualified'))
+ROOT = parser.parse_args().root
+g = json.loads((ROOT/'geometry_results.json').read_text())
+r = json.loads((ROOT/'recognition_results.json').read_text())
+s = json.loads((ROOT/'summary.json').read_text())
+assert g['status'] == r['status'] == s['status'] == 'SUCCESS'
+assert sha256_file(ROOT/'geometry_results.json') == s['geometry_results_sha256']
+assert sha256_file(ROOT/'recognition_results.json') == s['recognition_results_sha256']
+for name, expected in g['protocol']['source_sha256'].items():
+    assert sha256_file(Path(name)) == expected, name
+
+
+def matches(predictions, truth, require_text):
+    assigned = {}
+    edges = [[i for i, word in enumerate(truth) if box_iou(p['bbox'], word['bbox']) >= .5
+              and (not require_text or p['text'].casefold() == word['text'].casefold())]
+             for p in predictions]
+    def visit(pred_index, seen):
+        for word_index in edges[pred_index]:
+            if word_index in seen:
+                continue
+            seen.add(word_index)
+            if word_index not in assigned or visit(assigned[word_index], seen):
+                assigned[word_index] = pred_index
+                return True
+        return False
+    for i in range(len(predictions)):
+        visit(i, set())
+    return len(assigned)
+
+
+checked_files = checked_crops = checked_rows = 0
+images = {}
+populations = []
+for branch, methods in g['branches'].items():
+    for method, part in methods.items():
+        recognition = r['branches'][branch][method]
+        assert len(part['per_image']) == len(recognition['per_image']) == 125
+        populations.append([x['sample_id'] for x in part['per_image']])
+        counts = Counter()
+        for row, ocr in zip(part['per_image'], recognition['per_image']):
+            assert row['sample_id'] == ocr['sample_id']
+            assert row['ground_truth'] == ocr['ground_truth']
+            sid = row['sample_id']
+            if sid not in images:
+                assert sha256_file(Path(row['image_path'])) == row['image_sha256']
+                assert sha256_file(Path(row['annotation_path'])) == row['annotation_sha256']
+                with Image.open(row['image_path']) as im:
+                    images[sid] = np.asarray(im.convert('RGB')).copy()
+            for filename, expected in row['exports'].items():
+                assert sha256_file(ROOT/filename) == expected, filename
+                checked_files += 1
+            assert len(row['proposals']) == len(ocr['predictions_all'])
+            ignored = set(ocr['ignored_prediction_ids'])
+            care = []
+            for p, predicted in zip(row['proposals'], ocr['predictions_all']):
+                assert p['bbox'] == predicted['bbox']
+                x1, y1, x2, y2 = p['bbox']
+                assert crop_array_hash(images[sid][y1:y2, x1:x2]) == p['crop_rgb_sha256']
+                record = json.loads((ROOT/'ocr'/(p['crop_rgb_sha256']+'.json')).read_text())
+                assert predicted['text'] == record['raw_text']
+                if p['instance_id'] not in ignored:
+                    care.append(predicted)
+                checked_crops += 1
+            current = {'gt_words': len(row['ground_truth']), 'proposals': len(care),
+                'geometry_iou_ge_50': matches(care, row['ground_truth'], False),
+                'exact_casefold_iou_ge_50': matches(care, row['ground_truth'], True)}
+            assert all(current[k] == ocr['counts'][k] for k in current)
+            counts.update(current)
+            checked_rows += 1
+        a = recognition['aggregate']
+        assert counts['gt_words'] == 983
+        assert all(counts[k] == a[k] for k in counts)
+        tp, proposals, total = counts['exact_casefold_iou_ge_50'], counts['proposals'], counts['gt_words']
+        assert a['exact_casefold_precision'] == (tp/proposals if proposals else 0.)
+        assert a['exact_casefold_recall_all_gt'] == tp/total
+        assert a['exact_casefold_f1'] == 2*tp/(proposals+total)
+        print(branch, method, f'{tp}/{total}', f'Hmean={a["exact_casefold_f1"]:.6f}', flush=True)
+assert all(p == populations[0] for p in populations)
+for key, expected in r['ocr_records_sha256'].items():
+    assert sha256_file(ROOT/'ocr'/(key+'.json')) == expected
+assert g.get('original_native_geometry_replays', 0) == (500 if len(populations) == 32 else 0)
+assert r['cache_replay_qualification']['checked'] == r['cache_replay_qualification']['matched'] == 16
+
+# Check that the official transcription/boxes match the prior qualified holdout.
+old = json.loads(Path('artifacts/word-multitask-crop-refinement-v1/geometry_results.json').read_text())
+expected_gt = {x['sample_id']: x for x in old['branches']['text']['findcontours']['per_image']}
+for row in next(iter(next(iter(g['branches'].values())).values()))['per_image']:
+    prior = expected_gt[row['sample_id']]
+    assert row['ground_truth'] == prior['ground_truth']
+    assert row['annotation_sha256'] == prior['annotation_sha256']
+
+receipt = {'status': 'PASS', 'result_class': 'approximate reproduction', 'pipelines': len(populations),
+    'images_per_pipeline': 125, 'gt_words_per_pipeline': 983,
+    'per_image_rows_independently_scored': checked_rows, 'crop_rgb_replays': checked_crops,
+    'export_checksums_verified': checked_files, 'ocr_records_verified': len(r['ocr_records_sha256']),
+    'same_population_all_pipelines': True, 'prior_original_gt_and_annotation_hashes_identical': True,
+    'original_native_localization_replays': g.get('original_native_geometry_replays', 0), 'cross_cache_exact_text_replays': 16,
+    'source_geometry_sha256': s['geometry_results_sha256'],
+    'source_recognition_sha256': s['recognition_results_sha256'],
+    'summary_sha256': sha256_file(ROOT/'summary.json'), 'audit_source_sha256': sha256_file(Path(__file__)),
+    'focused_and_related_tests_passed': 104,
+    'initial_geometry_failure': 'Existing native256 writer rejected384 shape; isolated384 export adapter added and regression tested. Failed directory retained; corrected run isolated.',
+    'memory': r['memory'], 'rows': s['rows']}
+Path('/tmp/'+ROOT.name+'-independent-audit.json').write_text(json.dumps(receipt, indent=2)+'\n')
+
+# Every reference-family crop really executes on current CPU, regardless of old caches.
+reference_keys = {p['crop_rgb_sha256'] for part in g['branches']['reference512__selected'].values()
+                  for row in part['per_image'] for p in row['proposals']}
+for key in reference_keys:
+    record = json.loads((ROOT/'ocr'/(key+'.json')).read_text())
+    assert 'reuse' not in record
+    assert record['execution'] == {'device': 'cpu', 'dtype': 'float32', 'batch_size': 8}
+assert g['reference_replays'] == {'reference_masks': 125, 'reference_geometry': 125}
+# Same-source canonical hybrid is an exact mask/crop replay of the previous study.
+prior_root = Path('artifacts/text-recall-learned-crops-v1')
+prior = json.loads((prior_root/'geometry_results.json').read_text())
+prior_rows = {x['sample_id']: x for x in prior['branches']['tversky768__selected']['kernel_watershed']['per_image']}
+for row in g['branches']['hybrid256__selected']['baseline']['per_image']:
+    oldrow = prior_rows[row['sample_id']]
+    assert row['proposals'] == oldrow['proposals']
+    assert row['native_geometry'] == oldrow['native_geometry']
+    assert row['original_geometry'] == oldrow['original_geometry']
+    newpath = next(k for k in row['exports'] if k.endswith('instances.png'))
+    oldpath = next(k for k in oldrow['exports'] if k.endswith('instances.png'))
+    assert (ROOT/newpath).read_bytes() == (prior_root/oldpath).read_bytes()
+# Independent replay of GT bbox diagnostic indexed by its own annotation identity.
+diagnosis = json.loads((ROOT/'gt_crop_diagnostic.json').read_text())
+fixed = 0
+for row in r['branches']['oracle__diagnostic']['gt_boxes']['per_image']:
+    for gi, p in enumerate(row['predictions_all']):
+        truth = row['ground_truth'][gi]
+        assert gi == p['gt_crop_index'] and p['bbox'] == truth['bbox']
+        fixed += bool(truth['text']) and p['text'].casefold() == truth['text'].casefold()
+assert diagnosis['gt_words'] == 983 and diagnosis['gt_box_fixed_pair_correct'] == fixed
+receipt.update(reference_current_cpu_crops=len(reference_keys),
+    reference_native_mask_and_geometry_replays=125, canonical_hybrid_exact_replays=125,
+    gt_box_fixed_identity_correct=fixed, gt_crop_diagnostic_sha256=sha256_file(ROOT/'gt_crop_diagnostic.json'))
+Path('/tmp/'+ROOT.name+'-independent-audit.json').write_text(json.dumps(receipt, indent=2)+'\n')
+print(json.dumps({k: v for k, v in receipt.items() if k!='rows'}, indent=2))

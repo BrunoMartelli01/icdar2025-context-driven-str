@@ -1,0 +1,17 @@
+{
+  "reproduction_mode": "approximate",
+  "source_root": "/tmp/clip-router-e2e-v1/000cf54b998f",
+  "paper_root": "/tmp/paper-image-router-baseline-v1/a622b7199f00",
+  "completed_branches": "/extra1/bmartelli/context-str-artifacts/clip-specialized-train-deepsolo-v1/95ef7f046f2d/completed_word_branches.json",
+  "t1_manifest": "/tmp/paper-image-router-baseline-v1/frozen_t1_manifest.json",
+  "yolo_test_root": "/tmp/yolo-direct-parseq/full-cpu-v1",
+  "yolo_test_selection_root": "/tmp/yolo-failure-improvements/v1/cpu/full",
+  "yolo_checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+  "clip_model": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "qualification_config": "configs/approximate/clip_router_e2e_v1.json",
+  "qualification_paths": "configs/approximate/clip_router_e2e_local_paths_v1.json",
+  "output": "/extra1/bmartelli/context-str-artifacts/yolo-paired-routers-v1/full"
+}

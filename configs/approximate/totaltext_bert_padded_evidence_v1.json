@@ -1,0 +1,258 @@
+{
+  "candidates": {
+    "beam_width": 10,
+    "lexicon_candidates": 32,
+    "long_edits": 3,
+    "maximum_candidates": 96,
+    "maximum_length": 25,
+    "maximum_relative_edit": 0.5,
+    "minimum_length": 2,
+    "short_edits": 1,
+    "short_length": 6
+  },
+  "caption": {
+    "cpu_threads": 4,
+    "einops_source_sha256": "b17bc3f12585aae7f38b24092913e67c018754dd5c303bd838f36e67c2f55d05",
+    "einops_version": "0.8.1",
+    "files_sha256": {
+      "config.json": "fa081841369aa9c6e42faf5c52368d673b561e2c5f8fa03d1256e7408cb4130e",
+      "configuration_florence2.py": "653bafddc9651eaff1583a16db4a2bb27d33ec7d541dfab7201aaa4ecaa1cfbf",
+      "generation_config.json": "30e9865458ecc8ee931eeeb43f44f1d169c5ab95be39e0072142a7a6b8f31990",
+      "model.safetensors": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3",
+      "modeling_florence2.py": "5bb7aa72c6ba62e96e1bbae6bc1aaf7b4e8e28cdfc62e670de3d5b67eeab1fdf",
+      "preprocessor_config.json": "2f5921bbc53c7cc04251e1027b45b1cec726276be6db23d1bb40641bfbe2cf29",
+      "processing_florence2.py": "4bd7158536cbf1c7891fc8efd94437d79fd09f07f539c7398fab8a885d7d8bca",
+      "tokenizer.json": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "tokenizer_config.json": "79ffcf43af8ebda99d165f61d243180da2e2639952e41e71e11611c18770489c",
+      "vocab.json": "394fdc63c71aabe0a9b97117f5d62fb5fcc4d59b2b3ea929a3929e6a53217b3c"
+    },
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 64,
+      "num_beams": 1
+    },
+    "manifest_sha256": "05c41d87cf83e6d3d25cfc465eea9345ebd19b7cb0034030b87438486ff9be9b",
+    "model_id": "microsoft/Florence-2-large-ft",
+    "precision": "float32",
+    "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+    "task": "<MORE_DETAILED_CAPTION>",
+    "weight_sha256": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3"
+  },
+  "claim_label": "approximate reproduction",
+  "context_candidates": 24,
+  "context_policy": {
+    "long_max_edits": 2,
+    "long_word_length": 6,
+    "max_caption_words": 80,
+    "max_horizontal_gap_heights": 8,
+    "max_relative_edit": 0.3,
+    "min_vertical_overlap": 0.5,
+    "min_word_length": 3,
+    "minimum_log_probability_gain": 1.5,
+    "minimum_probability": 0.5,
+    "neighbours_per_side": 3,
+    "short_max_edits": 1
+  },
+  "controls": [
+    {
+      "name": "insertion_control",
+      "anchor": "insertion",
+      "condition": null,
+      "beta": 0.0,
+      "visual_margin": 0.0,
+      "minimum_gain": 0.1,
+      "keep_only": true
+    },
+    {
+      "name": "padded_native",
+      "native": true
+    },
+    {
+      "anchor": "original",
+      "beta": 0.0,
+      "condition": null,
+      "keep_only": false,
+      "minimum_gain": 0.1,
+      "name": "padded_visual_only",
+      "visual_margin": 0.0
+    },
+    {
+      "anchor": "original",
+      "beta": 0.5,
+      "condition": "local_ocr",
+      "keep_only": false,
+      "minimum_gain": 0.1,
+      "name": "padded_original_visual_local_ocr",
+      "visual_margin": 1.0
+    },
+    {
+      "anchor": "original",
+      "beta": 0.5,
+      "condition": "local_ocr_caption",
+      "keep_only": false,
+      "minimum_gain": 0.1,
+      "name": "padded_original_visual_local_ocr_caption",
+      "visual_margin": 1.0
+    }
+  ],
+  "experiment_kind": "totaltext_bert_padded_evidence",
+  "model": {
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "bert.embeddings.position_ids"
+    ],
+    "batch_size": 8,
+    "cpu_threads": 4,
+    "decoder": "mean_subword_trained_word_head",
+    "label_count": 100002,
+    "max_input_tokens": 256,
+    "model_id": "murali1996/bert-base-cased-spell-correction",
+    "precision": "float32",
+    "revision": "d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "revision_evidence": "https://huggingface.co/murali1996/bert-base-cased-spell-correction/tree/d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "saved_top_k": 10,
+    "seed": 20261006,
+    "tokenizer_do_lower_case": true
+  },
+  "parameter_selection": "One fixed height-relative padding experiment after negative original-crop visual fusion. No GT-derived crop coordinates, threshold sweep, TEST or training. All949 original localizations stay frozen; expanded RGB is an explicit auxiliary input change.",
+  "parseq": {
+    "checkpoint_sha256": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "decode_ar": true,
+    "precision": "float32",
+    "refine_iters": 1,
+    "score_batch_size": 16,
+    "source_archive_sha256": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "source_type": "github_commit_archive"
+  },
+  "reproduction_mode": "approximate",
+  "result_class": "post-hoc TRAIN development padded PARSeq/BERT evidence; approximate reproduction; not TEST/Table5",
+  "schema_version": 1,
+  "scientific_choices": [
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "frozen_source",
+      "expected_effect": "Paired correction with unchanged503 geometric upper bound.",
+      "rationale": "Reuse all 125 latest-letterbox TRAIN images and949 immutable crop identities with authenticated trained PARSeq-S, NeuSpell and BERT MLM weights. Preserve strict state loading and old sealed results."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "ASSUMPTION",
+      "component": "candidate_pool",
+      "expected_effect": "Raises candidate recall; cap/order and English lexicon may still miss names or truncate correct hypotheses.",
+      "rationale": "Union original KEEP, insertion anchor, six existing NeuSpell top10 lists, fallible Florence caption words, external pretrained word-head lexicon neighbours and canonical PARSeq AR beam10. Lexical alternatives max1 edit for source length<6, else3, relative distance<=0.5. No Total-Text lexicon or GT-driven candidates. Beam candidates may exceed lexical edit bounds. Protect nonalphabetic and internal mixed-case sources; charset/length failure is explicit."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "ASSUMPTION",
+      "component": "visual_scoring",
+      "expected_effect": "Visual evidence can resist linguistic rewriting, with residual length and internal language bias.",
+      "rationale": "Score complete candidate text with genuine PARSeq causal teacher forcing including EOS. AR sum differs from native post-refinement decoded confidence. Retain exact original and insertion references, then top visual alternatives in a shared24-candidate context shortlist."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "ASSUMPTION",
+      "component": "contextual_fusion",
+      "expected_effect": "Tests evidence-limited training-free correction; no promised80\u201390% recovery or independent accuracy.",
+      "rationale": "Fixed visual delta plus0.5 times BERT target-only mean PLL delta; visual delta>=-1.0 and total gain>0.1. Compare original and previous insertion anchors, with local/Florence score controls and visual-only/control KEEP. Ties KEEP; unknown BERT reference abstains. These scales are not calibrated probabilities or paper alpha/beta/tau."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "ASSUMPTION",
+      "component": "evaluation_and_oracles",
+      "expected_effect": "Prevents denominators or GT-selected oracle predictions from being mistaken for achieved recognition.",
+      "rationale": "Retain all983 care GT, deterministic bboxIoU>=0.5 one-to-one Unicode casefold exact matching. Also report exact/503 and recovered/119 separately. Candidate oracle is a labelled GT-dependent upper bound only and never enters inference."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "HARDWARE_DEVIATION",
+      "component": "runtime",
+      "expected_effect": "Hardware-adapted paired development, not paper timing or GPUqualification.",
+      "rationale": "Separate CPU FP32 PARSeq and BERT processes; cached earlier word-head outputs andFlorence captions; fourthreads and deterministic settings; scorebatch16 and contextshortlist24. Reuse existing isolated einops without installs."
+    },
+    {
+      "ambiguity": "TT-BERT-VISUAL-V1",
+      "classification": "UNRESOLVED",
+      "component": "target_and_transfer",
+      "expected_effect": "Do not claim reaching the requested target until its denominator and actual measured result support it.",
+      "rationale": "User asks80\u201390% recovery without defining allGT versus localized-word accuracy versus error-correction fraction. Report each separately; broad90% accuracy is impossible under current fixed localization. Intended head casing and independent transfer remain unresolved."
+    },
+    {
+      "classification": "PAPER_SPECIFIED",
+      "component": "padding_operation",
+      "rationale": "Local paper section3.3/Algorithm1 applies padding on all sides and clamps to the image.",
+      "expected_effect": "Can retain foreground near component boundaries.",
+      "ambiguity": "TT-BERT-PADDED-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "padding_size_and_boundary",
+      "rationale": "p=max(1,ceil(0.25*original_bbox_height)) for every original crop, all sides clamped. Preserve original evaluation boxes, but record expanded RGB bbox and cropSHA. This changes recognition input and is not the identical-crop control.",
+      "expected_effect": "May restore clipped characters, or include neighbouring text/background.",
+      "ambiguity": "TT-BERT-PADDED-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "cached_context_scores",
+      "rationale": "Reuse sealed BERT scores only for exact candidate/context strings, same immutable model/files/precision/scoring; append padded native words and score them separately where absent. Candidate pool shared across local/scene controls. No GT in either inference stage.",
+      "expected_effect": "Avoids redundant inference; native alternatives and image inputs may improve recall without claiming an exact paper scoring rule.",
+      "ambiguity": "TT-BERT-PADDED-V1"
+    }
+  ],
+  "scorer": {
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ],
+    "batch_size": 16,
+    "cpu_threads": 4,
+    "files_sha256": {
+      "config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+      "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "max_input_tokens": 256,
+    "model_id": "google-bert/bert-base-uncased",
+    "precision": "float32",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "revision_evidence": "https://huggingface.co/api/models/google-bert/bert-base-uncased",
+    "scoring": "target_only_mean_PLL_word_l2r",
+    "seed": 20261006,
+    "weight_sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3"
+  },
+  "source": {
+    "expected_care_words": 983,
+    "expected_images": 125,
+    "expected_proposals": 949,
+    "input_shape": [
+      512,
+      512
+    ],
+    "layout": "letterbox_word_f1",
+    "native_mask_shape": [
+      256,
+      256
+    ],
+    "parseq_checkpoint_sha256": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_source_archive_sha256": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "protocol_sha256": "919b51c53b70fb7c43471ca1a2dfb5f3d8442f07b9a0fcd97a65ea85f6098006",
+    "results_sha256": "92169d7338e6d5302bdf4ecd96981d2e29c3bcd543d9f23ef8e13320fbf0a1b1",
+    "segmentation_checkpoint_sha256": "a3308015aa1b898b1a8ceb03128d6a113bd9c01a01726fba930dd65794c3a552",
+    "split": "frozen_TRAIN_validation_125",
+    "variant": "word_f1_control"
+  },
+  "upstream": {
+    "results_sha256": "888a2098ec3f5222515eaf53a06f5cde8472b019f5d0706fdda5241a12394372",
+    "protocol_sha256": "21ccfb13b672ba5dd498dd9c07bd129b6a0b04d80cf9cd4b9baa486913d7b7a0"
+  },
+  "vocabulary_sha256": "3f316ac8aee0603a3de5c8a4daf0b88c300457701519b1aaa258af4f3a3c4495",
+  "padding": {
+    "height_fraction": 0.25,
+    "minimum_pixels": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "paired_run": "/extra1/bmartelli/context-str-artifacts/yolo-paired-routers-v1/full",
+  "consistency_run": "/extra1/bmartelli/context-str-artifacts/yolo-frozen-consistency-v1/full/acb9b8f9d1cc",
+  "coverage_run": "/extra1/bmartelli/context-str-artifacts/yolo-coverage-resolution-v1/full/6c927d8d98d1",
+  "flan_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--flan-t5-base/snapshots/7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-context-quality-v1"
+}

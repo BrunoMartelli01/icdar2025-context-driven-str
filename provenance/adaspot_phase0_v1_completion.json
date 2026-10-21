@@ -1,0 +1,71 @@
+{
+  "audits": [
+    {
+      "auditor_sha256": "105467afe03ec0c4224be71cd21d13e833e11b293ab29448dd3a3ccbe639e6d5",
+      "frozen_inputs_sha256": "7a3613d0178741b9fbc2d42ed98d0708f22c6166380c2ac4e3c093bd2bc16e64",
+      "method": "independent vectorized bbox IoU + SciPy Hungarian maximum-count matching",
+      "per_image_arm_cases": 1875,
+      "proposal_cases": 15708,
+      "result_sha256": "08b8f3fad3d452c8cd1c0fcad66e78bde8c74c4e5b6f23c8899a7934209496d1",
+      "routing_random_cases": 192,
+      "source_hashes_verified": 521,
+      "status": "PASS"
+    },
+    {
+      "auditor_sha256": "b46a0eb322d6502c485a55e7a4a36a4556b444de82b6d874ad214ee2bbbc06eb",
+      "best_epoch": 7,
+      "completed_epochs": 20,
+      "exact": 524,
+      "method": "independent SciPy Hungarian native/RGB bbox count audit; complete epochs, CUDA update, split, cache and selection audit",
+      "native_images": 125,
+      "ocr_images": 125,
+      "result_sha256": "2f278d4f01c00d23022794d94ffabb003421a82cf8dab576c7cc885d1d672f54",
+      "status": "PASS",
+      "words": 983
+    }
+  ],
+  "best_epoch": 7,
+  "epochs_completed": 20,
+  "files_sha256": {
+    "configs/approximate/adaspot_gap_probe_v1.json": "06218976a7d914739bc59c4337618f79cd75f287c4dd59b6e344930d8c903cd4",
+    "configs/approximate/adaspot_phase0_v1.json": "59c27542125dea921221249b4ea4c72a3462327802a2a8a97bb6bf96b25f6ada",
+    "docs/ADASpot_PHASE0.md": "a69a0d0362b04a1f9ba946d59c72a0513634d661405d93c96cf7531b5479b6d0",
+    "scripts/audit_adaspot_gap_probe.py": "b46a0eb322d6502c485a55e7a4a36a4556b444de82b6d874ad214ee2bbbc06eb",
+    "scripts/audit_adaspot_phase0.py": "105467afe03ec0c4224be71cd21d13e833e11b293ab29448dd3a3ccbe639e6d5",
+    "scripts/diagnose_adaspot_phase0.py": "fe3af5edc1b1ab5b46534fead177cd1e64e70a50be17d6b40e599cf87048ebe0",
+    "scripts/train_adaspot_gap_probe.py": "53057d47c2a3ba13be4607d8f6298fe72d9161f0095dee689a546338f61161c3",
+    "tests/scripts/test_adaspot_gap_probe.py": "aaf77310d2ba0ecc3333b46dd15aeb007858817da63d6feda2cf3a7cd8e187f8",
+    "tests/scripts/test_adaspot_phase0.py": "200354a4469f6435fade8be03b4afe9b8f62a05f2b79b7c0029e2531bb4bd5ee"
+  },
+  "gap_probe_result_sha256": "2f278d4f01c00d23022794d94ffabb003421a82cf8dab576c7cc885d1d672f54",
+  "gap_probe_run": "/extra1/bmartelli/context-str-runs/adaspot-gap-probe-v1-20261017",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "gpu_optimizer_steps": 720,
+  "key_exact_counts": {
+    "ar1": 524,
+    "balanced_frozen_gap_probe": 524,
+    "bezier_rgb": 523,
+    "gt_axis_oracle": 838,
+    "nar1": 518,
+    "oriented_rgb": 527,
+    "target_gap_oracle": 600,
+    "text_kernel": 524
+  },
+  "mode": "approximate",
+  "phase0_result_sha256": "08b8f3fad3d452c8cd1c0fcad66e78bde8c74c4e5b6f23c8899a7934209496d1",
+  "phase0_run": "/extra1/bmartelli/context-str-runs/adaspot-phase0-v1-20261017",
+  "remaining_unresolved": [
+    "real one/four-layer shared-feature head gap on hard-word crops",
+    "feature-space Mask-Align",
+    "trained/calibrated gate",
+    "independent validation/official polygon benchmark",
+    "cause of limited learned Gap contribution"
+  ],
+  "result_class": "approximate reproduction",
+  "status": "COMPLETED_AND_AUDITED",
+  "tests": {
+    "focused_passed": 55,
+    "initial_command_error": "Nonexistent test path caused pytest exit4/no tests run; corrected paths passed.",
+    "outstanding_failures": []
+  }
+}

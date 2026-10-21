@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "mask_to_crop_failure_research_v1",
+  "source_selection": "best_bbox_word_f1",
+  "padding_native": 1,
+  "source_area_filter": 0,
+  "source_cap": 10,
+  "iou_threshold": 0.5,
+  "merge_bbox_coverage": 0.5,
+  "fragment_min_gt_coverage": 0.05,
+  "native_shape": [128, 128],
+  "expected_images": 300,
+  "expected_care_words": 2204,
+  "scientific_choices": [
+    {"component": "paper_localization", "classification": "PAPER_SPECIFIED", "decision": "Local paper3.3/Algorithm1: component localization, padding, area filter and cap10; no new network or production change."},
+    {"component": "frozen_source", "classification": "REPOSITORY_SPECIFIED", "decision": "Analyze completed GuardedV3 checkpoint chosen by held-out TRAIN bbox Word-F1 and its saved cap10/area0/pad1 TEST OCR; verify actual checkpoint and protocol hashes."},
+    {"component": "diagnosis", "classification": "ASSUMPTION", "decision": "Seed nested maximum geometry matching with exact matches; per-word categories partition all care GT. Separately measure padded-box sensitivity, positive-overlap text matching and one-reading-per-contour padding oracle on baseline contour identities. GT diagnoses only, never selects deployable crops.", "ambiguity": "MASK-CROP-FAIL-001"},
+    {"component": "bbox_proxies", "classification": "ASSUMPTION", "decision": "Reuse NATIVE128-FAIL-001 coverage.5/fragment.05 bbox proxies and size bins. Validate raw CC count equals external-contour population and retained CC/contour boxes agree before uncapped geometric matching. This is not confirmed uncapped OCR recovery or pixel-mask topology.", "ambiguity": "MASK-CROP-FAIL-001"},
+    {"component": "runtime", "classification": "HARDWARE_DEVIATION", "decision": "CPU-only cached-output analysis, no neural inference, model loading, target changes or GPU allocation; preserve actual upstream GPU/backend metadata."},
+    {"component": "limits", "classification": "UNRESOLVED", "decision": "TEST already explored; V3 below-cap OCR and full TEST probability/pixel masks are absent from saved exports. No independent validation, new crop improvement or strict paper accuracy claimed."}
+  ]
+}

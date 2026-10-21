@@ -1,0 +1,151 @@
+schema_version: 1
+reproduction_mode: approximate
+claim_label: approximate reproduction
+artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+dataset: ICDAR13-FST-Task2.2
+split: official-training-source-approximate-validation
+split_role: validation
+split_policy:
+  artifact_id: ART-ICDAR13-M9-APPROX-SPLIT-POLICY
+  algorithm_id: icdar13-task2.2-sha256-ranked-holdout-v1
+  classification: ASSUMPTION
+  seed: 202503
+  policy_fingerprint_sha256: 3a7c3d4226e735b2e4b57fef5f8c84fa9522ad1b60852d86229a975ff07d6124
+acquisition:
+  official_upstream_artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+  mirror_archive_artifact_ids:
+  - ART-ICDAR13-MIRROR-TRAIN-IMAGES-V084
+  - ART-ICDAR13-MIRROR-TASK2-GT-V084
+annotation_policy:
+  artifact_id: ART-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+  classification: ASSUMPTION
+  source_format: ICDAR13 Task 2.2 color-coded per-character RGB BMP
+  target_conversion: icdar13-task2.2-exact-white-background-v1
+  policy_fingerprint_sha256: ca318685a8fea2a0c162d80986acb88d60ec950fdec440652ff4d57bf4c0adf3
+  foreground_conversion: exact RGB white -> 0; every other RGB -> 1
+  conversion_classification: REPOSITORY_SPECIFIED
+  dont_care_training_behavior: foreground
+  dont_care_classification: ASSUMPTION
+  txt_role: audit/provenance only; does not alter BCE targets
+  ignore_mask: false
+  masked_bce: false
+  ignore_index: null
+  ambiguity_ids:
+  - DS-003
+  training_ready: true
+samples:
+- id: '113'
+  image: raw/train_images/113.jpg
+  mask: raw/train_segmentation_gt/113_GT.bmp
+  image_sha256: 71d909913b87d345f76b8fe8af08340601b51e3de281459d85cdfd4d91c5a340
+  mask_sha256: a24a6e9231cdb87b720bb175a92a989296f84647a29c3c828a3a47e297a99431
+- id: '114'
+  image: raw/train_images/114.jpg
+  mask: raw/train_segmentation_gt/114_GT.bmp
+  image_sha256: 53136a29c33aab0b6167433ccfb434da4cea3073384978f21e9192f4ac98738a
+  mask_sha256: 6cc9cea2a75405a6b382a4c3772fbf047572558bea75ac4f7b5d5edbdfb8bef4
+- id: '115'
+  image: raw/train_images/115.jpg
+  mask: raw/train_segmentation_gt/115_GT.bmp
+  image_sha256: 430b6707bfccaf124a9d55bb3182bb9826ce6a784e4b5ea7d5a830d5fb73dac1
+  mask_sha256: 35f0cc6cdff4df3e2d46d2f1262379344b2a8415aa8571b199a8ff050d9d3049
+- id: '123'
+  image: raw/train_images/123.jpg
+  mask: raw/train_segmentation_gt/123_GT.bmp
+  image_sha256: df8b21b281a32c62b003fdea5a95eaee39f9b9c395aa7163c54b619ba4cedbca
+  mask_sha256: 5c84f0198d3bb6f5416b3f2dc51e72f25b089efe2fc51b7b95978ef4b993a73e
+- id: '124'
+  image: raw/train_images/124.jpg
+  mask: raw/train_segmentation_gt/124_GT.bmp
+  image_sha256: 83a92b77c3c08d2ec6e51150330bb65dd2dd803b9d4741f9aa65c5909f3a9627
+  mask_sha256: 21c0a465b2f3a57c37cf13d90b8b92d3c685c1ea5a3a5b60457855764bdbe868
+- id: '142'
+  image: raw/train_images/142.jpg
+  mask: raw/train_segmentation_gt/142_GT.bmp
+  image_sha256: b68dba7e8d7455eb3dbe7f4d884f2949da643496aa0752724d2638d04f6b06da
+  mask_sha256: 0b06c8a21571b4924b61ce97d483e1fd7cf92651b612bc9f00239b2b10bdb651
+- id: '150'
+  image: raw/train_images/150.jpg
+  mask: raw/train_segmentation_gt/150_GT.bmp
+  image_sha256: 4599e20c6ab3401780c08c9889734c84be2b6fe1d133b924c6b5063d7f0e3000
+  mask_sha256: 45a0c67a3a4c98fabaa90ea68fa5b25a7000a824f7324c7211a7f3de29b54348
+- id: '166'
+  image: raw/train_images/166.jpg
+  mask: raw/train_segmentation_gt/166_GT.bmp
+  image_sha256: 91a5dec1ea1d47ccb4cb6aab2748e93c86c53cb9f6a1f4100462b60073ecf7c0
+  mask_sha256: 605ea5a52466f486c8899bda98d31ba94d3a203398861e5492b85db74bd784e7
+- id: '168'
+  image: raw/train_images/168.jpg
+  mask: raw/train_segmentation_gt/168_GT.bmp
+  image_sha256: 0694aba0a4bec9557487a1b3ca225a0d70b1a132269953999207f23a87016ef9
+  mask_sha256: d2aa8e969d733235951b41c771cfd25d8b39489bd6ee4bd75f5ae948df74d50d
+- id: '179'
+  image: raw/train_images/179.jpg
+  mask: raw/train_segmentation_gt/179_GT.bmp
+  image_sha256: 06aa2129d47880785f085583a5aedc2b8da45a75615355c4e8a34f0ab41b998d
+  mask_sha256: bd7355c662fe3f15a0c0e105bffa7a9f344a386f8dc34d925489d6c8b5263158
+- id: '218'
+  image: raw/train_images/218.jpg
+  mask: raw/train_segmentation_gt/218_GT.bmp
+  image_sha256: be6bfcec9cb1c9c7d7328b4d770be9cecdb05227bacb8110fc33479b354b5f36
+  mask_sha256: 636b19fc3e7487ae9d3f34a7b69fc7c75df7376e2e7fdb1030cff282a8eb3e98
+- id: '223'
+  image: raw/train_images/223.jpg
+  mask: raw/train_segmentation_gt/223_GT.bmp
+  image_sha256: 04a283c2a0e61ab0751ada1af8f636660be912e0da00cfe39ebda56de95080e9
+  mask_sha256: fec4a89b267a6b40db512a29d1aeb483293a35942e08710722918bc60b1c0874
+- id: '245'
+  image: raw/train_images/245.jpg
+  mask: raw/train_segmentation_gt/245_GT.bmp
+  image_sha256: b8b0fb2b42bae79d08faca748352760371bfc53d0681e66fad45b4868949198e
+  mask_sha256: 8db0f101314f7523248e1cad6ff6fe13e0349cbd56a7b9b3c17c1c29065ef214
+- id: '263'
+  image: raw/train_images/263.jpg
+  mask: raw/train_segmentation_gt/263_GT.bmp
+  image_sha256: 6b7fd6bd243a203fcae7cf1c9fd53367f2895e7ae352c2bc6217ef5fe6eb4f82
+  mask_sha256: 6213588bbad73a3b71b12df6bbdb335ba6e10cc26012554d6a352432d4371092
+- id: '280'
+  image: raw/train_images/280.jpg
+  mask: raw/train_segmentation_gt/280_GT.bmp
+  image_sha256: 0399680b1812bac12c9fca99c3b16c18cf59052feb4b4ad596f7106818ca1a5e
+  mask_sha256: b021059528346fe008c1c8111560c1d0f3acdc604fcc547c357d37818a57bbeb
+- id: '285'
+  image: raw/train_images/285.jpg
+  mask: raw/train_segmentation_gt/285_GT.bmp
+  image_sha256: bc120b7fff85022fe2fd4ecac6ae263da60c642e46923daa6836f7c8b7efee28
+  mask_sha256: b23affe00b005d4fdcbe04e129e40b79fe5f5615ba72b2a13314e015eef41ecf
+- id: '288'
+  image: raw/train_images/288.jpg
+  mask: raw/train_segmentation_gt/288_GT.bmp
+  image_sha256: e388be62a8a1952b2bd63ef9bed24fd4417cbff2c2089993b3fe193d825a925e
+  mask_sha256: 3ae53e5336343a474ad5c6c737c4141e8387e8246de2f9ab0dac3dfbee24ff70
+- id: '292'
+  image: raw/train_images/292.jpg
+  mask: raw/train_segmentation_gt/292_GT.bmp
+  image_sha256: 1c3e6bcf4f838026783fd7eae67a2ee8cd5dd4c80354c0c1af164165aece9270
+  mask_sha256: 7184088ecab40ae14122c07e5e9575c76f8cd59e44ce2d6cf881e3ccf4bfc98f
+- id: '299'
+  image: raw/train_images/299.jpg
+  mask: raw/train_segmentation_gt/299_GT.bmp
+  image_sha256: 66c80d45727c3f12fc967534f9e030c2e3aeefc6b1dad412b56293f469700dfb
+  mask_sha256: 31259616bd8ae511eee3f72ee3754cdcdd5367f7edc28bfcc078eab9727a7ada
+- id: '305'
+  image: raw/train_images/305.jpg
+  mask: raw/train_segmentation_gt/305_GT.bmp
+  image_sha256: b5b19da8d821d6c3b243c2236d699c050330fdef745dbb271db65036c3b548f5
+  mask_sha256: 830082faf421a3e65520ad5cefb56f47fd1805a344cad5e8ec374a56d07b33fb
+- id: '310'
+  image: raw/train_images/310.jpg
+  mask: raw/train_segmentation_gt/310_GT.bmp
+  image_sha256: fbaf2580c7368089a63ba43c21097534c3516a2505daeef4f421d0a06acaf22b
+  mask_sha256: 613d33a887bbb2f3c70d94cdd5f57bedf6ed5b065575f06276a15033d98b2b50
+- id: '315'
+  image: raw/train_images/315.jpg
+  mask: raw/train_segmentation_gt/315_GT.bmp
+  image_sha256: 6d7e2d94f780f22882cf4361a6bd78638943d1ad0bd945a8f68eb7045cbed56c
+  mask_sha256: 8153c3ff339c6ff9cb2d850d1846e2cc3a9b089b58e02cbc99afa00fbf02db98
+- id: '328'
+  image: raw/train_images/328.jpg
+  mask: raw/train_segmentation_gt/328_GT.bmp
+  image_sha256: 5b4a7fb523c7c459c8d3cec67480c1872cd7b3674b34505467420561ad8c577e
+  mask_sha256: 685e30802609c8e3173fa6770ca9c16a01c5de17d2ffb6edf30cb3aa72063900

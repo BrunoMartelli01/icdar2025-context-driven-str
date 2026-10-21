@@ -1,0 +1,44 @@
+{
+  "capture_date": "2026-08-18",
+  "environment": {
+    "manager": "uv 0.12.5",
+    "name": "context-str-main",
+    "path": "/home/bruno/projects/icdar2025-context-driven-str/.venvs/context-str-main",
+    "manager_path": "/home/bruno/projects/icdar2025-context-driven-str/.venvs/uv/uv",
+    "python_installation": "/home/bruno/projects/icdar2025-context-driven-str/.venvs/python/cpython-3.11.11-linux-x86_64-gnu",
+    "pip_check": "All installed packages are compatible",
+    "python": "CPython 3.11.11",
+    "installed_state_matches_snapshot": true,
+    "relocation_method": "The validated site-packages tree was copied byte-for-byte; console-script shebangs were mechanically relocated to the persistent interpreter. No dependency was re-solved, upgraded, or downgraded."
+  },
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.43",
+  "pytorch": {
+    "build": "2.4.1+cu124",
+    "cuda_runtime": "12.4",
+    "cudnn": 90100,
+    "torchvision_build": "0.19.1+cu124"
+  },
+  "parseq": {
+    "checkpoint_artifact_id": "ART-PARSEQ-V100-PARSEQ-CANDIDATE",
+    "checkpoint_name": "parseq-bb5792a6.pt",
+    "checkpoint_revision": "v1.0.0; 315d19be8ef473a864950ab497a649a69e37c6a4",
+    "checkpoint_sha256": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "classification": "ENGINEERING_CHOICE",
+    "reproduction_mode": "approximate",
+    "runtime_artifact_id": "ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE",
+    "runtime_revision": "1902db043c029a7e03a3818c616c06600af574be",
+    "runtime_source_state": "clean git checkout",
+    "separation": "The checkpoint remains the v1.0.0 artifact; code and dependencies come from the separately pinned newer official runtime. v1.0.0 dependency metadata was not installed."
+  },
+  "excluded": {
+    "deepsolo_importable": false,
+    "detectron2_importable": false,
+    "system_cuda_toolkit_installed": false
+  },
+  "post_relocation_validation": {
+    "cpu_parseq_inference": "passed; cute-184.jpg decoded as SALMON",
+    "cuda": "BLOCKED_BY_EXECUTION_SANDBOX; direct post-relocation run reported CUDA unavailable and could not access NVML",
+    "pytest": "18 passed, 1 failed; only test_main_cuda_smoke_validation_passes failed because CUDA was unavailable in the sandbox",
+    "uv_pip_check": "passed; all 70 packages compatible"
+  }
+}

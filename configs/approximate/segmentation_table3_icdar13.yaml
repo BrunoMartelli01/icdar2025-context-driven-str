@@ -1,0 +1,54 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+run:
+  kind: real_evaluation
+  name: m10-icdar13-approximate-table3
+  result_class: approximate reproduction
+architecture:
+  implementation: figure_derived_ag_unet
+  identity: approximate-ag-unet-figure3-v1
+  contract_schema_version: 1
+  encoder_weights: IMAGENET1K_V2
+  freeze_encoder: false
+checkpoint:
+  artifact_id: ART-ICDAR13-M9-APPROX-TRAINED-CHECKPOINT
+  sha256: 335a003ae00cf21d159151b9568e10eafde12d6ae524bf7505e1d62ae4c3bfe2
+data:
+  test:
+    role: test
+    artifact_id: ART-ICDAR13-M10-APPROX-TEST-MANIFEST
+    manifest: manifests/icdar13_segmentation_test.yaml
+    manifest_sha256: 8bffaa558f687d5ae6a6e41a30a4a51db682124da99d4c2496aa3fa4a2a001d8
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  resize_geometry: stretch
+  normalization: imagenet
+evaluation:
+  seed: 202503
+  batch_size: 1
+  probability_activation: sigmoid
+  probability_threshold: 0.5
+  threshold_comparison: greater_than_or_equal
+  threshold_resolution: native_128x128_logits
+  binary_mask_backprojection: nearest
+  evaluation_resolution: original_gt_hxw
+  gt_conversion: icdar13-task2.2-exact-white-background-v1
+  dont_care: foreground
+  valid_mask: all_pixels
+  primary_aggregation: per_image_macro
+  diagnostic_aggregation: global_micro
+  empty_foreground_policy: perfect_if_both_empty
+  failure_policy: retain_all_records_and_suppress_aggregate_claim_on_any_failure
+localization:
+  nmax: 10
+scientific_choices:
+  - classification: REPOSITORY_SPECIFIED
+    choice: inclusive threshold 0.5 at native logits
+  - classification: ASSUMPTION
+    choice: exact-white GT; Don't Care foreground; all pixels valid
+  - classification: ASSUMPTION
+    choice: original-resolution macro primary and micro diagnostic
+strict_blockers: [A-001, A-002, A-003, A-004, A-005, A-006, A-007, A-008, T-001, T-002, T-003, T-004, DS-001, DS-003, E-002, E-003]

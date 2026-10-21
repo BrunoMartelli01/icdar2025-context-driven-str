@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "data_root": "artifacts/totaltext-curved-word-boxes-v4",
+  "probability_cache": "../../context-str-runs/totaltext-letterbox-threshold-sweep-train-v1",
+  "training_runs": "../../context-str-runs/totaltext-v4-image-frequency-ablation-v1",
+  "baseline_ocr_cache": "../../context-str-runs/totaltext-v4-image-frequency-ablation-v1/validation-pad0-parseq-v1/ocr",
+  "parseq_source": "../../context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "../../context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "../../context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "output_root": "/tmp/totaltext-crop-recovery-suite"
+}

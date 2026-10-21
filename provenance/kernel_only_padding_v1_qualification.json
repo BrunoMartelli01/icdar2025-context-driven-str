@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "result_class": "approximate reproduction",
+  "unit_and_regression_tests": 17,
+  "cuda_native_kernel_masks_verified": 125,
+  "max_probability_difference": 0.0,
+  "independent_matching_audit": "NumPy vectorized IoU and SciPy Hungarian maximum-cardinality; all1500 image/arm scores equal",
+  "reference_text_kernel_pad0_ocr": 524,
+  "kernel_only_best_grid_pad": 2,
+  "source_unchanged": true,
+  "software": {
+    "python": "3.11.11 (main, Mar 17 2025, 21:02:09) [Clang 20.1.0 ]",
+    "torch": "2.4.1+cu124",
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "numpy": "1.26.4"
+  },
+  "results_sha256": "7919ab722c3cbc7156225e2e3aa297b20344ca166b88cf84ee6a4eef4962b557",
+  "checkpoint_sha256": "9ab9cbdc27e8b5398459abc025b0068bffa22cc83038760e773a5bf7f6a81abb",
+  "memory": {
+    "ocr": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 148152832,
+      "gpu_peak_reserved_bytes": 176160768,
+      "input_shape": [
+        8,
+        3,
+        32,
+        128
+      ],
+      "model_set": "PARSeq only",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    },
+    "segmentation": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 2389847552,
+      "gpu_peak_reserved_bytes": 2583691264,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "single extracted Kernel-only AG-UNet",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    }
+  },
+  "new_unique_ocr_crops": 11782,
+  "cached_unique_crops": 1121,
+  "counts": {
+    "kernel_only/pad0": {
+      "localized_padded": 400,
+      "recognized_exact": 249,
+      "gt": 983
+    },
+    "kernel_only/pad12": {
+      "localized_padded": 147,
+      "recognized_exact": 107,
+      "gt": 983
+    },
+    "kernel_only/pad2": {
+      "localized_padded": 622,
+      "recognized_exact": 483,
+      "gt": 983
+    },
+    "kernel_only/pad4": {
+      "localized_padded": 529,
+      "recognized_exact": 422,
+      "gt": 983
+    },
+    "kernel_only/pad6": {
+      "localized_padded": 386,
+      "recognized_exact": 303,
+      "gt": 983
+    },
+    "kernel_only/pad8": {
+      "localized_padded": 298,
+      "recognized_exact": 231,
+      "gt": 983
+    },
+    "text_kernel/pad0": {
+      "localized_padded": 648,
+      "recognized_exact": 524,
+      "gt": 983
+    },
+    "text_kernel/pad12": {
+      "localized_padded": 64,
+      "recognized_exact": 42,
+      "gt": 983
+    },
+    "text_kernel/pad2": {
+      "localized_padded": 605,
+      "recognized_exact": 476,
+      "gt": 983
+    },
+    "text_kernel/pad4": {
+      "localized_padded": 408,
+      "recognized_exact": 313,
+      "gt": 983
+    },
+    "text_kernel/pad6": {
+      "localized_padded": 257,
+      "recognized_exact": 195,
+      "gt": 983
+    },
+    "text_kernel/pad8": {
+      "localized_padded": 150,
+      "recognized_exact": 102,
+      "gt": 983
+    }
+  },
+  "outstanding_failures": [],
+  "run_root": "/extra1/bmartelli/context-str-runs/kernel-only-padding-v1-20261016",
+  "scientific_documentation": "docs/KERNEL_ONLY_PADDING.md"
+}

@@ -1,0 +1,5 @@
+{
+  "reproduction_mode": "approximate",
+  "source": "/tmp/scene-text-yolo-transfer-v1/cuda-0/full/ctw1500",
+  "output": "/tmp/ctw1500-word-recovery-audit-v2"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "name": "totaltext-v4-predicted-binary-resolution-no-filters-v1",
+  "scope": "Total-Text official TEST-300; frozen epoch-0458 U-Net native128 binary masks",
+  "resolution_diagnostic": {
+    "source": "cached sigmoid>=0.5 binary predictions at native 128x128",
+    "resolutions": [128, 256, 512, 1024],
+    "interpolation_above_native": "bilinear on binary mask, then >=0.5",
+    "meaning": "interpolation/localization sensitivity only; no new high-resolution U-Net predictions"
+  },
+  "localization": {
+    "contours": "OpenCV RETR_EXTERNAL CHAIN_APPROX_SIMPLE",
+    "area_filter": "disabled",
+    "maximum_blocks_per_image": "disabled",
+    "padding": 0,
+    "sort": "repository-style clipped bbox area descending, stable ties",
+    "crop": "tight RGB rectangle after floor-lower/ceil-upper coordinate remap"
+  },
+  "ground_truth": "post-hoc geometry and recognition evaluation only",
+  "paper_difference": "Algorithm 1 filters by area and caps blocks at 10; this diagnostic is not a strict paper reproduction."
+}

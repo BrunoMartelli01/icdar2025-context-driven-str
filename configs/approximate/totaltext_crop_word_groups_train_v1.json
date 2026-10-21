@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "total_text",
+  "split": "TRAIN_heldout_125",
+  "table_5_claim": false,
+  "source_methods": ["baseline", "threshold_tree", "tiled_segmentation"],
+  "final_variations": false,
+  "strategies": ["connected", "complete_link"],
+  "iou_min_values": [0.45, 0.55, 0.65, 0.75],
+  "center_limit": 0.75,
+  "ambiguity": {
+    "coverage_min": 0.85,
+    "child_area_min": 0.15,
+    "child_area_max": 0.85,
+    "child_iou_max": 0.10,
+    "combined_area_min": 0.65
+  },
+  "evaluation": {
+    "matching_iou": 0.5,
+    "normalization": "Unicode casefold; remove Unicode P/S; preserve accents digits whitespace; empty normalized tokens cannot match",
+    "group_capacity": 1,
+    "crop_capacity": 1,
+    "empty_gt_in_denominator": true,
+    "ground_truth_use": "post-hoc geometry audit and frozen OCR witness evaluation only"
+  },
+  "classification": "ASSUMPTION",
+  "ambiguity_record": "TT-CROP-WORD-GROUPS-V1",
+  "rationale": "Compare transitive overlap with compatibility against every group member; preserve split/merged alternatives without selecting OCR outputs."
+}

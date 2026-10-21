@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "datasets": {"icdar13": 233, "icdar2015": 500, "ctw1500": 500, "total_text": 300},
+  "selection": {
+    "joint_threshold": 0.6,
+    "same_text_nms_iou": 0.5,
+    "prefilter_thresholds": [0.05, 0.36, 0.4, 0.41, 0.5, 0.6, 0.7],
+    "prefilter_grid": {"minimum": 0.05, "maximum": 0.99, "step": 0.01},
+    "primary_method": "safe_upper_bound"
+  },
+  "evaluation": {
+    "ignored_prediction_coverage_threshold": 0.5,
+    "ignore_comparison": "strictly greater than threshold; any single ignored GT polygon; no polygon union",
+    "ignore_phase": "after unchanged final confidence selection and NMS; metrics only",
+    "ignore_polygon_coordinates": "original physical annotation vertices without per-vertex clamping; intersect with unchanged predicted rectangles",
+    "word_bbox_matching_iou": 0.5,
+    "ctw_word_minimum_prediction_coverage": 0.5,
+    "normalization": "Unicode casefold; remove punctuation/symbols; CTW split on whitespace",
+    "limitation": "Only dont-care handling follows the benchmark polygon rule; care matching and text normalization remain local proxies; CTW counts words inside line bboxes, not complete lines"
+  },
+  "geometry_runtime": {
+    "expected_versions": {"Polygon3": "3.0.9.1", "Shapely": "2.0.0"},
+    "timeout_seconds": 600
+  },
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "User-authorized update to benchmark-style dont-care neutralization in this external YOLO experiment. The paper does not define ignore semantics. Approximate mode only; see DCE-001."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "The inspected benchmark evaluator neutralizes a prediction if intersection with any single ignored GT polygon divided by prediction area is strictly greater than0.5. Use original annotation vertices and native Polygon3 geometry, without per-vertex clamping, bbox approximation or union of ignored regions."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse unchanged frozen detector/crop/PARSeq/confidence/NMS decisions. All GT-dependent exclusion happens only in metrics. No images, crop pixels or recognizer input are changed."},
+    {"classification": "ASSUMPTION", "choice": "Retain prior exact normalized care bbox matching on ICDAR13/ICDAR15/Total-Text and word-occurrence line support on CTW. This is not a complete official end-to-end score. Retain the same threshold grid as an exploratory TEST control."},
+    {"classification": "ASSUMPTION", "choice": "Run pure geometry in the existing isolated Python3.8 environment, pin Polygon3/Shapely versions and extension hashes. Shapely make_valid is only an independently logged geometry audit for invalid polygons; native Polygon3 inputs are never repaired or replaced."},
+    {"classification": "UNRESOLVED", "choice": "Official care matching, transcription normalization/word-spotting filters, official GT revisions and CTW word geometry remain outside this isolated ignore-policy update."}
+  ]
+}

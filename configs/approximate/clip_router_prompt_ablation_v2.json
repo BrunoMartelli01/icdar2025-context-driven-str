@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "branch_metrics_sha256": "87206aa709288ccffea88b694d88e367a2ab0fbe00734017ed401a2777c0a69b",
+  "gt_words": {"train": 983, "test": 2204},
+  "calibration_images": 80,
+  "coverage": 0.5,
+  "comparison_budget": {"train": 62, "test": 149},
+  "original_threshold": 0.146906,
+  "word_templates": {
+    "baseline": ["a photo of the written word \"{text}\"", "a sign with the text \"{text}\"", "the printed word \"{text}\""],
+    "plain": ["{text}"],
+    "all_en": ["all the text present in this image is: {text}"],
+    "all_it": ["tutto il testo presente nell'immagine è: {text}"],
+    "reads_en": ["the text in this image reads: {text}"]
+  },
+  "scene_templates": {
+    "plain": "{text}",
+    "all_en": "all the text present in this image is: {text}",
+    "all_it": "tutto il testo presente nell'immagine è: {text}",
+    "reads_en": "the text in this image reads: {text}"
+  },
+  "negative_prompts": [
+    "a close-up photo of a plain background without text",
+    "a close-up photo of a texture without letters",
+    "a close-up photo of lines and shapes without readable text"
+  ],
+  "execution": {"seed": 20261012, "cpu_threads": 4, "batch_size": 8, "precision": "float32"},
+  "models": {
+    "vit_b32": {"model_id":"openai/clip-vit-base-patch32", "revision":"3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268", "weight_file":"pytorch_model.bin", "weight_sha256":"a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f", "backend":"clip", "image_size":224},
+    "vit_b16": {"model_id":"openai/clip-vit-base-patch16", "revision":"57c216476eefef5ab752ec549e440a49ae4ae5f3", "weight_file":"pytorch_model.bin", "weight_sha256":"ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0", "backend":"clip", "image_size":224},
+    "vit_l14": {"model_id":"openai/clip-vit-large-patch14", "revision":"32bd64288804d66eefd0ccbe215aa642df71cc41", "weight_file":"model.safetensors", "weight_sha256":"a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb", "backend":"clip", "image_size":224},
+    "siglip2_b16_224": {"model_id":"google/siglip2-base-patch16-224", "revision":"75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2", "weight_file":"model.safetensors", "weight_sha256":"612923381c76ec5a9bed335d1c48827e3f2e506ac31b044b63b2031fadee6a0b", "backend":"siglip", "image_size":224},
+    "siglip2_b16_384": {"model_id":"google/siglip2-base-patch16-384", "revision":"f775b65a79762255128c981547af89addcfe0f88", "weight_file":"model.safetensors", "weight_sha256":"ed72c0ace85020ae610fc817c2538b9cae5a477b012a50859c60af5b3ad30857", "backend":"siglip", "image_size":384}
+  },
+  "ambiguity_record": "CLIP-ROUTER-PROMPT-002",
+  "scientific_choices": [
+    {"classification":"PAPER_SPECIFIED", "choice":"Section3.5/Algorithm2 motivates whole-image DeepSolo fallback; it does not specify CLIP or these prompts."},
+    {"classification":"REPOSITORY_SPECIFIED", "choice":"Freeze epoch61 Text+Kernel geometry, raw PARSeq outputs, balanced character confidence, original stored RGB crops, all words including ignored outputs in routing, and audited exact-casefold/bbox IoU .5 evaluation."},
+    {"classification":"ASSUMPTION", "choice":"Compare five crop templates, baseline spelling-control margins, four full-image transcripts and two crop/global combinations. Sort by bbox top then left. Preserve all text via character-preserving context chunks and weakest scene chunk; prefixes are contrastive inputs, not instructions or claims of exhaustive text verification."},
+    {"classification":"ASSUMPTION", "choice":"Fit percentile ranks and GT-blind 50% image threshold only on TRAIN80. Choose each model's prompt family by retained care-word precision on TRAIN45, with retained words and name tie breaks. Report full TRAIN125 separately from TEST300. Exact62/149 image-budget comparisons are descriptive and do not select on TEST."},
+    {"classification":"HARDWARE_DEVIATION", "choice":"Sequential frozen FP32 models, batch8, CPU here or CUDA host with deterministic kernels/TF32 off; record image shape, peak allocated/reserved memory and fail explicitly on OOM. Preserve isolated qualified DeepSolo outputs without new fallback inference."},
+    {"classification":"UNRESOLVED", "choice":"New SigLIP2 weight execution awaits network/GPU host. TRAIN full-pipeline comparisons remain null whenever a newly rejected image has no cached DeepSolo output. No precision guarantee, strict reproduction or Table5 claim."}
+  ]
+}

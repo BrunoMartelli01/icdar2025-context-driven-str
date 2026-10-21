@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "source_run": "/extra1/bmartelli/context-str-artifacts/yolo-coverage-resolution-v1/full/6c927d8d98d1",
+  "legacy_crop_run": "/tmp/yolo-failure-improvements/v1/cpu/full",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-frozen-consistency-v1"
+}

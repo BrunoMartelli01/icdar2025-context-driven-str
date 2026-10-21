@@ -1,0 +1,140 @@
+{
+  "schema_version": 2,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "totaltext_matched_center_vote_loss_ablation",
+  "architecture_identity": "experimental-word-center-offset-agunet-v1",
+  "skip_floor": 0.25,
+  "target": "visible_word_centroid_offsets_xy_divided_by_native_wh",
+  "loss": {
+    "beta": 0.01,
+    "aggregation": "mean_words_per_image_then_mean_supervised_images",
+    "name": "word_balanced_coherent_center_votes",
+    "separation_margin_fraction": 0.1,
+    "centroid_tolerance_pixels": 0.001,
+    "competition_chunk_pixels": 2048
+  },
+  "voting": {
+    "text_threshold": 0.65,
+    "smoothing_sigma": 1.0,
+    "min_peak_density": 1.0,
+    "min_center_distance": 3,
+    "assignment_radius": 3.0
+  },
+  "scientific_choices": [
+    {
+      "component": "unchanged_model_and_targets",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Reuse the qualified separate two-offset architecture, frozen encoder, owner/validity transforms and exact old SmoothL1 regression. Historical sources/checkpoints remain unchanged.",
+      "expected_effect": "Identical parameter count/output interface and compatible inference.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "matched_control",
+      "classification": "ASSUMPTION",
+      "rationale": "Both branches start from the same explicitly SHA-bound text checkpoint with a zero vector head; keep100 epochs, optimizer, seed, data1130/125, FP32 and preprocessing matched. No continuation from auxiliary epoch82.",
+      "expected_effect": "Isolate changed training loss; prior v1 results are historical evidence, not an independently rerun paired control.",
+      "reference": "docs/PAPER_AMBIGUITIES.md#wco-004--coherent-word-center-vote-loss"
+    },
+    {
+      "component": "endpoint_consensus",
+      "classification": "ASSUMPTION",
+      "rationale": "SmoothL1 around each word mean endpoint in isotropic native coordinates divided by max(H,W), beta0.01. Weight0.5 alongside regression1.",
+      "expected_effect": "Reduce scattered votes without losing the GT centroid anchor; consensus alone could collapse to a wrong center.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "neighbor_margin",
+      "classification": "ASSUMPTION",
+      "rationale": "Hinge squared own-center distance minus squared nearest other-center distance plus0.1 of nearest GT-center spacing squared, divided by that spacing. Weight0.5. Unlike Euclidean-distance contrast, this retains a restoring gradient past rival centers. Coincident centers within0.001 native pixels cannot be distinguished by xy; omit those pairs and record ambiguous word counts.",
+      "expected_effect": "Penalize cross-word voting with a scale-adaptive margin; no claimed optimal weights.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "aggregation_and_diagnostics",
+      "classification": "ASSUMPTION",
+      "rationale": "Equal words per supervised image then images. Retain no-supervision samples in counts, skip empty optimizer steps including decay. Report pixel endpoint error, endpoint RMS scatter, and wrong-neighbor rates. No-competitor words have zero separation/wrong-neighbor rate; near ties are not counted wrong.",
+      "expected_effect": "Auditable paired objective/geometry diagnostics without a GT-assisted inference count.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "checkpoint_selection",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Keep minimum historical validation offset SmoothL1 and earliest ties for BOTH branches, changing only training objective. Log composite loss/geometry diagnostics without claiming center-count calibration.",
+      "expected_effect": "Preserve the matched selection policy; direct center-count selection is a separate unresolved experiment.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "memory_execution",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Only one auxiliary model resident; base warm start loaded on CPU and released. Explicit CPU/batch/worker overrides are recorded. Chunk rival argmin over2048 pixels without candidate autograd retention; selected distance remains differentiable. Record actual model, input/batch/precision and CUDA peaks/OOM; no automatic fallback.",
+      "expected_effect": "Bound additional loss memory, with physical RTX3070 qualification still required.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "perfect_target_qualification",
+      "classification": "ASSUMPTION",
+      "rationale": "Require exact target votes to yield total loss<=1e-6, a declared numerical smoke tolerance. Validate centroid-target alignment within0.001 native pixels.",
+      "expected_effect": "Fail on incorrectly paired coordinate/owner targets before training.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    },
+    {
+      "component": "generalization",
+      "classification": "UNRESOLVED",
+      "rationale": "Learned vote reliability, calibrated counts, direct crop/OCR benefit, independent TEST and new physical GPU runs remain unverified. No confidence head, backbone or postprocessing change in this loss-only experiment.",
+      "expected_effect": "Approximate experiment only, no promised improvement or paper result.",
+      "reference": "docs/WORD_CENTER_VOTE_LOSS.md"
+    }
+  ],
+  "preprocessing_source": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "preprocessing_source_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "input_size": [
+    512,
+    512
+  ],
+  "native_mask_size": [
+    256,
+    256
+  ],
+  "dataset": {
+    "manifest": "manifests/total_text_train.yaml",
+    "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "images": 1255,
+    "validation_images": 125,
+    "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+    "validation_expected_words": 983
+  },
+  "training": {
+    "epochs": 100,
+    "seed": 202503,
+    "batch_size": 8,
+    "num_workers": 2,
+    "loader_timeout_seconds": 60,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "deterministic_algorithms": true,
+    "checkpoint_selection": "validation_offset_loss",
+    "precision": "float32"
+  },
+  "variants": {
+    "control": {
+      "regression_weight": 1.0,
+      "consensus_weight": 0.0,
+      "neighbor_weight": 0.0
+    },
+    "coherent": {
+      "regression_weight": 1.0,
+      "consensus_weight": 0.5,
+      "neighbor_weight": 0.5
+    }
+  },
+  "qualification": {
+    "perfect_vote_loss_max": 1e-06
+  }
+}

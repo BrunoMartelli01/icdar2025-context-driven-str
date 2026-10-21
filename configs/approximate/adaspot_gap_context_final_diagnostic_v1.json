@@ -1,0 +1,11 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "analysis_kind": "post_hoc_fixed_final_epoch_diagnostic",
+  "expected_final_epoch": 20,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "component": "fixed_final_epoch", "rationale": "Both primary arms selected epoch0 by the predeclared geometric criterion. Evaluate each fixed final epoch20 once to measure actual trained-head OCR, without checkpoint search, promotion, threshold tuning or changing primary results.", "expected_effect": "Separate no geometric promotion from unknown trained-head OCR; post-hoc diagnostic only."},
+    {"classification": "REPOSITORY_SPECIFIED", "component": "inference_and_metrics", "rationale": "Reuse completed paired experiment inputs, unchanged BFS thresholds, qualified PARSeq AR1 and all983care words. Preserve empty/duplicate outputs and original RGB bbox matching.", "expected_effect": "Comparable endpoints with explicit post-hoc scope."},
+    {"classification": "HARDWARE_DEVIATION", "component": "execution", "rationale": "Explicit single CUDA GPU FP32, cached native features and sequential PARSeq. Record actual GPU, shapes, memory and OOM, no automatic fallback.", "expected_effect": "No training, speed, shared-backbone or target-8GB qualification claim."}
+  ]
+}

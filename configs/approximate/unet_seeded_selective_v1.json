@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "unet_seeded_selective_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_config": "configs/approximate/unet_crop_links_v1.json",
+  "source_config_sha256": "3a514a3390aa62a8e6adae7fb5ff98eefe524e3a30bace7fec77b0b8a950ab55",
+  "source_artifacts": {
+    "control": {
+      "checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+      "epoch": 2,
+      "validation_sha256": "a2c1650efde0ecaa07c36c859e625b241cebfad54b933ce434d1321c094188f1"
+    },
+    "crop_word": {
+      "checkpoint_sha256": "d4946e24c86b142397c5fb31ea511b05df50c229cc9c897cb32e7e03460b6ad9",
+      "epoch": 16,
+      "validation_sha256": "93e315d491e486c4eca38310b8a93e83ff0e4cdd2abb6850214f49ea69f8dc6c"
+    },
+    "crop_links": {
+      "checkpoint_sha256": "006fd77a7db9617458071b39f6bd59fe09b960a1024e5d5c4ed8d67ce7c41801",
+      "epoch": 4,
+      "validation_sha256": "e7a061b337472bd0fafe805eefa07662ded8d09233c71a0732fc52ba94bdc3c0"
+    }
+  },
+  "branches": [
+    "control",
+    "crop_word_all",
+    "crop_links_raw",
+    "crop_links_seeded_all",
+    "crop_word_selective",
+    "crop_links_seeded_selective"
+  ],
+  "seeded_links": {
+    "link_weight": 0.5,
+    "landscape_weight": 0.5
+  },
+  "gate": {
+    "minimum_mean_probability": 0.9,
+    "minimum_kernel_fraction": 0.05,
+    "minimum_bbox_fill": 0.35
+  },
+  "guard": {
+    "minimum_anchor_coverage": 0.85,
+    "maximum_support_growth": 1.75,
+    "maximum_children": 3,
+    "maximum_neighbor_coverage": 0.1
+  },
+  "cpu_threads": 4,
+  "ocr_batch_size": 8,
+  "scientific_choices": [
+    {
+      "component": "backbone_family",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Local paper sections3.2-3.3 and Algorithm1 inspected; existing attention/ResNet50 family and RGB localization retained",
+      "expected_effect": "No change to segmentation weights"
+    },
+    {
+      "component": "frozen_evidence",
+      "classification": "ASSUMPTION",
+      "rationale": "Replay selected completed UCL-v1 crop_word epoch16 and crop_links epoch4; compare each decoder change on identical logits and windows; fixed checkpoint and validation hashes",
+      "expected_effect": "Isolate extraction and gating without retraining or checkpoint selection on OCR",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "seeded_link_growth",
+      "classification": "ASSUMPTION",
+      "rationale": "8-connected kernel components are immutable nuclei; minimax priority flood uses equal soft reciprocal-link and existing confidence-landscape costs; cost/steps/ID/coordinate ties; every unseeded foreground component survives once",
+      "expected_effect": "Avoid link-induced singleton instances; cannot split a nucleus already joining words or reconnect separated foreground",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "selective_gate",
+      "classification": "ASSUMPTION",
+      "rationale": "Only first-pass mean probability, kernel count/fraction and bbox fill trigger refinement; fixed thresholds declared before new evaluation, never GT/OCR",
+      "expected_effect": "Preserve confident first-pass crops; signals are proxies and may miss actual errors",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "replacement_guard",
+      "classification": "ASSUMPTION",
+      "rationale": "Require anchor coverage, bounded support growth/child count and bounded other-seed foreground inside proposed RGB boxes; reject to exact original seed; no cross-seed duplicate merging in selective arms",
+      "expected_effect": "Limit truncation, fragmentation and interference with retained crops; conservative guards may reject useful changes",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "evaluation_protocol",
+      "classification": "ASSUMPTION",
+      "rationale": "Same125 reused TRAIN holdout,983 care words, original exclusive bbox maximum one-to-one IoU.5, exact casefold PARSeq plus punctuation-stripped secondary score; no area filter/padding/cap; all failures propagate",
+      "expected_effect": "Direct comparison to UCL-v1 geometry; not official polygon-Hmean or Table5 reproduction",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "runtime",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "CPU replay of fixed U-Net maps, then PARSeq alone in a separate FP32 process; no extra model residency or training; backend-qualified OCR cache and GPU peaks/OOM recorded",
+      "expected_effect": "Preserve frozen segmentation outputs; CPU/GPU recognition may differ; 3070 qualification requires host GPU",
+      "ambiguity": "USS-001"
+    },
+    {
+      "component": "generalization",
+      "classification": "UNRESOLVED",
+      "rationale": "Single seed, repeated TRAIN validation and heuristic gate calibration; original TEST untouched; reported93% GT-crop OCR not remeasured",
+      "expected_effect": "Exploratory approximate reproduction only; no automatic promotion",
+      "ambiguity": "USS-001"
+    }
+  ]
+}

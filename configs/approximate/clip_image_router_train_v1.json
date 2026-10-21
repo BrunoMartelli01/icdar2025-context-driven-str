@@ -1,0 +1,140 @@
+{
+  "model_config": "configs/approximate/clip_word_verification_train_v1.json",
+  "model_weight_sha256": {
+    "vit_b32": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+    "vit_b16": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+    "vit_l14": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+  },
+  "word_templates": [
+    "a photo of the written word \"{text}\"",
+    "a sign with the text \"{text}\"",
+    "the printed word \"{text}\""
+  ],
+  "textness_prompts": {
+    "positive": [
+      "a close-up photo of readable printed text",
+      "a close-up photo of a written word",
+      "a close-up photo of letters on a sign"
+    ],
+    "negative": [
+      "a close-up photo of a plain background without text",
+      "a close-up photo of a texture without letters",
+      "a close-up photo of lines and shapes without readable text"
+    ]
+  },
+  "glyph": {
+    "font_size": 48,
+    "padding": 6,
+    "font_sha256": {
+      "sans": "437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db",
+      "serif": "59f23d4b8983a0cd08ad33a4b12ff27dc588c325ccc4d881cc0f522f530f3b93",
+      "mono": "8c8b4894c328236143c9f57f690e2199482e0a4bed2567747e99ffbbf84ca3af"
+    },
+    "polarities": [
+      {
+        "name": "black_on_white",
+        "foreground": [
+          0,
+          0,
+          0
+        ],
+        "background": [
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "name": "white_on_black",
+        "foreground": [
+          255,
+          255,
+          255
+        ],
+        "background": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "blank_colors": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ]
+  },
+  "execution": {
+    "batch_size": 16,
+    "cpu_threads": 4,
+    "precision": "float32",
+    "seed": 20261012,
+    "deterministic_algorithms": true
+  },
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "experiment": "clip_whole_image_router_text_kernel_epoch61",
+  "source_variant": "text_kernel",
+  "source_method": "seeded",
+  "source_recognition_sha256": "90740316514031ac4fba44dafe4e48f150ec3f806fb98abd3a9ae1b094bca392",
+  "source_geometry_sha256": "cc1553af753492a095839f196130a196e58e882bedef16ad4d1e2589b435be78",
+  "source_validation_sha256": "ba6d096eacadc379116983dea7cfba54727d9de8cf49b19f717cc2fd8368e554",
+  "source_checkpoint_sha256": "e65691dda944478e9d8b4f022d45d0d3b21edc7c995274554b4c5ca31336766f",
+  "expected_images": 125,
+  "expected_all_outputs": 1109,
+  "expected_care_outputs": 1029,
+  "expected_correct_words": 480,
+  "expected_gt_words": 983,
+  "calibration_images": 80,
+  "target_accuracy": 0.99,
+  "matching_iou": 0.5,
+  "normalization": "Unicode casefold exact; punctuation retained",
+  "ambiguity_record": "CLIP-IMAGE-ROUTER-V1",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper section3.5 Algorithm2 falls back to DeepSolo(I) when confidence is low. CLIP and kernel segmentation are user-requested extensions, outside STRICT."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Replay Text+Kernel epoch61 frozen seeded crop/PARSeq results: native word F1 .621272, original bbox F1 .613320; 1109 total outputs, 1029 care outputs, 480 casefold-exact spatial matches."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Whole-image minimum over every original prediction, including 80 ignored predictions; no removal, correction, top-k, or native-confidence prefilter. Empty output or empty OCR routes to DeepSolo. GT ignore masks are evaluation-only."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Reuse fixed crop square-canvas word prompts, glyph rendering and text/background contrast. Scene-only controls compare original full-image embeddings with each same word prompt. Similarities and CDF ranks are not probabilities."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Deterministic SHA256(seed:sample_id) split 80 calibration/45 validation before inference. Fit label-free mid-CDF references only on calibration words. Search calibration score breakpoints for >=99% detected-word accuracy AND zero unsafe accepted images, maximizing accepted image coverage then words. Choose family by calibration only, lexicographic final tie. Keep validation fixed; no retuning on it."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Also export explicitly post-hoc all125 threshold diagnostics, not selected deployment thresholds. Correct means maximum one-to-one bboxIoU>=.5 and casefold exact; wholly ignored predictions are excluded only from accuracy evaluation using the saved original protocol."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Report requested correct/detected accuracy=TP/(TP+FP) alongside TN0 accuracy including missed words=TP/(TP+FP+FN); FN here refers only to GT of accepted images. Separately count image-level all-emitted-text correctness and complete scene correctness."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Sequential frozen CLIP only, FP32/batch16/four CPU threads; stored original pixels without EXIF transpose; explicit CPU or cuda:0 with deterministic TF32-disabled backends; no automatic fallback. Record memory and errors."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "The repeatedly used TRAIN holdout and few safe images cannot establish 99% population safety. Independent official TEST routing, DeepSolo end-to-end gain and target3070 memory qualification remain unresolved."
+    }
+  ]
+}

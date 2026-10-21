@@ -1,0 +1,62 @@
+{
+  "ambiguity_record": "V2-WORD-RESTART-001",
+  "bbox_iou_threshold": 0.5,
+  "bbox_min_area": 150,
+  "bbox_nmax": 10,
+  "bbox_padding": 1,
+  "claim_label": "approximate reproduction",
+  "connectivity": 8,
+  "cpu_threads": 4,
+  "encoder_checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+  "gt_relative_root": "projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v2/compact-cores",
+  "mask_iou_threshold": 0.5,
+  "minimum_free_bytes": 1073741824,
+  "num_workers": 8,
+  "probability_threshold": 0.5,
+  "reproduction_mode": "approximate",
+  "retained_criteria": [
+    "native_word_f1",
+    "bbox_word_f1",
+    "foreground_iou",
+    "last"
+  ],
+  "run_name": "total-text-compact-v2-word-selection-500ep-v1",
+  "schema_version": 1,
+  "scientific_choices": [
+    {
+      "choice": "Section3.2/4.1 AG-U-Net frozen pretrained ResNet50, RGB256/mask128, Adam LR1e-4 weightdecay.01 batch8 BCE and flip/rotation.",
+      "classification": "PAPER_SPECIFIED"
+    },
+    {
+      "choice": "Preserve compact-v2 owner masks, old author-clarified model, paired separator transform, FP32 masked BCE/separation_weight1 and500 epochs/seed202503. Pinned local ResNet50 bytes, no downloads.",
+      "classification": "REPOSITORY_SPECIFIED"
+    },
+    {
+      "choice": "Withhold125 official TRAIN images, train on1130; frozen prior seed/IDs. Unlike old v2 all1255, these125 never enter this new optimizer. They were used in previous exploratory model studies and are not a fresh blind final test.",
+      "classification": "ASSUMPTION"
+    },
+    {
+      "choice": "Native mask Word-F1: valid pixels only,8-connected components, maximum one-to-one maskIoU>=.5, original care-owner count including disappeared owners. Also log operational bbox-area150/pad1-sort/top10 geometry Word-F1, matching original unpadded boxes IoU>=.5.",
+      "classification": "ASSUMPTION"
+    },
+    {
+      "choice": "Retain one checkpoint per best native Word-F1, best bbox Word-F1, best foregroundIoU and last, deduplicated by epoch. Exact metric ties keep earliest. At most4 completed weights plus one atomic temporary write; keep optimizer/RNG for resume and all scalar/per-sample validation reports.",
+      "classification": "ASSUMPTION"
+    },
+    {
+      "choice": "GPU-dependent new training runs sequentially in one existing main environment; actual GPU/FP32 batch8 peakallocated/reserved/OOM receipts recorded. CPU batch1 preflight is engineering smoke only, not GPU qualification.",
+      "classification": "HARDWARE_DEVIATION"
+    },
+    {
+      "choice": "Historical447 vs485 full TEST OCR is post-hoc evidence for two candidates, not proof maskWordF1 always ranks OCR. Metric predictive validity, exact paper artifacts and strict experiment remain unresolved; monitor all three signals.",
+      "classification": "UNRESOLVED"
+    }
+  ],
+  "source_config": "configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+  "source_config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+  "table_5_claim": false,
+  "train_manifest": "artifacts/separated-word-gt-v2/compact-cores/training/manifests/total_text_train.yaml",
+  "train_manifest_sha256": "67a2cd2c8e702f40badb91c54595fe322ba814033f470e13b07e879a3db6d179",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "validation_images": 125
+}

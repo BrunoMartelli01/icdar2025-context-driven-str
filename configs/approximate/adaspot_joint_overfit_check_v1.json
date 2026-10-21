@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "Smoke-test result",
+  "seed": 202503,
+  "steps": 100,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "gradient_clip_norm": 5.0,
+  "log_every": 10,
+  "selection": "first supported matched predicted ROI in fixed fit-ID order",
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "component": "training_sanity", "rationale": "After zero word accuracy in the initial joint fit, test whether actual light NAR+cloze and AR4 heads can memorize one fit-only supervised word. Freeze shared backbone/gate, cache real predicted Mask-Align grids and optimize only OCR heads for100steps. No TEST selection or benchmark training claim.", "expected_effect": "Detect gross loss/tokenizer/decoding wiring failures; successful memorization alone does not establish visual recognition or generalization."},
+    {"classification": "REPOSITORY_SPECIFIED", "component": "source", "rationale": "Strictly load the audited completed joint checkpoint and use its fixed TRAINfit order, predicted masks, owner matching, unchanged exact charset and real feature inputs.", "expected_effect": "A bounded diagnostic independent of official TEST outcomes or threshold changes."},
+    {"classification": "HARDWARE_DEVIATION", "component": "gpu", "rationale": "Actual CUDA GPU, FP32 one word, cached frozen feature grids, AdamW1e-3/decay1e-4, normclip5, allocated/reservedVRAM and explicitOOM. No package installation or CPU inference fallback.", "expected_effect": "Fast differentiable OCR sanity check, not joint or full-dataset training."}
+  ]
+}

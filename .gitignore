@@ -1,0 +1,82 @@
+# Persistent local environments and their managed Python/tooling must never be committed.
+.venvs/
+
+# Generated Python/native build products and local Docker runtime configuration.
+__pycache__/
+*.py[cod]
+docker/deepsolo/.env
+adet/_C*.so
+DeepSolo/build/
+
+# DeepSolo weights must remain external and bind-mounted.
+*.pth
+
+# CPU replay reports produced locally; never commit experiment outputs.
+/artifacts/diagnostics/t3-joined-test-v1/
+/artifacts/diagnostics/lavis-captioner-candidates-20260914/
+
+# Generated Total-Text word-region pixels/images and training checkpoints.
+/artifacts/totaltext-curved-word-regions-v1/datasets/
+/artifacts/totaltext-curved-word-regions-v1/*.zip
+/artifacts/totaltext-curved-word-regions-v1/*.zip.part
+/artifacts/totaltext-curved-word-regions-v1-runs/
+/artifacts/totaltext-curved-word-regions-refined-v2/datasets/
+/artifacts/totaltext-curved-word-regions-refined-v2/*.zip
+/artifacts/totaltext-curved-word-regions-refined-v2/*.zip.part
+/artifacts/totaltext-curved-word-regions-refined-v2-runs/
+
+# Source-only collaboration; acquisition/reconstruction: docs/EXTERNAL_ASSETS.md.
+/artifacts/
+/data/
+/datasets/
+/runs/
+/outputs/
+/checkpoints/
+/weights/
+/cache/
+/.cache/
+/external/
+/DeepSolo/
+/papers/*.pdf
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+*.so
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.part
+
+# Local credentials/configuration; only empty templates belong in Git.
+.aws/
+.ssh/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.local.json
+*.local.yaml
+*.local.yml
+.DS_Store
+
+# Accidental historical shell log filenames; keep their local bytes untouched.
+/$AUTHOR_TRAIN_LOG
+/  protocol-gpu-workers8-v1

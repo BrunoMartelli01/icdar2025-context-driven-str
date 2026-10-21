@@ -1,0 +1,43 @@
+experiment_kind: recognition_pipeline_comparison_diagnostic
+reproduction_mode: approximate
+claim_label: approximate reproduction diagnostic
+classification: PRACTICAL_APPROXIMATION_DIAGNOSTIC
+table_5_claim: false
+
+scope:
+  dataset: ICDAR13-FST
+  split: official_test_233
+  shared_segmentation_masks: true
+  ground_truth_used_after_inference: true
+
+faithful_branch:
+  localization: Algorithm1
+  min_area: 150
+  padding: 6
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+  nmax: 10
+
+balanced_branch:
+  base: practical-remap-v1
+  selector: BALANCED_ANCHOR_MEAN
+  train_report_sha256: 8db4dac11c9d08e956d1f11c982b97c5e538e009f3dff9d0b5bd0e393b7a94e5
+  train_decision: REJECT
+  interpretation: rejected TRAIN candidate evaluated on TEST only by explicit user request
+
+shared_downstream:
+  t1: PARSeq-S candidate on full image
+  t3_selection: repository_max_paired_context_confidence_all_crops
+  caption: Salesforce/blip2-flan-t5-xl
+  scoring_strategy: repository_paired_threshold
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+  fallback: ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE
+  fallback_reduction: highest_score
+
+scientific_boundary:
+  strict_reproduction: false
+  accuracy: null
+  paper_table_5_comparable: false
+  blocking_ambiguity_ids: [L-001, L-003, L-004, R-001, R-003, C-001, C-002, C-003, C-004, S-001, S-002, S-003, S-004, S-005, D-001, D-002, D-003, DS-002, E-001]

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "source_config": "configs/approximate/text_recall_refinements_v1.json",
+  "source_config_sha256": "04ec3efe31c562ff70e7d1863ce7be7b3213222ceaaf6c1aa81ef13b29d1fea9",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "test_images": 300,
+  "test_care_words": 2204,
+  "models": ["text_kernel", "hybrid384"],
+  "method": "seeded_only",
+  "iou_threshold": 0.5,
+  "tn": 0,
+  "batch_size": 1,
+  "precision": "float32",
+  "seed": 202503,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "component": "frozen_test_transfer", "rationale": "Transfer the two observed TRAIN-holdout detection recipes unchanged to all official TEST images. Original RGB bbox IoU>=0.50 is a local diagnostic, not official polygon DetEval.", "reference": "docs/PAPER_AMBIGUITIES.md#uwd-test-001"},
+    {"classification": "ASSUMPTION", "component": "tn_zero", "rationale": "User explicitly requested TN=0; true negative regions are not measured. Accuracy is TP/(TP+FP+FN).", "reference": "docs/PAPER_AMBIGUITIES.md#wda-001"},
+    {"classification": "REPOSITORY_SPECIFIED", "component": "ignore_protocol", "rationale": "Exclude predicted instances only when their entire native support is invalid; keep partially ignored boxes complete. Ground truth is used only after predictions are frozen."},
+    {"classification": "HARDWARE_DEVIATION", "component": "execution", "rationale": "FP32 batch1, TF32 disabled, sequential loading/unloading of the three source networks; explicit CPU or single-GPU device. Batch size, CPU versus CUDA, and disabling historical cuDNN TF32 can change borderline probabilities; CPU and GPU equivalence is not established. Record allocator peaks and propagate OOM without substituting outputs."}
+  ]
+}

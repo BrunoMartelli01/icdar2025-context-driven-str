@@ -1,0 +1,9 @@
+{
+  "reproduction_mode": "approximate",
+  "baseline_root": "/extra1/bmartelli/context-str-artifacts/yolo-paired-routers-v1/full",
+  "baseline_paths": "configs/approximate/yolo_router_comparison_local_paths_v1.json",
+  "qualification_config": "configs/approximate/clip_router_e2e_v1.json",
+  "qualification_paths": "configs/approximate/clip_router_e2e_local_paths_v1.json",
+  "vitae_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-coverage-resolution-v1"
+}

@@ -1,0 +1,220 @@
+{
+  "schema_version": 3,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "branch_metrics_sha256": "87206aa709288ccffea88b694d88e367a2ab0fbe00734017ed401a2777c0a69b",
+  "gt_words": {
+    "train": 983,
+    "test": 2204
+  },
+  "calibration_images": 80,
+  "coverage": 0.5,
+  "comparison_budget": {
+    "train": 62,
+    "test": 149
+  },
+  "original_threshold": 0.146906,
+  "word_templates": {
+    "baseline": [
+      "a photo of the written word \"{text}\"",
+      "a sign with the text \"{text}\"",
+      "the printed word \"{text}\""
+    ],
+    "plain": [
+      "{text}"
+    ],
+    "all_en": [
+      "all the text present in this image is: {text}"
+    ],
+    "all_it": [
+      "tutto il testo presente nell'immagine \u00e8: {text}"
+    ],
+    "reads_en": [
+      "the text in this image reads: {text}"
+    ]
+  },
+  "scene_templates": {
+    "plain": "{text}",
+    "all_en": "all the text present in this image is: {text}",
+    "all_it": "tutto il testo presente nell'immagine \u00e8: {text}",
+    "reads_en": "the text in this image reads: {text}"
+  },
+  "negative_prompts": [
+    "a close-up photo of a plain background without text",
+    "a close-up photo of a texture without letters",
+    "a close-up photo of lines and shapes without readable text"
+  ],
+  "execution": {
+    "seed": 20261012,
+    "cpu_threads": 4,
+    "batch_size": 2,
+    "precision": "float32"
+  },
+  "prompt_chunking": "validated_whitespace_boundaries_v1",
+  "models": {
+    "vit_b32": {
+      "model_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+      "backend": "clip",
+      "image_size": 224,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "native_tokenizer",
+      "evidence_url": "https://huggingface.co/openai/clip-vit-base-patch32/tree/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "vit_b16": {
+      "model_id": "openai/clip-vit-base-patch16",
+      "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+      "backend": "clip",
+      "image_size": 224,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "native_tokenizer",
+      "evidence_url": "https://huggingface.co/openai/clip-vit-base-patch16/tree/57c216476eefef5ab752ec549e440a49ae4ae5f3"
+    },
+    "vit_l14": {
+      "model_id": "openai/clip-vit-large-patch14",
+      "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+      "backend": "clip",
+      "image_size": 224,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "native_tokenizer",
+      "evidence_url": "https://huggingface.co/openai/clip-vit-large-patch14/tree/32bd64288804d66eefd0ccbe215aa642df71cc41"
+    },
+    "siglip2_b16_224": {
+      "model_id": "google/siglip2-base-patch16-224",
+      "revision": "75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "612923381c76ec5a9bed335d1c48827e3f2e506ac31b044b63b2031fadee6a0b",
+      "backend": "siglip",
+      "image_size": 224,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "lowercase_before_tokenizer",
+      "evidence_url": "https://huggingface.co/google/siglip2-base-patch16-224/tree/75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2"
+    },
+    "siglip2_b16_384": {
+      "model_id": "google/siglip2-base-patch16-384",
+      "revision": "f775b65a79762255128c981547af89addcfe0f88",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "ed72c0ace85020ae610fc817c2538b9cae5a477b012a50859c60af5b3ad30857",
+      "backend": "siglip",
+      "image_size": 384,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "lowercase_before_tokenizer",
+      "evidence_url": "https://huggingface.co/google/siglip2-base-patch16-384/tree/f775b65a79762255128c981547af89addcfe0f88"
+    },
+    "datacomp_l14": {
+      "model_id": "laion/CLIP-ViT-L-14-DataComp.XL-s13B-b90K",
+      "revision": "84c9828e63dc9a9351d1fe637c346d4c1c4db341",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": "cbae707ef72c3d2748f3c9482e9ca8645d8bbd915d59a86e4f11107c9b341068",
+      "backend": "clip",
+      "image_size": 224,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "native_tokenizer",
+      "native_config": "open_clip_config.json",
+      "evidence_url": "https://arxiv.org/html/2305.14014v4#S4.T3",
+      "native_vision_head_width": 64,
+      "native_vocab_policy": "identical",
+      "conversion_evidence_url": "https://huggingface.co/laion/CLIP-ViT-L-14-DataComp.XL-s13B-b90K/tree/84c9828e63dc9a9351d1fe637c346d4c1c4db341"
+    },
+    "dfn_h14": {
+      "model_id": "apple/DFN5B-CLIP-ViT-H-14",
+      "revision": "11738501a1db6d5e0a3451a71ba100be02e577e6",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": null,
+      "backend": "clip",
+      "image_size": 224,
+      "image_preprocessing": "published_native_squash",
+      "text_preprocessing": "native_tokenizer",
+      "native_config": "open_clip_config.json",
+      "evidence_url": "https://arxiv.org/html/2305.14014v4#S4.T3",
+      "native_vision_head_width": 80,
+      "native_vocab_policy": "publisher_extra_unused_pad_row",
+      "conversion_evidence_url": "https://huggingface.co/apple/DFN5B-CLIP-ViT-H-14/tree/11738501a1db6d5e0a3451a71ba100be02e577e6"
+    },
+    "siglip2_l16_384": {
+      "model_id": "google/siglip2-large-patch16-384",
+      "revision": "1b426889ea62b5a72bf9839009a1b184bfc9c178",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "11bdb3cf00c4dc4f87e437c9c75087ca16fa21aea437b3576c103670ee3c73be",
+      "backend": "siglip",
+      "image_size": 384,
+      "image_preprocessing": "published_hf_processor",
+      "text_preprocessing": "lowercase_before_tokenizer",
+      "evidence_url": "https://arxiv.org/html/2502.14786v1#S2.SS1"
+    }
+  },
+  "ambiguity_record": "CLIP-ROUTER-LITERATURE-003",
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "CLIP-ROUTER-LITERATURE-CONTEXT-001: validate the complete token length of each whitespace boundary before choosing it. Preserve all raw transcript characters, repeat the prefix and retain the frozen chunk aggregation. This fixes the failed SigLIP2 run without changing historical v2 source files; changed code/config hashes create a new experiment identity."
+    },
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Local paper section3.5/Algorithm2 motivates full-image DeepSolo fallback; CLIP-family extension does not reproduce MPNet/fuzzy strict scoring."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse frozen v2 scoring, all epoch61 Text+Kernel crops/raw PARSeq including ignored words in routing, TRAIN80/45 references/selection, audited425-image branches, 50% calibration cut and separate62 TRAIN/149 TEST budget comparisons."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Test DataComp-L14 and DFN-H14 foundation checkpoints motivated by CLIP4STR TableIII, not its finetuned OCR decoder; published STR accuracies are not assumed for the training-free router. Test larger SigLIP2 L16/384 based on 2025 multilingual/dense/OCR-sensitive pretraining. Model/family selection uses TRAIN45 retained-word precision only."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use pinned publisher-repository HF conversions with strict key loading, native/HF dimensions and activation validation. Read DFN square/bicubic/RGB mean/std from its published OpenCLIP config instead of guessing a missing HF processor. SigLIP2 paper section2.1 specifies lowercase before Gemma tokenization; enforce it during length checks and embedding."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "DFN published HF text config has49409 embedding rows and pad49408, whereas native config and published tokenizer retain49408 tokens and EOS-padding49407. Preserve all loaded weights and verify that the extra row is unused, BOS/EOS are49406/49407, attention masks are supplied and HF pools at actual EOS. DataComp retains49408 rows and legacy eos=2 argmax pooling. Validate native vision heads using explicit DFN head_width80 and OpenCLIP v2.30.0 published default64 for DataComp. Numerical conversion equivalence remains UNRESOLVED; no state dict keys/rows/config are silently changed."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "When the public web page cannot provide a known weight SHA, resolve authoritative Hub LFS metadata at the full immutable revision before download/execution, verify bytes and seal a receipt. Actual SHA enters resolved model metadata; an absent/mismatched receipt blocks inference."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Sequential FP32 models with batch2 for larger encoders on 8GB-target CUDA or explicit CPU. No package installation or shared environment upgrade. Save model/device/shape/batch, CUDA peaks and fail explicitly on OOM; no precision substitution."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "New model weights, real checkpoint conversion equivalence, CUDA execution and memory qualification require the network/GPU host. Missing TRAIN fallback predictions leave full TRAIN metrics null. RN50x16/NaFlex require distinct runtime support and are not silently substituted with a transformer/FixRes encoder. TEST was previously inspected; all model-family comparisons remain exploratory approximate reproduction."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "After TRAIN-only family selection, report exploratory threshold curves on a fixed0..1 percentile-score grid (step0.05) plus the unchanged TRAIN-calibrated cut and every observed score breakpoint. Report TRAIN/TEST separately, preserving all GT words and leaving full metrics null for missing TRAIN fallback. TEST curves do not select or tune a threshold/model."
+    }
+  ],
+  "report_thresholds": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ]
+}

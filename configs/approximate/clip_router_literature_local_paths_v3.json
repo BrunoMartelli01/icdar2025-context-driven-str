@@ -1,0 +1,13 @@
+{
+  "schema_version": 3,
+  "path_base": "repository_root",
+  "source_run": "/tmp/clip-router-e2e-v1/000cf54b998f",
+  "branch_metrics": "/tmp/clip-router-threshold-sweep-v1/4c0f991503c0/analyses/5e57cfedf9f2/branch_metrics.json",
+  "output_root": "/tmp/clip-router-literature-v3",
+  "download_root": "/tmp/clip-router-literature-models-v3",
+  "models": {
+    "vit_b32": "/extra1/bmartelli/context-str-artifacts/clip/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "vit_b16": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "vit_l14": "/tmp/clip-word-verification-models/32bd64288804d66eefd0ccbe215aa642df71cc41"
+  }
+}

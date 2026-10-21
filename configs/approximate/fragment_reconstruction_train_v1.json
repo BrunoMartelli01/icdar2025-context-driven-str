@@ -1,0 +1,31 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "source_report_sha256": "c34c9f758b2dc2499bd4b463c2d6f237ca2eb4d57f369b7c5c1ba6e6d45afe70",
+  "model": "qwen2.5-1.5b",
+  "demonstrations": [
+    {"sample_id": "130", "gt_indices": [4], "block_ids": [2, 3, 4], "task": "ONE_WORD"},
+    {"sample_id": "117", "gt_indices": [7], "block_ids": [8, 9], "task": "ONE_WORD"},
+    {"sample_id": "219", "gt_indices": [0], "block_ids": [0], "task": "ONE_WORD"},
+    {"sample_id": "302", "gt_indices": [0, 1], "block_ids": [0, 1, 2, 3, 4, 5, 6], "task": "ALL_WORDS"}
+  ],
+  "tasks": ["ALL_WORDS", "ONE_WORD"],
+  "caption": "full_cached_InstructBLIP",
+  "oracle_min_crop_fraction": 0.5,
+  "oracle_association": "positive intersection AND (crop center inside GT OR intersection/crop_area >=0.5); unique winner by intersection/crop_area then IoU then GT index; retain ambiguity metadata",
+  "generation": {"do_sample": false, "num_beams": 1, "max_new_tokens": 256},
+  "max_input_tokens": 4096,
+  "seed": 0,
+  "weight_training": false,
+  "test_loaded": false,
+  "table5_accuracy": null,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Four manually selected actual TRAIN demonstrations, fixed before inference. Exclude their entire images and exact image-hash duplicates from evaluation. Not an untouched validation dataset."},
+    {"classification": "ASSUMPTION", "choice": "ALL_WORDS receives every retained V1 OCR block/bbox, not raw CC or crop pixels. ONE_WORD is DIAGNOSTIC_ONLY GT-box oracle grouping. Ground-truth transcripts only in demonstrations and evaluation/logging, not query prompts."},
+    {"classification": "ASSUMPTION", "choice": "ONE_WORD sorts associated fragments along the GT bbox dominant axis. Every evaluation GT word, including zero-input cases, remains in denominator. Multiword/ambiguous crops are recorded and assigned once, never split using GT text."},
+    {"classification": "ASSUMPTION", "choice": "ALL_WORDS evaluated by per-image casefold one-to-one lexical matching, not spatial recognition accuracy; fuzzy uses maximum-cardinality matching at0.8. ONE_WORD direct per-word exact/fuzzy. Report metrics separately."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Qualified Qwen1.5B BF16, standalone GPU batch1 on PAPER. No new model, weights, segmentation, OCR or caption generation."},
+    {"classification": "UNRESOLVED", "choice": "Cached V1 inputs are area-filtered/top10, not all raw glyph components. Oracle association imperfect under merged boxes. Static prompts require explicit external examples for future unbiased TEST."}
+  ]
+}

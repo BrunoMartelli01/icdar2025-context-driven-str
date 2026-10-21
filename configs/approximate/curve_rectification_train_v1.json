@@ -1,0 +1,22 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "source_battery_sha256": "53dc86cca57ff11ff0f03d1b1ed729db90a151ddfad5765e58375198614c0746",
+  "oracle_sha256": "cec8fbc12b3c246daecfda25e722970b0cc8ed2890621a8088435e69daa57564",
+  "variants": ["V1", "ORIENTED", "BEZIER"],
+  "pad": 6,
+  "envelope_bins": 8,
+  "minimum_occupied_bins": 6,
+  "minimum_pixels": 16,
+  "max_condition_number": 10000,
+  "seed": 0,
+  "parseq_runtime_revision": "1902db043c029a7e03a3818c616c06600af574be",
+  "notes": [
+    "Fixed V1 raw-component memberships, cap, order and GT-to-crop assignment. No grouping changes.",
+    "PCA-oriented box control; cubic Bezier upper/lower envelopes fitted to original group foreground in the PCA frame. Not ABCNet or a learned curve detector.",
+    "Least squares on eight longitudinal bins, no GT. Constant outward residual correction encloses all group foreground; padding is six original-image pixels in the fitted frame.",
+    "Bilinear RGB resampling; reject invalid/crossing/ill-conditioned curves and sample coordinates outside the image. Fallback is exact V1, not a selected alternative.",
+    "TRAIN-only fixed-spatial diagnostic; no automatic promotion, no Table5 accuracy claim."
+  ]
+}

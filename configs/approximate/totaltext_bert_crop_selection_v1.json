@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "dataset": "total_text",
+  "experiment_kind": "bert_existing_crop_selection",
+  "baseline_method": "guarded_consolidated",
+  "source": {
+    "expected_images": 125,
+    "expected_care_words": 983,
+    "split": "TRAIN development; inherited segmentation holdout"
+  },
+  "model": {
+    "model_id": "google-bert/bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "revision_evidence": "https://huggingface.co/api/models/google-bert/bert-base-uncased",
+    "precision": "float32",
+    "batch_size": 16,
+    "max_input_tokens": 256,
+    "seed": 20261006,
+    "cpu_threads": 4,
+    "scoring": "target_only_mean_PLL_word_l2r",
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ],
+    "weight_sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+    "files_sha256": {
+      "config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+      "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+  },
+  "caption": {
+    "model_id": "microsoft/Florence-2-large-ft",
+    "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+    "generation": {
+      "max_new_tokens": 64,
+      "num_beams": 1,
+      "do_sample": false
+    },
+    "artifact_sha256": "06b50d6c3a6b48a160cd208472397307620f4081ae1f952e287776cdb571ffa2"
+  },
+  "policy": {
+    "maximum_readings": 3,
+    "minimum_bbox_iou": 0.5,
+    "minimum_visual_ratio": 0.85,
+    "bert_weight": 0.15,
+    "minimum_gain": 0.1,
+    "anchor_confidence": 0.85,
+    "anchor_mask_mean": 0.4,
+    "neighbours_per_side": 3,
+    "minimum_vertical_overlap": 0.5,
+    "maximum_gap_heights": 8.0,
+    "maximum_caption_words": 80,
+    "resolution_height_cells": 2.0,
+    "language_log_midpoint": -6.0,
+    "language_log_scale": 2.0,
+    "admission_language_weight": 0.25,
+    "anchor_minimum_word_length": 2,
+    "anchor_duplicate_iou": 0.5
+  },
+  "conditions": [
+    "local",
+    "scene"
+  ],
+  "families": [
+    "confidence",
+    "visual",
+    "baseline_local_joint",
+    "baseline_scene_joint",
+    "local_visual",
+    "scene_visual",
+    "scene_joint"
+  ],
+  "admission_thresholds": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "operating_point": {
+    "minimum_baseline_correct_retention": 0.95,
+    "objective": "maximum precision; retain at least95% of baseline-correct GT identities; select on TRAIN only"
+  },
+  "evaluation": {
+    "matching_iou": 0.5,
+    "normalization": "Unicode casefold; remove Unicode punctuation and symbols; preserve accents digits whitespace",
+    "matching": "maximum-cardinality one-to-one axis-aligned bbox/text matching",
+    "aggregation": "micro over all care GT; unmatched outputs count against precision; empty outputs have precision0",
+    "ignore": "inherit frozen source care-only ground_truth; no failed image dropped",
+    "official_totaltext_metric": false
+  },
+  "parameter_selection": "Predeclare seven admission families and20 thresholds before any new BERT scores; choose operating points only on reused TRAIN. No TEST tuning or strict promotion. Final configuration-only revision exposes the original fixed anchor length2/IoU.5 and removes all implicit policy defaults. All numeric decisions remain exactly unchanged; no outcome-driven tuning. Verified historical BERT cache may be replayed only with identical observable samples and unchanged scoring function/masking/model identity.",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "component": "scope",
+      "rationale": "Paper sections3.3-3.5 specify padded component crops, PARSeq-S and scene descriptions; they do not specify BERT crop selection or cross-threshold groups.",
+      "expected_effect": "New component is approximate extension only.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "source",
+      "rationale": "Reuse original many-crop readings and guarded/consolidated crop groups, checksum verified; no extra OCR or generated spellings.",
+      "expected_effect": "Same candidate geometry/readings and baseline; one crop per group and one use per original crop.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "shortlist_and_context",
+      "rationale": "KEEP plus up to2 distinct native readings, bboxIoU>=.5, robust visual ratio>=.85. Frozen reliable PARSeq anchors require confidence>=.85, maskmean>=.4 and at least2 normalized characters; exclude target and shared parent groups. Same geometry-derived context for every alternative; pinned fallible Florence caption in a separate BERT segment.",
+      "expected_effect": "Protects crop geometry and resists self-confirmation; may exclude a correct low-confidence crop.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "ranking",
+      "rationale": "log robust visual score ratio +.15 times target-only mean PLL-word-l2r delta; gain>.1, tiesKEEP. Crop collisions revert all involved groups to baseline.",
+      "expected_effect": "Training-free BERT reranking; no calibrated confidence claim.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "admission",
+      "rationale": "Geometric mean of native confidence, absolute averaged-mask mean and clipped height-in-mask-cells/2. Joint score multiplies visual by sigmoid((BERT PLL+6)/2)^.25. Unknown/overlong BERT targets abstain to visual score. Confidence-only, visual-only, local and Florence joint controls isolate effects. No dictionary/mixed-case/numeric rejection.",
+      "expected_effect": "May reduce false positives; language can reject real names/numbers and favor fluent hallucinations.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "evaluation_and_operating_point",
+      "rationale": "Retain all983 care GT under inherited local metric. Fixed grid0:.05:.95; maximize precision while retaining>=95% of baseline-correct GT identities. Report all operating points, recovered/lost and counts. Selection on TRAIN is development, not independent validation.",
+      "expected_effect": "Explicit high-recall tradeoff and fair language-versus-visual ablation.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "runtime",
+      "rationale": "CPU FP32 BERT in a separate process, fourthreads, batch16; reuse original PARSeq/masks and cached Florence captions. Explicit optional singleCUDA process, no automatic fallback.",
+      "expected_effect": "RTX3070 VRAM and GPU outputs remain unqualified; this is not paper timing.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "transfer_and_detection",
+      "rationale": "Generic pretrained BERT is not a text/background detector. Independent transfer, official polygon protocol, calibration, novel crop generators and the80-90% target remain unresolved.",
+      "expected_effect": "Do not promise target precision or recall without measured evidence.",
+      "ambiguity": "TT-BERT-CROP-SELECTION-V1"
+    }
+  ]
+}

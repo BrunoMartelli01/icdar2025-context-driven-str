@@ -1,0 +1,89 @@
+{
+  "area_filters": [
+    0,
+    150
+  ],
+  "claim_label": "approximate reproduction; user-requested crop-limit ablation",
+  "expected_care_words": 2204,
+  "expected_images": 300,
+  "limits": [
+    5,
+    10,
+    20,
+    null
+  ],
+  "models": [
+    "v4",
+    "sep_447",
+    "compact_361"
+  ],
+  "native_paddings": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "native_shape": [
+    128,
+    128
+  ],
+  "output_budget_bytes": 100663296,
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "reproduction_mode": "approximate",
+  "runtime": {
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "deterministic": true,
+    "device": "cuda:0",
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "seed": 202503,
+    "segmentation_batch_size": 1,
+    "tf32": false
+  },
+  "schema_version": 1,
+  "scientific_ambiguity": "NATIVE128-CAP-001",
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "decision": "nmax10 reference from local paper3.3/Algorithm1"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "decision": "Reuse frozen native128 RETR_EXTERNAL candidates, bbox-area filter and stable clipped padded-bbox-area sort, and exact RGB PARSeq outputs from qualified uniform CUDA FP32 runtime"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "User-requested diagnostic changes only cap to5/20/unlimited; both prior area policies0/150 and six frozen pads; non-paper cap changes never enter strict/default configs"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Micro maximum one-to-one unpadded original bboxIoU>=.5 and Unicode-casefold exact; all predictions/care words count. Freeze exact per-crop OCR across caps; no GT-dependent proposal choices"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "decision": "Sequential qualified PARSeq CUDA FP32 batch32 on RTX3090 for extra crops only; pinned compatible old OCR reused only on exact actual RGB pixel hashes; deterministic,TF32off,noAMP; RAM crops, JSON only"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "decision": "Exact strict artifacts and recognition metric, independent cap/padding calibration; TEST ablation exploratory, not official reproduction"
+    }
+  ],
+  "smoke_sample_ids": [
+    "total_text:4",
+    "total_text:6"
+  ],
+  "source_directory": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/native128-gt-review-20261016/full",
+  "source_publication_manifest_sha256": "fc5d4813f84d0237c3483552d62fd87bd535206990f1a70ba25e5fa75809e434",
+  "source_sha256": {
+    "ground_truth.json": "f6577c051a4633bd8e51986da24e7e0acde5eabedc1f8ec9e51d69ea80550469",
+    "ocr.jsonl": "b19c5e94e133b1dc57fd5e6275937c111a3db8ce7dfd397ac2b58f093fbe09ab",
+    "protocol.json": "ef5afbca1f91ee871fefe5c0cb7379c27277561922fa55c387538a0ca21cd07d",
+    "results.json": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+  },
+  "variant": "native128-crop-limit-ablation-v1"
+}

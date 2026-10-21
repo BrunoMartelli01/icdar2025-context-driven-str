@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source_run": "/tmp/clip-router-e2e-v1/000cf54b998f",
+  "branch_metrics": "/tmp/clip-router-threshold-sweep-v1/4c0f991503c0/analyses/5e57cfedf9f2/branch_metrics.json",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-routers-v1",
+  "download_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights",
+  "models": {},
+  "word_branches": "/tmp/paper-image-router-baseline-v1/a622b7199f00/word_branch_metrics.json",
+  "model_paths": {
+    "longclip_b": {
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-lavis/bin/python",
+      "weights": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights/107b6f178477e1bf8af8bfe565c13e691e2c356f",
+      "source_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/Long-CLIP"
+    },
+    "longclip_l": {
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-lavis/bin/python",
+      "weights": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights/f7ead1bafa68ee36e3469b8bdcdba404c09952ab",
+      "source_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/Long-CLIP"
+    },
+    "llm2clip_l14_336": {
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python",
+      "vision": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights/92512331f393a003c3d98404677f991c188162c9",
+      "text": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights/97f7d164a1eb89a79e344b21c7a1be7eee265d2e",
+      "processor": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/weights/ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+      "mask_source": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/LLM2Vec-native-code/attn_mask_utils.py",
+      "mask_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/LLM2Vec-native-code",
+      "wrapper_root": "/extra1/bmartelli/context-str-artifacts/clip-specialized-audit-20261014/llm2vec"
+    }
+  }
+}

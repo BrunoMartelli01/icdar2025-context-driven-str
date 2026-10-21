@@ -1,0 +1,26 @@
+{
+  "experiment": "train-v1-ocr-failure-audit-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "oracle_sha256": "cec8fbc12b3c246daecfda25e722970b0cc8ed2890621a8088435e69daa57564",
+  "reference_exact": 502,
+  "reference_fuzzy": 578,
+  "reference_crops": 1203,
+  "mask_recall_bins": [0.5, 0.8],
+  "high_mask_precision": 0.8,
+  "good_iou": 0.5,
+  "significant_gt_coverage": 0.25,
+  "example_count_per_failure_category": 2,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Reuse frozen best-IoU crop per GT word with positive pixel-box intersection required for OCR availability. Casefold exact and RapidFuzz; no new OCR or matching-based routing."},
+    {"classification": "ASSUMPTION", "choice": "Report independent axes: observed crop error; native pixel quality; existing geometric failure classification. They are diagnostic associations, not unique causal assignments."},
+    {"classification": "ASSUMPTION", "choice": "Native GT/prediction comparison uses floor/ceil mapped GT rectangles, qualified GT128 and same Don't Care protocol; word rectangles may contain neighboring glyph pixels. Historical geometric failure taxonomy uses original-resolution binary GT/prediction and GT-associated component union, never inference."},
+    {"classification": "UNRESOLVED", "choice": "Per-word GT_BOX PARSeq artifacts unavailable locally. Intrinsic recognition failures cannot be confirmed without that control; no substitute inference or fabricated GT_BOX results."},
+    {"classification": "ASSUMPTION", "choice": "Up to two examples per observed failure category, ascending sample_id/GT index, distinct images; deterministic visual audit, no parameter changes."}
+  ],
+  "table5_accuracy": null,
+  "tuning": false,
+  "ocr_run": false,
+  "test_loaded": false
+}

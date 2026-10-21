@@ -1,0 +1,29 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "sample_count": 229,
+  "source_report_sha256": "82546a92ec41fc0e6fb9e2e512cf64c97c6200318b6a2142362468331b32a3d9",
+  "models": ["qwen2.5-1.5b"],
+  "prompts": {
+    "P1_SHORT": "Restore the printed word represented by PRIMARY OCR. Correct OCR mistakes, not writing style. Preserve correct text, names, numbers and punctuation. If scene context is supplied, it is only a fallible clue, never the answer to copy. If uncertain, copy PRIMARY OCR unchanged. Output only the final single word or code, without spaces, labels or explanations.",
+    "P2_RECONSTRUCT": "You reconstruct text from an imperfect OCR observation of ONE crop. PRIMARY OCR may contain misread characters or a missing character. Recover the intended spelling when the observed characters and, if available, scene context support it. The task is transcription restoration, not scene description or answering a question. Do not append neighboring words or expand a fragment into a sentence. Preserve proper names, codes and punctuation. When several readings are plausible, keep PRIMARY OCR. Return one word or code only, without whitespace, quotation wrappers or explanations.",
+    "P3_CHARACTER_AUDIT": "Check PRIMARY OCR character by character for OCR recognition errors. A change must repair an identifiable character substitution, insertion or deletion. Internally compare the proposed spelling with the original before answering; do not output your reasoning. Preserve punctuation, accents, dialect spellings, names, numbers and abbreviations unless there is evidence they were misread. Scene context, when supplied, cannot justify swapping to a different word. Leave plausible original readings unchanged. Output only the final one-word transcription, no whitespace or explanation.",
+    "P4_EVIDENCE_PRIORITY": "Treat PRIMARY OCR as a noisy observation and WEAK SCENE CONTEXT, if present, as an unreliable description. Your goal is the text on this crop, not a word that merely fits the scene. Preserve the original when the description contradicts it, suggests another object, or does not identify a character-level correction. You may repair an OCR error supported by the observed spelling and context together. Never replace a correct name or code with a more familiar one. Return exactly one corrected word or code, or the original unchanged; no whitespace, labels or commentary."
+  },
+  "variants": ["P1_SHORT/ocr_only", "P1_SHORT/ocr_caption", "P2_RECONSTRUCT/ocr_only", "P2_RECONSTRUCT/ocr_caption", "P3_CHARACTER_AUDIT/ocr_only", "P3_CHARACTER_AUDIT/ocr_caption", "P4_EVIDENCE_PRIORITY/ocr_only", "P4_EVIDENCE_PRIORITY/ocr_caption"],
+  "generation": {"do_sample": false, "num_beams": 1, "max_new_tokens": 32},
+  "max_input_tokens": 2048,
+  "seed": 0,
+  "go_rule": "recovered>damaged AND exact>502 AND lexical_matches>=503 AND predicted_tokens<=1203; TRAIN diagnostic only",
+  "training": false,
+  "test_loaded": false,
+  "table5_accuracy": null,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Four instruction variants fixed before GPU results; identical model, generation, examples, OCR and captions. Single-crop task only: do not interpret as multi-fragment reconstruction."},
+    {"classification": "ASSUMPTION", "choice": "Reuse original conservative prompt as cached control with/without caption. Apply identical strict single-word output interpretation to all variants and controls; reject whitespace/empty/truncated output to original PARSeq, no edit-distance gate."},
+    {"classification": "ASSUMPTION", "choice": "Reuse frozen five image-held-out fold demonstrations exactly, without reselection. TRAIN GT only in other-fold examples and post-hoc evaluation/logging. This prompt comparison is supervised in-context, not paper-faithful or independent validation."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Same qualified Qwen1.5B BF16 batch1 on PAPER; CPU-only checks in Codex. No installation, downloads, OCR, caption or segmentation inference."},
+    {"classification": "UNRESOLVED", "choice": "A finite prompt study cannot prove all LLM methods fail. No automatic pipeline promotion; repeated TRAIN use can overfit prompt selection."}
+  ]
+}

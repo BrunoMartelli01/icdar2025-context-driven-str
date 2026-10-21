@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "result_class": "smoke-test result",
+  "reproduction_mode": "approximate",
+  "kind": "CUDA allocator initialization fix and audited pretraining recovery",
+  "source_sha256": {
+    "diagnostics/render_train_visual_sheets.py": "d102c5641add268f7aaab023fa30f6dd9756eac03a4a8e8bb18b43c8c5f0ff77",
+    "localize/crop_recovery.py": "341150a869343d09efc10d3fd91a64736011fff234c242c0f0b8963ae5e6e71f",
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/run_text_recall_resolution.py": "79913cc005e955476bf58dd0559a8510cc910f883e642a09cee2f20f32c4447c",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/evaluate.py": "f0af56d95c5991c21245bafe194ebca6aab5c5cc443bb04e28cbf7a0071d51f4",
+    "segmentation/text_recall.py": "4b696e8acc4f46119d1feb76dd7a5c292acde2e71784dd0a4c3589f79cf8472d",
+    "segmentation/text_recall_provenance.py": "fdc576a18f372f11deb2c1781c8782d6e9172149f831277f4c915296d7ca1645",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/train.py": "25b8ba78565e9763f97a8ea6f7abcc3b0d04ab64c24f5f23744c418d0e43cbff",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d",
+    "segmentation/word_multitask_evaluation.py": "1b85d88178eae55246954d01eb4e9ff6e650827e4636ffde51a920108011480d",
+    "segmentation/word_multitask_provenance.py": "2d3743258316fcd6c5aa8bb4d1ec70329b7d39a575721c3c171b32949ea3543d"
+  },
+  "profile_sha256": "b903fb0c19a287eaa8ec9dc0cbd36cec83209ec330ae31295a50911b8047e2e5",
+  "historical_cpu_qualification_sha256": "28062d2177e06067b02b280503fd96e64aa15d1d0350a2a91df33cc78b13d989",
+  "recorded_host_failure": {
+    "path": "/extra1/bmartelli/context-str-runs/totaltext-text-recall-resolution-v1/failure-1791552600760052699.json",
+    "sha256": "175297f94cfe648c83f144fcb37fac96c0ee13b0f1dfc8fb4569ee2e51ad701d"
+  },
+  "repair_replay": {
+    "path": "/tmp/text-recall-cuda-failed-run-replay-v1",
+    "transition_sha256": "c2030187a022afa69711821117735d226c7f40855b8ce581f0cafcb8e3af0bb4",
+    "status": "PASS",
+    "original_external_directory_unchanged": true,
+    "original_preflight_data_preserved": true,
+    "idempotent_replay": true
+  },
+  "cpu_smoke": {
+    "path": "/tmp/text-recall-cuda-fixed-smoke-v1/smoke/cpu/control512/smoke.json",
+    "sha256": "6fd68ef969e90916a9acd48d42174ff7b0f3db3efb2c932229012fd0b60cf30e",
+    "status": "PASS",
+    "batch_size": 4,
+    "input_shape": [
+      4,
+      3,
+      512,
+      512
+    ],
+    "train": {
+      "empty_batches_without_update": 0,
+      "last_input_shape": [
+        4,
+        3,
+        512,
+        512
+      ],
+      "loss": 0.14451146125793457,
+      "sample_order_sha256": "b03601e6f7f026fc5368ac139c3c35ebabc807488d4ee5afb389ea4654ea7278",
+      "samples": 4,
+      "steps": 1
+    },
+    "memory": {
+      "batch_size": 4,
+      "device": "cpu",
+      "gpu_name": null,
+      "input_shape": [
+        4,
+        3,
+        512,
+        512
+      ],
+      "model_set": "single text U-Net, sequential branches; offset network not loaded",
+      "oom": false,
+      "peak_allocated_bytes": null,
+      "peak_reserved_bytes": null,
+      "precision": "float32"
+    }
+  },
+  "tests": {
+    "passed": 185,
+    "new_cuda_and_recovery_tests": 17,
+    "failures": 0
+  },
+  "limitations": [
+    "CUDA unavailable in agent session",
+    "Allocator tests mocked; GPU execution unqualified",
+    "No new training, accuracy, VRAM or physical OOM result"
+  ],
+  "rerun": "Same host wrapper command, same output directory; original metadata archived and preflight reused",
+  "ledger_audit": {
+    "original_prefix_preserved": true,
+    "concurrent_external_append_preserved": true,
+    "own_entry": "### TRR-001 follow-up \u2014 CUDA allocator initialization"
+  }
+}

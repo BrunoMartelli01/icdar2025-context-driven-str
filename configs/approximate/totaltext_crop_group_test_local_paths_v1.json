@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "data_root": "../../datasets/context-str/scene-segmentation-v1",
+  "training_runs": "../../context-str-runs/totaltext-v4-image-frequency-ablation-v1",
+  "parseq_source": "../../context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "../../context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "../../context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "output_root": "/tmp/totaltext-crop-group-test-suite",
+  "test_manifest": "../../datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "train_manifest": "artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+  "clip_model_dir": "../../context-str-artifacts/clip/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "reusable_source": "/tmp/totaltext-crop-group-test-suite/ba82c525eadb/source"
+}

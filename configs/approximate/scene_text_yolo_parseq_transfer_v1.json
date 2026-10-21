@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "split": "TEST",
+  "datasets": {
+    "icdar13": {"images": 233, "granularity": "word"},
+    "icdar2015": {"images": 500, "granularity": "word"},
+    "ctw1500": {"images": 500, "granularity": "text_line"}
+  },
+  "ultralytics_version": "8.1.0",
+  "checkpoint_source": {
+    "repository": "Alfadhils/YOLOv8-CRNN-Scene-Text-Recognition",
+    "commit": "bc195de0ec8a470eaa026c004820a7c275663cbf",
+    "path": "checkpoints/yolov8_5k.pt",
+    "git_blob_sha1": "a3abecbbc2efa5c5fde0c417600816a48af1bfa8",
+    "size_bytes": 22484953
+  },
+  "checkpoint_sha256": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af",
+  "seed": 0,
+  "padding_pixels": 0,
+  "inference": {"image_size": 640, "confidence_floor": 0.05, "nms_iou": 0.7, "max_detections": 300},
+  "execution": {"precision": "float32", "detector_batch_size": 1, "parseq_batch_size": 32, "cpu_threads": 4},
+  "score_controls": [0.05, 0.25, 0.4],
+  "reference_score": 0.4,
+  "joint_controls": [0.6],
+  "merge_iou": 0.5,
+  "matching_iou": 0.5,
+  "primary_method": "joint_text_nms_0.6",
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper sections 3.3/3.5 use segmentation components and PARSeq-S. YOLO localization is a separate APPROXIMATE experiment, not strict reproduction."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Transfer the existing pinned YOLOv8s TextOCR detector, qualified PARSeq artifact, direct RGB crop, normalization and joint confidence/NMS implementation unchanged."},
+    {"classification": "ASSUMPTION", "choice": "Freeze the 640-pixel detector settings, raw controls and joint 0.6 / same-text NMS 0.5 before inspecting these TEST results. Do not fit parameters or choose a winner on the new TEST splits."},
+    {"classification": "ASSUMPTION", "choice": "Micro exact normalized transcription and original-axis bbox IoU >=0.5 with maximum one-to-one matching. Casefold and remove Unicode punctuation/symbols; retain spaces. Ignore GT excluded; predictions on ignored regions remain false positives. This is a local proxy, not official polygon Hmean."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "ICDAR13 uses the qualified 233-image Task1 manifest; ICDAR2015 uses all 500 prepared test rasters and original quadrilateral transcriptions; CTW1500 uses its qualified 500-image E2E recognition manifest and prepared EXIF-normalized rasters."},
+    {"classification": "ASSUMPTION", "choice": "CTW1500 GT units are full text lines. Evaluate the existing word detector against those lines without inventing word boxes or using GT to group predictions. Label the resulting exact-line diagnostic separately."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Explicit CPU or GPU, FP32, detector batch1 / PARSeq batch32 and sequential model residency. Save stage-specific GPU peaks and propagate OOM; CPU smoke results do not qualify RTX3070 execution."},
+    {"classification": "UNRESOLVED", "choice": "Strict PARSeq-S identity, official ignore-aware polygon protocols, external training overlap and target GPU execution remain outside this local transfer experiment. See YTR-001 in docs/PAPER_AMBIGUITIES.md."}
+  ]
+}

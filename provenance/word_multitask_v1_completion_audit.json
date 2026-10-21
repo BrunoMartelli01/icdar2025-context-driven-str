@@ -1,0 +1,189 @@
+{
+  "branches": {
+    "text": {
+      "audit_totals": {
+        "instances": 934,
+        "unseeded_fallback_components": 934
+      },
+      "checkpoint_sha256": "db9db69f77f1e62b03b82d073e8a37c603ff6ff8feceafc3623644980625e964",
+      "epochs": 100,
+      "gt_words": 983,
+      "memory": {
+        "batch_size": 8,
+        "device": "cuda:0",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": 4233335296,
+        "gpu_peak_reserved_bytes": 5354029056,
+        "input_shape": [
+          8,
+          3,
+          512,
+          512
+        ],
+        "model_set": "segmentation only; sequential branches",
+        "oom": false
+      },
+      "metrics": {
+        "foreground_f1_macro": 0.8028506546965997,
+        "foreground_f1_micro": 0.8014005862355763,
+        "foreground_iou": 0.6869421823752327,
+        "foreground_iou_micro": 0.6686141983989706,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 48,
+        "gt_words_touched_by_fused_components": 293,
+        "matched_gt_iou_ge_25": 649,
+        "matched_gt_iou_ge_50": 551,
+        "matched_gt_iou_ge_75": 365,
+        "merge_rate": 0.2980671414038657,
+        "merged_proposal_rate": 0.14446952595936793,
+        "predicted_components_touching_multiple_gt_words": 128,
+        "proposal_f1_iou_50": 0.5896201177100053,
+        "proposal_precision_iou_50": 0.6218961625282167,
+        "raw_proposals": 886,
+        "split_rate": 0.048830111902339775,
+        "word_recall_iou_50": 0.560528992878942
+      },
+      "metrics_recomputed_from_saved_maps": true,
+      "original_coordinate_boxes_recomputed": true,
+      "parameters": 58155081,
+      "run_manifest_sha256": "f32fe4338a6fa27336bc010c710624d5cabeecc3b58dcad994f0831844fbffce",
+      "sample_order_matches_all_100_epochs": true,
+      "selected_epoch": 56,
+      "status": "SUCCESS",
+      "validation_images": 125,
+      "validation_sha256": "cb0694fc637a5051903b183d7cab59d6d8efe625393ed5cf4b097ef6c0926073",
+      "validation_targets_match_between_variants": true,
+      "verified_export_files": 500
+    },
+    "text_kernel": {
+      "audit_totals": {
+        "instances": 1109,
+        "seed_components": 1060,
+        "unseeded_fallback_components": 49
+      },
+      "checkpoint_sha256": "e65691dda944478e9d8b4f022d45d0d3b21edc7c995274554b4c5ca31336766f",
+      "epochs": 100,
+      "gt_words": 983,
+      "memory": {
+        "batch_size": 8,
+        "device": "cuda:0",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": 4236481536,
+        "gpu_peak_reserved_bytes": 5354029056,
+        "input_shape": [
+          8,
+          3,
+          512,
+          512
+        ],
+        "model_set": "segmentation only; sequential branches",
+        "oom": false
+      },
+      "metrics": {
+        "foreground_f1_macro": 0.7909032278951906,
+        "foreground_f1_micro": 0.7944717715292563,
+        "foreground_iou": 0.6718821539767575,
+        "foreground_iou_micro": 0.6590237812490485,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 95,
+        "gt_words_touched_by_fused_components": 171,
+        "matched_gt_iou_ge_25": 734,
+        "matched_gt_iou_ge_50": 625,
+        "matched_gt_iou_ge_75": 402,
+        "merge_rate": 0.17395727365208546,
+        "merged_proposal_rate": 0.07968901846452867,
+        "predicted_components_touching_multiple_gt_words": 82,
+        "proposal_f1_iou_50": 0.621272365805169,
+        "proposal_precision_iou_50": 0.6073858114674441,
+        "raw_proposals": 1029,
+        "split_rate": 0.09664292980671414,
+        "word_recall_iou_50": 0.6358087487283826
+      },
+      "metrics_recomputed_from_saved_maps": true,
+      "original_coordinate_boxes_recomputed": true,
+      "parameters": 58155146,
+      "run_manifest_sha256": "f5a5af4e71ec9a3f56e74662fc0efcf95ba63354d8201f4e1f740abf14fdc412",
+      "sample_order_matches_all_100_epochs": true,
+      "selected_epoch": 61,
+      "status": "SUCCESS",
+      "validation_images": 125,
+      "validation_sha256": "ba6d096eacadc379116983dea7cfba54727d9de8cf49b19f717cc2fd8368e554",
+      "validation_targets_match_between_variants": true,
+      "verified_export_files": 500
+    },
+    "text_kernel_center": {
+      "audit_totals": {
+        "center_peaks": 62,
+        "instances": 1172,
+        "kernel_components_split_by_centers": 12,
+        "seed_components": 1110,
+        "unseeded_fallback_components": 62
+      },
+      "checkpoint_sha256": "9b8d49081e8f4142635a1bf1bc2462e7c18b251045b17ce8d49fdcdc607db9ce",
+      "epochs": 100,
+      "gt_words": 983,
+      "memory": {
+        "batch_size": 8,
+        "device": "cuda:0",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": 4237008384,
+        "gpu_peak_reserved_bytes": 5354029056,
+        "input_shape": [
+          8,
+          3,
+          512,
+          512
+        ],
+        "model_set": "segmentation only; sequential branches",
+        "oom": false
+      },
+      "metrics": {
+        "foreground_f1_macro": 0.8121008465120191,
+        "foreground_f1_micro": 0.8129374285167313,
+        "foreground_iou": 0.6981471950513678,
+        "foreground_iou_micro": 0.6848311521615434,
+        "gt_words": 983,
+        "gt_words_lost_in_native_target": 0,
+        "gt_words_split_across_predicted_components": 107,
+        "gt_words_touched_by_fused_components": 262,
+        "matched_gt_iou_ge_25": 733,
+        "matched_gt_iou_ge_50": 611,
+        "matched_gt_iou_ge_75": 439,
+        "merge_rate": 0.26653102746693796,
+        "merged_proposal_rate": 0.1145175834084761,
+        "predicted_components_touching_multiple_gt_words": 127,
+        "proposal_f1_iou_50": 0.5841300191204589,
+        "proposal_precision_iou_50": 0.5509467989179441,
+        "raw_proposals": 1109,
+        "split_rate": 0.10885045778229908,
+        "word_recall_iou_50": 0.6215666327568667
+      },
+      "metrics_recomputed_from_saved_maps": true,
+      "original_coordinate_boxes_recomputed": true,
+      "parameters": 58155211,
+      "run_manifest_sha256": "7022df59db01163145a89de86579cb84ea979c3273330c873fa8fc0fc763b7fb",
+      "sample_order_matches_all_100_epochs": true,
+      "selected_epoch": 66,
+      "status": "SUCCESS",
+      "validation_images": 125,
+      "validation_sha256": "4d05ef0cf85b388e06cd533fa77951ea37b01683a8d6d86cb2781a57a895c0b8",
+      "validation_targets_match_between_variants": true,
+      "verified_export_files": 500
+    }
+  },
+  "comparison_rebuild_exact": true,
+  "comparison_sha256": "9e933af73a56363038cf511e7b3dff12767cb5d8e1da1e529e5777d62c6e290b",
+  "encoder_checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "run_root": "/extra1/bmartelli/context-str-runs/totaltext-word-multitask-v1",
+  "verified_at_utc": "2026-10-08T21:24:04.912319+00:00",
+  "verification": {
+    "focused_tests_passed": 35,
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venvs/context-str-main-py311/bin/python -m pytest tests/segmentation/test_word_multitask.py tests/segmentation/test_word_multitask_provenance.py -q",
+    "qualification_scope": "Saved-artifact CPU audit and focused tests; original full training/evaluation ran on RTX 3090. No new model inference or training in this audit.",
+    "classification": "ASSUMPTION"
+  }
+}

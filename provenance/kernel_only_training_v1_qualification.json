@@ -1,0 +1,772 @@
+{
+  "status": "TRAINING_ON_CUDA",
+  "time_utc": "2026-10-16T09:59:52.475115+00:00",
+  "result_class": "approximate reproduction",
+  "mode": "approximate",
+  "run_root": "/extra1/bmartelli/context-str-runs/kernel-only-training-v1-20261016",
+  "pid": 1450301,
+  "log": "/extra1/bmartelli/context-str-runs/kernel-only-training-v1-20261016/training.log",
+  "configured_epochs": 50,
+  "training_complete": false,
+  "supervision": "kernel_only",
+  "initialization": "qualified extracted Kernel checkpoint; historical pretraining joint M/K",
+  "initial_checkpoint_matches_source_exactly": true,
+  "smoke_update_reset_before_training": true,
+  "tests": {
+    "passed": 17,
+    "outstanding_failures": [],
+    "coverage": [
+      "only K/validity affect loss and gradients",
+      "invalid batch skips Adam decay",
+      "real optimizer update and OOM propagation",
+      "exact optimizer/RNG resume and log recovery",
+      "single-output strict extraction",
+      "padding/OCR/cache boundary",
+      "configuration isolation and CPU rejection"
+    ]
+  },
+  "cuda_smoke": {
+    "head_update_linf": 1.0013580322265625e-05,
+    "memory": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 3954270208,
+      "gpu_peak_reserved_bytes": 4240441344,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "one single-output Kernel AG-UNet; no OCR resident",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    },
+    "result_class": "smoke-test result",
+    "status": "PASS",
+    "train": {
+      "active_loss_components": [
+        "kernel"
+      ],
+      "compute_device": "cuda:0",
+      "kernel_loss": 0.15691381692886353,
+      "loss": 0.15691381692886353,
+      "sample_order_sha256": "1a91887ae9d55c7dfc10e46d515915877f7710356b6c80cb1a561938128111b9",
+      "samples": 8,
+      "skipped_all_invalid_batches": 0,
+      "steps": 1
+    }
+  },
+  "source_sha256": {
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/kernel_only.py": "04746c943f4009b09f0f45f25bfb66a4ade26472260c192190d94e05858c3a44",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "scripts/evaluate_kernel_only_padding.py": "9ef525a5dce57cb108d95a9edfba7d0610da3aeb112dff8818846d17b7fa1f4f",
+    "scripts/evaluate_totaltext_v4_image_frequency_val_parseq.py": "207e4ae6c2667d163a8630e631cf1b115b694b2cb16457554fc2c064fdd2de70",
+    "scripts/evaluate_unet_word_research_ocr.py": "ae08a79fd2039d943dfb8eed6c907fb0af8a62f864d462b697f35cef4565bf58",
+    "scripts/train_kernel_only.py": "bf02fb75ca1e7f901badc0072f849225f7cf8be23474fd78da3e1ed469ae6865",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/kernel_only_training.py": "4125a4501e77dc98cc641b161d0a39f25718110efd8c9e7ca2b9775bdcc5a316",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d"
+  },
+  "run_contract_sha256": "ec16a1c5d022c3fe99465fa80a6276681723d54f66dd37865a8f843361a317b0",
+  "scientific_documentation": "docs/KERNEL_ONLY_TRAINING.md",
+  "not_claimed": [
+    "training complete",
+    "OCR improvement",
+    "strict reproduction",
+    "from-scratch Kernel-only training",
+    "RTX3070 qualification"
+  ],
+  "progress_at_qualification": {
+    "best_epoch": 0,
+    "completed_epochs": 1,
+    "global_step": 142,
+    "last_epoch": {
+      "epoch": 1,
+      "epoch_seconds": 78.76376870507374,
+      "global_step": 142,
+      "last_checkpoint_sha256": "70dc27071def83e15998522020d04a7aaeed9cd4f7652eba39c896027535a30e",
+      "memory": {
+        "batch_size": 8,
+        "device": "cuda:0",
+        "dtype": "float32",
+        "gpu_name": "NVIDIA GeForce RTX 3090",
+        "gpu_peak_allocated_bytes": 4218341888,
+        "gpu_peak_reserved_bytes": 4645191680,
+        "input_shape": [
+          8,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one single-output Kernel AG-UNet; no OCR resident",
+        "native_mask_shape": [
+          8,
+          1,
+          256,
+          256
+        ],
+        "oom": false
+      },
+      "train": {
+        "active_loss_components": [
+          "kernel"
+        ],
+        "compute_device": "cuda:0",
+        "kernel_loss": 0.15938698776000368,
+        "loss": 0.15938698776000368,
+        "sample_order_sha256": "d6c9f83272147b5e0906e1f7849c2d1f66c40466a20da06d2020e4103411cbaa",
+        "samples": 1130,
+        "skipped_all_invalid_batches": 0,
+        "steps": 142
+      },
+      "validation": {
+        "kernel_f1_macro": 0.7641099186833213,
+        "kernel_iou_macro": 0.6331683397825323,
+        "per_image": [
+          {
+            "f1": 0.8925081433224755,
+            "iou": 0.8058823529411765,
+            "sample_id": "total_text:14"
+          },
+          {
+            "f1": 0.8065843621399177,
+            "iou": 0.6758620689655173,
+            "sample_id": "total_text:23"
+          },
+          {
+            "f1": 0.7535106065132955,
+            "iou": 0.6045062320230106,
+            "sample_id": "total_text:32"
+          },
+          {
+            "f1": 0.6680216802168022,
+            "iou": 0.5015259409969481,
+            "sample_id": "total_text:45"
+          },
+          {
+            "f1": 0.8565217391304348,
+            "iou": 0.7490494296577946,
+            "sample_id": "total_text:66"
+          },
+          {
+            "f1": 0.8984503190519599,
+            "iou": 0.8156239655743132,
+            "sample_id": "total_text:68"
+          },
+          {
+            "f1": 0.7416965352449223,
+            "iou": 0.5894417014812001,
+            "sample_id": "total_text:74"
+          },
+          {
+            "f1": 0.8766531713900135,
+            "iou": 0.7803940413262854,
+            "sample_id": "total_text:113"
+          },
+          {
+            "f1": 0.8308440430705106,
+            "iou": 0.7106357694592988,
+            "sample_id": "total_text:137"
+          },
+          {
+            "f1": 0.813953488372093,
+            "iou": 0.6862745098039216,
+            "sample_id": "total_text:166"
+          },
+          {
+            "f1": 0.8567474048442907,
+            "iou": 0.7493946731234867,
+            "sample_id": "total_text:167"
+          },
+          {
+            "f1": 0.8814553990610329,
+            "iou": 0.7880377754459601,
+            "sample_id": "total_text:189"
+          },
+          {
+            "f1": 0.879245283018868,
+            "iou": 0.7845117845117845,
+            "sample_id": "total_text:211"
+          },
+          {
+            "f1": 0.5735821079945632,
+            "iou": 0.40211365211365213,
+            "sample_id": "total_text:233"
+          },
+          {
+            "f1": 0.8655172413793103,
+            "iou": 0.7629179331306991,
+            "sample_id": "total_text:257"
+          },
+          {
+            "f1": 0.8284308114913586,
+            "iou": 0.7071121531848378,
+            "sample_id": "total_text:263"
+          },
+          {
+            "f1": 0.8902589395807645,
+            "iou": 0.8022222222222222,
+            "sample_id": "total_text:265"
+          },
+          {
+            "f1": 0.8008510638297872,
+            "iou": 0.6678495386799148,
+            "sample_id": "total_text:276"
+          },
+          {
+            "f1": 0.5571161048689138,
+            "iou": 0.3861129136924075,
+            "sample_id": "total_text:280"
+          },
+          {
+            "f1": 0.8743343982960596,
+            "iou": 0.7767265846736046,
+            "sample_id": "total_text:321"
+          },
+          {
+            "f1": 0.8080999841797184,
+            "iou": 0.6779930979559331,
+            "sample_id": "total_text:323"
+          },
+          {
+            "f1": 0.8680879413724184,
+            "iou": 0.7669217186580342,
+            "sample_id": "total_text:324"
+          },
+          {
+            "f1": 0.8041237113402062,
+            "iou": 0.6724137931034483,
+            "sample_id": "total_text:325"
+          },
+          {
+            "f1": 0.767911640749891,
+            "iou": 0.6232602028780373,
+            "sample_id": "total_text:338"
+          },
+          {
+            "f1": 0.7080400938366389,
+            "iou": 0.5480356553317927,
+            "sample_id": "total_text:340"
+          },
+          {
+            "f1": 0.6463171864631718,
+            "iou": 0.4774509803921569,
+            "sample_id": "total_text:351"
+          },
+          {
+            "f1": 0.8524975514201762,
+            "iou": 0.7429156708774326,
+            "sample_id": "total_text:356"
+          },
+          {
+            "f1": 0.873029772329247,
+            "iou": 0.7746697746697747,
+            "sample_id": "total_text:358"
+          },
+          {
+            "f1": 0.8738076622361219,
+            "iou": 0.7758955845598445,
+            "sample_id": "total_text:389"
+          },
+          {
+            "f1": 0.8987910189982729,
+            "iou": 0.8161856963613551,
+            "sample_id": "total_text:404"
+          },
+          {
+            "f1": 0.5691564896336269,
+            "iou": 0.3977768955934895,
+            "sample_id": "total_text:410"
+          },
+          {
+            "f1": 0.8140625,
+            "iou": 0.686429512516469,
+            "sample_id": "total_text:413"
+          },
+          {
+            "f1": 0.9243507715468574,
+            "iou": 0.8593421973407978,
+            "sample_id": "total_text:419"
+          },
+          {
+            "f1": 0.790257104194858,
+            "iou": 0.6532438478747203,
+            "sample_id": "total_text:420"
+          },
+          {
+            "f1": 0.8828476764930762,
+            "iou": 0.7902661596958175,
+            "sample_id": "total_text:422"
+          },
+          {
+            "f1": 0.8208232445520581,
+            "iou": 0.6960985626283368,
+            "sample_id": "total_text:431"
+          },
+          {
+            "f1": 0.8313136209403781,
+            "iou": 0.7113231024471174,
+            "sample_id": "total_text:445"
+          },
+          {
+            "f1": 0.9216896060749882,
+            "iou": 0.8547535211267606,
+            "sample_id": "total_text:460"
+          },
+          {
+            "f1": 0.8144280968201234,
+            "iou": 0.6869495596477182,
+            "sample_id": "total_text:464"
+          },
+          {
+            "f1": 0.7345321548308442,
+            "iou": 0.5804431599229287,
+            "sample_id": "total_text:471"
+          },
+          {
+            "f1": 0.8585171670260408,
+            "iou": 0.7521069456553328,
+            "sample_id": "total_text:478"
+          },
+          {
+            "f1": 0.8266745005875441,
+            "iou": 0.7045568352528793,
+            "sample_id": "total_text:482"
+          },
+          {
+            "f1": 0.9087343490722583,
+            "iou": 0.8327343102018248,
+            "sample_id": "total_text:483"
+          },
+          {
+            "f1": 0.5814275814275814,
+            "iou": 0.40986809965803617,
+            "sample_id": "total_text:486"
+          },
+          {
+            "f1": 0.8478341355053683,
+            "iou": 0.7358611825192802,
+            "sample_id": "total_text:490"
+          },
+          {
+            "f1": 0.8064764841942945,
+            "iou": 0.6757105943152455,
+            "sample_id": "total_text:506"
+          },
+          {
+            "f1": 0.8383189576069003,
+            "iou": 0.7216429699842022,
+            "sample_id": "total_text:511"
+          },
+          {
+            "f1": 0.7660377358490567,
+            "iou": 0.6207951070336392,
+            "sample_id": "total_text:521"
+          },
+          {
+            "f1": 0.8633370804560784,
+            "iou": 0.7595365922576999,
+            "sample_id": "total_text:697"
+          },
+          {
+            "f1": 0.5730994152046783,
+            "iou": 0.4016393442622951,
+            "sample_id": "total_text:729"
+          },
+          {
+            "f1": 0.5270758122743683,
+            "iou": 0.35784313725490197,
+            "sample_id": "total_text:739"
+          },
+          {
+            "f1": 0.7111959287531806,
+            "iou": 0.5518262586377097,
+            "sample_id": "total_text:749"
+          },
+          {
+            "f1": 0.781190019193858,
+            "iou": 0.6409448818897637,
+            "sample_id": "total_text:750"
+          },
+          {
+            "f1": 0.7628590514362057,
+            "iou": 0.6166306695464363,
+            "sample_id": "total_text:754"
+          },
+          {
+            "f1": 0.8681318681318682,
+            "iou": 0.7669902912621359,
+            "sample_id": "total_text:758"
+          },
+          {
+            "f1": 0.7987012987012987,
+            "iou": 0.6648648648648648,
+            "sample_id": "total_text:776"
+          },
+          {
+            "f1": 0.7568781583380123,
+            "iou": 0.6088527551942186,
+            "sample_id": "total_text:802"
+          },
+          {
+            "f1": 0.7643142476697736,
+            "iou": 0.6185344827586207,
+            "sample_id": "total_text:808"
+          },
+          {
+            "f1": 0.5420696324951644,
+            "iou": 0.3718076285240464,
+            "sample_id": "total_text:817"
+          },
+          {
+            "f1": 0.8713850837138508,
+            "iou": 0.7720836142953472,
+            "sample_id": "total_text:837"
+          },
+          {
+            "f1": 0.7321981424148607,
+            "iou": 0.5775335775335775,
+            "sample_id": "total_text:839"
+          },
+          {
+            "f1": 0.7,
+            "iou": 0.5384615384615384,
+            "sample_id": "total_text:864"
+          },
+          {
+            "f1": 0.7851596203623814,
+            "iou": 0.6463068181818182,
+            "sample_id": "total_text:904"
+          },
+          {
+            "f1": 0.694090382387022,
+            "iou": 0.5314995563442768,
+            "sample_id": "total_text:921"
+          },
+          {
+            "f1": 0.8674145843957165,
+            "iou": 0.7658712291760468,
+            "sample_id": "total_text:926"
+          },
+          {
+            "f1": 0.7606936416184971,
+            "iou": 0.6138059701492538,
+            "sample_id": "total_text:946"
+          },
+          {
+            "f1": 0.7501730103806228,
+            "iou": 0.6002214839424141,
+            "sample_id": "total_text:950"
+          },
+          {
+            "f1": 0.6667705735660848,
+            "iou": 0.5001169043722236,
+            "sample_id": "total_text:971"
+          },
+          {
+            "f1": 0.518581081081081,
+            "iou": 0.3500570125427594,
+            "sample_id": "total_text:972"
+          },
+          {
+            "f1": 0.7950596007468045,
+            "iou": 0.6598331346841478,
+            "sample_id": "total_text:974"
+          },
+          {
+            "f1": 0.821256038647343,
+            "iou": 0.6967213114754098,
+            "sample_id": "total_text:977"
+          },
+          {
+            "f1": 0.7704712417129547,
+            "iou": 0.6266394637132031,
+            "sample_id": "total_text:989"
+          },
+          {
+            "f1": 0.7384898710865562,
+            "iou": 0.5854014598540146,
+            "sample_id": "total_text:1003"
+          },
+          {
+            "f1": 0.8699080157687253,
+            "iou": 0.7697674418604651,
+            "sample_id": "total_text:1014"
+          },
+          {
+            "f1": 0.87144128113879,
+            "iou": 0.7721718565234529,
+            "sample_id": "total_text:1019"
+          },
+          {
+            "f1": 0.8556511923239735,
+            "iou": 0.7477188655980271,
+            "sample_id": "total_text:1022"
+          },
+          {
+            "f1": 0.800252047889099,
+            "iou": 0.667016806722689,
+            "sample_id": "total_text:1025"
+          },
+          {
+            "f1": 0.8603406326034063,
+            "iou": 0.7549103330486764,
+            "sample_id": "total_text:1033"
+          },
+          {
+            "f1": 0.8139737991266376,
+            "iou": 0.6863033873343152,
+            "sample_id": "total_text:1035"
+          },
+          {
+            "f1": 0.9081455805892548,
+            "iou": 0.8317460317460318,
+            "sample_id": "total_text:1040"
+          },
+          {
+            "f1": 0.8505338078291815,
+            "iou": 0.739938080495356,
+            "sample_id": "total_text:1041"
+          },
+          {
+            "f1": 0.8721122112211221,
+            "iou": 0.773226042428676,
+            "sample_id": "total_text:1056"
+          },
+          {
+            "f1": 0.7739130434782608,
+            "iou": 0.6312056737588653,
+            "sample_id": "total_text:1063"
+          },
+          {
+            "f1": 0.8130590339892666,
+            "iou": 0.6850037678975132,
+            "sample_id": "total_text:1107"
+          },
+          {
+            "f1": 0.7981387710414671,
+            "iou": 0.6640856296971077,
+            "sample_id": "total_text:1157"
+          },
+          {
+            "f1": 0.7647058823529411,
+            "iou": 0.6190476190476191,
+            "sample_id": "total_text:1162"
+          },
+          {
+            "f1": 0.6414281317328409,
+            "iou": 0.47213411871318534,
+            "sample_id": "total_text:1182"
+          },
+          {
+            "f1": 0.7463235294117647,
+            "iou": 0.5953079178885631,
+            "sample_id": "total_text:1186"
+          },
+          {
+            "f1": 0.2170267337476571,
+            "iou": 0.12172181033528826,
+            "sample_id": "total_text:1189"
+          },
+          {
+            "f1": 0.7155110793423874,
+            "iou": 0.557039510294936,
+            "sample_id": "total_text:1209"
+          },
+          {
+            "f1": 0.7996870109546166,
+            "iou": 0.666232073011734,
+            "sample_id": "total_text:1231"
+          },
+          {
+            "f1": 0.8175,
+            "iou": 0.6913319238900634,
+            "sample_id": "total_text:1239"
+          },
+          {
+            "f1": 0.8107476635514018,
+            "iou": 0.6817288801571709,
+            "sample_id": "total_text:1245"
+          },
+          {
+            "f1": 0.791650853889943,
+            "iou": 0.6551507537688442,
+            "sample_id": "total_text:1249"
+          },
+          {
+            "f1": 0.5918536990856192,
+            "iou": 0.4203069657615112,
+            "sample_id": "total_text:1260"
+          },
+          {
+            "f1": 0.7640613586559533,
+            "iou": 0.6182033096926713,
+            "sample_id": "total_text:1274"
+          },
+          {
+            "f1": 0.7129527991218442,
+            "iou": 0.5539445628997868,
+            "sample_id": "total_text:1277"
+          },
+          {
+            "f1": 0.5865724381625441,
+            "iou": 0.415,
+            "sample_id": "total_text:1279"
+          },
+          {
+            "f1": 0.8520345252774353,
+            "iou": 0.7422126745435016,
+            "sample_id": "total_text:1283"
+          },
+          {
+            "f1": 0.8040961709706145,
+            "iou": 0.6723752792256142,
+            "sample_id": "total_text:1303"
+          },
+          {
+            "f1": 0.6909282700421941,
+            "iou": 0.5278001611603546,
+            "sample_id": "total_text:1312"
+          },
+          {
+            "f1": 0.7111030828516378,
+            "iou": 0.551714472577782,
+            "sample_id": "total_text:1313"
+          },
+          {
+            "f1": 0.6533333333333333,
+            "iou": 0.48514851485148514,
+            "sample_id": "total_text:1314"
+          },
+          {
+            "f1": 0.7711775043936732,
+            "iou": 0.6275743707093822,
+            "sample_id": "total_text:1318"
+          },
+          {
+            "f1": 0.683929931454684,
+            "iou": 0.5196759259259259,
+            "sample_id": "total_text:1327"
+          },
+          {
+            "f1": 0.7422680412371134,
+            "iou": 0.5901639344262295,
+            "sample_id": "total_text:1328"
+          },
+          {
+            "f1": 0.8458049886621315,
+            "iou": 0.7328094302554028,
+            "sample_id": "total_text:1340"
+          },
+          {
+            "f1": 0.7072018890200709,
+            "iou": 0.5470319634703197,
+            "sample_id": "total_text:1359"
+          },
+          {
+            "f1": 0.7635765222161273,
+            "iou": 0.6175687666370896,
+            "sample_id": "total_text:1367"
+          },
+          {
+            "f1": 0.85667215815486,
+            "iou": 0.7492795389048992,
+            "sample_id": "total_text:1409"
+          },
+          {
+            "f1": 0.7739644970414201,
+            "iou": 0.6312741312741312,
+            "sample_id": "total_text:1418"
+          },
+          {
+            "f1": 0.7507692307692307,
+            "iou": 0.6009852216748769,
+            "sample_id": "total_text:1420"
+          },
+          {
+            "f1": 0.5071267816954238,
+            "iou": 0.33969849246231154,
+            "sample_id": "total_text:1421"
+          },
+          {
+            "f1": 0.7693554925010134,
+            "iou": 0.6251646903820817,
+            "sample_id": "total_text:1425"
+          },
+          {
+            "f1": 0.6331192005710207,
+            "iou": 0.46318537859007836,
+            "sample_id": "total_text:1428"
+          },
+          {
+            "f1": 0.5739746617994417,
+            "iou": 0.4024996235506701,
+            "sample_id": "total_text:1436"
+          },
+          {
+            "f1": 0.8362999708199591,
+            "iou": 0.7186559679037111,
+            "sample_id": "total_text:1453"
+          },
+          {
+            "f1": 0.49720223820943243,
+            "iou": 0.33085106382978724,
+            "sample_id": "total_text:1454"
+          },
+          {
+            "f1": 0.0,
+            "iou": 0.0,
+            "sample_id": "total_text:1467"
+          },
+          {
+            "f1": 0.725546842756913,
+            "iou": 0.569300518134715,
+            "sample_id": "total_text:1469"
+          },
+          {
+            "f1": 0.7879772542648253,
+            "iou": 0.6501340482573726,
+            "sample_id": "total_text:1475"
+          },
+          {
+            "f1": 0.7991543340380549,
+            "iou": 0.6654929577464789,
+            "sample_id": "total_text:1488"
+          },
+          {
+            "f1": 0.8398072429906542,
+            "iou": 0.7238514789175582,
+            "sample_id": "total_text:1525"
+          },
+          {
+            "f1": 0.8354430379746836,
+            "iou": 0.717391304347826,
+            "sample_id": "total_text:1533"
+          },
+          {
+            "f1": 0.8493150684931506,
+            "iou": 0.7380952380952381,
+            "sample_id": "total_text:1534"
+          }
+        ],
+        "samples": 125
+      }
+    },
+    "result_class": "approximate reproduction",
+    "status": "RUNNING"
+  }
+}

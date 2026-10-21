@@ -1,0 +1,1474 @@
+schema_version: 1
+freeze_date: "2026-08-21"
+source_registry: "provenance/SOURCES.yaml"
+interpretation: >-
+  RESOLVED means the artifact itself is authoritatively identifiable for the stated
+  purpose. It does not mean that an upstream artifact was used by the context-driven
+  paper. PARTIALLY_RESOLVED means an upstream or repository candidate is identifiable
+  but its paper association, bytes, or protocol is incomplete. BLOCKING means a missing
+  choice prevents a strict claim. Null is intentional and means no authoritative value
+  was found in the frozen evidence.
+
+artifacts:
+  - id: ART-AGUNET-AUTHOR-PROTOCOL-V1
+    component: "Runnable author-clarified ICDAR13 segmentation protocol"
+    artifact_type: "reproduction_protocol"
+    source_id: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    source_repository_model_source: "configs/approximate/segmentation_icdar13_author_protocol.yaml"
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: "author-clarified-ag-unet-2048x1024-v1; config SHA256 300f83418c0bc9278b2b42a084e221d4f09a345e4eef28ed482f2f6ce4322b6a"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: >-
+      128x128 logits/loss; scalar attention; preserved skips; frozen encoder and BN;
+      all 229 train images; 100 epochs; batch 8; masked BCE; training macro-fgIoU
+      checkpoint selection. Bottleneck 2048->1024, rotation +/-15 degrees, rotation
+      probability 0.5, IoU aggregation, threshold, encoder weights, and preprocessing
+      remain explicit assumptions or repository choices.
+    license: "Repository metadata and code only; dataset/model terms remain separate."
+    evidence_source: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Runnable APPROXIMATE protocol. The later frozen 100-epoch checkpoint is recorded
+      separately as ART-ICDAR13-AUTHOR-PROTOCOL-APPROX-TRAINED-CHECKPOINT; this protocol
+      artifact alone makes no Table 3 claim.
+
+  - id: ART-ICDAR13-AUTHOR-PROTOCOL-TRAIN-MANIFEST
+    component: "Author-protocol all-229 ICDAR13 training manifest composition"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    source_repository_model_source: "manifests/icdar13_segmentation_author_protocol.yaml"
+    upstream_project_name: "ICDAR13 Robust Reading Competition"
+    exact_revision: "229-sample composition; SHA256 3aeecf40411326f0721e5d4eea1bf74a9357eab1c9da54a77d0624b6e24f7c14"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Source archive SHA256 4cedd5b1e33dc4354058f5967221ac85dbdf91a99b30f3ab1ecdf42786a9d027"
+    model_configuration: >-
+      Deterministic numeric union of the frozen 206/23 source records, reclassified as
+      one 229-image training population with no validation holdout; paired *_GT.txt
+      records identify zero-weight Don't Care colors.
+    license: "Manifest metadata only; dataset bytes remain external."
+    evidence_source: "SRC-ICDAR13-RRC; SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: false
+    notes: "All-229/no-validation fact is author-confirmed; acquisition remains mirror-backed."
+
+  - id: ART-ICDAR13-AUTHOR-PROTOCOL-ALL-229
+    component: "Author-confirmed ICDAR13 segmentation training population"
+    artifact_type: "dataset_split_policy"
+    source_id: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    source_repository_model_source: "manifests/icdar13_segmentation_author_protocol.yaml"
+    upstream_project_name: "ICDAR13 Robust Reading Competition"
+    exact_revision: "All 229 official training images; zero held-out validation images"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Numeric sample order; source 206/23 records are composed only to recover the complete 229-image population."
+    license: "Metadata only; dataset terms remain separate."
+    evidence_source: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: false
+    notes: "Supersedes the M9 holdout only for the separate author-protocol branch."
+
+  - id: ART-ICDAR13-AUTHOR-PROTOCOL-MASKED-TARGET
+    component: "Author-confirmed ICDAR13 masked-BCE target policy"
+    artifact_type: "dataset_annotation_policy"
+    source_id: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    source_repository_model_source: "segmentation/data.py; segmentation/transforms.py"
+    upstream_project_name: "ICDAR13 Task 2.2 plus author protocol"
+    exact_revision: "TXT # color -> zero validity; bilinear target to 128x128 then threshold 0.5"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Task 2 GT archive SHA256 4cedd5b1e33dc4354058f5967221ac85dbdf91a99b30f3ab1ecdf42786a9d027"
+    model_configuration: "Masked BCE valid-pixel mean; nearest validity resize is a separate runnable assumption."
+    license: "Code/metadata only; dataset terms remain separate."
+    evidence_source: "SRC-ICDAR13-RRC; SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Core ignore behavior is confirmed; exact validity transform mechanics remain unresolved."
+
+  - id: ART-ICDAR13-M10-APPROX-TEST-MANIFEST
+    component: "M10 approximate ICDAR13 segmentation test manifest"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-ICDAR13-RRC
+    source_repository_model_source: "manifests/icdar13_segmentation_test.yaml"
+    upstream_project_name: "ICDAR13 Robust Reading Competition"
+    exact_revision: "233 ordered official test image/Task 2 GT pairs"
+    checkpoint_identifier: null
+    checkpoint_checksum: "SHA256 8bffaa558f687d5ae6a6e41a30a4a51db682124da99d4c2496aa3fa4a2a001d8"
+    model_configuration: "Per-file SHA256, numeric order 1..233, relative paths, archive identities and SHA256."
+    license: "Manifest metadata only; dataset bytes remain external."
+    evidence_source: "SRC-ICDAR13-RRC and supplied verified archive identities"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      APPROXIMATE M10 evaluation manifest; evaluation Don't Care semantics remain an
+      assumption. The frozen 233-sample test artifact contains RGBA masks but no paired
+      TXT color records, so training-style Don't Care validity cannot be reconstructed
+      from this artifact without unsupported inference.
+
+  - id: ART-ICDAR13-M10-TASK1-OVERLAP-IGNORE-TEST-MANIFEST
+    component: "M10 Task 1 care-box conservative Don't Care manifest"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-ICDAR13-RRC
+    source_repository_model_source: "manifests/icdar13_segmentation_test_task1_care_boxes.yaml"
+    upstream_project_name: "ICDAR13 Robust Reading Competition"
+    exact_revision: "233 Task 1 care-box TXT files composed with 233 Task 2 color masks"
+    checkpoint_identifier: "Challenge2_Test_Task1_GT.zip"
+    checkpoint_checksum: "SHA256 71a7d78d57822ec0376f3f73dd808e2d662f86fb1ef2f85e09a45f26e1417018"
+    model_configuration: "Ignore a complete foreground color only when it has zero overlap with all Task 1 care boxes; nearest validity resize."
+    license: "Manifest metadata only; dataset bytes remain external."
+    evidence_source: "SRC-ICDAR13-RRC plus supplied archive bytes"
+    evidence_classification: SECONDARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      APPROXIMATE diagnostic only. Task 1 contains no explicit Don't Care labels. The
+      analogous training audit recovered 589/608 known ignored colors with zero care-color
+      false positives; exact author test validity remains unresolved.
+
+  - id: ART-ICDAR13-M11-APPROX-RECOGNITION-MANIFEST
+    component: "M11 approximate ICDAR13 recognition population manifest"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-ICDAR13-M11-APPROX-RECOGNITION-MANIFEST
+    source_repository_model_source: "manifests/icdar13_recognition_test.yaml"
+    upstream_project_name: "ICDAR13 Focused Scene Text Task 1"
+    exact_revision: "233 ordered test images; 1,095 Task 1 word annotations"
+    checkpoint_identifier: "Challenge2_Test_Task12_Images.zip and Challenge2_Test_Task1_GT.zip"
+    checkpoint_checksum: >-
+      Manifest SHA256 d8ab8863fa2dd00cdbf0667fb36c20a28432ba070164b85d9dbff0827dfb20bd;
+      ordered annotation identity SHA256
+      89747036f9dc09b22b3cd35887be0e6f0d694122c099f23f9a6034b8996abd41
+    model_configuration: >-
+      Numeric IDs 1..233; per-image bytes checked against the frozen segmentation test
+      manifest; each Task 1 annotation file hashed and every CSV row/bounding box parsed
+      without transcription normalization.
+    license: "Manifest metadata only; dataset bytes remain external."
+    evidence_source: SRC-ICDAR13-M11-APPROX-RECOGNITION-MANIFEST
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Ready for APPROXIMATE protocol development only. The paper's 229-versus-233
+      recognition split conflict and recognition metric/multi-output rules remain
+      unresolved, so this artifact cannot support a Table 5 claim by itself.
+
+  - id: ART-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    component: "Complete one-image approximate recognition-pipeline smoke"
+    artifact_type: "external_run_ledger"
+    source_id: SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    source_repository_model_source: >-
+      External context-str-runs/table5-smoke-icdar13-img1-approximate/result.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; result SHA256
+      72099c04b754ac4dc3dc6084dd974c9201365a9bf5b1980e6c9306589906b4b7;
+      preflight SHA256 7933a13d2b6ccbce328dafc7b5c0c463e68826cd6c5d7d5b06bee4bcccf4a721;
+      log SHA256 ed2fbc2bcd9208b20c49d32d35f059ee27d0fb35744ba5e27130a90103c1c0ea
+    checkpoint_identifier: "All component identities retained in the external ledger"
+    checkpoint_checksum: "Image SHA256 67118d0c38c37ed8f6f2d06862e23e0ab752c76da93728fa779cfd14b4414143"
+    model_configuration: >-
+      10 area-ranked components; T1=C; selected T3=il; literal paired score
+      C=0.013727791244697354 below tau=0.8; DeepSolo invoked and returned nine strings;
+      highest-score reduction selected could.
+    license: "External generated metadata only; no artifact is stored in git."
+    evidence_source: SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Successful APPROXIMATE smoke, not an accuracy evaluation and not a Table 5 result.
+      The nine DeepSolo strings equal the nine lowercased GT words as an unordered
+      multiset, while highest-score reduction retains only `could`; this concretely
+      demonstrates why D-002 and E-001 must be resolved before dataset aggregation.
+
+  - id: ART-TABLE5-ICDAR13-IMG2-APPROX-SMOKE
+    component: "Second complete one-image approximate recognition-pipeline smoke"
+    artifact_type: "external_run_ledger"
+    source_id: SRC-TABLE5-ICDAR13-IMG2-APPROX-SMOKE
+    source_repository_model_source: >-
+      External context-str-runs/table5-smoke-icdar13-img2-approximate/result.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; result SHA256
+      27d1b58704ccd1f0665f846a5c35bb153aaae34682d0b128f50c4c62b0ee13ca;
+      preflight SHA256 7933a13d2b6ccbce328dafc7b5c0c463e68826cd6c5d7d5b06bee4bcccf4a721;
+      log SHA256 e9070684f5ebb895deecd347eb646ce1d8ec3f099640adb9180c5d8763a77873
+    checkpoint_identifier: "All component identities retained in the external ledger"
+    checkpoint_checksum: >-
+      Image SHA256 58cf558f40a66af2c7d4224250a8c9adebd11f92e4b66f4b8727f0661d35361f;
+      lossless mask PNG SHA256 1cb93ba4de84641660fd8087458f96f40a9b3698acb5c258a2c3fb69cc3a0a95
+    model_configuration: >-
+      Four retained area-ranked components; T1=H; selected T3=8; literal paired score
+      C=0.09558176629645362 below tau=0.8; DeepSolo invoked and returned only 31.
+    license: "External generated metadata/images only; no artifact is stored in git."
+    evidence_source: SRC-TABLE5-ICDAR13-IMG2-APPROX-SMOKE
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Successful APPROXIMATE smoke, not an accuracy evaluation and not a Table 5 result.
+      GT words are 8, H, 319, and 10. T1 and selected T3 are exact GT strings, but the
+      confidence rule forces fallback; its output 31 is not an exact GT transcription.
+      This reinforces the unresolved scoring, multi-output, and evaluator blockers.
+
+  - id: ART-ICDAR13-IDS3-5-APPROX-TRACE-PROBE
+    component: "Three-image approximate recognition-pipeline trace probe"
+    artifact_type: "external_run_ledger_set"
+    source_id: SRC-ICDAR13-IDS3-5-APPROX-TRACE-PROBE
+    source_repository_model_source: >-
+      External context-str-runs/table5-icdar13-approximate-traces samples 0003--0005
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; batch contract SHA256
+      abb0cd72dea6a3694841c96e835f1e7da52a2a5dd3cfa0b196048e16ba81ff81;
+      range-completion index snapshot SHA256
+      3eebc687c396e672512ec5c0607b54410268b5b4394cef86b533f76b2d3575e0
+    checkpoint_identifier: "All component identities retained in the batch contract and result ledgers"
+    checkpoint_checksum: >-
+      Result SHA256 IDs 3--5:
+      73d75d93a1d84b528a5c23eea29c9893005160f9b4bc9ca213b67f3146304385,
+      0e266c3ab92048edd99c0869eaa33a1c02e2c8725158b0a576e5b60f3c88e7c4,
+      7680ba6a677685d81b2f85a4785e6d08ac86b1ed97d2adbbd24b225fca54c16a
+    model_configuration: >-
+      Three successful samples; 19 area-ranked crops and three masks with verified
+      lossless-file hashes; confidence range 0.08306812561017808--0.14359836940305787;
+      fallback invoked 3/3; highest-score singular outputs london, saeco, hungry.
+    license: "External generated metadata/images only; no artifact is stored in git."
+    evidence_source: SRC-ICDAR13-IDS3-5-APPROX-TRACE-PROBE
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Successful APPROXIMATE multi-image engineering trace probe only. Accuracy remains
+      null and all Table 5/6/7 claims remain false. Raw multi-output detections are retained;
+      D-002, E-001, DS-002, R-003, S-001, and S-003 remain unresolved.
+
+  - id: ART-ICDAR13-IDS6-10-APPROX-TRACE-PROBE
+    component: "Five-image approximate recognition-pipeline trace extension"
+    artifact_type: "external_run_ledger_set"
+    source_id: SRC-ICDAR13-IDS6-10-APPROX-TRACE-PROBE
+    source_repository_model_source: >-
+      External context-str-runs/table5-icdar13-approximate-traces samples 0006--0010
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; unchanged batch contract SHA256
+      abb0cd72dea6a3694841c96e835f1e7da52a2a5dd3cfa0b196048e16ba81ff81;
+      range-completion index snapshot SHA256
+      a498462c36cf773e2d22d828869d4ec758f4168a908d2629b6f7812bc553b4f3
+    checkpoint_identifier: "All component identities retained in the batch contract and result ledgers"
+    checkpoint_checksum: >-
+      Result SHA256 IDs 6--10:
+      6f0d46c3f4f560ad7b5f091131b8a229ac3fb84bb1939e4776d9ee073310f932,
+      0babebe86c518327ea7bd315a3d0568143ba5335f3b560fce7a1bb2c2c04e233,
+      c92101ac42bcbd2c6e160d7ed580a33f4a166afd54ae22afefb4c89ed5a7d356,
+      b83b8760cb4190e749b02f22647bf13edd66149b783e07a29055223be13d7b4f,
+      dd1b73d0ced503b0f648f0aadddc785d282bfd214bcc87006ccdd8ecaf731c8c
+    model_configuration: >-
+      Five successful samples; 43 area-ranked crops and five masks with verified
+      lossless-file hashes; confidence range 0.0904451835913498--0.26995353443669656;
+      fallback invoked 5/5; highest-score singular outputs campus, clacton, cookery,
+      intelligent, informatikforschung.
+    license: "External generated metadata/images only; no artifact is stored in git."
+    evidence_source: SRC-ICDAR13-IDS6-10-APPROX-TRACE-PROBE
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Successful APPROXIMATE multi-image engineering trace extension only. Accuracy
+      remains null and all Table 5/6/7 claims remain false. Across the uniform IDs 3--10
+      records, two named literal diagnostics yield 8/8 final-string casefold membership
+      versus 32/53 raw-fallback/GT casefold multiset overlap, exposing E-001 and D-002.
+
+  - id: ART-ICDAR13-IDS1-10-APPROX-DIAGNOSTICS
+    component: "Uniform first-ten ICDAR13 approximate trace diagnostics"
+    artifact_type: "external_diagnostic_ledger"
+    source_id: SRC-ICDAR13-IDS1-10-APPROX-DIAGNOSTICS
+    source_repository_model_source: >-
+      External context-str-runs/table5-icdar13-approximate-traces/
+      diagnostics-0001-0010-v1.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; diagnostic JSON SHA256
+      6a1f4fe6ef06b75dc6b84d19a108a0813fdceb5fe66e65dd3d1e4b5f56c1e091;
+      ten-record index SHA256
+      ef93fd51c3679260eef67698553fd486da4cae8e39ce8c4238177184c2a777f9
+    checkpoint_identifier: "Same frozen component artifacts as the source trace ledgers"
+    checkpoint_checksum: >-
+      Newly uniformized result SHA256 IDs 1--2:
+      8dfea379510e9005733d1841896758d12816fcacb444634357903efedde752cb,
+      8d76f8335fd374fc3f98837d395ca7da19101ab6f657caf29e5dd3cd379617ce
+    model_configuration: >-
+      Ten successful source-image traces; 86 mask/crop PNG hashes verified; fallback
+      10/10; final-string literal membership 3/10 case-sensitive and 9/10 case-folded;
+      fallback/GT one-to-one multiset overlap 15/66 and 41/66 respectively.
+    license: "External generated metadata only; no artifact is stored in git."
+    evidence_source: SRC-ICDAR13-IDS1-10-APPROX-DIAGNOSTICS
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Named partial-dataset diagnostics only. Accuracy is null; metric, normalization,
+      denominator, and multiple-output mapping remain unresolved; Table 5/6/7 claims
+      are false.
+
+  - id: ART-AUTHOR-REPOSITORY-CROP-SCORING-PROTOCOL
+    component: "Author-repository crop selection and context-score control flow"
+    artifact_type: "inference_protocol_candidate"
+    source_id: SRC-AUTHOR-REPOSITORY
+    source_repository_model_source: >-
+      pipeline/runner.py and scoring/context_score.py at the frozen author repository
+    upstream_project_name: "icdar2025-context-driven-str"
+    exact_revision: >-
+      scorer 87b90dbb51f4e0462a5403040fad06985a474a8b; runner
+      2e8b544ef2dd559a46e2ac9e0a0f205eee328e9d; frozen main
+      363cdeec0eda8999bf10d14c8f4ca6036dd422a2
+    checkpoint_identifier: null
+    checkpoint_checksum: >-
+      Resolved local diagnostic config SHA256
+      3965fe5d17116ab4d6eded0b2b543661929ffeef13cb884bb70f7a8db721202d
+    model_configuration: >-
+      Score every retained crop against T2; first maximum paired C3 wins; threshold
+      max(C1,C3); independently return the candidate with higher semantic similarity.
+    license: "Author README asserts MIT, but the frozen tree has no LICENSE file."
+    evidence_source: SRC-AUTHOR-REPOSITORY
+    evidence_classification: AUTHOR_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Resolves the public repository behavior, not the behavior that produced the paper.
+      Paper Figure 2, prose, and Algorithm 2 remain inconsistent, so S-001 and L-004
+      continue to block STRICT reproduction.
+
+  - id: ART-ICDAR13-IDS1-10-REPOSITORY-APPROX-DIAGNOSTICS
+    component: "First-ten ICDAR13 repository-aligned approximate trace diagnostics"
+    artifact_type: "external_diagnostic_ledger"
+    source_id: SRC-ICDAR13-IDS1-10-REPOSITORY-APPROX-DIAGNOSTICS
+    source_repository_model_source: >-
+      External context-str-runs/table5-icdar13-repository-approximate-traces/
+      diagnostics-0001-0010-v1.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; resolved config SHA256
+      3965fe5d17116ab4d6eded0b2b543661929ffeef13cb884bb70f7a8db721202d;
+      batch contract SHA256 d90c0f07fdc1277b4c1d0e38333078e9a7f00232a8d0f3d6080ccb9ed1ea56f4;
+      index SHA256 5ae43ce81da3b556cabed258858d80050a655040029c4bcb4d08517b4a80a4e3;
+      diagnostic SHA256 92455c95edf7214fcb4765166503a421a8b0a60c88c888851ed842031bf2785f
+    checkpoint_identifier: "Same frozen candidates as the rank-1 first-ten comparison"
+    checkpoint_checksum: >-
+      Result SHA256 IDs 1--10:
+      b5296d16c6a04d48fc65e0a31ac12c8907678d0f68c3844e4112852f0c715942,
+      c072694e53ab797370de41ee73f34f68f4e6eb1ca33b5938e3115470a3f020a3,
+      16bf303b1b1624c2c70fe2542feea8a086b36ed600e360d25050942197b81228,
+      50ebaae8a12b36c4d20c1c306af66d283598aceda04e5d34f96cfb04b6302a07,
+      057c1135f8bfd694befa069fed42da34e05539cfd68cbc1be84c69bff0e6b09e,
+      102654c14c16343a31fa0e42968c606320cae981da9455d0d8a94b1005b83fb9,
+      fecab973ca62325c86d417b4d82c651c2bf913290e71043439e8f500b64f611a,
+      811c47e228e71a482afd62d374279193c66249b929d9df89366c6c9eead41bbc,
+      29673ea97bd573721cae5a67a55dc01110cde18c148407367b3fbad49fffcc88,
+      86caf4123deccb4cbcbead38f6a2c81079b75b4cf6860916fce7579f4aceb7f2
+    model_configuration: >-
+      Ten successful traces and 86 verified mask/crop PNGs. The repository-specified
+      first-maximum-C3 policy changed selected T3 on 7/10 samples and confidence on
+      5/10 relative to rank-1. Confidence remained 0.06308199671169296--
+      0.26995353443669656, fallback remained 10/10, and all final outputs were unchanged.
+      The largest semantic score over T1 and every crop was 0.39617995924870714, giving
+      a best-case C upper bound of 0.6377079755492243 even if lexical similarity were one.
+    license: "External generated metadata only; no artifact is stored in git."
+    evidence_source: SRC-ICDAR13-IDS1-10-REPOSITORY-APPROX-DIAGNOSTICS
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Partial-dataset diagnostic only. Accuracy remains null and all Table 5/6/7 claims
+      remain false. The unchanged 10/10 fallback result strengthens S-003 but cannot
+      identify the paper's scoring, caption, artifact, denominator, or metric protocol.
+
+  - id: ART-ICDAR13-IDS1-10-PARSEQ-DEEPSOLO-ALIGNMENT-DIAGNOSTIC
+    component: "First-ten ICDAR13 PARSeq/DeepSolo spatial and textual alignment"
+    artifact_type: "external_diagnostic_ledger"
+    source_id: SRC-ICDAR13-IDS1-10-PARSEQ-DEEPSOLO-ALIGNMENT-DIAGNOSTIC
+    source_repository_model_source: >-
+      External context-str-runs/table5-icdar13-repository-approximate-traces/
+      parseq-deepsolo-alignment-0001-0010-v1.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      Executed 2026-09-03; alignment diagnostic SHA256
+      93195baebca1106a6eb8ca78dce7cbd007e7471e58da95c4b89805dfa3bfa935;
+      source index SHA256 5ae43ce81da3b556cabed258858d80050a655040029c4bcb4d08517b4a80a4e3;
+      batch contract SHA256 d90c0f07fdc1277b4c1d0e38333078e9a7f00232a8d0f3d6080ccb9ed1ea56f4
+    checkpoint_identifier: "Same frozen candidates as the repository-aligned first-ten traces"
+    checkpoint_checksum: "All 86 referenced intermediate file hashes passed verification."
+    model_configuration: >-
+      Retain every pairing between 76 exact padded source-coordinate PARSeq crop boxes
+      and 54 axis-aligned envelopes of DeepSolo polygons. Report asymmetric coverage,
+      IoU, center inclusion, raw and case-fold exactness, and RapidFuzz ratio. Sixty-six
+      crops and 31 detections have positive overlap; median positive best coverage is
+      0.9864153811332046 for crops and 0.2872761360324503 for detections. Among 31
+      spatially best positive pairs, two are case-fold exact and five have case-fold
+      RapidFuzz ratio at least 0.8.
+    license: "External generated metadata only; no artifact is stored in git."
+    evidence_source: SRC-ICDAR13-IDS1-10-PARSEQ-DEEPSOLO-ALIGNMENT-DIAGNOSTIC
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Partial-dataset alignment diagnostic only. DeepSolo polygon envelopes and named
+      thresholds are not official matching rules. Accuracy remains null and all Table
+      5/6/7 claims are false; A-008, L-004, R-003, D-001, D-002, and E-001 remain open.
+
+  - id: ART-PAPER-PDF-V2
+    component: "Scientific specification"
+    artifact_type: "paper"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: "papers/2503.15639v2.pdf"
+    upstream_project_name: "arXiv"
+    exact_revision: "arXiv:2503.15639v2"
+    checkpoint_identifier: null
+    checkpoint_checksum: "SHA256 ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd"
+    model_configuration: null
+    license: "CC BY 4.0"
+    evidence_source: "SRC-PAPER-V2"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: false
+    notes: "Frozen local primary source."
+
+  - id: ART-AGUNET-AUTHOR-CODE
+    component: "Attention-Gated U-Net with ResNet-50 encoder"
+    artifact_type: "source_code"
+    source_id: SRC-AUTHOR-REPOSITORY
+    source_repository_model_source: "models/unet_adv.py"
+    upstream_project_name: "icdar2025-context-driven-str"
+    exact_revision: "363cdeec0eda8999bf10d14c8f4ca6036dd422a2"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: >-
+      Repository decoder 2048->1024->512->256->128->64, uncompressed 2048-channel
+      bottleneck, output resized to input resolution, torchvision IMAGENET1K_V2 default.
+      It has a channel-invalid final attention skip and differs from Figure 3.
+    license: "MIT asserted by README; LICENSE file absent."
+    evidence_source: "SRC-AUTHOR-REPOSITORY and paper Figure 3"
+    evidence_classification: AUTHOR_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "This freezes the mismatch; it is not a runnable or paper-conformant architecture artifact. No additional author architecture code was found in the inspected public refs."
+
+  - id: ART-AGUNET-AUTHOR-CHECKPOINT
+    component: "Trained AG-UNet segmentation model"
+    artifact_type: "checkpoint"
+    source_id: SRC-AUTHOR-REPOSITORY
+    source_repository_model_source: null
+    upstream_project_name: "icdar2025-context-driven-str"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: null
+    license: "UNRESOLVED"
+    evidence_source: "SRC-AUTHOR-REPOSITORY; public main tree, refs, and release page inspected on 2026-08-17"
+    evidence_classification: AUTHOR_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "No author checkpoint was present or linked. Strict Table 3/5/6/7 reproduction therefore requires either an author artifact later or retraining from a fully resolved architecture/protocol."
+
+  - id: ART-AGUNET-FIGURE-APPROX-M4
+    component: "Approximate Attention-Gated U-Net reconstruction"
+    artifact_type: "source_code_candidate"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: >-
+      models/ag_unet_approx.py, docs/AG_UNET_IMPLEMENTATION_DECISIONS.md,
+      and provenance/AG_UNET_ARCHITECTURE_M8.json
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: "approximate-ag-unet-figure3-v1; M8 contract schema 1; commit not assigned"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: >-
+      Figure-derived 2048-to-512 compressed bottleneck; four additive spatial
+      attention gates; decoder 512/256/128/64; one-channel 128x128 logits for
+      256x256 input; 48,454,733 parameters with trainable encoder. State dictionary
+      has 456 tensors and schema SHA256
+      bc146d1e3742a63f9b64ad8aded6ff92fbde656f8386e1a88d0e8a109ab04b5f.
+    license: "Repository project terms; upstream torchvision BSD-3-Clause"
+    evidence_source: >-
+      ART-PAPER-PDF-V2, ART-AGUNET-AUTHOR-CODE, M4-SEG-001, and M8-SEG-001
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      FIGURE_INFERRED evidence basis. M8 freezes the existing implementation identity,
+      input/shape contract, deterministic initialization policy, and strict checkpoint
+      compatibility boundary. Runnable only as approximate reproduction; it does not
+      resolve A-001 through A-006 or identify the author checkpoint. Physical execution
+      is recorded separately as ART-AGUNET-M8-CUDA-QUALIFICATION so hardware measurements
+      do not enter this static architecture artifact.
+
+  - id: ART-AGUNET-M8-CUDA-QUALIFICATION
+    component: "Approximate AG-UNet M8 physical-host forward qualification"
+    artifact_type: "qualified_local_runtime_profile"
+    source_id: SRC-AGUNET-M8-HOST-QUALIFICATION
+    source_repository_model_source: "scripts/profile_ag_unet.py"
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: "approximate-ag-unet-figure3-v1; contract schema 1; qualified 2026-08-20"
+    checkpoint_identifier: "torchvision ResNet50_Weights.IMAGENET1K_V2"
+    checkpoint_checksum: "Filename SHA256 prefix 11ad3fa6 only"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3070; cuda:0; torch 2.4.1+cu124; float32; batch 1;
+      input 1x3x256x256; output 1x1x128x128; success true; OOM false;
+      264071680 peak allocated bytes; 289406976 peak reserved bytes.
+    license: "No generated runtime report or checkpoint is stored in the repository."
+    evidence_source: SRC-AGUNET-M8-HOST-QUALIFICATION
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Engineering qualification only. The profiler initializes the lazy CUDA allocator
+      with a deleted one-element allocation before resetting peaks; that allocation is
+      excluded from the reported model peak. The physical suite passed 142/142 in 30.68
+      seconds and git diff --check passed. No training occurred. Encoder selection remains
+      REPOSITORY_SPECIFIED, architecture choices remain ASSUMPTION/REPOSITORY_SPECIFIED,
+      and A-001 through A-006 remain strict blockers.
+
+  - id: ART-RESNET50-IMAGENET1K-V2-CANDIDATE
+    component: "AG-UNet encoder initialization"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-TORCHVISION-RESNET50
+    source_repository_model_source: "torchvision.models.ResNet50_Weights.IMAGENET1K_V2"
+    upstream_project_name: "torchvision"
+    exact_revision: null
+    checkpoint_identifier: "resnet50-11ad3fa6.pth"
+    checkpoint_checksum: "SHA256 prefix 11ad3fa6 only"
+    model_configuration: "ResNet-50 ImageNet-1K V2 weights"
+    license: "BSD-3-Clause code; ImageNet terms separate."
+    evidence_source: "SRC-TORCHVISION-RESNET50"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Usable only in a documented repository-assumption branch until the paper's pretrained weight revision and encoder training state are identified."
+
+  - id: ART-PARSEQ-PAPER-SELECTION
+    component: "PARSeq-S used for T1/T3"
+    artifact_type: "paper_checkpoint_selection"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "PARSeq"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Paper specifies PARSeq-S only. Charset, maximum length, preprocessing, AR/NAR mode, refinement count, and decoding are not given."
+    license: "UNRESOLVED until artifact selection"
+    evidence_source: "Paper Sections 3.1-3.2 and SRC-PARSEQ-OFFICIAL"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "The official candidate below does not resolve this paper-level selection."
+
+  - id: ART-PARSEQ-V100-PARSEQ-CANDIDATE
+    component: "PARSeq-S recognition"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-PARSEQ-OFFICIAL
+    source_repository_model_source: "https://github.com/baudm/parseq/releases/download/v1.0.0/parseq-bb5792a6.pt"
+    upstream_project_name: "Scene Text Recognition Model Hub / PARSeq"
+    exact_revision: "v1.0.0; 315d19be8ef473a864950ab497a649a69e37c6a4"
+    checkpoint_identifier: "parseq-bb5792a6.pt; Torch Hub entry parseq"
+    checkpoint_checksum: "SHA256 bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00"
+    model_configuration:
+      input: "RGB, bicubic resize to 32x128, ToTensor, Normalize(mean=0.5,std=0.5)"
+      training_charset: "94 printable ASCII characters"
+      default_test_charset: "36 lowercase alphanumeric characters"
+      maximum_label_length: 25
+      architecture: "embed_dim 384; encoder 12 layers/6 heads; decoder 1 layer/12 heads; patch 4x8"
+      decoding: "Autoregressive greedy decoding with refine_iters=1 by default; softmax then tokenizer.decode"
+      output_classes: "94 characters plus EOS; BOS/PAD are input-side specials"
+    license: "Apache-2.0"
+    evidence_source: "SRC-PARSEQ-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Strongest public PARSeq-S candidate. The downloaded release asset was 95,392,675
+      bytes and matched the full digest above. It remains the unchanged v1.0.0
+      checkpoint when paired with ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE. The pairing
+      supports an explicit approximation branch only; the paper never binds to it.
+
+  - id: ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE
+    component: "PARSeq-S approximate runtime"
+    artifact_type: "source_code_candidate"
+    source_id: SRC-PARSEQ-OFFICIAL
+    source_repository_model_source: "https://github.com/baudm/parseq/tree/1902db043c029a7e03a3818c616c06600af574be"
+    upstream_project_name: "Scene Text Recognition Model Hub / PARSeq"
+    exact_revision: "1902db043c029a7e03a3818c616c06600af574be"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration:
+      paired_checkpoint_artifact: "ART-PARSEQ-V100-PARSEQ-CANDIDATE"
+      reproduction_mode: APPROXIMATE
+      environment_classification: ENGINEERING_CHOICE
+      paper_host_source_type: "github_commit_archive"
+      paper_host_source_archive_sha256: "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef"
+      paper_host_source_files_verified: 111
+      qualification_runtime: "Python 3.11.11; PyTorch 2.4.1+cu124; torchvision 0.19.1+cu124"
+      upstream_runtime_dependencies: "timm 0.9.16; PyTorch Lightning 2.2.0.post0; torchmetrics 1.3.1; NumPy 1.26.4; Pillow 10.2.0; NLTK 3.8.1; PyYAML 6.0.1"
+      qualification_result: >-
+        Strict load of all 175 checkpoint tensors succeeded with no missing,
+        unexpected, or shape-mismatched keys. Six official demo images produced the
+        same 1x26x95 logits shape, preprocessed tensor hashes, and decoded strings as
+        v1.0.0/PyTorch 1.10.2 CPU. Maximum absolute per-token confidence difference was
+        8.344650268554688e-07. Batch-size-1 RTX 3070 inference was deterministic; peak
+        allocated/reserved CUDA memory was 106748928/119537664 bytes.
+    license: "Apache-2.0"
+    evidence_source: >-
+      SRC-PARSEQ-OFFICIAL git history and empirical compatibility qualification on
+      2026-08-18; PyTorch 2 support starts at
+      970f2662db03d90191135ad0f2ceefa9e980e4a7
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      This exact newer official runtime is separately pinned from the unchanged
+      v1.0.0 checkpoint. Choosing the cross-revision pairing is an ENGINEERING_CHOICE
+      for APPROXIMATE reproduction. It does not identify the code/checkpoint pairing
+      used by the paper and must never enter STRICT configuration. On host `paper`,
+      the same revision is transported as a frozen GitHub commit archive and the
+      extracted tree is verified byte-for-byte; that transport is an ASSUMPTION and
+      does not promote the artifact to strict evidence.
+
+  - id: ART-BLIP2-PAPER-VITB-SELECTION
+    component: "BLIP-2 caption generation"
+    artifact_type: "paper_checkpoint_selection"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "BLIP-2"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Paper claims BLIP-2 with ViT-B and specifies only short/medium/long caption ranges."
+    license: "UNRESOLVED until artifact selection"
+    evidence_source: "Paper Section 3.1, SRC-BLIP2-LAVIS, and SRC-BLIP2-HF-FLANT5XL"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: >-
+      No public Salesforce BLIP-2 ViT-B checkpoint was identifiable in the inspected official
+      LAVIS BLIP-2 registry. Official Flan-T5-XL uses EVA-CLIP-g by default and exposes a
+      separately named CLIP ViT-L variant. Salesforce BLIP (not BLIP-2) does have ViT-B models,
+      but substituting BLIP for BLIP-2 is not permitted.
+
+  - id: ART-BLIP2-LAVIS-FLANT5XL-CANDIDATE
+    component: "BLIP-2 caption generation"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-BLIP2-LAVIS
+    source_repository_model_source: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xl.pth"
+    upstream_project_name: "LAVIS BLIP-2"
+    exact_revision: "LAVIS code 0ef3a2c3603596f88ec5d72bbeabcee4badf0cc7; checkpoint revision unspecified"
+    checkpoint_identifier: "blip2_pretrained_flant5xl.pth"
+    checkpoint_checksum: null
+    model_configuration:
+      vision_encoder: "eva_clip_g (default)"
+      language_model: "google/flan-t5-xl"
+      input: "224x224 LAVIS evaluation processor"
+      query_tokens: 32
+      default_prompt: "empty string"
+      default_generation: "beam search, num_beams=5, max_new_tokens=30, min_length=1, no sampling"
+    license: "BSD-3-Clause code/config; checkpoint terms not separately stated in inspected config"
+    evidence_source: "SRC-BLIP2-LAVIS"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Official upstream candidate, but it contradicts ViT-B and is not selected by the paper or repository."
+
+  - id: ART-BLIP2-HF-FLANT5XL-REPOSITORY-CANDIDATE
+    component: "BLIP-2 caption generation"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-BLIP2-HF-FLANT5XL
+    source_repository_model_source: "Salesforce/blip2-flan-t5-xl"
+    upstream_project_name: "Salesforce BLIP-2 on Hugging Face"
+    exact_revision: "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28"
+    checkpoint_identifier:
+      - "model-00001-of-00002.safetensors"
+      - "model-00002-of-00002.safetensors"
+    checkpoint_checksum:
+      - "SHA256 23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d"
+      - "SHA256 c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    model_configuration:
+      architecture: "Blip2ForConditionalGeneration; EVA-CLIP-g-family vision width 1408; Flan-T5-XL; 32 query tokens"
+      processor: "RGB, resize 224x224, bicubic, CLIP mean/std"
+      repository_prompt: "Describe this image comprehensively, focusing on all visible text elements. Mention the environment, text-bearing objects, positions, and how the text relates to the scene context."
+      repository_generation: "max_new_tokens=80, min_new_tokens=40, length_penalty=1.0, num_beams=3"
+      repository_length_unit: "tokens, despite the paper also using words"
+    license: "MIT on model card"
+    evidence_source: "SRC-BLIP2-HF-FLANT5XL and SRC-AUTHOR-REPOSITORY"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Fully pin-able approximation candidate, but not evidence-backed for strict results.
+      Its two safetensor shards total about 15.77 GB, so full single-GPU residency in
+      float32 is impossible on 8 GB. Physical-host FP16 single-device placement on an
+      RTX 3070 OOMed before inference at 7,171,370,496 allocated and 7,656,701,952
+      reserved bytes. Unquantized FP16 Transformers device_map=auto / Accelerate CPU
+      module dispatch subsequently succeeded: 6,938,498,560 allocated and
+      7,220,494,336 reserved GPU bytes, 10,865,696,768 bytes peak CPU RSS, 14.12 s
+      load, 51.65 s generation, and 65.78 s total, with 17 CUDA and 17 CPU modules.
+      On 2026-09-03 the same weights completed unquantized FP16 single-device inference
+      on the RTX 3090: 9,035,619,840/9,726,590,976 bytes peak allocated/reserved GPU,
+      22,351,937,536 bytes peak CPU RSS, and 9.90/3.13/13.14 seconds
+      load/generation/total. Qualification JSON SHA256:
+      0c65c3ffd3bd1d0105a28181a4a2071a54a2f10b4228d18237db0ffe3d235ccc.
+      Both paths are HARDWARE_DEVIATION and APPROXIMATE only.
+
+  - id: ART-BLIP2-PAPER-PROMPT-AND-DECODING
+    component: "BLIP-2 caption protocol"
+    artifact_type: "inference_protocol"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "BLIP-2"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Exact prompt, beam/sampling parameters, seeds, stopping rules, and whether 40-80 means words or tokens are missing."
+    license: "not applicable"
+    evidence_source: "Paper Section 3.1 and caption/blip2_captioner.py"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "Repository prompt and decoding are secondary defaults, not paper evidence."
+
+  - id: ART-MPNET-PAPER-SELECTION
+    component: "Semantic similarity"
+    artifact_type: "paper_checkpoint_selection"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "MPNet"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Paper states MPNet embeddings and cosine similarity only."
+    license: "UNRESOLVED until artifact selection"
+    evidence_source: "Paper Section 3.1 and SRC-MPNET-HF"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "No model identifier, pooling, normalization, truncation, or sentence-transformers revision is specified."
+
+  - id: ART-ALL-MPNET-BASE-V2-REPOSITORY-CANDIDATE
+    component: "Semantic similarity"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-MPNET-HF
+    source_repository_model_source: "sentence-transformers/all-mpnet-base-v2"
+    upstream_project_name: "Sentence Transformers"
+    exact_revision: "e8c3b32edf5434bc2275fc9bab85f82640a19130"
+    checkpoint_identifier: "model.safetensors"
+    checkpoint_checksum: "SHA256 78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658"
+    model_configuration: "768 dimensions; mean-token pooling; English; MPNet base; model card advertises sentence similarity."
+    license: "Apache-2.0"
+    evidence_source: "SRC-MPNET-HF and SRC-AUTHOR-REPOSITORY"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Safe only as a pinned approximation branch until author evidence binds it to the
+      paper. On 2026-09-03 the RTX-3090 host qualification loaded the frozen weights on
+      CPU in float32, produced normalized 768-dimensional embeddings, reproduced a
+      repeated batch bit-for-bit, and agreed between batch and single-item encoding to
+      8.195638656616211e-08 maximum absolute difference. It also exercised the frozen
+      raw RapidFuzz and all three named score-aggregation strategies. Qualification JSON
+      SHA256: 32ce49e73b12a0e57ba1ec91cdf6b4dc29e33716679fe51bfb0d9a13da09a1db.
+      This qualifies only the configured APPROXIMATE implementation, not the paper's
+      unresolved MPNet artifact or scoring protocol.
+
+  - id: ART-FUZZY-PAPER-PROTOCOL
+    component: "Lexical similarity"
+    artifact_type: "inference_protocol"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "Levenshtein/fuzzy matching"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Library, ratio definition, normalization, case, punctuation, Unicode, whitespace, substring/token matching, and empty-input behavior are unspecified."
+    license: "not applicable"
+    evidence_source: "Paper Section 3.1 and SRC-RAPIDFUZZ"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "rapidfuzz.fuzz.ratio is a repository choice and does not resolve the paper protocol."
+
+  - id: ART-RAPIDFUZZ-RATIO-REPOSITORY-CANDIDATE
+    component: "Lexical similarity"
+    artifact_type: "software_candidate"
+    source_id: SRC-RAPIDFUZZ
+    source_repository_model_source: "rapidfuzz.fuzz.ratio"
+    upstream_project_name: "RapidFuzz"
+    exact_revision: "3.11.0 for the APPROXIMATE main environment"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: >-
+      Nominal path passes raw strings to fuzz.ratio and divides by 100. Lowercase,
+      normalized-whitespace, and NFC Unicode modes are separately named diagnostics;
+      partial and token matching are not nominal.
+    license: "MIT"
+    evidence_source: "SRC-RAPIDFUZZ"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Pinning a version would create an assumption, not recover a paper-specified choice."
+
+  - id: ART-DEEPSOLO-PAPER-SELECTION
+    component: "Fallback recognizer"
+    artifact_type: "paper_checkpoint_selection"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: "DeepSolo"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Paper names DeepSolo and reports ResNet-50 and ViTAEv2-S comparisons but gives no checkpoint, training-data variant, per-benchmark mapping, or multi-output reduction."
+    license: "UNRESOLVED until artifact selection"
+    evidence_source: "Paper Sections 3.2 and 4; SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "Official model-zoo candidates below are not interchangeable and none is author-selected."
+
+  - id: ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE
+    component: "DeepSolo fallback on Total-Text"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcd2FhvW7pjuKs4iLQ?e=TqYdjG"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; locally qualified checkpoint bytes"
+    checkpoint_identifier: "ResNet-50 Total-Text finetune; Synth150K+MLT17+IC13+IC15"
+    checkpoint_checksum: "SHA256 ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68"
+    model_configuration: "configs/R_50/TotalText/finetune_150k_tt_mlt_13_15.yaml (SHA256 0da913239e4b3f11ae1bad19e0b104996f7c3f3607aa2a7f4b1f52e3838b702d); no-lexicon E2E 79.7 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL and SRC-DEEPSOLO-M6-HOST-QUALIFICATION"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      APPROXIMATE candidate load, real inference, and the repository-owned Docker worker
+      smoke passed locally with three detections. The equally official TextOCR variant
+      reports 82.5, and the paper does not identify either checkpoint; therefore this
+      resolved local artifact remains blocking for STRICT selection.
+
+  - id: ART-DEEPSOLO-R50-TOTALTEXT-TEXTOCR-CANDIDATE
+    component: "DeepSolo fallback on Total-Text"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcd138p8HaXViFk-tw?e=r15pMR"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ResNet-50 Total-Text finetune; Synth150K+MLT17+IC13+IC15+TextOCR"
+    checkpoint_checksum: null
+    model_configuration: "configs/R_50/TotalText/finetune_150k_tt_mlt_13_15_textocr.yaml; no-lexicon E2E 82.5 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Official alternative; paper selection unknown."
+
+  - id: ART-DEEPSOLO-VITAEV2S-TOTALTEXT-CANDIDATE
+    component: "DeepSolo fallback on Total-Text"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcd8dztVae7RRLn6Ow?e=2GLRAs"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ViTAEv2-S Total-Text finetune; Synth150K+MLT17+IC13+IC15"
+    checkpoint_checksum: null
+    model_configuration: "configs/ViTAEv2_S/TotalText/finetune_150k_tt_mlt_13_15.yaml; no-lexicon E2E 81.8 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Candidate without TextOCR."
+
+  - id: ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE
+    component: "DeepSolo fallback on Total-Text"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcd6XGlbZ-I7WvGslQ?e=rrkXLx"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ViTAEv2-S Total-Text finetune; Synth150K+MLT17+IC13+IC15+TextOCR"
+    checkpoint_checksum: null
+    model_configuration: "configs/ViTAEv2_S/TotalText/finetune_150k_tt_mlt_13_15_textocr.yaml; no-lexicon E2E 83.6 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Official alternative; paper selection unknown."
+
+  - id: ART-DEEPSOLO-R50-IC15-CANDIDATE
+    component: "DeepSolo fallback on ICDAR15"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcdp6_LjerVYzoYORw?e=0ZuXgR"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ResNet-50 ICDAR15 finetune; Synth150K+Total-Text+MLT17+IC13"
+    checkpoint_checksum: null
+    model_configuration: "configs/R_50/IC15/finetune_150k_tt_mlt_13_15.yaml; generic-lexicon E2E 76.9 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Config defaults LEXICON_TYPE=3 (strong), while the model zoo reports S/W/G; the context-driven paper does not define which output/protocol is used."
+
+  - id: ART-DEEPSOLO-R50-IC15-TEXTOCR-CANDIDATE
+    component: "DeepSolo fallback on ICDAR15"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcdonZXu6_JtW2QMuA?e=8BTzmi"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ResNet-50 ICDAR15 finetune; Synth150K+Total-Text+MLT17+IC13+TextOCR"
+    checkpoint_checksum: null
+    model_configuration: "configs/R_50/IC15/finetune_150k_tt_mlt_13_15_textocr.yaml; generic-lexicon E2E 79.1 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Official alternative; paper selection unknown."
+
+  - id: ART-DEEPSOLO-VITAEV2S-IC15-CANDIDATE
+    component: "DeepSolo fallback on ICDAR15"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcdrUOUheq2dw6FP-A?e=PYXbiY"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ViTAEv2-S ICDAR15 finetune; Synth150K+Total-Text+MLT17+IC13"
+    checkpoint_checksum: null
+    model_configuration: "configs/ViTAEv2_S/IC15/finetune_150k_tt_mlt_13_15.yaml; generic-lexicon E2E 77.7 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Candidate without TextOCR."
+
+  - id: ART-DEEPSOLO-VITAEV2S-IC15-TEXTOCR-CANDIDATE
+    component: "DeepSolo fallback on ICDAR15"
+    artifact_type: "checkpoint_candidate"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "https://1drv.ms/u/s!AimBgYV7JjTlgcdqw1UUnbSAG4qoWA?e=Co1prY"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "Code dbadae995035246bad3376c7a44c015c69e9b313; checkpoint revision unspecified"
+    checkpoint_identifier: "ViTAEv2-S ICDAR15 finetune; Synth150K+Total-Text+MLT17+IC13+TextOCR"
+    checkpoint_checksum: null
+    model_configuration: "configs/ViTAEv2_S/IC15/finetune_150k_tt_mlt_13_15_textocr.yaml; generic-lexicon E2E 79.5 in upstream zoo"
+    license: "See SRC-DEEPSOLO-OFFICIAL"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Official alternative; paper selection unknown."
+
+  - id: ART-DEEPSOLO-RUNTIME-CANDIDATE
+    component: "DeepSolo isolated environment"
+    artifact_type: "dependency_stack"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: "DeepSolo/README.md and DeepSolo/requirements.txt"
+    upstream_project_name: "DeepSolo + Detectron2"
+    exact_revision: "DeepSolo dbadae995035246bad3376c7a44c015c69e9b313; Detectron2 v0.6 d1e04565d3bec8719335b88be9e9b961bf3ec464"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Python 3.8, PyTorch 1.9.0+cu111, torchvision 0.10.0+cu111, CUDA 11.1, Detectron2 v0.6, plus pinned legacy requirements."
+    license: "DeepSolo academic-use terms plus Detectron2 Apache-2.0 and transitive licenses"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL, SRC-DETECTRON2-V06, and SRC-DEEPSOLO-M6-HOST-QUALIFICATION"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: false
+    notes: >-
+      M6 physically qualified the Docker-isolated legacy stack, persistent sm_86 adet._C
+      build, and real ResNet-50 Total-Text inference with cuDNN enabled. The original
+      base-image construction history was not captured; the exact local image ID is the
+      qualified runtime. This does not identify the paper authors' runtime.
+
+  - id: ART-DEEPSOLO-M6-DOCKER-RUNTIME
+    component: "Approximate DeepSolo physical-host runtime"
+    artifact_type: "qualified_local_container_runtime"
+    source_id: SRC-DEEPSOLO-M6-HOST-QUALIFICATION
+    source_repository_model_source: "context-str-deepsolo:m6-qualified-20260818"
+    upstream_project_name: "Docker-isolated DeepSolo"
+    exact_revision: "Image ID sha256:30e0e99d23279060e72b22fe3911a2e42b72de55e70be6349fb06ec37b35755c"
+    checkpoint_identifier: "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE"
+    checkpoint_checksum: "SHA256 ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68"
+    model_configuration: >-
+      Python 3.8; torch 1.9.0+cu111; torchvision 0.10.0+cu111; CUDA 11.1;
+      cuDNN 8.0.5 enabled; Detectron2 0.6; RTX 3070; Proxmox CPU type host;
+      AVX/AVX2/FMA; isolated process; details in docs/DEEPSOLO_RUNTIME.md.
+    license: "No image/checkpoint redistribution; inherits all upstream/runtime terms."
+    evidence_source: SRC-DEEPSOLO-M6-HOST-QUALIFICATION
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Real load/inference, the staged JSON worker smoke, and a 5-warmup/20-timed benchmark
+      passed. The final worker smoke returned three detections in 0.2597780159994727
+      seconds with 869216256/1270874112 bytes peak allocated/reserved CUDA memory. This
+      exact local runtime is qualified for APPROXIMATE use only; Docker isolation,
+      checkpoint selection, and host CPU exposure are not paper evidence.
+
+  - id: ART-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE
+    component: "Qualified non-Docker DeepSolo subprocess runtime on paper"
+    artifact_type: "qualified_local_venv_runtime"
+    source_id: SRC-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE
+    source_repository_model_source: >-
+      .venvs/context-str-deepsolo-host created from
+      environments/deepsolo/environment.yml
+    upstream_project_name: "Host-isolated DeepSolo"
+    exact_revision: >-
+      Qualified 2026-09-02; environment report SHA256
+      1e1c5763bbb645eb55a877de77484acfd1ec13c52129e807ad960b800e8f2d76;
+      runtime manifest SHA256 c52a65b7d844cd35bcf6e38e3cb58c5194851c8327cbdaba9b313869ec2c7ffa
+    checkpoint_identifier: "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE"
+    checkpoint_checksum: "SHA256 ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68"
+    model_configuration: >-
+      CPython 3.8.10; torch 1.9.0+cu111; torchvision 0.10.0+cu111;
+      Detectron2 0.6+cu111; CUDA 11.1; sm_86; NVIDIA GeForce RTX 3090;
+      isolated JSON-file subprocess.
+    license: "No environment, source, checkpoint, or generated extension is redistributed."
+    evidence_source: SRC-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Environment audit, strict checkpoint compatibility, staged-worker dispatch, real CUDA
+      inference, and memory reporting passed. The three outputs reduced in reading order to
+      `deepsolo test 2026`; inference took 0.147001147037372 seconds with
+      869216256/1270874112 bytes peak allocated/reserved CUDA memory. This runtime is
+      qualified for APPROXIMATE use only and does not inherit
+      ART-DEEPSOLO-M6-DOCKER-RUNTIME status or identify the paper's checkpoint.
+
+  - id: ART-DEEPSOLO-IC13-AND-COCOTS-SELECTION
+    component: "DeepSolo fallback on ICDAR13 and COCO-TS"
+    artifact_type: "checkpoint_selection"
+    source_id: SRC-DEEPSOLO-OFFICIAL
+    source_repository_model_source: null
+    upstream_project_name: "DeepSolo"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: null
+    license: "UNRESOLVED"
+    evidence_source: "SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "The official DeepSolo model zoo has no dedicated ICDAR13 or COCO-TS checkpoint mapping matching the context-driven paper."
+
+  - id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+    component: "ICDAR13 Focused Scene Text"
+    artifact_type: "dataset_split"
+    source_id: SRC-ICDAR13-RRC
+    source_repository_model_source: "RRC Challenge 2 downloads"
+    upstream_project_name: "ICDAR13 Focused Scene Text"
+    exact_revision: "2013 continuous task; archive revision unknown"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "229 train images, 233 test images; segmentation GT is color-coded per character with don't-care regions."
+    license: "UNRESOLVED from inspected portal"
+    evidence_source: "SRC-ICDAR13-RRC"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Official split identity remains RRC. Local bytes were acquired from the separately
+      recorded keras-ocr v0.8.4 public mirror artifacts, not directly from RRC. Their
+      checksums do not promote them to upstream-primary evidence. Exact white/non-white
+      conversion is frozen for M9, but paper-exact Don't Care training and the paper's
+      protocol remain unresolved.
+
+  - id: ART-ICDAR13-MIRROR-TRAIN-IMAGES-V084
+    component: "ICDAR13 training-image archive mirror bytes"
+    artifact_type: "dataset_archive_mirror"
+    source_id: SRC-ICDAR13-KERASOCR-MIRROR-TRAIN-IMAGES-V084
+    source_repository_model_source: "keras-ocr v0.8.4 GitHub release asset"
+    upstream_project_name: "keras-ocr mirror of ICDAR13 Challenge 2 training images"
+    exact_revision: "Challenge2_Training_Task12_Images.zip at v0.8.4"
+    checkpoint_identifier: "Challenge2_Training_Task12_Images.zip"
+    checkpoint_checksum: "SHA256 7a57d1699fbb92db3ad82c930202938562edaf72e1c422ddd923860d8ace8ded"
+    model_configuration: "Physically verified extraction contains 229 readable JPG training images."
+    license: "RRC terms unresolved; mirror provenance does not alter dataset terms."
+    evidence_source: SRC-ICDAR13-KERASOCR-MIRROR-TRAIN-IMAGES-V084
+    evidence_classification: SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Exact acquired mirror bytes only; not an official-primary RRC archive artifact."
+
+  - id: ART-ICDAR13-MIRROR-TASK2-GT-V084
+    component: "ICDAR13 Task 2 ground-truth archive mirror bytes"
+    artifact_type: "dataset_archive_mirror"
+    source_id: SRC-ICDAR13-KERASOCR-MIRROR-TASK2-GT-V084
+    source_repository_model_source: "keras-ocr v0.8.4 GitHub release asset"
+    upstream_project_name: "keras-ocr mirror of ICDAR13 Challenge 2 Task 2 ground truth"
+    exact_revision: "Challenge2_Training_Task2_GT.zip at v0.8.4"
+    checkpoint_identifier: "Challenge2_Training_Task2_GT.zip"
+    checkpoint_checksum: "SHA256 4cedd5b1e33dc4354058f5967221ac85dbdf91a99b30f3ab1ecdf42786a9d027"
+    model_configuration: "Physically verified extraction contains 229 readable BMP masks and 229 paired TXT files with zero image/mask geometry mismatches."
+    license: "RRC terms unresolved; mirror provenance does not alter dataset terms."
+    evidence_source: SRC-ICDAR13-KERASOCR-MIRROR-TASK2-GT-V084
+    evidence_classification: SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Exact acquired mirror bytes only; not an official-primary RRC archive artifact."
+
+  - id: ART-ICDAR13-M9-APPROX-SPLIT-POLICY
+    component: "M9 approximate ICDAR13 train/validation split policy"
+    artifact_type: "dataset_split_policy"
+    source_id: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    source_repository_model_source: "manifests/icdar13_segmentation_split_policy.json"
+    upstream_project_name: "Local M9 reproduction decision"
+    exact_revision: "icdar13-task2.2-sha256-ranked-holdout-v1"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Policy SHA256 3a7c3d4226e735b2e4b57fef5f8c84fa9522ad1b60852d86229a975ff07d6124; file SHA256 661240b60600780f2aeefeabbf17e29a3ad086a32361437b6095858d74dbf9d4"
+    model_configuration: "Seed 202503; hash-ranked 23 validation/206 training; numeric serialization order."
+    license: "Repository metadata only; underlying dataset terms remain separate."
+    evidence_source: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Frozen APPROXIMATE assumption; not paper-specified and cannot enter STRICT."
+
+  - id: ART-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+    component: "M9 approximate ICDAR13 training-target policy"
+    artifact_type: "dataset_annotation_policy"
+    source_id: SRC-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+    source_repository_model_source: "manifests/icdar13_training_mask_policy.json"
+    upstream_project_name: "Local M9 reproduction decision"
+    exact_revision: "icdar13-task2.2-exact-white-background-v1"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Policy SHA256 ca318685a8fea2a0c162d80986acb88d60ec950fdec440652ff4d57bf4c0adf3; file SHA256 ec0e2319938a667a7170100bc8b43f8b22262f89922322dce1f2c7004c5162be"
+    model_configuration: "RGB (255,255,255) -> 0; every other RGB -> 1; Don't Care foreground; TXT audit-only; no ignore target or BCE change. Physical audit: 229 BMP, 229 TXT, 0 bad BMP, 205264 near-white non-white pixels, 76 TXT/608 lines with Don't Care."
+    license: "Repository metadata only; underlying dataset terms remain separate."
+    evidence_source: SRC-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Training-only APPROXIMATE policy; defines no evaluation semantics and cannot enter STRICT."
+
+  - id: ART-ICDAR13-M9-CUDA-QUALIFICATION
+    component: "Approximate M9 ICDAR13 real-data training-path qualification"
+    artifact_type: "qualified_local_training_smoke"
+    source_id: SRC-ICDAR13-M9-HOST-QUALIFICATION
+    source_repository_model_source: "segmentation/train.py"
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: "approximate-ag-unet-figure3-v1; schema 1; qualified 2026-08-20"
+    checkpoint_identifier: "External final checkpoint; qualification artifact only"
+    checkpoint_checksum: "SHA256 f06db536167ccd3d881adababaf00b2d6cefbb8cf6524bd22d303a908540e45e"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3070 8192 MiB; driver 595.84; torch 2.4.1+cu124;
+      cuda float32; 48,454,733 parameters; batch 8; image [8,3,256,256];
+      mask [8,1,128,128]; qualification-max-steps=1; two epochs and two total
+      train steps/global_step 2; epoch train losses 0.9355729818344116 and
+      0.9342144727706909; validation losses 0.2795393764972687 and
+      0.3452925980091095; success true; OOM false; 2373442560 peak allocated
+      bytes; 2552233984 peak reserved bytes.
+    license: "No generated checkpoint, run log, dataset byte, or external output is stored in the repository."
+    evidence_source: SRC-ICDAR13-M9-HOST-QUALIFICATION
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Short engineering qualification only. qualification-max-steps=1 produced one train
+      step in each of the two configured epochs and global_step=2. It is neither full
+      scientific segmentation training nor a Table 3 result. Physical full suite: 171
+      passed in 38.56 seconds; git diff --check passed. External outputs remain under
+      $HOME/context-str-runs/m9-qualification-physical and are not tracked. The run remains APPROXIMATE;
+      A-001 through A-008, T-001 through T-004, DS-001, and DS-003 remain blockers.
+
+  - id: ART-ICDAR13-M9-APPROX-TRAINED-CHECKPOINT
+    component: "Full configured M9 APPROXIMATE ICDAR13 segmentation checkpoint"
+    artifact_type: "trained_checkpoint"
+    source_id: SRC-ICDAR13-M9-APPROX-FULL-TRAINING
+    source_repository_model_source: "External run output: checkpoints/epoch-0002.pt"
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: "approximate-ag-unet-figure3-v1; architecture schema 1; epoch 2; global_step 52"
+    checkpoint_identifier: "checkpoints/epoch-0002.pt under the external run root"
+    checkpoint_checksum: "SHA256 335a003ae00cf21d159151b9568e10eafde12d6ae524bf7505e1d62ae4c3bfe2"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3070; cuda float32; 48,454,733 parameters;
+      206 train/23 validation samples; batch 8; two epochs; 26 steps per epoch;
+      global_step 52; Adam; learning rate 1e-4; weight decay 0.01; no scheduler;
+      last-checkpoint selection. Epoch 1 train/validation losses:
+      0.8646002301892031/0.8293485304583674. Epoch 2 train/validation losses:
+      0.7025007738650424/0.6749140412911124. success true; OOM false;
+      2373967360 peak allocated bytes; 2552233984 peak reserved bytes.
+    license: "External generated checkpoint; bytes are not stored or redistributed by the repository."
+    evidence_source: SRC-ICDAR13-M9-APPROX-FULL-TRAINING
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Full configured M9 APPROXIMATE training output, distinct from
+      ART-ICDAR13-M9-CUDA-QUALIFICATION. This external checkpoint is the recorded input for
+      a future APPROXIMATE M10 run; no M10 evaluation or Table 3 claim has begun. A-001
+      through A-008, T-001 through T-004, DS-001, and DS-003 remain STRICT blockers.
+
+  - id: ART-ICDAR13-AUTHOR-PROTOCOL-APPROX-TRAINED-CHECKPOINT
+    component: "Frozen author-protocol APPROXIMATE ICDAR13 segmentation checkpoint"
+    artifact_type: "trained_checkpoint"
+    source_id: SRC-ICDAR13-AUTHOR-PROTOCOL-APPROX-FULL-TRAINING
+    source_repository_model_source: "External run output: checkpoints/epoch-0098.pt"
+    upstream_project_name: "icdar2025-context-driven-str reproduction"
+    exact_revision: >-
+      author-clarified-ag-unet-2048x1024-v1; epoch 98; global_step 2842;
+      training run manifest SHA256 461b38231b0260e6d0fb96dcdfed970abe3129c6db653a56e30efc516440d198
+    checkpoint_identifier: "epoch-0098.pt"
+    checkpoint_checksum: "SHA256 b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2"
+    model_configuration: >-
+      Frozen ResNet-50 encoder and BatchNorm state; 2048-to-1024 bottleneck;
+      decoder 512/256/128/64; one-channel 128x128 logits for 256x256 ImageNet-normalized
+      input; inclusive sigmoid threshold 0.5; checkpoint selected by training foreground
+      IoU 0.8491071049907437 from 100 epochs on all 229 training images.
+    license: "External generated checkpoint; bytes are not stored or redistributed by the repository."
+    evidence_source: SRC-ICDAR13-AUTHOR-PROTOCOL-APPROX-FULL-TRAINING
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: >-
+      Frozen downstream baseline only. Task-1-derived validity masks are evaluation-only
+      and are never applied to its downstream prediction mask.
+
+  - id: ART-ICDAR13-M9-APPROX-TRAIN-MANIFEST
+    component: "M9 approximate ICDAR13 training manifest"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    source_repository_model_source: "manifests/icdar13_segmentation_train.yaml"
+    upstream_project_name: "Local M9 reproduction manifest"
+    exact_revision: "206 samples under ART-ICDAR13-M9-APPROX-SPLIT-POLICY"
+    checkpoint_identifier: null
+    checkpoint_checksum: "SHA256 a0094b3af700ce548beb653600965c841fb8f72f428ac14316e4eba36eafe18b"
+    model_configuration: "Relative JPG/BMP paths and per-file SHA256; numeric sample order; frozen training-mask policy fingerprint."
+    license: "Manifest metadata only; dataset bytes are external."
+    evidence_source: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "APPROXIMATE training-ready manifest; Don't Care-as-foreground remains an assumption and DS-003 blocks STRICT."
+
+  - id: ART-ICDAR13-M9-APPROX-VALIDATION-MANIFEST
+    component: "M9 approximate ICDAR13 validation manifest"
+    artifact_type: "dataset_manifest"
+    source_id: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    source_repository_model_source: "manifests/icdar13_segmentation_validation.yaml"
+    upstream_project_name: "Local M9 reproduction manifest"
+    exact_revision: "23 samples under ART-ICDAR13-M9-APPROX-SPLIT-POLICY"
+    checkpoint_identifier: null
+    checkpoint_checksum: "SHA256 a396d0f737ed553aafb2ecf04606fd92d9e2ffacbf79c6d4ec6e8777f9361d46"
+    model_configuration: "Relative JPG/BMP paths and per-file SHA256; numeric sample order; metrics-only held-out source; frozen training-mask policy fingerprint."
+    license: "Manifest metadata only; dataset bytes are external."
+    evidence_source: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "APPROXIMATE metrics-only validation manifest; not test data or a paper-specified split; DS-003 blocks STRICT."
+
+  - id: ART-ICDAR15-IST-OFFICIAL-SPLIT
+    component: "ICDAR15 Incidental Scene Text"
+    artifact_type: "dataset_split"
+    source_id: SRC-ICDAR15-RRC
+    source_repository_model_source: "RRC Challenge 4 downloads"
+    upstream_project_name: "ICDAR15 Incidental Scene Text"
+    exact_revision: "ICDAR 2015 Challenge 4; archive revision unknown"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "1,000 train, 500 public test, 170 private; quadrilateral word annotations; non-Latin/unreadable and one/two-character words are don't-care in official protocol."
+    license: "UNRESOLVED from inspected portal"
+    evidence_source: "SRC-ICDAR15-RRC"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: false
+    notes: "Sufficient to prepare an official-manifest workflow later, but bytes/checksums must be frozen after authorized download."
+
+  - id: ART-TOTALTEXT-OFFICIAL-SPLIT
+    component: "Total-Text"
+    artifact_type: "dataset_split"
+    source_id: SRC-TOTALTEXT-OFFICIAL
+    source_repository_model_source: "Total-Text official repository"
+    upstream_project_name: "Total-Text"
+    exact_revision: "3805c3b0f771a3585126028accabd9ac32de6e1f for metadata/evaluator; dataset archive revision unknown"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "1,255 train, 300 test; word polygons and pixel ground truth."
+    license: "BSD-3-Clause project with commercial-use contact request"
+    evidence_source: "SRC-TOTALTEXT-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: false
+    notes: "Official source is frozen; downloaded dataset bytes and manifest are future work."
+
+  - id: ART-COCOTS-OFFICIAL-DATASET
+    component: "COCO-TS segmentation"
+    artifact_type: "dataset"
+    source_id: SRC-COCOTS-OFFICIAL
+    source_repository_model_source: "COCO-TS official site"
+    upstream_project_name: "COCO-Text Segmentation Dataset"
+    exact_revision: "archive revision unknown"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "14,690 weakly supervised pixel masks derived from COCO-Text bounding boxes."
+    license: "CC BY 4.0 annotations"
+    evidence_source: "SRC-COCOTS-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "This is the named dataset, but cannot produce the paper's stated 43,686/10,000 protocol without an undocumented mapping."
+
+  - id: ART-COCOTEXT-COUNT-ORIGIN
+    component: "COCO-TS count conflict"
+    artifact_type: "dataset_metadata"
+    source_id: SRC-COCOTEXT-OFFICIAL
+    source_repository_model_source: "COCO-Text official site"
+    upstream_project_name: "COCO-Text v1.4"
+    exact_revision: "2017 v1.4"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "43,686 training and 10,000 validation images—the exact pair printed in the paper's COCO-TS row."
+    license: "UNRESOLVED from inspected page"
+    evidence_source: "SRC-COCOTEXT-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Resolves where the conflicting counts come from, not which images/masks/protocol the authors actually ran."
+
+  - id: ART-ICDAR13-SEGMENTATION-EVALUATOR
+    component: "Segmentation evaluation"
+    artifact_type: "official_evaluator"
+    source_id: SRC-ICDAR13-RRC
+    source_repository_model_source: "https://rrc.cvc.uab.es/?ch=2&com=tasks"
+    upstream_project_name: "RRC Focused Scene Text Task 2.2"
+    exact_revision: "Portal task revision not versioned"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Official evaluator reports pixel precision/recall/F-score and atom-based measures with don't-care handling."
+    license: "UNRESOLVED"
+    evidence_source: "SRC-ICDAR13-RRC"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "The paper reports fgIoU/F1 and does not say it used this official evaluator or define its own aggregation."
+
+  - id: ART-TOTALTEXT-DETEVAL
+    component: "Total-Text detection/e2e evaluation"
+    artifact_type: "official_evaluator"
+    source_id: SRC-TOTALTEXT-OFFICIAL
+    source_repository_model_source: "Evaluation_Protocol in the official repository"
+    upstream_project_name: "Total-Text DetEval"
+    exact_revision: "3805c3b0f771a3585126028accabd9ac32de6e1f"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Official polygon detection DetEval scripts and benchmark settings."
+    license: "BSD-3-Clause project terms"
+    evidence_source: "SRC-TOTALTEXT-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Evaluator identity is resolved, but it does not define the paper's standalone recognition accuracy."
+
+  - id: ART-ICDAR15-OFFICIAL-EVALUATOR
+    component: "ICDAR15 recognition/e2e evaluation"
+    artifact_type: "official_evaluator"
+    source_id: SRC-ICDAR15-RRC
+    source_repository_model_source: "RRC Challenge 4 evaluator"
+    upstream_project_name: "ICDAR15 Robust Reading Competition"
+    exact_revision: "Challenge 4 protocol; portal code revision not exposed"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "IoU > 0.5 matching for localization/e2e; case-insensitive word match; official care/don't-care and lexicon variants."
+    license: "UNRESOLVED"
+    evidence_source: "SRC-ICDAR15-RRC"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: ASSUMPTION
+    status: PARTIALLY_RESOLVED
+    blocks_strict_reproduction: true
+    notes: "Recoverable official protocol, but the context-driven paper's reported recognition 'accuracy' is not mapped to an RRC task or lexicon setting."
+
+  - id: ART-PAPER-RECOGNITION-EVALUATOR
+    component: "Table 5, Table 6, and Table 7 evaluation"
+    artifact_type: "evaluation_protocol"
+    source_id: SRC-PAPER-V2
+    source_repository_model_source: null
+    upstream_project_name: null
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Undefined unit of accuracy, matching, normalization, false positives, multiple words/outputs, don't-care handling, crop aggregation, and dataset denominator."
+    license: "not applicable"
+    evidence_source: "Paper Tables 5-7 and official evaluators above"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: UNRESOLVED
+    status: BLOCKING
+    blocks_strict_reproduction: true
+    notes: "No official evaluator can be substituted silently because the paper does not claim one and its scalar accuracy is not equivalent to standard end-to-end H-mean."

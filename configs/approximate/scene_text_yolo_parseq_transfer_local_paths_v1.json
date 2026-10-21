@@ -1,0 +1,24 @@
+{
+  "reproduction_mode": "approximate",
+  "output_root": "/tmp/scene-text-yolo-transfer-v1",
+  "yolo_checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "datasets": {
+    "icdar13": {
+      "data_root": "/extra1/bmartelli/datasets/context-str/icdar13",
+      "manifest": "manifests/icdar13_recognition_test.yaml"
+    },
+    "icdar2015": {
+      "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+      "image_directory": "datasets/icdar2015/test/images",
+      "annotation_directory": "datasets/icdar2015/test/annotations",
+      "prepared_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/icdar2015_test.yaml"
+    },
+    "ctw1500": {
+      "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+      "manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/ctw1500_recognition_test.json"
+    }
+  }
+}

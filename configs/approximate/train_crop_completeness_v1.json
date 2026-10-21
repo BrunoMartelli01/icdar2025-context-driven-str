@@ -1,0 +1,17 @@
+{
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "audit_sha256": "82acfe8d860aee1a0f7bf70b9308a83aefb4abc17561105c74324d8b990fc56a",
+  "glyph_audit_sha256": "3592cbe10dfabbee852b0f33cb35e660d32bc38b69b457fc747de2dfafc4218b",
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Post-hoc original GT glyph-color pixel retention, contamination by other care words, and separate Don't Care pixels. Any-pixel overlap is reported literally, not treated as proof of a meaningful merge."},
+    {"classification": "ASSUMPTION", "choice": "Evaluate stored GT-associated raw-component union bbox plus exactly frozen V1 padding. This is a diagnostic counterfactual, not an inference proposal or predicted OCR improvement."},
+    {"classification": "ASSUMPTION", "choice": "Use original-resolution nearest backprojection of the verified cached binary prediction to measure support on original annotated glyph pixels. Positive support does not imply adequate glyph reconstruction."},
+    {"classification": "UNRESOLVED", "choice": "Per-word GT_BOX OCR and new counterfactual crop OCR unavailable: do not infer recognition success from crop geometry."}
+  ],
+  "table5_accuracy": null,
+  "tuning": false,
+  "ocr_run": false,
+  "test_loaded": false
+}

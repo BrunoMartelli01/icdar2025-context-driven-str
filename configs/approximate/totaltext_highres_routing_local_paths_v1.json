@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source_run": "/extra1/bmartelli/context-str-runs/totaltext-v4-highres-contour-padding-test-v1",
+  "source_training_run": "/extra1/bmartelli/context-str-runs/totaltext-v4-highres-ablation-v1/highres_separator_residual",
+  "paper_run": "/tmp/paper-image-router-baseline-v1/a622b7199f00",
+  "paper_t1_manifest": "/tmp/paper-image-router-baseline-v1/frozen_t1_manifest.json",
+  "output_root": "artifacts/diagnostics/totaltext-highres-routing-20261014"
+}

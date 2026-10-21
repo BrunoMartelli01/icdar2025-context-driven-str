@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN_heldout_125",
+  "gt_words": 983,
+  "probability_threshold": 0.5,
+  "padding_native_pixels": 0,
+  "area_filter": "disabled",
+  "maximum_proposals": "disabled",
+  "source_ocr_report_sha256": "c42e05c02369bcf32f96109b91b60adc1e451e2d79a9c4a4b42a1a4efee2b9ca",
+  "source_checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "control_run_manifest_sha256": "79fcee001bec71391ba127360b088937614bbcf9943c5028a6f0b237837797a5",
+  "control_checkpoint_sha256": "8cb13e9daaea77c5c85184d21ee79ea6d5d0700481b84046cad75c5b626061dc",
+  "sep5_run_manifest_sha256": "1391842140f5e32004d97cec831638dbd075ed1064f0e96c0803164f009fb9c0",
+  "sep5_checkpoint_sha256": "6bc457f9df96c7327c6ddf26834e03776f18fe99f43e587ae5d931be0987d3c2",
+  "scientific_choice": {
+    "classification": "ASSUMPTION",
+    "rationale": "Post-hoc TRAIN-only word/OCR audit of the two fixed checkpoint selections. GT is used only for evaluation. The sep5 checkpoint contains the exact same model tensors as the original epoch-71 source and can reuse its OCR outputs. No TEST data or checkpoint tuning is used."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "policy": {
+    "algorithm_id": "icdar13-task2.2-exact-white-background-v1",
+    "algorithm_version": 1,
+    "ambiguity_ids": [
+      "DS-003"
+    ],
+    "classification": "ASSUMPTION",
+    "conversion": {
+      "background": "RGB exactly (255,255,255)",
+      "background_value": 0,
+      "classification": "REPOSITORY_SPECIFIED",
+      "color_remapping": null,
+      "evidence_basis": "UPSTREAM_PRIMARY",
+      "exact_equality": true,
+      "foreground": "every other RGB value",
+      "foreground_value": 1,
+      "grayscale_threshold": null,
+      "morphology": null,
+      "palette_assumption": null,
+      "tolerance": null
+    },
+    "dont_care_training": {
+      "behavior": "foreground",
+      "classification": "ASSUMPTION",
+      "special_cased": false,
+      "strict_blocker": true
+    },
+    "input": "HxWx3 uint8 RGB ICDAR13 Task 2.2 BMP",
+    "loss_contract": {
+      "ignore_index": null,
+      "ignore_mask": false,
+      "loss": "BCEWithLogitsLoss",
+      "masked_bce": false
+    },
+    "physical_audit": {
+      "bad_bmp_count": 0,
+      "bmp_count": 229,
+      "dont_care_line_count": 608,
+      "near_white_non_white_pixel_count": 205264,
+      "nonbinary_after_conversion_count": 0,
+      "txt_count": 229,
+      "txt_files_with_dont_care": 76
+    },
+    "scope": "M9 training targets only; defines no M10 evaluation semantics",
+    "txt_annotations": {
+      "alters_bce_target": false,
+      "role": "audit/provenance only"
+    }
+  },
+  "policy_fingerprint_sha256": "ca318685a8fea2a0c162d80986acb88d60ec950fdec440652ff4d57bf4c0adf3",
+  "schema_version": 1
+}

@@ -1,0 +1,74 @@
+{
+  "checkpoint_epochs": [
+    126,
+    361,
+    382,
+    500
+  ],
+  "claim_label": "approximate reproduction",
+  "expected_care_words": 2204,
+  "expected_images": 300,
+  "max_proposals_per_image": 10,
+  "min_unpadded_bbox_area_native": 150,
+  "output_budget_bytes": 134217728,
+  "padding_native_pixels": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "probability_threshold": 0.5,
+  "reproduction_mode": "approximate",
+  "runtime": {
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "device": "cuda:0",
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "seed": 202503,
+    "segmentation_batch_size": 1
+  },
+  "schema_version": 1,
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "decision": "Segmentation followed by padded localized blocks and at most ten crops",
+      "source": "papers/2503.15639v2.pdf sections3.2/3.3"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "decision": "Preserve native128 external contours, bbox-area150 filter and padded bbox-area top10 sorting, qualified official PARSeq AR/refine1",
+      "source": "scripts/evaluate_cached_totaltext_padding.py; recognition/parseq.py"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Fixed six native padding values; complete TEST300 exploration after frozen validation125 checkpoint selection; primary maximum one-to-one unpadded boxIoU>=.5 casefold exact with care denominator and all predictions counted; secondary padded-box scoring separate",
+      "source": "docs/PAPER_AMBIGUITIES.md#v2-selected-ocr-size-001"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Measure actual native foreground count,8-connected per-component areas, per-image coverage and pooled retained box dimensions; mask independent of crop padding",
+      "source": "docs/PAPER_AMBIGUITIES.md#v2-selected-ocr-size-001"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "decision": "Single RTX3090 CUDA FP32; sequential segmentation batch1 then PARSeq batch32; deterministic,noTF32,noAMP,no crop or mask export. CPU versus CUDA parity is not claimed",
+      "source": "docs/PAPER_AMBIGUITIES.md#v2-selected-ocr-size-001"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "decision": "Exact paper PARSeq-S/model identities and official recognition metric; post-hoc TEST padding cannot establish independent tuning or universal Word-F1 predictiveness",
+      "source": "docs/PAPER_AMBIGUITIES.md#v2-selected-ocr-size-001"
+    }
+  ],
+  "source_sha256": {
+    "checkpoint_selection.json": "9f61808dc81714b1ce860ec46cf62b39ac61ed53b9a349c0d6ed21e6eb1c687e",
+    "epochs.jsonl": "1f004b88b219e364ab3ead9806ae869c806dad2ad8add5ba4a7e919b70a886c9",
+    "run_contract.json": "831fa3c1510db8103319395b6917cb37fd61ad761b47ab12affba234e0403554",
+    "run_manifest.json": "611a40db3e8d5dcb271244f1b1db152f9f41da3482908168b384144a54775c3a"
+  },
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "variant": "compact-v2-selected-ocr-padding-v1"
+}

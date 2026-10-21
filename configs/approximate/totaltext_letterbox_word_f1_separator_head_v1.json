@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_v4_letterbox_word_f1_separator_head_ablation",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "frozen_TRAIN_1130_validation_125",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "train_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "source_training_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_training_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "epochs": 100,
+  "seed": 202503,
+  "batch_size": 8,
+  "num_workers_per_branch": 2,
+  "foreground_threshold": 0.5,
+  "separator_threshold": 0.5,
+  "separator_auxiliary_loss_weight": 0.25,
+  "checkpoint_selection": [
+    "maximize_validation_proposal_f1_iou_0_50",
+    "minimize_validation_gt_words_touched_by_fused_components",
+    "maximize_validation_word_recall_iou_0_50",
+    "maximize_validation_foreground_iou",
+    "earliest_epoch"
+  ],
+  "branches": ["word_f1_control", "word_f1_separator_head"],
+  "postprocessing": "native256_8_connected_no_area_no_top10_no_padding",
+  "scientific_choices": [
+    {"component": "word_level_checkpoint_selection", "classification": "ASSUMPTION", "rationale": "The paper specifies BCE, not checkpoint ranking by word-proposal F1; this practical run uses only held-out TRAIN word owners."},
+    {"component": "separator_auxiliary_head", "classification": "ASSUMPTION", "rationale": "A native-resolution second output predicts the existing inter-word separator target; the strict paper architecture is untouched."},
+    {"component": "separator_training_loss", "classification": "ASSUMPTION", "rationale": "Foreground keeps separation-weighted BCE with weight 3; separator uses positive/negative balanced BCE weighted 0.25."},
+    {"component": "separator_inference", "classification": "ASSUMPTION", "rationale": "Word proposals use foreground probability >=0.5 AND separator probability <0.5, then the unchanged practical native contour protocol."}
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "epochs": 10,
+  "checkpoint_epochs": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "image_batch_size": 4,
+  "num_workers": 4,
+  "cpu_threads": 4,
+  "initial_bias": -2.0,
+  "loss": {
+    "teacher_text_threshold": 0.65,
+    "balanced_bce_weight": 0.5,
+    "dice_weight": 0.5,
+    "text_protection_weight": 0.25,
+    "smooth": 1.0
+  },
+  "train_images": 1255,
+  "test_images": 300,
+  "test_care_words": 2204,
+  "selected_epoch": 1,
+  "gap_threshold": 0.9,
+  "decoder": "preserve",
+  "evaluation_epochs": [
+    1,
+    10
+  ],
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "full_official_train",
+      "rationale": "User explicitly requests all images: use all1255official TRAIN images, including former100calibration and125evaluation, once per epoch. Former125results become training-set observations and cannot be reported as heldout generalization. Official TEST300 never enters optimizer or selection.",
+      "expected_effect": "More Gap supervision, with no remaining internal validation."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "unchanged_training",
+      "rationale": "Same qualified frozen ResNet50/Text/Kernel source, copied trainable32.6M Gap decoder, original paired augmentation RGB512/native256, radius3Gap targets, BCE/Dice/Text protection weights.5/.5/.25, AdamW1e-4/decay1e-4, seed202503 and10epochs. Fresh copied decoder and zero Gap head, not continuation of previousGap.",
+      "expected_effect": "Change Gap fit population1030to1255 without a new architecture/loss/optimizer."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "fixed_selection",
+      "rationale": "Predeclare epoch1/.9/preserve from preceding100image calibration; retain all10epochs and checkpoints1/3/5/10. Evaluate fixed epoch1 and final10 as a diagnostic on TEST, compare with same frozenM/K and previous1030fit Gap epoch1. Do not select a winner or change parameters using TEST.",
+      "expected_effect": "Transfer prior choices to full-data refit without tuning on TEST."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "test_metric",
+      "rationale": "Full300TEST images/2204care words, original RGB half-open bboxIoU>=.5 one-to-one maximum-count matching, exact Unicode casefold retaining punctuation, allcare GT including misses, empty/duplicate care proposals in denominator. Predictions wholly within native invalid region ignored after geometry is frozen, same rule as precedingTRAIN Gap evaluation. Mixed-care components retained. No native owner/fusion metric is fabricated from TEST pixelGT.",
+      "expected_effect": "Fair matched arms, distinct from official polygon scoring or Table5 accuracy and from old983word cohort."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "gpu",
+      "rationale": "Actual single CUDA GPU, FP32 batch4training and batch1segmentationTEST, batch4PARSeq, sequential segmentation/OCR, memory/OOM captured and no CPU fallback.",
+      "expected_effect": "Measured on actualPAPER hardware, no8GB/latency qualification."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "limits",
+      "rationale": "Approximate research extension, sourcearchitecture/GT/protocol approximations retained, TEST was historically explored in this repository, independent confirmation/multiple seeds and full sharedAdaSpot remain unresolved. Full-data late-epoch overfitting may persist.",
+      "expected_effect": "No strict, untouchedTEST or guaranteed gain claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "known_official_rgb_overlap",
+      "rationale": "Preflight discovered exact SHA256 duplicate TEST578=TRAIN212 and TEST656=TRAIN81. Retain all officialTRAIN1255 to honor user instruction; primary TEST300 includes duplicates transparently and secondary TEST298 excludes exactly these known two from evaluation only. Unknown overlaps fail. Do not claim fully independent TEST300; all denominators and duplicate contributions are reported.",
+      "expected_effect": "No silent training filtering, no hidden evaluation exclusions; hash-disjoint subset remains exploratory and historically explored."
+    }
+  ],
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "known_official_rgb_overlap": [
+    {
+      "test_id": "total_text:578",
+      "train_ids": [
+        "total_text:212"
+      ],
+      "sha256": "49ee079a6f9d9565f6167c4425db511d87d16aaa59f6bc87d4b2573c7bdb3d0c"
+    },
+    {
+      "test_id": "total_text:656",
+      "train_ids": [
+        "total_text:81"
+      ],
+      "sha256": "3bdb83fed0aa26e9370e65113ebc3aca02eed5726d0c1e04e8743865f52d926f"
+    }
+  ]
+}

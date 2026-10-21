@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "experiment": "totaltext-crop-recovery-suite-train-v1",
+  "reproduction_mode": "approximate",
+  "dataset": "total_text",
+  "split": "TRAIN_heldout_125",
+  "claim_label": "approximate reproduction; TRAIN crop-generation diagnostic",
+  "seed": 202503,
+  "segmentation_checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "threshold_report_sha256": "613957db6019d0762a4d890495e3c1c0af5f91a92ced9c232c099a103328a334",
+  "threshold_protocol_config_sha256": "2ace630a02d6d4d2ab298b0cc200c0192b3b6b167498b063db6571c2b8de8d4e",
+  "baseline_threshold": 0.5,
+  "baseline_padding": 0,
+  "mask_size": 256,
+  "matching_iou": 0.5,
+  "normalization": "Unicode casefold; remove Unicode P/S; preserve accents digits whitespace; empty normalized tokens cannot match",
+  "threshold_tree": {
+    "thresholds": [0.35, 0.45, 0.5, 0.6, 0.65, 0.7, 0.8, 0.9],
+    "seed_pairs": [[0.35, 0.65], [0.5, 0.8], [0.5, 0.9]],
+    "maximum_adjacent_union": 3
+  },
+  "erosion_reconstruction": {
+    "radius_thickness_fractions": [0.08, 0.16, 0.24],
+    "maximum_adjacent_union": 3
+  },
+  "image_seams": {
+    "probability_weight": 0.7,
+    "interior_fraction": 0.15,
+    "minimum_spacing_fraction": 0.15,
+    "search_band_fraction": 0.1,
+    "maximum_seams_per_axis": 3,
+    "minimum_native_extent": 3,
+    "cut_half_width": 1,
+    "maximum_adjacent_union": 3
+  },
+  "tiled_segmentation": {
+    "grids": [2],
+    "overlap": 0.25,
+    "thresholds": [0.5, 0.65, 0.8]
+  },
+  "variants": {
+    "oriented": true,
+    "source_methods": ["baseline", "threshold_tree", "erosion_reconstruction", "image_seams", "tiled_segmentation"],
+    "border_height_fractions": [-0.1, 0.1],
+    "neutral_height_fractions": [0.1]
+  },
+  "execution": {"parseq_batch_size": 16, "cpu_threads": 4, "precision": "float32"},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "The paper sections 3.2/3.3 and Algorithm 1 use binary foreground masks and connected localization; section 3.5 selects PARSeq-S."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse the qualified letterbox checkpoint, held-out TRAIN manifest/split, original RGB and native-256 probability cache, and the qualified PARSeq adapter/checkpoint."},
+    {"classification": "ASSUMPTION", "choice": "All thresholds, erosion scales, geodesic partitions, adjacent unions, seam costs and budgets, overlapping tiles, PCA orientation, border shifts and median-color artificial margins are new GT-blind experimental hypotheses. Do not apply area/top10 caps or one-per-anchor restrictions. See docs/TOTALTEXT_CROP_RECOVERY_SUITE.md and ambiguity TT-CROP-RECOVERY-POOL-V1."},
+    {"classification": "ASSUMPTION", "choice": "Primary metric is maximum one-to-one spatial matching at bbox IoU >= 0.5 with normalized exact strings over the complete candidate pool; multiple correct crops cannot multiply the GT count. Retain all care words in the original denominator and separately report normalized nonempty GT."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Sequential float32 segmentation/PARSeq loading with segmentation batch one and PARSeq batch 16; CPU execution is allowed and recorded. Peak allocated/reserved GPU memory and OOM failures are recorded per model stage."},
+    {"classification": "UNRESOLVED", "choice": "Effectiveness on independent data and the eventual GT-blind crop selector remain unresolved. TRAIN oracle recall is not deployment accuracy or a Table 5 reproduction."}
+  ],
+  "table_5_claim": false
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "experiment": "clip-word-verification-train-v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "63e5b7542b45ecbc72acba16152e4456bdd29af4adf907fb097282b867ed64b5",
+  "captions_sha256": "06b50d6c3a6b48a160cd208472397307620f4081ae1f952e287776cdb571ffa2",
+  "expected_images": 125,
+  "expected_anchors": 1173,
+  "expected_baseline_exact": 368,
+  "expected_care_words": 983,
+  "candidate_pool": "threshold_only_pad0_raw_parseq",
+  "prediction_geometry": "unchanged_threshold0.5_pad0_baseline",
+  "surround_expansion": 2.0,
+  "max_caption_words": 80,
+  "agreement_margin": 0.02,
+  "templates": {
+    "raw": "{text}",
+    "written": "a photo of the written word \"{text}\"",
+    "sign": "a sign with the text \"{text}\"",
+    "printed": "the printed word \"{text}\""
+  },
+  "ensemble_templates": ["written", "sign", "printed"],
+  "context_template": "a photo of the written word \"{text}\". Scene: {caption}",
+  "models": {
+    "vit_b32": {
+      "model_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+      "patch_size": 32, "hidden_size": 768, "layers": 12, "projection_dim": 512,
+      "revision_evidence": "https://huggingface.co/openai/clip-vit-base-patch32/commit/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "vit_b16": {
+      "model_id": "openai/clip-vit-base-patch16",
+      "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": null,
+      "patch_size": 16, "hidden_size": 768, "layers": 12, "projection_dim": 512,
+      "revision_evidence": "https://huggingface.co/openai/clip-vit-base-patch16/commit/57c216476eefef5ab752ec549e440a49ae4ae5f3"
+    },
+    "vit_l14": {
+      "model_id": "openai/clip-vit-large-patch14",
+      "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+      "patch_size": 14, "hidden_size": 1024, "layers": 24, "projection_dim": 768,
+      "revision_evidence": "https://huggingface.co/openai/clip-vit-large-patch14/commit/32bd64288804d66eefd0ccbe215aa642df71cc41"
+    }
+  },
+  "evaluation": {
+    "matching_iou": 0.5,
+    "normalization": "Unicode casefold, punctuation retained",
+    "aggregation": "micro exact word recall over all care GT, deterministic one-to-one bbox matching",
+    "empty_predictions": "never match; all care GT retained",
+    "correctness_auc_population": "baseline boxes overlapping exactly one care GT at IoU >= 0.5; exclude ambiguous associations explicitly"
+  },
+  "execution": {"precision": "float32", "batch_size": 16, "cpu_threads": 4, "seed": 20261007, "deterministic_algorithms": true},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Sections 3.3-3.5 use original-image crops, PARSeq-S and caption context; CLIP verification is an experimental extension, outside STRICT."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse SHA-bound TRAIN125 threshold/pad0 PARSeq strings, source geometry and cached Florence-2-large-ft scene descriptions of the same original images."},
+    {"classification": "ASSUMPTION", "choice": "Freeze output geometry and compare every candidate word against one common full image, baseline crop, doubled surrounding crop and target-masked surrounding crop; median RGB square canvas preserves the field of view."},
+    {"classification": "ASSUMPTION", "choice": "Compare raw/written/three-prompt feature ensemble, word-first caption prompts, normalized text-feature residual against a neutral empty-word caption prompt and cyclically shuffled captions. Shorten only the common caption prefix to CLIP token budget."},
+    {"classification": "ASSUMPTION", "choice": "Baseline-preserving ties, PARSeq confidence, equal midrank fusion, and a fixed 0.02 visual-gain gate with PARSeq/crop/surround agreement. No GT enters generation, scoring or selection; no thresholds fitted."},
+    {"classification": "ASSUMPTION", "choice": "Test caption conditioning using existing Florence descriptions; this is not the paper's unresolved BLIP-2 selection, and captions may contain independent OCR guesses."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Standalone sequential CLIP model loading, float32 batch16 and explicit CPU or single-GPU execution; upstream PARSeq/caption caches have separate recorded runtimes."},
+    {"classification": "UNRESOLVED", "choice": "Correctness calibration, model-version benefit, caption leakage/transfer, one-character error sensitivity and independent TEST performance. B16 upstream weight checksum still unverified; any actual local file is hashed and this limitation is recorded."}
+  ],
+  "ambiguity_record": "CLIP-WORD-VERIFICATION-V1"
+}

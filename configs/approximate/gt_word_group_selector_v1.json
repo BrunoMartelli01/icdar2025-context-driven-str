@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "ORACLE_TEST_DIAGNOSTIC",
+  "table_5_claim": false,
+  "grouping": "one group for every care GT word; include each frozen crop whose original-coordinate bbox IoU with that GT bbox is at least matching_iou; allow a crop in multiple groups",
+  "reference": "among member crops choose the bbox nearest the coordinate-wise median, with candidate ID as tie-break; GT bbox is not supplied to the selector score",
+  "matching_iou": 0.5,
+  "primary_selector": "mask_completeness_confidence",
+  "control_selector": "confidence_balanced",
+  "normalization": "casefold_remove_unicode_P_S",
+  "assignment": "at most one crop per GT group and at most one use of each original crop",
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper section 3.3 supplies contour crops and section 3.5 supplies PARSeq recognition; GT grouping is not specified."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Frozen TEST crop boxes, PARSeq outputs, original GT and aligned probability maps supply the diagnostic inputs."},
+    {"classification": "ASSUMPTION", "choice": "Oracle membership uses the existing local IoU 0.5 convention; a crop may belong to multiple GT groups; candidate-derived medoid prevents the GT box from entering the crop score."},
+    {"classification": "UNRESOLVED", "choice": "This oracle does not estimate performance with predicted group membership or official polygon spotting evaluation."}
+  ],
+  "ambiguity_record": "GT-WORD-GROUP-SELECTOR-V1"
+}

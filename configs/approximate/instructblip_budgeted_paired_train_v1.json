@@ -1,0 +1,29 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "caption_profile": "instructblip",
+  "frozen_source_config": "configs/approximate/caption_routing_five_models_train_v1.json",
+  "frozen_source_contract_sha256": "c6a40e29dd844eafd2a0032d17ad68a1b65b49f89e0f62d9775fc82e89658352",
+  "source_report_sha256": "389219133531817df915413a14ef01f727f0e6d710dc1d1eb177ad843e43b46b",
+  "caption_comparison": "whole_caption",
+  "strategy": "selected_candidate_paired",
+  "alpha": 0.6,
+  "beta": 0.4,
+  "tau": 0.23055392728092478,
+  "empty_output_guard": true,
+  "tie_policy": "T1 wins semantic ties; equal C values never split",
+  "calibration_split": "TRAIN",
+  "max_train_fallback_image_fraction": 0.30,
+  "threshold_selection_uses_gt": false,
+  "selection": "largest observed C cutoff satisfying floor(0.30*N) image-call budget",
+  "inference_function": "scoring.budgeted_paired.route",
+  "strict_defaults_modified": false,
+  "scientific_choices": [
+    {"component": "paired_S_and_L_and_weights", "classification": "PAPER_SPECIFIED", "evidence": "section 3.4 prose; figure 2 conflict remains documented"},
+    {"component": "InstructBLIP_and_practical_v1", "classification": "ASSUMPTION", "rationale": "user-selected frozen practical baseline; not strict BLIP-2/Algorithm1 reproduction"},
+    {"component": "budgeted_tau", "classification": "ASSUMPTION", "rationale": "operational fallback budget, not accuracy optimization; no unseen-data budget guarantee"},
+    {"component": "T1_semantic_tie", "classification": "ASSUMPTION", "rationale": "retain existing cached implementation; Algorithm2 strict greater-than would choose T3 on ties"},
+    {"component": "word_accuracy_protocol", "classification": "ASSUMPTION", "rationale": "image-local casefold whitespace multiset; not official Table5 accuracy"}
+  ]
+}

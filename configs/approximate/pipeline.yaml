@@ -1,0 +1,39 @@
+reproduction_mode: approximate
+claim_label: approximate reproduction
+device: cuda
+
+recognition:
+  primary:
+    implementation: parseq_s
+    checkpoint_artifact_id: ART-PARSEQ-V100-PARSEQ-CANDIDATE
+    runtime_artifact_id: ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE
+  models: [parseq]
+  device: cuda
+
+scientific_choices:
+  - component: parseq_s
+    classification: ASSUMPTION
+    engineering_choice: COMPATIBLE_FOR_APPROXIMATE_MAIN
+    artifact_ids:
+      - ART-PARSEQ-V100-PARSEQ-CANDIDATE
+      - ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE
+    ambiguity_ids:
+      - R-001
+      - R-002
+    rationale: >-
+      Use the unchanged official v1.0.0 checkpoint with the separately pinned,
+      qualified newer official runtime. This does not resolve the paper artifact.
+
+# Other scientific selections remain unresolved and are intentionally not
+# guessed by this configuration-foundation milestone.
+segmentation:
+  status: unresolved
+caption:
+  status: unresolved
+scoring:
+  status: unresolved
+fallback:
+  enabled: true
+  implementation: deepsolo
+  status: unresolved
+

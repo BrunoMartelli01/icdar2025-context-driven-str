@@ -1,0 +1,772 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "smoke-test result",
+  "scope": "engineering qualification of synthetic target correction; no training or recognition results",
+  "created_utc": "2026-10-12T12:52:59.228491+00:00",
+  "source_sha256": {
+    "segmentation/synthtext_words.py": "b0cf2aab5a72eb8ce8da76851139b3906aa37b5cc8af18b31c6cc2c900ccd900",
+    "segmentation/totaltext_word_regions.py": "2bb9ee7f642c6bdf6288ac0ea473c5e90115d726d079325dec5528343cfa1463",
+    "segmentation/unet_detection_methods.py": "7232aef7f9081c1983a7c55014453510649b03834eb287a8cb1b4ea85c3c33c6",
+    "scripts/run_unet_detection_methods.py": "4fb8f56073ba5f822d5bbfaf72fce5f4c7f2d796fd375be3b4c0755286de4368",
+    "configs/approximate/unet_detection_methods_synthtext_targets_v2.json": "e241ea9019ba8b1f35ba3805a18e5e964a60c5a509107abc0a51e7b31a4340e8"
+  },
+  "target_generation": {
+    "status": "PASS",
+    "result_class": "smoke-test result",
+    "scope": "full original50000image SynthText cohort target generation; no model training/inference",
+    "source_manifest_sha256": "59e244b23db1409cecec0e861d23ea18f5fb1d004663d276c4188cc6037eb002",
+    "target_policy": "preserve_visible_words_v1",
+    "images": 50000,
+    "annotation_words": 422616,
+    "visible_words": 422610,
+    "outside_image_words": 6,
+    "restored_contact_words": 20,
+    "affected_images": [
+      {
+        "sample_id": "synthtext:329519",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 17,
+          "visible_words": 17,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            10
+          ],
+          "region_audit": {
+            "word_count": 17,
+            "curved_word_count": 0,
+            "contested_pixels": 523,
+            "removed_separator_pixels": 275,
+            "interword_gap_pixels": 545,
+            "retained_polygon_fraction": 0.9894026974951831,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              10
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:493104",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 4,
+          "visible_words": 4,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            3
+          ],
+          "region_audit": {
+            "word_count": 4,
+            "curved_word_count": 0,
+            "contested_pixels": 362,
+            "removed_separator_pixels": 196,
+            "interword_gap_pixels": 209,
+            "retained_polygon_fraction": 0.9744658676393955,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              3
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:348698",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 14,
+          "visible_words": 14,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            10
+          ],
+          "region_audit": {
+            "word_count": 14,
+            "curved_word_count": 0,
+            "contested_pixels": 2344,
+            "removed_separator_pixels": 726,
+            "interword_gap_pixels": 1523,
+            "retained_polygon_fraction": 0.9882605953786201,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              10
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:49645",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 11,
+          "visible_words": 11,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            2
+          ],
+          "region_audit": {
+            "word_count": 11,
+            "curved_word_count": 0,
+            "contested_pixels": 3494,
+            "removed_separator_pixels": 555,
+            "interword_gap_pixels": 638,
+            "retained_polygon_fraction": 0.9821198453608248,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              2
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:551236",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 21,
+          "visible_words": 21,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            18
+          ],
+          "region_audit": {
+            "word_count": 21,
+            "curved_word_count": 0,
+            "contested_pixels": 1380,
+            "removed_separator_pixels": 165,
+            "interword_gap_pixels": 1162,
+            "retained_polygon_fraction": 0.9936207229847284,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              18
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:682536",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 10,
+          "visible_words": 10,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            6
+          ],
+          "region_audit": {
+            "word_count": 10,
+            "curved_word_count": 0,
+            "contested_pixels": 538,
+            "removed_separator_pixels": 228,
+            "interword_gap_pixels": 279,
+            "retained_polygon_fraction": 0.9913492183942936,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              6
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:686113",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 30,
+          "visible_words": 29,
+          "outside_image_word_ids": [
+            17
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 29,
+            "curved_word_count": 0,
+            "contested_pixels": 58,
+            "removed_separator_pixels": 46,
+            "interword_gap_pixels": 246,
+            "retained_polygon_fraction": 0.9989160913310869,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:325579",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 16,
+          "visible_words": 16,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            12
+          ],
+          "region_audit": {
+            "word_count": 16,
+            "curved_word_count": 0,
+            "contested_pixels": 3376,
+            "removed_separator_pixels": 548,
+            "interword_gap_pixels": 2469,
+            "retained_polygon_fraction": 0.9918085472129629,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              12
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:754415",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 11,
+          "visible_words": 11,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            9
+          ],
+          "region_audit": {
+            "word_count": 11,
+            "curved_word_count": 0,
+            "contested_pixels": 81,
+            "removed_separator_pixels": 57,
+            "interword_gap_pixels": 173,
+            "retained_polygon_fraction": 0.9974447482852916,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              9
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:800873",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 16,
+          "visible_words": 15,
+          "outside_image_word_ids": [
+            9
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 15,
+            "curved_word_count": 0,
+            "contested_pixels": 1797,
+            "removed_separator_pixels": 415,
+            "interword_gap_pixels": 607,
+            "retained_polygon_fraction": 0.9888182357062025,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:315021",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 15,
+          "visible_words": 14,
+          "outside_image_word_ids": [
+            11
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 14,
+            "curved_word_count": 0,
+            "contested_pixels": 194,
+            "removed_separator_pixels": 144,
+            "interword_gap_pixels": 238,
+            "retained_polygon_fraction": 0.9967022397288509,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:23288",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 12,
+          "visible_words": 12,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            8
+          ],
+          "region_audit": {
+            "word_count": 12,
+            "curved_word_count": 0,
+            "contested_pixels": 348,
+            "removed_separator_pixels": 184,
+            "interword_gap_pixels": 368,
+            "retained_polygon_fraction": 0.988628638526667,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              8
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:829374",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 6,
+          "visible_words": 6,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            6
+          ],
+          "region_audit": {
+            "word_count": 6,
+            "curved_word_count": 0,
+            "contested_pixels": 443,
+            "removed_separator_pixels": 68,
+            "interword_gap_pixels": 97,
+            "retained_polygon_fraction": 0.9884412714601394,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              6
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:288242",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 5,
+          "visible_words": 5,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            5
+          ],
+          "region_audit": {
+            "word_count": 5,
+            "curved_word_count": 0,
+            "contested_pixels": 48,
+            "removed_separator_pixels": 20,
+            "interword_gap_pixels": 37,
+            "retained_polygon_fraction": 0.9976703552708212,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              5
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:179624",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 22,
+          "visible_words": 21,
+          "outside_image_word_ids": [
+            10
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 21,
+            "curved_word_count": 0,
+            "contested_pixels": 25,
+            "removed_separator_pixels": 70,
+            "interword_gap_pixels": 403,
+            "retained_polygon_fraction": 0.9972141521072949,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:801862",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 7,
+          "visible_words": 7,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            2
+          ],
+          "region_audit": {
+            "word_count": 7,
+            "curved_word_count": 0,
+            "contested_pixels": 161,
+            "removed_separator_pixels": 60,
+            "interword_gap_pixels": 98,
+            "retained_polygon_fraction": 0.9980124552802438,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              2
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:26034",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 13,
+          "visible_words": 13,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            12
+          ],
+          "region_audit": {
+            "word_count": 13,
+            "curved_word_count": 0,
+            "contested_pixels": 402,
+            "removed_separator_pixels": 63,
+            "interword_gap_pixels": 126,
+            "retained_polygon_fraction": 0.998133941530168,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              12
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:480513",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 7,
+          "visible_words": 7,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            4
+          ],
+          "region_audit": {
+            "word_count": 7,
+            "curved_word_count": 0,
+            "contested_pixels": 231,
+            "removed_separator_pixels": 304,
+            "interword_gap_pixels": 465,
+            "retained_polygon_fraction": 0.9670639219934994,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              4
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:787838",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 9,
+          "visible_words": 9,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            2
+          ],
+          "region_audit": {
+            "word_count": 9,
+            "curved_word_count": 0,
+            "contested_pixels": 71,
+            "removed_separator_pixels": 110,
+            "interword_gap_pixels": 186,
+            "retained_polygon_fraction": 0.9857917850684578,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              2
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:271227",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 17,
+          "visible_words": 16,
+          "outside_image_word_ids": [
+            16
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 16,
+            "curved_word_count": 0,
+            "contested_pixels": 124,
+            "removed_separator_pixels": 200,
+            "interword_gap_pixels": 407,
+            "retained_polygon_fraction": 0.9913262208344176,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:845496",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 7,
+          "visible_words": 7,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            7
+          ],
+          "region_audit": {
+            "word_count": 7,
+            "curved_word_count": 0,
+            "contested_pixels": 333,
+            "removed_separator_pixels": 75,
+            "interword_gap_pixels": 89,
+            "retained_polygon_fraction": 0.9906120916259857,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              7
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:467982",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 18,
+          "visible_words": 18,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            16
+          ],
+          "region_audit": {
+            "word_count": 18,
+            "curved_word_count": 0,
+            "contested_pixels": 1461,
+            "removed_separator_pixels": 319,
+            "interword_gap_pixels": 1086,
+            "retained_polygon_fraction": 0.993806065783853,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              16
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:240149",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 5,
+          "visible_words": 5,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            2
+          ],
+          "region_audit": {
+            "word_count": 5,
+            "curved_word_count": 0,
+            "contested_pixels": 150,
+            "removed_separator_pixels": 58,
+            "interword_gap_pixels": 83,
+            "retained_polygon_fraction": 0.9869015356820234,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              2
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:116753",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 14,
+          "visible_words": 14,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            9
+          ],
+          "region_audit": {
+            "word_count": 14,
+            "curved_word_count": 0,
+            "contested_pixels": 1615,
+            "removed_separator_pixels": 355,
+            "interword_gap_pixels": 679,
+            "retained_polygon_fraction": 0.9913515883843306,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              9
+            ]
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:369086",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 11,
+          "visible_words": 10,
+          "outside_image_word_ids": [
+            11
+          ],
+          "restored_contact_word_ids": [],
+          "region_audit": {
+            "word_count": 10,
+            "curved_word_count": 0,
+            "contested_pixels": 0,
+            "removed_separator_pixels": 0,
+            "interword_gap_pixels": 80,
+            "retained_polygon_fraction": 1.0,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": []
+          }
+        }
+      },
+      {
+        "sample_id": "synthtext:406826",
+        "audit": {
+          "policy": "preserve_visible_words_v1",
+          "annotation_words": 7,
+          "visible_words": 7,
+          "outside_image_word_ids": [],
+          "restored_contact_word_ids": [
+            1
+          ],
+          "region_audit": {
+            "word_count": 7,
+            "curved_word_count": 0,
+            "contested_pixels": 704,
+            "removed_separator_pixels": 309,
+            "interword_gap_pixels": 370,
+            "retained_polygon_fraction": 0.9806947394726977,
+            "empty_word_count": 0,
+            "restored_contact_word_ids": [
+              1
+            ]
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "elapsed_seconds": 991.2795038949698
+  },
+  "target_execution": {
+    "device": "cpu",
+    "workers": 16,
+    "torch_threads_per_process": 1,
+    "opencv_threads": 1,
+    "input_verification": "Frozen source-manifest SHA and current PIL image sizes; full RGB SHA verification remains mandatory in official preparation/runtime and was exercised for seven actual problem-image batches"
+  },
+  "real_problem_batches": {
+    "status": "PASS",
+    "result_class": "smoke-test result",
+    "scope": "seven real problem images; RGB SHA checks, audited targets, native transform, nested kernels and loss/backward on synthetic zero logits; no model training or recognition",
+    "samples": [
+      {
+        "sample_id": "synthtext:348698",
+        "source_annotation_words": 14,
+        "visible_words": 14,
+        "outside_image_word_ids": [],
+        "restored_contact_word_ids": [
+          10
+        ],
+        "native_words_lost": 1,
+        "loss": 4.506817817687988,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:686113",
+        "source_annotation_words": 30,
+        "visible_words": 29,
+        "outside_image_word_ids": [
+          17
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 0,
+        "loss": 4.477792739868164,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:800873",
+        "source_annotation_words": 16,
+        "visible_words": 15,
+        "outside_image_word_ids": [
+          9
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 1,
+        "loss": 4.524476051330566,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:315021",
+        "source_annotation_words": 15,
+        "visible_words": 14,
+        "outside_image_word_ids": [
+          11
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 0,
+        "loss": 4.507065773010254,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:179624",
+        "source_annotation_words": 22,
+        "visible_words": 21,
+        "outside_image_word_ids": [
+          10
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 0,
+        "loss": 4.638125419616699,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:271227",
+        "source_annotation_words": 17,
+        "visible_words": 16,
+        "outside_image_word_ids": [
+          16
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 0,
+        "loss": 4.709660053253174,
+        "finite_gradients": true
+      },
+      {
+        "sample_id": "synthtext:369086",
+        "source_annotation_words": 11,
+        "visible_words": 10,
+        "outside_image_word_ids": [
+          11
+        ],
+        "restored_contact_word_ids": [],
+        "native_words_lost": 0,
+        "loss": 4.631564617156982,
+        "finite_gradients": true
+      }
+    ]
+  },
+  "unit_tests": {
+    "passed": 63,
+    "failed": 1,
+    "skipped": 0,
+    "commands": [
+      "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venvs/context-str-main-py311/bin/python -m pytest -q tests/segmentation/test_unet_detection_targets.py tests/segmentation/test_totaltext_word_regions.py tests/scripts/test_unet_detection_runner.py tests/scripts/test_synthtext_download.py",
+      "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venvs/context-str-main-py311/bin/python -m pytest -q tests/segmentation/test_totaltext_word_regions.py::test_optional_thin_word_preservation_never_restores_ignored_pixels"
+    ],
+    "count_protocol": "61 passed/1 failed in four-file suite; two subsequently added ignore-restoration cases passed separately",
+    "failed_test": "tests/segmentation/test_unet_detection_targets.py::test_audited_synthtext_multiworker_transfer",
+    "reason": "Restricted sandbox denies POSIX socket/FD tensor sharing: PermissionError errno1. Named shared-memory attempt also denied by torch_shm_manager. No error suppression or skips. Execute the integration test on host.",
+    "initial_attempts": "Initial fork-based worker check stalled and was interrupted. Spawn transfer failed explicitly with socket permission error; named-memory attempt failed explicitly. Final host integration test retains default transfer, spawn context and30s timeout."
+  },
+  "checkpoint_verification": {
+    "initial_source_load": "PASS,452 strictly qualified state keys",
+    "interrupted_run": "/extra1/bmartelli/context-str-runs/unet-detection-methods-synthtext-small-v1",
+    "saved_epoch": 0,
+    "saved_global_step": 0,
+    "reuse": "Same qualified source checkpoint in a new immutable output root; interrupted outputs retained"
+  },
+  "limitations": [
+    "New complete CUDA training, GPU memory/OOM behavior and detection/PARSeq performance remain unmeasured.",
+    "Source-resolution restoration does not guarantee retention after native256 resampling; two of seven problem-image batches still report one native word lost.",
+    "No official recognition/detection result or80percent success claim."
+  ],
+  "diff_review": {
+    "baseline_config_and_host_launcher_unchanged": true,
+    "shared_region_and_loss_before_snapshots_match_old_run_source_sha256": true,
+    "concurrent_CLIP_documentation_edits_preserved": true,
+    "git_diff_check": "PASS"
+  }
+}

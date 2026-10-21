@@ -1,0 +1,19 @@
+{
+  "experiment": "totaltext-train-native-padding-sweep-v1",
+  "classification": "PRACTICAL_APPROXIMATION_DIAGNOSTIC",
+  "split": "train",
+  "pads_native128": [0, 2, 4, 6, 8, 10, 12],
+  "mask_probability_threshold": 0.5,
+  "contours": "RETR_EXTERNAL,CHAIN_APPROX_SIMPLE",
+  "min_bbox_area_native": 0,
+  "maximum_crops_per_image": 10,
+  "sort": "clipped_padded_bbox_area_native_descending_stable",
+  "crop": "floor_lower_ceil_upper_remap_to_original_rgb",
+  "selection_rule": "diagnostic_only; no parameter is selected by this experiment",
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "padding reference p=6, external contours, maximum 10"},
+    {"classification": "ASSUMPTION", "choice": "comparison values 0,2,4,8,10,12 in native 128 coordinates"},
+    {"classification": "ASSUMPTION", "choice": "disable bbox-area filtering to match the preceding no-area diagnostic"},
+    {"classification": "PAPER_SPECIFIED", "choice": "crop from original RGB after contour localization"}
+  ]
+}

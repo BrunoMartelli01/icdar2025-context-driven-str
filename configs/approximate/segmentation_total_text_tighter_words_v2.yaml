@@ -1,0 +1,146 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+run:
+  kind: real_training
+  name: total-text-tighter-words-v2-500ep
+  result_class: approximate reproduction
+  variant_class: PRACTICAL_APPROXIMATION
+architecture:
+  implementation: author_clarified_ag_unet
+  identity: author-clarified-ag-unet-2048x1024-v1
+  contract_schema_version: 1
+  encoder: resnet50
+  encoder_weights: IMAGENET1K_V2
+  encoder_weights_artifact_id: ART-RESNET50-IMAGENET1K-V2-CANDIDATE
+  freeze_encoder: true
+  frozen_batchnorm_state: true
+  bottleneck_channels: 1024
+  bottleneck_width_classification: ASSUMPTION
+  bottleneck_evidence_basis: AUTHOR_RECALLED_UNCONFIRMED
+  bottleneck_block: single_3x3_conv_batchnorm_relu
+  bottleneck_block_classification: ASSUMPTION
+  decoder_channels:
+  - 512
+  - 256
+  - 128
+  - 64
+  decoder_operations_classification: ASSUMPTION
+  attention_intermediate_channels: decoder_output_half_minimum_16
+  attention_intermediate_channels_classification: ASSUMPTION
+  output_stride: 2
+data:
+  train:
+    role: train
+    artifact_id: ART-TOTALTEXT-COMPACT-WORDS-V2
+    manifest: manifests/total_text_train.yaml
+    manifest_sha256: 67a2cd2c8e702f40badb91c54595fe322ba814033f470e13b07e879a3db6d179
+    expected_sample_count: 1255
+    datasets:
+    - total_text
+    target_source: compact_word_cores_v2
+transforms:
+  image_size:
+  - 256
+  - 256
+  mask_size:
+  - 128
+  - 128
+  horizontal_flip_probability: 0.5
+  rotation_probability: 0.5
+  rotation_degrees:
+  - -15.0
+  - 15.0
+  rotation_degrees_classification: ASSUMPTION
+  operation_order: flip_rotate_resize
+  resize_geometry: stretch
+  image_interpolation: bilinear
+  mask_interpolation: bilinear
+  target_binarization_threshold: 0.5
+  validity_interpolation: nearest
+  image_fill:
+  - 0
+  - 0
+  - 0
+  mask_fill: 0
+  normalization: imagenet
+training:
+  protocol: practical_totaltext_tighter_words_500_v2
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  batch_size: 8
+  loss: masked_BCEWithLogitsLoss
+  separation_weight: 1.0
+  bce_reduction: valid_pixel_mean
+  adam_betas:
+  - 0.9
+  - 0.999
+  adam_epsilon: 1.0e-08
+  epochs: 500
+  learning_rate_schedule: none
+  checkpoint_selection: training_foreground_iou
+  seed: 202503
+  deterministic_algorithms: true
+  precision: float32
+  num_workers: 8
+  drop_last: false
+  sampling:
+    strategy: epoch_shuffle
+checkpoint_selection:
+  dataset: training_complete_population
+  metric: foreground_iou
+  aggregation: per_image_macro
+  probability_threshold: 0.5
+  tie_break: earliest_epoch
+  augmentation: disabled
+  dont_care: excluded_by_validity_mask
+validation:
+  enabled: false
+  held_out_count: 0
+localization:
+  min_area: 4
+  pad: 2
+  nmax: 10
+  connectivity: 8
+strict_blockers:
+- A-002
+- A-003
+- A-004
+- A-006
+- A-007
+- A-008
+- T-001
+- T-002
+- T-003
+- DS-003
+scientific_choices:
+- component: compact_word_cores
+  classification: ASSUMPTION
+  rationale: Smaller connected word interiors; paper padding does not specify GT erosion.
+    WORD-GT-002. TRAIN parameters are explicit, untuned; previous targets and TEST
+    transcripts are preserved.
+- component: matched_v4_training_protocol
+  classification: REPOSITORY_SPECIFIED
+  rationale: Reuse V4 AG-U-Net, frozen ResNet50, FP32/batch8, 500 epochs, transforms,
+    loss and TRAIN-IoU checkpoint selection for a target comparison.
+- component: native128_target_topology
+  classification: ASSUMPTION
+  rationale: Existing paired transforms resize owner IDs with nearest and reapply
+    contact separation; very small words can disappear at128. This is not a guarantee
+    of original-resolution word survival.
+supervision:
+  classification: ASSUMPTION
+  ambiguity_id: WORD-GT-002
+  source_config_sha256: c0adbe08cca03eac3e2a8f02bf8578a7d28bb583263ff09eb23235de86d831b4
+  parameters:
+    distance_fraction: 0.55
+    max_inset_reference: 2.0
+    reference_wh:
+    - 128
+    - 128
+    crop_padding_reference: 6.0
+    min_area_fraction: 0.2
+    min_span_fraction: 0.8
+    backoff_steps: 8

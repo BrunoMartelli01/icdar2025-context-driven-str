@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "experiment": "clip_high_recall_crop_admission",
+  "source_inputs_sha256": "ebaae2835079df1ef6e3fde642812a6edf9f083034684bd2688adf06475d1b49",
+  "source_protocol_sha256": "af83d5617383a3c77405cf3c29a6bb40129a7a61bb7b0d4e93e1aee2d62b1733",
+  "expected_images": 125,
+  "expected_outputs": 7462,
+  "expected_baseline_correct": 738,
+  "expected_care_words": 983,
+  "source_method": "guarded_consolidated",
+  "native_prefilter": 0.5,
+  "minimum_baseline_correct_retention": 0.95,
+  "thresholds": [0.0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,0.97,0.99],
+  "model_config": "configs/approximate/clip_word_verification_train_v1.json",
+  "model_weight_sha256": {
+    "vit_b32": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+    "vit_b16": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+    "vit_l14": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+  },
+  "word_templates": ["a photo of the written word \"{text}\"", "a sign with the text \"{text}\"", "the printed word \"{text}\""],
+  "textness_prompts": {
+    "positive": ["a close-up photo of readable printed text", "a close-up photo of a written word", "a close-up photo of letters on a sign"],
+    "negative": ["a close-up photo of a plain background without text", "a close-up photo of a texture without letters", "a close-up photo of lines and shapes without readable text"]
+  },
+  "glyph": {
+    "font_size": 48,
+    "padding": 6,
+    "font_sha256": {
+      "sans": "437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db",
+      "serif": "59f23d4b8983a0cd08ad33a4b12ff27dc588c325ccc4d881cc0f522f530f3b93",
+      "mono": "8c8b4894c328236143c9f57f690e2199482e0a4bed2567747e99ffbbf84ca3af"
+    },
+    "polarities": [
+      {"name":"black_on_white","foreground":[0,0,0],"background":[255,255,255]},
+      {"name":"white_on_black","foreground":[255,255,255],"background":[0,0,0]}
+    ],
+    "blank_colors": [[0,0,0],[255,255,255]]
+  },
+  "execution": {"batch_size":16,"cpu_threads":4,"precision":"float32","seed":20261008,"deterministic_algorithms":true},
+  "evaluation": {"matching_iou":0.5,"normalization":"Unicode casefold; remove Unicode punctuation/symbols; preserve accents digits whitespace","all_care_gt_in_denominator":true},
+  "ambiguity_record": "CLIP-HIGH-RECALL-ADMISSION-V1",
+  "scientific_choices": [
+    {"classification":"PAPER_SPECIFIED","choice":"Paper sections3.3-3.5 use original RGB component crops and PARSeq-S; independent CLIP admission is outside the strict paper method."},
+    {"classification":"REPOSITORY_SPECIFIED","choice":"Reuse only the sealed high-recall observable crop/PARSeq/physical inputs prepared for the existing experiment, not BERT scores; all 7462 source boxes/readings stay fixed."},
+    {"classification":"ASSUMPTION","choice":"Prefilter PARSeq balanced confidence at0.5, motivated by the existing TRAIN curve retaining738/738 words from5410 outputs; evaluate all exclusions against the original738-word baseline."},
+    {"classification":"ASSUMPTION","choice":"Compare word-template ensemble, six font/polarity image queries, text-versus-background prompt contrast, word-versus-background contrast and glyph-versus-uniform-image residual. Contrast scores are hypotheses, not calibrated text detectors."},
+    {"classification":"ASSUMPTION","choice":"Label-free empirical mid-CDF ranks fit on all scored TRAIN crops; geometric means combine native and CLIP ranks. Report every threshold, selecting on TRAIN the highest precision that retains95% of the same baseline-correct GT identities."},
+    {"classification":"HARDWARE_DEVIATION","choice":"One sequential frozen FP32 model, batch16, four CPU threads, explicit CPU or CUDA:0, seeded deterministic backends, no device/precision/model fallback; log runtime, input shapes, GPU peaks and OOM."},
+    {"classification":"UNRESOLVED","choice":"Independently held-out precision/recall, source generator transfer, empty-text/semantic confounds, font/length shortcuts and target RTX3070 qualification remain unresolved."}
+  ]
+}

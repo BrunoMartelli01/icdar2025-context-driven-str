@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "status": "BLOCKED_MISSING_ARTIFACTS_NOT_AN_EXECUTABLE_TRAINING_CONFIG",
+  "source_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+  "author_source": "https://github.com/ViTAE-Transformer/DeepSolo/issues/15",
+  "author_comment_api_snapshot_sha256": "28b6600c8ca5c7bbd138ca036a97bef0f7f33358e69a40c7c610438ac96d5748",
+  "paper_source": "https://openaccess.thecvf.com/content/CVPR2023/supplemental/Ye_DeepSolo_Let_Transformer_CVPR_2023_supplemental.pdf",
+  "base_config_relative_to_upstream": "configs/R_50/Base_det.yaml",
+  "author_overrides": {
+    "MODEL": {"TRANSFORMER": {"INFERENCE_TH_TEST": 0.25}},
+    "DATASETS": {"TRAIN": ["ic13_train"], "TEST": ["ic13_test"]},
+    "INPUT": {"MIN_SIZE_TEST": 1000, "MAX_SIZE_TEST": 1824, "ROTATE": false},
+    "SOLVER": {"IMS_PER_BATCH": 8, "BASE_LR": 0.00001, "LR_BACKBONE": 0.000001,
+      "WARMUP_ITERS": 0, "STEPS": [100000], "MAX_ITER": 1000}
+  },
+  "initialization": {
+    "type": "shared_pretrained_not_TotalText_finetuned",
+    "training_data": ["Synth150K", "Total-Text", "MLT17", "IC13", "IC15"],
+    "official_url": "https://1drv.ms/u/s!AimBgYV7JjTlgcdwrhMu_5lyV3j3gg?e=90flAQ",
+    "checkpoint_path": null,
+    "checkpoint_sha256": null
+  },
+  "required_artifacts": {
+    "author_prepared_ic13_train_37voc_json": null,
+    "ic13_train_images_229": null,
+    "ic13_test_manifest_233": null,
+    "official_ic13_generic_lexicon": null,
+    "official_ic13_generic_pair_list_and_correction_protocol": null
+  },
+  "evaluation_arms": ["None", "Generic"],
+  "evaluation_rule": "Same raw detections/checkpoint/threshold for both arms; Generic is explicit lexicon postprocessing, never a neural improvement or baseline no-lexicon result.",
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Supplement A specifies the pretraining mixture, IC13 fine-tuning1000 iterations, test resize1000/max1824 and E2E Generic90.1."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Author ymy-k in upstream issue15 supplies the exact overrides above, threshold0.25, batch8 and train_37voc.json, and says IC13 TEST files were not uploaded; refers to SPTS for IC13 data."},
+    {"classification": "UNRESOLVED", "choice": "Official adapted weights are not listed in the model zoo; shared initialization, upstream-format training annotations and pinned IC13 Generic protocol/lexicon must be obtained before training/evaluation. Existing TotalText checkpoint is not an IC13 adaptation."},
+    {"classification": "UNRESOLVED", "choice": "Single-GPU batch8 training memory has not been tested. No batch-size, accumulation or precision substitution is authorized as a strict result; any necessary change requires a separate documented hardware deviation."}
+  ],
+  "ambiguity_record": "DEEPSOLO-TEXTOCR-IC13-001"
+}

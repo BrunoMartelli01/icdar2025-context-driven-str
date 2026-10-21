@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "source_train_results_sha256": "949b5e401ac14e10fe038258fae35fc5901f439b7c8c102382c814ee0d1b06c0",
+  "source_test_results_sha256": "03050c4c1dac1687c4154c2c51913efdabd74f6ecf633250a9ef66a339618123",
+  "test_independent_audit_sha256": "bc6f8e502a08ea68c46faf1adc8426d364c53cdd194f83883e1c9c969dcb3ecd",
+  "thresholds": [0.0, 0.025, 0.05, 0.075, 0.10, 0.125, 0.146906, 0.175, 0.20, 0.25, 0.30, 0.40, 0.50, 0.6192174372838609, 0.70, 0.80, 1.0],
+  "matching_iou": 0.5,
+  "tn": 0,
+  "split_images": {"train":125,"test":300},
+  "split_care_words": {"train":983,"test":2204},
+  "ambiguity_record": "CLIP-ROUTER-SWEEP-001",
+  "scientific_choices": [
+    {"classification":"PAPER_SPECIFIED","choice":"Paper section3.5/Algorithm2 uses confidence-threshold full-image DeepSolo fallback; CLIP is a separate experimental extension."},
+    {"classification":"REPOSITORY_SPECIFIED","choice":"Reuse frozen B16/PARSeq minimum scores, TRAIN80 CDF references, exact epoch61 crops and audited per-engine metrics. Keep DeepSolo instance score .4 fixed while varying only the image acceptance threshold."},
+    {"classification":"ASSUMPTION","choice":"Descriptive threshold grid and exact observed score breakpoints. TEST curves inspect labels for reporting, not for selecting a new threshold or claiming an independent selected-threshold result. TRAIN125 and TEST300 remain separate."},
+    {"classification":"ASSUMPTION","choice":"Count care PARSeq words retained separately from final care words after complete-image replacement. Preserve raw/ignored counts, TP/FP/FN, detected-word precision, TN0 accuracy, recall and F1. Missing fallback outputs invalidate the entire point, without omitted images or substituted outputs."},
+    {"classification":"HARDWARE_DEVIATION","choice":"Threshold recombination uses CPU only and no new main-model inference. Optional missing TRAIN DeepSolo outputs use the existing qualified isolated single-image FP32 CUDA subprocess with original runtime/memory/error receipts."},
+    {"classification":"UNRESOLVED","choice":"Initially only63 TRAIN DeepSolo outputs exist; high thresholds need further predictions. Each unavailable full-population metric remains null until execution. Existing paper artifact/metric and approximate polygon-ignore ambiguities remain unchanged."}
+  ]
+}

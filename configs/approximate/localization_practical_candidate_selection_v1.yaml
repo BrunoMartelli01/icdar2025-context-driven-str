@@ -1,0 +1,30 @@
+mode: practical-candidate-selection-v1
+classification: PRACTICAL_APPROXIMATION
+paper_faithful_default_unchanged: true
+generator:
+  thresholds: [0.20, 0.30, 0.40, 0.50]
+  max_contiguous_components: 12
+  line_robust: false
+  bbox_variants: [standard_pad6, tight, adaptive]
+  initial_dedup_iou: 0.95
+selector:
+  variants: [OCR_FIRST, CONSENSUS_FIRST, EQUAL_RANK_FUSION]
+  family_iou_min: 0.75
+  anchor_options: 3
+  anchor_min_iou: 0.50
+  anchor_policy: closest base plus two scored alternatives per frozen v1 proposal
+  utility_floor: 0.0
+  maximum_selected: 10
+  weights:
+    OCR_FIRST: {ocr: 0.55, consensus: 0.20, boundary: 0.15, density: 0.05, v1: 0.05}
+    CONSENSUS_FIRST: {ocr: 0.20, consensus: 0.35, boundary: 0.25, density: 0.10, v1: 0.10}
+    EQUAL_RANK_FUSION: {ocr: 0.20, consensus: 0.20, boundary: 0.20, density: 0.20, v1: 0.20}
+  context_role: exact_tie_break_only
+  optimization: per_line_weighted_interval_scheduling_then_global_dedup_top10
+scientific_choices:
+  - classification: ASSUMPTION
+    choice: Multi-threshold same-line spans and bbox variants form a practical proposal pool.
+  - classification: ASSUMPTION
+    choice: Fixed rank-fusion variants and global interval selection are training-free.
+  - classification: REPOSITORY_SPECIFIED
+    choice: Final output remains capped at ten candidates.

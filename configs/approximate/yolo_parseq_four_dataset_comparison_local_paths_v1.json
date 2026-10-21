@@ -1,0 +1,10 @@
+{
+  "reproduction_mode": "approximate",
+  "transfer_source": "/tmp/scene-text-yolo-transfer-v1/cuda-0/full",
+  "threshold_source": "/tmp/scene-text-yolo-thresholds-v1",
+  "total_text_direct": "/tmp/yolo-direct-parseq/full-cpu-v1",
+  "total_text_selection": "/tmp/yolo-failure-improvements/v1/cpu/full",
+  "total_text_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "total_text_annotation_directory": "datasets/total_text/test/annotations",
+  "output": "/tmp/yolo-parseq-four-dataset-comparison-v2"
+}

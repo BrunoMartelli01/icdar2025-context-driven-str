@@ -1,0 +1,48 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "images": 229,
+  "gt_words": 849,
+  "localizer": "frozen practical-remap-v1",
+  "caption_profiles": ["blip-base-coco", "blip2-vitl", "instructblip", "florence2-base-ft", "florence2-large-ft", "flan-repository", "flan-antirepetition"],
+  "instructblip": {
+    "model": "Salesforce/instructblip-flan-t5-xl",
+    "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+    "dtype": "float16",
+    "weights_sha256": {
+      "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+      "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+    },
+    "prompt": "Describe this image in 2 to 4 complete sentences. Pay special attention to readable text, signs, labels, documents, or words. Mention the object containing the text, where the text appears, and the surrounding scene or context that helps explain its meaning. Include any visible text you can read. Return only the description and do not repeat yourself.",
+    "generation": {"max_new_tokens": 120, "num_beams": 3, "do_sample": false, "early_stopping": true, "no_repeat_ngram_size": 3, "repetition_penalty": 1.1}
+  },
+  "florence_large": {
+    "model": "microsoft/Florence-2-large-ft",
+    "model_type": "large-ft",
+    "backend": "transformers",
+    "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+    "weight_sha256": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3",
+    "generation": {"max_new_tokens": 512, "num_beams": 3, "do_sample": false},
+    "task": "<MORE_DETAILED_CAPTION>",
+    "dtype": "float32"
+  },
+  "context_matching": ["whole_caption", "neighbor_lengths"],
+  "joined_strategies": ["selected_candidate_paired", "repository_paired_threshold"],
+  "alpha": 0.6,
+  "beta": 0.4,
+  "tau": 0.8,
+  "threshold_comparison": "greater_than_or_equal",
+  "block_routing": "each original crop transcription is scored independently; empty text requests fallback; T1 is not duplicated into every crop",
+  "joined_routing": "compare T1 and space-joined T3 in existing geometric reading order with T2",
+  "fallback_evaluation": "measure requests; final post-DeepSolo accuracy stays null without qualified TRAIN DeepSolo outputs",
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "value": "MPNet cosine and fuzzy ratio, alpha=.6 beta=.4 tau=.8; T1 and T3 compared with T2"},
+    {"classification": "ASSUMPTION", "value": "Five candidate captioners plus the Flan baseline in original/anti-repetition profiles: six model families, seven profiles; no Florence OCR appended to captions"},
+    {"classification": "ASSUMPTION", "value": "Independent block routing and space-joined geometric reading order are explicit alternatives"},
+    {"classification": "ASSUMPTION", "value": "neighbor_lengths uses the existing local-caption scorer without changing its parameters"},
+    {"classification": "REPOSITORY_SPECIFIED", "value": "repository_paired_threshold retained as a separate control for max-C versus semantic-winner ambiguity"},
+    {"classification": "HARDWARE_DEVIATION", "value": "Sequential GPU caption models; LAVIS/Florence FP32, Flan/InstructBLIP FP16; MPNet CPU FP32"},
+    {"classification": "UNRESOLVED", "value": "C-001 paper BLIP-2 checkpoint and Table 5 accuracy protocol remain unresolved"}
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "status": "TRAINING_ON_CUDA",
+  "time_utc": "2026-10-16T16:21:21.235826+00:00",
+  "result_class": "approximate reproduction",
+  "mode": "approximate",
+  "run_root": "/extra1/bmartelli/context-str-runs/kernel-only-fresh-v1-20261016",
+  "pid": 1457380,
+  "log": "/extra1/bmartelli/context-str-runs/kernel-only-fresh-v1-20261016/training.log",
+  "configured_epochs": 100,
+  "training_complete": false,
+  "supervision": "GT_kernel_only",
+  "initialization": {
+    "decoder_head_sha256": "60eb4dbfb1b855b74c32421be28ec71f1298d15a0d3513d3379176b140ea3aa7",
+    "decoder_initialization": "new_random",
+    "encoder_checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+    "encoder_load_strict": true,
+    "head_initialization": "new_random",
+    "segmentation_checkpoint_loaded": false
+  },
+  "imagenet_encoder_all_tensors_verified": true,
+  "smoke_reset_matches_own_fresh_initial_state": true,
+  "old_finetune_deleted": true,
+  "deletion_receipt": "provenance/kernel_only_training_v1_deletion.json",
+  "tests": {
+    "passed": 22,
+    "outstanding_failures": []
+  },
+  "cuda_smoke": {
+    "head_update_linf": 0.00010000169277191162,
+    "initialization": {
+      "decoder_head_sha256": "60eb4dbfb1b855b74c32421be28ec71f1298d15a0d3513d3379176b140ea3aa7",
+      "decoder_initialization": "new_random",
+      "encoder_checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+      "encoder_load_strict": true,
+      "head_initialization": "new_random",
+      "segmentation_checkpoint_loaded": false
+    },
+    "memory": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 3954270208,
+      "gpu_peak_reserved_bytes": 4240441344,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "one single-output Kernel AG-UNet; no OCR resident",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    },
+    "result_class": "smoke-test result",
+    "status": "PASS",
+    "train": {
+      "active_loss_components": [
+        "kernel"
+      ],
+      "compute_device": "cuda:0",
+      "kernel_loss": 1.7816792726516724,
+      "loss": 1.7816792726516724,
+      "sample_order_sha256": "1a91887ae9d55c7dfc10e46d515915877f7710356b6c80cb1a561938128111b9",
+      "samples": 8,
+      "skipped_all_invalid_batches": 0,
+      "steps": 1
+    }
+  },
+  "epoch0_kernel_iou": 0.047551823841981325,
+  "source_sha256": {
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/kernel_only.py": "04746c943f4009b09f0f45f25bfb66a4ade26472260c192190d94e05858c3a44",
+    "models/kernel_only_fresh.py": "cd41529b6fa6396cffe74693d24295ad1b97b285d5b235d09a16fb39e5192636",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "scripts/evaluate_kernel_only_padding.py": "9ef525a5dce57cb108d95a9edfba7d0610da3aeb112dff8818846d17b7fa1f4f",
+    "scripts/evaluate_totaltext_v4_image_frequency_val_parseq.py": "207e4ae6c2667d163a8630e631cf1b115b694b2cb16457554fc2c064fdd2de70",
+    "scripts/evaluate_unet_word_research_ocr.py": "ae08a79fd2039d943dfb8eed6c907fb0af8a62f864d462b697f35cef4565bf58",
+    "scripts/train_kernel_only.py": "bf02fb75ca1e7f901badc0072f849225f7cf8be23474fd78da3e1ed469ae6865",
+    "scripts/train_kernel_only_fresh.py": "b88a65da297f248efe9d3105abf020ab5fcef5dabb8bdc53c2de150f958af8f5",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/kernel_only_training.py": "4125a4501e77dc98cc641b161d0a39f25718110efd8c9e7ca2b9775bdcc5a316",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d"
+  },
+  "run_contract_sha256": "0b87a72883796a8f2448b0eaf08d5cca6600b3c0e20533c921392d00e6af3829",
+  "not_claimed": [
+    "training complete",
+    "improved recognition",
+    "strict reproduction",
+    "all-weights-random encoder",
+    "RTX3070 qualification"
+  ]
+}

@@ -1,0 +1,62 @@
+experiment_kind: recognition_pipeline_practical_remap
+reproduction_mode: approximate
+claim_label: practical approximation
+runnable: true
+
+run:
+  kind: train_calibrated_test_frozen_geometry_and_first10_ocr
+  result_class: PRACTICAL_APPROXIMATION
+  table_5_claim: false
+
+localization:
+  mode: practical-remap-v2
+  classification: PRACTICAL_APPROXIMATION
+  paper_faithful_algorithm1_unchanged: true
+  practical_remap_v1_unchanged: true
+  rationale: >
+    Task 2.2 target foreground is glyph/pixel-level. V2 separates vertical-only
+    text-line formation from left-to-right word-boundary segmentation so a
+    global horizontal graph threshold cannot directly fuse every same-line word.
+  raw_component_connectivity: 8
+  fragment_consolidation:
+    classification: PRACTICAL_APPROXIMATION
+    x_overlap_over_min_width_min: 0.5
+    max_vertical_gap_over_max_height: 0.5
+    small_height_ratio_max: 0.45
+    purpose: merge only vertically separated small fragments such as dot/stem candidates
+  line_formation:
+    classification: PRACTICAL_APPROXIMATION
+    horizontal_gap_used: false
+    vertical_overlap_over_min_height_min: 0.7
+    center_y_distance_over_mean_height_max: 0.5
+    height_ratio_max: 2.5
+  word_boundary:
+    classification: PRACTICAL_APPROXIMATION
+    selected_on_train_only: true
+    families:
+      absolute:
+        absolute_normalized_gap_floor: [0.25, 0.35, 0.45]
+      local_ratio:
+        local_window: [2, 3]
+        local_gap_ratio: [1.5, 2.0, 2.5, 3.0]
+        fallback_absolute_gap_floor: 0.35
+      hybrid:
+        absolute_normalized_gap_floor: [0.25, 0.35, 0.45]
+        local_window: [2, 3]
+        local_gap_ratio: [1.5, 2.0, 2.5, 3.0]
+    max_configuration_count: 35
+    pad_after_grouping: 6
+    sort: group_foreground_area_descending
+    nmax: 10
+  calibration:
+    split: official_training_all_229
+    text_or_ocr_used: false
+    selection: >
+      Maximize F1 IoU>=0.5; variants within absolute 0.005 are resolved by
+      fewer over-merges, fewer under-merges, simpler family, then fewer proposals.
+    selected_report: /tmp/practical-remap-v2-train-calibration.json
+
+scientific_boundary:
+  classification: PRACTICAL_APPROXIMATION
+  strict_reproduction: false
+  prohibition: Do not present v2 results as Algorithm 1, a paper reproduction, or Table 5 accuracy.

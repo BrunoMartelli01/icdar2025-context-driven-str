@@ -1,0 +1,203 @@
+experiment_kind: recognition_pipeline_repository_diagnostic
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+
+run:
+  kind: real_data_end_to_end_smoke
+  result_class: approximate repository-aligned recognition trace; not a Table 5 result
+  table_5_claim: false
+
+segmentation:
+  architecture_artifact_id: ART-AGUNET-AUTHOR-PROTOCOL-V1
+  checkpoint_artifact_id: ART-ICDAR13-AUTHOR-PROTOCOL-APPROX-TRAINED-CHECKPOINT
+  evaluation_config: configs/approximate/segmentation_icdar13_author_protocol_test.yaml
+  device: cuda:0
+  logits_shape: [128, 128]
+  probability_threshold: 0.5
+  threshold_comparison: greater_than_or_equal
+  binary_mask_backprojection: nearest_after_threshold
+  validity_mask: evaluation_only_not_applied_downstream
+
+localize:
+  min_area: 150
+  padding: 6
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+  nmax: 10
+
+recognition:
+  primary:
+    implementation: parseq_s
+    checkpoint_artifact_id: ART-PARSEQ-V100-PARSEQ-CANDIDATE
+    runtime_artifact_id: ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE
+    runtime_source_type: github_commit_archive
+    runtime_source_archive_sha256: f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef
+  device: cuda:0
+  t1_input: full_source_image
+  t3_input: localized_crop
+  t3_selection: repository_max_paired_context_confidence_all_crops
+  t3_selection_classification: REPOSITORY_SPECIFIED
+  repository_runner_revision: 2e8b544ef2dd559a46e2ac9e0a0f205eee328e9d
+
+caption:
+  checkpoint_artifact_id: ART-BLIP2-HF-FLANT5XL-REPOSITORY-CANDIDATE
+  model_id: Salesforce/blip2-flan-t5-xl
+  revision: 0eb0d3b46c14c1f8c7680bca2693baafdb90bb28
+  prompt: >-
+    Describe this image comprehensively, focusing on all visible text elements.
+    Mention the environment, text-bearing objects, positions, and how the text
+    relates to the scene context.
+  generation:
+    max_new_tokens: 80
+    min_new_tokens: 40
+    length_penalty: 1.0
+    num_beams: 3
+    do_sample: false
+  device: cuda:0
+  dtype: float16
+  placement: single_device
+  quantization: none
+
+scoring:
+  embedder_artifact_id: ART-ALL-MPNET-BASE-V2-REPOSITORY-CANDIDATE
+  embedder_model_id: sentence-transformers/all-mpnet-base-v2
+  embedder_revision: e8c3b32edf5434bc2275fc9bab85f82640a19130
+  embedder_device: cpu
+  embedder_precision: float32
+  normalize_embeddings: true
+  lexical_artifact_id: ART-RAPIDFUZZ-RATIO-REPOSITORY-CANDIDATE
+  lexical_mode: raw
+  strategy: repository_paired_threshold
+  repository_scorer_revision: 87b90dbb51f4e0462a5403040fad06985a474a8b
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+
+fallback:
+  enabled: true
+  implementation: deepsolo
+  checkpoint_artifact_id: ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE
+  runtime_artifact_id: ART-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE
+  transport: local_python_subprocess
+  candidate: ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE
+  reduction_policy: highest_score
+  device: cuda:0
+  score_threshold: null
+  lexicon_type: null
+  only_if_below_tau: true
+
+lifecycle:
+  policy: sequential_release_before_deepsolo
+
+qualification:
+  mpnet_scoring:
+    T1: book store
+    T2: A storefront with signs and visible text
+    T3: bookshop
+    repeated_batch_atol: 0.0
+    batch_single_atol: 1.0e-6
+
+scientific_choices:
+  - component: frozen_segmentation_checkpoint
+    classification: ASSUMPTION
+    artifact_ids:
+      - ART-AGUNET-AUTHOR-PROTOCOL-V1
+      - ART-ICDAR13-AUTHOR-PROTOCOL-APPROX-TRAINED-CHECKPOINT
+    ambiguity_ids: [A-002, A-003, A-004, A-006, A-007, A-008]
+    rationale: Use the explicitly frozen approximate baseline without changing its predictions.
+  - component: segmentation_binary_backprojection
+    classification: ASSUMPTION
+    ambiguity_ids: [M11-DOWN-001, A-008]
+    rationale: Nearest-neighbor backproject the already-thresholded native binary mask.
+  - component: localization_repository_values
+    classification: REPOSITORY_SPECIFIED
+    ambiguity_ids: [L-001]
+    rationale: Preserve repository Amin 150 and padding 6.
+  - component: localization_unspecified_mechanics
+    classification: ASSUMPTION
+    ambiguity_ids: [L-003, L-005]
+    rationale: Use 8-connectivity, exclusive maxima, and the deterministic M7 spatial tie convention.
+  - component: parseq_s_candidate
+    classification: ASSUMPTION
+    artifact_ids: [ART-PARSEQ-V100-PARSEQ-CANDIDATE, ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE]
+    ambiguity_ids: [R-001, R-003]
+    rationale: Use the already-qualified official checkpoint/runtime pairing for approximate work.
+  - component: parseq_runtime_source_transport
+    classification: ASSUMPTION
+    artifact_ids: [ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE]
+    ambiguity_ids: [M11-PARSEQ-ARCHIVE-001, R-001]
+    rationale: Use the frozen GitHub commit archive with byte-for-byte extracted-tree verification.
+  - component: t3_selection
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-AUTHOR-REPOSITORY-CROP-SCORING-PROTOCOL]
+    ambiguity_ids: [L-004]
+    rationale: >-
+      Reproduce author-repository runner commit 2e8b544 by scoring every retained crop
+      and selecting the first crop with maximum paired C3.
+  - component: blip2_candidate_and_protocol
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-BLIP2-HF-FLANT5XL-REPOSITORY-CANDIDATE]
+    ambiguity_ids: [C-001, C-002, C-003, C-004]
+    rationale: Preserve the pinned repository candidate, prompt, and generation settings.
+  - component: blip2_precision
+    classification: HARDWARE_DEVIATION
+    artifact_ids: [ART-BLIP2-HF-FLANT5XL-REPOSITORY-CANDIDATE]
+    rationale: Use sequential unquantized FP16 single-device inference on the 24 GB target GPU.
+  - component: mpnet_candidate
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-ALL-MPNET-BASE-V2-REPOSITORY-CANDIDATE]
+    ambiguity_ids: [S-004]
+    rationale: Preserve the pinned normalized all-mpnet-base-v2 repository candidate.
+  - component: mpnet_scoring_qualification_fixture
+    classification: ASSUMPTION
+    artifact_ids: [ART-ALL-MPNET-BASE-V2-REPOSITORY-CANDIDATE]
+    ambiguity_ids: [S-001, S-002, S-004, S-005]
+    rationale: Freeze representative strings and explicit repeat/batch-single tolerances for runtime qualification only.
+  - component: fuzzy_protocol
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-RAPIDFUZZ-RATIO-REPOSITORY-CANDIDATE]
+    ambiguity_ids: [S-002, S-003, S-005]
+    rationale: Preserve literal whole-string RapidFuzz ratio with raw strings.
+  - component: scoring_aggregation
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-AUTHOR-REPOSITORY-CROP-SCORING-PROTOCOL]
+    ambiguity_ids: [S-001, S-005]
+    rationale: >-
+      Reproduce author-repository scorer commit 87b90db and runner commit 2e8b544:
+      threshold max(C1,C3), then return the semantic winner.
+  - component: deepsolo_candidate_and_reduction
+    classification: ASSUMPTION
+    artifact_ids: [ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE]
+    ambiguity_ids: [D-001, D-002]
+    rationale: Reuse the only qualified candidate and highest-score reduction for diagnostics only.
+  - component: deepsolo_process_isolation
+    classification: HARDWARE_DEVIATION
+    artifact_ids: [ART-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE]
+    ambiguity_ids: [D-003, M11-DEEPSOLO-HOST-001]
+    rationale: Keep the legacy stack in a separate non-Docker Python 3.8 process.
+
+blocking_ambiguity_ids:
+  - M11-DOWN-001
+  - M11-DEEPSOLO-HOST-001
+  - A-008
+  - L-001
+  - L-003
+  - L-004
+  - L-005
+  - R-001
+  - R-003
+  - C-001
+  - C-002
+  - C-003
+  - C-004
+  - S-001
+  - S-002
+  - S-003
+  - S-004
+  - S-005
+  - D-001
+  - D-002
+  - D-003
+  - DS-002
+  - E-001

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; exploratory TEST comparison and compute estimate",
+  "table_5_claim": false,
+  "datasets": {"icdar13": 233, "icdar2015": 500, "ctw1500": 500, "total_text": 300},
+  "threshold_grid": {"minimum": 0.05, "maximum": 0.99, "step": 0.01},
+  "joint_threshold": 0.6,
+  "nms_iou": 0.5,
+  "matching_iou": 0.5,
+  "profiling": {"precision": "float32", "device": "cpu", "sample_images_per_dataset": 4, "parseq_batch_size": 32, "cpu_threads": 4, "flops_per_mac": 2},
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse completed three-dataset GPU transfer readings and Total-Text direct original640 YOLO boxes/PARSeq readings. Do not use high-resolution, tiled or crop-variant branches. Preserve local normalized bbox matching and ignore policy."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Total-Text stored recognition is CPU FP32; the other three completed recognition runs are RTX3090 FP32. Preserve and report each source device. New read-only forward profiling uses CPU FP32 and sequential model residency; it does not qualify GPU latency or memory."},
+    {"classification": "ASSUMPTION", "choice": "Total-Text reuses the same 95-point scalar confidence controls as the previous suite. All maxima are exploratory TEST selections; seek shared joint threshold improvement without silently changing deployment settings."},
+    {"classification": "ASSUMPTION", "choice": "Count dense convolution/linear MACs, full MultiheadAttention projections and QK/AV products, plus ViT QK/AV products; use two floating-point operations per MAC. Exclude biases, activations, normalization, softmax, embeddings, decode comparisons, preprocessing and NMS. This is a dominant-arithmetic FLOP estimate, not a complete operator count."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Profile the qualified checkpoints and unmodified autoregressive/refine1 PARSeq forward. Use recorded YOLO tensor shapes; Total-Text shapes are derived from qualified single-image Ultralytics8.1.0 auto LetterBox at640/stride32 and checked against the other datasets."},
+    {"classification": "ASSUMPTION", "choice": "Choose four evenly spaced images per dataset by frozen sample order, without GT. Profile all their original crops using stored per-image batch32 ordering. Estimate dataset mean recognition compute from all-image crop density times the sampled per-crop compute; retain sampling ranges and CPU/cached output differences."},
+    {"classification": "ASSUMPTION", "choice": "A separate full26-step PARSeq profile is a conservative counted-arithmetic budget; it is not the deployed early-EOS execution or an accuracy run. Safe pre-OCR filtering budgets are hypothetical and need batch-reexecution qualification."},
+    {"classification": "UNRESOLVED", "choice": "Exact GPU conditional decoding FLOPs for every crop, full non-MAC operation counting, official polygon Hmean and paper Table4 profiler compatibility remain unresolved. CTW1500 is still full-line evaluation."}
+  ]
+}

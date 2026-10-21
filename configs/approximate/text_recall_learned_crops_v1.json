@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "source_config": "configs/approximate/text_recall_crops_v1.json",
+  "source_config_sha256": "e841cff91fcacce512797d5d8e69f6658700da0dba3d1765fae26c7fdd01bb2f",
+  "methods": ["kernel_watershed", "offset_votes_v2"],
+  "kernel_postprocessing": {
+    "method": "watershed",
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "center_threshold": 0.5,
+    "center_min_distance": 3,
+    "watershed_weights": [0.5, 0.25, 0.25],
+    "padding": 0,
+    "min_area": 0,
+    "max_instances": null
+  },
+  "scientific_choices": [
+    {"component": "trained_kernel_transfer", "classification": "ASSUMPTION", "rationale": "Apply the existing selected two-head model's kernel map to each new text mask; keep its kernel threshold and watershed weights. No segmentation is rerun. This separates the effect of crop localization from changing text foreground, and does not claim a jointly trained model.", "reference": "docs/PAPER_AMBIGUITIES.md#trc-002--existing-trained-kernel-and-coherent-vote-transfer"},
+    {"component": "current_coherent_offset_predictor", "classification": "REPOSITORY_SPECIFIED", "rationale": "The coherent-vote v2 model is already trained100 epochs and selected at84 by its declared held-out loss. Reuse the normalized256 offset outputs and verify their exact source/checkpoint/split/GT alignment.", "reference": "docs/WORD_CENTER_VOTE_LOSS.md"},
+    {"component": "matched_votes_comparison", "classification": "ASSUMPTION", "rationale": "Use the same global consensus parameters and disabled growth as TRC-001; only the offset checkpoint changes. Keep selected and common0.50 policies separate with no OCR-driven reselection.", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "cached_ocr_and_placement", "classification": "HARDWARE_DEVIATION", "rationale": "Reuse complete hash-qualified crop/PARSeq results from TRC-001 and earlier studies, replay16 exact RGB crops, and recognize only new crops on CPU FP32/batch8. No new trained network or simultaneous GPU residency.", "reference": "docs/TEXT_RECALL_CROPS.md"},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Frozen pretrained cues transferred between models can fail; benefit on reused TRAIN holdout does not establish official TEST or strict paper reproduction.", "reference": "docs/TEXT_RECALL_CROPS.md"}
+  ]
+}

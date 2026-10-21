@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "epochs": 20,
+  "arms": {"pointwise": 1, "spatial": 3},
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "pixel_batch_size": 16384,
+  "image_batch_size": 8,
+  "negative_floor_per_image": 64,
+  "initial_bias": -2.0,
+  "num_workers": 2,
+  "cpu_threads": 4,
+  "expected_train_images": 1130,
+  "expected_validation_images": 125,
+  "expected_words": 983,
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "component": "frozen_reference", "rationale": "Qualified Text+Kernel control, RGB512/native256, unchanged radius3 Gap target, TRAIN1130/125 split, BFS thresholds and qualified PARSeq AR1. Reuse hash-verified validation feature cache from the completed probe.", "expected_effect": "Keep segmentation, dataset, coordinate mapping and OCR controlled."},
+    {"classification": "ASSUMPTION", "component": "spatial_head", "rationale": "Compare a 65-parameter 1x1 linear head with a 577-parameter 3x3 linear convolution, zero weights/bias-2. Identical 3x3 sampled patches, zero spatial padding, same examples and epoch permutations for both arms. No nonlinear hidden layer.", "expected_effect": "Measure extra local context; 3x3 is an experimental deviation from the AdaSpot proposal's 1x1 head."},
+    {"classification": "ASSUMPTION", "component": "bridge_weighting", "rationale": "All TRAIN Gap positives retained, split by frozen predicted M>=source threshold into hard/easy positives. Negative strata are non-Gap predicted text and remaining valid background, sampled without replacement up to max(64,total positive count) per image. Equal total weight for all four strata using inverse TRAIN sampled counts. Hard positives are a proxy, not a topological bridge guarantee.", "expected_effect": "Concentrate gradient on separators currently mistaken for foreground. Shifted priors can overcut letters; probabilities are not calibrated."},
+    {"classification": "ASSUMPTION", "component": "training_and_selection", "rationale": "20 complete epochs per arm, Adam1e-3, zero decay, pixel batch16384, fixed seed, no augmentation or parameter sweep. Include epoch0 and select native word F1, fewer fused words, earliest epoch. OCR follows both completed trainings and never selects checkpoints.", "expected_effect": "Controlled frozen-feature comparison on a repeatedly explored holdout, not independent validation."},
+    {"classification": "HARDWARE_DEVIATION", "component": "feature_cache_and_execution", "rationale": "Explicit one-GPU FP32 extraction, CPU/disk sampled 3x3 patch cache and reusable full validation features, CUDA-only head training/inference; PARSeq loaded after head tensors are unloaded. Record GPU, shapes, memory and OOM without automatic substitutions.", "expected_effect": "Reduce repeated backbone work. Actual RTX3090 execution does not qualify RTX3070 fit or shared-backbone latency."},
+    {"classification": "UNRESOLVED", "component": "generalization_and_full_adaspot", "rationale": "Spatial-head benefit, calibration, independent transfer, joint fine-tuning, feature Mask-Align and real shared OCR heads/gate remain unqualified.", "expected_effect": "No strict reproduction, official benchmark or guaranteed gain claim."}
+  ]
+}

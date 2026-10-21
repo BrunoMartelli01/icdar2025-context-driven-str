@@ -1,0 +1,121 @@
+{
+  "status": "COMPLETED_AND_AUDITED",
+  "result_class": "approximate reproduction",
+  "reproduction_mode": "approximate",
+  "completed_epochs": 50,
+  "cuda_optimizer_steps": 7100,
+  "training_samples_per_epoch": 1130,
+  "loss_components": [
+    "kernel"
+  ],
+  "all_epochs_on_cuda": true,
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "checkpoint": {
+    "epoch": 4,
+    "path": "best.pt",
+    "sha256": "2a40805b828275b6e021c99cc89173bf5dec7087c38e1dfd73936a8f9326907b"
+  },
+  "source_code_unchanged": true,
+  "unit_and_regression_tests": 17,
+  "independent_matching_audit": "All750 sample/padding geometry and exact-OCR counts verified with NumPy IoU and SciPy Hungarian matching",
+  "initial_kernel_iou": 0.6352309990572611,
+  "best_kernel_iou": 0.639072303771348,
+  "last_kernel_iou": 0.6295632800149402,
+  "initial_kernel_f1": 0.7655157553177532,
+  "best_kernel_f1": 0.7688199449664791,
+  "train_loss_epoch1": 0.15938698776000368,
+  "train_loss_epoch50": 0.1080691877455838,
+  "counts": {
+    "pad0": {
+      "localized": 413,
+      "exact_ocr": 257,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.2593340060544904
+    },
+    "pad12": {
+      "localized": 147,
+      "exact_ocr": 103,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.10393541876892028
+    },
+    "pad2": {
+      "localized": 623,
+      "exact_ocr": 478,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.48234106962663975
+    },
+    "pad4": {
+      "localized": 536,
+      "exact_ocr": 421,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.4248234106962664
+    },
+    "pad6": {
+      "localized": 379,
+      "exact_ocr": 298,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.3007063572149344
+    },
+    "pad8": {
+      "localized": 288,
+      "exact_ocr": 226,
+      "gt": 983,
+      "proposals": 999,
+      "ocr_hmean": 0.22805247225025227
+    }
+  },
+  "memory": {
+    "training": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 4218341888,
+      "gpu_peak_reserved_bytes": 4645191680,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "model_set": "one single-output Kernel AG-UNet; no OCR resident",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    },
+    "ocr": {
+      "batch_size": 8,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu_name": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 148152832,
+      "gpu_peak_reserved_bytes": 176160768,
+      "input_shape": [
+        8,
+        3,
+        32,
+        128
+      ],
+      "model_set": "PARSeq only",
+      "native_mask_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "oom": false
+    }
+  },
+  "results_sha256": "3dfbaee3cddad175deb1700d1de7314f3bfa2b9eff4209666e295b2389afa00b",
+  "run_root": "/extra1/bmartelli/context-str-runs/kernel-only-training-v1-20261016",
+  "outstanding_failures": []
+}

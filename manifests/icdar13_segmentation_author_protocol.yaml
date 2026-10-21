@@ -1,0 +1,36 @@
+schema_version: 1
+reproduction_mode: approximate
+claim_label: approximate reproduction
+artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+dataset: ICDAR13-FST-Task2.2
+split: official-training-all-229-author-protocol
+split_role: train
+split_policy:
+  artifact_id: ART-ICDAR13-AUTHOR-PROTOCOL-ALL-229
+  algorithm_id: icdar13-task2.2-all-229-v1
+  classification: PAPER_SPECIFIED
+  evidence_basis: AUTHOR_CLARIFIED
+  validation_count: 0
+acquisition:
+  official_upstream_artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+  mirror_archive_artifact_ids:
+  - ART-ICDAR13-MIRROR-TRAIN-IMAGES-V084
+  - ART-ICDAR13-MIRROR-TASK2-GT-V084
+annotation_policy:
+  artifact_id: ART-ICDAR13-AUTHOR-PROTOCOL-MASKED-TARGET
+  classification: PAPER_SPECIFIED
+  evidence_basis: AUTHOR_CLARIFIED
+  source_format: ICDAR13 Task 2.2 color-coded BMP plus paired TXT color records
+  target_conversion: icdar13-task2.2-author-validity-mask-v1
+  target_resize: bilinear_to_128x128_then_threshold_0.5
+  dont_care_training_behavior: zero_weight_validity_mask
+  validity_annotation: TXT records prefixed with # identify ignored BMP colors
+  masked_bce: true
+  ambiguity_ids: [DS-003]
+  training_ready: true
+source_manifests:
+- icdar13_segmentation_train.yaml
+- icdar13_segmentation_validation.yaml
+expected_sample_count: 229
+sample_order: numeric_id_ascending
+validity_annotation_path_template: raw/train_segmentation_gt/{id}_GT.txt

@@ -1,0 +1,67 @@
+schema_version: 1
+reproduction_mode: approximate
+claim_label: approximate reproduction dataset acquisition plan
+status: UNQUALIFIED_UNTIL_ARCHIVE_SHA256_AND_MANIFESTS_ARE_FROZEN
+
+datasets:
+  icdar2015:
+    classification: PAPER_SPECIFIED
+    paper_role: Table 5 recognition benchmark
+    granularity: word
+    official_source: https://rrc.cvc.uab.es/?ch=4&com=downloads
+    access: manual RRC account/terms may be required
+    expected_counts: {train: 1000, test: 500}
+    required_archives:
+      - ch4_training_images.zip
+      - ch4_training_localization_transcription_gt.zip
+      - ch4_test_images.zip
+      - Challenge4_Test_Task1_GT.zip
+    archive_sha256: UNRESOLVED_UNTIL_DOWNLOADED
+    current_acquisition_note:
+      status: OFFICIAL_HTTP_WITH_PUBLISHED_MD5_QUALIFICATION
+      observed_failure: RRC HTTPS endpoint serves an incomplete certificate chain
+      transport: official HTTP endpoint; no TLS bypass
+      checksum_source: MMOCR ICDAR2015 dataset preparer
+      test_gt_note: Task 4 and Task 1 test GT have identical contents but different filenames
+
+  total_text:
+    classification: PAPER_SPECIFIED
+    paper_role: segmentation and Table 5 recognition benchmark
+    granularity: word
+    official_source: https://github.com/cs-chan/Total-Text-Dataset
+    expected_counts: {train: 1255, test: 300}
+    annotation_versions:
+      train: latest refined 10-vertex TXT
+      test: official legacy variable-vertex TXT
+    archive_sha256: UNRESOLVED_UNTIL_DOWNLOADED
+    current_acquisition_note:
+      status: HISTORICAL_AUTHOR_HOST_UNAVAILABLE
+      observed_failure: www.cs-chan.com resets the connection before HTTP headers
+      declared_mirror: https://huggingface.co/datasets/yunusserhat/Total-Text-Dataset
+      mirror_classification: MIRROR_CANDIDATE_REQUIRES_PHYSICAL_QUALIFICATION
+
+  ctw1500:
+    classification: ASSUMPTION
+    paper_role: out-of-paper practical extension
+    granularity: text_line
+    official_source: https://github.com/Yuliang-Liu/Curve-Text-Detector
+    expected_counts: {train: 1000, test: 500}
+    required_archives:
+      train_images.zip: https://universityofadelaide.box.com/shared/static/py5uwlfyyytbb2pxzq9czvu6fuqbjdh8.zip
+      train_labels.zip: https://universityofadelaide.box.com/shared/static/jikuazluzyj4lq6umzei7m2ppmt3afyw.zip
+      test_images.zip: https://universityofadelaide.box.com/shared/static/t4w48ofnqkdw7jyc4t11nsukoeqk9c3d.zip
+      test_labels.zip: https://cloudstor.aarnet.edu.au/plus/s/uoeFl0pCN9BOCN5/download
+      recognition_annotations.zip: https://drive.google.com/file/d/1tHf-n86z4zFRaRNEc02EO-hZINZqkQpz/view
+    archive_sha256: UNRESOLVED_UNTIL_DOWNLOADED
+    current_acquisition_note:
+      status: OFFICIAL_LINKS_UNAVAILABLE
+      observed_failure: Box redirect ends with HTTP 400; CloudStor host is stale
+      declared_mirror: https://huggingface.co/datasets/HB16888/CTW1500
+      mirror_classification: MIRROR_CANDIDATE_REQUIRES_PHYSICAL_QUALIFICATION
+      recognition_annotation_note: upstream end-to-end annotations are downloaded and qualified separately against the frozen mirror geometry
+
+scientific_boundary:
+  table_5_claim: false
+  evaluation_protocol: UNRESOLVED
+  ambiguity_ids: [DS-003, E-001]
+  note: Dataset identity and annotation parsing do not define recognition accuracy.

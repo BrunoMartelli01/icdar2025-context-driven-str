@@ -1,0 +1,395 @@
+{
+  "architecture_identity": "approximate-ag-unet-figure3-v1",
+  "canonical_input_shape": [
+    1,
+    3,
+    256,
+    256
+  ],
+  "canonical_tensors": {
+    "attention0": [
+      1,
+      1,
+      128,
+      128
+    ],
+    "attention1": [
+      1,
+      1,
+      64,
+      64
+    ],
+    "attention2": [
+      1,
+      1,
+      32,
+      32
+    ],
+    "attention3": [
+      1,
+      1,
+      16,
+      16
+    ],
+    "bottleneck": [
+      1,
+      512,
+      8,
+      8
+    ],
+    "d0": [
+      1,
+      64,
+      128,
+      128
+    ],
+    "d1": [
+      1,
+      128,
+      64,
+      64
+    ],
+    "d2": [
+      1,
+      256,
+      32,
+      32
+    ],
+    "d3": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "e0": [
+      1,
+      64,
+      128,
+      128
+    ],
+    "e1": [
+      1,
+      256,
+      64,
+      64
+    ],
+    "e2": [
+      1,
+      512,
+      32,
+      32
+    ],
+    "e3": [
+      1,
+      1024,
+      16,
+      16
+    ],
+    "e4": [
+      1,
+      2048,
+      8,
+      8
+    ],
+    "gate0": [
+      1,
+      64,
+      128,
+      128
+    ],
+    "gate1": [
+      1,
+      128,
+      64,
+      64
+    ],
+    "gate2": [
+      1,
+      256,
+      32,
+      32
+    ],
+    "gate3": [
+      1,
+      512,
+      16,
+      16
+    ],
+    "logits": [
+      1,
+      1,
+      128,
+      128
+    ],
+    "skip0": [
+      1,
+      64,
+      128,
+      128
+    ],
+    "skip1": [
+      1,
+      256,
+      64,
+      64
+    ],
+    "skip2": [
+      1,
+      512,
+      32,
+      32
+    ],
+    "skip3": [
+      1,
+      1024,
+      16,
+      16
+    ]
+  },
+  "claim_label": "approximate reproduction",
+  "initialization": {
+    "new_batch_norm": "weight=1, bias=0",
+    "new_biases": "zero",
+    "new_convolutions": "Kaiming normal; fan_out/ReLU except head fan_in/linear",
+    "paper_encoder_weights": "UNRESOLVED (A-006)",
+    "seed_policy": "call segmentation.training.seed_everything before construction",
+    "selected_encoder_weights": "IMAGENET1K_V2",
+    "selected_encoder_weights_artifact": "ART-RESNET50-IMAGENET1K-V2-CANDIDATE",
+    "selected_encoder_weights_classification": "REPOSITORY_SPECIFIED",
+    "unweighted_encoder": "torchvision ResNet-50 initialization under torch seed"
+  },
+  "modules": {
+    "bottleneck": {
+      "channels": [
+        2048,
+        512
+      ],
+      "module": "bottleneck",
+      "type": "3x3 Conv2d(no bias)+BatchNorm2d+ReLU"
+    },
+    "decoder0": {
+      "attention": {
+        "coefficient_channels": 1,
+        "gate_channels": 64,
+        "inter_channels": 32,
+        "skip_channels": 64,
+        "type": "additive one-channel spatial gate"
+      },
+      "decode": {
+        "channels": [
+          128,
+          64,
+          64
+        ],
+        "type": "two 3x3 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "named_submodules": [
+        "project",
+        "attention.gate_projection",
+        "attention.skip_projection",
+        "attention.coefficient",
+        "decode"
+      ],
+      "project": {
+        "channels": [
+          128,
+          64
+        ],
+        "type": "1x1 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "type": "AttentionDecoderStage",
+      "upsample": "bilinear size=skip, align_corners=false"
+    },
+    "decoder1": {
+      "attention": {
+        "coefficient_channels": 1,
+        "gate_channels": 128,
+        "inter_channels": 64,
+        "skip_channels": 256,
+        "type": "additive one-channel spatial gate"
+      },
+      "decode": {
+        "channels": [
+          384,
+          128,
+          128
+        ],
+        "type": "two 3x3 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "named_submodules": [
+        "project",
+        "attention.gate_projection",
+        "attention.skip_projection",
+        "attention.coefficient",
+        "decode"
+      ],
+      "project": {
+        "channels": [
+          256,
+          128
+        ],
+        "type": "1x1 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "type": "AttentionDecoderStage",
+      "upsample": "bilinear size=skip, align_corners=false"
+    },
+    "decoder2": {
+      "attention": {
+        "coefficient_channels": 1,
+        "gate_channels": 256,
+        "inter_channels": 128,
+        "skip_channels": 512,
+        "type": "additive one-channel spatial gate"
+      },
+      "decode": {
+        "channels": [
+          768,
+          256,
+          256
+        ],
+        "type": "two 3x3 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "named_submodules": [
+        "project",
+        "attention.gate_projection",
+        "attention.skip_projection",
+        "attention.coefficient",
+        "decode"
+      ],
+      "project": {
+        "channels": [
+          512,
+          256
+        ],
+        "type": "1x1 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "type": "AttentionDecoderStage",
+      "upsample": "bilinear size=skip, align_corners=false"
+    },
+    "decoder3": {
+      "attention": {
+        "coefficient_channels": 1,
+        "gate_channels": 512,
+        "inter_channels": 256,
+        "skip_channels": 1024,
+        "type": "additive one-channel spatial gate"
+      },
+      "decode": {
+        "channels": [
+          1536,
+          512,
+          512
+        ],
+        "type": "two 3x3 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "named_submodules": [
+        "project",
+        "attention.gate_projection",
+        "attention.skip_projection",
+        "attention.coefficient",
+        "decode"
+      ],
+      "project": {
+        "channels": [
+          512,
+          512
+        ],
+        "type": "1x1 Conv2d(no bias)+BatchNorm2d+ReLU"
+      },
+      "type": "AttentionDecoderStage",
+      "upsample": "bilinear size=skip, align_corners=false"
+    },
+    "encoder": {
+      "registered_but_not_executed": [
+        "encoder.avgpool",
+        "encoder.fc"
+      ],
+      "stages": {
+        "e0": {
+          "channels": [
+            3,
+            64
+          ],
+          "module": "encoder.conv1+bn1+relu"
+        },
+        "e1": {
+          "channels": [
+            64,
+            256
+          ],
+          "module": "encoder.maxpool+layer1"
+        },
+        "e2": {
+          "channels": [
+            256,
+            512
+          ],
+          "module": "encoder.layer2"
+        },
+        "e3": {
+          "channels": [
+            512,
+            1024
+          ],
+          "module": "encoder.layer3"
+        },
+        "e4": {
+          "channels": [
+            1024,
+            2048
+          ],
+          "module": "encoder.layer4"
+        }
+      },
+      "type": "torchvision.models.resnet50"
+    },
+    "head": {
+      "channels": [
+        64,
+        1
+      ],
+      "module": "head",
+      "type": "1x1 Conv2d"
+    }
+  },
+  "output": {
+    "activation": null,
+    "ambiguity_id": "A-005",
+    "canonical_shape": [
+      1,
+      1,
+      128,
+      128
+    ],
+    "channels": 1,
+    "classification": "ASSUMPTION",
+    "name": "foreground_logits",
+    "spatial_rule": "H/2 x W/2"
+  },
+  "parameter_count": 48454733,
+  "reproduction_mode": "approximate",
+  "schema_version": 1,
+  "selected_branch_freeze_encoder": false,
+  "state_dict": {
+    "fingerprint_algorithm": "SHA256 over sorted key\\0comma-shape\\0dtype\\n",
+    "schema_fingerprint": "bc146d1e3742a63f9b64ad8aded6ff92fbde656f8386e1a88d0e8a109ab04b5f",
+    "tensor_count": 456
+  },
+  "strict_blockers": [
+    "A-001",
+    "A-002",
+    "A-003",
+    "A-004",
+    "A-005",
+    "A-006"
+  ],
+  "supported_input": {
+    "batch_size": "positive integer",
+    "channels": 3,
+    "dtype": "floating point matching model parameters; selected branch float32",
+    "height": "integer >= 32 and divisible by 32",
+    "layout": "BCHW",
+    "width": "integer >= 32 and divisible by 32"
+  },
+  "trainable_parameter_count_selected_branch": 48454733
+}

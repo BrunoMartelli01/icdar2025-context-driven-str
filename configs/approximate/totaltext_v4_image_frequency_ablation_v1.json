@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_v4_image_frequency_train_ablation",
+  "reproduction_mode": "approximate",
+  "variant_class": "PRACTICAL_APPROXIMATION",
+  "source_target": "qualified_totaltext_curved_word_boxes_v4",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "train_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "baseline_run_variant": "highres_separator_residual",
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "probability_threshold": 0.5,
+  "contours": "8_connected_components_native256_no_area_no_top10_no_padding",
+  "validation": {
+    "population": "held_out_official_TRAIN_125",
+    "assignment": "same_SHA256_202503_colon_sample_id_as_frozen_highres_ablation",
+    "checkpoint_selection": "best_validation_foreground_iou_tie_earliest_epoch"
+  },
+  "training": {
+    "seed": 202503,
+    "epochs": 500,
+    "batch_size": 8,
+    "num_workers": 4,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "precision": "float32",
+    "deterministic_algorithms": true,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [-15.0, 15.0],
+    "separation_weight": 3.0,
+    "skip_floor": 0.25,
+    "checkpoint_retention": "best_and_latest_during_training_best_only_after_success"
+  },
+  "variants": {
+    "photometric": {
+      "image_intervention": "photometric",
+      "model": "frozen_resnet_ag_unet",
+      "parameters": {
+        "probability": 0.5,
+        "operations": ["brightness", "contrast", "saturation", "gamma", "gaussian_blur", "gaussian_noise"],
+        "magnitude": 0.2,
+        "blur_sigma_min": 0.1,
+        "blur_sigma_max": 1.0,
+        "noise_std_max": 0.015
+      }
+    },
+    "letterbox": {
+      "image_intervention": "letterbox",
+      "model": "frozen_resnet_ag_unet",
+      "parameters": {"canvas_fill_rgb": [124, 116, 104]}
+    },
+    "fourier_amplitude": {
+      "image_intervention": "fourier_amplitude",
+      "model": "frozen_resnet_ag_unet",
+      "parameters": {
+        "probability": 0.5,
+        "fraction": 0.02,
+        "strength": 0.5
+      }
+    },
+    "wavelet_haar": {
+      "image_intervention": "none",
+      "model": "haar_early_skip_adapter",
+      "parameters": {}
+    }
+  },
+  "scientific_choices": [
+    {"component": "high_resolution_v4_and_validation", "classification": "ASSUMPTION", "rationale": "Reuse the frozen practical 512-to-256 Total-Text v4 protocol and identical TRAIN/validation split; not the 256-to-128 paper path."},
+    {"component": "image_augmentations", "classification": "ASSUMPTION", "rationale": "Predeclared moderate RGB-only perturbations; no target, validity, separation or owner edits."},
+    {"component": "letterbox", "classification": "ASSUMPTION", "rationale": "Preserve aspect ratio with paired padding and invalid canvas pixels; no word-aware crop and no TEST-tuned scale."},
+    {"component": "fourier_amplitude", "classification": "ASSUMPTION", "rationale": "Mix low-frequency RGB amplitude with donors selected only from the 1130 training images, preserving source phase."},
+    {"component": "wavelet_haar", "classification": "ASSUMPTION", "rationale": "Fixed local Haar details enter a zero-initialized 1x1 adapter on the /2 skip; frozen pretrained encoder is unchanged."}
+  ]
+}

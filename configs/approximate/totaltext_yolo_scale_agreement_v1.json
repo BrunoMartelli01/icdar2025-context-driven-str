@@ -1,0 +1,9 @@
+{
+  "schema_version": 1, "reproduction_mode": "approximate", "exploratory_test_analysis": true,
+  "joint_controls": [0.5, 0.6], "pair_iou": 0.5, "text_nms_iou": 0.5,
+  "scientific_choices": [
+    {"classification":"ASSUMPTION","choice":"After the exploratory resolution/window battery, evaluate a new cached method requiring exact normalized reading agreement and IoU>=0.5 between640 and960 detections. Pair one-to-one with geometric-mean joint confidence; preserve640 coordinates. These are generic predeclared controls, not fitted to labels."},
+    {"classification":"REPOSITORY_SPECIFIED","choice":"Reuse frozen genuine YOLO/PARSeq scores and original TEST care annotations only after selection; preserve the local normalized-word bbox metric."},
+    {"classification":"UNRESOLVED","choice":"Hard scale agreement can lose valid words; no untouched TEST validation or transfer claim. Official polygon Hmean remains separate."}
+  ]
+}

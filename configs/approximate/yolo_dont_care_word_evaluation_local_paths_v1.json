@@ -1,0 +1,8 @@
+{
+  "reproduction_mode": "approximate",
+  "source_config": "configs/approximate/yolo_parseq_four_dataset_comparison_v1.json",
+  "source_paths": "configs/approximate/yolo_parseq_four_dataset_comparison_local_paths_v1.json",
+  "geometry_python": ".venvs/context-str-deepsolo-host/bin/python",
+  "ctw_reference": "/tmp/ctw1500-word-recovery-audit-v2",
+  "output": "/tmp/yolo-dont-care-word-evaluation-v1"
+}

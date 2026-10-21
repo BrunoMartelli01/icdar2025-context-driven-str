@@ -1,0 +1,59 @@
+reproduction_mode: strict
+claim_label: strict reproduction
+device: cuda
+
+# Null values are deliberate stop markers. Strict validation must reject this
+# config until authoritative artifacts resolve every required selection.
+segmentation:
+  architecture_artifact_id: ART-AGUNET-AUTHOR-CODE
+  checkpoint_artifact_id: ART-AGUNET-AUTHOR-CHECKPOINT
+segmenter:
+  ckpt: null
+  input_size: [256, 256]
+  binarize_thresh: null
+localize:
+  min_area: null
+  pad: null
+  connectivity: null
+  equal_area_tie_break: null
+  nmax: 10
+recognition:
+  primary:
+    implementation: parseq_s
+    checkpoint_artifact_id: ART-PARSEQ-PAPER-SELECTION
+    runtime_artifact_id: null
+  models: [parseq]
+  device: cuda
+caption:
+  checkpoint_artifact_id: ART-BLIP2-PAPER-VITB-SELECTION
+  model: null
+  revision: null
+  min_len: null
+  max_len: null
+scoring:
+  embedder_artifact_id: ART-MPNET-PAPER-SELECTION
+  embedder: null
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+fallback:
+  enabled: true
+  implementation: deepsolo
+  checkpoint_artifact_id: ART-DEEPSOLO-PAPER-SELECTION
+  use_deepsolo: true
+  only_if_below_tau: true
+blocking_ambiguity_ids:
+  - A-001
+  - A-005
+  - A-007
+  - L-001
+  - L-003
+  - L-005
+  - R-001
+  - C-001
+  - C-004
+  - S-001
+  - S-002
+  - S-004
+  - D-001
+  - D-002

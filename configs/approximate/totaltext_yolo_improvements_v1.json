@@ -1,0 +1,19 @@
+{
+  "schema_version": 1, "reproduction_mode": "approximate", "dataset": "total_text",
+  "split": "TEST", "exploratory_test_analysis": true, "table_5_claim": false,
+  "score_controls": [0.05, 0.25, 0.4], "reference_score": 0.4,
+  "joint_controls": [0.5, 0.6], "merge_iou": 0.5,
+  "matching_iou": 0.5, "highres_size": 960, "tile_size": 640,
+  "tile_overlap": 0.2, "tile_confidence_floor": 0.25,
+  "crop_fractions": [-0.05, 0.05, 0.15], "variant_detector_floor": 0.25,
+  "seed": 0, "batch_size": 32, "cpu_threads": 4,
+  "scientific_choices": [
+    {"classification":"ASSUMPTION","choice":"Explore method families after inspecting baseline TEST failures; parameters are generic predeclared controls, not fitted or selected to maximize TEST results. No independent final-validation claim."},
+    {"classification":"ASSUMPTION","choice":"Combine detector and balanced PARSeq confidence by geometric mean; these scores are not calibrated probabilities. Apply fixed geometric or identical-reading NMS."},
+    {"classification":"ASSUMPTION","choice":"960 whole-image inference and four overlapping640 windows plus original640 boxes address resolution and partial boxes. Tile floor0.25 bounds new candidates; merge at IoU0.5."},
+    {"classification":"ASSUMPTION","choice":"For original boxes scoring>=0.25, test5% shrink,5% expansion and15% expansion. Preserve original detection geometry for evaluation. Select crop view by balanced OCR confidence without GT."},
+    {"classification":"HARDWARE_DEVIATION","choice":"Explicit CPU/GPU device, FP32, batch32, threads4 and sequential YOLO/PARSeq loading; CPU measurements do not qualify target GPU."},
+    {"classification":"REPOSITORY_SPECIFIED","choice":"Reuse pinned YOLO8s TextOCR checkpoint and qualified PARSeq artifact, RGB/BGR conventions and normalized-word bbox micro metric."},
+    {"classification":"UNRESOLVED","choice":"Official polygon ignore-aware Hmean, incorrect historical transcriptions and transfer to new datasets remain separate. Ignored GT is not used to filter predictions at inference."}
+  ]
+}

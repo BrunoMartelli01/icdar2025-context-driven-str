@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "reference_run": "/tmp/clip-image-router-word-advantage-v1/vit_b16/34952fc322b7",
+  "kernel_test_run": "artifacts/diagnostics/unet-word-detection-test-20261011T191308Z-1177968",
+  "deepsolo_test_run": "/tmp/totaltext-independent-detector-slots-v2/full",
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "test_data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "output_root": "/tmp/clip-router-e2e-v1"
+}

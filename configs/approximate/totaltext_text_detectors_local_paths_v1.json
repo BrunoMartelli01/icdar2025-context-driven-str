@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "artifacts_root": "/tmp/totaltext-text-detectors-v1/weights",
+  "output_root": "/tmp/totaltext-text-detectors-v1/evaluation"
+}

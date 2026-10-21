@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "context_plan_sha256": "6a922ea6b7e377440fcbf14f8d63b368fb598fea4ad37942d2a95206478847eb",
+  "context_results_sha256": "4aa89b7de8b1b66bfb2deb320db33997a0955d4005163dbec848594fa9d8c4c4",
+  "families": ["coverage_baseline", "all_checks_softcrop", "vqa_residual_plain", "vqa_residual_context", "vqa_visual_drop_plain", "vqa_visual_drop_context", "vqa_context_specific", "base_vqa_residual_plain", "base_vqa_residual_context", "base_vqa_visual_drop_plain", "base_vqa_visual_drop_context", "base_vqa_context_specific"],
+  "primary_family": "base_vqa_visual_drop_context",
+  "quality_f1_threshold": 0.8,
+  "target_good_image_fractions": [0.8, 0.9, 0.95],
+  "minimum_calibration_accepted": 5,
+  "bypass_fractions": [0.1, 0.2, 0.3, 0.4, 0.5],
+  "mask_value": 128,
+  "blur_fraction": 0.05,
+  "plain_question": "Question: Is there any readable text or number visible in the image? Answer yes or no. Answer:",
+  "context_template": "Scene description: {caption}. Question: Is there any readable text or number visible in the image? Answer yes or no. Answer:",
+  "execution": {"device": "cuda:0", "precision": "float32", "vision_batch_size": 1, "language_answer_batch_size": 2, "cpu_threads": 4, "seed": 20261021},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Inspected local3.4/3.5/Figure4/Algorithm2: BLIP2 scene context and whole-image DeepSolo fallback. Residual-text VQA is a new external hypothesis, not specified by the paper."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse qualified original425 images,640 YOLO/PARSeq boxes/words, image-only BLIP2 captions, frozen consistency controls and complete DeepSolo branches; pinned same BLIP2-FLAN-T5-XL checkpoint/revision and hashes as captions."},
+    {"classification": "ASSUMPTION", "choice": "Mask union of all original predicted exclusive boxes with gray128 and separately global Gaussian blur radius .05*min(image dimensions), applied only within the union. Preserve all pixels outside boxes. Overlap order-independent. A box may also hide missed words; explicit limitation. Save array hashes and masked fraction; no label/ignore map in features."},
+    {"classification": "ASSUMPTION", "choice": "Frozen BLIP2 Yes/No with EOS normalized teacher-forced probability on original, hard residual, blur residual, and gray blank control. Plain/context questions held fixed. The largest residual probability across mask types is conservative risk. Visual drop is original probability minus maximum residual; context_specific is context drop minus plain drop. Blank-image caption bias is diagnostic. Original word outputs unchanged."},
+    {"classification": "ASSUMPTION", "choice": "Staged vision/QFormer/projection reused across questions; verify logits against native transformers forward on first real image, max tolerance2e-4. No AMP, offload, quantization, truncation or model substitution. Local pinned checkpoint only; failures/OOM propagate and retain receipt."},
+    {"classification": "ASSUMPTION", "choice": "Label-free CDF onlyTRAIN80, fixed sqrt(baseline*CDF), family choice onlyTRAIN80, cuts onlyTRAIN45, freeze before newTEST VQA. Report all12 families and fixed-primary, historically explored TEST. No optimizer, gradients, fitted mixture weights or new network training."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "RTX3090 qualified at execution; single GPU sequential FP32 BLIP2 needs more memory than historical8GB machine. Record allocated/reserved peaks, original/processed shapes, batches, state hashes before/after, all failures. This is approximate, not8GB qualified or strict paper reproduction."},
+    {"classification": "UNRESOLVED", "choice": "BLIP2 image224 may miss small text, hallucinate residual text from scene priors, or react to mask edges. Masking may hide unrecognized words inside a known box. No generalization guarantee from45 calibration images. Missing-region existence alone cannot prove exact spelling or F1>=.8."}
+  ]
+}

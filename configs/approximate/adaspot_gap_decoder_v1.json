@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "epochs": 10,
+  "checkpoint_epochs": [1, 3, 5, 10],
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "image_batch_size": 4,
+  "num_workers": 4,
+  "cpu_threads": 4,
+  "initial_bias": -2.0,
+  "thresholds": [0.5, 0.75, 0.9, 0.95, 0.99],
+  "decoders": ["cut", "preserve"],
+  "loss": {
+    "teacher_text_threshold": 0.65,
+    "balanced_bce_weight": 0.5,
+    "dice_weight": 0.5,
+    "text_protection_weight": 0.25,
+    "smooth": 1.0
+  },
+  "scientific_choices": [
+    {"classification":"ASSUMPTION","component":"dedicated_gap_decoder","rationale":"Deep-copy the qualified bottleneck and four attention upsampling stages, train them and a zero-initialized Gap head; freeze complete original Text/Kernel path and ResNet50. Source decoder initialization is retained, new decoder BN statistics train. This isolates feature adaptation from damaging M/K; it is not the proposal's final shared-feature architecture.","expected_effect":"Learn Gap-specific spatial representations that small frozen-feature heads could not provide, at additional parameter/memory cost."},
+    {"classification":"REPOSITORY_SPECIFIED","component":"paired_augmentation_targets","rationale":"Use original qualified paired image/mask/owner TRAIN augmentations, RGB512/native256 and the existing inter-word Gap target radius3; never use ground truth in inference. Same source dataset manifest and original125evaluation cohort.","expected_effect":"New random views each epoch, while preserving target alignment and comparison provenance."},
+    {"classification":"ASSUMPTION","component":"optimization","rationale":"AdamW1e-4/decay1e-4, all1030fit images once per epoch,10epochs. Batch-aggregate mean BCE for each of four teacher-foreground/Gap strata, fixed denominator4 (absent strata contribute0), plus masked soft Dice and GT-Text-negative BCE. Weights.5/.5/.25, Dice smoothing1. Teacher detached and unchanged.","expected_effect":"Balance rare useful separators, spatial overlap and avoiding cuts inside word regions. Coupled changes do not identify individual causal contributions."},
+    {"classification":"ASSUMPTION","component":"selection","rationale":"Reuse disjoint1030fit/100head-calibration/125evaluation IDs from normalized experiment. Check epochs0/1/3/5/10 over fixed thresholds and cut/preserve, select native wordF1 then fewer fusions, earlier epoch, higher threshold, cut tie. Retain epoch0/off; all10epochs execute regardless. No evaluation-label or OCR-based selection.","expected_effect":"Honest selection without forced improvement. Calibration100 was seen during source M/K pretraining, so only Gap updates are held out; reused evaluation is exploratory."},
+    {"classification":"HARDWARE_DEVIATION","component":"gpu","rationale":"Actual single CUDA GPU, FP32 batch4, sequential PARSeq after unloading segmentation. Record actual GPU, allocated/reserved memory and OOM with explicit failure and no CPU fallback.","expected_effect":"Feasible adaptation; no8GB qualification, exact paper environment or latency claim."},
+    {"classification":"UNRESOLVED","component":"limits","rationale":"Optimal Gap target/schedule, independent transfer and variance, shared AdaSpot heads, full strict reproduction remain unresolved.","expected_effect":"Approximate exploratory extension only, never a strict reproduction claim."}
+  ]
+}

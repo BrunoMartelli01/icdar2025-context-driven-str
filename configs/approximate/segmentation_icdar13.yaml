@@ -1,0 +1,152 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+
+run:
+  kind: real_training
+  name: m9-icdar13-approximate
+  result_class: approximate reproduction
+
+architecture:
+  implementation: figure_derived_ag_unet
+  identity: approximate-ag-unet-figure3-v1
+  contract_schema_version: 1
+  contract_artifact: provenance/AG_UNET_ARCHITECTURE_M8.json
+  encoder: resnet50
+  encoder_weights: IMAGENET1K_V2
+  encoder_weights_artifact_id: ART-RESNET50-IMAGENET1K-V2-CANDIDATE
+  freeze_encoder: false
+  output_stride: 2
+  architecture_document: docs/AG_UNET_IMPLEMENTATION_DECISIONS.md
+
+data:
+  split_policy_artifact_id: ART-ICDAR13-M9-APPROX-SPLIT-POLICY
+  split_policy_fingerprint_sha256: 3a7c3d4226e735b2e4b57fef5f8c84fa9522ad1b60852d86229a975ff07d6124
+  training_mask_policy_artifact_id: ART-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+  training_mask_policy_fingerprint_sha256: ca318685a8fea2a0c162d80986acb88d60ec950fdec440652ff4d57bf4c0adf3
+  train:
+    role: train
+    artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+    manifest: manifests/icdar13_segmentation_train.yaml
+  validation:
+    role: validation
+    artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+    manifest: manifests/icdar13_segmentation_validation.yaml
+
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  horizontal_flip_probability: 0.5
+  rotation_probability: 0.5
+  rotation_degrees: [-10.0, 10.0]
+  operation_order: flip_rotate_resize
+  resize_geometry: stretch
+  image_interpolation: bilinear
+  mask_interpolation: nearest
+  image_fill: [0, 0, 0]
+  mask_fill: 0
+  normalization: imagenet
+
+training:
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  batch_size: 8
+  loss: BCEWithLogitsLoss
+  bce_reduction: mean
+  adam_betas: [0.9, 0.999]
+  adam_epsilon: 1.0e-8
+  epochs: 2
+  learning_rate_schedule: none
+  checkpoint_selection: last
+  seed: 202503
+  deterministic_algorithms: true
+  precision: float32
+  num_workers: 0
+  drop_last: false
+
+validation:
+  enabled: true
+  role: validation
+  source: held_out_subset_of_official_training_split
+  protocol_classification: ASSUMPTION
+  leakage_policy: disjoint_sample_ids_and_resolved_paths
+  checkpoint_semantics: metrics_only_last_checkpoint
+  transforms:
+    image_size: [256, 256]
+    mask_size: [128, 128]
+    horizontal_flip_probability: 0.0
+    rotation_probability: 0.0
+    rotation_degrees: [0.0, 0.0]
+    operation_order: flip_rotate_resize
+    resize_geometry: stretch
+    image_interpolation: bilinear
+    mask_interpolation: nearest
+    image_fill: [0, 0, 0]
+    mask_fill: 0
+    normalization: imagenet
+
+localization:
+  min_area: 4
+  pad: 2
+  nmax: 10
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+
+evaluation:
+  probability_threshold: 0.5
+  binary_mask_backprojection: nearest
+  empty_foreground_policy: perfect_if_both_empty
+  aggregation_modes: [per_image_macro, global_micro]
+
+strict_blockers:
+  - A-001
+  - A-002
+  - A-003
+  - A-004
+  - A-005
+  - A-006
+  - A-007
+  - A-008
+  - T-001
+  - T-002
+  - T-003
+  - T-004
+  - DS-001
+  - DS-003
+
+scientific_choices:
+  - component: architecture
+    classification: ASSUMPTION
+    evidence_basis: FIGURE_INFERRED
+    ambiguity_ids: [A-001, A-002, A-003, A-004, A-005, A-006]
+  - component: encoder_weights_and_training_state
+    classification: REPOSITORY_SPECIFIED
+    artifact_ids: [ART-RESNET50-IMAGENET1K-V2-CANDIDATE]
+    ambiguity_ids: [A-006]
+  - component: transforms
+    classification: ASSUMPTION
+    ambiguity_ids: [A-007, T-003]
+  - component: two_epoch_duration_no_schedule_last_checkpoint_adam_defaults_seed
+    classification: ASSUMPTION
+    ambiguity_ids: [T-001]
+  - component: dataset_specific_model
+    classification: ASSUMPTION
+    artifact_ids:
+      - ART-ICDAR13-FST-OFFICIAL-SPLIT
+      - ART-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+    ambiguity_ids: [T-002, DS-003]
+  - component: icdar13_training_mask_conversion_and_dont_care
+    classification: ASSUMPTION
+    artifact_ids: [ART-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY]
+    ambiguity_ids: [DS-003]
+  - component: held_out_validation_from_training_source
+    classification: ASSUMPTION
+    artifact_ids:
+      - ART-ICDAR13-FST-OFFICIAL-SPLIT
+      - ART-ICDAR13-M9-APPROX-SPLIT-POLICY
+    ambiguity_ids: [T-001, T-002, DS-003]
+  - component: float32_single_gpu_rtx3070_target
+    classification: ASSUMPTION
+    ambiguity_ids: [T-004]

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "frozen_TRAIN_1130_validation_125",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "train_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "source_training_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "epochs": 100,
+  "seed": 202503,
+  "batch_size": 8,
+  "num_workers": 2,
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "skip_floor": 0.25,
+  "foreground_threshold": 0.65,
+  "kernel_threshold": 0.5,
+  "kernel_distance_fraction": 0.5,
+  "kernel_loss_weight": 1.0,
+  "foreground_separation_weight": 3.0,
+  "checkpoint_selection": "validation_word_f1_then_fewer_fusions_then_recall_then_fg_iou_then_earliest",
+  "postprocessing": "8_connected_nuclei_simultaneous_BFS_unseeded_CC_fallback_instance_boxes_pad0_no_area_no_top10",
+  "scientific_choices": [
+    {"component": "word_nuclei", "classification": "ASSUMPTION", "rationale": "PSENet-inspired two-map adaptation; not original PSENet. Generate a connected native nucleus independently per qualified v4 owner using half-max interior distance and largest-CC selection."},
+    {"component": "paired_targets", "classification": "ASSUMPTION", "rationale": "Keep existing v4 full-mask, validity, separation and letterbox transform unchanged. Replay spatial augmentation for owners and form nuclei only within valid full target."},
+    {"component": "expansion", "classification": "ASSUMPTION", "rationale": "GT-blind simultaneous 8-neighbour BFS inside full predicted foreground; deterministic equal-distance ties, no instance fusion; preserve unseeded full CC as fallback."},
+    {"component": "thresholds_and_selection", "classification": "ASSUMPTION", "rationale": "Reuse pre-existing TRAIN-selected foreground 0.65, freeze kernel 0.5 before any run, select checkpoint only on held-out TRAIN word F1; no threshold grid or TEST selection."},
+    {"component": "model", "classification": "ASSUMPTION", "rationale": "Existing practical letterbox native256 architecture plus one output channel; frozen pretrained ResNet50 and existing optimizer. No frequency adapter."}
+  ]
+}

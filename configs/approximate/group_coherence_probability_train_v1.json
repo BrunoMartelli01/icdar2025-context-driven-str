@@ -1,0 +1,19 @@
+{
+  "experiment": "group-coherence-probability-train-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "oracle_sha256": "cec8fbc12b3c246daecfda25e722970b0cc8ed2890621a8088435e69daa57564",
+  "evaluation_config": "configs/approximate/segmentation_icdar13_author_protocol_test.yaml",
+  "evaluation_config_sha256": "bf3a4d69ebb0f0407461b32b4e14b5464ca2f197b82abf8e75d87a4aa08a6fa2",
+  "group_parameters": {"max_gap_to_other_median": 1.5, "minimum_positive_gaps": 3},
+  "corridor_parameters": {"min_mean_probability": 0.2, "min_column_max_probability": 0.2},
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "One fixed version per method; no grid. Use frozen nearest backprojection to compare on identical components with historical methods. Bilinear experiments do not become defaults."},
+    {"classification": "ASSUMPTION", "choice": "GROUP_COHERENCE uses V1 candidate edges sorted by gap/center-y/IDs; validates merged group vertical common overlap, centroid spread and height ratio with V1 limits. Small components below median height/V1 height ratio do not constrain the vertical core. If >=3 positive consecutive internal gaps, max gap must not exceed 1.5 times median of the remaining gaps; else no spacing gate."},
+    {"classification": "ASSUMPTION", "choice": "PROBABILITY_CORRIDOR independently filters V1 edges. In the horizontal gap and shared vertical bbox interval require mean>=.2 and minimum column maximum>=.2. Overlapping/touching X boxes keep the V1 edge. Native probabilities are nearest projected to preserve binary input at .5. Not a learned affinity score; no probability map is fabricated from a prediction binary mask."},
+    {"classification": "ASSUMPTION", "choice": "GT128 and GT_FULLRES use binary target values as support, explicitly not calibrated probabilities; foreground Don't Care handling remains unchanged. All word boxes/text used only after proposal generation."},
+    {"classification": "UNRESOLVED", "choice": "Group-global gates and probability corridors are not paper-specified. Report geometry only, no Table5/OCR claim or baseline promotion."}
+  ],
+  "table5_accuracy": null
+}

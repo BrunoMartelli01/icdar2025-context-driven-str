@@ -1,0 +1,64 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "variant": "guarded-word-targets-v3",
+  "ambiguity_id": "WORD-GT-003",
+  "reference": {
+    "data_root": "/extra1/bmartelli",
+    "id": "separated",
+    "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v1/v4-wider-gaps/training/manifests/total_text_train.yaml",
+    "manifest_sha256": "9fcc8b4a0ee3a50c0139963214234e9ab7317aaff94f24cd9206ff9b69bad1c7"
+  },
+  "compact": {
+    "data_root": "/extra1/bmartelli",
+    "id": "compact",
+    "manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v2/compact-cores/training/manifests/total_text_train.yaml",
+    "manifest_sha256": "67a2cd2c8e702f40badb91c54595fe322ba814033f470e13b07e879a3db6d179"
+  },
+  "source_training_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+  "source_training_config_sha256": "0cfb83466e7c74950a43f58bf452ef4004ccfb81923ca907758ca3f338f17a25",
+  "expected_images": 1255,
+  "expected_words": 9285,
+  "seed": 202503,
+  "cpu_threads": 4,
+  "augmentation_epochs": [
+    0,
+    1
+  ],
+  "guard": {
+    "max_growth_native": 2.0,
+    "growth_steps": 8,
+    "min_area_fraction": 0.2,
+    "min_span_fraction": 0.8,
+    "crop_padding_native": 2,
+    "thin_bbox_side_native": 2,
+    "unresolved_policy": "retain_all_original_fragments_and_report"
+  },
+  "output_budget_bytes": 67108864,
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper3.2/3.3 binary masks and connected components with padding; no prescribed shrinking scheme"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Pinned V1 reference and V2 compact sources; unchanged paired deterministic flip/rotate/resize and unchanged RGB, validity, architecture, old/default configs"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "V3 guard after actual augmented native transform; preserve stable V2 cores, grow inside same V1 nearest-owner support with no8-neighbour contact to other retained words; never discard secondary fragments to claim connectedness"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Initial untuned guards reuse maxinset2,8steps,minarea.2 and minspan.8 from V2; apply span bound to both axes. Coverage padding2 from existing approximate localization config (not numeric value specified by paper); thin reference bbox<=2 pixels is protected. Not chosen by new TEST OCR"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Explicit nearest-owner fallback is allowed only as V3 geometry correction, within validity/sourceword support; document this local departure from the old bilinear-threshold target. Preserve other words on every accepted update"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Impossible native-grid words/connectivity/coverage retained and reported; no blanket guarantee. OCR benefit and best thresholds require controlled training/validation. No TEST tuning, new training or strict result"
+    }
+  ]
+}

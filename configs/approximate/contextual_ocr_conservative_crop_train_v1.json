@@ -1,0 +1,62 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "selection": "All 229 TRAIN images; five deterministic image-content-grouped folds; four fixed examples from other folds (two keep, two correct), distinct example images; hash order, no outcome-based tuning.",
+  "sample_count": 229,
+  "source_report_sha256": "c34c9f758b2dc2499bd4b463c2d6f237ca2eb4d57f369b7c5c1ba6e6d45afe70",
+  "variants": [
+    "ocr_only",
+    "ocr_caption"
+  ],
+  "models": [
+    "qwen2.5-1.5b"
+  ],
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 32
+  },
+  "max_input_tokens": 2048,
+  "seed": 0,
+  "instruction": "You are a conservative OCR post-corrector for ONE independent text crop. PRIMARY OCR is the strongest evidence. Your default action is to copy PRIMARY OCR exactly. Change it only when there is strong evidence of a small character-level OCR recognition error. If PRIMARY OCR already forms a plausible word, name, number, code, abbreviation, or punctuation sequence, preserve it exactly. Never replace a valid OCR reading with a synonym, related word, more common word, or a word suggested only by context. Do not correct unfamiliar names merely because they look unusual. WEAK SCENE CONTEXT is secondary evidence only: use it only as a tie-break when it supports a small correction already strongly suggested by PRIMARY OCR. Context alone is never sufficient to change the OCR. Prefer the smallest possible edit. Do not add or remove whole words, translate, paraphrase, expand abbreviations, or normalize numbers. Return only the final OCR string on one line. If correction is not strongly justified, return PRIMARY OCR unchanged.",
+  "output_policy": "trim outer whitespace only; empty/multiline/code-fence/token-limit output explicitly abstains on this target only; never strip punctuation or salvage explanations; empty input targets preserved without generation",
+  "test_loaded": false,
+  "table5_accuracy": null,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Supervised in-context demonstrations from TRAIN GT; no gradient updates. Not annotation-free training-free paper reproduction. Target image fold GT excluded from demonstration selection and prompts; TEST never loaded."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Four fixed demonstrations per heldout fold, two keep and two correct from distinct images, IoU>=0.5 and exactly one significant GT word, unambiguous historical crop association. Sort by deterministic hash; no manual curation. Identical image hashes stay in one fold; near-duplicate scenes not verified."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Same prompt instruction, model, precision, decoding and evaluation as zero-shot v2; only demonstration insertion and input budget 2048 instead of1024. All budget violations explicitly preserve original target. No sample removed."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Reuse Qwen2.5-1.5B BF16 qualified snapshot. Single model GPU batch1, manual PAPER execution; CPU preparation/tests/evaluation."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "All TRAIN has informed previous design; image-held-out demonstrations are not an untouched generalization benchmark. No automatic promotion or promise of lower total compute."
+    },
+    {
+      "classification": "PRACTICAL_APPROXIMATION",
+      "choice": "Independent per-crop conservative post-correction. No other crop OCR is supplied. PARSeq target is primary evidence; cached caption is weak tie-break evidence only."
+    }
+  ],
+  "folds": 5,
+  "demo_kinds": [
+    "keep",
+    "correct",
+    "keep",
+    "correct"
+  ],
+  "demo_min_iou": 0.5,
+  "weight_training": false,
+  "prompt_policy": "PRIMARY_OCR_STRONG_CAPTION_WEAK_SINGLE_CROP"
+}

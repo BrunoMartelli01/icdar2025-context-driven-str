@@ -1,0 +1,85 @@
+{
+  "result_class": "approximate reproduction",
+  "decision": "MASK-REFINER-001",
+  "scope": "local novelty only; no literature priority claim",
+  "inspected_sources": [
+    {
+      "path": "models/word_instance_extensions.py",
+      "sha256": "83cf2ef402d39d4b2b71afadcc5569596a2893bd0c5639e950595a8d3bcf7bc3"
+    },
+    {
+      "path": "models/unet_crop_links.py",
+      "sha256": "e19da85fd2da1329fc91dd188bd5a9ed7ef336d618ed489b13b97d544ad5c2d7"
+    },
+    {
+      "path": "models/unet_word_research_v2.py",
+      "sha256": "9e13a0917059b2b81568b49bb2ba2fbeb815e89f1d3297d70f3ba1e96c54e17f"
+    },
+    {
+      "path": "models/unet_detection_methods.py",
+      "sha256": "60c723ca9d7faf52d6106f9d0d61fb99a36a65fbe831da1339fe3bf126475ffe"
+    },
+    {
+      "path": "segmentation/word_instance_data.py",
+      "sha256": "6c3006af70c811a5a0fd69fa2013857f32932dc2780a6660ceb4bae303009198"
+    },
+    {
+      "path": "scripts/run_word_instance_extensions.py",
+      "sha256": "924c81f1e9adaf0400e7f0e36a07278b7a4fabe4241409479286af7ac84ce437"
+    },
+    {
+      "path": "docs/WORD_INSTANCE_EXTENSIONS.md",
+      "sha256": "3c2d8f63afd8ef8f9809402f61f18b0f2bf1164799e7a78bd2730f9a2e497cd1"
+    },
+    {
+      "path": "docs/WORD_INSTANCE_NOVELTY_AUDIT.json",
+      "sha256": "8b40e6721148bdda1c425e517863d7d812aa5899dc16402dfa5b617a989b2cdc"
+    },
+    {
+      "path": "docs/UNET_CROP_LINKS.md",
+      "sha256": "9c20c2364b3c82080ce9b4d606a440d9e17fe8662ba9c4be8124878fef018fd8"
+    },
+    {
+      "path": "docs/UNET_CROP_REFINEMENT.md",
+      "sha256": "0a4e01b927cce6f9544125f2c7108c27c158735ed501a0efbee2112f28e99cef"
+    },
+    {
+      "path": "docs/UNET_SEEDED_SELECTIVE.md",
+      "sha256": "732304665f1489673cf8751193209964eb953cc18af142bb7f917a100c464edd"
+    },
+    {
+      "path": "docs/UNET_WORD_RESEARCH_V2.md",
+      "sha256": "6217fb8df3d2341eaa5c695436701a51c75e9ff411cc4fb79d3c2637a164e206"
+    },
+    {
+      "path": "docs/ADASpot_GAP_FULLTRAIN.md",
+      "sha256": "d9c7f64efa810c1cc4dc3a488d8885bd72b52718781ce837ac3a0b4a13ccf96f"
+    },
+    {
+      "path": "papers/2503.15639v2.pdf",
+      "sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd"
+    }
+  ],
+  "primary_online_sources": [
+    "https://arxiv.org/abs/2005.02551",
+    "https://github.com/hkchengrex/CascadePSP",
+    "https://arxiv.org/abs/1912.08193",
+    "https://proceedings.neurips.cc/paper_files/paper/2023/hash/fc0cc55dca3d791c4a0bb2d8ddeefe4f-Abstract-Conference.html",
+    "https://github.com/MengyuWang826/SegRefiner"
+  ],
+  "new_combination": "Independent small whole-image identity-initialized RGB + coarse Text/Kernel probabilities + hard masks corrector, controlled context/iterative architectures and matched dense/error-focused/corrupted-input training.",
+  "already_present": [
+    "RGB crop resegmentation",
+    "Residual DB/threshold heads on source features",
+    "Tiny local prompted word masks",
+    "Extra separator/gap decoders",
+    "BCE/Dice, longer budgets and kernels individually"
+  ],
+  "limitations": [
+    "Not exact CascadePSP/PointRend/SegRefiner",
+    "Dense error weighting is not PointRend point subdivision",
+    "Shared iterative U-Net is not diffusion",
+    "Whole-image256 resolution may miss small text",
+    "Canonical source predictions are not out-of-fold; calibration seen by source segmenter; reused holdout, single seed"
+  ]
+}

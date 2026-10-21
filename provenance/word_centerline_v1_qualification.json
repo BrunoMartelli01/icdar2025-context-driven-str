@@ -1,0 +1,70 @@
+{
+  "artifacts": {
+    "agent_audit": {
+      "path": "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md",
+      "sha256": "3d1253f676da8312ea56abec5e1b8a1cfe341cfe390bceb090adfd0e5db43545"
+    },
+    "config": {
+      "path": "configs/approximate/word_centerline_v1.json",
+      "sha256": "22f054348b671b6f9cc9be05688c0a7a58d66641d8d00e5f82964904b1b26b05"
+    },
+    "cpu-smoke/smoke.json": {
+      "path": "artifacts/word-centerline-v1-qualified/cpu-smoke/smoke.json",
+      "sha256": "92fe6bb28cb823944c3cfd6964c67ca4d2981e8183ac385bc31ae244fc28af18"
+    },
+    "target_qualification.json": {
+      "path": "artifacts/word-centerline-v1-qualified/target_qualification.json",
+      "sha256": "0d083ddb4b2246099c05f8738993f76cc983ba798cc1a40aa4646f4f0b8458e5"
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "cpu_smoke": {
+    "all_frozen_source_tensors_unchanged": true,
+    "forward_backward_real_images": 2,
+    "hardware_deviations": [
+      "CPU execution",
+      "batch2 instead of8",
+      "workers0 instead of2"
+    ],
+    "input_shape": [
+      2,
+      3,
+      512,
+      512
+    ],
+    "private_head_updated": true
+  },
+  "date": "2026-10-11",
+  "engineering_tests": {
+    "focused_passed": 50,
+    "related_regressions_passed": 132,
+    "total_passed": 182
+  },
+  "initial_failure": {
+    "cause": "Raw historical owner reference compared before paired target/validity clipping",
+    "path": "artifacts/word-centerline-v1-qualification/failure.json",
+    "resolution": "Apply the existing evaluation clipping before equality check; regression test passes"
+  },
+  "launch_script": "scripts/run_word_centerline_host.sh",
+  "limitations": "GT oracle is representational geometry evidence only. Reused TRAIN holdout; no official TEST or strict result.",
+  "pending": [
+    "full20epoch training",
+    "real PARSeq comparison on125 held-out images",
+    "GPU execution and allocated/reserved VRAM/OOM qualification",
+    "independent generalization"
+  ],
+  "reproduction_mode": "approximate",
+  "result_class": "smoke-test result",
+  "schema_version": 1,
+  "status": "CPU_QUALIFIED_GPU_PENDING",
+  "target_oracle": {
+    "expected_words": 983,
+    "images": 125,
+    "learned_predictions": false,
+    "mixed_line_components": 0,
+    "native_bbox_matches_iou_ge_50": 968,
+    "native_geometry_f1": 0.9847405900305188,
+    "recognition_run": false,
+    "surviving_native_words": 983
+  }
+}

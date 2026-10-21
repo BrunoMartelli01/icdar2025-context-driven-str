@@ -1,0 +1,29 @@
+mode: practical-candidate-selection-v2
+classification: PRACTICAL_APPROXIMATION
+paper_faithful_default_unchanged: true
+base: practical-remap-v1 exact retained crops
+generator:
+  thresholds: [0.20, 0.30, 0.40, 0.50]
+  max_contiguous_components: 12
+  line_robust: false
+  bbox_variants: [standard_pad6, tight, adaptive]
+  deduplication_iou: 0.95
+  preserve_all_deduplicated_sources: true
+selector:
+  variants:
+    - OCR_ONLY_ANCHOR_MEAN
+    - OCR_CONSENSUS_ANCHOR_MEAN
+    - BALANCED_ANCHOR_MEAN
+  objective: score each covered v1 anchor once
+  exact_v1_fallback: true
+  candidate_anchor_relation: contains contiguous same-line unpadded v1 boxes
+  maximum_alternatives_per_anchor_span: 3
+  maximum_selected: 10
+  context_role: exact_tie_break_only
+scientific_choices:
+  - classification: ASSUMPTION
+    choice: Multi-threshold word hypotheses may replace contiguous v1 anchors.
+  - classification: ASSUMPTION
+    choice: Candidate scores are averaged per covered anchor to remove proposal-count bias.
+  - classification: ASSUMPTION
+    choice: Exact v1 crops remain feasible singleton fallbacks.

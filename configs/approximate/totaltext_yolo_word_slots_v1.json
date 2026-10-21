@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "table_5_claim": false,
+  "candidate": "YOLOv8s TextOCR word-box detector",
+  "ultralytics_version": "8.1.0",
+  "seed": 0,
+  "checkpoint_source": {
+    "repository": "Alfadhils/YOLOv8-CRNN-Scene-Text-Recognition",
+    "commit": "bc195de0ec8a470eaa026c004820a7c275663cbf",
+    "path": "checkpoints/yolov8_5k.pt",
+    "git_blob_sha1": "a3abecbbc2efa5c5fde0c417600816a48af1bfa8",
+    "size_bytes": 22484953
+  },
+  "inference": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "batch_size": 1,
+    "image_size": 640,
+    "confidence_floor": 0.05,
+    "nms_iou": 0.7,
+    "max_detections": 300
+  },
+  "score_controls": [0.05, 0.25, 0.4],
+  "crop_slot_iou_controls": [0.1, 0.25, 0.5],
+  "evaluation_matching_iou": 0.5,
+  "source_selection": "guarded_consolidated",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "The paper uses segmentation components for localization and DeepSolo for fallback, not YOLO word slots. This experiment is outside STRICT mode."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse frozen Total-Text TEST PARSeq crop readings, GT-blind slot assignment and local normalized-word bbox metric from the independent DeepSolo diagnostic."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use a published YOLOv8s object detector trained on TextOCR word boxes as a lightweight transfer candidate. Its TextOCR validation mAP is not a Total-Text or word-selection result."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use 640-pixel input, 0.05 recall-oriented inference floor, default-like NMS IoU 0.7 and 300 maximum detections. Evaluate prespecified score and crop-slot IoU controls without choosing from TEST."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use the checkpoint-embedded Ultralytics 8.1.0 version for loading and send the original raster as BGR NumPy pixels, matching that version's documented BGR-to-RGB preprocessing."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Transfer from the published TextOCR checkpoint to Total-Text, single-character recall, and 8 GB RTX 3070 runtime remain unmeasured until a genuine GPU run."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "word_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "validation_count": 125,
+  "expected_validation_words": 983,
+  "evaluation_iou_thresholds": [0.25, 0.5, 0.75],
+  "ocr_iou_threshold": 0.5,
+  "input_size": [
+    512,
+    512
+  ],
+  "native_mask_size": [
+    256,
+    256
+  ],
+  "seed": 202503,
+  "skip_floor": 0.25,
+  "targets": {
+    "distance_fraction": 0.5
+  },
+  "postprocessing": {
+    "method": "watershed",
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "center_threshold": 0.5,
+    "center_min_distance": 3,
+    "watershed_weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "embedding_distance": 1.5,
+    "padding": 0,
+    "min_area": 0,
+    "max_instances": null
+  },
+  "learning_rate": 1e-05,
+  "head_learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "private_head_channels": 32,
+  "source_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "source_run_manifest_sha256": "473a42e403cd13260dbb4a422a4cd4d7a3a64a25a2f56673bee0313c52bd4823",
+  "source_architecture": "experimental-unet-word-research-v1:control",
+  "source_epoch": 2,
+  "loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1.0,
+    "separation_weight": 3.0
+  },
+  "experiment_kind": "unet_crop_links_v1",
+  "branches": [
+    "control",
+    "global_links",
+    "crop_word",
+    "crop_links"
+  ],
+  "embedding_arms": [],
+  "epochs": 20,
+  "batch_size": 4,
+  "num_workers": 2,
+  "cpu_threads": 4,
+  "crop_flip_probability": 0.5,
+  "v2_config": "configs/approximate/unet_word_research_v2.json",
+  "v2_config_sha256": "79b793bd0b4282b92a7e0a25c30d93bd81b1a3dba438f48fac8aaf1609d7948d",
+  "crop": {
+    "context_fraction": 0.5,
+    "minimum_context_pixels": 4,
+    "minimum_visible_fraction": 0.95,
+    "duplicate_overlap": 0.6
+  },
+  "links": {
+    "threshold": 0.5,
+    "loss_weight": 0.25,
+    "ramp_epochs": 5
+  },
+  "scientific_choices": [
+    {
+      "component": "backbone_family",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Local paper section3.2: ResNet50 and attention-gated U-Net; existing approximate decoder retained",
+      "expected_effect": "Preserve qualified source architecture"
+    },
+    {
+      "component": "frozen_source_and_global_link_control",
+      "classification": "ASSUMPTION",
+      "rationale": "Reuse v1 control best epoch2 and completed V2 links_isolated with cryptographic receipts; no retraining of V2",
+      "expected_effect": "Measure global links independently of crop training"
+    },
+    {
+      "component": "predicted_crop_curriculum",
+      "classification": "ASSUMPTION",
+      "rationale": "One uniformly sampled frozen predicted context crop per training image per epoch, seed202503,20 epochs, independent decoder copies, frozen encoder; no GT-generated windows; no-proposal images use an explicit full-image fallback",
+      "expected_effect": "Adapt second-pass scale and teach complete-word support; cannot recover regions outside proposed context"
+    },
+    {
+      "component": "crop_supervision",
+      "classification": "ASSUMPTION",
+      "rationale": "Ignore words with under95% valid original owner pixels inside the crop; paired horizontal flip only; recompute native nuclei and same-owner links from existing owners",
+      "expected_effect": "Avoid teaching clipped fragments as complete words; no fabricated character IDs"
+    },
+    {
+      "component": "reciprocal_pixel_links",
+      "classification": "ASSUMPTION",
+      "rationale": "Eight neighbor logits, per-owner/class-balanced BCE, ramp over5 epochs to.25; reciprocal graph at.5 preserves foreground; sparse graph exactly matches V2 connectivity",
+      "expected_effect": "Separate adjacent words using instance membership",
+      "source": "https://arxiv.org/abs/1801.01315"
+    },
+    {
+      "component": "second_pass_selection",
+      "classification": "ASSUMPTION",
+      "rationale": "Accept only child supports touching the predicted seed; retain seed if no child; merge repeated supports across context windows at overlap/min-area>=.6; report remap losses and fallback counts; no filtering/cap",
+      "expected_effect": "Preserve first-pass anchors and reduce duplicate neighboring crops; overlaps can still cause incorrect merges"
+    },
+    {
+      "component": "coordinate_and_selection_protocol",
+      "classification": "ASSUMPTION",
+      "rationale": "All four arms measured on original RGB exclusive boxes against original care annotation boxes; bbox maximum one-to-one IoU.5 wordF1 selects earliest best, including epoch0; exact casefold PARSeq after training,983 GT remain denominator",
+      "expected_effect": "Avoid penalizing improved crop coordinates through downsampling to the old256 grid; no official polygon-Hmean claim"
+    },
+    {
+      "component": "runtime",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "FP32 batch4 and four CPU threads, frozen encoder; preparation, training and PARSeq sequential separate processes; CUDA smoke records allocated/reserved peaks and OOM without automatic fallback",
+      "expected_effect": "Bound memory; RTX3070 fit still requires host execution"
+    },
+    {
+      "component": "gt_ocr_93_percent",
+      "classification": "UNRESOLVED",
+      "rationale": "User reports93% with GT crops; exact protocol and artifact provenance are not supplied and this number is not used as a measured experiment result",
+      "expected_effect": "No duplicated GT OCR experiment or calibrated metric claim"
+    },
+    {
+      "component": "generalization",
+      "classification": "UNRESOLVED",
+      "rationale": "Repeated125-image TRAIN holdout and one seed; official TEST untouched",
+      "expected_effect": "Exploratory approximate reproduction only"
+    }
+  ]
+}

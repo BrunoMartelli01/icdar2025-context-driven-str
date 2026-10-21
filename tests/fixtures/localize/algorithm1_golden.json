@@ -1,0 +1,55 @@
+{
+  "fixture": "Tiny M7 APPROXIMATE Algorithm 1 audit fixture",
+  "image_file": "algorithm1_image.png",
+  "mask_file": "algorithm1_mask.png",
+  "retained_crop_files": [
+    "algorithm1_crop_rank1.png",
+    "algorithm1_crop_rank2.png"
+  ],
+  "localization": {
+    "schema_version": 1,
+    "coordinate_convention": "xyxy_exclusive",
+    "operation_order": [
+      "extract_components",
+      "filter_by_true_component_area",
+      "compute_and_pad_bboxes",
+      "sort_by_true_component_area_descending",
+      "limit_to_top_10",
+      "crop_original_image"
+    ],
+    "parameters": {
+      "min_area": 3,
+      "pad": 1,
+      "connectivity": 8,
+      "tie_break": "top_to_bottom_then_left_to_right",
+      "nmax": 10
+    },
+    "retained": [
+      {
+        "rank": 1,
+        "component_id": 1,
+        "component_area": 6,
+        "bbox": [0, 0, 3, 2],
+        "padded_bbox": [0, 0, 4, 3],
+        "crop_shape": [3, 4, 3]
+      },
+      {
+        "rank": 2,
+        "component_id": 3,
+        "component_area": 5,
+        "bbox": [4, 4, 7, 7],
+        "padded_bbox": [3, 3, 8, 8],
+        "crop_shape": [5, 5, 3]
+      }
+    ],
+    "rejected": [
+      {
+        "component_id": 2,
+        "component_area": 1,
+        "bbox": [11, 0, 12, 1],
+        "padded_bbox": null,
+        "reason": "below_min_area"
+      }
+    ]
+  }
+}

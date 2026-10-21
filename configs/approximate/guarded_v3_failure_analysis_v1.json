@@ -1,0 +1,22 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; frozen V3/447 failure diagnostic",
+  "run_root": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017",
+  "baseline_analysis": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/guarded-v3-results-20261020/analysis.json",
+  "output": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/guarded-v3-failures-20261020",
+  "epoch": 447,
+  "padding_native": 1,
+  "area_min": 0,
+  "cap": 10,
+  "iou_threshold": 0.5,
+  "bbox_coverage_proxy": 0.5,
+  "fragment_min_gt_fraction": 0.05,
+  "scientific_ambiguity": "V3-FAIL-001",
+  "scientific_decisions": [
+    {"classification":"REPOSITORY_SPECIFIED","decision":"Reuse frozen native128 contours, retained and top10-rejected boxes, pinned PARSeq readings and exact matching helpers; preserve all 2204 care words."},
+    {"classification":"ASSUMPTION","decision":"Additive nested matching: exact retained -> geometric retained -> geometric including top10 rejects. The last increment is a localization opportunity, NOT measured extra correct OCR."},
+    {"classification":"ASSUMPTION","decision":"BBox coverage/area/fragment diagnostics are proxies, not pixel-mask topology or causal failure attribution; reuse coverage .5 / fragment fraction .05 from NATIVE128-FAIL-001."},
+    {"classification":"ASSUMPTION","decision":"Per-contour best-of-six-padding oracle is GT-dependent diagnostic only; keep base pad1 contours fixed, with at most one match per contour."},
+    {"classification":"UNRESOLVED","decision":"Causal gains from GT/loss/resolution/crop changes and exact pixel topology cannot be established by this frozen bbox/OCR analysis. All tuning requires TRAIN validation."}
+  ]
+}

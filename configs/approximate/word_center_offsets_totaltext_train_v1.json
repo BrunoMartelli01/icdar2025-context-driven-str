@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "totaltext_auxiliary_center_offset_training",
+  "architecture_identity": "experimental-word-center-offset-agunet-v1",
+  "skip_floor": 0.25,
+  "target": "visible_word_centroid_offsets_xy_divided_by_native_wh",
+  "loss": {
+    "beta": 0.01,
+    "aggregation": "mean_words_per_image_then_mean_supervised_images"
+  },
+  "voting": {
+    "text_threshold": 0.65,
+    "smoothing_sigma": 1.0,
+    "min_peak_density": 1.0,
+    "min_center_distance": 3,
+    "assignment_radius": 3.0
+  },
+  "scientific_choices": [
+    {
+      "component": "auxiliary_backbone",
+      "classification": "ASSUMPTION",
+      "rationale": "Reuse the practical frozen ResNet50 attention U-Net as a separate two-offset predictor; preserve the existing text model.",
+      "expected_effect": "Learn a complementary spatial cue without changing text contours; benefit unknown.",
+      "reference": "docs/PAPER_AMBIGUITIES.md#wco-001--auxiliary-dense-word-center-attraction"
+    },
+    {
+      "component": "dense_target_and_loss",
+      "classification": "ASSUMPTION",
+      "rationale": "Every valid word pixel regresses normalized xy displacement to its visible raster centroid using tanh and word-balanced SmoothL1; zero-initialized vector head.",
+      "expected_effect": "Dense word membership evidence, rather than sparse Gaussian center supervision; ignored/background pixels have no vector objective.",
+      "reference": "docs/WORD_CENTER_OFFSETS.md"
+    },
+    {
+      "component": "center_voting",
+      "classification": "ASSUMPTION",
+      "rationale": "Component-local probability-weighted bilinear voting, Gaussian accumulator smoothing, peak NMS and marker projection; dense votes within assignment_radius of a peak seed its word identity. Base probabilities alone define the optional flood shape and cost. Parameters are uncalibrated exploratory choices, not strict defaults.",
+      "expected_effect": "Several convergent vote groups may separate a fused mask; false peaks can over-split it and weak peaks can be missed.",
+      "reference": "docs/WORD_CENTER_OFFSETS.md"
+    },
+    {
+      "component": "model_placement",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Allow sequential base inference, saved aligned masks and independent auxiliary inference/training on the single GPU. Simultaneous feasibility and memory are unmeasured.",
+      "expected_effect": "Avoid assuming two networks fit together in 8GB; placement and precision must be recorded per run.",
+      "reference": "docs/WORD_CENTER_OFFSETS.md"
+    },
+    {
+      "component": "evaluation",
+      "classification": "UNRESOLVED",
+      "rationale": "No offset checkpoint, matched held-out comparison, full official evaluation or physical GPU qualification exists for this extension.",
+      "expected_effect": "Implementation and smoke evidence cannot establish improved separation or recognition.",
+      "reference": "docs/WORD_CENTER_OFFSETS.md"
+    },
+    {
+      "component": "totaltext_training_protocol",
+      "classification": "ASSUMPTION",
+      "rationale": "Qualified v4 TRAIN-only 1130/125 split and 512/256 letterbox, warm start from an explicitly SHA-bound practical single-output text checkpoint, 100 epochs; choose minimum word-balanced validation offset SmoothL1 with earliest ties. No TEST or OCR selects checkpoints.",
+      "expected_effect": "Provides trained auxiliary vectors; offset validation alone does not establish improved separation.",
+      "reference": "docs/PAPER_AMBIGUITIES.md#wco-002--total-text-offset-training-launcher"
+    }
+  ],
+  "preprocessing_source": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "preprocessing_source_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "input_size": [
+    512,
+    512
+  ],
+  "native_mask_size": [
+    256,
+    256
+  ],
+  "dataset": {
+    "manifest": "manifests/total_text_train.yaml",
+    "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "images": 1255,
+    "validation_images": 125,
+    "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+    "validation_expected_words": 983
+  },
+  "training": {
+    "epochs": 100,
+    "seed": 202503,
+    "batch_size": 8,
+    "num_workers": 2,
+    "loader_timeout_seconds": 60,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "deterministic_algorithms": true,
+    "checkpoint_selection": "validation_offset_loss",
+    "precision": "float32"
+  }
+}

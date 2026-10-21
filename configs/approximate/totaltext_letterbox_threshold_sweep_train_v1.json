@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "result_class": "TRAIN-only diagnostic; not Table 5 or TEST accuracy",
+  "split": "TRAIN_heldout_125",
+  "variant": "letterbox",
+  "thresholds": [0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65],
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "padding_native_pixels": 0,
+  "area_filter": "disabled",
+  "maximum_proposals": "disabled",
+  "matching": "one_to_one_bbox_iou_ge_0_5",
+  "checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "frozen_half_threshold_report_sha256": "c42e05c02369bcf32f96109b91b60adc1e451e2d79a9c4a4b42a1a4efee2b9ca",
+  "ground_truth_use": "post-hoc evaluation and overlap audit only",
+  "scientific_choice": {
+    "classification": "ASSUMPTION",
+    "rationale": "The paper specifies a binary mask but does not establish this probability cutoff. This predeclared sweep tests crop sensitivity on TRAIN validation only; it does not alter the frozen 0.5 path or choose a TEST threshold."
+  }
+}

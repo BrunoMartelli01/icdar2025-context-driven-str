@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "result_class": "smoke-test result",
+  "reproduction_mode": "approximate",
+  "qualification": "target preparation and CPU execution only; 50-epoch GPU experiments not run",
+  "profile_sha256": "b903fb0c19a287eaa8ec9dc0cbd36cec83209ec330ae31295a50911b8047e2e5",
+  "source_sha256": {
+    "diagnostics/render_train_visual_sheets.py": "d102c5641add268f7aaab023fa30f6dd9756eac03a4a8e8bb18b43c8c5f0ff77",
+    "localize/crop_recovery.py": "341150a869343d09efc10d3fd91a64736011fff234c242c0f0b8963ae5e6e71f",
+    "localize/word_multitask.py": "9a06398a519952a98fc0fbf81e5b4911a87baaceef92b66acd7d2ccf3d87ec64",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/run_text_recall_resolution.py": "75fb6e2d25552f8d8837d3abf385e261ff85571325e132575142ffa6693560b2",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/text_recall.py": "4b696e8acc4f46119d1feb76dd7a5c292acde2e71784dd0a4c3589f79cf8472d",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_kernel.py": "287864c485f10a84334a9f98b0184578b22d28e66692742b86fcb02b5fd9397f",
+    "segmentation/train.py": "25b8ba78565e9763f97a8ea6f7abcc3b0d04ab64c24f5f23744c418d0e43cbff",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072",
+    "segmentation/word_multitask.py": "829d7754d778a0dd856ec507dc846246f7f7ae99ca972df17596b5d16207569d",
+    "segmentation/word_multitask_evaluation.py": "1b85d88178eae55246954d01eb4e9ff6e650827e4636ffde51a920108011480d",
+    "segmentation/word_multitask_provenance.py": "2d3743258316fcd6c5aa8bb4d1ec70329b7d39a575721c3c171b32949ea3543d"
+  },
+  "task_files_sha256": {
+    "segmentation/text_recall.py": "4b696e8acc4f46119d1feb76dd7a5c292acde2e71784dd0a4c3589f79cf8472d",
+    "scripts/run_text_recall_resolution.py": "75fb6e2d25552f8d8837d3abf385e261ff85571325e132575142ffa6693560b2",
+    "scripts/run_text_recall_resolution_host.sh": "6fb58de23db3e39f0e1eb5085734f476508ff95aafd71fb83eddfe981eb148c7",
+    "configs/approximate/text_recall_resolution_v1.json": "b903fb0c19a287eaa8ec9dc0cbd36cec83209ec330ae31295a50911b8047e2e5",
+    "tests/segmentation/test_text_recall.py": "94d8b3a15e99849064a4d83a31e9812986dc069260185351269fd7ed21b9eec6",
+    "tests/scripts/test_text_recall_resolution.py": "c9b54fb76189aaa363b80f312d50703160c9e554937e20fa7566e6612a9f57f8",
+    "docs/TEXT_RECALL_RESOLUTION.md": "7535784294f8b4aafce2a0024a22de73f87c870d4d82c66e938cd078e8a70a87"
+  },
+  "baseline_checkpoint_sha256": "db9db69f77f1e62b03b82d073e8a37c603ff6ff8feceafc3623644980625e964",
+  "preflight": {
+    "path": "/tmp/text-recall-resolution-preflight-v1",
+    "report_sha256": "9b726653c3d2b819d877eb7bfa88550b9f589e79b252cd68f26236c5e2e56403",
+    "resolutions": {
+      "512": {
+        "images": 1255,
+        "lost_words": 1,
+        "native_words": 9284
+      },
+      "768": {
+        "images": 1255,
+        "lost_words": 0,
+        "native_words": 9285
+      }
+    }
+  },
+  "cpu_smokes": {
+    "path": "/tmp/text-recall-resolution-smoke-v1",
+    "branches": {
+      "control512": {
+        "smoke_sha256": "cba952a318b686f540a2e152a87d004f7f39d1f0da73d983bac8d94422e52b9f",
+        "parameters": 58155081,
+        "train": {
+          "empty_batches_without_update": 0,
+          "last_input_shape": [
+            4,
+            3,
+            512,
+            512
+          ],
+          "loss": 0.14451146125793457,
+          "sample_order_sha256": "b03601e6f7f026fc5368ac139c3c35ebabc807488d4ee5afb389ea4654ea7278",
+          "samples": 4,
+          "steps": 1
+        },
+        "memory": {
+          "batch_size": 4,
+          "device": "cpu",
+          "gpu_name": null,
+          "input_shape": [
+            4,
+            3,
+            512,
+            512
+          ],
+          "model_set": "single text U-Net, sequential branches; offset network not loaded",
+          "oom": false,
+          "peak_allocated_bytes": null,
+          "peak_reserved_bytes": null,
+          "precision": "float32"
+        }
+      },
+      "tversky512": {
+        "smoke_sha256": "e6a024da0476700ee0136c262649c65939d1150d4f2cb613dc625bb1c5cb41d5",
+        "parameters": 58155081,
+        "train": {
+          "empty_batches_without_update": 0,
+          "last_input_shape": [
+            4,
+            3,
+            512,
+            512
+          ],
+          "loss": 0.13789284229278564,
+          "sample_order_sha256": "b03601e6f7f026fc5368ac139c3c35ebabc807488d4ee5afb389ea4654ea7278",
+          "samples": 4,
+          "steps": 1
+        },
+        "memory": {
+          "batch_size": 4,
+          "device": "cpu",
+          "gpu_name": null,
+          "input_shape": [
+            4,
+            3,
+            512,
+            512
+          ],
+          "model_set": "single text U-Net, sequential branches; offset network not loaded",
+          "oom": false,
+          "peak_allocated_bytes": null,
+          "peak_reserved_bytes": null,
+          "precision": "float32"
+        }
+      },
+      "control768": {
+        "smoke_sha256": "336156cff1215944625446d2b14c71de6ef02afb0504e5caf0d3d9e090d496a1",
+        "parameters": 58155081,
+        "train": {
+          "empty_batches_without_update": 0,
+          "last_input_shape": [
+            4,
+            3,
+            768,
+            768
+          ],
+          "loss": 0.1790364384651184,
+          "sample_order_sha256": "b03601e6f7f026fc5368ac139c3c35ebabc807488d4ee5afb389ea4654ea7278",
+          "samples": 4,
+          "steps": 1
+        },
+        "memory": {
+          "batch_size": 4,
+          "device": "cpu",
+          "gpu_name": null,
+          "input_shape": [
+            4,
+            3,
+            768,
+            768
+          ],
+          "model_set": "single text U-Net, sequential branches; offset network not loaded",
+          "oom": false,
+          "peak_allocated_bytes": null,
+          "peak_reserved_bytes": null,
+          "precision": "float32"
+        }
+      },
+      "tversky768": {
+        "smoke_sha256": "bd28d658f4d280ed19bcdc2728255ec63a5c908e9f0029fca789623d78f66b33",
+        "parameters": 58155081,
+        "train": {
+          "empty_batches_without_update": 0,
+          "last_input_shape": [
+            4,
+            3,
+            768,
+            768
+          ],
+          "loss": 0.1778065264225006,
+          "sample_order_sha256": "b03601e6f7f026fc5368ac139c3c35ebabc807488d4ee5afb389ea4654ea7278",
+          "samples": 4,
+          "steps": 1
+        },
+        "memory": {
+          "batch_size": 4,
+          "device": "cpu",
+          "gpu_name": null,
+          "input_shape": [
+            4,
+            3,
+            768,
+            768
+          ],
+          "model_set": "single text U-Net, sequential branches; offset network not loaded",
+          "oom": false,
+          "peak_allocated_bytes": null,
+          "peak_reserved_bytes": null,
+          "precision": "float32"
+        }
+      }
+    }
+  },
+  "tests": {
+    "passed": 157,
+    "new_tests": 21,
+    "failures": 0,
+    "oom_qualification": "synthetic error-propagation test only"
+  },
+  "packages": {
+    "torch": "2.4.1+cu124",
+    "torchvision": "0.19.1+cu124",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84",
+    "Pillow": "10.4.0",
+    "scipy": "1.17.1",
+    "pytest": "8.3.4"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "limitations": [
+    "CUDA unavailable in this session",
+    "No measured GPU VRAM/OOM fit",
+    "No final training/validation improvement claim",
+    "No independent TEST or combined offset/PARSeq evaluation"
+  ],
+  "launch": "bash scripts/run_text_recall_resolution_host.sh TARGET_ROOT BASE_TEXT_RUN NEW_OUTPUT_ROOT"
+}

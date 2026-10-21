@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source_run": "/tmp/clip-router-e2e-v1/000cf54b998f",
+  "output_root": "/tmp/clip-router-threshold-sweep-v1"
+}

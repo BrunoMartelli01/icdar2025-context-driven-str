@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "mask_crop_three_tests_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "MASK-CROP-TEST-001",
+  "seed": 202503,
+  "paths": {
+    "checkpoint": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017/training/total-text-guarded-v3-word-selection-500ep-v1/checkpoints/epoch-0447.pt",
+    "training_contract": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017/training/total-text-guarded-v3-word-selection-500ep-v1/run_contract.json",
+    "source_ocr": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017/ocr/area0",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/separated-word-gt-v2/compact-cores/training/manifests/total_text_train.yaml",
+    "train_data_root": "/extra1/bmartelli",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "test_data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt"
+  },
+  "sha256": {
+    "checkpoint": "5b44de7b88b5b1d636e8f53c586565f6491aabaae3ccea361e96e32d540c1faa",
+    "training_contract": "80bdce148643a70aa686bc7020ed28b617110bb34a030dea7ef1218e0a0bbe50",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "train_manifest": "67a2cd2c8e702f40badb91c54595fe322ba814033f470e13b07e879a3db6d179",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "ocr_batch_size": 32,
+    "segmentation_batch_size": 1,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 4294967296
+  },
+  "budgets": [
+    10,
+    20,
+    null
+  ],
+  "hypotheses": {
+    "threshold": 0.5,
+    "padding": 1,
+    "baseline_cap": 10,
+    "seed_thresholds": [
+      0.65,
+      0.8
+    ],
+    "erosion_radii": [
+      1
+    ],
+    "maximum_pieces": 4,
+    "minimum_piece_area": 6,
+    "minimum_seed_area": 2,
+    "maximum_pool": 64,
+    "merge_vertical_overlap": 0.5,
+    "merge_gap_height": 0.4,
+    "maximum_merge_neighbors": 2,
+    "seams": {
+      "probability_weight": 0.7,
+      "interior_fraction": 0.2,
+      "minimum_spacing_fraction": 0.25,
+      "search_band_fraction": 0.08,
+      "maximum_seams_per_axis": 1,
+      "minimum_native_extent": 4,
+      "cut_half_width": 0,
+      "maximum_adjacent_union": 1
+    }
+  },
+  "selector": {
+    "epochs": 250,
+    "learning_rate": 0.03,
+    "weight_decay": 0.01,
+    "costs": [
+      0.0,
+      0.15,
+      0.3,
+      0.5
+    ],
+    "margins": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "selection": "maximum holdout OCR F1; ties retain fewer replacements; identity policy included"
+  },
+  "refiner": {
+    "epochs": 8,
+    "batch_size": 16,
+    "maximum_training_crops": 4096,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "translation": 0.35,
+    "log_scale": 0.5596157879354227,
+    "context_scale": 2.0,
+    "context_hw": [
+      64,
+      256
+    ],
+    "minimum_training_iou": 0.25,
+    "maximum_neighbors": 16,
+    "recognition_weight": 1.0,
+    "coverage_weight": 1.0,
+    "contamination_weight": 0.25,
+    "regression_weight": 0.2,
+    "gradient_clip": 5.0,
+    "checkpoint_selection": "maximum complete TRAIN holdout OCR F1; earliest learned epoch wins ties; baseline epoch0 reported separately",
+    "inference_acceptance": "maximum holdout OCR F1 among learned and identity; identity wins ties"
+  },
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper section3.3/Algorithm1: components, padded RGB crops, maximum10; this preserved reference is compared with explicitly experimental branches."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Freeze GuardedV3/447 selected on TRAIN bboxWordF1; RGB256/native128 stretch preprocessing; historical padded-bbox ranking, area0/pad1, qualified PARSeq checkpoint AR+refine1."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Budgets20/unlimited, bounded local threshold/erosion/seam splits and nearby unions; correctness selector trained on1130 TRAIN images and calibrated on the existing125-image holdout. Exact casefold/unpadded bboxIoU>=.5 with punctuation and all predictions/care words counted."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Recognition crop refiner: up to4096 seeded training proposals IoU>=.25, readable exact charset transcripts; RGB/probability context; bounded translation/scale; bilinear differentiable training sampler and frozen PARSeq causal teacher-forced CE including EOS plus coverage/contamination/geometry. Deployment uses integer boxes and unchanged PIL bicubic PARSeq transform; original detection boxes remain fixed for crop-only metric."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual single GPU FP32; segmentation batch1 then PARSeq batch32; refiner batch16 with frozen recognition weights but input gradients. Refiner training permits nondeterministic CUDA grid_sample backward; seeds and backend mode recorded; inference deterministic, noTF32/noAMP. GPU memory peaks and OOM recorded per stage."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Existing TEST and TRAIN holdout have been explored; no independent generalization or strict/Table5 claim. Strict PARSeq-S artifact identity and official recognition protocol remain unresolved. Gains must be observed, never inferred from geometric recovery or candidate oracle."
+    }
+  ]
+}

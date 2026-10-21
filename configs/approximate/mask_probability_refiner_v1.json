@@ -1,0 +1,140 @@
+{
+  "seed": 20261020,
+  "training_images": 1130,
+  "evaluation_images": 125,
+  "expected_evaluation_words": 983,
+  "evaluation_iou_threshold": 0.5,
+  "calibration_images": 100,
+  "train_manifest": "manifests/total_text_train.yaml",
+  "word_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "control_manifest_sha256": "473a42e403cd13260dbb4a422a4cd4d7a3a64a25a2f56673bee0313c52bd4823",
+  "source_hashes": {
+    "results.json": "9e3488471dccf774a0ef6100bfdede98829bd5d646d754dc4cfa0b2d09bee13b",
+    "training_map_receipt.json": "294aec0687280f6c27f01e91983546f81fe369517e8ce8714f62b5bb513ccb40",
+    "validation_map_receipt.json": "115181ef0de1cc9064e010fceb73e82aece2a157aa79087dfb343e62a8b3bd8e",
+    "run_contract.json": "0c27da434d5d88728176219b56f7ada93ab15851080366b663be652cf5c6c984"
+  },
+  "schema_version": 1,
+  "experiment_kind": "mask_probability_refiner_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "epochs": 80,
+  "calibration_epochs": [
+    0,
+    5,
+    20,
+    40,
+    80
+  ],
+  "batch_size": 8,
+  "cpu_threads": 4,
+  "native_size": 256,
+  "learning_rate": 0.0003,
+  "minimum_learning_rate": 1e-05,
+  "weight_decay": 0.0001,
+  "epsilon": 0.0001,
+  "max_logit_delta": 12.0,
+  "dice_weight": 0.5,
+  "preservation_weight": 0.05,
+  "error_weight": 4.0,
+  "gradient_clip_norm": 5.0,
+  "distance_fraction": 0.5,
+  "crop": {
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5
+  },
+  "arms": {
+    "shallow_balanced": {
+      "architecture": "shallow",
+      "width": 24,
+      "steps": 1,
+      "error_focus": false,
+      "corruption_probability": 0.0
+    },
+    "dilated_balanced": {
+      "architecture": "dilated",
+      "width": 24,
+      "steps": 1,
+      "error_focus": false,
+      "corruption_probability": 0.0
+    },
+    "unet_balanced": {
+      "architecture": "unet",
+      "width": 16,
+      "steps": 1,
+      "error_focus": false,
+      "corruption_probability": 0.0
+    },
+    "unet_error_focus": {
+      "architecture": "unet",
+      "width": 16,
+      "steps": 1,
+      "error_focus": true,
+      "corruption_probability": 0.0
+    },
+    "unet_corruption": {
+      "architecture": "unet",
+      "width": 16,
+      "steps": 1,
+      "error_focus": false,
+      "corruption_probability": 0.5
+    },
+    "unet_iterative": {
+      "architecture": "unet",
+      "width": 16,
+      "steps": 3,
+      "error_focus": false,
+      "corruption_probability": 0.0
+    }
+  },
+  "metric_protocol": {
+    "matching": "maximum one-to-one exclusive original RGB bbox IoU>=.5; exact Unicode casefold with punctuation retained; maximum matching counts, empty/duplicate care predictions retained",
+    "ignore": "localize before inspecting validity; ignore only newly predicted instances wholly invalid; mixed-care components retained whole; all983 care words retained",
+    "localization": "unchanged source watershed Text>=.65, Kernel>=.5; no padding, area filter or cap; global correction can add/remove/split/join instances",
+    "selection": "same1030fit/100calibration/125evaluation IDs as word-instance extension; maximize exact localized OCR, then OCR Hmean, then geometry Hmean; off wins ties, earliest checkpoint retained; fixed epochs0/5/20/40/80; select all six arms before125evaluation",
+    "pixels": "foreground micro TP/FP/FN over valid native256 pixels, Text threshold.65 and Kernel.5, empty pred+GT IoU/F1=1; no official Table3 claim",
+    "scope": "exploratory approximate reproduction; frozen original segmentation saw calibration images;125TRAIN holdout repeatedly reused; one seed, no independent TEST or statistical significance claim"
+  },
+  "scientific_choices": [
+    {
+      "component": "paper_boundary",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Local paper3.2-3.3/Algorithm1: segmentation then component crops; these additional correctors are research extensions, not specified by paper."
+    },
+    {
+      "component": "source",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Reuse SHA-bound control Text/Kernel maps, v4 full word masks/owners, .5distance kernels, genuine qualified PARSeq AR/refine1 and original RGB geometry. Glyph GT are binary strokes, not character instances, and are not refiner inputs."
+    },
+    {
+      "component": "architectures",
+      "classification": "ASSUMPTION",
+      "rationale": "8-channel RGB(3),Text/Kernel probabilities(2), thresholded masks(2),RGB canvas(1); predict2 bounded additive logit corrections. Shallow3convs, dilated1/2/4/8/16, tinyU-Net16/32/64/128 with global pooled context, shared3pass U-Net. Zero output head preserves source probabilities exactly at initialization. Clampepsilon1e-4/logitdelta12; numerical offset re-addition retains original0/1 values; stable-logit training differs from corrected probabilities by <=epsilon per pass."
+    },
+    {
+      "component": "literature",
+      "classification": "ASSUMPTION",
+      "rationale": "Adaptations inspired by CascadePSP global/context refinement, PointRend attention to hard/uncertain boundaries, SegRefiner iterative correction. No imported pretrained refiner, exact architecture, point-rendering, diffusion process or literature novelty claim. Existing dependencies only."
+    },
+    {
+      "component": "training",
+      "classification": "ASSUMPTION",
+      "rationale": "80 complete all-word whole-image epochs on1030fit, batch8, FP32, AdamW3e-4/decay1e-4, cosine minimum1e-5, clip5, seed20261020. Exact paired D4 flips/quarter rotations, no interpolation. Same model/init/order/augmentation for U-Net training ablations. Native256 letterboxed RGB bilinear from original; no U-Net or PARSeq updates. Fixed frozen training predictions may overfit in-distribution source errors; not out-of-fold."
+    },
+    {
+      "component": "losses",
+      "classification": "ASSUMPTION",
+      "rationale": "Per image/channel separately normalized positive/negative BCE, absent classes excluded, plus.5smoothedDice and.05valid mean absolute probability preservation. Error-focus adds4x weight to original>=.5prediction error or3x3GT boundary, only in loss. Corruption50percent fitimages erode/dilate both predicted probability maps with randomly selected3/5pool, GT-free transform, unchanged targets. Iterative equal supervision at all3passes."
+    },
+    {
+      "component": "runtime",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Actual GPU measured before launch, FP32batch8, single device, pretrained segmentation replaced by its exact saved source predictions; refiner plus frozen PARSeq resident, original image tensors/targets CPU. NoAMP/TF32, deterministic CUDA algorithms, num_workers0, dedicated generator, explicit CPUthreads4. Peak allocated/reserved, OOM/failures preserved. Not8GB/latency qualification."
+    },
+    {
+      "component": "benefit",
+      "classification": "UNRESOLVED",
+      "rationale": "Larger context, identity start and more word exposure may help but do not establish OCR gain; missing/severely wrong confident regions, instance fusion, synthetic-to-real error transfer, independent data/seeds and actual overhead require measurement."
+    }
+  ]
+}

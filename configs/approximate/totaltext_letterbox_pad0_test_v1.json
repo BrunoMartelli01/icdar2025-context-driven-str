@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_letterbox_pad0_parseq_test",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "result_class": "Total-Text TEST-300 frozen practical diagnostic; not Table 5",
+  "selected_variant": "letterbox",
+  "selection": "TRAIN_heldout_125_validation_pad0_parseq_v1",
+  "selection_report_sha256": "c42e05c02369bcf32f96109b91b60adc1e451e2d79a9c4a4b42a1a4efee2b9ca",
+  "checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "test_images": 300,
+  "test_care_words": 2204,
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "probability_threshold": 0.5,
+  "letterbox_canvas_fill_rgb": [124, 116, 104],
+  "inference_batch_size": 1,
+  "padding_native_pixels": 0,
+  "area_filter": "disabled",
+  "maximum_proposals": "disabled",
+  "matching": "one_to_one_bbox_iou_ge_0_5",
+  "ground_truth_use": "post_hoc_evaluation_only",
+  "scientific_choices": [
+    {
+      "component": "letterbox_high_resolution",
+      "classification": "ASSUMPTION",
+      "rationale": "Frozen practical TRAIN selection; 512-to-256 letterbox is not paper-specified."
+    },
+    {
+      "component": "no_area_no_top10_pad0",
+      "classification": "ASSUMPTION",
+      "rationale": "Matches the frozen TRAIN validation diagnostic, not strict Algorithm 1."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+schema_version: 1
+reproduction_mode: approximate
+claim_label: approximate reproduction
+artifact_id: ART-ICDAR13-M11-APPROX-RECOGNITION-MANIFEST
+dataset: ICDAR13-FST-Task1
+split: official_test_233
+sample_order: numeric_id_ascending
+expected_sample_count: 233
+expected_word_count: 1095
+table_5_claim: false
+
+source_image_manifest:
+  path: manifests/icdar13_segmentation_test.yaml
+  sha256: 8bffaa558f687d5ae6a6e41a30a4a51db682124da99d4c2496aa3fa4a2a001d8
+
+annotation_path_template: raw/test_task1_gt/gt_img_{id}.txt
+annotation_identity:
+  algorithm: >-
+    SHA256 of UTF-8 compact canonical JSON (sorted object keys) for the ordered
+    list [{"id": numeric string, "annotation_sha256": SHA256(file bytes)}]
+  sha256: 89747036f9dc09b22b3cd35887be0e6f0d694122c099f23f9a6034b8996abd41
+
+acquisition:
+  image_archive: Challenge2_Test_Task12_Images.zip
+  image_archive_sha256: 324b95d4e75d2872aa4cee4202963b37ad0eef703de266eb051267ffbd24d345
+  annotation_archive: Challenge2_Test_Task1_GT.zip
+  annotation_archive_sha256: 71a7d78d57822ec0376f3f73dd808e2d662f86fb1ef2f85e09a45f26e1417018
+  provenance: acquired mirror bytes already frozen by the project
+
+annotation_contract:
+  encoding: UTF-8 with optional BOM
+  row_format: xmin,ymin,xmax,ymax,quoted transcription
+  coordinates: integer axis-aligned boxes within decoded image bounds
+  transcription: preserved exactly after CSV quote decoding
+  empty_transcriptions: forbidden by the acquired artifact
+  dont_care_records: absent from the acquired Task 1 test annotations
+
+scientific_boundary:
+  classification: ASSUMPTION
+  rationale: >-
+    Freeze the complete official 233-image test artifact as an approximation branch;
+    the paper's later 168/229 statement leaves its recognition split unresolved.
+  evaluation_status: UNRESOLVED
+  metric_defined: false
+  matching_defined: false
+  normalization_defined: false
+  denominator_defined: false
+  multiple_output_mapping_defined: false
+  blocking_ambiguity_ids: [DS-002, E-001, D-002]
+  prohibition: This manifest cannot by itself support a Table 5 result or claim.

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "experiment": "totaltext-crop-group-test-suite-v1",
+  "reproduction_mode": "approximate",
+  "dataset": "total_text",
+  "split": "official_TEST_300",
+  "claim_label": "approximate reproduction; frozen TRAIN rules evaluated on official TEST-300",
+  "seed": 202503,
+  "segmentation_checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "baseline_threshold": 0.5,
+  "baseline_padding": 0,
+  "mask_size": 256,
+  "matching_iou": 0.5,
+  "normalization": "Unicode casefold; remove Unicode P/S; preserve accents digits whitespace; empty normalized tokens cannot match",
+  "threshold_tree": {
+    "thresholds": [
+      0.35,
+      0.45,
+      0.5,
+      0.6,
+      0.65,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "seed_pairs": [
+      [
+        0.35,
+        0.65
+      ],
+      [
+        0.5,
+        0.8
+      ],
+      [
+        0.5,
+        0.9
+      ]
+    ],
+    "maximum_adjacent_union": 3
+  },
+  "erosion_reconstruction": {
+    "radius_thickness_fractions": [
+      0.08,
+      0.16,
+      0.24
+    ],
+    "maximum_adjacent_union": 3
+  },
+  "image_seams": {
+    "probability_weight": 0.7,
+    "interior_fraction": 0.15,
+    "minimum_spacing_fraction": 0.15,
+    "search_band_fraction": 0.1,
+    "maximum_seams_per_axis": 3,
+    "minimum_native_extent": 3,
+    "cut_half_width": 1,
+    "maximum_adjacent_union": 3
+  },
+  "tiled_segmentation": {
+    "grids": [
+      2
+    ],
+    "overlap": 0.25,
+    "thresholds": [
+      0.5,
+      0.65,
+      0.8
+    ]
+  },
+  "variants": {
+    "oriented": false,
+    "source_methods": [
+      "baseline",
+      "threshold_tree",
+      "tiled_segmentation"
+    ],
+    "border_height_fractions": [],
+    "neutral_height_fractions": []
+  },
+  "execution": {
+    "parseq_batch_size": 16,
+    "cpu_threads": 4,
+    "precision": "float32"
+  },
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Copy frozen TRAIN threshold/window generators and all 14 selector rules unchanged; no auxiliary generators or final crop variants, no fitting on TEST. Unicode casefold/P-S removal and one-to-one IoU >= 0.5 matching."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Qualified selected letterbox checkpoint, official TEST-300 manifest, pinned PARSeq and CLIP artifacts."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Sequential float32 models, segmentation batch one and PARSeq/CLIP batch16; optional CPU with explicit provenance."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "TEST recovery and selector performance are unknown until full evaluation; no strict/Table5 claim. See CROP-GROUP-WORD-SELECTION-TEST-V1."
+    }
+  ],
+  "table_5_claim": false,
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "test_images": 300,
+  "test_care_words": 2204,
+  "source_methods": [
+    "baseline",
+    "threshold_tree",
+    "tiled_segmentation"
+  ],
+  "parameter_fitting": false
+}

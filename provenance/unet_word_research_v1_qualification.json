@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-09T14:05:00.865491+00:00",
+  "reproduction_mode": "approximate",
+  "result_class": "implementation qualification plus exploratory held-out TRAIN diagnostic; not trained new-head performance",
+  "focused_and_related_tests_passed": 101,
+  "new_test_count": 27,
+  "shell_syntax": "PASS",
+  "source_syntax_and_whitespace": "PASS",
+  "paired_targets": {
+    "path": "/tmp/unet-word-research-preflight-final-v1/paired_target_qualification.json",
+    "sha256": "bf4475fd5138e772653b13bb9a2138551db511387e97c152ded4484e6b0ce24c",
+    "images": 1255,
+    "expected_words": 9285,
+    "native_words": 9284,
+    "lost_native_training_words": 1,
+    "validation_expected_words": 983
+  },
+  "real_cpu_branch_smokes": {
+    "adaptive_threshold": {
+      "path": "/tmp/unet-word-research-qualified-smoke-v2/adaptive_threshold/smoke.json",
+      "sha256": "ea959f159fdd32980f5962ccdbb159c11dbe4ce2459137e512d0e68982dc27f2",
+      "train": {
+        "binary": 0.3109700083732605,
+        "kernel": 0.1905394196510315,
+        "loss": 0.8326563239097595,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1,
+        "threshold": 0.17859850823879242,
+        "word": 0.1525484025478363
+      },
+      "head_update_linf": {
+        "head.bias": 1.0013580322265625e-05,
+        "head.weight": 1.0013580322265625e-05,
+        "threshold.bias": 9.99999883788405e-06,
+        "threshold.weight": 9.999997928389348e-06
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one shared-decoder AG-U-Net; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "control": {
+      "path": "/tmp/unet-word-research-qualified-smoke-v2/control/smoke.json",
+      "sha256": "b72be08b7bf4311189847f28bea11a4149af903656fdb9c01cd111f8e872287e",
+      "train": {
+        "kernel": 0.1905394196510315,
+        "loss": 0.3430878221988678,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1,
+        "word": 0.1525484025478363
+      },
+      "head_update_linf": {
+        "head.bias": 1.0013580322265625e-05,
+        "head.weight": 1.0013580322265625e-05
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one shared-decoder AG-U-Net; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "embedding": {
+      "path": "/tmp/unet-word-research-qualified-smoke-v2/embedding/smoke.json",
+      "sha256": "b5e63e1fc8ee74eb75f8769c63de8618752f69de386215dfcb0c873b3560eb0c",
+      "train": {
+        "embedding": 2.2611536979675293,
+        "kernel": 0.1905394196510315,
+        "loss": 0.9083762168884277,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1,
+        "word": 0.1525484025478363
+      },
+      "head_update_linf": {
+        "embedding.bias": 9.999610483646393e-06,
+        "embedding.weight": 1.0000541806221008e-05,
+        "head.bias": 1.0013580322265625e-05,
+        "head.weight": 1.0013580322265625e-05
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one shared-decoder AG-U-Net; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "glyph_word": {
+      "path": "/tmp/unet-word-research-qualified-smoke-v2/glyph_word/smoke.json",
+      "sha256": "9752cbbce08af81c7abff47e5403e28af80a6684e8647f8754be037b72dd4fc1",
+      "train": {
+        "glyph": 1.6721546649932861,
+        "kernel": 0.1905394196510315,
+        "loss": 1.1791651248931885,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1,
+        "word": 0.1525484025478363
+      },
+      "head_update_linf": {
+        "glyph.bias": 1.0000541806221008e-05,
+        "glyph.weight": 1.0000541806221008e-05,
+        "head.bias": 1.0013580322265625e-05,
+        "head.weight": 1.0013580322265625e-05
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one shared-decoder AG-U-Net; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    },
+    "quality": {
+      "path": "/tmp/unet-word-research-qualified-smoke-v2/quality/smoke.json",
+      "sha256": "d6f5d4393d0ce562f9faf3a568e856462865bb8814f562b7b314a2c56d202de0",
+      "train": {
+        "loss": 0.11866477131843567,
+        "quality": 0.11866477131843567,
+        "sample_order_sha256": "94d27abaff80f904eaaf5c26d26607fc2fa43e5b3742ea8fdf74bc4f1f874fa3",
+        "samples": 2,
+        "skipped_unsupervised_batches": 0,
+        "steps": 1
+      },
+      "head_update_linf": {
+        "head.bias": 0.0,
+        "head.weight": 0.0,
+        "quality.features.0.bias": 1.0000541806221008e-05,
+        "quality.features.0.weight": 1.0000541806221008e-05,
+        "quality.predict.bias": 1.0000541806221008e-05,
+        "quality.predict.weight": 1.0000541806221008e-05
+      },
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one shared-decoder AG-U-Net; sequential branches; no recognizer resident",
+        "oom": false
+      }
+    }
+  },
+  "real_parseq_smoke": {
+    "path": "/tmp/unet-word-research-qualified-ocr-smoke-v1/results.json",
+    "sha256": "1c8caf010cce53c0d10a202a18d73161eef9e934845fd5919907aaaa5bf6d3a9",
+    "crops": 3,
+    "device": "cpu"
+  },
+  "corrected_failure": {
+    "stage": "initial real batched OCR/cache smoke",
+    "error": "ValueError: Qualified OCR cache provenance mismatch",
+    "cause": "ParseqCandidateDiagnosticResult omits provenance fields",
+    "fix": "record verified recognizer AR/refine/runtime settings explicitly; repeated real three-crop smoke and end-to-end file-boundary/cache tests pass"
+  },
+  "stability": {
+    "path": "/tmp/unet-word-research-stability-final-v1/stability.json",
+    "sha256": "3634095c73eed10a59bf0ef7ebbc62706b5a79613fd4b1474402915c885a1632",
+    "images": 125,
+    "proposals_scored": 1029,
+    "posthoc_bad_bbox_count": 404,
+    "bad_bbox_prevalence": 0.39261418853255586,
+    "risk_auc": 0.8361089108910891,
+    "low_confidence_auc": 0.8698970297029703,
+    "top_risk_count": 206,
+    "top_risk_bad_bbox_precision": 0.8786407766990292,
+    "top_low_confidence_bad_bbox_precision": 0.9077669902912622
+  },
+  "source_sha256": {
+    "models/unet_word_research.py": "d135e581f9bb65700d5279d9cb990a27aec185d867e6ea7ec856655927e8198d",
+    "segmentation/unet_word_research.py": "2142baffba10f67963c80b3c4c71114a8280666f6d4689cc3d0ce54895fb64d1",
+    "localize/unet_word_research.py": "ff48653ed25e00298455cc5ab4b948e6143ca3ebdc24223623b91a4d51dabd23",
+    "scripts/run_unet_word_research.py": "1814d48158803d2a082e27caa9bed366b1afd61f07a95b97b76141e9c09c22cb",
+    "scripts/diagnose_unet_mask_stability.py": "98722fe1472bf8bbf90d3274d34a06be0409bee54114e19666396ae5f009ba0e",
+    "scripts/evaluate_unet_word_research_ocr.py": "ae08a79fd2039d943dfb8eed6c907fb0af8a62f864d462b697f35cef4565bf58",
+    "scripts/summarize_unet_word_research.py": "00d0288fa8bd8e4b32924410e75c89a5a949a8b5186157fa05057aaf4a6feff7",
+    "scripts/run_unet_word_research_host.sh": "b23b8e1983846eb387e021556b766b3d4f249e30c620215695ce87da9c3442b4",
+    "configs/approximate/unet_word_research_v1.json": "e020f697bdce6bcbcc0d6bf652c34dc83cf58308156a690e346eb0f470fb4950",
+    "docs/UNET_WORD_RESEARCH.md": "b3d6360ab4171e50908b9b28eea3206707ddd9cd01bd48f56fcf217b955f9d66",
+    "tests/segmentation/test_unet_word_research.py": "e35ebd60031940bd1d130d5e3f805afc1271574779d059559d55673294c4583c",
+    "tests/scripts/test_unet_word_research_runner.py": "0cfb8e7d6b8a641d1667d54c2c714e701240808135b375a02c0d7d7cc1115f68"
+  },
+  "user_changes": {
+    "other_preexisting_modified_tracked_files_preserved": 42,
+    "existing_doc_changed": "only appended UWR-001; concurrent unrelated document entries preserved",
+    "commits_created": false
+  },
+  "unresolved": [
+    "full50-epoch results",
+    "physical GPU allocated/reserved peaks and OOM qualification",
+    "independent TEST/generalization",
+    "selective crop-reinference benefit"
+  ],
+  "gpu_available_in_session": false
+}

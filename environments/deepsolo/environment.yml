@@ -1,0 +1,34 @@
+# FROZEN RECONSTRUCTION SPECIFICATION. The qualified M6 physical-host runtime is
+# the Docker image recorded in docs/DEEPSOLO_RUNTIME.md. Its reported Python
+# identity is 3.8; this older environment proposal's 3.8.18 micro-version was not
+# established for that image and must not be inferred as qualified evidence.
+name: context-str-deepsolo
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.8.18
+  - pip=23.3.2
+  - pip:
+      - --find-links https://download.pytorch.org/whl/torch_stable.html
+      - --find-links https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html
+      - torch==1.9.0+cu111
+      - torchvision==0.10.0+cu111
+      - detectron2==0.6
+      - setuptools==59.5.0
+      # Build-only pin for the scikit-image 0.15.0 CPython 3.8 sdist.
+      - wheel==0.37.1
+      - editdistance==0.6.2
+      - matplotlib==3.3.3
+      - numba==0.51.2
+      - numpy==1.20.0
+      - opencv-python==4.5.5.62
+      - pillow==9.0.1
+      - polygon3==3.0.9.1
+      - rapidfuzz==2.13.7
+      - scipy==1.5.2
+      - scikit-image==0.15.0
+      - scikit-learn==0.23.2
+      - shapely==2.0.0
+      - timm==0.5.4
+      - tqdm==4.53.0

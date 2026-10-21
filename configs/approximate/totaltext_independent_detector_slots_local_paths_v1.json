@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "frozen_refinement_run": "/tmp/totaltext-crop-group-refinements-v2/test-full",
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+  "deepsolo_runtime_manifest": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/qualification/runtime.json",
+  "deepsolo_source_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo",
+  "output_root": "/tmp/totaltext-independent-detector-slots-v2"
+}

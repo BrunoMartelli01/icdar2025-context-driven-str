@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_frozen_letterbox_neuspell",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "Total-Text TRAIN-holdout NeuSpell v2 legacy-tokenizer diagnostic; not Table 5",
+  "dataset": "total_text",
+  "source": {
+    "layout": "letterbox_word_f1",
+    "variant": "word_f1_control",
+    "split": "frozen_TRAIN_validation_125",
+    "input_shape": [
+      512,
+      512
+    ],
+    "native_mask_shape": [
+      256,
+      256
+    ],
+    "expected_images": 125,
+    "expected_care_words": 983,
+    "expected_proposals": 949,
+    "results_sha256": "92169d7338e6d5302bdf4ecd96981d2e29c3bcd543d9f23ef8e13320fbf0a1b1",
+    "protocol_sha256": "919b51c53b70fb7c43471ca1a2dfb5f3d8442f07b9a0fcd97a65ea85f6098006",
+    "segmentation_checkpoint_sha256": "a3308015aa1b898b1a8ceb03128d6a113bd9c01a01726fba930dd65794c3a552",
+    "parseq_checkpoint_sha256": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_source_archive_sha256": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef"
+  },
+  "model": {
+    "model_id": "murali1996/bert-base-cased-spell-correction",
+    "revision": "d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "revision_evidence": "https://huggingface.co/murali1996/bert-base-cased-spell-correction/tree/d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "label_count": 100002,
+    "decoder": "mean_subword_trained_word_head",
+    "precision": "float32",
+    "tokenizer_do_lower_case": true,
+    "batch_size": 8,
+    "max_input_tokens": 256,
+    "saved_top_k": 10,
+    "cpu_threads": 4,
+    "seed": 20261006,
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "bert.embeddings.position_ids"
+    ]
+  },
+  "upstream_neuspell": {
+    "repository": "neuspell/neuspell",
+    "revision": "aa3782c2ea25d286b487ead3d99389dfc6801907",
+    "vocabulary_path": "scripts/huggingface/vocab.pkl",
+    "vocabulary_git_blob": "e0a3ce1814cd9656209b8524cc4b61d9828235d0",
+    "snippet_path": "scripts/huggingface/huggingface-snippet-for-neuspell.py",
+    "snippet_git_blob": "a564cbce9e659f16717d31c7765b8cd2391ec585"
+  },
+  "policy": {
+    "min_word_length": 3,
+    "long_word_length": 6,
+    "short_max_edits": 1,
+    "long_max_edits": 2,
+    "max_relative_edit": 0.3,
+    "minimum_probability": 0.5,
+    "minimum_log_probability_gain": 1.5,
+    "neighbours_per_side": 3,
+    "min_vertical_overlap": 0.5,
+    "max_horizontal_gap_heights": 8,
+    "max_caption_words": 80
+  },
+  "conditions": [
+    "word_only",
+    "local_ocr"
+  ],
+  "arms": [
+    "native_head",
+    "conservative"
+  ],
+  "caption_condition_if_supplied": "local_ocr_caption",
+  "fetch": {
+    "timeout_seconds": 30
+  },
+  "parameter_selection": "Fixed engineering hypotheses before running this pretrained head on Total-Text; TRAIN-holdout development, no TEST loaded. Prior MLM experiments motivate a trained spelling head; no native PARSeq confidence-protection gate.",
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "spelling_model",
+      "rationale": "User-requested BERT extension inspired by NeuSpell (EMNLP Demos 2020). This English spelling-trained head is frozen; natural/synthetic spelling errors differ from scene OCR.",
+      "expected_effect": "May handle error patterns better than generic MLM; proper names and non-English labels may be replaced.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "neuspell_decoder",
+      "rationale": "Pinned author snippet averages noisy-word BERT subword states before its genuine 100002-class word head. Preserve source idx2token order and special IDs; authenticate Git blobs and HF LFS weight metadata. No downloaded Python is executed.",
+      "expected_effect": "Faithful decoding of the pretrained spelling head, with local fast-offset target extraction checked separately.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "frozen_source",
+      "rationale": "Same latest completed letterbox single-head word_f1_control, masks->external contours->PARSeq, TRAIN-holdout125, originalRGB crops, native256, padding0/no area or top10 filters, SHA-bound cached outputs.",
+      "expected_effect": "Preserves localization ceiling and paired crop identities across all arms.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "input_and_keep_policy",
+      "rationale": "Eligible ASCII single words >=3; protect numbers/punctuation/mixed-case names/multiword crops. Original OCR word remains visible. Raw-head control plus fixed conservative edit/probability/KEEP gates; sum casefold label probabilities for in-vocabulary KEEP, but never replace an OOV string's unscoreable probability by UNK. Optional caption prefix budget80 words; over256 input tokens or unknown target causes explicit KEEP.",
+      "expected_effect": "Prevents unbounded conservative rewrites; restrictions and word-head vocabulary limit recoverability. Probabilities are not calibrated correctness estimates.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "evaluation",
+      "rationale": "Micro exact Unicode casefold retained-punctuation bboxIoU>=0.5 deterministic one-to-one matching, all983 care GT denominator, recovered/damaged/changed and unchanged geometry. Not the official polygon protocol.",
+      "expected_effect": "Paired TRAIN diagnostic only; no Table5 or TEST transfer claim.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "standalone_runtime",
+      "rationale": "Cached upstream outputs and isolated CPU or CUDA:0 FP32 word-head inference; batch8, max256 tokens, four CPU threads, deterministic seeds/settings. No co-resident mask/PARSeq/caption models.",
+      "expected_effect": "Records correction-only timing/shapes and allocated/reserved GPU peaks; not paper end-to-end execution.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "benefit_and_caption_transfer",
+      "rationale": "Pretrained weights and label vocabulary have been downloaded and authenticated. Correction benefit, conservative thresholds, caption conditioning and GPU memory require paired real inference; optional captions must cover the same SHA-bound Total-Text images.",
+      "expected_effect": "No improvement, calibrated threshold, caption benefit or strict reproduction claim is supported before measurement.",
+      "ambiguity": "TT-NEUSPELL-CORRECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "legacy_tokenizer_resolution",
+      "rationale": "The pinned tokenizer_config omits do_lower_case; AutoTokenizer in the installed transformers 4.47.1 resolves True, matching the unmodified author HF snippet call. Record True explicitly and retain mismatch failure rather than force a flag. The v1 False expectation was inferred incorrectly from the model name. Training-time intended casing versus the HF export is unresolved.",
+      "expected_effect": "Encoder inputs are lowercased, while original OCR text and conservative output casing remain preserved. This matches published HF loading behavior; it is not a strict qualification of training-time preprocessing.",
+      "ambiguity": "TT-NEUSPELL-LEGACY-TOKENIZER-V2"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "legacy_position_buffer",
+      "rationale": "Authenticated checkpoint contains bert.embeddings.position_ids, absent from modern state_dict because the library regenerates it. Require identical shape, dtype and every value against the current BERT buffer before excluding this explicitly allowed key; load all learned tensors strictly.",
+      "expected_effect": "Checkpoint format compatibility without changing position indices or learned parameters. Any non-equivalent saved buffer is a fatal error.",
+      "ambiguity": "TT-NEUSPELL-LEGACY-TOKENIZER-V2"
+    }
+  ],
+  "protocol_revision": 2,
+  "supersedes_config_sha256": "f4d0c4960498da99f7500bb43b4dbdf8c2b28fd955cabce1c2d43f493e6fd7d2",
+  "assets_evidence": {
+    "checkpoint_sha256": "c5b3c5ab535fc3782b2d02f301662d0106dd419e36c09626443366c9eb6f1bb5",
+    "tokenizer_config_sha256": "359fdd360be3de14228b56e2ca9c6c940ff0b1a3dc88a5bf32bdeeb21ec7be9c",
+    "vocabulary_raw_sha256": "0bdbeed9f99760810b51f27ea609f8f8366c3038b3de99e7603a935018929a41",
+    "tokenizer_file_omits_do_lower_case": true,
+    "observed_transformers": "4.47.1",
+    "observed_tokenizers": "0.21.4"
+  }
+}

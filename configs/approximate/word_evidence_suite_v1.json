@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "frozen_word_evidence_three_tests_v1",
+  "source_config": "configs/approximate/unet_word_research_v2.json",
+  "source_config_sha256": "79b793bd0b4282b92a7e0a25c30d93bd81b1a3dba438f48fac8aaf1609d7948d",
+  "source_checkpoint_sha256": "ca8ec43d19605215d20a061e3dfcc2cdb697cbdc4430a21203137af92f158f1a",
+  "source_receipt_sha256": "39195c33bf957d08e04ff38fa03b44cd00b2f9187f45b70c9a51109f2e766fd3",
+  "source_checkpoint_epoch": 50,
+  "control_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "seed": 202503,
+  "validation_count": 125,
+  "training_count": 1130,
+  "expected_validation_words": 983,
+  "export_batch_size": 4,
+  "ocr_batch_size": 16,
+  "cpu_threads": 4,
+  "minimum_free_gpu_bytes": 8589934592,
+  "candidates": {
+    "glyph_threshold": 0.5,
+    "kernel_threshold": 0.5,
+    "nearest_instances": 4,
+    "owner_majority": 0.5,
+    "association_threshold": 0.8
+  },
+  "training": {
+    "seed": 20261017,
+    "epochs": 50,
+    "hidden": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_box_delta": 0.25,
+    "crop_loss": {
+      "regression": 1.0,
+      "coverage": 1.0,
+      "excess": 0.25,
+      "foreign": 0.25
+    }
+  },
+  "metric_protocol": {
+    "matching": "maximum one-to-one original exclusive RGB bbox IoU>=0.50; exact Unicode casefold for OCR; punctuation retained",
+    "ignore": "only wholly invalid native source instances ignored; partially invalid instances kept whole; same identities across adapted branches",
+    "crop": "original RGB; pad0; no area filter or cap; oracle arms diagnostic only",
+    "selection": "minimum head TRAIN loss; no holdout threshold or checkpoint tuning",
+    "validation": "125 repeatedly reused official TRAIN holdout images; not independent TEST"
+  },
+  "scientific_choices": [
+    {
+      "component": "frozen_segmentation_and_glyph",
+      "classification": "ASSUMPTION",
+      "rationale": "Reuse qualified word control and trained isolated glyph branch; original word tensors remain exact; no new U-Net training."
+    },
+    {
+      "component": "oracle_cross",
+      "classification": "ASSUMPTION",
+      "rationale": "Cross predicted and GT word/kernel maps; additional glyph GT compatibility arm is diagnostic and never an inference result."
+    },
+    {
+      "component": "fragment_association",
+      "classification": "ASSUMPTION",
+      "rationale": "12 GT-free geometric/probability features, four nearest predicted instances, small16-hidden classifier; balanced pair BCE, threshold0.8 conservative fixed initial choice, not tuned."
+    },
+    {
+      "component": "crop_completeness",
+      "classification": "ASSUMPTION",
+      "rationale": "Small16-hidden crop-delta head; SmoothL1 plus missing coverage/excess area/foreign bbox overlap beyond own GT overlap; bound corrections to25percent of source dimensions. Bbox overlap is a proxy, not polygon contamination."
+    },
+    {
+      "component": "head_training",
+      "classification": "ASSUMPTION",
+      "rationale": "50 full-batch CPU epochs on frozen canonical predictions of1130 TRAIN images; no augmented export and no holdout selection. Initial untuned budget."
+    },
+    {
+      "component": "hardware",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "RTX3090 FP32 batch4 segmentation export; auxiliary-head training CPU; PARSeq CPU FP32 batch16; sequential internal models. Concurrent unrelated V3 GPU job is preserved and recorded; timings are not latency benchmarks."
+    },
+    {
+      "component": "efficacy",
+      "classification": "UNRESOLVED",
+      "rationale": "Benefits, false positives, lost words and independent generalization unknown before execution."
+    }
+  ],
+  "source_validation_sha256": "aa7f03bddd09d527bc5d516fa6fd48ab2737739ba841d9a99e4a461d5fd085f1",
+  "control_validation_sha256": "a9b586db4dd769424815bd97ebd619ae29cdd51fb8c4a15c8caed2eda0620911"
+}

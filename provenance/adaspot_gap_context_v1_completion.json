@@ -1,0 +1,79 @@
+{
+  "audits": [
+    {
+      "auditor_sha256": "ef14a73d635797216c32d40e0637070e6342b82cd983fb4963730d9848a422e7",
+      "central_feature_cases": 580938,
+      "common_crop_ocr_differences": [],
+      "completed_epochs_per_arm": 20,
+      "exact_by_arm": {
+        "pointwise": 524,
+        "spatial": 524
+      },
+      "method": "independent SciPy Hungarian native/RGB counts; exact center-feature equality against previous probe; epoch/order/cache/selection audit",
+      "native_image_cases": 250,
+      "ocr_image_cases": 250,
+      "result_sha256": "995c531bb339874e05d701ce82c86ce3a8a29d671128890a6f63ed262c4f2522",
+      "status": "PASS"
+    },
+    {
+      "analysis_kind": "post_hoc_fixed_final_epoch_diagnostic",
+      "auditor_sha256": "4e110cb3143bee8da2ab901f8fa4833fc2a9bdcc66a28d29900983e8b88f7baf",
+      "epoch20_native_metrics_and_audits_match_training": true,
+      "exact_by_arm": {
+        "pointwise": 496,
+        "spatial": 476
+      },
+      "image_cases": 250,
+      "primary_result_unchanged_sha256": "995c531bb339874e05d701ce82c86ce3a8a29d671128890a6f63ed262c4f2522",
+      "result_sha256": "f446ff43fbc7b2550b211ab595f9788c12e7ed57b3a5ed6f9d14d82e72f15268",
+      "status": "PASS"
+    }
+  ],
+  "baseline_exact": 524,
+  "best_epochs": {
+    "pointwise": 0,
+    "spatial": 0
+  },
+  "cuda_steps_per_arm": 720,
+  "denominator": 983,
+  "epochs_completed_per_arm": 20,
+  "failed_diagnostic_preserved": "/extra1/bmartelli/context-str-runs/adaspot-gap-context-final-diagnostic-v1-20261019",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "mode": "approximate",
+  "not_claimed": [
+    "independent validation",
+    "strict reproduction",
+    "official polygon benchmark",
+    "Mask-Align or shared OCR heads",
+    "GPU latency or RTX3070 qualification"
+  ],
+  "outstanding_failures": [],
+  "post_hoc_final_diagnostic_root": "/extra1/bmartelli/context-str-runs/adaspot-gap-context-final-diagnostic-v1-20261019-retry1",
+  "post_hoc_final_ocr": {
+    "pointwise": 496,
+    "spatial": 476
+  },
+  "primary_root": "/extra1/bmartelli/context-str-runs/adaspot-gap-context-v1-20261019",
+  "primary_selected_ocr": {
+    "pointwise": 524,
+    "spatial": 524
+  },
+  "resolved_failures": [
+    "Read-only preflight helper used system Python lacking SciPy; corrected to existing main venv, no installation.",
+    "Final diagnostic memory reset before CUDA init; corrected explicit init and completed separate retry; failed artifacts preserved."
+  ],
+  "result_class": "approximate reproduction",
+  "source_files_sha256": {
+    "configs/approximate/adaspot_gap_context_final_diagnostic_v1.json": "e30eac8e68612f72c1c274709327d2d71bbe667296eae5f28d9fdfd92d9a711e",
+    "configs/approximate/adaspot_gap_context_v1.json": "4a1d0d8e2cec9e3f33cbe3476307bb14b6608ca1571c458840814d2e2e35db9d",
+    "docs/ADASpot_GAP_CONTEXT.md": "802c445fe81aeb62c47f7d9927394a7ece726095b9113f9aa6ca38e23fca463f",
+    "models/adaspot_gap_context.py": "d70f98d8ad1d11ea4af3799bb5a2c4c71802c72ac218e9e33a90e1adfb4f6815",
+    "scripts/audit_adaspot_gap_context.py": "ef14a73d635797216c32d40e0637070e6342b82cd983fb4963730d9848a422e7",
+    "scripts/audit_adaspot_gap_context_final.py": "4e110cb3143bee8da2ab901f8fa4833fc2a9bdcc66a28d29900983e8b88f7baf",
+    "scripts/evaluate_adaspot_gap_context_final.py": "54738230e0d180a8f04883e4405b077989d798bc5625ffeb5bf3f176d8de3c86",
+    "scripts/run_adaspot_gap_context.py": "045901ce959b0505f8c9ff6b3e0cf514384b587fd61931b71839df32b6f2a8c4",
+    "tests/scripts/test_adaspot_gap_context.py": "c91763afa45861a6dabbfa6e30daa58f228a703e0fa09efaa96a0fdd5b106b8e"
+  },
+  "status": "COMPLETED_AND_AUDITED",
+  "tests_passed": 67
+}

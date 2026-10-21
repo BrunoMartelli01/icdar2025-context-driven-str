@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "variant": "curved-component-cutout-native128-no-padding-v1",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "result_class": "TEST crop-shape diagnostic; not paper Table 5",
+  "mask": "native binary mask 128x128",
+  "contours": "cv2.findContours RETR_EXTERNAL CHAIN_APPROX_SIMPLE",
+  "filter": "unpadded_bbox_area_native_pixels_squared",
+  "sort": "bbox_area_descending_stable_contour_order",
+  "parameters": {
+    "min_area": 150,
+    "pad": 0,
+    "nmax": 10
+  },
+  "component_support": "single 8-connected native component mapped by bilinear resize and >=0.5",
+  "curved_crop": "retain original RGB inside component support; white elsewhere in the tight bounding rectangle",
+  "rectangular_control": "unaltered original RGB inside the same tight bounding rectangle",
+  "parameter_origin": "Repository bbox-area threshold/top10; user-requested zero padding; fixed bilinear support mapping is an explicit diagnostic assumption"
+}

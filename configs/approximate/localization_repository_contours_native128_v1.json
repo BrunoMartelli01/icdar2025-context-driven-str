@@ -1,0 +1,15 @@
+{
+  "variant": "repository-contours-native128-v1",
+  "reproduction_mode": "approximate",
+  "parameters": {"min_area": 150, "pad": 6, "nmax": 10},
+  "mask_shape": [128, 128],
+  "resize": "none",
+  "filter": "unpadded_bbox_area_native_pixels_squared",
+  "sort": "clipped_padded_bbox_area_native_pixels_squared_descending",
+  "coordinate_mapping": "floor_lower_ceil_upper_after_native_padding_and_top10",
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "external contours, boundingRect, bbox-area filter/sort, numeric Amin=150 and pad=6"},
+    {"classification": "ASSUMPTION", "choice": "explicit user-requested native128 coordinate frame for area/padding, floor/ceil bbox remapping"},
+    {"classification": "PAPER_SPECIFIED", "choice": "padding, maximum 10 crops from original RGB image"}
+  ]
+}

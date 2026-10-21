@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; training-free crop-group selection diagnostic",
+  "table_5_claim": false,
+  "parameter_policy": "Fixed general rules; no fitting, word dictionary, length prior or parameter search using evaluation annotations",
+  "grouping_variant": "complete_link_iou0.55",
+  "cheap_methods": ["confidence_mean", "confidence_min", "confidence_balanced", "consensus", "consensus_weighted", "stability", "consensus_stability_confidence", "mask_completeness_confidence", "combined"],
+  "combination": "equal-weight geometric means of dimensionless scores in [0,1]",
+  "consensus": "at most one contribution per originating view",
+  "stability": "longest consecutive threshold-support interval; Voronoi interval weights",
+  "mask_support": "mean available whole/tile probabilities on original-image letterbox canvas; soft mass within group reference bbox",
+  "assignment": "maximum total score; at most one crop per group and one use per original candidate ID; repeated spellings allowed",
+  "rejection": "only empty normalized readings or zero-scored assignment; no fitted confidence cutoff",
+  "cross_parseq": {"word_budget": 5, "crop_budget": 3, "length_normalization": "raw character count plus EOS", "decoding": "causal teacher forcing with frozen weights", "unsupported_length": "explicit UNSUPPORTED_LENGTH record and zero cross score; never truncate; preserve reading in other selectors"},
+  "clip": {
+    "model": "openai/clip-vit-base-patch32",
+    "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "image_preprocessing": "median-RGB square canvas followed by pinned official processor; preserve full field of view",
+    "views": ["full_image", "group_reference_crop"],
+    "templates": {"raw": "{text}", "written": "a photo of the written word \"{text}\""},
+    "assignment_score": "(cosine + 1) / 2"
+  },
+  "evaluation": {"matching_iou": 0.5, "normalization": "casefold_remove_unicode_P_S", "retain_all_care_gt": true},
+  "execution": {"seed": 202503, "precision": "float32", "cpu_threads": 4, "cross_batch_size": 16, "clip_batch_size": 16, "model_loading": "sequential"},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper sections 3.3/3.5 use localized crops and PARSeq-S; they do not specify these selectors or CLIP."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Frozen group/crop/PARSeq caches and the previously qualified pinned CLIP snapshot supply diagnostic inputs."},
+    {"classification": "ASSUMPTION", "choice": "All selection rules, equal weights, soft-mask support, shared-crop assignment, causal likelihood scoring, CLIP views/prompts and field-of-view preprocessing are experimental; no evaluation GT enters selection."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Sequential models and batch 16; optional CPU execution. Cross shortlists (5 words/3 crops) are fixed resource budgets, not accuracy-tuned values."},
+    {"classification": "UNRESOLVED", "choice": "Dataset transfer, grouping parameter transfer, confidence calibration, residual noise rejection and final selection accuracy remain unqualified until independent evaluation."}
+  ],
+  "ambiguity_record": "CROP-GROUP-WORD-SELECTION-V1"
+}

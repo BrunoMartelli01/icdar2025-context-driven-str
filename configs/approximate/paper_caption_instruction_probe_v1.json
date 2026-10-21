@@ -1,0 +1,35 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "result_class": "smoke-test result",
+  "classification": "ASSUMPTION",
+  "rationale": "User-requested Figure4-style caption investigation; InstructBLIP is a separate instruction-tuned caption ablation, not the BLIP2 paper baseline.",
+  "model_id": "Salesforce/instructblip-flan-t5-xl",
+  "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+  "weight_sha256": {
+    "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+    "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+  },
+  "snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--instructblip-flan-t5-xl/snapshots/bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+  "image": "artifacts/totaltext-curved-word-boxes-v4/datasets/total_text/train/images/14.jpg",
+  "image_sha256": "6ab3eef2fb13acdf115e4e11b40616d4f81211841b1224cef9346df5da1e9edf",
+  "prompt": "Describe this image comprehensively, focusing on all visible text elements. Include: the setting or environment (indoor/outdoor, urban/rural); main text-containing objects (signs, displays, documents); text placement and arrangement (centered, peripheral, overlapping); and contextual elements that provide semantic cues. Write one coherent paragraph of 40 to 80 words describing what is visible. Return only the description.",
+  "generation": {
+    "max_new_tokens": 140,
+    "min_new_tokens": 0,
+    "num_beams": 3,
+    "do_sample": false,
+    "early_stopping": true,
+    "no_repeat_ngram_size": 3,
+    "repetition_penalty": 1.1
+  },
+  "execution": {
+    "device": "cpu",
+    "dtype": "float32",
+    "batch_size": 1,
+    "cpu_threads": 4,
+    "seed": 20261013
+  },
+  "hardware_deviation": "CPU FP32 batch1 sequential model; actual CUDA qualification remains pending."
+}

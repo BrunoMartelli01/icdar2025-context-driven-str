@@ -1,0 +1,5 @@
+{
+  "reproduction_mode": "approximate",
+  "baseline_run": "/tmp/yolo-direct-parseq/full-cpu-v1",
+  "output_root": "/tmp/yolo-failure-improvements/v1"
+}

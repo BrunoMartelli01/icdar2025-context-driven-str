@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "base_config": "configs/approximate/clip_word_verification_train_v1.json",
+  "font_sha256": {
+    "sans": "437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db",
+    "serif": "59f23d4b8983a0cd08ad33a4b12ff27dc588c325ccc4d881cc0f522f530f3b93",
+    "mono": "8c8b4894c328236143c9f57f690e2199482e0a4bed2567747e99ffbbf84ca3af"
+  },
+  "font_size": 48,
+  "render_padding": 6,
+  "reverse_word_control": true,
+  "polarities": [
+    {"name": "black_on_white", "foreground": [0, 0, 0], "background": [255, 255, 255]},
+    {"name": "white_on_black", "foreground": [255, 255, 255], "background": [0, 0, 0]}
+  ],
+  "letter_effect_margin": 0.02,
+  "glyph_margin": 0.02,
+  "execution": {"batch_size": 16, "cpu_threads": 4, "seed": 20261007, "precision": "float32", "deterministic_algorithms": true},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper sections3.3-3.5 support original RGB crops/PARSeq/context; this CLIP extension is confined to APPROXIMATE."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse original v1 pools, unchanged boxes, captions, scores and target-covered surrounding controls with verified contracts; old implementation/results remain untouched."},
+    {"classification": "ASSUMPTION", "choice": "Score the word-specific loss of CLIP agreement when its target letters are removed: surround cosine minus target-masked surround cosine; raw/written/ensemble/context-residual probes."},
+    {"classification": "ASSUMPTION", "choice": "Render each complete raw PARSeq candidate in three SHA-bound fonts and two polarities; normalized mean image embeddings act as a synthetic glyph query, with square-canvas and anisotropically stretched variants. No new OCR candidate or GT word is generated."},
+    {"classification": "ASSUMPTION", "choice": "Bicubic square stretching increases visible text size while deforming glyphs; compare image-to-text and image-to-image retrieval, equal mean across two views and fixed confidence/visible-letter/glyph agreement gates."},
+    {"classification": "ASSUMPTION", "choice": "Compare a candidate's rendered glyphs against the same raw characters in reverse order, keeping all characters and never inserting the reversed string into the OCR pool; identical reversals/palindromes give zero order evidence."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Sequential frozen float32 CLIP processes, batch16/four CPU threads, explicit CPU or single-GPU execution, deterministic seeds/settings, cached CPU feature reuse within one model."},
+    {"classification": "UNRESOLVED", "choice": "Font/style/word-length shortcuts, target-masking artifacts, spelling discrimination, calibration and independent TEST transfer. Pretrained spelling-subspace projections remain a researched future direction, not a silently substituted component."}
+  ],
+  "ambiguity_record": "CLIP-INNOVATIVE-VERIFICATION-V2"
+}

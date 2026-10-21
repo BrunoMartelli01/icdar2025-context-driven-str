@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "unet_crop_resegmentation",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "approximate reproduction; smoke-test result",
+  "inference": {
+    "architecture": "practical-totaltext-v4-highres-agunet-v1",
+    "input_size": [512, 512],
+    "native_mask_size": [256, 256],
+    "skip_floor": 0.25,
+    "resize_geometry": "letterbox",
+    "canvas_fill_rgb": [124, 116, 104],
+    "normalization": "imagenet",
+    "probability_threshold": 0.5,
+    "binary_backprojection": "nearest_after_native_threshold",
+    "precision": "float32",
+    "batch_size": 1,
+    "seed": 202503
+  },
+  "refinement": {
+    "reproduction_mode": "approximate",
+    "initial": {"min_component_area": 0, "padding_pixels": 0, "max_blocks": 10},
+    "second_pass": {"min_component_area": 0, "padding_pixels": 0, "max_blocks": 10},
+    "context_margin_fraction": 0.5,
+    "context_margin_pixels": 4,
+    "max_final_blocks": 10
+  },
+  "scientific_choices": [
+    {"component": "second_pass_and_context_margin", "classification": "ASSUMPTION", "ambiguity": "UCR-001", "rationale": "User-requested crop zoom experiment, absent from paper Algorithm 1. Reuse RGB, weights and preprocessing once per seed. Margin values are exploratory, not calibrated.", "expected_effect": "May reconnect fragments, separate joined words, lose text, or admit nearby words."},
+    {"component": "contour_component_area", "classification": "PAPER_SPECIFIED", "ambiguity": "UCR-001", "rationale": "Algorithm 1 filters/sorts by component area and limits crops to ten.", "expected_effect": "Retain the largest foreground components, not largest rectangles."},
+    {"component": "contour_retrieval_and_coordinates", "classification": "ASSUMPTION", "ambiguity": "UCR-001", "rationale": "External contours; 8-connected foreground-pixel area; original RGB pixel units; deterministic xyxy ties; exact-box deduplication only.", "expected_effect": "Nested islands can be omitted; overlapping nonidentical proposals are preserved."},
+    {"component": "exploratory_localization_parameters", "classification": "ASSUMPTION", "ambiguity": "UCR-001", "rationale": "Disable component-area rejection (minimum zero) and extra output padding (zero); retain ten seeds, ten children per seed and ten final proposals. Crop context uses fraction 0.5 plus four original RGB pixels per side.", "expected_effect": "Small noise can survive; crop context can include neighbors and can still truncate missing text. Final ten-block cap can discard valid candidates."},
+    {"component": "highres_letterbox_preprocessing", "classification": "REPOSITORY_SPECIFIED", "ambiguity": "UCR-001", "rationale": "Replay scripts/evaluate_totaltext_v4_image_frequency_val_parseq.py::_tensor with the qualified highres letterbox checkpoint. The profile is separate from STRICT.", "expected_effect": "Keeps crop aspect ratio and the existing ImageNet normalization; domain shifts on zoomed crops remain possible."},
+    {"component": "nearest_binary_projection", "classification": "ASSUMPTION", "ambiguity": "UCR-001", "rationale": "Threshold native probabilities before nearest projection and removal of original square-canvas padding. All contour area/padding units are original RGB pixels.", "expected_effect": "Changes the localization coordinate frame relative to native256 contour experiments; this is an explicit new baseline."},
+    {"component": "inference_batch_one", "classification": "HARDWARE_DEVIATION", "ambiguity": "UCR-001", "rationale": "Run full image and crops sequentially on one model for the 8 GB target; float32, no offload, no quantization.", "expected_effect": "Limits peak activation memory; backend batch-size differences may affect numerical output."},
+    {"component": "diagnostic_interpretation", "classification": "ASSUMPTION", "ambiguity": "UCR-001", "rationale": "Report component counts, mask IoU and foreground touching ROI edges without accepting them as word-level correctness.", "expected_effect": "Provides review signals and paired evidence without a learned error detector or GT-based routing."}
+  ]
+}

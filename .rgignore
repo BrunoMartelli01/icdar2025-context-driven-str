@@ -1,0 +1,8 @@
+# Search scope only: does not change Git tracking or delete artifacts.
+/artifacts/
+/.venvs/
+/.aws/
+/.git/
+/.pytest_cache/
+**/__pycache__/
+*.egg-info/

@@ -1,0 +1,796 @@
+schema_version: 1
+freeze_date: "2026-09-03"
+scope: >-
+  Scientific evidence freeze plus M6/M8/M9 physical-host qualifications, the full M9
+  APPROXIMATE training run, ICDAR13 mirror-acquisition/split-manifest provenance, and
+  complete real-data APPROXIMATE recognition-pipeline smoke and multi-image trace
+  qualification; no external artifact is stored in the repository.
+
+status_values:
+  - RESOLVED
+  - PARTIALLY_RESOLVED
+  - UNRESOLVED
+  - BLOCKING
+
+evidence_classifications:
+  PAPER_PRIMARY: "The frozen arXiv v2 paper."
+  AUTHOR_PRIMARY: "The paper authors' public repository or institutional record."
+  UPSTREAM_PRIMARY: "The official upstream project, model publisher, dataset site, or competition site."
+  REPOSITORY_SECONDARY: "A choice present only in this repository; it does not establish what produced the paper results."
+  REPRODUCTION_PRIMARY: "A controlled physical-host qualification produced by this reproduction project; it establishes local behavior, not paper identity."
+  SECONDARY: "Non-author/non-upstream material; never sufficient by itself for a strict-reproduction choice."
+
+decision_classifications:
+  - PAPER_SPECIFIED
+  - REPOSITORY_SPECIFIED
+  - ASSUMPTION
+  - HARDWARE_DEVIATION
+  - UNRESOLVED
+
+sources:
+  - id: SRC-AUTHOR-SEGMENTATION-CLARIFICATION-2026-08-29
+    component: "Author clarification of the reported segmentation protocol"
+    source_repository_model_source: "docs/Author Clarifications and Reproduction Update.md"
+    upstream_project_name: "A Lightweight Context-Driven Training-Free Network for STR"
+    exact_revision: "Author correspondence recorded 2026-08-29; local SHA256 1b72740f385a2f9414ca73241faa42c892db44b49726dc2aafbc9f4a4b4ec563"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: >-
+      Confirms scalar additive attention, preserved skip widths, 128x128 loss/logits,
+      frozen ResNet-50 including BN state, all 229 ICDAR13 training images, 100 epochs,
+      masked Don't Care BCE, bilinear target resize plus threshold 0.5, flip p=0.5,
+      and training-fgIoU checkpoint selection. The recalled 2048->1024 bottleneck and
+      suggested +/-15 degree rotation are explicitly unconfirmed.
+    license: "Private scientific correspondence summarized locally; redistribution terms unresolved."
+    evidence_source: "Direct paper-author clarification supplied for this reproduction"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "Confirmed facts and recalled/unconfirmed values must remain separate."
+
+  - id: SRC-PAPER-V2
+    component: "Complete method and reported results"
+    source_repository_model_source: "papers/2503.15639v2.pdf; https://arxiv.org/abs/2503.15639"
+    upstream_project_name: "A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"
+    exact_revision: "arXiv:2503.15639v2"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Paper statements, figures, and algorithms only."
+    license: "CC BY 4.0, as stated in the local PDF footer."
+    evidence_source:
+      - "Local PDF SHA256 ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd"
+      - "https://arxiv.org/abs/2503.15639"
+    evidence_classification: PAPER_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: RESOLVED
+    notes: "This is the highest-authority frozen scientific source. It does not uniquely identify several external artifacts."
+
+  - id: SRC-AUTHOR-REPOSITORY
+    component: "Author code, AG-UNet scaffold, pipeline defaults"
+    source_repository_model_source: "https://github.com/Ritabrata04/icdar2025-context-driven-str"
+    upstream_project_name: "icdar2025-context-driven-str"
+    exact_revision: "363cdeec0eda8999bf10d14c8f4ca6036dd422a2 (public main HEAD frozen 2026-08-17)"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "29-commit public main branch containing only the inference scaffold listed in the audit."
+    license: "README asserts MIT, but no LICENSE file exists at the frozen revision; legal text is incomplete."
+    evidence_source:
+      - "https://github.com/Ritabrata04/icdar2025-context-driven-str"
+      - "git ls-remote of the public repository on 2026-08-17"
+      - "Institutional record: https://salford-repository.worktribe.com/output/4503710/a-lightweight-context-driven-training-free-network-for-scene-text-segmentation-and-recognition"
+    evidence_classification: AUTHOR_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: >-
+      The institutional record points to this repository and no other author code source.
+      The inspected public refs expose only main and no tags. The repository page exposes no
+      release assets. This is evidence that no author checkpoint or additional public training/
+      evaluation code was available in the inspected author source, not proof that no private
+      artifact exists.
+
+  - id: SRC-TORCHVISION-RESNET50
+    component: "Pretrained ResNet-50 encoder"
+    source_repository_model_source: "https://pytorch.org/vision/stable/models/generated/torchvision.models.resnet50.html"
+    upstream_project_name: "torchvision"
+    exact_revision: null
+    checkpoint_identifier: "ResNet50_Weights.IMAGENET1K_V2 (repository candidate only)"
+    checkpoint_checksum: "Filename SHA256 prefix 11ad3fa6; full checksum not frozen."
+    model_configuration: "Repository code selects IMAGENET1K_V2 when the modern torchvision API is available."
+    license: "BSD-3-Clause for torchvision code; ImageNet data terms are separate."
+    evidence_source:
+      - "models/unet_adv.py at SRC-AUTHOR-REPOSITORY"
+      - "https://pytorch.org/vision/stable/models/generated/torchvision.models.ResNet50_Weights.html"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "The paper says pretrained ResNet-50 but gives no weight enum, model revision, or encoder-freezing policy."
+
+  - id: SRC-AGUNET-M8-HOST-QUALIFICATION
+    component: "Approximate AG-UNet M8 CUDA forward and test qualification"
+    source_repository_model_source: >-
+      scripts/profile_ag_unet.py, docs/AG_UNET_IMPLEMENTATION_DECISIONS.md,
+      and authoritative physical-host results supplied 2026-08-20
+    upstream_project_name: "M8 local AG-UNet qualification"
+    exact_revision: "approximate-ag-unet-figure3-v1; architecture contract schema 1"
+    checkpoint_identifier: "torchvision ResNet50_Weights.IMAGENET1K_V2"
+    checkpoint_checksum: "Filename SHA256 prefix 11ad3fa6 only; unchanged repository candidate provenance"
+    model_configuration: >-
+      Python main environment; torch 2.4.1+cu124; NVIDIA GeForce RTX 3070;
+      cuda:0; float32; batch 1; input 1x3x256x256; output 1x1x128x128;
+      evaluation-only forward; no training.
+    license: "No runtime artifact or checkpoint is redistributed."
+    evidence_source:
+      - "Authoritative physical-host M8 qualification supplied 2026-08-20"
+      - "Physical full-suite result: 142 passed in 30.68 seconds"
+      - "Physical git diff --check: PASS"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    notes: >-
+      Establishes execution and memory behavior of the frozen APPROXIMATE branch on the
+      target RTX 3070 only. The one-element CUDA allocation before resetting peak stats is
+      an engineering profiler initialization fix and is excluded from measured model peaks.
+      Test-local deterministic-state restoration changes no production scientific behavior.
+      This source does not identify the architecture, weights, or runtime used by the paper.
+
+  - id: SRC-PARSEQ-OFFICIAL
+    component: "PARSeq-S recognition"
+    source_repository_model_source: "https://github.com/baudm/parseq"
+    upstream_project_name: "Scene Text Recognition Model Hub / PARSeq"
+    exact_revision: "v1.0.0; commit 315d19be8ef473a864950ab497a649a69e37c6a4"
+    checkpoint_identifier: "parseq-bb5792a6.pt"
+    checkpoint_checksum: "SHA256 prefix bb5792a6, enforced by torch.hub check_hash=True; full digest not published in inspected metadata."
+    model_configuration: "Official PARSeq base model; upstream README explicitly states P-S means PARSeq-S."
+    license: "Apache-2.0 for PARSeq/reference hub code (with separately licensed reproduced models)."
+    evidence_source:
+      - "https://github.com/baudm/parseq/releases/tag/v1.0.0"
+      - "https://github.com/baudm/parseq"
+      - "hubconf.py and configs at commit 315d19be8ef473a864950ab497a649a69e37c6a4"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: PARTIALLY_RESOLVED
+    notes: "Official code and a strong candidate checkpoint are identifiable. The context-driven paper does not cite this release, checkpoint, charset, or decoding mode."
+
+  - id: SRC-BLIP2-LAVIS
+    component: "BLIP-2 implementation and Salesforce checkpoints"
+    source_repository_model_source: "https://github.com/salesforce/LAVIS"
+    upstream_project_name: "LAVIS / BLIP-2"
+    exact_revision: "0ef3a2c3603596f88ec5d72bbeabcee4badf0cc7 (main HEAD frozen 2026-08-17)"
+    checkpoint_identifier: "blip2_pretrained_flant5xl.pth and blip2_pretrained_flant5xl_vitL.pth"
+    checkpoint_checksum: null
+    model_configuration: "The default Flan-T5-XL config uses eva_clip_g; a separately named variant uses clip_L. No ViT-B BLIP-2 config is exposed in the inspected official model registry."
+    license: "BSD-3-Clause for LAVIS code/configurations."
+    evidence_source:
+      - "https://github.com/salesforce/LAVIS"
+      - "lavis/configs/models/blip2/blip2_pretrain_flant5xl.yaml at the frozen revision"
+      - "lavis/configs/models/blip2/blip2_pretrain_flant5xl_vitL.yaml at the frozen revision"
+      - "lavis/models/blip2_models/blip2.py at the frozen revision"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: PARTIALLY_RESOLVED
+    notes: "This authoritative source contradicts treating the repository's Flan-T5-XL default as evidence for the paper's claimed ViT-B backbone."
+
+  - id: SRC-BLIP2-HF-FLANT5XL
+    component: "Repository-default BLIP-2 model"
+    source_repository_model_source: "https://huggingface.co/Salesforce/blip2-flan-t5-xl"
+    upstream_project_name: "Salesforce/blip2-flan-t5-xl"
+    exact_revision: "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28"
+    checkpoint_identifier: "model-00001-of-00002.safetensors; model-00002-of-00002.safetensors"
+    checkpoint_checksum:
+      - "SHA256 23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d"
+      - "SHA256 c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    model_configuration: "BLIP-2 conditional generation, Flan-T5-XL, 32 query tokens, 224x224 processor; official older config exposes vision encoder width 1408 (EVA-CLIP-g family)."
+    license: "MIT on the model card."
+    evidence_source:
+      - "https://huggingface.co/Salesforce/blip2-flan-t5-xl/tree/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28"
+      - "https://huggingface.co/Salesforce/blip2-flan-t5-xl/blob/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28/config.json"
+      - "https://huggingface.co/Salesforce/blip2-flan-t5-xl/blob/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28/preprocessor_config.json"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "The model is exactly identifiable, but its association with the paper results is supported only by the author repository default."
+
+  - id: SRC-MPNET-HF
+    component: "Semantic sentence embeddings"
+    source_repository_model_source: "https://huggingface.co/sentence-transformers/all-mpnet-base-v2"
+    upstream_project_name: "sentence-transformers/all-mpnet-base-v2"
+    exact_revision: "e8c3b32edf5434bc2275fc9bab85f82640a19130"
+    checkpoint_identifier: "model.safetensors"
+    checkpoint_checksum: "SHA256 78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658"
+    model_configuration: "MPNet base, 768-dimensional mean pooling, English sentence-similarity model."
+    license: "Apache-2.0 on the model card."
+    evidence_source:
+      - "https://huggingface.co/sentence-transformers/all-mpnet-base-v2/tree/e8c3b32edf5434bc2275fc9bab85f82640a19130"
+      - "https://huggingface.co/sentence-transformers/all-mpnet-base-v2/blob/e8c3b32edf5434bc2275fc9bab85f82640a19130/1_Pooling/config.json"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "The model is exactly identifiable, but the paper cites MPNet generically and never names this sentence-transformers checkpoint."
+
+  - id: SRC-RAPIDFUZZ
+    component: "Lexical/fuzzy similarity"
+    source_repository_model_source: "https://github.com/rapidfuzz/RapidFuzz"
+    upstream_project_name: "RapidFuzz"
+    exact_revision: null
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Author repository requires rapidfuzz>=3.7 and calls rapidfuzz.fuzz.ratio without preprocessing."
+    license: "MIT for RapidFuzz."
+    evidence_source:
+      - "requirements.txt and scoring/context_score.py at SRC-AUTHOR-REPOSITORY"
+      - "https://rapidfuzz.github.io/RapidFuzz/Usage/fuzz.html"
+    evidence_classification: REPOSITORY_SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "Neither the paper nor repository pins a RapidFuzz version or defines case, punctuation, Unicode, whitespace, or empty-input normalization."
+
+  - id: SRC-DEEPSOLO-OFFICIAL
+    component: "Fallback text spotting/recognition"
+    source_repository_model_source: "https://github.com/ViTAE-Transformer/DeepSolo"
+    upstream_project_name: "DeepSolo"
+    exact_revision: "dbadae995035246bad3376c7a44c015c69e9b313 (main HEAD frozen 2026-08-17)"
+    checkpoint_identifier: "Official OneDrive model-zoo links for ResNet-50 and ViTAEv2-S Total-Text/ICDAR15 variants"
+    checkpoint_checksum: null
+    model_configuration: "Official configs under DeepSolo/configs/R_50 and DeepSolo/configs/ViTAEv2_S."
+    license: "Repository states 2-clause BSD for academic use and requests contact for commercial use; bundled AdelaiDet notice also applies."
+    evidence_source:
+      - "https://github.com/ViTAE-Transformer/DeepSolo"
+      - "DeepSolo/README.md, configs, requirements.txt, and LICENSE at the frozen revision"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: PARTIALLY_RESOLVED
+    notes: "Official code and multiple valid checkpoints exist, but the context-driven paper does not identify which checkpoint was used for any benchmark."
+
+  - id: SRC-DETECTRON2-V06
+    component: "DeepSolo runtime dependency"
+    source_repository_model_source: "https://github.com/facebookresearch/detectron2"
+    upstream_project_name: "Detectron2"
+    exact_revision: "v0.6; commit d1e04565d3bec8719335b88be9e9b961bf3ec464"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Official v0.6 wheels include CUDA 11.1 / PyTorch 1.9 builds requested by DeepSolo."
+    license: "Apache-2.0."
+    evidence_source:
+      - "https://github.com/facebookresearch/detectron2/releases/tag/v0.6"
+      - "DeepSolo/README.md at SRC-DEEPSOLO-OFFICIAL"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    notes: "This resolves the official upstream dependency revision for the frozen DeepSolo candidate, not the unknown revision used by the context-driven paper authors."
+
+  - id: SRC-DEEPSOLO-M6-HOST-QUALIFICATION
+    component: "Approximate DeepSolo Docker runtime and real inference"
+    source_repository_model_source: "docs/DEEPSOLO_RUNTIME.md and physical-host qualification outputs"
+    upstream_project_name: "M6 local DeepSolo qualification"
+    exact_revision: "Qualified 2026-08-18/19; image sha256:30e0e99d23279060e72b22fe3911a2e42b72de55e70be6349fb06ec37b35755c"
+    checkpoint_identifier: "tt_res50_finetune_synth-tt-mlt-13-15.pth"
+    checkpoint_checksum: "SHA256 ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68"
+    model_configuration: >-
+      DeepSolo dbadae995035246bad3376c7a44c015c69e9b313; Detectron2 0.6;
+      ResNet-50 Total-Text finetune config SHA256
+      0da913239e4b3f11ae1bad19e0b104996f7c3f3607aa2a7f4b1f52e3838b702d;
+      Python 3.8, torch 1.9.0+cu111, torchvision 0.10.0+cu111, CUDA 11.1,
+      cuDNN 8.0.5, sm_86 adet._C, cuDNN enabled/benchmark false/deterministic false.
+    license: "Inherits DeepSolo, Detectron2, runtime, and checkpoint terms; no artifact is redistributed here."
+    evidence_source:
+      - "Authoritative physical-host M6 qualification supplied 2026-08-18/19"
+      - "docs/DEEPSOLO_RUNTIME.md"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    notes: >-
+      Establishes this local APPROXIMATE runtime and candidate execution only. It does
+      not identify the checkpoint/runtime used by the paper or resolve output reduction.
+      The final staged-worker Docker smoke passed with three detections, 0.2597780159994727
+      seconds inference, and 869216256/1270874112 bytes peak allocated/reserved CUDA
+      memory. Host-side Git verification supplies source identity; the worker preserves
+      frozen ViTAEv2 padding without importing upstream adet.data's import-time CLI.
+
+  - id: SRC-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE
+    component: "Qualified unprivileged non-Docker DeepSolo runtime on paper"
+    source_repository_model_source: >-
+      environments/deepsolo/environment.yml, scripts/prepare_deepsolo_host.py,
+      scripts/deepsolo_host_smoke.sh, and the existing DeepSoloSubprocessAdapter
+    upstream_project_name: "Local host-isolated DeepSolo reconstruction"
+    exact_revision: >-
+      Qualified 2026-09-02; CPython 3.8.10; CUDA Toolkit 11.1; environment report
+      SHA256 1e1c5763bbb645eb55a877de77484acfd1ec13c52129e807ad960b800e8f2d76;
+      runtime manifest SHA256 c52a65b7d844cd35bcf6e38e3cb58c5194851c8327cbdaba9b313869ec2c7ffa
+    checkpoint_identifier: "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE"
+    checkpoint_checksum: "SHA256 ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68"
+    model_configuration: >-
+      DeepSolo dbadae995035246bad3376c7a44c015c69e9b313; Detectron2 0.6+cu111;
+      torch 1.9.0+cu111; torchvision 0.10.0+cu111; isolated Python subprocess;
+      adet._C compiled for sm_86 against /usr/local/cuda-11.1; NVIDIA GeForce RTX 3090.
+    license: "Inherits DeepSolo, Detectron2, runtime, and checkpoint terms."
+    evidence_source:
+      - "Existing repository subprocess boundary and frozen environment specification"
+      - "Physical host environment/load/inference qualification on 2026-09-02"
+      - "docs/DEEPSOLO_RUNTIME.md"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    notes: >-
+      Docker is administratively inaccessible on paper. Exact source/archive/config/checkpoint
+      identities, environment validation, strict compatibility, staged subprocess dispatch,
+      and real CUDA inference passed. The smoke response SHA256 is
+      82dac26c016515f88b625a654acfa2d9aa026d420f5871f789d5cd1ad37ce4a8; it contains
+      three detections, 0.147001147037372 seconds inference, and
+      869216256/1270874112 bytes peak allocated/reserved CUDA memory. This qualifies only
+      the local APPROXIMATE host runtime and does not identify the paper's selection.
+
+  - id: SRC-ICDAR13-M11-APPROX-RECOGNITION-MANIFEST
+    component: "Frozen ICDAR13 Task 1 recognition population"
+    source_repository_model_source: >-
+      manifests/icdar13_recognition_test.yaml and
+      recognition/icdar13_annotations.py
+    upstream_project_name: "Local verification of acquired ICDAR13 Task 1 test bytes"
+    exact_revision: >-
+      233 numerically ordered image/annotation pairs; 1,095 word records; manifest
+      SHA256 d8ab8863fa2dd00cdbf0667fb36c20a28432ba070164b85d9dbff0827dfb20bd
+    checkpoint_identifier: "Challenge2_Test_Task12_Images.zip and Challenge2_Test_Task1_GT.zip"
+    checkpoint_checksum: >-
+      Image archive SHA256 324b95d4e75d2872aa4cee4202963b37ad0eef703de266eb051267ffbd24d345;
+      annotation archive SHA256 71a7d78d57822ec0376f3f73dd808e2d662f86fb1ef2f85e09a45f26e1417018;
+      ordered annotation identity SHA256
+      89747036f9dc09b22b3cd35887be0e6f0d694122c099f23f9a6034b8996abd41
+    model_configuration: >-
+      Dataset identity only; UTF-8/BOM CSV parsing preserves transcription text and
+      validates integer axis-aligned boxes against decoded image bounds.
+    license: "Manifest metadata only; dataset bytes remain external under unresolved RRC terms."
+    evidence_source:
+      - "SRC-ICDAR13-RRC"
+      - "Acquired checksum-frozen mirror bytes verified on 2026-09-03"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      Freezes the complete 233-image test population for APPROXIMATE protocol
+      development only. It defines no matching, normalization, denominator, care rule,
+      multi-output mapping, accuracy, or Table 5 claim; DS-002, E-001, and D-002 remain.
+
+  - id: SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    component: "First complete real-data context-recognition pipeline smoke"
+    source_repository_model_source: >-
+      configs/approximate/pipeline_icdar13_table5_smoke.yaml,
+      scripts/run_table5_smoke.py, and external immutable run outputs
+    upstream_project_name: "Local M11 end-to-end APPROXIMATE smoke"
+    exact_revision: >-
+      ICDAR13 img_1.jpg; resolved config SHA256
+      9fe238088c745fd9cc96badffcda03d8e1ae9293130c84ec0c0f88faaeca0096;
+      result JSON SHA256 72099c04b754ac4dc3dc6084dd974c9201365a9bf5b1980e6c9306589906b4b7
+    checkpoint_identifier: >-
+      Frozen author-protocol epoch-98 segmentation, PARSeq candidate, BLIP-2 candidate,
+      MPNet candidate, and ResNet-50 DeepSolo candidate
+    checkpoint_checksum: "See the component artifact records embedded in the result ledger."
+    model_configuration: >-
+      RTX 3090; sequential component release; BLIP-2 FP16 single-device; MPNet CPU
+      float32; DeepSolo isolated legacy subprocess; highest-score fallback reduction.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host execution supplied 2026-09-03"
+      - "External result, preflight, and log SHA256 records"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    notes: >-
+      Successful one-image engineering smoke only. It explicitly forbids Table 5/6/7
+      claims and exposes, rather than resolves, the full-image PARSeq, scoring,
+      multi-output reduction, metric, and dataset-denominator ambiguities.
+
+  - id: SRC-TABLE5-ICDAR13-IMG2-APPROX-SMOKE
+    component: "Second complete real-data context-recognition pipeline smoke"
+    source_repository_model_source: >-
+      configs/approximate/pipeline_icdar13_table5_smoke.yaml,
+      scripts/run_table5_smoke.py, and external immutable run outputs
+    upstream_project_name: "Local M11 end-to-end APPROXIMATE smoke"
+    exact_revision: >-
+      ICDAR13 img_2.jpg; resolved config SHA256
+      9fe238088c745fd9cc96badffcda03d8e1ae9293130c84ec0c0f88faaeca0096;
+      result JSON SHA256 27d1b58704ccd1f0665f846a5c35bb153aaae34682d0b128f50c4c62b0ee13ca
+    checkpoint_identifier: >-
+      Same frozen component artifacts as SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    checkpoint_checksum: "Image SHA256 58cf558f40a66af2c7d4224250a8c9adebd11f92e4b66f4b8727f0661d35361f"
+    model_configuration: >-
+      RTX 3090; four retained components with lossless mask/crop artifacts; T1=H;
+      selected T3=8; C=0.09558176629645362; fallback selected its sole output 31.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host execution supplied 2026-09-03"
+      - "External result, preflight, log, mask, and crop SHA256 records"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: HARDWARE_DEVIATION
+    status: RESOLVED
+    notes: >-
+      Successful second one-image engineering smoke only. Both PARSeq strings occur
+      exactly in the four-word GT, but literal scoring forces fallback and the sole
+      DeepSolo string `31` is not exact GT `319`. This does not define accuracy.
+
+  - id: SRC-ICDAR13-IDS3-5-APPROX-TRACE-PROBE
+    component: "First physical multi-image ICDAR13 trace-collector qualification"
+    source_repository_model_source: >-
+      scripts/run_icdar13_trace_batch.py,
+      scripts/run_icdar13_trace_batch_host.sh, and external immutable sample outputs
+    upstream_project_name: "Local M11 APPROXIMATE trace collection"
+    exact_revision: >-
+      ICDAR13 test IDs 3--5; batch contract SHA256
+      abb0cd72dea6a3694841c96e835f1e7da52a2a5dd3cfa0b196048e16ba81ff81;
+      range-completion index snapshot SHA256
+      3eebc687c396e672512ec5c0607b54410268b5b4394cef86b533f76b2d3575e0
+    checkpoint_identifier: >-
+      Same frozen component artifacts as SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    checkpoint_checksum: >-
+      Result SHA256 IDs 3--5:
+      73d75d93a1d84b528a5c23eea29c9893005160f9b4bc9ca213b67f3146304385,
+      0e266c3ab92048edd99c0869eaa33a1c02e2c8725158b0a576e5b60f3c88e7c4,
+      7680ba6a677685d81b2f85a4785e6d08ac86b1ed97d2adbbd24b225fca54c16a
+    model_configuration: >-
+      RTX 3090; fresh main-environment subprocess per image; BLIP-2 FP16; MPNet CPU;
+      DeepSolo isolated subprocess; all 22 mask/crop file hashes verified; 3/3 fallback.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host execution supplied 2026-09-03"
+      - "External batch contract, index snapshot, results, logs, masks, and crops"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      This qualifies resumable multi-image trace collection, not a recognition evaluator.
+      The index explicitly records accuracy null and rejects Table 5/6/7 claims. Observed
+      singular reductions expose D-002 but do not resolve it or define accuracy.
+
+  - id: SRC-ICDAR13-IDS6-10-APPROX-TRACE-PROBE
+    component: "Second physical multi-image ICDAR13 trace-collector qualification"
+    source_repository_model_source: >-
+      scripts/run_icdar13_trace_batch.py,
+      scripts/run_icdar13_trace_batch_host.sh,
+      recognition/icdar13_trace_diagnostics.py, and external immutable sample outputs
+    upstream_project_name: "Local M11 APPROXIMATE trace collection"
+    exact_revision: >-
+      ICDAR13 test IDs 6--10; unchanged batch contract SHA256
+      abb0cd72dea6a3694841c96e835f1e7da52a2a5dd3cfa0b196048e16ba81ff81;
+      range-completion index snapshot SHA256
+      a498462c36cf773e2d22d828869d4ec758f4168a908d2629b6f7812bc553b4f3
+    checkpoint_identifier: >-
+      Same frozen component artifacts as SRC-TABLE5-ICDAR13-IMG1-APPROX-SMOKE
+    checkpoint_checksum: >-
+      Result SHA256 IDs 6--10:
+      6f0d46c3f4f560ad7b5f091131b8a229ac3fb84bb1939e4776d9ee073310f932,
+      0babebe86c518327ea7bd315a3d0568143ba5335f3b560fce7a1bb2c2c04e233,
+      c92101ac42bcbd2c6e160d7ed580a33f4a166afd54ae22afefb4c89ed5a7d356,
+      b83b8760cb4190e749b02f22647bf13edd66149b783e07a29055223be13d7b4f,
+      dd1b73d0ced503b0f648f0aadddc785d282bfd214bcc87006ccdd8ecaf731c8c
+    model_configuration: >-
+      RTX 3090; fresh main-environment subprocess per image; BLIP-2 FP16; MPNet CPU;
+      DeepSolo isolated subprocess; all 48 mask/crop file hashes verified; 5/5 fallback.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host execution supplied 2026-09-03"
+      - "External batch contract, index snapshot, results, logs, masks, and crops"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      This extends trace-collector qualification and motivates only explicitly named
+      diagnostics. The new diagnostic path verifies all ledger and intermediate hashes,
+      leaves accuracy null, suppresses fractions on failures, and rejects Table 5 claims.
+
+  - id: SRC-ICDAR13-IDS1-10-APPROX-DIAGNOSTICS
+    component: "Uniform first-ten ICDAR13 trace diagnostics"
+    source_repository_model_source: >-
+      recognition/icdar13_trace_diagnostics.py,
+      scripts/diagnose_icdar13_traces.py, and external immutable diagnostic output
+    upstream_project_name: "Local M11 APPROXIMATE diagnostic"
+    exact_revision: >-
+      ICDAR13 test IDs 1--10; batch contract SHA256
+      abb0cd72dea6a3694841c96e835f1e7da52a2a5dd3cfa0b196048e16ba81ff81;
+      index SHA256 ef93fd51c3679260eef67698553fd486da4cae8e39ce8c4238177184c2a777f9;
+      diagnostic SHA256 6a1f4fe6ef06b75dc6b84d19a108a0813fdceb5fe66e65dd3d1e4b5f56c1e091
+    checkpoint_identifier: "Same frozen component artifacts as the ten trace records"
+    checkpoint_checksum: "All 86 referenced intermediate file hashes passed verification."
+    model_configuration: >-
+      Exact raw string observations only: case-sensitive and Unicode-casefolded final
+      membership plus one-to-one raw-fallback/GT multiset overlap. No punctuation,
+      whitespace, lexicon, geometry, or fuzzy normalization is applied.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host traces supplied 2026-09-03"
+      - "External diagnostic JSON and all hash-linked inputs"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      Partial-dataset diagnostic only. The output keeps accuracy null and all Table 5/6/7
+      claims false. Its divergent literal observations expose rather than resolve E-001.
+
+  - id: SRC-ICDAR13-IDS1-10-REPOSITORY-APPROX-DIAGNOSTICS
+    component: "Repository-aligned first-ten ICDAR13 trace comparison"
+    source_repository_model_source: >-
+      configs/approximate/pipeline_icdar13_table5_repository.yaml,
+      author-repository scorer 87b90db and runner 2e8b544, and external immutable traces
+    upstream_project_name: "Local M11 APPROXIMATE repository-protocol diagnostic"
+    exact_revision: >-
+      ICDAR13 test IDs 1--10; config SHA256
+      3965fe5d17116ab4d6eded0b2b543661929ffeef13cb884bb70f7a8db721202d;
+      contract SHA256 d90c0f07fdc1277b4c1d0e38333078e9a7f00232a8d0f3d6080ccb9ed1ea56f4;
+      index SHA256 5ae43ce81da3b556cabed258858d80050a655040029c4bcb4d08517b4a80a4e3;
+      diagnostic SHA256 92455c95edf7214fcb4765166503a421a8b0a60c88c888851ed842031bf2785f
+    checkpoint_identifier: "Same frozen component candidates as the rank-1 comparison"
+    checkpoint_checksum: "All 86 referenced intermediate file hashes passed verification."
+    model_configuration: >-
+      RTX 3090; score every retained crop, retain the first maximum paired C3, threshold
+      max(C1,C3), then select by semantic score. Other artifact, FP16, process-isolation,
+      DeepSolo-checkpoint, and singular-reduction choices remain approximate.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host traces supplied 2026-09-03"
+      - "Frozen author-repository history and external hash-linked outputs"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      T3 changed on seven samples but fallback remained 10/10 and final output was
+      unchanged on every sample. This is evidence of a scoring/caption/provenance
+      discrepancy, not authority to tune tau or relabel a diagnostic as accuracy.
+
+  - id: SRC-ICDAR13-IDS1-10-PARSEQ-DEEPSOLO-ALIGNMENT-DIAGNOSTIC
+    component: "First-ten PARSeq/DeepSolo alignment evidence"
+    source_repository_model_source: >-
+      recognition/parseq_deepsolo_alignment.py,
+      scripts/diagnose_parseq_deepsolo_alignment.py, and external immutable report
+    upstream_project_name: "Local M11 APPROXIMATE alignment diagnostic"
+    exact_revision: >-
+      ICDAR13 test IDs 1--10; diagnostic SHA256
+      93195baebca1106a6eb8ca78dce7cbd007e7471e58da95c4b89805dfa3bfa935;
+      source index SHA256 5ae43ce81da3b556cabed258858d80050a655040029c4bcb4d08517b4a80a4e3;
+      batch contract SHA256 d90c0f07fdc1277b4c1d0e38333078e9a7f00232a8d0f3d6080ccb9ed1ea56f4
+    checkpoint_identifier: "Same frozen component candidates as the source traces"
+    checkpoint_checksum: "All 86 referenced intermediate file hashes passed verification."
+    model_configuration: >-
+      Original-image coordinates; exact padded PARSeq crop boxes; axis-aligned DeepSolo
+      polygon envelopes; complete pair matrix; asymmetric coverage, IoU, center inclusion,
+      raw/case-fold exactness, and RapidFuzz ratio. The envelope reduction, tie order, and
+      thresholds are explicitly ASSUMPTION-classified diagnostics.
+    license: "No model, dataset, or generated run artifact is redistributed."
+    evidence_source:
+      - "Physical host traces supplied 2026-09-03"
+      - "External alignment JSON and all hash-linked inputs"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      The first-ten outputs are not generally aligned at word-instance level. This result
+      does not define recognition matching or accuracy and cannot support Table 5/6/7.
+
+  - id: SRC-ICDAR13-RRC
+    component: "ICDAR13 Focused Scene Text dataset and official evaluator"
+    source_repository_model_source: "https://rrc.cvc.uab.es/?ch=2"
+    upstream_project_name: "Robust Reading Competition — Focused Scene Text 2013"
+    exact_revision: "Continuous 2013 task; archive revision/checksum not exposed by the portal."
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "Official train/test split is 229/233 images; Task 2.2 provides color-coded character masks and an official segmentation evaluator."
+    license: "UNRESOLVED from the inspected public portal; download terms may require RRC registration."
+    evidence_source:
+      - "https://rrc.cvc.uab.es/?ch=2"
+      - "https://rrc.cvc.uab.es/?ch=2&com=tasks"
+      - "ICDAR 2013 Robust Reading Competition paper linked by the portal"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "The official 233-image test split is identifiable. The paper's 229-image recognition row remains inconsistent with it."
+
+  - id: SRC-ICDAR13-KERASOCR-MIRROR-TRAIN-IMAGES-V084
+    component: "ICDAR13 training-image archive acquisition mirror"
+    source_repository_model_source: "https://github.com/faustomorales/keras-ocr/releases/download/v0.8.4/Challenge2_Training_Task12_Images.zip"
+    upstream_project_name: "keras-ocr v0.8.4 release mirror"
+    exact_revision: "v0.8.4 release asset Challenge2_Training_Task12_Images.zip"
+    checkpoint_identifier: "Challenge2_Training_Task12_Images.zip"
+    checkpoint_checksum: "SHA256 7a57d1699fbb92db3ad82c930202938562edaf72e1c422ddd923860d8ace8ded"
+    model_configuration: "Mirror acquisition yielded the physically verified 229-image ICDAR13 training source."
+    license: "Mirror does not replace or clarify the unresolved RRC dataset terms."
+    evidence_source:
+      - "Public GitHub release mirror URL above"
+      - "Physical archive checksum verified 2026-08-20"
+    evidence_classification: SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    notes: "Acquisition provenance only; not an official RRC download and not upstream-primary evidence."
+
+  - id: SRC-ICDAR13-KERASOCR-MIRROR-TASK2-GT-V084
+    component: "ICDAR13 Task 2 ground-truth archive acquisition mirror"
+    source_repository_model_source: "https://github.com/faustomorales/keras-ocr/releases/download/v0.8.4/Challenge2_Training_Task2_GT.zip"
+    upstream_project_name: "keras-ocr v0.8.4 release mirror"
+    exact_revision: "v0.8.4 release asset Challenge2_Training_Task2_GT.zip"
+    checkpoint_identifier: "Challenge2_Training_Task2_GT.zip"
+    checkpoint_checksum: "SHA256 4cedd5b1e33dc4354058f5967221ac85dbdf91a99b30f3ab1ecdf42786a9d027"
+    model_configuration: "Mirror acquisition yielded 229 Task 2.2 BMP masks and 229 TXT character-annotation files."
+    license: "Mirror does not replace or clarify the unresolved RRC dataset terms."
+    evidence_source:
+      - "Public GitHub release mirror URL above"
+      - "Physical archive checksum verified 2026-08-20"
+    evidence_classification: SECONDARY
+    decision_classification: REPOSITORY_SPECIFIED
+    status: RESOLVED
+    notes: "Acquisition provenance only; not an official RRC download and not upstream-primary evidence."
+
+  - id: SRC-ICDAR13-M9-APPROX-SPLIT-POLICY
+    component: "M9 approximate ICDAR13 training/validation split"
+    source_repository_model_source: "segmentation/icdar13_manifests.py; manifests/icdar13_segmentation_split_policy.json"
+    upstream_project_name: "Local M9 reproduction decision"
+    exact_revision: "icdar13-task2.2-sha256-ranked-holdout-v1; policy SHA256 3a7c3d4226e735b2e4b57fef5f8c84fa9522ad1b60852d86229a975ff07d6124"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Policy-file SHA256 661240b60600780f2aeefeabbf17e29a3ad086a32361437b6095858d74dbf9d4"
+    model_configuration: "229 canonical numeric IDs; SHA256(UTF8('202503:' + sample_id)); first 23 validation, remaining 206 training; manifests numerically ordered."
+    license: "Repository metadata only; underlying dataset terms remain separate."
+    evidence_source:
+      - "Explicit APPROXIMATE split decision supplied 2026-08-20"
+      - "Focused deterministic regeneration tests"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: "A frozen repository assumption, not paper evidence; T-001/T-002/DS-003 remain strict blockers."
+
+  - id: SRC-ICDAR13-M9-APPROX-TRAINING-MASK-POLICY
+    component: "M9 ICDAR13 Task 2.2 training-target conversion"
+    source_repository_model_source: "segmentation/data.py; manifests/icdar13_training_mask_policy.json"
+    upstream_project_name: "ICDAR13 Task 2.2 semantics plus local M9 training decision"
+    exact_revision: "icdar13-task2.2-exact-white-background-v1; policy SHA256 ca318685a8fea2a0c162d80986acb88d60ec950fdec440652ff4d57bf4c0adf3"
+    checkpoint_identifier: null
+    checkpoint_checksum: "Policy-file SHA256 ec0e2319938a667a7170100bc8b43f8b22262f89922322dce1f2c7004c5162be"
+    model_configuration: "Exact RGB white is background; every other RGB is foreground; Don't Care remains foreground; TXT is audit-only; BCE is unchanged."
+    license: "Repository metadata only; underlying dataset terms remain separate."
+    evidence_source:
+      - "Upstream ICDAR13 Task 2.2 white/non-white mask semantics"
+      - "Explicit APPROXIMATE Don't Care training decision supplied 2026-08-20"
+      - "Physical 229-BMP/229-TXT audit supplied 2026-08-20"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: "Exact conversion follows upstream semantics; treating 608 Don't Care lines in 76 TXT files as ordinary foreground is an APPROXIMATE assumption and DS-003 remains a STRICT blocker."
+
+  - id: SRC-ICDAR13-M9-HOST-QUALIFICATION
+    component: "Approximate M9 ICDAR13 real-data training-path qualification"
+    source_repository_model_source: >-
+      segmentation/train.py, configs/approximate/segmentation_icdar13.yaml,
+      and authoritative physical-host results supplied 2026-08-20
+    upstream_project_name: "M9 local segmentation-training qualification"
+    exact_revision: "approximate-ag-unet-figure3-v1; architecture schema 1; qualification-max-steps=1"
+    checkpoint_identifier: "Final checkpoint from the two-epoch engineering qualification"
+    checkpoint_checksum: "SHA256 f06db536167ccd3d881adababaf00b2d6cefbb8cf6524bd22d303a908540e45e"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3070 8192 MiB; driver 595.84; torch 2.4.1+cu124;
+      cuda; float32; 48,454,733 parameters; batch 8; image [8,3,256,256];
+      mask [8,1,128,128]; two configured epochs; one train step per epoch;
+      global_step 2; success true; OOM false.
+    license: "No checkpoint, run log, dataset byte, or external output is redistributed."
+    evidence_source:
+      - "Authoritative physical-host M9 qualification supplied 2026-08-20"
+      - "Physical full-suite result: 171 passed in 38.56 seconds"
+      - "Physical git diff --check: PASS"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      Short engineering qualification of the APPROXIMATE M9 path only, not full scientific
+      segmentation training and not a Table 3 result. The frozen split and Don't
+      Care-as-foreground choices remain assumptions; all M9 STRICT blockers remain.
+
+  - id: SRC-ICDAR13-M9-APPROX-FULL-TRAINING
+    component: "Full configured M9 APPROXIMATE ICDAR13 segmentation training run"
+    source_repository_model_source: >-
+      segmentation/train.py, configs/approximate/segmentation_icdar13.yaml,
+      and authoritative physical-host results supplied 2026-08-21
+    upstream_project_name: "M9 local full segmentation training"
+    exact_revision: "approximate-ag-unet-figure3-v1; architecture schema 1; two complete configured epochs"
+    checkpoint_identifier: "checkpoints/epoch-0002.pt under the external run root"
+    checkpoint_checksum: "SHA256 335a003ae00cf21d159151b9568e10eafde12d6ae524bf7505e1d62ae4c3bfe2"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3070; cuda float32; 48,454,733 parameters;
+      206 training and 23 validation samples; batch 8; two epochs;
+      26 steps per epoch; global_step 52; Adam; learning rate 1e-4;
+      weight decay 0.01; no scheduler; last-checkpoint selection;
+      success true; OOM false.
+    license: "No checkpoint, run output, log, or dataset byte is redistributed."
+    evidence_source:
+      - "Authoritative physical-host full M9 APPROXIMATE training result supplied 2026-08-21"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      Distinct from the earlier two-step engineering qualification. This completes the
+      configured APPROXIMATE M9 training run only; it is not STRICT and not a Table 3
+      result. Existing split, mask, architecture, and training assumptions and every
+      recorded STRICT blocker remain unchanged.
+
+  - id: SRC-ICDAR13-AUTHOR-PROTOCOL-APPROX-FULL-TRAINING
+    component: "Frozen author-protocol APPROXIMATE ICDAR13 segmentation training run"
+    source_repository_model_source: >-
+      configs/approximate/segmentation_icdar13_author_protocol.yaml and external
+      run manifest SHA256 461b38231b0260e6d0fb96dcdfed970abe3129c6db653a56e30efc516440d198
+    upstream_project_name: "Local author-protocol segmentation reproduction"
+    exact_revision: "author-clarified-ag-unet-2048x1024-v1; 100 epochs; selected epoch 98"
+    checkpoint_identifier: "checkpoints/epoch-0098.pt under the external run root"
+    checkpoint_checksum: "SHA256 b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2"
+    model_configuration: >-
+      NVIDIA GeForce RTX 3090; CUDA float32; frozen ResNet-50 encoder and BN;
+      128x128 logits; all 229 training samples; batch 8; 100 epochs; selected by
+      training per-image macro foreground IoU 0.8491071049907437; global_step 2842.
+    license: "No checkpoint, run output, log, or dataset byte is redistributed."
+    evidence_source:
+      - "External immutable checkpoint and run manifest verified 2026-09-02"
+    evidence_classification: REPRODUCTION_PRIMARY
+    decision_classification: ASSUMPTION
+    status: RESOLVED
+    notes: >-
+      This freezes the supplied APPROXIMATE segmentation baseline for downstream work.
+      It is not a paper-identical checkpoint and does not resolve the recorded STRICT
+      architecture, preprocessing, training, or evaluation blockers.
+
+  - id: SRC-ICDAR15-RRC
+    component: "ICDAR15 Incidental Scene Text dataset and official evaluator"
+    source_repository_model_source: "https://rrc.cvc.uab.es/?ch=4"
+    upstream_project_name: "Robust Reading Competition — Incidental Scene Text 2015"
+    exact_revision: "ICDAR 2015 Challenge 4; archive revision/checksum not exposed by the portal."
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "1,000 public training images, 500 public test images, 170 private images; word quadrilaterals/transcriptions and care/don't-care policy."
+    license: "UNRESOLVED from the inspected public portal; download terms may require RRC registration."
+    evidence_source:
+      - "https://rrc.cvc.uab.es/?ch=4"
+      - "https://rrc.cvc.uab.es/files/short_rrc_2015.pdf"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "Official end-to-end metrics are identifiable, but they do not establish the paper's undefined single recognition-accuracy percentage."
+
+  - id: SRC-TOTALTEXT-OFFICIAL
+    component: "Total-Text dataset and evaluator"
+    source_repository_model_source: "https://github.com/cs-chan/Total-Text-Dataset"
+    upstream_project_name: "Total-Text Dataset"
+    exact_revision: "3805c3b0f771a3585126028accabd9ac32de6e1f (master HEAD frozen 2026-08-17)"
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "1,555 images, conventional split 1,255 train / 300 test; word-level polygon/pixel ground truth and DetEval scripts."
+    license: "BSD-3-Clause for the project; README requests author contact for commercial-purpose usage."
+    evidence_source:
+      - "https://github.com/cs-chan/Total-Text-Dataset"
+      - "Evaluation_Protocol at the frozen revision"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "Source and official detection evaluator are identifiable; exact downloaded archive checksums and the paper's recognition metric are not."
+
+  - id: SRC-COCOTS-OFFICIAL
+    component: "COCO-TS text segmentation dataset"
+    source_repository_model_source: "https://clem.diism.unisi.it/~coco_ts/index.html"
+    upstream_project_name: "COCO-Text Segmentation Dataset (COCO-TS)"
+    exact_revision: "Public dataset page frozen 2026-08-17; archive revision/checksum not published."
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "14,690 pixel-level weak supervisions derived from COCO-Text bounding boxes."
+    license: "CC BY 4.0 for the annotations."
+    evidence_source:
+      - "https://clem.diism.unisi.it/~coco_ts/index.html"
+      - "https://arxiv.org/abs/1904.00818"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: PAPER_SPECIFIED
+    status: PARTIALLY_RESOLVED
+    notes: "The named dataset is identifiable, but its official size does not match the paper's 43,686/10,000 row."
+
+  - id: SRC-COCOTEXT-OFFICIAL
+    component: "Source of the paper's conflicting COCO counts"
+    source_repository_model_source: "https://vision.cornell.edu/se3/coco-text-2/"
+    upstream_project_name: "COCO-Text v1.4"
+    exact_revision: "2017 v1.4 annotations as identified by the official page."
+    checkpoint_identifier: null
+    checkpoint_checksum: null
+    model_configuration: "43,686 training images, 10,000 validation images, 10,000 test images; bounding-box text annotations, not COCO-TS masks."
+    license: "UNRESOLVED for the annotation archive from the inspected page; underlying MS COCO image terms are separate."
+    evidence_source:
+      - "https://vision.cornell.edu/se3/coco-text-2/"
+      - "https://github.com/andreasveit/coco-text"
+    evidence_classification: UPSTREAM_PRIMARY
+    decision_classification: UNRESOLVED
+    status: RESOLVED
+    notes: "This authoritatively identifies the origin of the counts printed in the paper, but does not resolve whether the experiments used COCO-Text images, COCO-TS masks, an undocumented subset, or a mislabeled row."

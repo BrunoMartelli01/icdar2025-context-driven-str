@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "source_experiment": "word_multitask_v1",
+  "variants": ["text", "text_kernel", "text_kernel_center"],
+  "methods": ["findcontours", "seeded", "refined"],
+  "refinement": {
+    "bridge_text_threshold": 0.5,
+    "maximum_foreground_distance": 3,
+    "kernel_merge": true,
+    "center_merge": true
+  },
+  "recognition": {
+    "decode_ar": true,
+    "refine_iters": 1,
+    "batch_size": 8,
+    "casefold": true,
+    "symbol_normalized_secondary_metric": true
+  },
+  "metric_protocol": {
+    "sample_population": "all_125_frozen_TRAIN_holdout_images",
+    "expected_care_words": 983,
+    "original_geometry": "maximum_cardinality_one_to_one_exclusive_bbox_IoU_0.50",
+    "native_merge_split": "existing_any_pixel_diagnostics_divided_by_all_expected_care_words",
+    "ignore": "drop_instances_only_if_no_valid_pixel;_keep_full_boxes_for_partial_overlap",
+    "recognition_primary": "IoU_0.50_and_exact_casefold_maximum_matching;_report_P_R_F1_and_all_GT_recall",
+    "empty_word_denominator": "zero",
+    "checkpoint_selection": "reuse_previously_selected_56_61_66;_no_selection_or_threshold_sweep",
+    "crop": "unmodified_original_RGB_exclusive_xyxy;_inherit_pad0_and_no_area_or_top10_filters"
+  },
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "baseline_contours_and_recognizer",
+      "rationale": "Reuse RETR_EXTERNAL/CHAIN_APPROX_SIMPLE and pinned official PARSeq runtime/checkpoint; preserve the existing original and STRICT paths.",
+      "expected_effect": "Measure actual recognition on the new checkpoints' contour crops."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "auxiliary_evidence_unions",
+      "rationale": "A shared kernel across text>=0.5 may join distinct high-threshold text components within Chebyshev foreground distance3. A single connected center>=0.5 region with one retained peak may join kernel-supported false partitions. Distinct retained centers veto unions, including transitive ones.",
+      "expected_effect": "Recover fragmented words without adding foreground pixels; erroneous auxiliary bridges can still cause merges."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "matched_geometry_and_recognition",
+      "rationale": "Freeze all existing map/checkpoint choices and inherited crop parameters; compare contours, existing seeded watershed and refined label-aware contours on all125 validation samples, then score care annotations post-hoc.",
+      "expected_effect": "Isolate cropping changes; results remain exploratory because the holdout has been reused."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "cached_segmentation_and_configurable_parseq_device",
+      "rationale": "Reuse hash-verified saved maps without segmentation inference; execute PARSeq alone on the explicit device and record memory, precision and batch size. Cache reuse is only for exact RGB crops and pinned artifacts, with provenance preserved.",
+      "expected_effect": "Avoid repeated segmentation and identical-crop recognition; mixed CPU/GPU cache provenance is explicit."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "generalization_and_paper_claims",
+      "rationale": "Independent TEST performance, center calibration, official polygon metrics and the paper's exact PARSeq-S artifact remain unqualified.",
+      "expected_effect": "No STRICT or Table5 reproduction claim."
+    }
+  ]
+}

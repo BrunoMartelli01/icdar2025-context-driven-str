@@ -1,0 +1,37 @@
+reproduction_mode: demo
+claim_label: demo only
+device: cuda
+
+segmenter:
+  ckpt: null
+  input_size: [256, 256]
+  binarize_thresh: 0.5
+localize:
+  min_area: 150
+  pad: 6
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+  nmax: 10
+recognition:
+  primary:
+    implementation: trocr
+  models: [trocr]
+  device: cuda
+  trocr:
+    repo_id: microsoft/trocr-base-printed
+    revision: null
+caption:
+  model: Salesforce/blip2-flan-t5-xl
+  revision: null
+  min_len: 40
+  max_len: 80
+scoring:
+  embedder: sentence-transformers/all-mpnet-base-v2
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+fallback:
+  enabled: false
+  implementation: none
+  use_deepsolo: false
+  only_if_below_tau: true

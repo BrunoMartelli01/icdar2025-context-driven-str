@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source_config": "configs/approximate/clip_router_prompt_ablation_v2.json",
+  "source_paths": "configs/approximate/clip_router_prompt_ablation_local_paths_v2.json",
+  "hf_cache": "/extra1/bmartelli/context-str-artifacts/huggingface",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_source_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "output_root": "/tmp/paper-image-router-baseline-v1",
+  "clip_results": {
+    "vit_b16": "/tmp/clip-router-prompt-ablation-v2/vit_b16/6742465b0595/results.json",
+    "vit_b32": "/tmp/clip-router-prompt-ablation-v2/vit_b32/5add22ad09b1/results.json"
+  },
+  "frozen_t1_manifest": "/tmp/paper-image-router-baseline-v1/frozen_t1_manifest.json"
+}

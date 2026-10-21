@@ -1,0 +1,24 @@
+{
+  "experiment": "directional-neighbors-orientation-train-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "PRACTICAL_APPROXIMATION",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "oracle_report_sha256": "cec8fbc12b3c246daecfda25e722970b0cc8ed2890621a8088435e69daa57564",
+  "v1_config": "configs/approximate/pipeline_icdar13_practical_remap_v1.yaml",
+  "conditions": ["PRED128", "GT128", "GT_FULLRES"],
+  "variants": ["DIRECTIONAL_H", "DIRECTIONAL_HV", "DIRECTIONAL_HVD"],
+  "priority_axes_degrees": [0, 90, 45, 135],
+  "orientation_diagnostic": {"minimum_glyphs": 3, "minimum_pca_eigenvalue_ratio": 4.0, "axis_tolerance_degrees": 15.0},
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Mutual nearest compatible forward/backward raw-component neighbours; transplant the four frozen v1 gates into each projected direction, without retuning"},
+    {"classification": "ASSUMPTION", "choice": "Priority H then V then diagonals +45/-45. Multi-component groups are locked; later stages only consume unassigned singletons. Diagonal search does not cover arbitrary angles"},
+    {"classification": "ASSUMPTION", "choice": "Original-coordinate union bbox, original foreground area sum, padding6 and top10 as v1. No RGB, morphology, word labels or OCR enter grouping"},
+    {"classification": "ASSUMPTION", "choice": "Orientation is estimated post-hoc from source GT glyph-pixel centroids, not word bbox aspect ratio. Fewer than3 glyphs or PCA anisotropy<4 remains UNKNOWN. Horizontal/vertical tolerance15 degrees, otherwise DIAGONAL"},
+    {"classification": "PAPER_SPECIFIED", "choice": "Retain component-derived padded source-image boxes, area ordering and maximum10 blocks; directional grouping itself is not specified in Algorithm1"},
+    {"classification": "UNRESOLVED", "choice": "Raw connected components are not guaranteed to correspond one-to-one to characters. Inferred GT orientation is a diagnostic proxy, not an official orientation annotation"}
+  ],
+  "tuning": false,
+  "test_loaded": false,
+  "ocr_run": false,
+  "table5_accuracy": null
+}

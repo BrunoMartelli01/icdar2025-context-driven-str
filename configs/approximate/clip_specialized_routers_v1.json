@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "branch_metrics_sha256": "87206aa709288ccffea88b694d88e367a2ab0fbe00734017ed401a2777c0a69b",
+  "gt_words": {
+    "train": 983,
+    "test": 2204
+  },
+  "calibration_images": 80,
+  "coverage": 0.5,
+  "comparison_budget": {
+    "train": 62,
+    "test": 149
+  },
+  "original_threshold": 0.146906,
+  "word_templates": {
+    "baseline": [
+      "a photo of the written word \"{text}\"",
+      "a sign with the text \"{text}\"",
+      "the printed word \"{text}\""
+    ],
+    "plain": [
+      "{text}"
+    ],
+    "all_en": [
+      "all the text present in this image is: {text}"
+    ],
+    "all_it": [
+      "tutto il testo presente nell'immagine \u00e8: {text}"
+    ],
+    "reads_en": [
+      "the text in this image reads: {text}"
+    ]
+  },
+  "scene_templates": {
+    "plain": "{text}",
+    "all_en": "all the text present in this image is: {text}",
+    "all_it": "tutto il testo presente nell'immagine \u00e8: {text}",
+    "reads_en": "the text in this image reads: {text}"
+  },
+  "negative_prompts": [
+    "a close-up photo of a plain background without text",
+    "a close-up photo of a texture without letters",
+    "a close-up photo of lines and shapes without readable text"
+  ],
+  "execution": {
+    "seed": 20261012,
+    "cpu_threads": 4,
+    "batch_size": 2,
+    "precision": "float32"
+  },
+  "prompt_chunking": "validated_whitespace_boundaries_v1",
+  "models": {
+    "longclip_b": {
+      "backend": "longclip_native",
+      "precision": "float32",
+      "image_size": 224,
+      "context_length": 248,
+      "weight_file": "longclip-B.pt",
+      "source_revision": "3966af9ae9331666309a22128468b734db4672a7",
+      "artifacts": {
+        "weights": {
+          "model_id": "BeichenZhang/LongCLIP-B",
+          "revision": "107b6f178477e1bf8af8bfe565c13e691e2c356f",
+          "weight_sha256": {
+            "longclip-B.pt": "ca2face3716d60473a4e284e5be2cf0a1f3a4ad9954a6a651d878e814cc0c894"
+          }
+        }
+      },
+      "source_sha256": {
+        "source_root": {
+          "model/__init__.py": "a1fe861ad0e1e07ea257cbbc9fdc23b3f03e24f01c6462dec16c6489645c0834",
+          "model/longclip.py": "9a32eec41327e6779ae59c2bd358ed1adf4f54f227202ce0e987eea201bf83dd",
+          "model/model_longclip.py": "998a29c01a5e6367de9911394392e7632b0866f35dd545c2108083d87a600b98",
+          "model/simple_tokenizer.py": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad",
+          "model/bpe_simple_vocab_16e6.txt.gz": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+        }
+      },
+      "evidence_url": "https://github.com/beichenzbc/Long-CLIP/tree/3966af9ae9331666309a22128468b734db4672a7",
+      "dependency_compatibility": "pkg_resources_packaging_reexport_to_import_packaging_version_only"
+    },
+    "longclip_l": {
+      "backend": "longclip_native",
+      "precision": "float32",
+      "image_size": 224,
+      "context_length": 248,
+      "weight_file": "longclip-L.pt",
+      "source_revision": "3966af9ae9331666309a22128468b734db4672a7",
+      "artifacts": {
+        "weights": {
+          "model_id": "BeichenZhang/LongCLIP-L",
+          "revision": "f7ead1bafa68ee36e3469b8bdcdba404c09952ab",
+          "weight_sha256": {
+            "longclip-L.pt": "9d2c12ffcbf9099f95bfb9cf8f08f949b695e22fb0018e8895e088f4a88b6afd"
+          }
+        }
+      },
+      "source_sha256": {
+        "source_root": {
+          "model/__init__.py": "a1fe861ad0e1e07ea257cbbc9fdc23b3f03e24f01c6462dec16c6489645c0834",
+          "model/longclip.py": "9a32eec41327e6779ae59c2bd358ed1adf4f54f227202ce0e987eea201bf83dd",
+          "model/model_longclip.py": "998a29c01a5e6367de9911394392e7632b0866f35dd545c2108083d87a600b98",
+          "model/simple_tokenizer.py": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad",
+          "model/bpe_simple_vocab_16e6.txt.gz": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+        }
+      },
+      "evidence_url": "https://github.com/beichenzbc/Long-CLIP/tree/3966af9ae9331666309a22128468b734db4672a7",
+      "dependency_compatibility": "pkg_resources_packaging_reexport_to_import_packaging_version_only"
+    },
+    "llm2clip_l14_336": {
+      "backend": "llm2clip_native",
+      "precision": "bfloat16",
+      "image_size": 336,
+      "context_length": 512,
+      "attention_implementation": "eager",
+      "artifacts": {
+        "vision": {
+          "model_id": "microsoft/LLM2CLIP-Openai-L-14-336",
+          "revision": "92512331f393a003c3d98404677f991c188162c9",
+          "weight_sha256": {
+            "model.safetensors": "b735de584f3270fe5a818cba1724bf387d90e14ecf703fb5ac2829a16c711961"
+          }
+        },
+        "text": {
+          "model_id": "microsoft/LLM2CLIP-Llama-3-8B-Instruct-CC-Finetuned",
+          "revision": "97f7d164a1eb89a79e344b21c7a1be7eee265d2e",
+          "weight_sha256": {
+            "model-00001-of-00004.safetensors": "89d2978cc1e862d8f020697817335f98bab2eb81c0c95e36194b0884af0bf260",
+            "model-00002-of-00004.safetensors": "781c9768fb4c8da12e93686d7f5c95d4bf2144a4c8c5ea3b06bf24070bfbe548",
+            "model-00003-of-00004.safetensors": "edfbd80a5905a0c35b45bb41e976c9128e4bb2edec7066ac9aa078f9fb6cb00b",
+            "model-00004-of-00004.safetensors": "faf91bee5f60a59ca899d0d6fd62e9a809cb7fca6519bea87937d664be2ec05c"
+          }
+        },
+        "processor": {
+          "model_id": "openai/clip-vit-large-patch14-336",
+          "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+          "weight_sha256": {}
+        }
+      },
+      "source_sha256": {
+        "mask_root": {
+          "attn_mask_utils.py": "86e463e1b82f27e3d3a8b9a1f76995dea3d8a7a41e5ece0431b27f084c143975"
+        },
+        "wrapper_root": {
+          "llm2vec/llm2vec.py": "f2c23e11ee514c70480052e89c8a5833d47f63d7e2b579e8e1d86cc36ba4b58a"
+        }
+      },
+      "text_framing": "published_llm2vec_llama3_no_instruction_mean_body_eot",
+      "evidence_url": "https://huggingface.co/microsoft/LLM2CLIP-Openai-L-14-336/tree/92512331f393a003c3d98404677f991c188162c9",
+      "adapter_input_precision": "float32",
+      "autocast_dtype": "bfloat16"
+    }
+  },
+  "ambiguity_record": "CLIP-SPECIALIZED-ROUTERS-001",
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Local paper section3.5/Algorithm2 invokes full-image DeepSolo when context recognition is uncertain; its scorer uses MPNet/fuzzy, not these experimental CLIP-family encoders."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Retain frozen epoch61 Text+Kernel/PARSeq outputs, all raw predicted words including evaluation-ignored outputs, square median-RGB canvases, unchanged13 feature/score families, TRAIN80/45 calibration/selection and fixed62 TRAIN/149 TEST descriptive acceptance budget."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Test official Long-CLIP-B/L and Microsoft LLM2CLIP OpenAI-L14/336 with the paired caption-contrastive Llama3-8B encoder. These published retrieval models are not assumed to verify OCR spelling. Preserve the legacy TRAIN45 geometric retained-word precision objective for family choice; replay frozen gates on the common no-IoU word metric without fitting on TEST."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use pinned native Long-CLIP code and learned248-position checkpoint, original safe-loaded strict native builder, native ftfy/BPE and image processor. LLM2CLIP uses all trained vision/text-adapter weights, the complete pinned caption-contrastive bidirectional Llama encoder, role framing and body-plus-EOT mean pooling from published LLM2Vec encode, followed by the native4096-to1280 adapter. Normalize final vectors in float32 as in the common comparison."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use the LlamaEncoderModel implementation shipped inside the pinned Microsoft fine-tuned checkpoint, with its pinned mask helper, instead of following the mutable cross-repository auto_map now requiring newer Transformers/FlashAttention. The installed4.47.1 runtime passes a native tiny forward check. A thin equivalent no-instruction LLM2Vec framing/pooling path avoids installing training-only PEFT/LLM2Vec packages; verify it against published methods and strict real checkpoint loading."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Existing isolated model processes: native Long-CLIP runs in the LAVIS Py3.10/Torch1.13 environment at float32; LLM2CLIP runs in the main Py3.11/Torch2.4 environment at published bfloat16 with eager attention and cache disabled. One model process at a time, batch2,4 CPU threads, deterministic kernels and TF32 off. Real execution on RTX3090/24GB differs from the primary RTX3070/8GB target; log model set, shapes, actual dtype, allocations/reservations, OOM and failures. LLM2Vec mean-pooled output is cast to float32 before the native adapter as in published encode; use explicitly bfloat16 autocast for vision/adapter rather than the model-card default float16 autocast, and normalize final embeddings in float32."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Preserve all transcript characters before native tokenization. Apply validated whitespace chunks only when the native248/512-token formatted context overflows; retain existing weakest-scene-chunk and word-ensemble aggregation. Versioned file/stdio bridge verifies RGB uint8 pixels, embedding order/count/dtype/digests and propagates failures across dependency environments."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "The existing Long-CLIP runtime lacks removed pkg_resources. Compile the SHA-verified native longclip.py with its single obsolete from pkg_resources import packaging line replaced by import packaging.version. Fail if the exact import changes; do not alter or write the pinned source, model, tokenizer or preprocessing. No packages are installed."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Native-versus-HF LLM2CLIP paper-number equivalence, full real-weight routing gains and RTX3070 viability remain unqualified until measured. Paper recognition accuracy is undefined. Full TRAIN pipeline metrics remain unavailable for any point requiring uncached DeepSolo; never omit missing samples or silently replace their outputs."
+    }
+  ],
+  "report_thresholds": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ],
+  "word_branch_sha256": "33ee81ea7cab7f3cac4e1fd111f93d0dbbbac5d6eebfea88ae45abc83e427f37"
+}

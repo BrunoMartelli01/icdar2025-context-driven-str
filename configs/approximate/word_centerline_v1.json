@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "frozen_word_centerline_radius_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "word_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "source_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "source_run_manifest_sha256": "473a42e403cd13260dbb4a422a4cd4d7a3a64a25a2f56673bee0313c52bd4823",
+  "source_architecture": "experimental-unet-word-research-v1:control",
+  "source_epoch": 2,
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "validation_count": 125,
+  "expected_validation_words": 983,
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "seed": 202503,
+  "epochs": 20,
+  "batch_size": 8,
+  "num_workers": 2,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "skip_floor": 0.25,
+  "private_head_channels": 32,
+  "initial_line_bias": -2.0,
+  "initial_radius": 2.0,
+  "targets": {"distance_fraction": 0.5, "ribbon_fraction": 0.2, "min_half_width": 0.0},
+  "loss": {
+    "bce_weight": 1.0, "dice_weight": 1.0, "smooth": 1.0,
+    "lambda_radius": 1.0, "radius_floor": 0.5, "radius_smooth_l1_beta": 1.0
+  },
+  "methods": ["baseline", "line_markers", "line_radius"],
+  "checkpoint_selection_method": "line_radius",
+  "postprocessing": {
+    "method": "watershed", "text_threshold": 0.65, "kernel_threshold": 0.5,
+    "center_threshold": 0.5, "center_min_distance": 3,
+    "watershed_weights": [0.5, 0.25, 0.25],
+    "padding": 0, "min_area": 0, "max_instances": null,
+    "line_threshold": 0.5, "radius_floor": 0.5, "max_radius": 128.0, "min_line_area": 0
+  },
+  "recognition": {
+    "decode_ar": true, "refine_iters": 1, "batch_size": 8,
+    "casefold": true, "symbol_normalized_secondary_metric": true
+  },
+  "scientific_choices": [
+    {
+      "component": "frozen_qualified_word_features",
+      "classification": "ASSUMPTION",
+      "rationale": "Exact v1 control epoch2 state and BatchNorm buffers are frozen; two private 3x3 convolutions learn line and radius from decoder/early features",
+      "expected_effect": "Isolate representation/decoder effects while preserving the matched baseline",
+      "reference": "docs/PAPER_AMBIGUITIES.md#wcl-001--word-centerline-and-radius-extension"
+    },
+    {
+      "component": "skeletal_word_targets",
+      "classification": "ASSUMPTION",
+      "rationale": "Zhang-Suen thinning of each augmented native filled word owner; local zero-padded EDT radii and a radius/5 ribbon; preserve branches/fragments and tiny components explicitly; no endpoint trimming or orientation prediction",
+      "expected_effect": "Teach connected word axes and width; approximate raster skeletons are not exact TextSnake centerlines",
+      "source": "https://www.ecva.net/papers/eccv_2018/papers_ECCV/papers/Shangbang_Long_TextSnake_A_Flexible_ECCV_2018_paper.pdf"
+    },
+    {
+      "component": "line_and_radius_objective",
+      "classification": "ASSUMPTION",
+      "rationale": "Valid-pixel BCE+Dice for the line, equal owner weighting of SmoothL1 on log radius; 20 epochs, fixed thresholds, geometry F1 selection including epoch0",
+      "expected_effect": "Balance sparse line classification and scale-relative width errors without adding a topology loss in the same experiment"
+    },
+    {
+      "component": "three_gt_blind_decoders",
+      "classification": "ASSUMPTION",
+      "rationale": "Original kernel watershed; line seeds expanded inside frozen text with explicit fallback; independent disk reconstruction with normalized-distance overlap ownership, canvas clipping and audited radius clipping",
+      "expected_effect": "Separate splitting improvements from recovery outside frozen foreground; retain all crop candidates without top10/area filtering"
+    },
+    {
+      "component": "sequential_model_lifecycle",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "One FP32 segmentation model with TF32 disabled and a frozen source, then PARSeq in a separate process; CPU smokes record batch/worker overrides separately",
+      "expected_effect": "Limit resident models; host measures allocated/reserved GPU memory and propagates OOM without automatic substitutions"
+    },
+    {
+      "component": "qualified_approximate_recognizer",
+      "classification": "ASSUMPTION",
+      "rationale": "Reuse the same official parseq-bb5792a6 checkpoint and hash-qualified runtime as prior paired experiments; ART-PARSEQ-V100-PARSEQ-CANDIDATE and ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE remain approximate selections",
+      "expected_effect": "Make crop comparisons consistent; this does not establish the paper authors' exact PARSeq-S artifact",
+      "reference": "docs/PAPER_AMBIGUITIES.md#r-001--exact-parseq-s-artifact-is-unidentified"
+    },
+    {
+      "component": "holdout_and_generalization",
+      "classification": "UNRESOLVED",
+      "rationale": "Reused TRAIN125/983 holdout and one seed; no official TEST, strict reproduction or Table5 claims",
+      "expected_effect": "Exploratory evidence only; full training and recognition comparison remain to be run"
+    }
+  ]
+}

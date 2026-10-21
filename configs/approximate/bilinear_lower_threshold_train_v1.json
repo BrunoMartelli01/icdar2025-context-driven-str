@@ -1,0 +1,18 @@
+{
+  "experiment": "bilinear-lower-threshold-train-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "split": "TRAIN",
+  "images": 229,
+  "gt_words": 849,
+  "reference_sha256": "4c6cfed08f260f64e573f16536cd041f265309f084cdfe5d199e071b9b38461c",
+  "thresholds": [0.5, 0.45, 0.4, 0.35, 0.3],
+  "resize": {"input": "cached_binary_native128", "mode": "bilinear", "align_corners": false, "antialias": false, "dtype": "float32", "device": "cpu"},
+  "comparison": "greater_than_or_equal",
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "User-authorized lower thresholds on bilinearly interpolated cached binary mask, not native U-Net probabilities. Grid declared before execution. No automatic promotion or further tuning."},
+    {"classification": "UNRESOLVED", "choice": "Paper section3.3 does not establish post-resize interpolation/threshold convention."},
+    {"classification": "ASSUMPTION", "choice": "All localizer parameters frozen; TRAIN GT evaluates geometry only. No segmentation/OCR/TEST/training."}
+  ],
+  "table5_accuracy": null
+}

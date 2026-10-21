@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_v4_feature_wavelet_gated_skip_ablation",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "frozen_TRAIN_1130_validation_125",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "train_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "source_training_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_training_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "epochs": 100,
+  "seed": 202503,
+  "batch_size": 8,
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "model": "feature_haar_gated_shallow_skip",
+  "feature_source": "frozen_resnet50_e0_64ch",
+  "frequency_bands": ["horizontal", "vertical", "diagonal"],
+  "decoder_gate_source": "d1_128ch",
+  "fusion": "zero_initialized_scalar_residual_gain_before_existing_attention_gate",
+  "checkpoint_selection": "best_validation_macro_foreground_iou_tie_earliest_epoch",
+  "training_probability_threshold": 0.5,
+  "postprocessing": "native256_8_connected_no_area_no_top10_no_padding",
+  "comparison_probability_threshold": 0.65,
+  "scientific_choices": [
+    {
+      "component": "feature_wavelet_gated_skip",
+      "classification": "ASSUMPTION",
+      "rationale": "Inject fixed Haar details of the frozen shallow encoder feature only through a decoder-conditioned gate; keep the original attention skip and paper-faithful network unchanged."
+    },
+    {
+      "component": "matched_100_epoch_training",
+      "classification": "ASSUMPTION",
+      "rationale": "Use the qualified letterbox v4 TRAIN split, seed, optimizer, augmentations, loss and foreground-IoU checkpoint selection, but stop at exactly 100 epochs."
+    },
+    {
+      "component": "comparison_threshold",
+      "classification": "ASSUMPTION",
+      "rationale": "Evaluate the pre-existing TRAIN-selected 0.65 threshold against the frozen letterbox comparator; do not select a new threshold on TEST."
+    }
+  ]
+}

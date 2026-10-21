@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "result_class": "approximate reproduction",
+  "complete_resume_smoke": "Existing125-image geometry/export hashes and all7528 OCR hashes verified; completed recognition reused, no new inference",
+  "stdout_sha256": "75d767c6ffacd706f83794d9e7569ae1e8e683b81c7648459ba3788aaaac3688",
+  "source_result_receipt_sha256": "e5fca8f921f663e8105da871a7ff54e9f1c51354db59dc92c14b8a8b194bed04",
+  "geometry_sha256": "5c393d2d6cee1c18d2d062ac8f8a1b99e309ec46336cdebc16bb2cb862dcf108",
+  "recognition_sha256": "d120871238a8fc1ca875b4fdbaf1f640e357a63ac41d93f38069edd9c765942c"
+}

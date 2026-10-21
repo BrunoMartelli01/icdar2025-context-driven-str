@@ -1,0 +1,50 @@
+experiment_kind: recognition_pipeline_practical_remap
+reproduction_mode: approximate
+claim_label: practical approximation
+runnable: true
+
+run:
+  kind: train_calibrated_test_frozen_geometry_and_first10_ocr
+  result_class: PRACTICAL_APPROXIMATION
+  table_5_claim: false
+
+localization:
+  mode: practical-remap-v1
+  classification: PRACTICAL_APPROXIMATION
+  rationale: >
+    ICDAR13 Task 2.2 masks supervise glyph/pixel foreground; graph grouping is
+    introduced before word cropping because Algorithm 1 raw components are not
+    word instances.
+  paper_faithful_algorithm1_unchanged: true
+  raw_component_connectivity: 8
+  grouping:
+    selected_on_train_only: true
+    horizontal_gap_ratio: 0.35
+    vertical_overlap_min: 0.7
+    max_center_y_ratio: 0.5
+    max_height_ratio: 2.5
+    reference_height: mean_of_pair_bbox_heights
+    pad_after_grouping: 6
+    singleton_valid: true
+    foreground_area: sum_of_raw_component_pixel_areas
+    sort: group_foreground_area_descending
+    nmax: 10
+  calibration:
+    split: official_training_all_229
+    text_or_ocr_used: false
+    grid:
+      horizontal_gap_ratio: [0.35, 0.5, 0.7, 1.0]
+      vertical_overlap_min: [0.3, 0.5, 0.7]
+      max_center_y_ratio: [0.35, 0.5]
+      max_height_ratio: [1.75, 2.5]
+    selection: >
+      Maximize proposal-level F1 at IoU>=0.5; variants within absolute 0.005
+      are ties, resolved by more conservative gates, fewer merges, then fewer
+      retained proposals.
+    selected_report: /tmp/practical-remap-train-calibration-v1.json
+    selected_variant_f1_iou_0_5: 0.553606237816764
+
+scientific_boundary:
+  classification: PRACTICAL_APPROXIMATION
+  strict_reproduction: false
+  prohibition: Do not represent outputs as a paper-exact reproduction or Table 5 accuracy.

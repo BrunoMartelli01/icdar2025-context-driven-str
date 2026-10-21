@@ -1,0 +1,32 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "claim_label": "approximate reproduction; CPU TRAIN-only diagnostic",
+  "split": "TRAIN",
+  "total_gt_words": 849,
+  "eligible_gt_rows": 745,
+  "unique_crops": 700,
+  "baseline_exact": 502,
+  "conditions": ["local", "local_florence"],
+  "topk": 10,
+  "m": [0.10, 0.25, 0.50, 1.00],
+  "beta": [0.05, 0.10, 0.25, 0.50],
+  "tau": [0.00, 0.05, 0.10, 0.25],
+  "diagnostic_margins": [0.10, 0.25, 0.50, 1.00, 2.00],
+  "interest_criterion": {"min_recovered": 5, "max_damaged": 2, "min_net": 1},
+  "source_hashes": {
+    "coverage": "8bb54746a88eed0f31dcc13d7eca9766266fc189a3caf4d983459f616bcfe487",
+    "results.json": "11edb029882572b18ac4cab6aeb6b5d29cd1cbd9a1392cf171bb53806e7f61a3",
+    "inputs.json": "57c37acca603f1b5ded726291a8e8023f810d3afc580b06060f13c3d2993046d",
+    "evaluation-labels.json": "10f547fb12a032f33a1a345407290b2179b94a66071eb161aa63eafd7eead620",
+    "protocol.json": "7ea6e235d0e96233fdfd68eea63b620bf282d830db4e664ef5377a38368f81ce"
+  },
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "Keep the exact cached V1 string as reference. Recover its summed AR log probability by exact-string lookup in the saved beam20; alternatives remain only frozen V1 union AR top10. Missing exact reference including case-only mismatch forces KEEP. No fabricated score and no extra candidate."},
+    {"classification": "ASSUMPTION", "choice": "delta_visual=AR(candidate)-AR(V1); it may be positive when V1 is not AR rank1. Eligibility is delta_visual >= -m, selection maximizes delta_visual + beta*delta_context and changes only if strictly >tau. Exact ties preserve KEEP, otherwise frozen candidate order."},
+    {"classification": "ASSUMPTION", "choice": "visual_only maximizes AR delta with strict positive gain; visual_margin_gate_only maximizes positive context delta among candidates inside margin, without adding visual delta. No GT in either selector."},
+    {"classification": "ASSUMPTION", "choice": "128 user-declared combinations, eight gate-only controls, one visual-only control and KEEP. Best TRAIN tie-break: higher exact, fewer damaged, fewer changed crops, smaller m, smaller beta, larger tau. Interesting means recovered>=5, damaged<=2, net>0; no automatic pipeline promotion."},
+    {"classification": "UNRESOLVED", "choice": "Qwen mean-token likelihood and PARSeq summed AR likelihood have different length/scale biases; beta is not a calibrated posterior. Prior cache lacks a complete cryptographic model-runtime contract. Cross-check candidate/score identity and freeze current bytes, but do not claim retrospective runtime attestation."},
+    {"classification": "UNRESOLVED", "choice": "Only 700 GT-associated crops /745 GT rows were scored, not all1203 V1 crops. Spatial assignments are frozen and may share crops. Full TRAIN denominator stays849; no independent validation or Table5 claim."}
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_frozen_v4_bert_post_ocr",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "Total-Text TRAIN-holdout post-hoc native-confidence gate ablation; not TEST/Table 5",
+  "dataset": "total_text",
+  "source": {
+    "layout": "letterbox_word_f1",
+    "variant": "word_f1_control",
+    "split": "frozen_TRAIN_validation_125",
+    "input_shape": [
+      512,
+      512
+    ],
+    "native_mask_shape": [
+      256,
+      256
+    ],
+    "expected_images": 125,
+    "expected_care_words": 983,
+    "expected_proposals": 949,
+    "results_sha256": "92169d7338e6d5302bdf4ecd96981d2e29c3bcd543d9f23ef8e13320fbf0a1b1",
+    "protocol_sha256": "919b51c53b70fb7c43471ca1a2dfb5f3d8442f07b9a0fcd97a65ea85f6098006",
+    "segmentation_checkpoint_sha256": "a3308015aa1b898b1a8ceb03128d6a113bd9c01a01726fba930dd65794c3a552",
+    "parseq_checkpoint_sha256": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_source_archive_sha256": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef"
+  },
+  "bert": {
+    "model_id": "google-bert/bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "revision_evidence": "https://huggingface.co/api/models/google-bert/bert-base-uncased",
+    "precision": "float32",
+    "batch_size": 16,
+    "max_input_tokens": 256,
+    "seed": 20261006,
+    "cpu_threads": 4,
+    "scoring": "target_only_mean_PLL_word_l2r",
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ]
+  },
+  "policy": {
+    "min_word_length": 3,
+    "long_word_length": 6,
+    "short_max_edits": 1,
+    "long_max_edits": 2,
+    "max_relative_edit": 0.3,
+    "max_candidates": 24,
+    "protect_min_token_probability": 1,
+    "edit_penalty": 1,
+    "minimum_gain": 1.5,
+    "neighbours_per_side": 3,
+    "min_vertical_overlap": 0.5,
+    "max_horizontal_gap_heights": 8,
+    "max_caption_words": 80
+  },
+  "conditions": [
+    "word_only",
+    "local_ocr"
+  ],
+  "caption_condition_if_supplied": "local_ocr_caption",
+  "selection": "mean_BERT(candidate)-mean_BERT(PARSeq)-edit_penalty*Levenshtein > minimum_gain; KEEP on ties",
+  "parameter_selection": "Post-hoc TRAIN-only mechanistic ablation after the v1 failure audit: change only native confidence protection from >=0.95 to >=1.0, preserving saturated-probability KEEP; all other gates, candidate pools, models and input crops unchanged. No TEST loaded, no grid or automatic selection.",
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "bert_post_ocr",
+      "rationale": "User-requested new component; inspired by MLM rescoring and ABINet, not paper Algorithm 2. Frozen English BERT, no fine-tuning.",
+      "expected_effect": "Possible OCR recovery, with risk of replacing rare names by common words.",
+      "ambiguity": "TT-BERT-CORRECTION-V1"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "frozen_source",
+      "rationale": "Reuse latest completed single-head letterbox word_f1_control: v4 masks -> external contours -> PARSeq. TRAIN-holdout125, native256, padding0, no area/top10 filtering. User selected latest letterbox.",
+      "expected_effect": "Preserve the existing localization ceiling.",
+      "ambiguity": "TT-BERT-CORRECTION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "bounded_candidates_and_gate",
+      "rationale": "ASCII single words and bounded candidates unchanged. Test the native confidence gate at >=1.0 instead of >=0.95; only exactly saturated scores remain protected. Chosen after TRAIN-only audit identified omitted characters with high probability on the remaining predicted characters.",
+      "expected_effect": "May expose recoverable truncation errors while increasing damage to originally correct names and unusual words; this is a mechanistic ablation, not a calibrated reliability rule.",
+      "ambiguity": "TT-BERT-CONFIDENCE-ABLATION-V1"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "target_scoring_and_context",
+      "rationale": "Adapt PLL-word-l2r to mean target-only scores; spatial horizontal-line neighbours; optional checksum-bound caption, with declared first-80-word budget. Scores are not calibrated OCR confidence.",
+      "expected_effect": "Test context independently; residual tokenization bias and hallucinated captions may cause damage.",
+      "ambiguity": "TT-BERT-CORRECTION-V1"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "standalone_bert_runtime",
+      "rationale": "Cached upstream inference, standalone FP32 BERT on selected CPU or GPU, mask-task batch16. No co-resident segmentation/PARSeq/caption models.",
+      "expected_effect": "Memory fits a smaller model set; runtime is correction-only, not end-to-end.",
+      "ambiguity": "TT-BERT-CORRECTION-V1"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "correction_benefit",
+      "rationale": "Original v1 recovered no words and damaged 3 without context / 1 with local OCR. Benefit and harm of loosening the native confidence protection are not yet measured. Proper names, captions and independent TEST transfer remain unresolved.",
+      "expected_effect": "No recognition improvement or strict reproduction claim is currently supported.",
+      "ambiguity": "TT-BERT-CONFIDENCE-ABLATION-V1"
+    }
+  ],
+  "parent_experiment": {
+    "classification": "REPOSITORY_SPECIFIED",
+    "results_sha256": "a7ae0a603323c4d2d6696b7383dbc6c6dd2646432f8200f4e52e8f674ee788ef",
+    "changed_parameter": "policy.protect_min_token_probability",
+    "old_value": 0.95,
+    "new_value": 1,
+    "selection_population": "TRAIN-holdout125",
+    "oracle_warning": "GT-assisted candidate ceiling was used only to diagnose the v1 gate failure; GT words never enter BERT inputs or candidate selection."
+  }
+}

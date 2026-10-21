@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "expected_images": 125,
+  "expected_words": 983,
+  "batch_size": 8,
+  "cpu_threads": 4,
+  "decode_modes": {"nar0": [false, 0], "nar1": [false, 1], "ar1": [true, 1]},
+  "budgets": [0.0, 0.1, 0.25, 0.5, 0.75, 1.0],
+  "random_repeats": 32,
+  "rectification": {"pad": 0, "envelope_bins": 8, "minimum_occupied_bins": 6, "minimum_pixels": 16, "max_condition_number": 10000},
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "component": "baseline", "rationale": "Reuse qualified completed Text+Kernel control and its frozen 125-image TRAIN holdout, RGB512/native256, qualified PARSeq checkpoint, bbox IoU>=.5 maximum matching and Unicode casefold retaining punctuation.", "expected_effect": "Paired exploratory comparison; all 983 care words remain denominators."},
+    {"classification": "ASSUMPTION", "component": "decoding_proxy", "rationale": "NAR0/NAR1/AR1 use the same strictly loaded PARSeq weights with explicit upstream decoding flags. These are proxies, not AdaSpot's one-layer and four-layer shared-feature heads.", "expected_effect": "Measure recoveries/regressions and synchronized batch wall cost before training new heads; cannot establish the real AdaSpot head gap."},
+    {"classification": "ASSUMPTION", "component": "oracle_diagnostics", "rationale": "GT axis boxes and exact saved Gap targets are diagnostic inputs only, excluded from deployment comparisons. Oracle separator uses unchanged predicted M/K and original thresholds.", "expected_effect": "Isolate crop geometry and ceiling of the current Gap target; GT boxes are not guaranteed optimal OCR crops."},
+    {"classification": "ASSUMPTION", "component": "rectification_and_routing", "rationale": "Reuse existing RGB PCA/Bezier rectifiers with fixed instance boxes for scoring. Rank minimum NAR1 character probability, ascending, empty strings first, deterministic sample/proposal ties. Compare 32 seeded random subsets at identical integer crop budgets.", "expected_effect": "RGB rectification is not feature-space Mask-Align; exploratory confidence routing is not a trained/calibrated gate."},
+    {"classification": "HARDWARE_DEVIATION", "component": "execution", "rationale": "Explicit single CUDA GPU, FP32/batch8, sequential model use; record actual GPU, allocated/reserved memory, OOM and synchronized timing including preprocessing and decoding.", "expected_effect": "RTX3090 measurements do not qualify RTX3070 or provide shared-backbone latency/GFLOPs."},
+    {"classification": "UNRESOLVED", "component": "full_adaspot", "rationale": "Shared-feature Mask-Align, jointly trained one/four-layer recognition heads and independent gate calibration remain unimplemented/unqualified.", "expected_effect": "No strict reproduction, official benchmark, central-hypothesis or novelty claim."}
+  ]
+}

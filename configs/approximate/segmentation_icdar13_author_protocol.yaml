@@ -1,0 +1,149 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+runnable: true
+
+run:
+  kind: real_training
+  name: icdar13-author-protocol-approximate
+  result_class: approximate reproduction
+
+architecture:
+  implementation: author_clarified_ag_unet
+  identity: author-clarified-ag-unet-2048x1024-v1
+  contract_schema_version: 1
+  encoder: resnet50
+  encoder_weights: IMAGENET1K_V2
+  encoder_weights_artifact_id: ART-RESNET50-IMAGENET1K-V2-CANDIDATE
+  freeze_encoder: true
+  frozen_batchnorm_state: true
+  bottleneck_channels: 1024
+  bottleneck_width_classification: ASSUMPTION
+  bottleneck_evidence_basis: AUTHOR_RECALLED_UNCONFIRMED
+  bottleneck_block: single_3x3_conv_batchnorm_relu
+  bottleneck_block_classification: ASSUMPTION
+  decoder_channels: [512, 256, 128, 64]
+  decoder_operations_classification: ASSUMPTION
+  attention_intermediate_channels: decoder_output_half_minimum_16
+  attention_intermediate_channels_classification: ASSUMPTION
+  output_stride: 2
+
+data:
+  train:
+    role: train
+    artifact_id: ART-ICDAR13-FST-OFFICIAL-SPLIT
+    manifest: manifests/icdar13_segmentation_author_protocol.yaml
+    expected_sample_count: 229
+
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  horizontal_flip_probability: 0.5
+  rotation_probability: 0.5
+  rotation_degrees: [-15.0, 15.0]
+  rotation_degrees_classification: ASSUMPTION
+  operation_order: flip_rotate_resize
+  resize_geometry: stretch
+  image_interpolation: bilinear
+  mask_interpolation: bilinear
+  target_binarization_threshold: 0.5
+  validity_interpolation: nearest
+  image_fill: [0, 0, 0]
+  mask_fill: 0
+  normalization: imagenet
+
+training:
+  protocol: author_clarified_icdar13_v1
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  batch_size: 8
+  loss: masked_BCEWithLogitsLoss
+  bce_reduction: valid_pixel_mean
+  adam_betas: [0.9, 0.999]
+  adam_epsilon: 1.0e-8
+  epochs: 100
+  learning_rate_schedule: none
+  checkpoint_selection: training_foreground_iou
+  seed: 202503
+  deterministic_algorithms: true
+  precision: float32
+  num_workers: 8
+  drop_last: false
+
+checkpoint_selection:
+  dataset: training_all_229
+  metric: foreground_iou
+  aggregation: per_image_macro
+  aggregation_classification: ASSUMPTION
+  probability_threshold: 0.5
+  threshold_classification: REPOSITORY_SPECIFIED
+  tie_break: earliest_epoch
+  tie_break_classification: ASSUMPTION
+  augmentation: disabled
+  dont_care: excluded_by_validity_mask
+
+validation:
+  enabled: false
+  held_out_count: 0
+
+localization:
+  min_area: 4
+  pad: 2
+  nmax: 10
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+
+evaluation:
+  probability_threshold: 0.5
+  binary_mask_backprojection: nearest
+  empty_foreground_policy: perfect_if_both_empty
+  aggregation_modes: [per_image_macro, global_micro]
+
+strict_blockers:
+- A-003
+- A-002
+- A-004
+- A-006
+- A-007
+- A-008
+- T-002
+- T-001
+- T-003
+- T-004
+- DS-001
+- DS-003
+- E-002
+- E-003
+
+scientific_choices:
+- component: author_confirmed_architecture_and_training_protocol
+  classification: PAPER_SPECIFIED
+  evidence_basis: AUTHOR_CLARIFIED
+  ambiguity_ids: [A-001, A-002, A-004, A-005, T-001, DS-003]
+- component: bottleneck_2048_to_1024
+  classification: ASSUMPTION
+  evidence_basis: AUTHOR_RECALLED_UNCONFIRMED
+  ambiguity_ids: [A-003]
+- component: bottleneck_decoder_and_attention_unspecified_operations
+  classification: ASSUMPTION
+  ambiguity_ids: [A-002, A-003, A-004]
+- component: rotation_range_and_probability
+  classification: ASSUMPTION
+  ambiguity_ids: [T-003]
+- component: image_preprocessing_and_encoder_weights
+  classification: REPOSITORY_SPECIFIED
+  ambiguity_ids: [A-006, A-007]
+- component: training_iou_aggregation_and_threshold
+  classification: ASSUMPTION
+  ambiguity_ids: [A-008, E-003]
+- component: adam_defaults_no_schedule_seed_and_determinism
+  classification: ASSUMPTION
+  ambiguity_ids: [T-001]
+- component: validity_mask_resize_interpolation
+  classification: ASSUMPTION
+  ambiguity_ids: [DS-003]
+- component: parallel_data_loading
+  classification: ASSUMPTION
+  value: 8_workers_with_cuda_pinned_memory
+  rationale: deterministic per-sample transforms preserve sample values and ordering while avoiding GPU starvation

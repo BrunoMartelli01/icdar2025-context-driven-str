@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "experiment": "totaltext-crop-clip-battery-train-v1",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "result_class": "APPROXIMATE_TRAIN_DIAGNOSTIC",
+  "dataset": "total_text",
+  "split": "TRAIN_heldout_125",
+  "segmentation_checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "threshold_config_sha256": "2ace630a02d6d4d2ab298b0cc200c0192b3b6b167498b063db6571c2b8de8d4e",
+  "threshold_report_sha256": "613957db6019d0762a4d890495e3c1c0af5f91a92ced9c232c099a103328a334",
+  "baseline_threshold": 0.5,
+  "baseline_padding_native_pixels": 0,
+  "thresholds": [0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65],
+  "padding_native_pixels": [0, 2, 4, 8],
+  "area_filter": "disabled",
+  "maximum_proposals": "disabled",
+  "min_anchor_tight_native_iou": 0.3,
+  "matching": "one_to_one_bbox_iou_ge_0_5_casefold_exact",
+  "clip_model": "openai/clip-vit-base-patch32",
+  "clip_prompts": {
+    "written": "a close-up photo of the written word \"{text}\"",
+    "raw": "{text}"
+  },
+  "clip_margins": [0.0, 0.02],
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Frozen letterbox 512 input, native-256 sigmoid cutoff 0.5, RETR_EXTERNAL contours, pad 0, no area filter or top-ten cap and one-to-one IoU 0.5 Total-Text TRAIN evaluation"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Explore the pre-existing seven-threshold TRAIN sweep and native padding 0/2/4/8; match other-threshold contours one-to-one by tight-native-box IoU at least 0.3 to frozen pad-0 anchors"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Frozen zero-shot CLIP ViT-B/32 receives each original RGB crop and either its exact PARSeq string or a quoted-word prompt; cosine score and 0/0.02 margin gate select one crop per baseline anchor"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Compare CLIP to PARSeq mean-token-log-probability, shuffled-text control, and GT-assisted one-choice-per-anchor oracle; all GT care words remain in denominator"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Frozen generic CLIP may not distinguish one-character spelling errors; any observed TRAIN gain needs independent frozen validation"
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Load PARSeq and float32 CLIP sequentially on target 8 GB GPU; probability maps were generated in an upstream CUDA run whose identity is preserved"
+    }
+  ],
+  "table_5_claim": false
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "context_run": "/extra1/bmartelli/context-str-artifacts/yolo-context-quality-v1/full/5e1900aa7bc2",
+  "base_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/yolo_context_quality_v1.json",
+  "base_paths": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/yolo_context_quality_local_paths_v1.json",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-residual-vqa-v1"
+}

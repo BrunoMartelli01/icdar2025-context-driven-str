@@ -1,0 +1,17 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 202503,
+  "image_batch_size": 4,
+  "cpu_threads": 4,
+  "num_workers": 4,
+  "checkpoint_sources": ["baseline", "best", "last"],
+  "thresholds": [0.5, 0.75, 0.9, 0.95, 0.99],
+  "decoders": ["cut", "preserve"],
+  "scientific_choices": [
+    {"classification":"ASSUMPTION","component":"selection_objective","rationale":"Optimize calibration-only count of localized and exactly casefold-read words; ties use OCR Hmean, earlier epoch, higher threshold and cut. Freeze the grid and objective before calibration OCR; no evaluation-derived per-image rules. Geometry alone previously selected epoch1 but evaluation OCR fell524to523.","expected_effect":"Align checkpoint/threshold choice with actual OCR objective. No guarantee of gain; post-hoc method development on a reused evaluation cohort."},
+    {"classification":"REPOSITORY_SPECIFIED","component":"available_checkpoints","rationale":"Use every deployable saved source checkpoint: off baseline, geometrically selected best and final last from completed10epoch decoder run. Intermediate epochs3/5 only have calibration maps, not deployable saved weights; do not select them. Same100calibration IDs, original RGB ground truth and qualified PARSeq AR1, fixed thresholds and decoders.","expected_effect":"No new training or change to existing source results; reusable auditable candidate predictions."},
+    {"classification":"HARDWARE_DEVIATION","component":"gpu","rationale":"Single actual CUDA GPU FP32, batch4, sequential segmentation/PARSeq. Hash-checked readings may be reused for identical crop pixels and the same qualified AR1 recognizer; infer missing crops on GPU. Record memory and explicit OOM with no CPU fallback.","expected_effect":"Avoid unnecessary repeated inference without changing model outputs."},
+    {"classification":"UNRESOLVED","component":"generalization","rationale":"Calibration was seen in original M/K training, evaluation repeatedly examined, criterion redesigned after observing earlier failure. Variance, independent confirmation and shared AdaSpot remain unresolved.","expected_effect":"Approximate exploratory extension only, not an independent or strict reproduction result."}
+  ]
+}

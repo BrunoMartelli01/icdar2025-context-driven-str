@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "dataset": "total_text",
+  "split": "TEST",
+  "table_5_claim": false,
+  "padding_pixels": 0,
+  "score_controls": [0.05, 0.25, 0.4],
+  "evaluation_matching_iou": 0.5,
+  "seed": 0,
+  "execution": {"precision": "float32", "batch_size": 32, "cpu_threads": 4},
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper sections 3.3 and 3.5 crop localized regions for recognition and name PARSeq-S; detector-generated boxes are an external experiment."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Use the qualified official PARSeq artifact and source archive already used by the crop experiments. Preserve the same frozen Total-Text TEST care annotations and normalized text/bbox matching."},
+    {"classification": "ASSUMPTION", "choice": "Recognize every stored YOLO box directly, with zero added padding and no PARSeq confidence, mask, grouping, or empty-reading filter. Read each low-score box once and evaluate the three predeclared YOLO score controls."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Execution device is explicitly selected at launch. CPU FP32 execution, when selected, and batch size 32 differ from the paper environment; record device, threads, batch size and CUDA memory where applicable."},
+    {"classification": "UNRESOLVED", "choice": "The qualified PARSeq checkpoint is not established as the paper's PARSeq-S artifact. Local bbox Hmean is not the official polygon spotting protocol."}
+  ]
+}

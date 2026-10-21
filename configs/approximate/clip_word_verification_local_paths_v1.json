@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source": "/tmp/totaltext-crop-clip-local-suite-b79b311ba43a/full-clip-train",
+  "captions": "/tmp/totaltext-bert-florence-context-v1/captions.json",
+  "manifest": "artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+  "data_root": "artifacts/totaltext-curved-word-boxes-v4",
+  "output_root": "/tmp/clip-word-verification-train-v1-final",
+  "models": {
+    "vit_b32": "../../context-str-artifacts/clip/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "vit_b16": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "vit_l14": "/tmp/clip-word-verification-models/32bd64288804d66eefd0ccbe215aa642df71cc41"
+  }
+}

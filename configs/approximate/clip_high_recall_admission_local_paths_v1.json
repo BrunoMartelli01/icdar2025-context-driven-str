@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "observable_run": "/tmp/totaltext-bert-crop-selection-v2",
+  "model_paths_profile": "configs/approximate/clip_word_verification_local_paths_v1.json",
+  "fonts": {
+    "sans": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "serif": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "mono": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  },
+  "output_root": "/tmp/clip-high-recall-admission-v1"
+}

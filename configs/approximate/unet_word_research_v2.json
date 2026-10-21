@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "word_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "glyph_manifest_sha256": "05c41d87cf83e6d3d25cfc465eea9345ebd19b7cb0034030b87438486ff9be9b",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "validation_count": 125,
+  "expected_validation_words": 983,
+  "input_size": [
+    512,
+    512
+  ],
+  "native_mask_size": [
+    256,
+    256
+  ],
+  "seed": 202503,
+  "skip_floor": 0.25,
+  "targets": {
+    "distance_fraction": 0.5
+  },
+  "glyph_postprocessing": {
+    "threshold": 0.5,
+    "minimum_overlap": 0.7
+  },
+  "postprocessing": {
+    "method": "watershed",
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "center_threshold": 0.5,
+    "center_min_distance": 3,
+    "watershed_weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "embedding_distance": 1.5,
+    "padding": 0,
+    "min_area": 0,
+    "max_instances": null
+  },
+  "experiment_kind": "unet_word_corrective_v2",
+  "branches": [
+    "reference_control",
+    "control",
+    "glyph_isolated",
+    "glyph_staged",
+    "links_isolated",
+    "threshold_frozen",
+    "db_core"
+  ],
+  "embedding_arms": [
+    "embedding50_hard",
+    "embedding50_watershed",
+    "embedding50_soft"
+  ],
+  "epochs": 50,
+  "batch_size": 8,
+  "num_workers": 2,
+  "learning_rate": 1e-05,
+  "head_learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "private_head_channels": 32,
+  "source_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "source_run_manifest_sha256": "473a42e403cd13260dbb4a422a4cd4d7a3a64a25a2f56673bee0313c52bd4823",
+  "source_architecture": "experimental-unet-word-research-v1:control",
+  "source_epoch": 2,
+  "embedding_checkpoint_sha256": "0dfaced3ac8fb1f5708da0d7b6c256c26aac9a7e1c4fd7174f2d820859c2130d",
+  "embedding_architecture": "experimental-unet-word-research-v1:embedding",
+  "embedding_epoch": 50,
+  "embedding_run_manifest_sha256": "4fe8e400d010a87b23de2612a468ad1ea9f26b8ef728d066625222a6495ba8d7",
+  "embedding_dimensions": 4,
+  "soft_embedding": {
+    "weight": 0.25,
+    "distance_scale": 1.5
+  },
+  "loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1.0,
+    "separation_weight": 3.0
+  },
+  "glyph": {
+    "warmup_epochs": 10,
+    "ramp_epochs": 10,
+    "joint_weight": 0.1,
+    "initial_bias": -2.0,
+    "gradient_parameters": [
+      "up0.block.conv1.weight"
+    ]
+  },
+  "links": {
+    "threshold": 0.5
+  },
+  "adaptive": {
+    "threshold_range": [
+      0.4,
+      0.9
+    ],
+    "border_width": 3,
+    "sigmoid_steepness": 50.0
+  },
+  "db": {
+    "shrink_ratio": 0.4,
+    "threshold_range": [
+      0.3,
+      0.7
+    ],
+    "threshold_weight": 10.0,
+    "sigmoid_steepness": 50.0
+  },
+  "scientific_choices": [
+    {
+      "component": "resnet50_attention_backbone",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Architecture family in local paper section3.2; existing approximate decoder preserved",
+      "expected_effect": "Same original encoder/decoder provenance"
+    },
+    {
+      "component": "matched_control_epoch2",
+      "classification": "ASSUMPTION",
+      "rationale": "All trained variants strictly start from the v1 control best at epoch2; frozen reference and matched50epoch continuation are both reported",
+      "expected_effect": "Separate head effects from extra training",
+      "reference": "docs/PAPER_AMBIGUITIES.md#uwr-002--corrective-word-experiments"
+    },
+    {
+      "component": "embedding_soft_extraction",
+      "classification": "ASSUMPTION",
+      "rationale": "Three extraction methods on identical v1 embedding epoch50 maps;8-neighbor soft competitive minimax growth, no distance rejection, one fallback per unseeded foreground component",
+      "expected_effect": "Reduce residual fragments without erasing pixels",
+      "source": "https://arxiv.org/html/1908.05900v2"
+    },
+    {
+      "component": "private_glyph_head",
+      "classification": "ASSUMPTION",
+      "rationale": "Two private3x3 layers on decoder plus early64channel features; isolated branch selects glyph pixelF1; staged branch warmup10 then40joint epochs with10epoch lambda ramp to.1; private LR1e-4 vs shared1e-5",
+      "expected_effect": "Learn fine foreground while initially protecting word tensors and BN"
+    },
+    {
+      "component": "pixel_links",
+      "classification": "ASSUMPTION",
+      "rationale": "Eight same-owner neighbors, equal owner weighting and separate positive/negative BCE on valid foreground anchors; reciprocal graph edges at.5, no filtering",
+      "expected_effect": "Teach instance membership, including background/cross-word boundary negatives",
+      "source": "https://arxiv.org/html/1801.01315v1"
+    },
+    {
+      "component": "frozen_threshold",
+      "classification": "ASSUMPTION",
+      "rationale": "Train private threshold on frozen full-word/kernel maps with declared original borderL1 and soft binary objectives",
+      "expected_effect": "Isolate thresholds from negative transfer into shared segmentation"
+    },
+    {
+      "component": "db_raster_core",
+      "classification": "ASSUMPTION",
+      "rationale": "DB area/perimeter shrink at r=.4 adapted to native raster EDT, boundary distance threshold target, BCE+Dice instead of OHEM; initialize core residual from frozen kernel and expand predicted cores within frozen full-word mask; not full DBNet/Vatti/unclip; retain farthest native pixel if shrink removes a word",
+      "expected_effect": "Align probability and binary targets to separated cores without rewriting full-word GT",
+      "source": "https://arxiv.org/html/1911.08947v2"
+    },
+    {
+      "component": "single_model_lifecycle",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "One model at a time, FP32/batch8, PARSeq in a later process; CPU qualification uses separately recorded batch/worker overrides",
+      "expected_effect": "Bound memory; CUDA execution/memory still needs host qualification"
+    },
+    {
+      "component": "heldout_generalization",
+      "classification": "UNRESOLVED",
+      "rationale": "One seed and reused held-out TRAIN125; no official TEST-based tuning or strict claims",
+      "expected_effect": "Exploratory comparison only"
+    }
+  ]
+}

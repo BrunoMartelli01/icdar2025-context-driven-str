@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "extracted_kernel_only_padding_ablation",
+  "source_config": "configs/approximate/adaspot_gap_v1.json",
+  "source_config_sha256": "768b31a3f0e016d585973bfa107c4e9e7a355163e60d37c43d256ac7753c9241",
+  "source_branch": "control",
+  "source_checkpoint_sha256": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+  "input_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "kernel_threshold": 0.5,
+  "padding_native_pixels": [0, 2, 4, 6, 8, 12],
+  "connectivity": 8,
+  "min_component_area": 0,
+  "max_instances": null,
+  "ocr_batch_size": 8,
+  "precision": "float32",
+  "allow_tf32": false,
+  "deterministic_algorithms": true,
+  "metric_protocol": "RGB_bbox_maximum_one_to_one_IoU_ge_0.50; padded_and_unpadded_geometry_separate; OCR_exact_Unicode_casefold_punctuation_retained; all983_care_words",
+  "scientific_choices": [
+    {"component": "single_kernel_output", "classification": "ASSUMPTION", "rationale": "Keep the qualified decoder and copy only head channel1 into one output. Verify native threshold masks against every frozen source export. Source was trained jointly on Text and Kernel; no kernel-only training claim."},
+    {"component": "kernel_components", "classification": "ASSUMPTION", "rationale": "Threshold only Kernel at0.5 on the RGB canvas, without Text gating, learned Gap, dilation, area filter, top10 or region growth."},
+    {"component": "padding_grid", "classification": "ASSUMPTION", "rationale": "Reuse the existing six-value grid0/2/4/6/8/12 in native256 pixels before inverse letterbox mapping. Evaluate only the frozen TRAIN holdout; no TEST inputs or tuning."},
+    {"component": "metric_boundary", "classification": "ASSUMPTION", "rationale": "Report both raw detection-box geometry and padded-box geometry; OCR joint correctness uses the padded RGB crop box. Keep every care GT and maximum one-to-one matching; exclude wholly invalid predictions only after GT-blind decoding."},
+    {"component": "gpu_execution", "classification": "HARDWARE_DEVIATION", "rationale": "Single RTX3090 instead of3070 target; FP32, TF32off, batch8. Release segmentation before PARSeq and record per-stage memory."},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Reused1130/125 TRAIN split and one source checkpoint; no dedicated kernel-only training, independent validation or official benchmark result."}
+  ]
+}

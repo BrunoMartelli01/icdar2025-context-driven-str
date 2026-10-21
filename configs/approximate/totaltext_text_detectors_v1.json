@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "dataset": "total_text",
+  "split": "TEST",
+  "table_5_claim": false,
+  "seed": 0,
+  "crop_views": ["axis_aligned", "rectified"],
+  "execution": {"precision": "float32", "parseq_batch_size": 32, "cpu_threads": 4, "detector_batch_size": 1},
+  "evaluation": {"matching_iou": 0.5, "joint_controls": [0.6], "same_text_nms_iou": 0.5},
+  "models": {
+    "craft": {
+      "package": "easyocr", "version": "1.7.2",
+      "filename": "craft_mlt_25k.pth",
+      "url": "https://github.com/JaidedAI/EasyOCR/releases/download/pre-v1.1.6/craft_mlt_25k.zip",
+      "archive_member": "craft_mlt_25k.pth",
+      "official_md5": "2f8227d2def4037cdb3b34389dcf9ec1",
+      "canvas_size": 1280, "mag_ratio": 1.5,
+      "text_threshold": 0.7, "low_text": 0.4, "link_threshold": 0.4,
+      "score_controls": [0.7, 0.9], "reference_score": 0.7
+    },
+    "db_resnet50": {
+      "package": "python-doctr", "version": "0.11.0",
+      "filename": "db_resnet50-79bd7d70.pt",
+      "url": "https://doctr-static.mindee.com/models?id=v0.7.0/db_resnet50-79bd7d70.pt&src=0",
+      "official_sha256_prefix": "79bd7d70",
+      "input_size": 1024, "bin_thresh": 0.3, "box_thresh": 0.1,
+      "score_controls": [0.1, 0.4, 0.7], "reference_score": 0.4
+    },
+    "fast_tiny": {
+      "package": "python-doctr", "version": "0.11.0",
+      "filename": "fast_tiny-1acac421.pt",
+      "url": "https://doctr-static.mindee.com/models?id=v0.8.1/fast_tiny-1acac421.pt&src=0",
+      "official_sha256_prefix": "1acac421",
+      "input_size": 1024, "bin_thresh": 0.1, "box_thresh": 0.1,
+      "reparameterize": true,
+      "score_controls": [0.1, 0.4, 0.7], "reference_score": 0.4
+    }
+  },
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Paper 3.2, 3.3 and 3.5 describe segmentation, component crops and PARSeq-S; these external detectors are a separate experiment."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Use the already qualified official PARSeq runtime/checkpoint, casefold and punctuation/symbol removal, care GT, exact word plus bbox IoU matching and balanced OCR confidence."},
+    {"classification": "ASSUMPTION", "choice": "Use pretrained CRAFT via EasyOCR and DBNet/FAST via docTR detection only; no EasyOCR/docTR recognizer, scene captions or language correction. Preserve upstream detector preprocessing and configurable thresholds, without TEST fitting."},
+    {"classification": "ASSUMPTION", "choice": "Compare zero-padding original RGB envelopes and minimum-area quadrilateral rectification. Matching always uses the detector envelope. Also choose one crop per detector region by OCR confidence and test the previously declared joint 0.6 and same-reading NMS 0.5 rule."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Sequential detector then PARSeq loading, FP32, detector batch 1, recognition batch 32, explicit CPU or single CUDA device; record stage peaks and input shapes. FAST uses docTR's inference reparameterization."},
+    {"classification": "UNRESOLVED", "choice": "docTR pretrained training-data overlap with Total-Text is not qualified; results are exploratory checkpoint comparisons. Local bbox Hmean is not official polygon spotting Hmean. The qualified PARSeq artifact is not established as the paper's PARSeq-S."}
+  ]
+}

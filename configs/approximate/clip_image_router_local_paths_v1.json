@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "source_run": "artifacts/word-multitask-crop-refinement-v1",
+  "segmentation_run": "../../context-str-runs/totaltext-word-multitask-v1/text_kernel",
+  "model_paths_profile": "configs/approximate/clip_word_verification_local_paths_v1.json",
+  "fonts": {
+    "sans": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "serif": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "mono": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  },
+  "output_root": "/tmp/clip-image-router-v1"
+}

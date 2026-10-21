@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+  "deepsolo_runtime_manifest": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/qualification/runtime.json",
+  "deepsolo_source_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo"
+}

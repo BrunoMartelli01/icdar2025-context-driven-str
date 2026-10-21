@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_v4_highres_training_ablation",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "variant_class": "PRACTICAL_APPROXIMATION",
+  "architecture": {
+    "implementation": "PracticalTotalTextHighResAGUNet",
+    "identity": "practical-totaltext-v4-highres-agunet-v1",
+    "encoder": "resnet50",
+    "encoder_weights": "IMAGENET1K_V2",
+    "freeze_encoder": true,
+    "bottleneck_channels": 1024,
+    "decoder_channels": [512, 256, 128, 64],
+    "attention": "author_scalar_spatial_gate_except_explicit_skip_floor_ablation",
+    "output_stride": 2
+  },
+  "source_target": "qualified_totaltext_curved_word_boxes_v4",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "train_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "image_size": [512, 512],
+  "native_mask_size": [256, 256],
+  "target_source": "full_resolution_v4_mask_bilinear_downsample_then_threshold_0_5",
+  "validity_interpolation": "nearest",
+  "separation_interpolation": "nearest",
+  "probability_threshold": 0.5,
+  "validation": {
+    "population": "official_totaltext_train_1255_only",
+    "count": 125,
+    "assignment": "lowest_SHA256_of_UTF8_202503_colon_sample_id",
+    "checkpoint_selection": "best_validation_foreground_iou_tie_earliest_epoch"
+  },
+  "training": {
+    "seed": 202503,
+    "epochs": 500,
+    "batch_size": 8,
+    "num_workers": 4,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "precision": "float32",
+    "deterministic_algorithms": true,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [-15.0, 15.0],
+    "checkpoint_retention": "best_and_latest_during_training_best_only_after_success"
+  },
+  "variants": {
+    "highres_baseline": {"separation_weight": 1.0, "skip_floor": 0.0},
+    "highres_separator": {"separation_weight": 3.0, "skip_floor": 0.0},
+    "highres_separator_residual": {"separation_weight": 3.0, "skip_floor": 0.25}
+  },
+  "scientific_choices": [
+    {"component": "native_256_output", "classification": "ASSUMPTION", "rationale": "512-square RGB input and unchanged stride-2 decoder produce native 256-square logits; this is not the author-confirmed 256-to-128 protocol."},
+    {"component": "validation_split", "classification": "ASSUMPTION", "rationale": "A deterministic 125-image subset of official TRAIN is withheld for model selection; TEST is not read during training."},
+    {"component": "separation_weight", "classification": "ASSUMPTION", "rationale": "Weight 3 is a single predeclared boundary-penalty ablation; no TEST threshold search."},
+    {"component": "residual_skip_floor", "classification": "ASSUMPTION", "rationale": "A fixed 0.25 floor tests retention of low-attention skip information without adding parameters; not part of paper architecture."}
+  ]
+}

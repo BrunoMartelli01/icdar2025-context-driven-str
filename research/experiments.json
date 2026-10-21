@@ -1,0 +1,1484 @@
+{
+  "schema_version": 1,
+  "purpose": "Curated read-only projections of existing approximate reports. A group is a reviewed comparison boundary, not proof of causal control or a scientific experiment configuration. No cross-group ranking.",
+  "groups": [
+    {
+      "id": "multitask-geometry",
+      "title": "Text / Text+Kernel / Text+Kernel+Center: native geometry",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_localization_native_bbox",
+      "protocol": "Native instance bbox IoU>=0.50, geometry only, source care/ignore handling. Not OCR and not pixel F1.",
+      "source": {
+        "root": "repository",
+        "path": "provenance/word_multitask_v1_completion_audit.json",
+        "sha256": "74eb529408c7083349fcceb1f5513fb457721f8db486ed843dd5de484d39838c"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/branches",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/metrics/matched_gt_iou_ge_50",
+        "predictions": "row:/metrics/raw_proposals",
+        "gt": "row:/gt_words",
+        "images": "row:/validation_images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/WORD_MULTITASK_RESULTS_V1.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/metrics/proposal_precision_iou_50",
+        "recall": "row:/metrics/word_recall_iou_50",
+        "f1": "row:/metrics/proposal_f1_iou_50"
+      },
+      "extra": {
+        "epoch": "row:/selected_epoch",
+        "parameters": "row:/parameters",
+        "train_peak_allocated_bytes": "row:/memory/gpu_peak_allocated_bytes",
+        "train_peak_reserved_bytes": "row:/memory/gpu_peak_reserved_bytes"
+      },
+      "performance_scope": "Reported original TRAIN peaks: segmentation only, sequential CUDA FP32, batch8, [8,3,512,512], RTX3090 per original audit; not inference latency or RTX3070 qualification.",
+      "expected_rows": 3
+    },
+    {
+      "id": "research-v1",
+      "title": "Word research V1: uncapped crop variants",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v1/comparison.json",
+        "sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/ocr",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/UNET_WORD_RESEARCH.md"
+      ],
+      "keys": [
+        "adaptive_threshold",
+        "control",
+        "embedding",
+        "glyph_word",
+        "quality"
+      ],
+      "extra": {
+        "gained_vs_control": "row:/exact_casefold_changes_vs_control/gained",
+        "lost_vs_control": "row:/exact_casefold_changes_vs_control/lost"
+      },
+      "expected_rows": 5
+    },
+    {
+      "id": "research-v1-top10",
+      "title": "Word research V1: fixed top10 budget",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v1/comparison.json",
+        "sha256": "c6704de0e313a9f419f8d3aca7060a69e3f8f669e39b0cc4f397881d81a9f88d"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/ocr",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "Top10 quality-area baseline only; do not compare its gain directly with uncapped520-word control."
+      ],
+      "evidence": [
+        "docs/UNET_WORD_RESEARCH.md"
+      ],
+      "keys": [
+        "quality_area10",
+        "quality_rank10"
+      ],
+      "extra": {
+        "gained_vs_control": "row:/exact_casefold_changes_vs_control/gained",
+        "lost_vs_control": "row:/exact_casefold_changes_vs_control/lost"
+      },
+      "expected_rows": 2
+    },
+    {
+      "id": "research-v2-heads",
+      "title": "Corrective word research V2: heads",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v2/comparison.json",
+        "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/ocr",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "Staged glyph also needs the continued control; no automatic model promotion."
+      ],
+      "evidence": [
+        "docs/UNET_WORD_RESEARCH_V2.md",
+        "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md"
+      ],
+      "keys": [
+        "reference_control",
+        "control",
+        "db_core",
+        "glyph_isolated",
+        "glyph_staged",
+        "links_isolated",
+        "threshold_frozen"
+      ],
+      "extra": {
+        "epoch": "doc:/branches/{key}/epoch",
+        "gained": "row:/exact_casefold_changes_vs_reference/gained",
+        "lost": "row:/exact_casefold_changes_vs_reference/lost"
+      },
+      "expected_rows": 7,
+      "paired_baseline": "reference_control"
+    },
+    {
+      "id": "research-v2-postprocess",
+      "title": "Corrective word research V2: postprocess",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "unet-word-research-v2/comparison.json",
+        "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/ocr",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "Identical embedding epoch50 maps; attribution is to extraction, not segmentation."
+      ],
+      "evidence": [
+        "docs/UNET_WORD_RESEARCH_V2.md",
+        "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md"
+      ],
+      "keys": [
+        "embedding50_hard",
+        "embedding50_watershed",
+        "embedding50_soft"
+      ],
+      "extra": {
+        "epoch": "doc:/branches/{key}/epoch",
+        "gained": "row:/exact_casefold_changes_vs_embedding50_hard/gained",
+        "lost": "row:/exact_casefold_changes_vs_embedding50_hard/lost"
+      },
+      "expected_rows": 3,
+      "paired_baseline": "embedding50_hard"
+    },
+    {
+      "id": "crop-links",
+      "title": "Learned crop word/kernel and pixel links",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "unet-crop-links-v1/comparison.json",
+        "sha256": "e680d21bb67a8a15a6c9ee9b0d2d13900b282b21406794befc61a7b680f8f8f5"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/branches",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/ocr/exact_casefold_iou_ge_50",
+        "predictions": "row:/ocr/proposals",
+        "gt": "row:/ocr/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/UNET_CROP_LINKS.md"
+      ],
+      "extra": {
+        "epoch": "row:/epoch",
+        "gained": "row:/exact_changes_vs_source/gained",
+        "lost": "row:/exact_changes_vs_source/lost"
+      },
+      "expected_rows": 4,
+      "paired_baseline": "control"
+    },
+    {
+      "id": "frozen-crops",
+      "title": "Frozen Crops: selected thresholds",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-parseq-crops-v1/summary.json",
+        "sha256": "0fdef4221694c9f94f7a5794b990078e75c234814a607d2428db770b0f48184f"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/rows",
+      "name": [
+        "row:/branch",
+        "row:/method"
+      ],
+      "counts": {
+        "tp": "row:/correct_parseq_words",
+        "predictions": "row:/care_proposals",
+        "gt": "row:/gt_words",
+        "images": "row:/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/TEXT_RECALL_CROPS.md"
+      ],
+      "where": {
+        "row:/threshold_policy": "selected"
+      },
+      "verify_rates": {
+        "precision": "row:/precision",
+        "recall": "row:/recall",
+        "f1": "row:/hmean"
+      },
+      "extra": {
+        "threshold": "row:/threshold",
+        "geometry_hmean": "row:/localization_hmean"
+      },
+      "expected_rows": 16
+    },
+    {
+      "id": "learned-crops",
+      "title": "Learned Crops: selected thresholds",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-learned-crops-v1/summary.json",
+        "sha256": "c023bb79264181992a99e8f063514bd598ba68d61b806c32f03f5be36068eba3"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/rows",
+      "name": [
+        "row:/branch",
+        "row:/method"
+      ],
+      "counts": {
+        "tp": "row:/correct_parseq_words",
+        "predictions": "row:/care_proposals",
+        "gt": "row:/gt_words",
+        "images": "row:/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/TEXT_RECALL_REFINEMENTS.md"
+      ],
+      "where": {
+        "row:/threshold_policy": "selected"
+      },
+      "verify_rates": {
+        "precision": "row:/precision",
+        "recall": "row:/recall",
+        "f1": "row:/hmean"
+      },
+      "extra": {
+        "threshold": "row:/threshold",
+        "geometry_hmean": "row:/localization_hmean"
+      },
+      "expected_rows": 8
+    },
+    {
+      "id": "refinements",
+      "title": "Refinements: selected thresholds",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific. Ignore only wholly invalid post-localization instances; partial overlap remains care.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+        "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/rows",
+      "name": [
+        "row:/branch",
+        "row:/method"
+      ],
+      "counts": {
+        "tp": "row:/correct_parseq_words",
+        "predictions": "row:/care_proposals",
+        "gt": "row:/gt_words",
+        "images": "row:/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/TEXT_RECALL_REFINEMENTS.md"
+      ],
+      "where": {
+        "row:/threshold_policy": "selected"
+      },
+      "verify_rates": {
+        "precision": "row:/precision",
+        "recall": "row:/recall",
+        "f1": "row:/hmean"
+      },
+      "extra": {
+        "threshold": "row:/threshold",
+        "geometry_hmean": "row:/localization_hmean"
+      },
+      "expected_rows": 15
+    },
+    {
+      "id": "gt-crop-diagnostic",
+      "title": "GT crop oracle: diagnostic only",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/text-recall-refinements-v1-qualified/summary.json",
+        "sha256": "c076c22b713d9854ac663acb4e5bb90a2319ce6324aeb2f71a8ab445924d0ddc"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/rows",
+      "name": [
+        "row:/branch",
+        "row:/method"
+      ],
+      "counts": {
+        "tp": "row:/correct_parseq_words",
+        "predictions": "row:/care_proposals",
+        "gt": "row:/gt_words",
+        "images": "row:/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "GT boxes supplied after the fact; this is not an inference method or fixed-identity recognizer accuracy. Fixed-identity diagnostic is separately linked in the original source."
+      ],
+      "evidence": [
+        "docs/TEXT_RECALL_REFINEMENTS.md"
+      ],
+      "where": {
+        "row:/threshold_policy": "diagnostic"
+      },
+      "verify_rates": {
+        "precision": "row:/precision",
+        "recall": "row:/recall",
+        "f1": "row:/hmean"
+      },
+      "expected_rows": 1
+    },
+    {
+      "id": "center-votes",
+      "title": "Word-center offsets: V1 and V2 crops",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/center-guided-word-crops-v2/summary.json",
+        "sha256": "f08981d713688389f91c7acfbc1bc454e3e8df6c58eb87acf481c73bc6629e67"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/results",
+      "name": [
+        "row:/version",
+        "row:/method"
+      ],
+      "counts": {
+        "tp": "row:/correct_casefold_words",
+        "predictions": "row:/care_proposals",
+        "gt": "doc:/protocol/care_words",
+        "images": "doc:/protocol/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/CENTER_GUIDED_WORD_CROPS.md"
+      ],
+      "verify_rates": {
+        "f1": "row:/text_crop_f1"
+      },
+      "extra": {
+        "geometry_hmean": "row:/crop_geometry_f1"
+      },
+      "expected_rows": 8
+    },
+    {
+      "id": "gap",
+      "title": "Text+Kernel+Gap matched experiment",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "adaspot-gap-v1-20261015T125256Z/ocr_comparison.json",
+        "sha256": "b40d2fdc9f46d7f7c6bcd1a946db25d6a8bfeb355d0460ac5feedd43852fd20d"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/arms",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols."
+      ],
+      "evidence": [
+        "docs/ADASpot_GAP.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/aggregate/exact_casefold_precision",
+        "recall": "row:/aggregate/exact_casefold_recall",
+        "f1": "row:/aggregate/exact_casefold_hmean"
+      },
+      "expected_rows": 3
+    },
+    {
+      "id": "kernel-extracted",
+      "title": "Jointly trained kernel: extracted single output and padding",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "kernel-only-padding-v1-20261016/results.json",
+        "sha256": "7919ab722c3cbc7156225e2e3aa297b20344ca166b88cf84ee6a4eef4962b557"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/arms",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "Padding is in native-mask pixels; extraction from joint training and a newly initialized network are separate experiments."
+      ],
+      "evidence": [
+        "docs/KERNEL_ONLY_PADDING.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/aggregate/exact_casefold_precision",
+        "recall": "row:/aggregate/exact_casefold_recall",
+        "f1": "row:/aggregate/exact_casefold_hmean"
+      },
+      "expected_rows": 12
+    },
+    {
+      "id": "kernel-fresh",
+      "title": "New Kernel-only U-Net: padding",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Maximum-cardinality one-to-one original RGB exclusive bbox IoU>=0.50 AND exact Unicode casefold; punctuation retained; micro counts over all care words. Ignore policy remains source-specific.",
+      "source": {
+        "root": "runs",
+        "path": "kernel-only-fresh-v1-20261016/results.json",
+        "sha256": "d11e6ed5c4c37bd15acccb6e4dd24d246616e9abed5e37364ee469b1279ff43e"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction"
+      },
+      "rows": "/arms",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/aggregate/exact_casefold_iou_ge_50",
+        "predictions": "row:/aggregate/proposals",
+        "gt": "row:/aggregate/gt_words"
+      },
+      "population": {
+        "gt": 983
+      },
+      "limitations": [
+        "Single seed and repeatedly reused TRAIN holdout; not independent validation or official TEST.",
+        "No paper-table or STRICT claim. Compare against the control from this exact source; equal denominators alone do not establish equal protocols.",
+        "Padding is in native-mask pixels; extraction from joint training and a newly initialized network are separate experiments."
+      ],
+      "evidence": [
+        "docs/KERNEL_ONLY_FRESH.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/aggregate/exact_casefold_precision",
+        "recall": "row:/aggregate/exact_casefold_recall",
+        "f1": "row:/aggregate/exact_casefold_hmean"
+      },
+      "expected_rows": 6
+    },
+    {
+      "id": "native128-pad0",
+      "title": "Native128 checkpoints, bbox-area150, padding0 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/0/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/0/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-pad1",
+      "title": "Native128 checkpoints, bbox-area150, padding1 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/1/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/1/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-pad2",
+      "title": "Native128 checkpoints, bbox-area150, padding2 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/2/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/2/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-pad4",
+      "title": "Native128 checkpoints, bbox-area150, padding4 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/4/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/4/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-pad6",
+      "title": "Native128 checkpoints, bbox-area150, padding6 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/6/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/6/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-pad8",
+      "title": "Native128 checkpoints, bbox-area150, padding8 native pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/8/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/8/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "native128-padoriginal6",
+      "title": "Native128 checkpoints, bbox-area150, 6 original RGB pixels",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / post-hoc exploration",
+      "metric": "word_e2e_bbox_casefold",
+      "protocol": "Unpadded original bbox IoU>=0.50 + exact casefold; ALL predictions count (no ignore neutralization). RETR_EXTERNAL, bbox-area150 at128, padded-bbox-area ordering, cap10; historical repository variant, not paper component-area filtering.",
+      "source": {
+        "root": "repository",
+        "path": "artifacts/diagnostics/native128-gt-review-20261016/full/results.json",
+        "sha256": "a3c08d4a29406f77bf46fbe4970ab2f2a00c845045c67fdd80768da985b28ef4"
+      },
+      "checks": {
+        "doc:/status": "SUCCESS",
+        "doc:/result_class": "approximate reproduction; complete TEST300 post-hoc comparison",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/pipelines",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/summary/original6/recognition/exact_casefold_spatial_one_to_one",
+        "predictions": "row:/summary/original6/geometry/retained_proposals",
+        "gt": "doc:/care_words",
+        "images": "doc:/images_per_pipeline"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Post-hoc repeated TEST exploration; best padding must not be reported as an untouched test selection.",
+        "15 files,14 tensor states: ICDAR13 A/B are identical weights, not independent replications.",
+        "Uniform inference does not equal uniform training data, targets or checkpoint selection.",
+        "No router, DeepSolo fallback or Table5 evaluation in this group."
+      ],
+      "evidence": [
+        "artifacts/diagnostics/native128-gt-review-20261016/README.md",
+        "docs/PAPER_AMBIGUITIES.md#NATIVE128-GT-REVIEW-001"
+      ],
+      "keys": [
+        "compact_126-a150",
+        "compact_361-a150",
+        "compact_382-a150",
+        "compact_500-a150",
+        "curved-a150",
+        "pixel_ctw-a150",
+        "pixel_icdar13_a-a150",
+        "pixel_icdar13_b-a150",
+        "pixel_icdar15-a150",
+        "pixel_mix-a150",
+        "pixel_tt-a150",
+        "sep_447-a150",
+        "sep_485-a150",
+        "sep_500-a150",
+        "v4-a150"
+      ],
+      "expected_rows": 15
+    },
+    {
+      "id": "yolo-test-equal",
+      "title": "YOLO/PARSeq router comparison: test / equal",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / explored",
+      "metric": "word_multiset_casefold",
+      "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "APPROXIMATE_EXPLORATORY_COMPARISON",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/splits/test/points",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/combined/tp",
+        "predictions": "row:/combined/detected_words",
+        "gt": "row:/combined/gt_words",
+        "images": "row:/combined/images"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Standalone rows are reference controls with different cost.",
+        "Equal-budget points are descriptive rank budgets, not transferred scalar thresholds.",
+        "Not official polygon matching or Table5. Previously explored TEST and single-seed training do not establish generalization."
+      ],
+      "evidence": [
+        "docs/YOLO_PAIRED_ROUTER_COMPARISON.md"
+      ],
+      "keys": [
+        "yolo_only",
+        "deepsolo_only",
+        "clip/same_budget_150",
+        "paper_selected/same_budget_150",
+        "joined_t3/same_budget_150",
+        "native/same_budget_150",
+        "joint/same_budget_150"
+      ],
+      "verify_rates": {
+        "precision": "row:/combined/precision",
+        "recall": "row:/combined/recall",
+        "f1": "row:/combined/f1",
+        "tn0": "row:/combined/accuracy_tn0"
+      },
+      "extra": {
+        "accepted_images": "row:/accepted_images",
+        "fallback_images": "row:/fallback_images",
+        "gained_vs_yolo": "row:/correct_words_gained_vs_yolo",
+        "lost_vs_yolo": "row:/correct_words_lost_vs_yolo"
+      },
+      "expected_rows": 7
+    },
+    {
+      "id": "yolo-test-transferred",
+      "title": "YOLO/PARSeq router comparison: test / transferred",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / explored",
+      "metric": "word_multiset_casefold",
+      "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "APPROXIMATE_EXPLORATORY_COMPARISON",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/splits/test/points",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/combined/tp",
+        "predictions": "row:/combined/detected_words",
+        "gt": "row:/combined/gt_words",
+        "images": "row:/combined/images"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Standalone rows are reference controls with different cost.",
+        "TRAIN-derived scalar cuts transfer to different TEST acceptance counts; costs are not equal.",
+        "Not official polygon matching or Table5. Previously explored TEST and single-seed training do not establish generalization."
+      ],
+      "evidence": [
+        "docs/YOLO_PAIRED_ROUTER_COMPARISON.md"
+      ],
+      "keys": [
+        "yolo_only",
+        "deepsolo_only",
+        "clip/train_coverage_0.5",
+        "paper_selected/train_coverage_0.5",
+        "joined_t3/train_coverage_0.5",
+        "native/train_coverage_0.5",
+        "joint/train_coverage_0.5"
+      ],
+      "verify_rates": {
+        "precision": "row:/combined/precision",
+        "recall": "row:/combined/recall",
+        "f1": "row:/combined/f1",
+        "tn0": "row:/combined/accuracy_tn0"
+      },
+      "extra": {
+        "accepted_images": "row:/accepted_images",
+        "fallback_images": "row:/fallback_images",
+        "gained_vs_yolo": "row:/correct_words_gained_vs_yolo",
+        "lost_vs_yolo": "row:/correct_words_lost_vs_yolo"
+      },
+      "expected_rows": 7
+    },
+    {
+      "id": "yolo-train-equal",
+      "title": "YOLO/PARSeq router comparison: train / equal",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TRAIN holdout",
+      "metric": "word_multiset_casefold",
+      "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+      "source": {
+        "root": "external_artifacts",
+        "path": "yolo-paired-routers-v1/full/results.json",
+        "sha256": "4d452a6462c199d94ddd630db99d71c4230d2e4f63cc792085e9fd90a9681de1"
+      },
+      "checks": {
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "APPROXIMATE_EXPLORATORY_COMPARISON",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/splits/train/points",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/combined/tp",
+        "predictions": "row:/combined/detected_words",
+        "gt": "row:/combined/gt_words",
+        "images": "row:/combined/images"
+      },
+      "population": {
+        "gt": 983,
+        "images": 125
+      },
+      "limitations": [
+        "Standalone rows are reference controls with different cost.",
+        "Equal-budget points are descriptive rank budgets, not transferred scalar thresholds.",
+        "Not official polygon matching or Table5. Previously explored TEST and single-seed training do not establish generalization."
+      ],
+      "evidence": [
+        "docs/YOLO_PAIRED_ROUTER_COMPARISON.md"
+      ],
+      "keys": [
+        "yolo_only",
+        "deepsolo_only",
+        "clip/same_budget_62",
+        "paper_selected/same_budget_62",
+        "joined_t3/same_budget_62",
+        "native/same_budget_62",
+        "joint/same_budget_62"
+      ],
+      "verify_rates": {
+        "precision": "row:/combined/precision",
+        "recall": "row:/combined/recall",
+        "f1": "row:/combined/f1",
+        "tn0": "row:/combined/accuracy_tn0"
+      },
+      "extra": {
+        "accepted_images": "row:/accepted_images",
+        "fallback_images": "row:/fallback_images",
+        "gained_vs_yolo": "row:/correct_words_gained_vs_yolo",
+        "lost_vs_yolo": "row:/correct_words_lost_vs_yolo"
+      },
+      "expected_rows": 7
+    },
+    {
+      "id": "clip-encoders-budget",
+      "title": "Long-CLIP B/L and LLM2CLIP: fixed margin_scene_en / same_budget_descriptive",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / explored",
+      "metric": "word_multiset_casefold",
+      "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+      "source": {
+        "root": "external_artifacts",
+        "path": "clip-specialized-comparison-v1/final/comparison.json",
+        "sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681"
+      },
+      "checks": {
+        "doc:/status": "PASS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/models",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/tp",
+        "predictions": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/detected_words",
+        "gt": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/gt_words",
+        "images": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/images"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Fixed prompt family, not an assertion that it is every encoder's TRAIN-selected winner.",
+        "Descriptive TEST budgets and transferred TRAIN cuts remain separate; acceptance counts are displayed.",
+        "Feature timing scopes differ from OCR/training. No Table5 or strict claim."
+      ],
+      "evidence": [
+        "docs/CLIP_SPECIALIZED_ROUTERS.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/accuracy_on_detected_words",
+        "recall": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/recall",
+        "f1": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/word_f1",
+        "tn0": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/combined_model/accuracy_tn0"
+      },
+      "extra": {
+        "accepted_images": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/parseq_images",
+        "fallback_images": "row:/comparisons/margin_scene_en/test/same_budget_descriptive/deepsolo_images",
+        "feature_seconds_reported": "row:/elapsed_feature_seconds"
+      },
+      "performance_scope": "Feature seconds are the original model feature-export duration; not end-to-end latency or a matched timing benchmark.",
+      "expected_rows": 3
+    },
+    {
+      "id": "clip-encoders-threshold",
+      "title": "Long-CLIP B/L and LLM2CLIP: fixed margin_scene_en / train_threshold",
+      "mode": "approximate",
+      "result_class": "approximate reproduction",
+      "classification": "ASSUMPTION",
+      "dataset": "Total-Text",
+      "split": "TEST official / explored",
+      "metric": "word_multiset_casefold",
+      "protocol": "Within-image one-to-one word multiset exact Unicode casefold; punctuation retained; NO spatial IoU; native256 evaluation-only ignore as recorded in the original report.",
+      "source": {
+        "root": "external_artifacts",
+        "path": "clip-specialized-comparison-v1/final/comparison.json",
+        "sha256": "98abc31f96f043123d941f96a7e8545967b2507699c169de1c0415794bd32681"
+      },
+      "checks": {
+        "doc:/status": "PASS",
+        "doc:/reproduction_mode": "approximate",
+        "doc:/result_class": "approximate reproduction",
+        "doc:/claim_label": "approximate reproduction"
+      },
+      "rows": "/models",
+      "name": [
+        "key:"
+      ],
+      "counts": {
+        "tp": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/tp",
+        "predictions": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/detected_words",
+        "gt": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/gt_words",
+        "images": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/images"
+      },
+      "population": {
+        "gt": 2204,
+        "images": 300
+      },
+      "limitations": [
+        "Fixed prompt family, not an assertion that it is every encoder's TRAIN-selected winner.",
+        "Descriptive TEST budgets and transferred TRAIN cuts remain separate; acceptance counts are displayed.",
+        "Feature timing scopes differ from OCR/training. No Table5 or strict claim."
+      ],
+      "evidence": [
+        "docs/CLIP_SPECIALIZED_ROUTERS.md"
+      ],
+      "verify_rates": {
+        "precision": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/accuracy_on_detected_words",
+        "recall": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/recall",
+        "f1": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/word_f1",
+        "tn0": "row:/comparisons/margin_scene_en/test/train_threshold/combined_model/accuracy_tn0"
+      },
+      "extra": {
+        "accepted_images": "row:/comparisons/margin_scene_en/test/train_threshold/parseq_images",
+        "fallback_images": "row:/comparisons/margin_scene_en/test/train_threshold/deepsolo_images",
+        "feature_seconds_reported": "row:/elapsed_feature_seconds"
+      },
+      "performance_scope": "Feature seconds are the original model feature-export duration; not end-to-end latency or a matched timing benchmark.",
+      "expected_rows": 3
+    }
+  ],
+  "overview_groups": [
+    "native128-pad0",
+    "multitask-geometry",
+    "refinements",
+    "kernel-extracted",
+    "kernel-fresh",
+    "yolo-test-equal",
+    "clip-encoders-budget"
+  ]
+}

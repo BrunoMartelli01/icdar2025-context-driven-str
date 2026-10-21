@@ -1,0 +1,31 @@
+schema_version: 1
+reproduction_mode: approximate
+claim_label: approximate reproduction
+artifact_id: ART-ICDAR13-M10-TASK1-OVERLAP-IGNORE-TEST-MANIFEST
+dataset: ICDAR13-FST-Task2.2
+split: official_test_task1_conservative_ignore
+split_role: test
+split_policy:
+  ordering: numeric IDs 1 through 233
+  expected_count: 233
+source_manifests:
+  - icdar13_segmentation_test.yaml
+sample_order: numeric_id_ascending
+expected_sample_count: 233
+validity_annotation_path_template: raw/test_task1_gt/gt_img_{id}.txt
+acquisition:
+  task1_gt_archive: Challenge2_Test_Task1_GT.zip
+  task1_gt_archive_sha256: 71a7d78d57822ec0376f3f73dd808e2d662f86fb1ef2f85e09a45f26e1417018
+  task1_gt_file_count: 233
+  task1_gt_ordered_sha256_list_sha256: 73716e23c415edbab586b54bddcc85800fb3acc83464237cab04792727d81d4f
+annotation_policy:
+  scope: M10 author-protocol native-128 diagnostic only
+  classification: ASSUMPTION
+  target_conversion: icdar13-task2.2-task1-box-zero-overlap-validity-v1
+  background: RGB exactly (255,255,255), always valid
+  foreground: every other RGB value
+  care_rule: complete foreground color is valid if any pixel overlaps a Task 1 care box
+  dont_care_rule: complete foreground color is ignored only if no pixel overlaps any Task 1 care box
+  validity_resize_interpolation: nearest
+  limitation: Task 1 has no explicit Don't Care labels; training analogue recovered 589 of 608 known ignored colors
+  blocks_strict_reproduction: true

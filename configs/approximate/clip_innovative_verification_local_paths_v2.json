@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "path_base": "repository_root",
+  "fonts": {
+    "sans": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "serif": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "mono": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  },
+  "output_root": "/tmp/clip-innovative-verification-v2"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "candidate": "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE",
+  "checkpoint_sha256": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+  "runtime_sha256": "c52a65b7d844cd35bcf6e38e3cb58c5194851c8327cbdaba9b313869ec2c7ffa",
+  "device": "cuda:0",
+  "score_threshold": 0.4,
+  "scientific_choices": [
+    {"classification":"PAPER_SPECIFIED","choice":"Algorithm2 fallback operates on the complete original image."},
+    {"classification":"ASSUMPTION","choice":"Use the already qualified ResNet50 TotalText candidate at score0.4, no lexicon. Preserve all raw detections; reading-order joined selected_output is interface metadata, not a replacement for full-scene detections."},
+    {"classification":"HARDWARE_DEVIATION","choice":"Qualified host Python3.8 subprocess, separate from CLIP main environment; one image/one model FP32, CUDA only, all model load/inference memory and OOM details retained in raw worker response."},
+    {"classification":"UNRESOLVED","choice":"Exact paper DeepSolo checkpoint and a matched end-to-end metric with EXIF/ignore rules; this executor reports no combined accuracy until that evaluator is qualified."}
+  ],
+  "ambiguity_record": "CLIP-IMAGE-ROUTER-V1"
+}

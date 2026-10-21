@@ -1,0 +1,126 @@
+{
+  "claim_label": "approximate reproduction",
+  "committed": false,
+  "cpu_preparation": {
+    "crop_windows": 15,
+    "geometry_uses_gt": false,
+    "images": 2,
+    "path": "/tmp/unet-crop-links-cpu-smoke-v4/predicted_crop_manifest.json",
+    "sha256": "39a1c7f2eb721a84074ee5541cc3a27de5c229201cae2fe10003af8be108e338"
+  },
+  "cpu_smokes": {
+    "crop_links": {
+      "actual_batch_size": 1,
+      "actual_input_shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "full_training": false,
+      "head_update_linf": 1.0013580322265625e-05,
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      },
+      "path": "/tmp/unet-crop-links-cpu-smoke-v4/crop_links/smoke.json",
+      "performance_claim": false,
+      "sha256": "bb43104d2368e4e6f207c5c6ee523423da84e666e98ff4418a14c2c575840f62",
+      "status": "PASS",
+      "training_steps": 1
+    },
+    "crop_word": {
+      "actual_batch_size": 1,
+      "actual_input_shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "full_training": false,
+      "head_update_linf": 1.0013580322265625e-05,
+      "memory": {
+        "batch_size": 2,
+        "device": "cpu",
+        "dtype": "float32",
+        "gpu_peak_allocated_bytes": null,
+        "gpu_peak_reserved_bytes": null,
+        "input_shape": [
+          2,
+          3,
+          512,
+          512
+        ],
+        "model_set": "one AG-U-Net plus private corrective head; sequential branches; no recognizer resident",
+        "oom": false
+      },
+      "path": "/tmp/unet-crop-links-cpu-smoke-v4/crop_word/smoke.json",
+      "performance_claim": false,
+      "sha256": "a64e6d981cb37bf5a404febd5cadec7261a4a42c9e31e6c9685cc271948ca220",
+      "status": "PASS",
+      "training_steps": 1
+    }
+  },
+  "created_utc": "2026-10-10T19:40:49.369964+00:00",
+  "cuda_accessible_in_implementation_session": false,
+  "diff_audit": {
+    "AST": "PASS",
+    "git_diff_check": "PASS",
+    "initial_whole_document_snapshot_check": "Unable to match the original snapshot because parallel documentation changes occurred; preserved current content and audited the owned UCL-001 addition separately.",
+    "new_file_whitespace_check": "PASS",
+    "only_changed_existing_source": "docs/PAPER_AMBIGUITIES.md",
+    "own_added_entry": "UCL-001",
+    "parallel_documentation_updates_preserved": [
+      "TRF-001"
+    ],
+    "shell_syntax": "PASS",
+    "task_diff": "/tmp/unet-crop-links-task.diff",
+    "unchanged_existing_scientific_sources": true
+  },
+  "experiment_kind": "unet_crop_links_v1",
+  "final_parseq_comparison_complete": false,
+  "gpu_qualified": false,
+  "new_head_full_training_complete": false,
+  "new_head_full_training_launched_by_codex": false,
+  "packages_installed": false,
+  "paper_sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+  "reproduction_mode": "approximate",
+  "result_class": "smoke-test result",
+  "schema_version": 1,
+  "source_sha256": {
+    "configs/approximate/unet_crop_links_v1.json": "3a514a3390aa62a8e6adae7fb5ff98eefe524e3a30bace7fec77b0b8a950ab55",
+    "docs/UNET_CROP_LINKS.md": "9c20c2364b3c82080ce9b4d606a440d9e17fe8662ba9c4be8124878fef018fd8",
+    "localize/unet_crop_links.py": "9009865097ec5ccc25603cf6c2a7fcb60f0058498f4a7bf3ca4de1aadee77808",
+    "models/unet_crop_links.py": "e19da85fd2da1329fc91dd188bd5a9ed7ef336d618ed489b13b97d544ad5c2d7",
+    "scripts/evaluate_unet_crop_links_ocr.py": "6a0a61ee6efb5f981403e5bf0f5fca5255ce311b140cc38357e75a59f8805e5a",
+    "scripts/run_unet_crop_links.py": "b454a8c8e90d71bb24849633dffe314a8e010633e4041ee921c9a2b22fcc3a3b",
+    "scripts/run_unet_crop_links_host.sh": "3ce036fc6114103e813dd367a33fb62cf00bd48efccf712e652f3482cc4f0bb4",
+    "scripts/summarize_unet_crop_links.py": "a27ad2f2eae1e77291a779f7b73bf61860f554cf7af8a959275970bf61e9d3ea",
+    "segmentation/unet_crop_links.py": "81e676ab847f1ce77e85da1ef82991654351703fbcbcecb20652afcc9c4ccc31",
+    "tests/scripts/test_unet_crop_links_runner.py": "12b82c2c914201ac2fdb4f622a9a32684681f05d5005c307b376e9d24457dea0",
+    "tests/segmentation/test_unet_crop_links.py": "8b976d45eac00f13ff7f98dfd0590bf1bb228203d80898825d574cee789b01de"
+  },
+  "status": "IMPLEMENTATION_QUALIFIED_CPU_ONLY",
+  "tests": {
+    "command": "OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/context-str-main-py311/bin/python -m pytest -q tests/segmentation/test_unet_crop_links.py tests/scripts/test_unet_crop_links_runner.py tests/segmentation/test_unet_word_research_v2.py tests/scripts/test_unet_word_research_v2_runner.py tests/segmentation/test_totaltext_word_kernel.py tests/segmentation/test_word_multitask.py tests/localize/test_unet_crop_refinement.py",
+    "failed": 0,
+    "passed": 107
+  },
+  "user_gt_crop_ocr_report": {
+    "accuracy": 0.93,
+    "independently_remeasured": false,
+    "protocol_provenance": "UNRESOLVED",
+    "source": "user message"
+  }
+}

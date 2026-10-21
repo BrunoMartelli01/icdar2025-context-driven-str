@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-20",
+  "scope": "Repository Python/config/docs plus research navigation and listed external result sources. This is local experimental novelty, not a literature novelty claim or exhaustive machine-wide search.",
+  "search_terms": [
+    "MALIS",
+    "maximin",
+    "Rand loss",
+    "connectivity loss",
+    "topology loss",
+    "clDice",
+    "kernel/seed/prompt conditioned",
+    "recognition/OCR loss",
+    "recognition guided",
+    "grid_sample",
+    "RoIAlign",
+    "teacher forcing"
+  ],
+  "files": [
+    {
+      "experiment": "crop resegmentation",
+      "path": "docs/UNET_CROP_REFINEMENT.md",
+      "sha256": "0a4e01b927cce6f9544125f2c7108c27c158735ed501a0efbee2112f28e99cef",
+      "comparison": "Frozen same-network second pass; no kernel input or selected-owner neural target."
+    },
+    {
+      "experiment": "crop_word/crop_links",
+      "path": "docs/UNET_CROP_LINKS.md",
+      "sha256": "9c20c2364b3c82080ce9b4d606a440d9e17fe8662ba9c4be8124878fef018fd8",
+      "comparison": "Executed: all-word crop targets and optional local-link BCE; no selected-kernel input."
+    },
+    {
+      "experiment": "seeded extraction",
+      "path": "docs/UNET_SEEDED_SELECTIVE.md",
+      "sha256": "732304665f1489673cf8751193209964eb953cc18af142bb7f917a100c464edd",
+      "comparison": "Existing predicted nuclei guide postprocessing of frozen maps; no prompt-conditioned training."
+    },
+    {
+      "experiment": "embedding/link/DB variants",
+      "path": "docs/UNET_WORD_RESEARCH_V2.md",
+      "sha256": "6217fb8df3d2341eaa5c695436701a51c75e9ff411cc4fb79d3c2637a164e206",
+      "comparison": "Executed: embeddings, local balanced links, private DB core; no maximin training objective."
+    },
+    {
+      "experiment": "centerline/clDice",
+      "path": "docs/WORD_CENTERLINE.md",
+      "sha256": "0784fe336acf05c64f9fb4154519c16466e31d3abe5d750db331c3f635095977",
+      "comparison": "Centerline trained; clDice explicitly deferred. Neither is the proposed maximin graph objective."
+    },
+    {
+      "experiment": "complete crop/glyph suite",
+      "path": "docs/WORD_EVIDENCE_SUITE.md",
+      "sha256": "ff9cb5d8ace0060283e6b619dfc89b02d96b2cda3ab2a8f266737a3c90b0dd13",
+      "comparison": "Executed: frozen feature association and four-side bbox proxy losses; no differentiable OCR loss."
+    },
+    {
+      "experiment": "Gap feature adaptation",
+      "path": "docs/ADASpot_GAP_DECODER.md",
+      "sha256": "93df910c2c258f18a1bba1701f9501b55cc82792f77ca38ae42370400c8cdef4",
+      "comparison": "Executed: private Gap decoder with balanced BCE/Dice and word-region protection; no maximin or OCR backprop."
+    },
+    {
+      "experiment": "OCR-based selection",
+      "path": "docs/ADASpot_GAP_OCR_SELECTION.md",
+      "sha256": "9b5fa6ffd45fee2513a6f9774a9e7f252d53ab3c0ca89ed039c4a2521560107c",
+      "comparison": "Executed: actual OCR selects saved candidates; recognition does not backpropagate into coordinates."
+    },
+    {
+      "experiment": "PARSeq forced scoring",
+      "path": "recognition/group_word_selection_runtime.py",
+      "sha256": "1fcf69e95dd13909c35d01a8aac425cf3f69a7ec1759671501d1c495b8215fae",
+      "comparison": "Existing teacher-forced likelihood under inference_mode; scores candidates, does not train crop coordinates."
+    },
+    {
+      "path": "/extra1/bmartelli/context-str-runs/unet-crop-links-v1/comparison.json",
+      "sha256": "e680d21bb67a8a15a6c9ee9b0d2d13900b282b21406794befc61a7b680f8f8f5",
+      "comparison": "crop_word524/control521,but more proposals and lower OCR Hmean"
+    },
+    {
+      "path": "/extra1/bmartelli/context-str-runs/unet-word-research-v2/comparison.json",
+      "sha256": "cc737b83301bf5d6b7b2f31a59ee5745dee77359c016c2393d68fcc021b0b010",
+      "comparison": "links490/reference520; private DB core522"
+    },
+    {
+      "path": "/extra1/bmartelli/context-str-runs/word-evidence-three-tests-20261019-v2/results/results.json",
+      "sha256": "9e3488471dccf774a0ef6100bfdede98829bd5d646d754dc4cfa0b2d09bee13b",
+      "comparison": "association520/control520; completeness502; no fragments attached"
+    },
+    {
+      "path": "models/unet_crop_links.py",
+      "sha256": "e19da85fd2da1329fc91dd188bd5a9ed7ef336d618ed489b13b97d544ad5c2d7",
+      "comparison": "Separate unconditional crop U-Net variants; no prompt channel."
+    },
+    {
+      "path": "segmentation/unet_crop_links.py",
+      "sha256": "81e676ab847f1ce77e85da1ef82991654351703fbcbcecb20652afcc9c4ccc31",
+      "comparison": "All-word mask/kernel and local link BCE objectives on predicted windows."
+    },
+    {
+      "path": "segmentation/unet_word_research.py",
+      "sha256": "2142baffba10f67963c80b3c4c71114a8280666f6d4689cc3d0ce54895fb64d1",
+      "comparison": "Existing embedding pull/push and shared auxiliary losses, not maximin pair connectivity."
+    },
+    {
+      "path": "segmentation/word_evidence.py",
+      "sha256": "a4b13849d99f2316809f2501513a158379b4e84fd0339a06c2f76db8d7812003",
+      "comparison": "Existing affinity MLP and geometric bbox proxy, not differentiable OCR crop training."
+    },
+    {
+      "path": "configs/approximate/unet_crop_links_v1.json",
+      "sha256": "3a514a3390aa62a8e6adae7fb5ff98eefe524e3a30bace7fec77b0b8a950ab55",
+      "comparison": "Existing completed crop protocol and source/control identities."
+    },
+    {
+      "path": "papers/2503.15639v2.pdf",
+      "sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+      "comparison": "Authoritative local paper sections3.2-3.3,Algorithm1 inspected before scientific changes."
+    }
+  ],
+  "decisions": [
+    {
+      "proposal": "kernel-conditioned selected-word mask",
+      "decision": "IMPLEMENT",
+      "new_factor": "same-capacity prompt versus no-prompt CNN; same selected-owner targets and predicted windows"
+    },
+    {
+      "proposal": "maximin structural connectivity objective",
+      "decision": "IMPLEMENT",
+      "new_factor": "same four-edge CNN and local BCE plus sampled maximin-pair loss versus local BCE alone"
+    },
+    {
+      "proposal": "OCR-guided continuous crop",
+      "decision": "IMPLEMENT",
+      "new_factor": "same bounded geometry CNN and geometric loss plus frozen-reader causal CE gradients to continuous coordinates"
+    }
+  ]
+}

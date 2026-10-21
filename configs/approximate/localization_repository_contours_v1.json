@@ -1,0 +1,13 @@
+{
+  "variant": "repository-contours-v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_commit": "363cdeec0eda8999bf10d14c8f4ca6036dd422a2",
+  "source_sha256": "3e0d779ae761e038f48525c4a169e3e3be7e1849ddf85c73f309ce3d0cad7dbc",
+  "parameters": {"min_area": 150, "pad": 6, "nmax": 10},
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "RETR_EXTERNAL, CHAIN_APPROX_SIMPLE, unpadded bbox area filter, clipped padded bbox area sort, stable contour order, min_area=150 and pad=6", "ambiguities": ["L-001", "L-002", "L-003"]},
+    {"classification": "PAPER_SPECIFIED", "choice": "pad, retain at most 10 blocks, crop original image"},
+    {"classification": "UNRESOLVED", "choice": "rectangle-area semantics conflict with Algorithm 1 component-area semantics; current online main could not be verified"}
+  ]
+}

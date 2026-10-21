@@ -1,0 +1,52 @@
+# Human-readable creation specification for the uv-managed context-str-main
+# environment.  This is not an installed-state lock; see installed.txt and
+# environment_metadata.json for the state captured from the solved environment.
+name: context-str-main
+manager:
+  name: uv
+  version: 0.12.5
+  environment_path: /home/bruno/projects/icdar2025-context-driven-str/.venvs/context-str-main
+  executable_path: /home/bruno/projects/icdar2025-context-driven-str/.venvs/uv/uv
+  python_installation: /home/bruno/projects/icdar2025-context-driven-str/.venvs/python/cpython-3.11.11-linux-x86_64-gnu
+python: 3.11.11
+pytorch_index: https://download.pytorch.org/whl/cu124
+direct_dependencies:
+  torch: 2.4.1+cu124
+  torchvision: 0.19.1+cu124
+  numpy: 1.26.4
+  pillow: 10.4.0
+  opencv-python: 4.10.0.84
+  transformers: 4.47.1
+  accelerate: 1.2.1
+  sentence-transformers: 3.3.1
+  rapidfuzz: 3.11.0
+  omegaconf: 2.3.0
+  pytest: 8.3.4
+parseq_runtime_dependencies:
+  timm: 0.9.16
+  pytorch-lightning: 2.2.0.post0
+  torchmetrics: 1.3.1
+  nltk: 3.8.1
+  lmdb: 1.4.1
+  pyyaml: 6.0.1
+  setuptools: 69.1.0
+parseq_provenance:
+  reproduction_mode: approximate
+  checkpoint_artifact_id: ART-PARSEQ-V100-PARSEQ-CANDIDATE
+  checkpoint_revision: "v1.0.0; 315d19be8ef473a864950ab497a649a69e37c6a4"
+  checkpoint_sha256: bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00
+  runtime_artifact_id: ART-PARSEQ-PYTORCH2-RUNTIME-CANDIDATE
+  runtime_revision: 1902db043c029a7e03a3818c616c06600af574be
+  runtime_installation: >-
+    Source is not installed from v1.0.0 package metadata. The exact clean official
+    runtime checkout is supplied on PYTHONPATH for the qualification-compatible
+    import/load check.
+excluded:
+  - DeepSolo
+  - Detectron2
+  - system CUDA Toolkit
+  - BLIP-2 weights
+  - MPNet weights
+  - AG-UNet checkpoints
+  - DeepSolo checkpoints
+  - datasets

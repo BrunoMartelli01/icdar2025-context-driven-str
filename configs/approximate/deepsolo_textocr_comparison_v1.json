@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_config": "configs/approximate/clip_router_e2e_v1.json",
+  "source_paths": "configs/approximate/clip_router_e2e_local_paths_v1.json",
+  "runtime_paths": "configs/approximate/clip_image_router_fallback_local_paths_v1.json",
+  "comparison_paths": "configs/approximate/yolo_router_comparison_local_paths_v1.json",
+  "source_plan_sha256": "10f433ea8a6f7e4386a75e782fdb642c625d37f94a4ca33dd1d824cfbafe52a2",
+  "baseline_branches_sha256": "a364ddcb451cbad5a17195c7b8fcc2c4eaa933c59fc623238d91ac18b53462ed",
+  "score_threshold": 0.4,
+  "device": "cuda:0",
+  "models": {
+    "r50": {"candidate": "ART-DEEPSOLO-R50-TOTALTEXT-CANDIDATE", "official_e2e_none_f1": 0.797},
+    "r50_textocr": {"candidate": "ART-DEEPSOLO-R50-TOTALTEXT-TEXTOCR-CANDIDATE", "official_e2e_none_f1": 0.825, "official_checkpoint_url": "https://1drv.ms/u/s!AimBgYV7JjTlgcd138p8HaXViFk-tw?e=r15pMR"},
+    "vitae_textocr": {"candidate": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE", "official_e2e_none_f1": 0.836, "official_checkpoint_url": "https://1drv.ms/u/s!AimBgYV7JjTlgcd6XGlbZ-I7WvGslQ?e=rrkXLx"}
+  },
+  "metric": "image_word_multiset_casefold_exact; punctuation retained; no bbox IoU",
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Algorithm 2 sends the full image to DeepSolo."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Use each pinned official candidate's native preprocessing: R50 shortest1000/max1892; ViTAEv2-S shortest1024/max1892 and divisor32 padding; FP32, threshold0.4, no lexicon."},
+    {"classification": "ASSUMPTION", "choice": "Paired comparison on frozen TRAIN125 and TEST300, with their original care/ignore rules and word matching. TRAIN is diagnostic because the upstream models were fine-tuned on Total-Text TRAIN. No router changes or TEST threshold selection."},
+    {"classification": "HARDWARE_DEVIATION", "choice": "Existing isolated legacy host subprocess, batch1, sequential model execution. Preserve strict checkpoint-load validation, full raw outputs, CUDA allocated/reserved peaks and failures. Main-process seed20261016; legacy worker retains qualified cuDNN settings and no explicit RNG seed, with complete checkpoint loading and eval-mode inference."},
+    {"classification": "UNRESOLVED", "choice": "New checkpoint bytes are not available locally and public OneDrive downloads currently require authorization. Official F1 has a different matching/ignore protocol and must not be subtracted from our local word F1 as a reproduction gap. Neither candidate is selected by the context-driven paper."}
+  ],
+  "ambiguity_record": "DEEPSOLO-TEXTOCR-IC13-001"
+}

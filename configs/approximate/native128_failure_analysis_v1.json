@@ -1,0 +1,51 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; frozen failure analysis and TRAIN target audit",
+  "variant": "native128-failure-analysis-v1",
+  "source_directory": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/native128-crop-limit-20261016",
+  "review_directory": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/native128-gt-review-20261016",
+  "source_publication_manifest_sha256": "2866cadf63dca6f1fc39737aab7e75faeff6f528449e69b3f4e9fb59b574b9d6",
+  "review_publication_manifest_sha256": "fc5d4813f84d0237c3483552d62fd87bd535206990f1a70ba25e5fa75809e434",
+  "models": [
+    "v4",
+    "sep_447",
+    "compact_361"
+  ],
+  "padding": 1,
+  "bbox_area_min": 0,
+  "cap": 10,
+  "iou_threshold": 0.5,
+  "proxy_coverage": 0.5,
+  "fragment_min_word_fraction": 0.05,
+  "expected_images": 300,
+  "expected_care_words": 2204,
+  "native_target_resolutions": [
+    128,
+    256
+  ],
+  "cpu_threads": 4,
+  "output_budget_bytes": 16777216,
+  "scientific_ambiguity": "NATIVE128-FAIL-001",
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "decision": "Paper3.2/3.3 binary segmentation then connected components with padding and max10; no prescribed word-shrink recipe or numeric padding6"
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "decision": "Frozen native128 predictions and qualified PARSeq; reproduce previous bboxIoU>=.5 casefold exact reference; actual native_training_owners resize/validity/separator/contact contract"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "GT-only diagnostics: exact matching first then maximum geometry augmentation for additive failure categories; bbox coverage proxy cannot establish actual mask merge/split; compare padded boxes as sensitivity only, never replace primary metric"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Native256 target-only resize is an offline counterfactual, not a trained model or prediction. Inspect separated versus compact owner connectivity after actual current native128 transform; no training/GT regeneration or new models"
+    },
+    {
+      "classification": "UNRESOLVED",
+      "decision": "Causal gain of proposed GT changes requires controlled training on fixed TRAIN/validation protocol; TEST is diagnostic only, no causal claims"
+    }
+  ]
+}

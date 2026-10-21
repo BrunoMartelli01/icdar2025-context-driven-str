@@ -1,0 +1,83 @@
+experiment_kind: segmentation
+reproduction_mode: approximate
+claim_label: approximate reproduction
+result_class: smoke-test result
+runnable: true
+
+architecture:
+  implementation: figure_derived_ag_unet
+  identity: approximate-ag-unet-figure3-v1
+  contract_schema_version: 1
+  contract_artifact: provenance/AG_UNET_ARCHITECTURE_M8.json
+  encoder: resnet50
+  encoder_weights: null
+  encoder_weights_note: synthetic smoke avoids implicit checkpoint download
+  freeze_encoder: false
+  output_stride: 2
+  architecture_document: docs/AG_UNET_IMPLEMENTATION_DECISIONS.md
+
+transforms:
+  image_size: [256, 256]
+  mask_size: [128, 128]
+  horizontal_flip_probability: 0.5
+  rotation_probability: 0.5
+  rotation_degrees: [-10.0, 10.0]
+  operation_order: flip_rotate_resize
+  resize_geometry: stretch
+  image_interpolation: bilinear
+  mask_interpolation: nearest
+  image_fill: [0, 0, 0]
+  mask_fill: 0
+  normalization: imagenet
+
+training:
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  batch_size: 8
+  loss: BCEWithLogitsLoss
+  bce_reduction: mean
+  adam_betas: [0.9, 0.999]
+  adam_epsilon: 1.0e-8
+  epochs: 1
+  learning_rate_schedule: none
+  checkpoint_selection: last
+  seed: 202503
+  deterministic_algorithms: true
+
+localization:
+  min_area: 4
+  pad: 2
+  nmax: 10
+  connectivity: 8
+  equal_area_tie_break: top_to_bottom_then_left_to_right
+
+evaluation:
+  probability_threshold: 0.5
+  binary_mask_backprojection: nearest
+  empty_foreground_policy: perfect_if_both_empty
+  aggregation_modes: [per_image_macro, global_micro]
+
+scientific_choices:
+  - component: architecture
+    classification: ASSUMPTION
+    evidence_basis: FIGURE_INFERRED
+    ambiguity_ids: [A-001, A-002, A-003, A-004, A-005, A-006]
+  - component: decoder_blocks_and_head
+    classification: REPOSITORY_SPECIFIED
+    ambiguity_ids: [A-002, A-003, A-004]
+  - component: transforms
+    classification: ASSUMPTION
+    ambiguity_ids: [A-007, T-003]
+  - component: training_protocol_missing_values
+    classification: ASSUMPTION
+    ambiguity_ids: [T-001, T-002, T-004]
+  - component: localization_parameters_and_ties
+    classification: ASSUMPTION
+    ambiguity_ids: [L-001, L-003]
+  - component: probability_threshold
+    classification: REPOSITORY_SPECIFIED
+    ambiguity_ids: [A-008]
+  - component: metrics_edge_cases_and_aggregation
+    classification: ASSUMPTION
+    ambiguity_ids: [A-005, E-002, E-003]

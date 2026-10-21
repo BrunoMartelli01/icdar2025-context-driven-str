@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "auxiliary_dense_word_center_attraction",
+  "architecture_identity": "experimental-word-center-offset-agunet-v1",
+  "skip_floor": 0.25,
+  "target": "visible_word_centroid_offsets_xy_divided_by_native_wh",
+  "loss": {
+    "beta": 0.01,
+    "aggregation": "mean_words_per_image_then_mean_supervised_images"
+  },
+  "voting": {
+    "text_threshold": 0.65,
+    "smoothing_sigma": 1.0,
+    "min_peak_density": 1.0,
+    "min_center_distance": 3,
+    "assignment_radius": 3.0
+  },
+  "scientific_choices": [
+    {"component": "auxiliary_backbone", "classification": "ASSUMPTION", "rationale": "Reuse the practical frozen ResNet50 attention U-Net as a separate two-offset predictor; preserve the existing text model.", "expected_effect": "Learn a complementary spatial cue without changing text contours; benefit unknown.", "reference": "docs/PAPER_AMBIGUITIES.md#wco-001--auxiliary-dense-word-center-attraction"},
+    {"component": "dense_target_and_loss", "classification": "ASSUMPTION", "rationale": "Every valid word pixel regresses normalized xy displacement to its visible raster centroid using tanh and word-balanced SmoothL1; zero-initialized vector head.", "expected_effect": "Dense word membership evidence, rather than sparse Gaussian center supervision; ignored/background pixels have no vector objective.", "reference": "docs/WORD_CENTER_OFFSETS.md"},
+    {"component": "center_voting", "classification": "ASSUMPTION", "rationale": "Component-local probability-weighted bilinear voting, Gaussian accumulator smoothing, peak NMS and marker projection; dense votes within assignment_radius of a peak seed its word identity. Base probabilities alone define the optional flood shape and cost. Parameters are uncalibrated exploratory choices, not strict defaults.", "expected_effect": "Several convergent vote groups may separate a fused mask; false peaks can over-split it and weak peaks can be missed.", "reference": "docs/WORD_CENTER_OFFSETS.md"},
+    {"component": "model_placement", "classification": "HARDWARE_DEVIATION", "rationale": "Allow sequential base inference, saved aligned masks and independent auxiliary inference/training on the single GPU. Simultaneous feasibility and memory are unmeasured.", "expected_effect": "Avoid assuming two networks fit together in 8GB; placement and precision must be recorded per run.", "reference": "docs/WORD_CENTER_OFFSETS.md"},
+    {"component": "evaluation", "classification": "UNRESOLVED", "rationale": "No offset checkpoint, matched held-out comparison, full official evaluation or physical GPU qualification exists for this extension.", "expected_effect": "Implementation and smoke evidence cannot establish improved separation or recognition.", "reference": "docs/WORD_CENTER_OFFSETS.md"}
+  ]
+}

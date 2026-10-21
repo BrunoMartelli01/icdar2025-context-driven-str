@@ -1,0 +1,29 @@
+{
+  "experiment": "bilinear-mask-backprojection-train-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "nearest_report_sha256": "1b35d100def10f2ac6c56a70bda3310888f89e2ed8f73a18cd0693e1c130ffb9",
+  "resize": {
+    "input": "cached_binary_uint8_native128_not_probabilities",
+    "implementation": "torch.nn.functional.interpolate",
+    "dtype": "float32",
+    "mode": "bilinear",
+    "align_corners": false,
+    "antialias": false,
+    "threshold": 0.5,
+    "comparison": "greater_than_or_equal"
+  },
+  "changed_conditions": ["PRED128", "GT128"],
+  "unchanged_controls": ["GT_FULLRES", "REPOSITORY_NATIVE128"],
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "User-requested binary-mask bilinear resize to original H/W and >=.5 rebinarization. Not bilinear interpolation of native probabilities/logits; not new segmentation inference"},
+    {"classification": "ASSUMPTION", "choice": "CPU float32, align_corners=False, antialias=False. Frozen nearest results remain read-only reference; all localizer parameters and directional priority stay unchanged"},
+    {"classification": "PAPER_SPECIFIED", "choice": "CC/contour extraction receives a binary mask. Preserve existing padding, area ordering and top10 semantics per method"},
+    {"classification": "UNRESOLVED", "choice": "Paper does not establish this interpolation convention. Original-GT and native128-only contour controls do not use backprojection and must be unchanged"}
+  ],
+  "tuning": false,
+  "test_loaded": false,
+  "ocr_run": false,
+  "table5_accuracy": null
+}

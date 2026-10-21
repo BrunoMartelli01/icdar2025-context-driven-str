@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "canonical_size": 256,
+  "methods": ["baseline", "refined", "bounded_growth", "soft_fallback", "seeded_only"],
+  "sources": ["reference512", "hybrid256", "hybrid384"],
+  "reference_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "text_checkpoint_sha256": "9121987e2336363290db444121a9a4c5140898b191e26f32d03d04449c8025db",
+  "kernel_checkpoint_sha256": "e65691dda944478e9d8b4f022d45d0d3b21edc7c995274554b4c5ca31336766f",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "reference_threshold": 0.65,
+  "text_threshold": 0.9,
+  "postprocessing": {"method": "watershed", "kernel_threshold": 0.5, "center_threshold": 0.5, "center_min_distance": 3, "watershed_weights": [0.5, 0.25, 0.25], "padding": 0, "min_area": 0, "max_instances": null},
+  "crop": {"padding": 0, "min_area": 0, "max_instances": null},
+  "refinement": {"bridge_text_threshold": 0.5, "maximum_foreground_distance": 3, "kernel_merge": true, "center_merge": false},
+  "growth": {"low_threshold": 0.5, "radius_at256": 3.0},
+  "fallback_kernel_threshold": 0.35,
+  "recognition": {"decode_ar": true, "refine_iters": 1, "batch_size": 8, "casefold": true, "symbol_normalized_secondary_metric": true},
+  "fresh_reference_ocr": true,
+  "scientific_choices": [
+    {"component": "architecture_and_localization", "classification": "PAPER_SPECIFIED", "rationale": "Paper sections3.2-3.3 specify ResNet50/attention segmentation and component crop localization; additional heads and ablations below are separately classified."},
+    {"component": "existing_reference_and_refinement", "classification": "REPOSITORY_SPECIFIED", "rationale": "Reuse selected research-v1 Text+Kernel control epoch2 and existing word_guided_contours kernel merging; preserve all historical masks, weights, source contracts and outputs."},
+    {"component": "native_grid_transfer", "classification": "ASSUMPTION", "rationale": "Use saved native sigmoid384 text probabilities, bilinearly resize predicted256 kernel with align_corners=False; regenerate384 targets/validity/owners/canvas from qualified original data. Match boxes on unchanged original RGB. Spatial refinement distances scale with384/256, rounded upward only for its integer distance."},
+    {"component": "bounded_growth", "classification": "ASSUMPTION", "rationale": "Preserve all high-threshold word IDs and expand by existing minimax watershed on text>=.5 within3 canonical pixels. Only seed-reachable support grows. This is a new postprocessing ablation, not PSENet reproduction."},
+    {"component": "fallback_calibration", "classification": "ASSUMPTION", "rationale": "Freeze near-kernel maximum threshold.35 before evaluation. Seeded-only is an explicit recall-sacrificing diagnostic control; neither filter changes the underlying network maps or applies an area/top10 cap."},
+    {"component": "gt_box_diagnostic", "classification": "ASSUMPTION", "rationale": "Recognize all983 original GT bbox crops separately to diagnose failures. GT crops never enter prediction recipes or select thresholds; this oracle is not achieved detector performance."},
+    {"component": "execution", "classification": "HARDWARE_DEVIATION", "rationale": "CPU FP32/PARSeq batch8, deterministic settings, two threads, no segmentation rerun. All reference crop OCR executes afresh on CPU; only other exact RGB crop hashes reuse qualified prior caches with16-crop replay."},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Single-seed, repeatedly reused TRAIN holdout125/983. No TEST selection, strict Table5 claim, additional training or GPU qualification."}
+  ]
+}

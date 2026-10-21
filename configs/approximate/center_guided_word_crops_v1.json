@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "methods": ["baseline", "local_centers", "global_centers", "global_centers_expand"],
+  "refinement": {
+    "reproduction_mode": "approximate",
+    "text_threshold": 0.65,
+    "growth_text_threshold": 0.35,
+    "smoothing_sigma": 3.0,
+    "min_peak_density": 0.5,
+    "min_center_distance": 8,
+    "min_center_support": 8,
+    "assignment_radius": 12.0,
+    "growth_distance": 3
+  },
+  "crop": {"padding": 0, "min_area": 0, "max_instances": null},
+  "recognition": {"decode_ar": true, "refine_iters": 1, "batch_size": 8, "casefold": true, "symbol_normalized_secondary_metric": true},
+  "metric_protocol": {
+    "population": "all_125_existing_Total_Text_TRAIN_holdout_images_983_care_words",
+    "geometry": "maximum_cardinality_one_to_one_original_exclusive_bbox_IoU_0.50",
+    "native_merge_split": "existing_any_shared_pixel_diagnostic",
+    "count": "mean_absolute_care_proposal_minus_GT_count_per_image;_also_keep_raw_inference_counts",
+    "ignore": "only_fully_invalid_native_instances_are_ignored_after_inference;_retain_complete_partial_overlap_boxes",
+    "recognition": "IoU_0.50_and_exact_casefold_maximum_matching;_all_care_words_in_denominator",
+    "empty_denominator": "zero",
+    "checkpoint_selection": "frozen_base_epoch56_and_auxiliary_epoch82;_no_test_or_threshold_search"
+  },
+  "scientific_choices": [
+    {"component": "global_endpoint_consensus", "classification": "ASSUMPTION", "rationale": "Smooth globally accumulated votes and require dense core support; allow separated fragments to share one predicted center. Sigma3/NMS8/support8/density0.5 are predeclared exploratory settings, not calibrated word counts.", "expected_effect": "Reduce nearby duplicate peaks and reunite parts; nearby distinct words may still merge.", "reference": "docs/PAPER_AMBIGUITIES.md#wco-003--joint-shape-and-center-guided-crops"},
+    {"component": "bounded_mask_growth", "classification": "ASSUMPTION", "rationale": "Endpoint agreement radius12 permits imperfect trained vectors. Grow at most3 native pixels into base probability>=0.35, connected to a center's existing mask. Keep all core pixels and unseeded fallback regions.", "expected_effect": "Recover uncertain text edges or gaps without unbounded dilation; mistaken vector agreement can still admit background.", "reference": "docs/CENTER_GUIDED_WORD_CROPS.md"},
+    {"component": "matched_crop_scoring", "classification": "ASSUMPTION", "rationale": "Use identical pad0/no area/no top10 diagnostic cropping for baseline and refinements; freeze recipes before GT scoring and use the existing exploratory native/original bbox and PARSeq metrics.", "expected_effect": "Test shape/count/crop effects on the complete reused holdout; not official polygon or Table5 accuracy.", "reference": "docs/CENTER_GUIDED_WORD_CROPS.md"},
+    {"component": "cached_two_network_outputs", "classification": "HARDWARE_DEVIATION", "rationale": "Fuse hash-verified, aligned RTX3090 FP32 validation exports from both selected checkpoints; no repeat segmentation. Postprocessing and optional pinned PARSeq run explicitly on CPU, with memory provenance.", "expected_effect": "Avoid simultaneous 8GB GPU model residency; no new joint GPU qualification.", "reference": "docs/CENTER_GUIDED_WORD_CROPS.md"},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Independent TEST behavior, learned-count calibration and official recognition evaluation remain unresolved.", "expected_effect": "Exploratory approximate diagnostic only.", "reference": "docs/CENTER_GUIDED_WORD_CROPS.md"}
+  ]
+}

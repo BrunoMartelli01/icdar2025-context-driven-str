@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "variant": "guarded-v3-447-graphcut-v1",
+  "source_run_root": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017",
+  "model_config": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017/code_snapshot/configs/approximate/segmentation_total_text_tighter_words_v2.yaml",
+  "checkpoint": "/extra1/bmartelli/context-str-runs/guarded-v3-training-20261017/training/total-text-guarded-v3-word-selection-500ep-v1/checkpoints/epoch-0447.pt",
+  "checkpoint_sha256": "5b44de7b88b5b1d636e8f53c586565f6491aabaae3ccea361e96e32d540c1faa",
+  "architecture_identity": "author-clarified-ag-unet-2048x1024-v1",
+  "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "train_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_train.yaml",
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "cap": 10,
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "runtime": {
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "device": "cuda:0",
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "seed": 202503,
+    "segmentation_batch_size": 1,
+    "deterministic": true,
+    "tf32": false
+  },
+  "output_budget_bytes": 268435456,
+  "graph": {
+    "probability_threshold": 0.5,
+    "padding_native": 1,
+    "graph_grid_scale": 2,
+    "minimum_parent_short_side": 4,
+    "seed_thresholds": [
+      0.7,
+      0.85
+    ],
+    "erosion_radii": [
+      1,
+      2
+    ],
+    "minimum_seed_area": 6,
+    "minimum_seed_fraction": 0.03,
+    "maximum_seed_regions": 4,
+    "minimum_child_area": 6,
+    "minimum_child_short_side": 2,
+    "minimum_child_fraction": 0.12,
+    "maximum_child_bbox_iou": 0.2,
+    "energies": [
+      {
+        "edge_floor": 0.02,
+        "probability_power": 2.0,
+        "color_sigma": 0.15,
+        "unary_weight": 1.0,
+        "pairwise_weight": 1.0,
+        "integer_scale": 256
+      },
+      {
+        "edge_floor": 0.02,
+        "probability_power": 2.0,
+        "color_sigma": 0.15,
+        "unary_weight": 1.0,
+        "pairwise_weight": 4.0,
+        "integer_scale": 256
+      }
+    ]
+  },
+  "calibration": {
+    "max_cut_probability": [
+      0.65,
+      0.8,
+      1.0
+    ],
+    "max_cut_affinity": [
+      0.3,
+      0.6
+    ]
+  },
+  "scientific_ambiguity": "GRAPH-CUT-WORD-001",
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "decision": "Segmentation, padded localized regions, maximum ten crops; paper3.3."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "decision": "Frozen TRAIN bbox Word-F1 selected V3/447, old preprocessing and pinned PARSeq AR/refine1; preserve nativepad1 area0 baseline bbox ranking and all care denominator."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Support-preserving exact two-label quantized Potts cut with fixed background, eight-neighbor RGB/probability pairwise and normalized seed-distance unary; 2x ROI grid uses original RGB detail. No expansion or true three-label optimization."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Shared threshold/erosion seeds and geometry gates; compare graphcut to existing minimax geodesic on identical seeds and grid; restrict each baseline parent to at most one binary split then reapply cap10."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "decision": "Predeclared finite parameter/gate grid selected on all125 repeatedly used TRAIN validation images, maximize exact word count subject to nondecreasing OCR F1; keep off candidate and report best active diagnostic independently. Freeze selection before TEST300."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "decision": "Actual PAPER RTX3090, CUDA FP32 segmentation batch1 then PARSeq batch32 sequentially, CPU SciPy graph cuts; deterministic,noTF32,noAMP. Exact FP32 probability cache and compact label RLE only; crops stay in RAM."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "decision": "Whether graph cut improves V3 OCR; marker ambiguity and false letter splits, strict model identities/protocol and independent generalization. No new architecture, GT, training, ILP, MSER or SR."
+    }
+  ],
+  "train_manifest_sha256": "05c41d87cf83e6d3d25cfc465eea9345ebd19b7cb0034030b87438486ff9be9b"
+}

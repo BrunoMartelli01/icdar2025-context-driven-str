@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "totaltext_text_recall_resolution_factorial",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "base_checkpoint_sha256": "db9db69f77f1e62b03b82d073e8a37c603ff6ff8feceafc3623644980625e964",
+  "base_checkpoint_epoch": 56,
+  "architecture_identity": "practical-totaltext-v4-highres-agunet-v1",
+  "skip_floor": 0.25,
+  "dataset": {
+    "manifest": "manifests/total_text_train.yaml",
+    "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "images": 1255,
+    "validation_images": 125,
+    "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+    "validation_words": 983
+  },
+  "branches": {
+    "control512": {"input_size": 512, "loss": "bce_dice"},
+    "tversky512": {"input_size": 512, "loss": "bce_tversky"},
+    "control768": {"input_size": 768, "loss": "bce_dice"},
+    "tversky768": {"input_size": 768, "loss": "bce_tversky"}
+  },
+  "training": {
+    "epochs": 50, "seed": 202503, "batch_size": 4, "num_workers": 2,
+    "loader_timeout_seconds": 60, "optimizer": "Adam", "learning_rate": 0.00001,
+    "weight_decay": 0.01, "adam_betas": [0.9, 0.999], "adam_epsilon": 1e-8,
+    "learning_rate_schedule": "none", "deterministic_algorithms": true,
+    "checkpoint_selection": "validation_word_coverage_at_precision_floor", "precision": "float32"
+  },
+  "loss": {"bce_weight": 1.0, "overlap_weight": 1.0, "smooth": 1.0,
+           "fp_weight": 0.3, "fn_weight": 0.7, "separation_weight": 3.0},
+  "evaluation": {
+    "canonical_size": 256, "thresholds": [0.35, 0.5, 0.65, 0.8, 0.9],
+    "minimum_pixel_precision": 0.9, "complete_word_coverage": 0.9,
+    "resampling": "sigmoid_then_CPU_bilinear_align_corners_false",
+    "primary": "complete_word_rate_then_mean_word_coverage_at_precision_floor_then_pixel_F2",
+    "ground_truth": "unchanged_canonical_v4_valid_targets_and_all_983_expected_word_owners",
+    "ignore": "exclude_invalid_pixels_and_letterbox_padding",
+    "missing_word": "keep_in_denominator_with_zero_coverage", "test_usage": "none"
+  },
+  "scientific_choices": [
+    {"classification": "REPOSITORY_SPECIFIED", "component": "reuse", "rationale": "Reuse original-resolution qualified v4 targets, frozen TRAIN split, attention decoder, paired transforms, checkpoint/RNG helpers and visualizer. Offset network unchanged.", "reference": "docs/TEXT_RECALL_RESOLUTION.md"},
+    {"classification": "ASSUMPTION", "component": "matched_continuation", "rationale": "Strictly warm-start all four branches from single-text epoch56; fresh Adam, 50 additional epochs, LR1e-5, matched augmentation/sample order. A new control is necessary because continuation, batch and selection differ from historical training.", "reference": "docs/TEXT_RECALL_RESOLUTION.md"},
+    {"classification": "ASSUMPTION", "component": "tversky", "rationale": "Replace Dice only with masked Tversky, FP=.3/FN=.7; keep BCE and separator weighting. Existing word-balanced BCE is not combined with this factor, to isolate the loss effect.", "source": "https://arxiv.org/abs/1706.05721", "reference": "docs/TEXT_RECALL_RESOLUTION.md"},
+    {"classification": "ASSUMPTION", "component": "resolution", "rationale": "Resize original RGB and original-resolution targets directly to768/384; no saved256 target upsampling and no parameter changes. Score all branches on identical256 GT by resampling sigmoid probabilities before thresholding.", "reference": "docs/TEXT_RECALL_RESOLUTION.md"},
+    {"classification": "ASSUMPTION", "component": "selection", "rationale": "Predeclare five validation thresholds, >=90% pixel precision and >=90% per-word coverage. Epoch0 eligible, lost words retained; no merges/OCR select checkpoints. Reused TRAIN holdout is exploratory.", "reference": "docs/TEXT_RECALL_RESOLUTION.md"},
+    {"classification": "HARDWARE_DEVIATION", "component": "batch_and_lifecycle", "rationale": "FP32 batch4 on every branch and sequential execution to bound target8GB memory. Fit remains unqualified until GPU smoke; no automatic OOM fallback.", "reference": "docs/TEXT_RECALL_RESOLUTION.md"}
+  ]
+}

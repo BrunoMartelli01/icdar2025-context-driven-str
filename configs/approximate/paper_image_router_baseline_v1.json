@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "ambiguity_record": "PAPER-IMAGE-ROUTER-001",
+  "source_config_sha256": "d0ed2585e8b026e3fa58d2a3099ebcff7e6a092722170070c68188ef8f136865",
+  "source_paths_sha256": "14e623a9ebf15bdc2d65e90b8dfe0dba401f14e7f0dc494f091ec6d871687224",
+  "router": {
+    "alpha": 0.6,
+    "beta": 0.4,
+    "tau": 0.8,
+    "primary_gate": "paper_selected",
+    "lexical_mode": "raw"
+  },
+  "caption_target": {
+    "min_words": 40,
+    "max_words": 80
+  },
+  "caption_profiles": {
+    "figure4_single": {
+      "assembly": "single",
+      "prompts": [
+        "Describe this image comprehensively, focusing on all visible text elements. Include: the setting or environment (indoor/outdoor, urban/rural); main text-containing objects (signs, displays, documents); text placement and arrangement (centered, peripheral, overlapping); and contextual elements that provide semantic cues. Write one coherent paragraph of 40 to 80 words describing what is visible. Return only the description."
+      ],
+      "generation": {
+        "max_new_tokens": 140,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      },
+      "caption_model": "blip2"
+    },
+    "figure4_structured": {
+      "assembly": "paragraph_join",
+      "prompts": [
+        "Question: Describe the visible setting and environment, including whether it is indoors or outdoors. Answer:",
+        "Question: Describe the objects and surfaces that contain text, such as signs, storefronts, posters or labels. Answer:",
+        "Question: Describe where the text appears and how the text-bearing objects are arranged in the image. Answer:",
+        "Question: Describe the surrounding objects, colors and other visible details that help explain the scene. Answer:"
+      ],
+      "generation": {
+        "max_new_tokens": 45,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      },
+      "caption_model": "blip2"
+    },
+    "figure4_single_long": {
+      "assembly": "single",
+      "prompts": [
+        "Describe this image comprehensively, focusing on all visible text elements. Include: the setting or environment (indoor/outdoor, urban/rural); main text-containing objects (signs, displays, documents); text placement and arrangement (centered, peripheral, overlapping); and contextual elements that provide semantic cues. Write one coherent paragraph of 40 to 80 words describing what is visible. Return only the description."
+      ],
+      "generation": {
+        "max_new_tokens": 140,
+        "min_new_tokens": 60,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15
+      },
+      "caption_model": "blip2"
+    },
+    "figure4_grounded": {
+      "assembly": "paragraph_join",
+      "prompts": [
+        "Question: Is the scene indoors or outdoors, and what kind of place is shown? Answer:",
+        "Question: What is the main object that has writing on it? Answer:",
+        "Question: Describe the colors and shapes of the objects that have writing on them. Answer:",
+        "Question: Where are the objects with writing located in this image? Answer:",
+        "Question: What other objects can you see around the writing? Answer:",
+        "Question: Describe the background of this image. Answer:"
+      ],
+      "generation": {
+        "max_new_tokens": 32,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      },
+      "caption_model": "blip2"
+    },
+    "instructblip_scene": {
+      "assembly": "single",
+      "prompts": [
+        "Describe this image comprehensively, focusing on all visible text elements. Include: the setting or environment (indoor/outdoor, urban/rural); main text-containing objects (signs, displays, documents); text placement and arrangement (centered, peripheral, overlapping); and contextual elements that provide semantic cues. Write one coherent paragraph of 40 to 80 words describing what is visible. Return only the description."
+      ],
+      "generation": {
+        "max_new_tokens": 140,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      },
+      "caption_model": "instructblip"
+    }
+  },
+  "primary_caption_profile": "figure4_single",
+  "execution": {
+    "seed": 20261013,
+    "cpu_threads": 4,
+    "batch_size": 1,
+    "mpnet_device": "cpu",
+    "mpnet_precision": "float32",
+    "mpnet_context_overflow": "force_fallback",
+    "caption_cpu_dtype": "float32",
+    "caption_cuda_dtype": "float16",
+    "caption_max_memory": {
+      "gpu": "6GiB",
+      "cpu": "48GiB"
+    },
+    "parseq_device": "cpu"
+  },
+  "mpnet": {
+    "model_id": "sentence-transformers/all-mpnet-base-v2",
+    "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "weight_sha256": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+    "max_sequence_length": 384
+  },
+  "blip2": {
+    "model_id": "Salesforce/blip2-flan-t5-xl",
+    "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "weight_sha256": {
+      "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+      "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    }
+  },
+  "report_thresholds": [
+    -1,
+    0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1
+  ],
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "BLIP2 scene descriptions; MPNet cosine, semantic T1/T3 candidate choice, alpha0.6 beta0.4 tau0.8 and full-image DeepSolo fallback; Algorithm2 strict > ties choose T3."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "User requests T3 as all frozen crop words, including repeated/ignored/empty outputs without confidence filtering; same bbox top/left order and space join as CLIP. Paper multiple-crop aggregation remains unresolved."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use prose confidence of the semantic winner; accept T1 only when its C1 passes the same threshold, outputting exactly one raw PARSeq sequence, or accept all T3 crop predictions when selected C3 passes. Otherwise full-image DeepSolo. This user clarification supersedes the former T1-winner veto; keep the joined-T3-only gate as an ablation."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use original pinned BLIP2 FlanT5-XL/MPNet/PARSeq candidates, raw RapidFuzz ratio and frozen epoch61 words/evaluation branches. This does not identify the exact paper checkpoints."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Single paragraph prompt restates visible Figure4 instructions and adds40..80 word target. Structured profile asks four image-only questions and joins raw answers with punctuation; not strict paper captioning. Do not append PARSeq/GT, pad repetitive output or trim raw captions to claim quality."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Paper tau0.8 remains reference for either selected T1 or T3; additional thresholds and matched62 TRAIN/149 TEST image budgets are exploratory, with50% calibration cut on TRAIN80 and no TEST selection. MPNet context overflow forces fallback, preserving all raw words."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Sequential models, BLIP2 FP32 CPU or explicit FP16 CUDA profile; optional CPU offload with declared6GiB GPU weight budget; batch1, MPNet FP32 CPU, deterministic kernels/TF32 off. Measure GPU peaks and propagate OOM; no quantization/model substitution."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Paper checkpoint, full caption prompt/decoding, words-vs-tokens, fuzzy preprocessing and score conflict remain unresolved. Caption visual fidelity is reviewed without GT; full425 captions and missing TRAIN DeepSolo require GPU host; all results approximate and exploratory."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "A separate single-long diagnostic sets min_new_tokens60 with no-repeat3/repetition penalty1.15 to test whether the repository BLIP2 model supplies additional real scene details rather than merely short answers. Forced length can hallucinate/repeat and is not evidence of Figure4 equivalence; raw output, quality and independent visual review are preserved, no length padding/repair or GT optimization."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Additional image-only grounded profile asks six simple environment/object/color/position/background questions, using min_new_tokens0. It avoids forced-length filler, preserves raw answers and remains a separate approximation requiring visual review. Primary caption profile is not selected using recognition accuracy or TEST data."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "T1 PARSeq uses FP32 CPU batch1 explicitly even when BLIP2 runs on CUDA, allowing stable reuse of whole-image T1 cache between caption devices. Its hardware/latency remains separate from crop recognition and paper performance."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "InstructBLIP is a separate explicitly named instruction-caption ablation using its own already-cached checkpoint/revision/shard hashes, not the BLIP2 paper baseline. A TRAIN image-only probe produced51 words/3 sentences closer in style but imperfect literal transcription; no TEST correctness selects the caption model. Primary paper baseline remains figure4_single/BLIP2."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse new425-image CPU FP32 T1 results via immutable manifest, shard/plan hashes and checks for actual original RGB identities, native PARSeq preprocessing/decoding, checkpoint/source recipe, recognizer code and identical software. Preserve original metadata; caption/profile changes do not re-label outputs as newly generated."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Because T1 supplies one unlocalized sequence, the primary comparison uses per-image one-to-one casefold-exact word matching without bbox IoU for T1/T3/DeepSolo and replayed frozen CLIP decisions alike. T1 is one prediction without whitespace splitting or fabricated bbox and is always care. Existing T3/DeepSolo ignored-region flags and invalid-envelope FP handling remain; separate geometry diagnostics preserve the previous IoU protocol. Pin all original annotation/report/audit sources; reading annotations never affects routing."
+    }
+  ],
+  "frozen_t1_manifest_sha256": "4262601a840955d730c46adbd6be381bab7a573fadd4c22efd58b4956c97ba61",
+  "instructblip": {
+    "model_id": "Salesforce/instructblip-flan-t5-xl",
+    "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+    "weight_sha256": {
+      "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+      "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+    }
+  },
+  "word_evaluation_sources": {
+    "train/results.json": "949b5e401ac14e10fe038258fae35fc5901f439b7c8c102382c814ee0d1b06c0",
+    "test/results.json": "03050c4c1dac1687c4154c2c51913efdabd74f6ecf633250a9ef66a339618123",
+    "test_independent_audit.json": "bc6f8e502a08ea68c46faf1adc8426d364c53cdd194f83883e1c9c969dcb3ecd"
+  },
+  "geometry_matching_iou": 0.5
+}

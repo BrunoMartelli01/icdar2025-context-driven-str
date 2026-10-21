@@ -1,0 +1,6557 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "roots": [
+      "repository"
+    ],
+    "discovery": "docs/provenance depth3; named audit/review and report summaries depth5; no symlinks or sample caches",
+    "excluded_directories": [
+      ".aws",
+      ".git",
+      ".venvs",
+      "__pycache__",
+      "cache",
+      "checkpoints",
+      "crops",
+      "data",
+      "dataset",
+      "datasets",
+      "exports",
+      "features",
+      "generations",
+      "images",
+      "masks",
+      "node_modules",
+      "ocr",
+      "per_image",
+      "predictions",
+      "probabilities",
+      "proposals",
+      "responses",
+      "samples",
+      "shards",
+      "visuals",
+      "weights"
+    ],
+    "verification": "inventory and content hashes only; reported statuses are historical claims, not rerun qualifications"
+  },
+  "entries": [
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP.md",
+      "bytes": 12365,
+      "sha256": "15a68d77739937ad5d80f81a12ee61e5a5390cd6c77a1675450314f76541f77d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "Protocollo e riuso"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Target, loss e decoder"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Metriche, checkpoint e risultati"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Avvio GPU e controllo"
+        },
+        {
+          "line": 121,
+          "level": 2,
+          "title": "Qualifica dell'implementazione"
+        },
+        {
+          "line": 147,
+          "level": 2,
+          "title": "Verifica dei precedenti, 15 ottobre 2026"
+        }
+      ],
+      "title": "AdaSpot: Text + Kernel + Gap, prima prova controllata"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP_CONTEXT.md",
+      "bytes": 8037,
+      "sha256": "802c445fe81aeb62c47f7d9927394a7ece726095b9113f9aa6ca38e23fca463f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Gap with local context: matched 1x1 and 3x3 tests"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Fixed-final-epoch follow-up diagnostic"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Completion: 19 October 2026"
+        }
+      ],
+      "title": "Gap with local context: matched 1x1 and 3x3 tests"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP_DECODER.md",
+      "bytes": 6307,
+      "sha256": "93df910c2c258f18a1bba1701f9501b55cc82792f77ca38ae42370400c8cdef4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Trainable Gap decoder — approximate reproduction"
+        }
+      ],
+      "title": "Trainable Gap decoder — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP_FULLTRAIN.md",
+      "bytes": 6829,
+      "sha256": "d9c7f64efa810c1cc4dc3a488d8885bd72b52718781ce837ac3a0b4a13ccf96f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Full official TRAIN1255 Gap refit — approximate reproduction"
+        }
+      ],
+      "title": "Full official TRAIN1255 Gap refit — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP_NORMALIZED.md",
+      "bytes": 4138,
+      "sha256": "fcabd688fbf63fb02ff799b35722a1c036e0b1940ecca001733424aa9eb3e276",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Better Gap training: fit, decision calibration and full Text support"
+        }
+      ],
+      "title": "Better Gap training: fit, decision calibration and full Text support"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_GAP_OCR_SELECTION.md",
+      "bytes": 5058,
+      "sha256": "9b5fa6ffd45fee2513a6f9774a9e7f252d53ab3c0ca89ed039c4a2521560107c",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Select for actual OCR — approximate reproduction"
+        }
+      ],
+      "title": "Select for actual OCR — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_JOINT.md",
+      "bytes": 15157,
+      "sha256": "7150a27adc9bbc0df744b75bb75c9365321ebcc08a08fc9a3b6d0c6b2da4151a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Shared-feature AdaSpot joint prototype"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Completed implementation, joint fit and negative accuracy result"
+        }
+      ],
+      "title": "Shared-feature AdaSpot joint prototype"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_MASK_ALIGN.md",
+      "bytes": 10763,
+      "sha256": "a9541c4f33917eafd00a9445b6fbe369d1ecf845b2dcdeb8aa3af72253d9b524",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "AdaSpot Mask-Align v1"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Completed qualification and diagnostic,2026-10-21"
+        }
+      ],
+      "title": "AdaSpot Mask-Align v1"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ADASpot_PHASE0.md",
+      "bytes": 8403,
+      "sha256": "a69a0d0362b04a1f9ba946d59c72a0513634d661405d93c96cf7531b5479b6d0",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "AdaSpot Phase 0: paired crop and decoding diagnostics"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "title": "Completed diagnostic and next controlled intervention"
+        },
+        {
+          "line": 101,
+          "level": 2,
+          "title": "Completed balanced Gap probe"
+        }
+      ],
+      "title": "AdaSpot Phase 0: paired crop and decoding diagnostics"
+    },
+    {
+      "root": "repository",
+      "path": "docs/AGENT_EXPERIMENT_REVIEW_2026_10_11.md",
+      "bytes": 18601,
+      "sha256": "3d1253f676da8312ea56abec5e1b8a1cfe341cfe390bceb090adfd0e5db43545",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Esito principale"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Protocollo e comparabilità"
+        },
+        {
+          "line": 54,
+          "level": 2,
+          "title": "Research V2: risultati completi"
+        },
+        {
+          "line": 89,
+          "level": 3,
+          "title": "Perché i pixel links falliscono qui"
+        },
+        {
+          "line": 116,
+          "level": 2,
+          "title": "Secondo passaggio addestrato sui crop"
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "title": "Text+Kernel, centri e scelta conservativa dei crop"
+        },
+        {
+          "line": 189,
+          "level": 2,
+          "title": "Risoluzione, recall e regole frozen"
+        },
+        {
+          "line": 217,
+          "level": 3,
+          "title": "GT crop: 838/983, non una conferma del precedente 93%"
+        },
+        {
+          "line": 233,
+          "level": 2,
+          "title": "Evitare duplicazioni e delimitare la nuova prova"
+        },
+        {
+          "line": 256,
+          "level": 2,
+          "title": "Evidenza e limiti dell'audit"
+        },
+        {
+          "line": 281,
+          "level": 2,
+          "title": "Priorità dei prossimi test"
+        }
+      ],
+      "title": "Audit degli esperimenti degli agenti — 11 ottobre 2026"
+    },
+    {
+      "root": "repository",
+      "path": "docs/AG_UNET_IMPLEMENTATION_DECISIONS.md",
+      "bytes": 14636,
+      "sha256": "7f0b690d994a3ea7dd0c13d4c24b927965dd8f3779c8acb813505dc74232818c",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Approximate AG-UNet Implementation Decisions"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Status and claim boundary"
+        },
+        {
+          "line": 20,
+          "level": 2,
+          "title": "Fixed evidence and selected architecture"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Shape contract at 256×256"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "title": "M8 frozen conformance and checkpoint contract"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Physical-host batch-1 qualification"
+        },
+        {
+          "line": 119,
+          "level": 2,
+          "title": "Strict blockers preserved for the M8 identity"
+        },
+        {
+          "line": 129,
+          "level": 2,
+          "title": "M9 real-training contract"
+        },
+        {
+          "line": 188,
+          "level": 2,
+          "title": "Separate author-clarified protocol identity"
+        }
+      ],
+      "title": "Approximate AG-UNet Implementation Decisions"
+    },
+    {
+      "root": "repository",
+      "path": "docs/APPEARANCE_REMAP_DIAGNOSTIC.md",
+      "bytes": 10456,
+      "sha256": "e853d96bb8a6e0f0e452fa5635f815bf5d55c69f439a8fda5f558ca3fd5ad11e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Appearance-guided local re-map v1"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Evidence and scope"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "title": "Implemented algorithm"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Controlled comparison"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Run once on CPU, foreground"
+        },
+        {
+          "line": 121,
+          "level": 2,
+          "title": "Implementation checks"
+        },
+        {
+          "line": 135,
+          "level": 2,
+          "title": "Frozen TRAIN execution"
+        },
+        {
+          "line": 175,
+          "level": 2,
+          "title": "Limits"
+        }
+      ],
+      "title": "Appearance-guided local re-map v1"
+    },
+    {
+      "root": "repository",
+      "path": "docs/Author Clarifications and Reproduction Update.md",
+      "bytes": 5799,
+      "sha256": "1b72740f385a2f9414ca73241faa42c892db44b49726dc2aafbc9f4a4b4ec563",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Author Clarifications and Reproduction Update"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "1. Background"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "2. Work performed before author clarification"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "3. Architecture clarification from the author"
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "title": "Decoder and output resolution"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "title": "Bottleneck"
+        },
+        {
+          "line": 54,
+          "level": 3,
+          "title": "Attention gate"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "title": "4. Training clarification from the author"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "title": "Dataset"
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "title": "Encoder"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "title": "Training duration"
+        },
+        {
+          "line": 90,
+          "level": 3,
+          "title": "Checkpoint selection"
+        },
+        {
+          "line": 96,
+          "level": 3,
+          "title": "Don't Care regions"
+        },
+        {
+          "line": 102,
+          "level": 3,
+          "title": "Target resolution"
+        },
+        {
+          "line": 113,
+          "level": 3,
+          "title": "Augmentation"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "5. Required implementation update"
+        }
+      ],
+      "title": "Author Clarifications and Reproduction Update"
+    },
+    {
+      "root": "repository",
+      "path": "docs/BUDGETED_PAIRED_E2E.md",
+      "bytes": 4276,
+      "sha256": "635550dfbb3e6dff125b7b3bd645790cb9c0ba0eac60ada832f148a0f4ad9790",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen InstructBLIP paired routing: TRAIN and TEST"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Metrics and output policies"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Run on PAPER, foreground"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Verified CPU checks (2026-09-16)"
+        }
+      ],
+      "title": "Frozen InstructBLIP paired routing: TRAIN and TEST"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CENTER_GUIDED_WORD_CROPS.md",
+      "bytes": 10284,
+      "sha256": "67fc0ba7102b4eb51fa27fc3fe541874d82e2eea6f3f96f2cd228e78c80e05da",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Joint base-mask and center-offset crop experiment"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Inference"
+        },
+        {
+          "line": 46,
+          "level": 2,
+          "title": "Frozen comparison and scoring"
+        },
+        {
+          "line": 86,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Fresh inference on any image"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Completed v1 diagnostic"
+        }
+      ],
+      "title": "Joint base-mask and center-offset crop experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_HIGH_RECALL_ADMISSION.md",
+      "bytes": 10063,
+      "sha256": "d96751c298641fa28fe404b4b5e46515bb69b33d44edaee32aecdea3d6a80671",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CLIP e PARSeq sul pool ad alto recall"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Quali esperimenti sono stati trovati"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Input autentici e separazione delle annotazioni"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Segnali provati"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Precisione a recall conservato"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "Esecuzione"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "title": "Verifiche"
+        }
+      ],
+      "title": "CLIP e PARSeq sul pool ad alto recall"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_IMAGE_ROUTER.md",
+      "bytes": 12801,
+      "sha256": "e80e9065457a995d351f81b2f96f7e75601c7b6b2720a5e771a72d014a6c55d5",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CLIP whole-image router on Text+Kernel epoch61"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "title": "Fixed word/background rule"
+        },
+        {
+          "line": 174,
+          "level": 2,
+          "title": "Completed three-model fixed-rule comparison"
+        }
+      ],
+      "title": "CLIP whole-image router on Text+Kernel epoch61"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_INNOVATIVE_VERIFICATION.md",
+      "bytes": 9860,
+      "sha256": "fcef31091b432895c21c51ab90e02301f6fbb4bffefd05fe9893d0b3d60fbeb2",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Un comando dal terminale dell'host"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "Ipotesi implementate"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Fonti e ulteriori idee"
+        },
+        {
+          "line": 126,
+          "level": 2,
+          "title": "Verifiche già eseguite in questa sessione"
+        }
+      ],
+      "title": "Nuovi utilizzi di CLIP e comando per il confronto su GPU"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_ROUTER_E2E.md",
+      "bytes": 9803,
+      "sha256": "d22d2e1ba0f37086950a80ab2014705410e2125a15d071b09d0d31fc15ce4676",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CLIP whole-image router: separate TRAIN and TEST"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "title": "Complete TEST300 result (2026-10-12)"
+        }
+      ],
+      "title": "CLIP whole-image router: separate TRAIN and TEST"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_ROUTER_LITERATURE_MODELS.md",
+      "bytes": 17500,
+      "sha256": "57ba2e20ed88aa689edc1cdfebc1452cbd48e7281f4a7750bef81be4016ba2be",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Literature-motivated CLIP router experiments (v3)"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Models and the evidence for testing them"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "Checkpoints and native processing"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Protocol and metrics"
+        },
+        {
+          "line": 133,
+          "level": 2,
+          "title": "Run on the network/GPU host"
+        },
+        {
+          "line": 172,
+          "level": 2,
+          "title": "Local qualification and remaining work"
+        },
+        {
+          "line": 199,
+          "level": 2,
+          "title": "Completed host alternatives and independent replay (2026-10-14)"
+        },
+        {
+          "line": 253,
+          "level": 2,
+          "title": "SigLIP2 context-boundary correction"
+        }
+      ],
+      "title": "Literature-motivated CLIP router experiments (v3)"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_ROUTER_PROMPT_ABLATION.md",
+      "bytes": 13654,
+      "sha256": "799327e5927921ec39c6a8167b682393e4f2fa33abfe65862f5298f9af1a2328",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Updated CLIP-family encoders and transcript prompts"
+        },
+        {
+          "line": 16,
+          "level": 2,
+          "title": "What is tested"
+        },
+        {
+          "line": 41,
+          "level": 2,
+          "title": "Calibration and reporting"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Commands"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Completed local result: CLIP B/16"
+        },
+        {
+          "line": 153,
+          "level": 2,
+          "title": "Completed local result: CLIP B/32 and combined comparison"
+        },
+        {
+          "line": 190,
+          "level": 2,
+          "title": "Primary sources and further experiments"
+        }
+      ],
+      "title": "Updated CLIP-family encoders and transcript prompts"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_ROUTER_THRESHOLD_SWEEP.md",
+      "bytes": 7397,
+      "sha256": "016cfafd04311aa00175fd6c9d168abf1d7010578c9f334da9bb83bb73fd87d3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen CLIP router threshold curves"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "TEST300"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "TRAIN125"
+        },
+        {
+          "line": 79,
+          "level": 2,
+          "title": "Run and inspect"
+        }
+      ],
+      "title": "Frozen CLIP router threshold curves"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_SPECIALIZED_ROUTERS.md",
+      "bytes": 15608,
+      "sha256": "56afaf90bda2b9aa90757d81c7b959679c9771de3b84e59cc5d3cf8cd5bebe08",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Native Long-CLIP / LLM2CLIP OCR router experiment"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Models and evidence"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Frozen comparison"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Execution and qualification"
+        },
+        {
+          "line": 147,
+          "level": 2,
+          "title": "Completed results"
+        },
+        {
+          "line": 193,
+          "level": 2,
+          "title": "Completing the TRAIN fallback comparison"
+        },
+        {
+          "line": 216,
+          "level": 2,
+          "title": "Independent result audit"
+        },
+        {
+          "line": 252,
+          "level": 2,
+          "title": "Literature interpretation and further hypotheses"
+        }
+      ],
+      "title": "Native Long-CLIP / LLM2CLIP OCR router experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_VERIFICATION_RESULTS.md",
+      "bytes": 7780,
+      "sha256": "25c327d5c30bf0b1409a8a6a1e6c09e61d121a537810db60c0b240d60cdf7a84",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Risultati principali"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Le descrizioni aiutano il prompt?"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "«La parola è corretta?» e discriminazione delle lettere"
+        },
+        {
+          "line": 96,
+          "level": 2,
+          "title": "Provenienza, hardware e verifiche"
+        }
+      ],
+      "title": "Confronto CLIP completato: B/32, B/16 e L/14"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CLIP_WORD_VERIFICATION.md",
+      "bytes": 17006,
+      "sha256": "eee550e205fcf89235b8e97935e439f5e452a5e7073cf35c27aaf60c8b34c12a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CLIP per verificare le trascrizioni PARSeq"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Come si inserisce nel progetto"
+        },
+        {
+          "line": 22,
+          "level": 2,
+          "title": "Implementazioni CLIP esistenti"
+        },
+        {
+          "line": 37,
+          "level": 2,
+          "title": "Idee dalla letteratura"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "title": "Confronto controllato"
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "title": "Metriche e limiti"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Ripetere il test e confrontare i checkpoint"
+        },
+        {
+          "line": 205,
+          "level": 2,
+          "title": "Risultati misurati il 7 ottobre 2026"
+        }
+      ],
+      "title": "CLIP per verificare le trascrizioni PARSeq"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CONTEXTUAL_OCR_CORRECTION_TRAIN_V1.md",
+      "bytes": 7700,
+      "sha256": "833e95cb50b3debebd478f123d180f40667076da395c7a7bfc2d8da9354fd63f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Scopo e confini"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "Modelli e input congelati prima dei risultati"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Prompt, output e protezioni"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Provenienza, cache e ripresa"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Metriche e interpretazione"
+        },
+        {
+          "line": 100,
+          "level": 2,
+          "title": "Comando PAPER"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Classificazione scientifica"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Verifiche completate prima del run GPU"
+        }
+      ],
+      "title": "Correzione contestuale OCR: confronto TRAIN congelato v1"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CONTEXTUAL_OCR_FEWSHOT_TRAIN_V1.md",
+      "bytes": 3539,
+      "sha256": "2f48e66d082e2944d633484e2a296738c33bf6e52e135864de22340d65f1f5ad",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Image-held-out TRAIN few-shot OCR correction"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Frozen design"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Manual PAPER run"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "CPU verification"
+        }
+      ],
+      "title": "Image-held-out TRAIN few-shot OCR correction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CONTEXTUAL_OCR_PLAINTEXT_TRAIN_V2.md",
+      "bytes": 2149,
+      "sha256": "52e950759275acb929e00217fe5fa2053ff5abc9751e5dd63950ee67536683ec",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Full TRAIN plain-text OCR correction diagnostic"
+        }
+      ],
+      "title": "Full TRAIN plain-text OCR correction diagnostic"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CROP_GROUP_POSTFILTERS.md",
+      "bytes": 3793,
+      "sha256": "7a22a5ff0c93c1c1ed7b01e5ce3b3eaecd83e339b1022a1a24463afaa3242dfa",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen crop-group output postfilters"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Inference rules"
+        },
+        {
+          "line": 54,
+          "level": 2,
+          "title": "Frozen 300-image TEST result"
+        }
+      ],
+      "title": "Frozen crop-group output postfilters"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CROP_GROUP_REFINEMENTS.md",
+      "bytes": 7263,
+      "sha256": "7a873c5c1379299b2005cd2efae52dd89206158499b72e5af3bba82b898f0224",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Crop-group refinement diagnostic"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "What changed"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "Measured frozen results"
+        },
+        {
+          "line": 100,
+          "level": 2,
+          "title": "Reproduction"
+        }
+      ],
+      "title": "Crop-group refinement diagnostic"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CROP_GROUP_WORD_SELECTION.md",
+      "bytes": 19127,
+      "sha256": "8ab00c860d8f35964279defe708c4f180950c56e21f3f2cce1fa85fcccfd3c8d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Selecting one reading from a crop group"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Scope and command"
+        },
+        {
+          "line": 19,
+          "level": 3,
+          "title": "Complete official TEST evaluation"
+        },
+        {
+          "line": 111,
+          "level": 2,
+          "title": "General rules and their limits"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Nine selectors using existing evidence"
+        },
+        {
+          "line": 174,
+          "level": 2,
+          "title": "Cross-PARSeq selector"
+        },
+        {
+          "line": 205,
+          "level": 2,
+          "title": "Four CLIP selectors"
+        },
+        {
+          "line": 243,
+          "level": 2,
+          "title": "Shared crops and evaluation"
+        },
+        {
+          "line": 266,
+          "level": 2,
+          "title": "Scientific evidence and verification"
+        },
+        {
+          "line": 304,
+          "level": 2,
+          "title": "Measured comparison on the frozen TRAIN-125 fixture"
+        }
+      ],
+      "title": "Selecting one reading from a crop group"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CTW1500_WORD_RECOVERY.md",
+      "bytes": 8298,
+      "sha256": "f7584faa0e3acc14ab7dccfe1386e9863714a3e600f6062d9ad54412621df16a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CTW1500: word recovery inside annotated text lines"
+        },
+        {
+          "line": 20,
+          "level": 2,
+          "title": "Evaluation rules"
+        },
+        {
+          "line": 48,
+          "level": 2,
+          "title": "Predictions and controls"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Complete TEST results"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Code audit and complete threshold grid"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Limits"
+        }
+      ],
+      "title": "CTW1500: word recovery inside annotated text lines"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DEEPSOLO_RUNTIME.md",
+      "bytes": 15959,
+      "sha256": "48358d137fcbc124972d65c46a1737b54a468d5dd0231075c553f3d4b2c0fc0d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo M6 Qualified Runtime"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Status boundary"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "Immutable source and candidate identities"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Qualified Docker runtime"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Persistent source and mounts"
+        },
+        {
+          "line": 66,
+          "level": 3,
+          "title": "Host-verified source identity"
+        },
+        {
+          "line": 88,
+          "level": 2,
+          "title": "CUDA extension build"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "title": "Proxmox CPU requirement and SIGILL history"
+        },
+        {
+          "line": 129,
+          "level": 2,
+          "title": "Real inference qualification"
+        },
+        {
+          "line": 158,
+          "level": 2,
+          "title": "Separate-process benchmark"
+        },
+        {
+          "line": 170,
+          "level": 2,
+          "title": "Versioned boundary and lifecycle"
+        },
+        {
+          "line": 218,
+          "level": 2,
+          "title": "Physical-host smoke"
+        },
+        {
+          "line": 233,
+          "level": 2,
+          "title": "Qualified non-Docker host subprocess on `paper`"
+        }
+      ],
+      "title": "DeepSolo M6 Qualified Runtime"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DEEPSOLO_TEXTOCR_IC13_COMPARISON.md",
+      "bytes": 7094,
+      "sha256": "638d53948aa83012bd67a8f06e69d49a6b52b5533812cf6400cad5c683830752",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo TextOCR comparison and IC13 adaptation"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Evidence and current status (2026-10-16)"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Run Total-Text after obtaining the official files"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "title": "ICDAR2013: recovered author configuration"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Validation"
+        }
+      ],
+      "title": "DeepSolo TextOCR comparison and IC13 adaptation"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DEEPSOLO_VITAE_GPU_20261019.md",
+      "bytes": 4931,
+      "sha256": "c22d9ecaf5fcc37b81e66a4af7966fd66ad39469bfc12e64fe239aef13a47b53",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ViTAEv2-S+TextOCR GPU evaluation — 2026-10-19"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "Completed engineering qualification"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "Full evaluation started"
+        },
+        {
+          "line": 73,
+          "level": 2,
+          "title": "Scientific classifications"
+        }
+      ],
+      "title": "ViTAEv2-S+TextOCR GPU evaluation — 2026-10-19"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ENVIRONMENTS.md",
+      "bytes": 20857,
+      "sha256": "f6e4d68f0783296fea6b953a750ce825dbbd090f427b1f642cce40748c3923e3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Reproduction Environment Boundaries"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Status and scope"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "Physical host"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Why two environments are mandatory"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Installed `context-str-main` stack"
+        },
+        {
+          "line": 107,
+          "level": 3,
+          "title": "Approximate-artifact compatibility gate"
+        },
+        {
+          "line": 210,
+          "level": 2,
+          "title": "Isolated `context-str-deepsolo` candidate stack"
+        },
+        {
+          "line": 228,
+          "level": 3,
+          "title": "M6 Docker qualification boundary"
+        },
+        {
+          "line": 262,
+          "level": 2,
+          "title": "CUDA strategy"
+        },
+        {
+          "line": 282,
+          "level": 2,
+          "title": "Environment creation and snapshots"
+        },
+        {
+          "line": 306,
+          "level": 2,
+          "title": "Primary compatibility sources"
+        }
+      ],
+      "title": "Reproduction Environment Boundaries"
+    },
+    {
+      "root": "repository",
+      "path": "docs/EXPERIMENT_SUMMARY_V1_ROUTING_LLMS.md",
+      "bytes": 23321,
+      "sha256": "8a7854eaa049aad1ce9d084652da877e50bb6319f7af6eaa8c3b612f0272026f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Experiment summary: V1, contextual routing and LLM correction"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "1. How V1 works"
+        },
+        {
+          "line": 9,
+          "level": 3,
+          "title": "1.1 Frozen image-to-word pipeline"
+        },
+        {
+          "line": 31,
+          "level": 3,
+          "title": "1.2 Grouping rule"
+        },
+        {
+          "line": 48,
+          "level": 3,
+          "title": "1.3 Baseline and localization evidence"
+        },
+        {
+          "line": 68,
+          "level": 3,
+          "title": "1.4 Metric distinctions used throughout"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "2. Contextual routing experiments"
+        },
+        {
+          "line": 83,
+          "level": 3,
+          "title": "2.1 Intended decision"
+        },
+        {
+          "line": 102,
+          "level": 3,
+          "title": "2.2 What was tested"
+        },
+        {
+          "line": 118,
+          "level": 3,
+          "title": "2.3 The historical “88%” and the actual word results"
+        },
+        {
+          "line": 134,
+          "level": 3,
+          "title": "2.4 Frozen InstructBLIP fallback-budget experiment"
+        },
+        {
+          "line": 149,
+          "level": 2,
+          "title": "3. LLM experiments in more detail"
+        },
+        {
+          "line": 151,
+          "level": 3,
+          "title": "3.1 Common objective and controls"
+        },
+        {
+          "line": 157,
+          "level": 3,
+          "title": "3.2 Whole-image JSON, plaintext and few-shot correction"
+        },
+        {
+          "line": 176,
+          "level": 3,
+          "title": "3.3 Multi-fragment and structural reconstruction"
+        },
+        {
+          "line": 193,
+          "level": 3,
+          "title": "3.4 Conservative per-crop correction and prompt comparisons"
+        },
+        {
+          "line": 207,
+          "level": 3,
+          "title": "3.5 PARSeq alternatives: useful candidates, difficult selection"
+        },
+        {
+          "line": 231,
+          "level": 3,
+          "title": "3.6 Completed40-condition evidence-generation battery"
+        },
+        {
+          "line": 261,
+          "level": 3,
+          "title": "3.7 Prepared next:80 target-bound conditions — not yet evaluated"
+        },
+        {
+          "line": 277,
+          "level": 2,
+          "title": "4. Overall findings"
+        },
+        {
+          "line": 285,
+          "level": 2,
+          "title": "5. Main evidence files"
+        }
+      ],
+      "title": "Experiment summary: V1, contextual routing and LLM correction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/EXTERNAL_ASSETS.md",
+      "bytes": 17424,
+      "sha256": "4947495c9eaa36d9024a78eb04933e17daf62499126fad666aa4831696b6d987",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "External assets: obtain, verify, recreate"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "What is excluded"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Workspace layout"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Source and candidate weights"
+        },
+        {
+          "line": 71,
+          "level": 3,
+          "title": "PARSeq-S candidate"
+        },
+        {
+          "line": 104,
+          "level": 3,
+          "title": "BLIP-2, MPNet and encoder candidates"
+        },
+        {
+          "line": 145,
+          "level": 3,
+          "title": "DeepSolo and Detectron2"
+        },
+        {
+          "line": 184,
+          "level": 2,
+          "title": "Datasets and prepared targets"
+        },
+        {
+          "line": 219,
+          "level": 2,
+          "title": "Project checkpoints and generated experiment outputs"
+        },
+        {
+          "line": 245,
+          "level": 3,
+          "title": "Restore saved comparisons"
+        },
+        {
+          "line": 268,
+          "level": 2,
+          "title": "Access and licenses"
+        }
+      ],
+      "title": "External assets: obtain, verify, recreate"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GEOMETRY_CONTEXT_RECONSTRUCTION_TRAIN_V1.md",
+      "bytes": 3761,
+      "sha256": "c16ad366f38fcd059256f7b8758efa5d251d90456296db89ba0cc5d51c149a2c",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Non-oracle geometry/context OCR reconstruction"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Frozen comparison"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "title": "Parser and evaluation"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Manual run and persistence"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Limitations and provenance"
+        }
+      ],
+      "title": "Non-oracle geometry/context OCR reconstruction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GETTING_STARTED.md",
+      "bytes": 6477,
+      "sha256": "4c394a034a4f1579b56fe5dddb6885c177df15133f7bc9a7aef3bb65e638161a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Getting started on a new machine"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "1. Clone and explore"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "title": "2. Create an isolated main environment when needed"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "3. Run offline component checks"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "4. Obtain scientific inputs and qualify the host"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "5. Prepare data, then launch one explicit experiment"
+        },
+        {
+          "line": 145,
+          "level": 2,
+          "title": "6. Work on a branch"
+        }
+      ],
+      "title": "Getting started on a new machine"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GT_WORD_GROUP_SELECTOR.md",
+      "bytes": 2576,
+      "sha256": "5f2e4935b2c89ebbfc1f249a7197a6a0d6ab0e03c74a0382d2c9a247e966f742",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "One GT-word group per annotated word"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "title": "Full TEST result"
+        }
+      ],
+      "title": "One GT-word group per annotated word"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GUARDED_V3_GRAPH_CUT.md",
+      "bytes": 8984,
+      "sha256": "b25667789c248156fa6d971d4a5c5fcc6bfe811a9a96ecc28aabb67e411656c4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "V3/447 word graph cut"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Matched source"
+        },
+        {
+          "line": 30,
+          "level": 2,
+          "title": "New partitioning method"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "title": "Controls and calibration"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Runtime and qualification"
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "title": "Completed result (2026-10-21)"
+        }
+      ],
+      "title": "V3/447 word graph cut"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GUARDED_V3_TRAINING_OCR.md",
+      "bytes": 5484,
+      "sha256": "554443bfc857cedb66737c0d9f0b641cec9c6a78bc4c2ed36fb940abd232e5d5",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Guarded V3 training and PARSeq — approximate reproduction"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Training"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "title": "Automatic post-training evaluation"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Execution and reproducibility"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Launch qualification"
+        }
+      ],
+      "title": "Guarded V3 training and PARSeq — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GUARDED_WORD_GT_V3.md",
+      "bytes": 7902,
+      "sha256": "631a85f34227a9867be7ee0ca1b9f6f55b781a08c41f4ba1d654986407c86643",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Guarded word GT V3 — approximate reproduction"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Runtime construction"
+        },
+        {
+          "line": 38,
+          "level": 2,
+          "title": "Explicit initial assumptions"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Training interface and per-sample evidence"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "title": "Qualification and native previews"
+        },
+        {
+          "line": 134,
+          "level": 2,
+          "title": "Completed qualification,2026-10-17"
+        }
+      ],
+      "title": "Guarded word GT V3 — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/HOST_OPERATIONS.md",
+      "bytes": 2899,
+      "sha256": "aff3f98f83c2128a2e415c62020bc0b01130948014faf86dc6383a8689234c7f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Macchina PAPER e comandi"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Prima di eseguire"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Posizioni operative"
+        }
+      ],
+      "title": "Macchina PAPER e comandi"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_ROUTING_AUDIT.md",
+      "bytes": 5327,
+      "sha256": "5bb7c73280519477efd69bbdb5f793d8c9aa73c46cae42f4d126f07564a2b1b8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR13 routing audit and persistent comparison"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Historical result recovered on 2026-09-10"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Frozen comparison to execute on PAPER"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Run and storage"
+        }
+      ],
+      "title": "ICDAR13 routing audit and persistent comparison"
+    },
+    {
+      "root": "repository",
+      "path": "docs/KERNEL_ONLY_FRESH.md",
+      "bytes": 5430,
+      "sha256": "f82a586f83e07c615b518e2bbff983df504ee8d92e1ff1153bcefed9a16b86d6",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "New U-Net trained on Kernel GT"
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "title": "Initialization and training"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Actual launch qualification"
+        }
+      ],
+      "title": "New U-Net trained on Kernel GT"
+    },
+    {
+      "root": "repository",
+      "path": "docs/KERNEL_ONLY_PADDING.md",
+      "bytes": 5567,
+      "sha256": "ad407e48bdcdcbd08497d45f28ef91ffeb13075262ad5708fb6c1746167eaf6b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Extracted Kernel-only output and padding"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Completed measurement, 16 October 2026"
+        }
+      ],
+      "title": "Extracted Kernel-only output and padding"
+    },
+    {
+      "root": "repository",
+      "path": "docs/KERNEL_ONLY_TRAINING.md",
+      "bytes": 7726,
+      "sha256": "59bfcf6d36f3fcabd400cb100a0a3e8c1440ff21cde132f48a0817fc20c629ec",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Supervised Kernel-only fine-tuning"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "GPU launch qualification"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Completed result and independent audit"
+        }
+      ],
+      "title": "Supervised Kernel-only fine-tuning"
+    },
+    {
+      "root": "repository",
+      "path": "docs/MASK_CROP_THREE_TESTS.md",
+      "bytes": 9646,
+      "sha256": "9335b2501b718b31ea6636ca5b2fbc558537bca21a8e4aa7fa993fbaae41c92f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Tre test: dalla maschera V3 a crop leggibili"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Protocollo congelato"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "Test1: budget dei crop — completato"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Test2: separazioni/unioni e selettore"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Test3: rifinitore supervisionato dal riconoscimento"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Risultati completi: test2/3"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "Esecuzione e controllo"
+        }
+      ],
+      "title": "Tre test: dalla maschera V3 a crop leggibili"
+    },
+    {
+      "root": "repository",
+      "path": "docs/MASK_PROBABILITY_REFINER.md",
+      "bytes": 10567,
+      "sha256": "6643440257853426013c6709d4eaa76c033f5fcb6db1a297f97ddd6a09f7f8ed",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Small RGB/mask/probability correction battery"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Literature and local novelty"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "Models and supervision"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Budget, selection and evaluation"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Qualification and execution"
+        },
+        {
+          "line": 140,
+          "level": 2,
+          "title": "Live full run"
+        }
+      ],
+      "title": "Small RGB/mask/probability correction battery"
+    },
+    {
+      "root": "repository",
+      "path": "docs/MASK_PROBABILITY_REFINER_NOVELTY.json",
+      "bytes": 3374,
+      "sha256": "c7e051a23f64b40f9eb2dbc743fcaa9d03e95b9916990be3c35348423f97c493",
+      "title": "MASK_PROBABILITY_REFINER_NOVELTY",
+      "reported_metadata": {
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "docs/OCR_EVIDENCE_GENERATION_BATTERY_TRAIN_V1.md",
+      "bytes": 6815,
+      "sha256": "710de244de2b9412ad9ee289fde55b908b830026f042bb438020f1f8e295935c",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "OCR evidence generation battery — frozen TRAIN exploration"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Why this experiment"
+        },
+        {
+          "line": 19,
+          "level": 2,
+          "title": "Forty conditions"
+        },
+        {
+          "line": 48,
+          "level": 2,
+          "title": "Inputs, scoring and limitations"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Execution, resources and audit"
+        }
+      ],
+      "title": "OCR evidence generation battery — frozen TRAIN exploration"
+    },
+    {
+      "root": "repository",
+      "path": "docs/OCR_PROMPT_COMPARISON_TRAIN_V1.md",
+      "bytes": 3324,
+      "sha256": "80fcef945f0dc16d1d39895ad48b71da6795c548301dd75d3324858136ffbf77",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen prompt comparison, TRAIN229"
+        }
+      ],
+      "title": "Frozen prompt comparison, TRAIN229"
+    },
+    {
+      "root": "repository",
+      "path": "docs/OCR_TARGET_BOUND_BATTERY_TRAIN_V2.md",
+      "bytes": 13383,
+      "sha256": "2bb2525e40712fbcfdabf68e32b5d55995f52fc4aaafb2a9fe788ceab04ae127",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "OCR battery: damage audit and 80 target-bound diagnostics"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Scope and evidence"
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "title": "What failed, and why this is not a caption-length problem alone"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Every old condition: raw results and offline edit-distance audit"
+        },
+        {
+          "line": 100,
+          "level": 3,
+          "title": "Which nearby tests are justified?"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "New predeclared 80 conditions"
+        },
+        {
+          "line": 166,
+          "level": 2,
+          "title": "Reproducibility, cost and decision"
+        },
+        {
+          "line": 194,
+          "level": 2,
+          "title": "Launch and outputs"
+        },
+        {
+          "line": 215,
+          "level": 2,
+          "title": "CPU qualification completed before handoff"
+        }
+      ],
+      "title": "OCR battery: damage audit and 80 target-bound diagnostics"
+    },
+    {
+      "root": "repository",
+      "path": "docs/PAPER_AMBIGUITIES.md",
+      "bytes": 663004,
+      "sha256": "0328d9c1e7fc304bf60bc87adad59adf3fad60d1c178f3c8b1001e948653e424",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Paper Ambiguities and Reproduction Blockers"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "1. Purpose"
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "title": "2. Architecture and segmentation"
+        },
+        {
+          "line": 17,
+          "level": 3,
+          "title": "A-001 — Repository AG-UNet final attention skip defect"
+        },
+        {
+          "line": 26,
+          "level": 3,
+          "title": "A-002 — Decoder operations remain incomplete after endpoint clarification"
+        },
+        {
+          "line": 36,
+          "level": 3,
+          "title": "A-003 — Bottleneck compression is described but not implemented"
+        },
+        {
+          "line": 46,
+          "level": 3,
+          "title": "A-004 — Attention-gate implementation is underspecified"
+        },
+        {
+          "line": 56,
+          "level": 3,
+          "title": "A-005 — Mask/logit resolution is contradictory"
+        },
+        {
+          "line": 65,
+          "level": 3,
+          "title": "A-006 — ResNet-50 pretrained weights and encoder training state are unknown"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "title": "A-007 — Image normalization and resize geometry are unknown"
+        },
+        {
+          "line": 83,
+          "level": 3,
+          "title": "A-008 — Segmentation threshold and mask postprocessing are absent"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "3. Segmentation training protocol"
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "title": "T-001 — Training duration is resolved; remaining optimizer/selection mechanics are incomplete"
+        },
+        {
+          "line": 102,
+          "level": 3,
+          "title": "T-002 — Dataset training regime is unknown"
+        },
+        {
+          "line": 110,
+          "level": 3,
+          "title": "T-003 — Augmentation is incompletely defined"
+        },
+        {
+          "line": 118,
+          "level": 3,
+          "title": "T-004 — Paper hardware statement is inconsistent with the named GPU"
+        },
+        {
+          "line": 126,
+          "level": 2,
+          "title": "4. Localization"
+        },
+        {
+          "line": 128,
+          "level": 3,
+          "title": "L-001 — Numeric `Amin` and padding `p` are missing"
+        },
+        {
+          "line": 137,
+          "level": 3,
+          "title": "L-002 — Repository uses bounding-box area instead of component area"
+        },
+        {
+          "line": 146,
+          "level": 4,
+          "title": "L-002 implementation audit, 2026-09-16 — isolated repository-contours-v1"
+        },
+        {
+          "line": 154,
+          "level": 4,
+          "title": "Native128 repository-contour diagnostic, 2026-09-16"
+        },
+        {
+          "line": 162,
+          "level": 3,
+          "title": "L-003 — Connectivity, contour hierarchy, and ordering ties are unspecified"
+        },
+        {
+          "line": 170,
+          "level": 3,
+          "title": "L-004 — Multiple crops do not map unambiguously to singular `T3`"
+        },
+        {
+          "line": 179,
+          "level": 3,
+          "title": "L-005 — Bounding-box maximum-coordinate convention is ambiguous"
+        },
+        {
+          "line": 187,
+          "level": 2,
+          "title": "5. BLIP-2 captioning"
+        },
+        {
+          "line": 189,
+          "level": 3,
+          "title": "C-001 — BLIP-2 checkpoint and claimed backbone do not align"
+        },
+        {
+          "line": 215,
+          "level": 4,
+          "title": "C-001-LAVIS-VISUAL-001 — Lightweight caption candidates (2026-09-14)"
+        },
+        {
+          "line": 308,
+          "level": 3,
+          "title": "C-002 — Caption length is described as both tokens and words"
+        },
+        {
+          "line": 317,
+          "level": 3,
+          "title": "C-003 — Prompt is incomplete versus repository shorthand"
+        },
+        {
+          "line": 326,
+          "level": 3,
+          "title": "C-004 — Decoding parameters are not reported"
+        },
+        {
+          "line": 335,
+          "level": 3,
+          "title": "C-005 — Reported 120 ms caption latency lacks a protocol"
+        },
+        {
+          "line": 342,
+          "level": 2,
+          "title": "6. PARSeq-S recognition"
+        },
+        {
+          "line": 344,
+          "level": 3,
+          "title": "R-001 — Exact PARSeq-S artifact is unidentified"
+        },
+        {
+          "line": 359,
+          "level": 3,
+          "title": "R-002 — Current repository adapter is not PARSeq sequence decoding"
+        },
+        {
+          "line": 377,
+          "level": 3,
+          "title": "R-003 — Full-image `T1` semantics are unclear for a single-instance recognizer"
+        },
+        {
+          "line": 385,
+          "level": 2,
+          "title": "7. Context scoring"
+        },
+        {
+          "line": 387,
+          "level": 3,
+          "title": "S-001 — Figure 2, prose, and Algorithm 2 define different aggregation"
+        },
+        {
+          "line": 400,
+          "level": 3,
+          "title": "S-002 — Fuzzy comparison implementation and preprocessing are unknown"
+        },
+        {
+          "line": 409,
+          "level": 3,
+          "title": "S-003 — Whole-word versus long-caption fuzzy scores appear incompatible with the threshold"
+        },
+        {
+          "line": 418,
+          "level": 3,
+          "title": "S-004 — Exact MPNet checkpoint and embedding behavior are missing"
+        },
+        {
+          "line": 427,
+          "level": 3,
+          "title": "S-005 — Tie and empty-input behavior are unspecified"
+        },
+        {
+          "line": 438,
+          "level": 2,
+          "title": "8. DeepSolo fallback"
+        },
+        {
+          "line": 440,
+          "level": 3,
+          "title": "D-001 — Exact DeepSolo model and checkpoint are unknown"
+        },
+        {
+          "line": 455,
+          "level": 3,
+          "title": "D-002 — Multiple DeepSolo outputs cannot map directly to singular `Tfinal`"
+        },
+        {
+          "line": 468,
+          "level": 3,
+          "title": "D-003 — DeepSolo dependency integration is incompatible with the main scaffold"
+        },
+        {
+          "line": 486,
+          "level": 2,
+          "title": "9. Datasets and splits"
+        },
+        {
+          "line": 488,
+          "level": 3,
+          "title": "DS-001 — COCO-TS counts do not match the named dataset"
+        },
+        {
+          "line": 497,
+          "level": 3,
+          "title": "DS-002 — ICDAR13 recognition uses 229 where the paper lists 233 test images"
+        },
+        {
+          "line": 506,
+          "level": 3,
+          "title": "DS-003 — Don’t Care loss behavior clarified; conversion mechanics partly unresolved"
+        },
+        {
+          "line": 514,
+          "level": 3,
+          "title": "DS-004 — Additional benchmark acquisition and granularity boundary"
+        },
+        {
+          "line": 523,
+          "level": 2,
+          "title": "10. Metrics and reported results"
+        },
+        {
+          "line": 525,
+          "level": 3,
+          "title": "E-001 — Recognition “accuracy” is undefined"
+        },
+        {
+          "line": 533,
+          "level": 3,
+          "title": "E-002 — Table 3 values conflict with the stated IoU/F1 relationship"
+        },
+        {
+          "line": 542,
+          "level": 3,
+          "title": "E-003 — Segmentation aggregation and edge cases are unspecified"
+        },
+        {
+          "line": 562,
+          "level": 3,
+          "title": "E-004 — FLOP protocol is absent"
+        },
+        {
+          "line": 570,
+          "level": 3,
+          "title": "E-005 — False-positive and failure accounting are undefined"
+        },
+        {
+          "line": 578,
+          "level": 2,
+          "title": "11. Ablation protocol"
+        },
+        {
+          "line": 580,
+          "level": 3,
+          "title": "AB-001 — Wrong-description sampling is unspecified"
+        },
+        {
+          "line": 588,
+          "level": 3,
+          "title": "AB-002 — No-description representation is unspecified"
+        },
+        {
+          "line": 596,
+          "level": 3,
+          "title": "AB-003 — Detector-assisted comparison has no reproducible protocol"
+        },
+        {
+          "line": 604,
+          "level": 3,
+          "title": "AB-004 — Ablation seeds, repetitions, and uncertainty are absent"
+        },
+        {
+          "line": 611,
+          "level": 2,
+          "title": "12. Repository-level blockers that preserve prior assumptions"
+        },
+        {
+          "line": 626,
+          "level": 2,
+          "title": "13. Provenance cross-reference after evidence freeze"
+        },
+        {
+          "line": 685,
+          "level": 2,
+          "title": "14. Macro-Milestone 4 approximate segmentation decisions"
+        },
+        {
+          "line": 692,
+          "level": 3,
+          "title": "M4-SEG-001 — Figure-derived AG-UNet reconstruction"
+        },
+        {
+          "line": 700,
+          "level": 3,
+          "title": "M8-SEG-001 — Frozen approximate architecture conformance identity"
+        },
+        {
+          "line": 731,
+          "level": 3,
+          "title": "M4-SEG-002 — Approximate paired transforms"
+        },
+        {
+          "line": 739,
+          "level": 3,
+          "title": "M4-SEG-003 — Approximate smoke-training protocol"
+        },
+        {
+          "line": 746,
+          "level": 3,
+          "title": "M4-SEG-004 — Algorithm 1 unspecified mechanics"
+        },
+        {
+          "line": 753,
+          "level": 3,
+          "title": "M7-LOC-001 — Algorithm 1 conformance boundary"
+        },
+        {
+          "line": 761,
+          "level": 3,
+          "title": "M4-SEG-005 — Threshold and metric aggregation"
+        },
+        {
+          "line": 767,
+          "level": 3,
+          "title": "M4-SEG-006 — Dataset manifest boundary"
+        },
+        {
+          "line": 773,
+          "level": 3,
+          "title": "M9-SEG-001 — Real dataset orchestration and validation"
+        },
+        {
+          "line": 781,
+          "level": 3,
+          "title": "M9-SEG-002 — Multi-epoch, resume, checkpoint, and logging choices"
+        },
+        {
+          "line": 790,
+          "level": 3,
+          "title": "M10-SEG-001 — APPROXIMATE ICDAR13 Table 3 evaluation protocol"
+        },
+        {
+          "line": 797,
+          "level": 3,
+          "title": "M10-SEG-002 — Author-protocol native-128 evaluation diagnostic"
+        },
+        {
+          "line": 809,
+          "level": 3,
+          "title": "M10-SEG-003 — Task 1 care-box conservative Don't Care diagnostic"
+        },
+        {
+          "line": 825,
+          "level": 3,
+          "title": "M11-DOWN-001 — Frozen binary-mask backprojection and device sensitivity"
+        },
+        {
+          "line": 840,
+          "level": 3,
+          "title": "M11-DEEPSOLO-HOST-001 — Non-Docker legacy runtime on `paper`"
+        },
+        {
+          "line": 864,
+          "level": 3,
+          "title": "M11-PARSEQ-ARCHIVE-001 — GitHub commit-archive source transport on `paper`"
+        },
+        {
+          "line": 880,
+          "level": 3,
+          "title": "M11-MAIN-HOST-001 — Recreated main runtime on RTX 3090 host"
+        },
+        {
+          "line": 897,
+          "level": 3,
+          "title": "M11-BLIP2-HOST-001 — FP16 single-device feasibility on RTX 3090"
+        },
+        {
+          "line": 912,
+          "level": 3,
+          "title": "M11-MPNET-HOST-001 — MPNet and score-path host qualification"
+        },
+        {
+          "line": 931,
+          "level": 3,
+          "title": "M11-E2E-HOST-001 — Complete ICDAR13 image-1 pipeline smoke"
+        },
+        {
+          "line": 965,
+          "level": 3,
+          "title": "M11-ICDAR13-REC-001 — Frozen 233-image Task 1 population"
+        },
+        {
+          "line": 982,
+          "level": 3,
+          "title": "M11-ICDAR13-TRACE-001 — Physical multi-image trace probe, IDs 3--5"
+        },
+        {
+          "line": 1104,
+          "level": 2,
+          "title": "L-APP-001 — Appearance-guided local remapping (separate prototype)"
+        },
+        {
+          "line": 1152,
+          "level": 2,
+          "title": "L-PERSIST-001 — Multiscale component persistence (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1178,
+          "level": 2,
+          "title": "L-SPAN-001 — Contiguous component-span oracle (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1208,
+          "level": 2,
+          "title": "L-MHYP-001 — Multi-hypothesis word-proposal oracle (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1243,
+          "level": 2,
+          "title": "R-RANK-001 — PARSeq candidate-confidence ranking (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1267,
+          "level": 2,
+          "title": "S-CTX-RANK-001 — BLIP/context proposal ranking (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1292,
+          "level": 2,
+          "title": "S-CTX-LOCAL-001 — Anti-repetition caption and local-context matching (TRAIN diagnostic)"
+        },
+        {
+          "line": 1332,
+          "level": 2,
+          "title": "L-PROB-THRESH-001 — Probability-threshold word-connectivity sweep (TRAIN diagnostic)"
+        },
+        {
+          "line": 1361,
+          "level": 2,
+          "title": "R-CAND-SEL-001 — Practical candidate selection (separate TRAIN diagnostic)"
+        },
+        {
+          "line": 1401,
+          "level": 2,
+          "title": "R-CAND-SEL-002 — Anchor-complete candidate selection (TRAIN diagnostic)"
+        },
+        {
+          "line": 1443,
+          "level": 2,
+          "title": "R-E2E-COMP-001 — Algorithm1 versus rejected balanced selector on TEST"
+        },
+        {
+          "line": 1487,
+          "level": 2,
+          "title": "R-ROUTING-SUITE-001 — Persistent frozen TEST routing comparison"
+        },
+        {
+          "line": 1512,
+          "level": 2,
+          "title": "L-004-JOIN-001 — User-requested concatenation of retained block texts into T3"
+        },
+        {
+          "line": 1554,
+          "level": 3,
+          "title": "S-006 — Opt-in InstructBLIP paired image-budget calibration (2026-09-16)"
+        },
+        {
+          "line": 1578,
+          "level": 3,
+          "title": "S-006 / D-002 / E-001 — Frozen-tau TRAIN/TEST end-to-end extension"
+        },
+        {
+          "line": 1602,
+          "level": 3,
+          "title": "MASK-OCR-REGION-001 — Frozen TEST mask quality versus v1 OCR errors"
+        },
+        {
+          "line": 1634,
+          "level": 3,
+          "title": "GT-MASK-LOCALIZATION-001 — frozen TRAIN localizers on perfect pixel targets"
+        },
+        {
+          "line": 1678,
+          "level": 3,
+          "title": "L-DIRECTION-001 — component-neighbour priority and orientation audit"
+        },
+        {
+          "line": 1728,
+          "level": 3,
+          "title": "L-BILINEAR-001 — Binary native-mask upsampling control"
+        },
+        {
+          "line": 1746,
+          "level": 3,
+          "title": "L-BILINEAR-002 — Higher post-interpolation thresholds"
+        },
+        {
+          "line": 1760,
+          "level": 3,
+          "title": "L-BILINEAR-003 — Lower post-interpolation thresholds"
+        },
+        {
+          "line": 1775,
+          "level": 3,
+          "title": "L-GROUP-COHERENCE-PROBABILITY-001 — Two independent group diagnostics"
+        },
+        {
+          "line": 1808,
+          "level": 3,
+          "title": "TRAIN-V1-OCR-FAILURE-001 — Frozen OCR errors versus mask/group geometry"
+        },
+        {
+          "line": 1845,
+          "level": 3,
+          "title": "TRAIN-CROP-COMPLETENESS-001 — Completeness versus foreign foreground"
+        },
+        {
+          "line": 1879,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-CORRECTION-001 — Frozen small-model post-OCR comparison"
+        },
+        {
+          "line": 1895,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-PLAINTEXT-002 — Full TRAIN per-target output protocol"
+        },
+        {
+          "line": 1911,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-FEWSHOT-003 — TRAIN GT in held-out demonstrations"
+        },
+        {
+          "line": 1928,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-EDIT-GATE-004 — Offline conservative caption-output gates"
+        },
+        {
+          "line": 1947,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-PROMPT-005 — Fixed prompt ablation on cached TRAIN OCR"
+        },
+        {
+          "line": 1962,
+          "level": 3,
+          "title": "CONTEXTUAL-OCR-GEOMETRY-006 — Non-oracle ALL_WORDS geometry/caption ablation"
+        },
+        {
+          "line": 1978,
+          "level": 3,
+          "title": "PARSEQ-VISUAL-MARGIN-007 — Offline conservative candidate reranking"
+        },
+        {
+          "line": 1992,
+          "level": 3,
+          "title": "OCR-EVIDENCE-BATTERY-008 — Generation with context budgets and beam evidence"
+        },
+        {
+          "line": 2010,
+          "level": 3,
+          "title": "OCR-TARGET-BOUND-BATTERY-009 — Target identity and verifiable LLM edits"
+        },
+        {
+          "line": 2032,
+          "level": 3,
+          "title": "DS-005 — Additional-dataset segmentation target construction"
+        },
+        {
+          "line": 2051,
+          "level": 2,
+          "title": "M-SCENE-V1-001 — Cross-dataset practical-remap-v1 recognition diagnostic"
+        },
+        {
+          "line": 2080,
+          "level": 2,
+          "title": "M-SCENE-ALG1-002 — Algorithm 1 crops on additional TEST datasets"
+        },
+        {
+          "line": 2110,
+          "level": 2,
+          "title": "M-TOTALTEXT-WORD-REGIONS-001 — Curved word-level target and fusion penalty"
+        },
+        {
+          "line": 2138,
+          "level": 2,
+          "title": "M-TOTALTEXT-WORD-REGIONS-002 — Pixel-guided curved boundary refinement"
+        },
+        {
+          "line": 2164,
+          "level": 2,
+          "title": "M-TOTALTEXT-WORD-REGIONS-003 — Filled adaptive word-box target"
+        },
+        {
+          "line": 2196,
+          "level": 2,
+          "title": "M-TOTALTEXT-WORD-REGIONS-004 — Curved filled-box correction after v3 rejection"
+        },
+        {
+          "line": 2234,
+          "level": 2,
+          "title": "M-TOTALTEXT-CURVED-CROP-001 — Component-shaped RGB cutout with zero padding"
+        },
+        {
+          "line": 2260,
+          "level": 2,
+          "title": "M-TOTALTEXT-V1-CONTOURS-TEST-001 — Contour localization with the trained v1 target"
+        },
+        {
+          "line": 2277,
+          "level": 2,
+          "title": "M-SCENETEXT-GT-NOFILTER-001 — User-requested no-filter GT oracle diagnostics"
+        },
+        {
+          "line": 2296,
+          "level": 2,
+          "title": "M-SCENETEXT-PRED-BIN-UPSCALE-NOFILTER-001 — Predicted-mask resolution diagnostic"
+        },
+        {
+          "line": 2312,
+          "level": 2,
+          "title": "M-TOTALTEXT-V4-HIGHRES-TRAIN-001 — Native-256 practical segmentation ablation"
+        },
+        {
+          "line": 2339,
+          "level": 2,
+          "title": "M-TOTALTEXT-V4-HIGHRES-PADDING-TEST-001 — Native-256 contour/padding TEST diagnostic"
+        },
+        {
+          "line": 2363,
+          "level": 2,
+          "title": "M-TOTALTEXT-V4-IMAGE-FREQUENCY-TRAIN-001 — Isolated practical input ablations"
+        },
+        {
+          "line": 2464,
+          "level": 2,
+          "title": "TOTALTEXT-CROP-CLIP-TRAIN-001 — Crop variants and frozen CLIP selector"
+        },
+        {
+          "line": 2519,
+          "level": 2,
+          "title": "TOTALTEXT-FEATURE-WAVELET-SKIP-001 — Decoder-gated frequency skip"
+        },
+        {
+          "line": 2542,
+          "level": 2,
+          "title": "TOTALTEXT-WORD-KERNEL-001 — Instance nuclei and seeded expansion"
+        },
+        {
+          "line": 2571,
+          "level": 2,
+          "title": "TT-CROP-RECOVERY-POOL-V1 — Unrestricted crop hypotheses and oracle recall"
+        },
+        {
+          "line": 2613,
+          "level": 2,
+          "title": "TT-CROP-WORD-GROUPS-V1 — Group threshold/window alternatives by word hypothesis"
+        },
+        {
+          "line": 2650,
+          "level": 2,
+          "title": "TOTALTEXT-PARTIAL-ENCODER-001 — matched late-encoder fine-tuning"
+        },
+        {
+          "line": 2671,
+          "level": 2,
+          "title": "CROP-GROUP-WORD-SELECTION-V1 — Frozen evidence selectors and CLIP"
+        },
+        {
+          "line": 2744,
+          "level": 2,
+          "title": "CROP-GROUP-WORD-SELECTION-TEST-V1 — Frozen rules on official TEST"
+        },
+        {
+          "line": 2796,
+          "level": 2,
+          "title": "TT-WORD-ABLATION-001 — four practical word-training interventions"
+        },
+        {
+          "line": 2821,
+          "level": 2,
+          "title": "CROP-GROUP-POSTFILTERS-V1 — Frozen output suppression and abstention"
+        },
+        {
+          "line": 2860,
+          "level": 2,
+          "title": "GT-WORD-GROUP-SELECTOR-V1 — One oracle group per annotated word"
+        },
+        {
+          "line": 2896,
+          "level": 2,
+          "title": "TT-STRUCTURAL-GROUPS-V1 — Proposal lineage, mask footprint, boundaries and admission"
+        },
+        {
+          "line": 2951,
+          "level": 2,
+          "title": "TT-CROP-GROUP-REFINEMENTS-V1 — Robust reference and conservative output grouping"
+        },
+        {
+          "line": 3016,
+          "level": 2,
+          "title": "TT-INDEPENDENT-DETECTOR-SLOTS-V1 — DeepSolo word-slot feasibility"
+        },
+        {
+          "line": 3063,
+          "level": 2,
+          "title": "TT-YOLO-IMPROVEMENTS-V1 — exploratory detector/crop/admission battery"
+        },
+        {
+          "line": 3115,
+          "level": 2,
+          "title": "TT-YOLO-DIRECT-PARSEQ-V1 — direct object boxes as recognizer inputs"
+        },
+        {
+          "line": 3152,
+          "level": 2,
+          "title": "TT-YOLO-WORD-SLOTS-V1 — lightweight object-detection candidate"
+        },
+        {
+          "line": 3190,
+          "level": 2,
+          "title": "TT-BERT-CORRECTION-V1 — Frozen latest-letterbox PARSeq post-correction"
+        },
+        {
+          "line": 3275,
+          "level": 2,
+          "title": "TT-BERT-CONFIDENCE-ABLATION-V1 — Native-confidence protection audit"
+        },
+        {
+          "line": 3310,
+          "level": 2,
+          "title": "TT-NEUSPELL-CORRECTION-V1 — Spelling-trained BERT after frozen PARSeq"
+        },
+        {
+          "line": 3371,
+          "level": 3,
+          "title": "Total-Text letterbox .50 frozen failure examples (post-hoc diagnostic)"
+        },
+        {
+          "line": 3403,
+          "level": 2,
+          "title": "TT-NEUSPELL-LEGACY-TOKENIZER-V2 — Export normalization and position buffer"
+        },
+        {
+          "line": 3461,
+          "level": 2,
+          "title": "TT-BERT-METHODS-V1 — Selective edits, fixed-pool BERT ranking and Florence context"
+        },
+        {
+          "line": 3538,
+          "level": 2,
+          "title": "TT-BERT-VISUAL-V1 — broader candidates and visual/contextual BERT correction"
+        },
+        {
+          "line": 3597,
+          "level": 2,
+          "title": "CLIP-WORD-VERIFICATION-V1 — Fixed-image PARSeq/caption verifier"
+        },
+        {
+          "line": 3685,
+          "level": 2,
+          "title": "TT-BERT-PADDED-V1 — explicit auxiliary padded RGB evidence"
+        },
+        {
+          "line": 3719,
+          "level": 3,
+          "title": "TT-BERT-PADDED-V1 measured development result"
+        },
+        {
+          "line": 3732,
+          "level": 2,
+          "title": "CLIP-INNOVATIVE-VERIFICATION-V2 — Region dependence and synthetic glyph probes"
+        },
+        {
+          "line": 3826,
+          "level": 2,
+          "title": "TT-BERT-CROP-SELECTION-V1 — BERT selection/admission of native crop groups"
+        },
+        {
+          "line": 3886,
+          "level": 3,
+          "title": "TT-BERT-CROP-SELECTION-V1 measured TRAIN result and final protocol"
+        },
+        {
+          "line": 3929,
+          "level": 2,
+          "title": "CLIP-HIGH-RECALL-ADMISSION-V1 — Visual admission of many native PARSeq crops"
+        },
+        {
+          "line": 4005,
+          "level": 3,
+          "title": "WM-001 — Experimental word multi-task extension"
+        },
+        {
+          "line": 4092,
+          "level": 4,
+          "title": "WM-001 operational follow-up — JSON contract repair"
+        },
+        {
+          "line": 4120,
+          "level": 4,
+          "title": "WM-001 completed v1 experiment — 2026-10-08"
+        },
+        {
+          "line": 4154,
+          "level": 3,
+          "title": "WM-002 — User-requested kernel/center-guided contour crops"
+        },
+        {
+          "line": 4197,
+          "level": 4,
+          "title": "WM-002 completed crop/recognition qualification — 2026-10-09"
+        },
+        {
+          "line": 4234,
+          "level": 3,
+          "title": "ETD-001 — External lightweight text detectors with the qualified PARSeq decoder"
+        },
+        {
+          "line": 4326,
+          "level": 2,
+          "title": "YTR-001 — Frozen YOLO/PARSeq transfer to additional TEST datasets"
+        },
+        {
+          "line": 4381,
+          "level": 2,
+          "title": "YTS-001 — Cached confidence thresholds and CTW1500 line incompatibility"
+        },
+        {
+          "line": 4434,
+          "level": 2,
+          "title": "YFC-001 — Add Total-Text to confidence comparison; estimate per-image FLOPs"
+        },
+        {
+          "line": 4499,
+          "level": 2,
+          "title": "CWR-001 — User-requested CTW1500 word recovery instead of exact full lines"
+        },
+        {
+          "line": 4547,
+          "level": 2,
+          "title": "CWA-001 — Audit CTW word recovery and distinguish an analytic cutoff from TEST F1"
+        },
+        {
+          "line": 4593,
+          "level": 2,
+          "title": "DCE-001 — Neutralize don't-care predictions after frozen selection"
+        },
+        {
+          "line": 4657,
+          "level": 2,
+          "title": "UCR-001 — Same U-Net resegmentation of RGB contour crops"
+        },
+        {
+          "line": 4729,
+          "level": 2,
+          "title": "WCO-001 — Auxiliary dense word-center attraction"
+        },
+        {
+          "line": 4773,
+          "level": 2,
+          "title": "WCO-002 — Total-Text offset-training launcher"
+        },
+        {
+          "line": 4817,
+          "level": 2,
+          "title": "TRR-001 — Text coverage loss and input resolution"
+        },
+        {
+          "line": 4860,
+          "level": 2,
+          "title": "WCO-003 — Joint shape and center-guided crops"
+        },
+        {
+          "line": 4916,
+          "level": 2,
+          "title": "UWR-001 — Glyph/word and mask-quality experiments"
+        },
+        {
+          "line": 4986,
+          "level": 3,
+          "title": "TRR-001 follow-up — CUDA allocator initialization"
+        },
+        {
+          "line": 5012,
+          "level": 2,
+          "title": "WCO-004 — Coherent word-center vote loss"
+        },
+        {
+          "line": 5067,
+          "level": 2,
+          "title": "WCO-005 — Word-level failure attribution and conservative crop selection"
+        },
+        {
+          "line": 5126,
+          "level": 2,
+          "title": "UWR-002 — Corrective word experiments"
+        },
+        {
+          "line": 5184,
+          "level": 2,
+          "title": "TRC-001 — Frozen text-recall crops and PARSeq"
+        },
+        {
+          "line": 5233,
+          "level": 2,
+          "title": "TRC-002 — Existing trained kernel and coherent-vote transfer"
+        },
+        {
+          "line": 5267,
+          "level": 3,
+          "title": "TRC-001/002 qualification — completed frozen-map OCR"
+        },
+        {
+          "line": 5293,
+          "level": 2,
+          "title": "TRF-001 — Frozen Text+Kernel and native384 crop refinements"
+        },
+        {
+          "line": 5345,
+          "level": 2,
+          "title": "UCL-001 — learned crop word-instance links"
+        },
+        {
+          "line": 5407,
+          "level": 3,
+          "title": "UCL-001 completion analysis — 2026-10-11"
+        },
+        {
+          "line": 5454,
+          "level": 2,
+          "title": "WCL-001 — Word centerline and radius extension"
+        },
+        {
+          "line": 5542,
+          "level": 2,
+          "title": "USS-001 — Nucleus-guided links and selective second-pass replacement"
+        },
+        {
+          "line": 5595,
+          "level": 2,
+          "title": "UDM-001 — Text domain adaptation, scale fusion, progressive kernels and rectification"
+        },
+        {
+          "line": 5643,
+          "level": 2,
+          "title": "WDA-001"
+        },
+        {
+          "line": 5645,
+          "level": 3,
+          "title": "User-requested U-Net word-detection accuracy with TN=0 (2026-10-11)"
+        },
+        {
+          "line": 5684,
+          "level": 2,
+          "title": "UWD-TEST-001"
+        },
+        {
+          "line": 5686,
+          "level": 3,
+          "title": "Frozen Text+Kernel and Hybrid384 transfer to official Total-Text TEST"
+        },
+        {
+          "line": 5740,
+          "level": 2,
+          "title": "UWC-001"
+        },
+        {
+          "line": 5742,
+          "level": 3,
+          "title": "Dense neural compute for the evaluated Text+Kernel and Hybrid384 recipes"
+        },
+        {
+          "line": 5781,
+          "level": 2,
+          "title": "WORD-GT-001 — User-requested separated full-word supervision"
+        },
+        {
+          "line": 5827,
+          "level": 3,
+          "title": "WORD-GT-001 update — V4 reference and wider gaps (user steering)"
+        },
+        {
+          "line": 5869,
+          "level": 2,
+          "title": "CLIP-IMAGE-ROUTER-V1"
+        },
+        {
+          "line": 5881,
+          "level": 2,
+          "title": "UDM-STORAGE-001 — Retaining the declared SynthText subset"
+        },
+        {
+          "line": 5923,
+          "level": 3,
+          "title": "WORD-GT-001 update — recovered CTW word GT and explicit source correction"
+        },
+        {
+          "line": 5965,
+          "level": 3,
+          "title": "WORD-GT-001 qualification — completed separated-word artifacts"
+        },
+        {
+          "line": 5993,
+          "level": 3,
+          "title": "WORD-GT-TRAIN-001 — new-target training and PARSeq command integration"
+        },
+        {
+          "line": 6040,
+          "level": 3,
+          "title": "CLIP-IMAGE-ROUTER-V1 fixed-rule follow-up"
+        },
+        {
+          "line": 6046,
+          "level": 2,
+          "title": "CLIP-IMAGE-ROUTER-V1 completed fixed-rule qualification"
+        },
+        {
+          "line": 6056,
+          "level": 2,
+          "title": "CLIP-ROUTER-E2E-001 — split-separated CLIP/PARSeq/DeepSolo evaluation"
+        },
+        {
+          "line": 6107,
+          "level": 2,
+          "title": "UDM-SYNTHTEXT-TARGETS-001 — Visible and thin synthetic word targets"
+        },
+        {
+          "line": 6163,
+          "level": 2,
+          "title": "CLIP-ROUTER-SWEEP-001 — descriptive image-acceptance threshold curves"
+        },
+        {
+          "line": 6204,
+          "level": 3,
+          "title": "CLIP-ROUTER-PROMPT-002: updated encoders and complete-transcript prompts"
+        },
+        {
+          "line": 6271,
+          "level": 2,
+          "title": "WORD-GT-002 — User-requested smaller word targets after v1 training"
+        },
+        {
+          "line": 6329,
+          "level": 3,
+          "title": "CLIP-ROUTER-LITERATURE-003 — DataComp, DFN and larger SigLIP 2 router tests"
+        },
+        {
+          "line": 6407,
+          "level": 2,
+          "title": "PADGT-001 — separated-v1 cached-mask padding diagnostic (2026-10-13)"
+        },
+        {
+          "line": 6477,
+          "level": 2,
+          "title": "PAPER-IMAGE-ROUTER-001 — joined-T3 paper baseline against frozen CLIP"
+        },
+        {
+          "line": 6601,
+          "level": 2,
+          "title": "CKPT-WORD-001 — disk-limited separated-v1 checkpoint diagnostic (2026-10-13)"
+        },
+        {
+          "line": 6646,
+          "level": 2,
+          "title": "V2-WORD-PAD-001 — compact-v2 Word-F1 and streaming padding diagnostic (2026-10-13)"
+        },
+        {
+          "line": 6728,
+          "level": 2,
+          "title": "WORD-REVIEW-20261014 — review of supervision and trained-model experiments"
+        },
+        {
+          "line": 6777,
+          "level": 2,
+          "title": "HIGHRES-ROUTING-001 — frozen router transfer to residual native256 (2026-10-14)"
+        },
+        {
+          "line": 6842,
+          "level": 2,
+          "title": "V1-447-OCR-001 — complete OCR of Word-F1-selected v1 (2026-10-14)"
+        },
+        {
+          "line": 6887,
+          "level": 2,
+          "title": "V2-WORD-RESTART-001 — held-out metrics and bounded storage (2026-10-14)"
+        },
+        {
+          "line": 6929,
+          "level": 3,
+          "title": "V2-WORD-RESTART-001 execution qualification (2026-10-14)"
+        },
+        {
+          "line": 6975,
+          "level": 2,
+          "title": "V2-SELECTED-OCR-SIZE-001 — selected checkpoints, OCR padding and mask areas (2026-10-15)"
+        },
+        {
+          "line": 7046,
+          "level": 2,
+          "title": "NATIVE128-GT-REVIEW-001 — matched comparison and visual review (2026-10-16)"
+        },
+        {
+          "line": 7146,
+          "level": 2,
+          "title": "V3-TRAIN-OCR-001 — guarded V3 training and automatic PARSeq evaluation (2026-10-17)"
+        },
+        {
+          "line": 7190,
+          "level": 2,
+          "title": "WORD-GT-003 — post-transform guarded word targets V3 (2026-10-17)"
+        },
+        {
+          "line": 7258,
+          "level": 2,
+          "title": "NATIVE128-FAIL-001 — failure diagnosis and native GT audit (2026-10-16)"
+        },
+        {
+          "line": 7320,
+          "level": 2,
+          "title": "NATIVE128-CAP-001 — crop-count cap ablation (2026-10-16)"
+        },
+        {
+          "line": 7375,
+          "level": 2,
+          "title": "CLIP-ROUTER-LITERATURE-CONTEXT-001 — host alternatives and valid prompt boundaries (2026-10-14)"
+        },
+        {
+          "line": 7439,
+          "level": 2,
+          "title": "ADASpot-GAP-001 — Text+Kernel+Gap controlled extension"
+        },
+        {
+          "line": 7503,
+          "level": 3,
+          "title": "ADASpot-GAP-001 prior-art audit (2026-10-15)"
+        },
+        {
+          "line": 7532,
+          "level": 3,
+          "title": "CLIP-SPECIALIZED-ROUTERS-001 — native Long-CLIP / LLM2CLIP (2026-10-15)"
+        },
+        {
+          "line": 7642,
+          "level": 2,
+          "title": "YOLO-PAIRED-ROUTERS-001 — detector-controlled routing comparison"
+        },
+        {
+          "line": 7707,
+          "level": 2,
+          "title": "TABLE5-SOURCE-METRIC-AUDIT-001 — recognition accuracy versus source F1"
+        },
+        {
+          "line": 7748,
+          "level": 2,
+          "title": "ROUTER-ACCURACY-TARGETS-001 — conditional accuracy and U-Net requirements"
+        },
+        {
+          "line": 7782,
+          "level": 2,
+          "title": "KERNEL-ONLY-PADDING-001 — single-output extraction and padding comparison"
+        },
+        {
+          "line": 7823,
+          "level": 2,
+          "title": "KERNEL-TRAIN-001 — explicit Kernel-only supervised fine-tuning"
+        },
+        {
+          "line": 7863,
+          "level": 2,
+          "title": "KERNEL-FRESH-001 — user-requested new U-Net on GT Kernel masks"
+        },
+        {
+          "line": 7891,
+          "level": 2,
+          "title": "DEEPSOLO-TEXTOCR-IC13-001 — paired variants and recovered IC13 recipe"
+        },
+        {
+          "line": 7935,
+          "level": 2,
+          "title": "REPORTING-INDEX-001 — Read-only evidence navigation and model comparisons"
+        },
+        {
+          "line": 7987,
+          "level": 2,
+          "title": "ADASpot-PHASE0-001 — Paired crop, oracle-separator and decoding diagnostics"
+        },
+        {
+          "line": 8023,
+          "level": 2,
+          "title": "ADASpot-GAP-PROBE-001 — Balanced Gap probe on frozen Text/Kernel features"
+        },
+        {
+          "line": 8055,
+          "level": 2,
+          "title": "WORD-EVIDENCE-001 — Authorized Text/Kernel oracle, glyph association and crop completeness"
+        },
+        {
+          "line": 8090,
+          "level": 2,
+          "title": "DEEPSOLO-VITAE-GPU-20261019 — real checkpoint qualification and full run"
+        },
+        {
+          "line": 8131,
+          "level": 2,
+          "title": "ADASpot-GAP-CONTEXT-001 — Matched 1x1/3x3 heads with hard Gap positives"
+        },
+        {
+          "line": 8176,
+          "level": 3,
+          "title": "ADASpot-GAP-CONTEXT-001 follow-up — fixed epoch20 OCR diagnostic"
+        },
+        {
+          "line": 8187,
+          "level": 3,
+          "title": "ADASpot-GAP-CONTEXT-001 measured outcome, 19 October 2026"
+        },
+        {
+          "line": 8207,
+          "level": 2,
+          "title": "ADASpot-GAP-NORMALIZED-001 — Normalize, separate head calibration and preserve Text support"
+        },
+        {
+          "line": 8264,
+          "level": 2,
+          "title": "ADASpot-GAP-DECODER-001 — Train spatial Gap features, preserve qualified M/K"
+        },
+        {
+          "line": 8302,
+          "level": 2,
+          "title": "ADASpot-GAP-OCR-SELECTION-001 — Align selection with actual read words"
+        },
+        {
+          "line": 8341,
+          "level": 2,
+          "title": "ADASpot-GAP-FULLTRAIN-001 — All1255official TRAIN, fixed prior choices"
+        },
+        {
+          "line": 8382,
+          "level": 2,
+          "title": "V3-FAIL-001 — frozen V3/447 error attribution (2026-10-20)"
+        },
+        {
+          "line": 8439,
+          "level": 2,
+          "title": "MASK-CROP-FAIL-001 — Mask-to-crop research and refreshed Guarded V3 OCR failure diagnosis"
+        },
+        {
+          "line": 8496,
+          "level": 2,
+          "title": "WORD-INSTANCE-EXT-001 — Novelty-checked local word objectives (2026-10-20)"
+        },
+        {
+          "line": 8579,
+          "level": 2,
+          "title": "YOLO-TEXT-COVERAGE-RESOLUTION-001 — completeness gate and larger detector inputs"
+        },
+        {
+          "line": 8649,
+          "level": 2,
+          "title": "ADASpot-MASK-ALIGN-001 — Shared-feature sampler before new OCR heads"
+        },
+        {
+          "line": 8692,
+          "level": 2,
+          "title": "MASK-CROP-TEST-001 — Three frozen-V3 mask-to-crop experiments"
+        },
+        {
+          "line": 8741,
+          "level": 2,
+          "title": "WORD-INSTANCE-RUN-001 — Authorized full six-arm launch (2026-10-21)"
+        },
+        {
+          "line": 8779,
+          "level": 2,
+          "title": "MASK-CROP-TEST-001-RESULT — Completed experiments and qualification"
+        },
+        {
+          "line": 8819,
+          "level": 2,
+          "title": "GRAPH-CUT-WORD-001 — V3/447 graph-cut word partition (2026-10-21)"
+        },
+        {
+          "line": 8877,
+          "level": 2,
+          "title": "MASK-REFINER-001 — small whole-image RGB/mask/probability correction"
+        },
+        {
+          "line": 8891,
+          "level": 2,
+          "title": "RESEARCH-SYNTHESIS-001 — Cross-workstream saved-output research synthesis"
+        },
+        {
+          "line": 8932,
+          "level": 2,
+          "title": "UOCR-001 — Auxiliary transcription gradients into the shared Text/Kernel decoder"
+        },
+        {
+          "line": 8976,
+          "level": 2,
+          "title": "GRAPH-CUT-ORACLE-001 — recorded parent/child selection ceiling (2026-10-21)"
+        },
+        {
+          "line": 9015,
+          "level": 2,
+          "title": "ADASpot-JOINT-001 — Two feature OCR heads, calibrated gate and joint training"
+        },
+        {
+          "line": 9067,
+          "level": 3,
+          "title": "ADASpot-JOINT-001 completed qualification and posthoc diagnostics"
+        },
+        {
+          "line": 9094,
+          "level": 2,
+          "title": "YOLO-FROZEN-CONSISTENCY-001 — image-quality routing without new network training"
+        },
+        {
+          "line": 9156,
+          "level": 3,
+          "title": "YOLO-CONTEXT-QUALITY-001 — Frozen context for per-image F1>=0.8 (2026-10-21)"
+        }
+      ],
+      "title": "Paper Ambiguities and Reproduction Blockers"
+    },
+    {
+      "root": "repository",
+      "path": "docs/PAPER_IMAGE_ROUTER_BASELINE.md",
+      "bytes": 15996,
+      "sha256": "66fb26e3eed3c0971bc6745aa52157601646d968bb36da75220fef2f81f11965",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Paper image router baseline — approximate reproduction"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Router and evaluation boundary"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Caption investigation"
+        },
+        {
+          "line": 109,
+          "level": 2,
+          "title": "Frozen comparison protocol"
+        },
+        {
+          "line": 164,
+          "level": 2,
+          "title": "Execution and artifacts"
+        },
+        {
+          "line": 240,
+          "level": 2,
+          "title": "Verified T1 acceptance update"
+        }
+      ],
+      "title": "Paper image router baseline — approximate reproduction"
+    },
+    {
+      "root": "repository",
+      "path": "docs/PAPER_TABLE5_SOURCE_AUDIT.md",
+      "bytes": 8454,
+      "sha256": "005b0905a95575c4e7b2bb59bd02b78e5b280ce61de239487efd0e6e87c64d91",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Table5: verifica delle fonti e significato di accuracy"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "Corrispondenze Total-Text"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "title": "Verifica delle righe ICDAR"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "DeepSolo e le differenze dichiarate"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "title": "Come viene calcolato il punteggio"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Implicazioni per i nostri esperimenti"
+        },
+        {
+          "line": 122,
+          "level": 2,
+          "title": "Evidenza e riproducibilità"
+        }
+      ],
+      "title": "Table5: verifica delle fonti e significato di accuracy"
+    },
+    {
+      "root": "repository",
+      "path": "docs/PARSEQ_VISUAL_MARGIN_CONTEXT_GATE_TRAIN_V1.md",
+      "bytes": 3225,
+      "sha256": "21e06ae6f3ac58507c59964cc7108244a2a89b6e0343fbe249ef1c9d206253e3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "PARSeq visual-margin contextual gate — TRAIN offline diagnostic"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Predeclared experiment"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Provenance and outputs"
+        }
+      ],
+      "title": "PARSeq visual-margin contextual gate — TRAIN offline diagnostic"
+    },
+    {
+      "root": "repository",
+      "path": "docs/README.md",
+      "bytes": 8910,
+      "sha256": "653f0ba716015db43bd414c83574737229001efa8670dd4474503651b445a3d7",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Guida al lavoro e ai confronti"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Dove iniziare"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "Cercare senza caricare tutta la cronologia"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Confrontare i risultati"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Quali confronti sono disponibili"
+        },
+        {
+          "line": 120,
+          "level": 2,
+          "title": "Aggiornare senza perdere evidenze"
+        }
+      ],
+      "title": "Guida al lavoro e ai confronti"
+    },
+    {
+      "root": "repository",
+      "path": "docs/RECOGNITION_CONTEXT_IMPLEMENTATION_DECISIONS.md",
+      "bytes": 8902,
+      "sha256": "2e6aa87f1e90a05b760014dd3c045a5984ca8098fb8e1e2c6dfe6aa409d9fe23",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Recognition and Context Foundation Decisions"
+        }
+      ],
+      "title": "Recognition and Context Foundation Decisions"
+    },
+    {
+      "root": "repository",
+      "path": "docs/REFACTOR_AUDIT.md",
+      "bytes": 3840,
+      "sha256": "1ce56ecfec2f2c0b489a2d0fec5387e55b7c3006dd68af423425ede8bf9189b4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Problemi rilevati e interventi"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Conservazione verificata"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "Verifica eseguita"
+        }
+      ],
+      "title": "Refactor di navigazione e reporting — 17 ottobre 2026"
+    },
+    {
+      "root": "repository",
+      "path": "docs/REPOSITORY_CONTOURS_VARIANT.md",
+      "bytes": 6486,
+      "sha256": "265c10f68340adcb78fcdfc46d6be50a9079b06c39b9dfa114df95504d1629fb",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Opt-in repository contour localizer"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "Python use"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "CPU saved-mask comparison"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "title": "Full TRAIN comparison on PAPER"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "User-requested native128 area and padding variant"
+        }
+      ],
+      "title": "Opt-in repository contour localizer"
+    },
+    {
+      "root": "repository",
+      "path": "docs/REPOSITORY_MAP.md",
+      "bytes": 4966,
+      "sha256": "9d04cadca2cfc0bc7b1ae6a555c0fc60468f0807990b87599abe1dc78c17ab9b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Repository map for people and AI agents"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Code by responsibility"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Choose a starting point"
+        },
+        {
+          "line": 48,
+          "level": 2,
+          "title": "Scientific boundaries"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "Source-export boundary"
+        }
+      ],
+      "title": "Repository map for people and AI agents"
+    },
+    {
+      "root": "repository",
+      "path": "docs/REPRODUCTION_PLAN.md",
+      "bytes": 44545,
+      "sha256": "1268a86db019ff88bf184c1b80fd9b7da8aa00072cc8c34bc2d24dca593668b7",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Scientific Reproduction Plan"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "1. Scope and execution rules"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "2. Milestones"
+        },
+        {
+          "line": 20,
+          "level": 3,
+          "title": "Milestone 1 — Paper specification, ambiguity ledger, and implementation plan"
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "title": "Milestone 2 — Resolve or freeze critical external evidence"
+        },
+        {
+          "line": 42,
+          "level": 3,
+          "title": "Milestone 3 — Reproducible isolated environment definitions"
+        },
+        {
+          "line": 54,
+          "level": 3,
+          "title": "Milestone 4 — Package and configuration foundation"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "title": "Milestone 5 — Dataset provenance and immutable split manifests"
+        },
+        {
+          "line": 76,
+          "level": 3,
+          "title": "Milestone 6 — Annotation conversion and segmentation data loader"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "title": "Milestone 7 — Paper-faithful connected-component localization"
+        },
+        {
+          "line": 110,
+          "level": 3,
+          "title": "Milestone 8 — AG-UNet architecture conformance"
+        },
+        {
+          "line": 159,
+          "level": 3,
+          "title": "Milestone 9 — Segmentation training completion"
+        },
+        {
+          "line": 245,
+          "level": 3,
+          "title": "Milestone 10 — Segmentation evaluation + Table 3"
+        },
+        {
+          "line": 277,
+          "level": 3,
+          "title": "Milestone 11 — Recognition/scoring completion + real E2E + Table 5"
+        },
+        {
+          "line": 283,
+          "level": 4,
+          "title": "Existing APPROXIMATE prerequisites — status only"
+        },
+        {
+          "line": 320,
+          "level": 4,
+          "title": "Sub-gate A — MPNet/scoring qualification closure"
+        },
+        {
+          "line": 343,
+          "level": 4,
+          "title": "Sub-gate B — Complete real scientific E2E sample"
+        },
+        {
+          "line": 385,
+          "level": 4,
+          "title": "Sub-gate C — Recognition evaluator + Table 5"
+        },
+        {
+          "line": 454,
+          "level": 3,
+          "title": "Milestone 12 — Context ablations"
+        },
+        {
+          "line": 459,
+          "level": 4,
+          "title": "Sub-gate A — Table 6 scoring-parameter ablation"
+        },
+        {
+          "line": 475,
+          "level": 4,
+          "title": "Sub-gate B — Table 7 context-description ablation"
+        },
+        {
+          "line": 493,
+          "level": 3,
+          "title": "Milestone 13 — Integrated profiling + final reproduction synthesis"
+        },
+        {
+          "line": 498,
+          "level": 4,
+          "title": "Sub-gate A — Integrated conditional-pipeline FLOPs/latency/VRAM profiling"
+        },
+        {
+          "line": 520,
+          "level": 4,
+          "title": "Sub-gate B — Final tables/report/claim audit"
+        },
+        {
+          "line": 538,
+          "level": 2,
+          "title": "3. Future-plan migration"
+        },
+        {
+          "line": 555,
+          "level": 2,
+          "title": "4. Recommended immediate next milestone"
+        }
+      ],
+      "title": "Scientific Reproduction Plan"
+    },
+    {
+      "root": "repository",
+      "path": "docs/REPRODUCTION_SPEC.md",
+      "bytes": 34378,
+      "sha256": "3e15dbceb7fa68324200eed428da8b013637d1d155ff30283e5403cdc4ab2845",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Reproduction Specification"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "1. Purpose and authority"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "2. Source classifications"
+        },
+        {
+          "line": 20,
+          "level": 2,
+          "title": "3. End-to-end data flow"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "title": "4. Attention-Gated U-Net segmentation architecture"
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "title": "4.1 Paper specification"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "4.2 Existing repository choices, not strict evidence"
+        },
+        {
+          "line": 72,
+          "level": 3,
+          "title": "4.4 Author-clarified reported architecture (2026-08-29)"
+        },
+        {
+          "line": 90,
+          "level": 3,
+          "title": "4.3 M8 approximate architecture contract"
+        },
+        {
+          "line": 111,
+          "level": 2,
+          "title": "5. Segmentation training"
+        },
+        {
+          "line": 139,
+          "level": 3,
+          "title": "5.2 Author-clarified ICDAR13 training protocol"
+        },
+        {
+          "line": 160,
+          "level": 3,
+          "title": "5.1 M9 APPROXIMATE ICDAR13 split contract"
+        },
+        {
+          "line": 184,
+          "level": 2,
+          "title": "6. Segmentation preprocessing and postprocessing"
+        },
+        {
+          "line": 200,
+          "level": 2,
+          "title": "7. Block-level localization"
+        },
+        {
+          "line": 225,
+          "level": 2,
+          "title": "8. Recognition"
+        },
+        {
+          "line": 243,
+          "level": 2,
+          "title": "9. BLIP-2 scene-caption generation"
+        },
+        {
+          "line": 267,
+          "level": 2,
+          "title": "10. Context scoring and selection"
+        },
+        {
+          "line": 290,
+          "level": 2,
+          "title": "11. DeepSolo fallback"
+        },
+        {
+          "line": 306,
+          "level": 2,
+          "title": "12. Datasets and splits"
+        },
+        {
+          "line": 308,
+          "level": 3,
+          "title": "12.1 Segmentation"
+        },
+        {
+          "line": 316,
+          "level": 3,
+          "title": "12.2 Recognition"
+        },
+        {
+          "line": 326,
+          "level": 2,
+          "title": "13. Metrics and measurement"
+        },
+        {
+          "line": 353,
+          "level": 2,
+          "title": "14. Ablation specifications"
+        },
+        {
+          "line": 355,
+          "level": 3,
+          "title": "14.1 Table 6: context-score parameters"
+        },
+        {
+          "line": 369,
+          "level": 3,
+          "title": "14.2 Table 7: context-description sensitivity"
+        },
+        {
+          "line": 381,
+          "level": 3,
+          "title": "14.3 Other analyses"
+        },
+        {
+          "line": 389,
+          "level": 2,
+          "title": "15. Reported target results"
+        },
+        {
+          "line": 393,
+          "level": 3,
+          "title": "15.1 Table 3: segmentation fgIoU/F1 (%)"
+        },
+        {
+          "line": 404,
+          "level": 3,
+          "title": "15.2 Table 4: pipeline efficiency targets"
+        },
+        {
+          "line": 411,
+          "level": 3,
+          "title": "15.3 Table 5: recognition accuracy (%)"
+        },
+        {
+          "line": 428,
+          "level": 2,
+          "title": "16. Strict reproduction acceptance boundary"
+        }
+      ],
+      "title": "Reproduction Specification"
+    },
+    {
+      "root": "repository",
+      "path": "docs/RESEARCH_SYNTHESIS_20261021.md",
+      "bytes": 13363,
+      "sha256": "08fb5c9775c52b2ff8f773e111f050a6554eaa1a2eab6044ecf05a9766447d29",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Conclusione operativa"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "title": "Aggiornamento sui filoni paralleli"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "Analisi aggiuntiva effettuata"
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "title": "Complementarità dei crop: potenziale, non nuovo risultato"
+        },
+        {
+          "line": 105,
+          "level": 3,
+          "title": "Il costo finora non quantificato"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Direzioni promettenti, in ordine"
+        },
+        {
+          "line": 168,
+          "level": 2,
+          "title": "Cosa de-prioritizzare e come verificare"
+        },
+        {
+          "line": 184,
+          "level": 2,
+          "title": "Evidenze e riproducibilità"
+        }
+      ],
+      "title": "Stato della ricerca e direzioni: maschere, istanze e crop"
+    },
+    {
+      "root": "repository",
+      "path": "docs/RESULTS_OVERVIEW.md",
+      "bytes": 13444,
+      "sha256": "0ad13ee4176cb0ef572c23eb36a110b56a0eeeac539bf40ca1e8df618b3ad451",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Saved model comparisons"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Native128 checkpoints, bbox-area150, padding0 native pixels"
+        },
+        {
+          "line": 43,
+          "level": 2,
+          "title": "Text / Text+Kernel / Text+Kernel+Center: native geometry"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Refinements: selected thresholds"
+        },
+        {
+          "line": 95,
+          "level": 2,
+          "title": "Jointly trained kernel: extracted single output and padding"
+        },
+        {
+          "line": 124,
+          "level": 2,
+          "title": "New Kernel-only U-Net: padding"
+        },
+        {
+          "line": 147,
+          "level": 2,
+          "title": "YOLO/PARSeq router comparison: test / equal"
+        },
+        {
+          "line": 171,
+          "level": 2,
+          "title": "Long-CLIP B/L and LLM2CLIP: fixed margin_scene_en / same_budget_descriptive"
+        }
+      ],
+      "title": "Saved model comparisons"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ROUTER_ACCURACY_TARGETS.md",
+      "bytes": 5270,
+      "sha256": "ce5e8f4623749ac6b5140b2863902a74c256671aabb87bb040f748ce26a26165",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Accuracy gaps and conditional U-Net requirements"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "Can a router fix the current U-Net by itself?"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "What should the U-Net branch achieve?"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Evidence"
+        }
+      ],
+      "title": "Accuracy gaps and conditional U-Net requirements"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SCENE_TEXT_DATASETS.md",
+      "bytes": 6183,
+      "sha256": "96d5a9ffba70782b9c5594c0d1ded43e6c0195cb264296e8796f3159cb744d01",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Additional scene-text datasets"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Scientific boundary"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Persistent on-disk layout"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Segmentation preparation and four training runs"
+        }
+      ],
+      "title": "Additional scene-text datasets"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SCENE_TEXT_YOLO_THRESHOLDS.md",
+      "bytes": 6696,
+      "sha256": "fb981eb14b9648abbc838539bf34c9e89d520e83c37e09bd53fe1213a09febbf",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Cached YOLO/PARSeq confidence controls and CTW1500 failures"
+        },
+        {
+          "line": 19,
+          "level": 2,
+          "title": "Why 25,992 crops"
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "title": "CTW1500 uses lines; this recognizer predicts words"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Threshold results"
+        },
+        {
+          "line": 93,
+          "level": 3,
+          "title": "One shared threshold"
+        },
+        {
+          "line": 109,
+          "level": 3,
+          "title": "Per-dataset TEST maxima (exploratory)"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Qualification"
+        }
+      ],
+      "title": "Cached YOLO/PARSeq confidence controls and CTW1500 failures"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SCENE_TEXT_YOLO_TRANSFER.md",
+      "bytes": 5783,
+      "sha256": "b72494132942af307cf6387ccc75e9223f27110324592e7a5f39c66552ff2af6",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen YOLO/PARSeq transfer to other TEST datasets"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "Method and metrics"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Output and restart"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Local qualification"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Complete GPU qualification"
+        }
+      ],
+      "title": "Frozen YOLO/PARSeq transfer to other TEST datasets"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SEPARATED_WORD_GT.md",
+      "bytes": 18784,
+      "sha256": "805e5cd59d39f94e4eb006e102c9f0ba1bbd072e67b1a8ef52da290c610234c7",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Separated full-word masks from downloaded datasets"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Sources checked on 2026-10-12"
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "title": "Generation and verification"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "CTW1500 TEST word-GT curation"
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "title": "Complete delivery and qualification"
+        },
+        {
+          "line": 221,
+          "level": 2,
+          "title": "Train the new Total-Text target and evaluate predicted crops with PARSeq"
+        }
+      ],
+      "title": "Separated full-word masks from downloaded datasets"
+    },
+    {
+      "root": "repository",
+      "path": "docs/STRICT_REPRODUCTION_STATUS.md",
+      "bytes": 24120,
+      "sha256": "26e0851c3883c8bd5957ccfe78fd6a61fd0f44127e14adf93e58cb2cdfe6f606",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Strict Reproduction Status"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "1. Status boundary"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "2. Evidence-freeze findings"
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "title": "Newly resolved source-discovery questions"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "title": "Segmentation questions narrowed by author clarification"
+        },
+        {
+          "line": 89,
+          "level": 3,
+          "title": "Questions not resolved by the freeze"
+        },
+        {
+          "line": 101,
+          "level": 2,
+          "title": "3. A. Strictly reproducible"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "4. B. Reproducible with documented assumptions"
+        },
+        {
+          "line": 163,
+          "level": 2,
+          "title": "5. C. Currently blocked"
+        },
+        {
+          "line": 165,
+          "level": 3,
+          "title": "Segmentation path"
+        },
+        {
+          "line": 176,
+          "level": 3,
+          "title": "Recognition/context path"
+        },
+        {
+          "line": 191,
+          "level": 3,
+          "title": "Ablations and efficiency"
+        },
+        {
+          "line": 198,
+          "level": 2,
+          "title": "6. Paper-table claim matrix"
+        },
+        {
+          "line": 211,
+          "level": 2,
+          "title": "7. Implementation boundary after this milestone"
+        },
+        {
+          "line": 275,
+          "level": 2,
+          "title": "8. Current handoff"
+        }
+      ],
+      "title": "Strict Reproduction Status"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SYNTHTEXT_DOWNLOAD.md",
+      "bytes": 8624,
+      "sha256": "c332c2d5c9b72b27246a31eb9839f01e1dc4aeeb6200e9bdebc7f6e58597edb3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Automatic acquisition for the detection experiment"
+        }
+      ],
+      "title": "Automatic acquisition for the detection experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TEXT_RECALL_CROPS.md",
+      "bytes": 11583,
+      "sha256": "1512a91cf1590e8560e6ed07bc176d2bc7729e4addffc9e89c6070a3fe9d98c9",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen text-recall crops and actual PARSeq recognition"
+        },
+        {
+          "line": 68,
+          "level": 2,
+          "title": "Completed OCR results"
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "title": "Existing learned cues, without new training"
+        }
+      ],
+      "title": "Frozen text-recall crops and actual PARSeq recognition"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TEXT_RECALL_REFINEMENTS.md",
+      "bytes": 11661,
+      "sha256": "edadd93b5b1b1ff1bb81477dd0ece024c9c3b6be90e2b2c7e7233b1c44e291b1",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen word-crop refinements"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Frozen experiment"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Running"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Qualification status"
+        },
+        {
+          "line": 109,
+          "level": 2,
+          "title": "Complete observed results"
+        },
+        {
+          "line": 150,
+          "level": 2,
+          "title": "GT-box diagnosis and remaining limitation"
+        },
+        {
+          "line": 173,
+          "level": 2,
+          "title": "Offline review"
+        }
+      ],
+      "title": "Frozen word-crop refinements"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TEXT_RECALL_RESOLUTION.md",
+      "bytes": 10483,
+      "sha256": "e5dd703b8da3c1a3cf51c907e920b98f551142db9552f4315a6370fffab3951b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Text-mask recall: loss and input resolution"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Existing work and the new comparison"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "Evaluation and checkpoint selection"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Run and resume"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "Qualification"
+        },
+        {
+          "line": 148,
+          "level": 2,
+          "title": "CUDA allocator initialization fix"
+        }
+      ],
+      "title": "Text-mask recall: loss and input resolution"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TIGHTER_WORD_GT_V2.md",
+      "bytes": 7890,
+      "sha256": "72c9ed638ce25f3845aa48162dba18827920bb626efa8d115fde618d4ce2b5ca",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Compact word GT v2 and isolated retraining"
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "title": "Construction"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "Verification"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Train, crop and PARSeq"
+        },
+        {
+          "line": 116,
+          "level": 2,
+          "title": "Complete v2 qualification"
+        }
+      ],
+      "title": "Compact word GT v2 and isolated retraining"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_BERT_CORRECTION.md",
+      "bytes": 15377,
+      "sha256": "496b1cf5ccc0473064654500b88ba5a8b141ecf52ebfbb0eaf63768c8e2fe9fd",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "BERT dopo PARSeq: Total-Text letterbox"
+        },
+        {
+          "line": 6,
+          "level": 2,
+          "title": "Percorso effettivo del progetto"
+        },
+        {
+          "line": 37,
+          "level": 2,
+          "title": "Modello e ricerca"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Esperimento congelato"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Esecuzione"
+        },
+        {
+          "line": 165,
+          "level": 2,
+          "title": "Metriche e stato verificato"
+        },
+        {
+          "line": 199,
+          "level": 2,
+          "title": "Risultati reali completati — 6 ottobre 2026"
+        },
+        {
+          "line": 225,
+          "level": 3,
+          "title": "Diagnosi e ablation della protezione"
+        }
+      ],
+      "title": "BERT dopo PARSeq: Total-Text letterbox"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_BERT_CROP_SELECTION_V1.md",
+      "bytes": 12982,
+      "sha256": "1fa5dc497bcca700425351a26f39a07daa5a6388ba3331437ed70c87be175a6b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "BERT selection of existing Total-Text crops"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Source and separation of decisions"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Genuine BERT and context"
+        },
+        {
+          "line": 55,
+          "level": 2,
+          "title": "Physical evidence and operating points"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Evaluation and artifacts"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 140,
+          "level": 2,
+          "title": "Verification record"
+        },
+        {
+          "line": 155,
+          "level": 2,
+          "title": "Measured full TRAIN development result"
+        }
+      ],
+      "title": "BERT selection of existing Total-Text crops"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_BERT_METHODS_V1.md",
+      "bytes": 13476,
+      "sha256": "b79f46cf820f75804b35e81510fa052c0b39388f86fe3b0536d3160602d26558",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text BERT methods with local OCR and Florence scene context"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Sources and classifications"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Predeclared method battery"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Actual Florence context"
+        },
+        {
+          "line": 113,
+          "level": 2,
+          "title": "Full results"
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "title": "Tests and audit"
+        },
+        {
+          "line": 199,
+          "level": 2,
+          "title": "Re-run with existing assets"
+        }
+      ],
+      "title": "Total-Text BERT methods with local OCR and Florence scene context"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_BERT_VISUAL_CORRECTION_V1.md",
+      "bytes": 15228,
+      "sha256": "6a6b18e8015d14fda9b56a8731d44f76ccbcf78fdc34ffe932227a51fcca1207",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text BERT visual correction — TRAIN development"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Evidence and protocol"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "title": "Predeclared correction battery"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Results"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Separate padding experiment"
+        },
+        {
+          "line": 167,
+          "level": 2,
+          "title": "Runtime and verification"
+        },
+        {
+          "line": 215,
+          "level": 2,
+          "title": "Run again using existing models"
+        }
+      ],
+      "title": "Total-Text BERT visual correction — TRAIN development"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_CROP_CLIP_BATTERY.md",
+      "bytes": 12335,
+      "sha256": "78a6538b15314d2cd2bfe7dcad4032a95cb89775f89e0658e4aa9d64e174ac7f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text crop variation and CLIP selector battery"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Why this experiment"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Fixed experiment"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Completed Total-Text checks"
+        },
+        {
+          "line": 104,
+          "level": 3,
+          "title": "Full frozen-CLIP TRAIN run"
+        },
+        {
+          "line": 137,
+          "level": 2,
+          "title": "One-command execution"
+        }
+      ],
+      "title": "Total-Text crop variation and CLIP selector battery"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_CROP_RECOVERY_SUITE.md",
+      "bytes": 10763,
+      "sha256": "80497bbe78e0540ce78800280c4eda2fae775f9943e1e1dff73306fe4de0a97a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text crop recovery suite"
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "title": "What the suite tests"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Metric"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Artifacts, resume and hardware"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Implementation validation (2026-10-04)"
+        }
+      ],
+      "title": "Total-Text crop recovery suite"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_CROP_WORD_GROUPS.md",
+      "bytes": 7204,
+      "sha256": "68fef904fd9a0b6a654c0c383bd00c601d4c3eb7367db38d0f75ab84c3941bfd",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Grouping threshold and window crops"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "title": "Method"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Evaluation"
+        },
+        {
+          "line": 88,
+          "level": 2,
+          "title": "First full cached experiment"
+        }
+      ],
+      "title": "Grouping threshold and window crops"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_CURVED_WORD_REGIONS.md",
+      "bytes": 14211,
+      "sha256": "f1e242c0414b0c801da0810adfc9c25d57dfa02bc6356d2d4aa676765e0e054f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text curved word-region training (practical approximation)"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Tighter curved target: refined-v2"
+        },
+        {
+          "line": 119,
+          "level": 2,
+          "title": "Filled adaptive word boxes: v3"
+        },
+        {
+          "line": 168,
+          "level": 2,
+          "title": "Filled curved boxes: v4 (replacement proposal for rejected v3)"
+        },
+        {
+          "line": 227,
+          "level": 2,
+          "title": "v1 checkpoint: direct FindContours recognition diagnostic"
+        }
+      ],
+      "title": "Total-Text curved word-region training (practical approximation)"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_FREQUENCY_GATED_SKIP.md",
+      "bytes": 1905,
+      "sha256": "da527857b8a18d15eb055f80cd56dd0e39294c7afc1221afc979758224184770",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text feature-wavelet gated-skip ablation"
+        }
+      ],
+      "title": "Total-Text feature-wavelet gated-skip ablation"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_INDEPENDENT_DETECTOR_SLOTS.md",
+      "bytes": 7083,
+      "sha256": "9264b27bdae76f07b7b9e1599052bf976898a22b6a599ba7d0ff98209fb3c55f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Independent word-slot diagnostic on Total-Text"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Purpose and frozen inputs"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "What the report measures"
+        },
+        {
+          "line": 48,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "title": "Completed approximate TEST diagnostic"
+        }
+      ],
+      "title": "Independent word-slot diagnostic on Total-Text"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_NEUSPELL_CORRECTION.md",
+      "bytes": 16960,
+      "sha256": "35472767f0c24dc1bc0ff0be0ecee3ffe26edc68f6eaaf3b2cdfde267127a5fb",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text: frozen letterbox/PARSeq with spelling-trained BERT"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Motivation and authoritative sources"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Model and vocabulary provenance"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "title": "Frozen inputs and correction protocol"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "title": "Evaluation, runtime and artifacts"
+        },
+        {
+          "line": 156,
+          "level": 2,
+          "title": "Initial v1 qualification (historical)"
+        },
+        {
+          "line": 181,
+          "level": 2,
+          "title": "v2 legacy tokenizer/checkpoint correction and completed comparison"
+        },
+        {
+          "line": 261,
+          "level": 2,
+          "title": "Run on the network-enabled host"
+        }
+      ],
+      "title": "Total-Text: frozen letterbox/PARSeq with spelling-trained BERT"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_PARTIAL_ENCODER.md",
+      "bytes": 2990,
+      "sha256": "09ae4d0f954baa3a32e0772e5616fa0b6262d034036e339a2f1d1a3f5f13ee92",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text partial encoder: controlled 50-epoch continuation"
+        },
+        {
+          "line": 6,
+          "level": 2,
+          "title": "Frozen protocol"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "Execution and recovery"
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "title": "Evidence"
+        }
+      ],
+      "title": "Total-Text partial encoder: controlled 50-epoch continuation"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_STRUCTURAL_WORD_GROUPS.md",
+      "bytes": 5065,
+      "sha256": "0b513a086d59b0adffd33c38f8ceb2c25f26ade49518fc396359d8e78727427d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Structural grouping of frozen Total-Text crop proposals"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "Ablations"
+        },
+        {
+          "line": 49,
+          "level": 2,
+          "title": "Metrics and interpretation"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Complete TEST-300 result"
+        }
+      ],
+      "title": "Structural grouping of frozen Total-Text crop proposals"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_TEXT_DETECTORS.md",
+      "bytes": 12464,
+      "sha256": "54960eff171974a4471ebdb9a4db24967de97d7a6baa7177a67cad5a01c5b066",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "CRAFT, DBNet and FAST regions with PARSeq"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "title": "Run the complete comparison"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Models and scope"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Geometry and crop controls"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Metric and artifacts"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Qualification and limits"
+        },
+        {
+          "line": 151,
+          "level": 3,
+          "title": "Complete CPU TEST comparison after the runtime fixes"
+        },
+        {
+          "line": 221,
+          "level": 2,
+          "title": "Primary sources"
+        }
+      ],
+      "title": "CRAFT, DBNet and FAST regions with PARSeq"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_V4_IMAGE_FREQUENCY_ABLATION.md",
+      "bytes": 8187,
+      "sha256": "a08816f98cb72fa718d567742a240575b9b96148f7a1543d07bc621a7b2b735a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text v4 image/frequency ablation (practical)"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Frozen letterbox TEST-300 follow-up"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Post-TEST threshold sensitivity diagnostic (TRAIN only)"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "title": "Two concurrent 500-epoch letterbox continuations"
+        },
+        {
+          "line": 123,
+          "level": 3,
+          "title": "Fixed-checkpoint word audit"
+        }
+      ],
+      "title": "Total-Text v4 image/frequency ablation (practical)"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_WORD_ABLATION.md",
+      "bytes": 5832,
+      "sha256": "8d9a8e7ff475aac679946361cf1024930db5beac7692e90cf60f23f6eae72b4d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text: four word-training ablations"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Frozen experiment"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Interventions"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Run, persistence and interruption recovery"
+        }
+      ],
+      "title": "Total-Text: four word-training ablations"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_WORD_F1_SEPARATOR_ABLATION.md",
+      "bytes": 2844,
+      "sha256": "2ef430cb2177044c2bc17bbec2bc581168b4b5ad2a38ddc7ef2f83db20d7479a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text word-level U-Net ablation (practical)"
+        }
+      ],
+      "title": "Total-Text word-level U-Net ablation (practical)"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_WORD_KERNEL.md",
+      "bytes": 7961,
+      "sha256": "7b0185882b3f670ab659df757c7f6ee997877efca060c9c93e63a10614159ded",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Total-Text word-kernel U-Net experiment"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Motivation and evidence"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "Frozen intervention"
+        },
+        {
+          "line": 39,
+          "level": 3,
+          "title": "Nucleus targets (`ASSUMPTION`)"
+        },
+        {
+          "line": 58,
+          "level": 3,
+          "title": "GT-blind inference (`ASSUMPTION`)"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Execution and outputs"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Implementation qualification (CPU only)"
+        }
+      ],
+      "title": "Total-Text word-kernel U-Net experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_YOLO_DIRECT_PARSEQ.md",
+      "bytes": 4393,
+      "sha256": "cd22ca7623616e6222f31db2f492c39623fc0d8e7e338f15e29d9453924b29bb",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Direct YOLO boxes → PARSeq on Total-Text"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "title": "Measured full TEST result"
+        }
+      ],
+      "title": "Direct YOLO boxes → PARSeq on Total-Text"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_YOLO_IMPROVEMENTS.md",
+      "bytes": 8918,
+      "sha256": "92a3ce92e46f19aca2e22551c59ff7a80031ab935d2b325e51e32e5957bfbb52",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Exploratory YOLO failure analysis and improvement battery"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Baseline causes"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Fixed interventions"
+        },
+        {
+          "line": 80,
+          "level": 2,
+          "title": "Measured TEST results"
+        },
+        {
+          "line": 121,
+          "level": 3,
+          "title": "Additional cached scale agreement"
+        }
+      ],
+      "title": "Exploratory YOLO failure analysis and improvement battery"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOTALTEXT_YOLO_WORD_SLOTS.md",
+      "bytes": 5367,
+      "sha256": "7cda826454f0577207d399e16d2b86a632e38fd76296053b43893fe41c94fb06",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Lightweight word-object slots for frozen Total-Text crops"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Candidate and limits"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "title": "Completed Total-Text TEST diagnostic"
+        },
+        {
+          "line": 55,
+          "level": 2,
+          "title": "Launch"
+        }
+      ],
+      "title": "Lightweight word-object slots for frozen Total-Text crops"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TRAIN_GROUPING_FAILURES_AND_RECOVERY.md",
+      "bytes": 10420,
+      "sha256": "39285c49a8eec2bc0a8d68ba52c2ebb3e31ea8a8a2b56cc4c369a9c6955f03a2",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "1. Stato congelato e vincoli"
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "title": "2. Baseline TRAIN verificata"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "3. Primo audit: quale crop riceve PARSeq?"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "4. Secondo audit: glifi mancanti e testo estraneo"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "title": "5. Oracle geometrico: quanto recuperano i componenti già predetti?"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "6. Prova OCR GPU sugli80 casi"
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "title": "7. Conclusioni e decisioni"
+        },
+        {
+          "line": 159,
+          "level": 2,
+          "title": "8. Prossimo passo proposto, non ancora eseguito"
+        },
+        {
+          "line": 171,
+          "level": 2,
+          "title": "9. Artifact, hash e comandi"
+        },
+        {
+          "line": 198,
+          "level": 2,
+          "title": "10. Provenienza scientifica e limiti ancora aperti"
+        }
+      ],
+      "title": "TRAIN: errori di localizzazione, completezza dei crop e recupero OCR"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_AUXILIARY_OCR.md",
+      "bytes": 7449,
+      "sha256": "ad8bcdd273ccec89a0ce624f1e403f1bb8920720008f0ac29a5308a860b53627",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Auxiliary recognition supervision of shared U-Net features"
+        }
+      ],
+      "title": "Auxiliary recognition supervision of shared U-Net features"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_CROP_LINKS.md",
+      "bytes": 9544,
+      "sha256": "9c20c2364b3c82080ce9b4d606a440d9e17fe8662ba9c4be8124878fef018fd8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Learned crop refinement with word-instance links"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Four comparable arms"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Predicted-window curriculum and labels"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "title": "Inference and original-coordinate evaluation"
+        },
+        {
+          "line": 112,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 138,
+          "level": 2,
+          "title": "Qualification and limits"
+        }
+      ],
+      "title": "Learned crop refinement with word-instance links"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_CROP_REFINEMENT.md",
+      "bytes": 8714,
+      "sha256": "0a4e01b927cce6f9544125f2c7108c27c158735ed501a0efbee2112f28e99cef",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "U-Net crop resegmentation experiment"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Behavior and coordinate units"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Running the existing Total-Text letterbox checkpoint"
+        },
+        {
+          "line": 81,
+          "level": 2,
+          "title": "Reviewing outputs"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Qualification and preliminary observation"
+        }
+      ],
+      "title": "U-Net crop resegmentation experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_DETECTION_METHODS.md",
+      "bytes": 16620,
+      "sha256": "500d438ccbdd653467e4a320384f3c113492e3bdf15d1714aa0b02da037a1988",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Text pretraining, scale fusion, progressive kernels and word rectification"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Existing work reused"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Comparable arms"
+        },
+        {
+          "line": 73,
+          "level": 2,
+          "title": "Optional SynthText domain pretraining"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "title": "SynthText target correction (isolated v2 configuration)"
+        },
+        {
+          "line": 179,
+          "level": 2,
+          "title": "PARSeq and rectification"
+        },
+        {
+          "line": 204,
+          "level": 2,
+          "title": "Launch"
+        },
+        {
+          "line": 251,
+          "level": 2,
+          "title": "Tests and qualification"
+        }
+      ],
+      "title": "Text pretraining, scale fusion, progressive kernels and word rectification"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_RESTART_STORAGE.md",
+      "bytes": 3844,
+      "sha256": "03b1b5cfa1443fc329bef9a94295b9ab94a791d851d371d4f2d5568c44f9618a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Restart and failed-run storage cleanup"
+        }
+      ],
+      "title": "Restart and failed-run storage cleanup"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_SEEDED_SELECTIVE.md",
+      "bytes": 6752,
+      "sha256": "732304665f1489673cf8751193209964eb953cc18af142bb7f917a100c464edd",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Nucleus-guided links and selective crop refinement"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "Six arms and matched comparisons"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Soft growth from nuclei"
+        },
+        {
+          "line": 57,
+          "level": 2,
+          "title": "Selective replacement"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "Evaluation and run"
+        }
+      ],
+      "title": "Nucleus-guided links and selective crop refinement"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_WORD_DETECTION_TEST.md",
+      "bytes": 2400,
+      "sha256": "c98648dd376e753a5aa5e8502589dddbc9e0f980e3ba546bcd5b6ae5f41b4a49",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Text+Kernel and Hybrid384 word detection on TEST"
+        }
+      ],
+      "title": "Text+Kernel and Hybrid384 word detection on TEST"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_WORD_RESEARCH.md",
+      "bytes": 10149,
+      "sha256": "b3d6360ab4171e50908b9b28eea3206707ddd9cd01bd48f56fcf217b955f9d66",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "U-Net: original glyph masks and modified word regions"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "What the two ground truths mean"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Controlled branches"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "title": "Frozen protocol and outputs"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "First measured diagnostic, without retraining"
+        }
+      ],
+      "title": "U-Net: original glyph masks and modified word regions"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_WORD_RESEARCH_V2.md",
+      "bytes": 10975,
+      "sha256": "6217fb8df3d2341eaa5c695436701a51c75e9ff411cc4fb79d3c2637a164e206",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Corrective U-Net experiments v2"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "What is compared"
+        },
+        {
+          "line": 44,
+          "level": 2,
+          "title": "Fixed-checkpoint embedding extraction"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Pixel-link supervision"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Threshold isolation and DB-style core targets"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Evaluation and execution"
+        },
+        {
+          "line": 156,
+          "level": 2,
+          "title": "First qualified CPU extraction result"
+        }
+      ],
+      "title": "Corrective U-Net experiments v2"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_CENTERLINE.md",
+      "bytes": 11500,
+      "sha256": "0784fe336acf05c64f9fb4154519c16466e31d3abe5d750db331c3f635095977",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Perché questa prova"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Protocollo fissato prima del training"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Tre crop sulle stesse immagini e lo stesso checkpoint"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Qualifica locale e limiti"
+        },
+        {
+          "line": 126,
+          "level": 2,
+          "title": "Comando sul computer con GPU"
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "title": "Altre direzioni nuove, da provare separatamente"
+        }
+      ],
+      "title": "Centerline e raggio: prova nuova sulla U-Net frozen"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_CENTER_OFFSETS.md",
+      "bytes": 12436,
+      "sha256": "30cbc5c14e231c87b8752942b873f6e0d4545c82b18211248d59c5a44885a023",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Auxiliary word-center attraction U-Net"
+        }
+      ],
+      "title": "Auxiliary word-center attraction U-Net"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_CENTER_VOTE_LOSS.md",
+      "bytes": 9614,
+      "sha256": "60bddbe51c54e80427d05d814d3ce0cc5130894eb1989debae83d9a351368967",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Coherent word-center vote loss: isolated v2 experiment"
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "title": "Objective"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Matched experiment and metrics"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Implementation qualification"
+        }
+      ],
+      "title": "Coherent word-center vote loss: isolated v2 experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_EVIDENCE_SUITE.md",
+      "bytes": 5480,
+      "sha256": "ff9cb5d8ace0060283e6b619dfc89b02d96b2cda3ab2a8f266737a3c90b0dd13",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Text+Kernel: three controlled word-evidence tests"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Frozen source and common protocol"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "title": "1. Crossed Text/Kernel oracle diagnostic"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "2. Learned fragment association"
+        },
+        {
+          "line": 54,
+          "level": 2,
+          "title": "3. Crop-completeness supervision"
+        },
+        {
+          "line": 68,
+          "level": 2,
+          "title": "Metrics, hardware and artifacts"
+        }
+      ],
+      "title": "Text+Kernel: three controlled word-evidence tests"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_GUIDED_CONTOURS.md",
+      "bytes": 16252,
+      "sha256": "4aa0689e8e66f37f374f5c581706a9e7728acadf3cb5a70415a0ba8c16f5234c",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Word-guided contours and actual crop recognition"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Inspection and scope"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Frozen comparison and metrics"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 138,
+          "level": 2,
+          "title": "Qualification"
+        },
+        {
+          "line": 153,
+          "level": 2,
+          "title": "Completed results (2026-10-09)"
+        },
+        {
+          "line": 238,
+          "level": 2,
+          "title": "Direct inference API and visual review"
+        }
+      ],
+      "title": "Word-guided contours and actual crop recognition"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_INSTANCE_EXTENSIONS.md",
+      "bytes": 16518,
+      "sha256": "3c2d8f63afd8ef8f9809402f61f18b0f2bf1164799e7a78bd2730f9a2e497cd1",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Local word instance extensions"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Novelty check before implementation"
+        },
+        {
+          "line": 30,
+          "level": 2,
+          "title": "Fixed source and controls"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Three isolated objectives"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Training, calibration and evaluation"
+        },
+        {
+          "line": 139,
+          "level": 2,
+          "title": "Running"
+        },
+        {
+          "line": 165,
+          "level": 2,
+          "title": "Qualification status"
+        },
+        {
+          "line": 211,
+          "level": 2,
+          "title": "Authorized full run — 21 October 2026"
+        }
+      ],
+      "title": "Local word instance extensions"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_INSTANCE_NOVELTY_AUDIT.json",
+      "bytes": 6286,
+      "sha256": "8b40e6721148bdda1c425e517863d7d812aa5899dc16402dfa5b617a989b2cdc",
+      "title": "WORD_INSTANCE_NOVELTY_AUDIT",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_MULTITASK.md",
+      "bytes": 20181,
+      "sha256": "53204b848fb3529218d600378986b8b9913b007da3642145fb36b9b8a4a84282",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Word-kernel and Gaussian-center Attention U-Net experiment"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Audit before implementation (2026-10-08)"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Minimal new implementation"
+        },
+        {
+          "line": 80,
+          "level": 3,
+          "title": "Targets (`ASSUMPTION`)"
+        },
+        {
+          "line": 106,
+          "level": 3,
+          "title": "Loss (`ASSUMPTION`)"
+        },
+        {
+          "line": 122,
+          "level": 3,
+          "title": "Inference (`ASSUMPTION`)"
+        },
+        {
+          "line": 149,
+          "level": 3,
+          "title": "Controlled experiment and metrics (`ASSUMPTION`)"
+        },
+        {
+          "line": 178,
+          "level": 2,
+          "title": "Run and reuse"
+        },
+        {
+          "line": 239,
+          "level": 3,
+          "title": "Repair of the initial launcher contract encoding"
+        },
+        {
+          "line": 298,
+          "level": 2,
+          "title": "Verification record (2026-10-08)"
+        }
+      ],
+      "title": "Word-kernel and Gaussian-center Attention U-Net experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_MULTITASK_RESULTS_V1.md",
+      "bytes": 8776,
+      "sha256": "3efba77516a0531a3b299b0e837c3790baa4014a596fe37de319ca106b4119af",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Completed word multi-task experiment v1"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Matched comparison"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Pixel metrics and existing post-processing ablation"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Hardware, size and limits"
+        },
+        {
+          "line": 103,
+          "level": 2,
+          "title": "Verification and provenance"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Offline visual archive"
+        }
+      ],
+      "title": "Completed word multi-task experiment v1"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_CONTEXT_QUALITY_ROUTER.md",
+      "bytes": 4870,
+      "sha256": "835274a1de723301aa6365813d19f997edfe4d002dca6fe3f2a6d80d2dc7d06b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Routing contestuale della qualità dell'immagine, senza addestramento"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Protocollo congelato"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "title": "Prove"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Metriche"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Esecuzione e stato"
+        }
+      ],
+      "title": "Routing contestuale della qualità dell'immagine, senza addestramento"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_DONT_CARE_EVALUATION.md",
+      "bytes": 7657,
+      "sha256": "9b1defc728436dd313e4003b8831dac2dc1585e836bfee389aaf780622e36ec8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen YOLO/PARSeq evaluation with don't-care neutralization"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Run"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "What changes"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Care matching and denominators"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Full TEST results"
+        },
+        {
+          "line": 113,
+          "level": 2,
+          "title": "Qualification"
+        }
+      ],
+      "title": "Frozen YOLO/PARSeq evaluation with don't-care neutralization"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_PAIRED_ROUTER_COMPARISON.md",
+      "bytes": 8635,
+      "sha256": "035c59bc66c9163218b22d64e525261c1b1fbf41835bda231feff4f5c9ea6abc",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "YOLO: paired CLIP / paper-router comparison"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Common local metric"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Results at equal fallback budgets"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "Real scalar thresholds transferred from TRAIN"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "title": "Headroom and paper comparison"
+        },
+        {
+          "line": 116,
+          "level": 2,
+          "title": "Execution and qualification"
+        }
+      ],
+      "title": "YOLO: paired CLIP / paper-router comparison"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_PARSEQ_FOUR_DATASET_COMPARISON.md",
+      "bytes": 7944,
+      "sha256": "42ee830a1efa20a7c3d7ca5d9cde09ffc90022e1ae4c1c2ecd04b083ff9159a5",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "YOLO/PARSeq: four TEST datasets and per-image compute estimates"
+        },
+        {
+          "line": 22,
+          "level": 2,
+          "title": "Accuracy comparison"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "What one image costs"
+        },
+        {
+          "line": 114,
+          "level": 2,
+          "title": "Verification and failures resolved"
+        }
+      ],
+      "title": "YOLO/PARSeq: four TEST datasets and per-image compute estimates"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_TEXT_COVERAGE_RESOLUTION.md",
+      "bytes": 9502,
+      "sha256": "5585889c21b1ccf8b9f6507deef39024e6f75fa4d3739d5d180bcee878865685",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "YOLO routing with inference-only text coverage and resolution controls"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Method and control"
+        },
+        {
+          "line": 46,
+          "level": 2,
+          "title": "Resolution and execution"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Evaluation and current evidence"
+        }
+      ],
+      "title": "YOLO routing with inference-only text coverage and resolution controls"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_TRAINING_FREE_CONSISTENCY_ROUTER.md",
+      "bytes": 10254,
+      "sha256": "03e714aaad539d0bcfde07a5be925bbeecaf07bbb310cd6e345c5d99b190bd4a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen-model scale/crop consistency router"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Frozen inference probes"
+        },
+        {
+          "line": 38,
+          "level": 2,
+          "title": "Label use and threshold protocol"
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "title": "Metrics, execution and reproducibility"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Completed experiment,2026-10-21"
+        }
+      ],
+      "title": "Frozen-model scale/crop consistency router"
+    },
+    {
+      "root": "repository",
+      "path": "docs/history/UPSTREAM_README.md",
+      "bytes": 8494,
+      "sha256": "3c41013de9514de29119bc306946f03c4104952007ae81c56113a0c1979040ae",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"
+        },
+        {
+          "line": 44,
+          "level": 2,
+          "title": "🔥 Abstract"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "🏗️ Method Overview"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "📦 Installation"
+        },
+        {
+          "line": 88,
+          "level": 2,
+          "title": "⚙️ Minimal Configs (create these files)"
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "title": "📜 Citation"
+        },
+        {
+          "line": 185,
+          "level": 2,
+          "title": "🪪 License"
+        }
+      ],
+      "title": "A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"
+    },
+    {
+      "root": "repository",
+      "path": "docs/history/WORKSPACE_AUDIT_INDEX.json",
+      "bytes": 264491,
+      "sha256": "3d1e71588e78b80e1ad46321e19ddb22db65f09accbf8b409d7babfd99aea116",
+      "title": "WORKSPACE_AUDIT_INDEX",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "docs/history/WORKSPACE_AUDIT_INDEX.md",
+      "bytes": 60670,
+      "sha256": "e65c82eb58ee96e49bc479ef62e1f9d1e3ab4afe47c6eccb16d5c7e75c1f5f4d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Audit and evidence index"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "external_artifacts"
+        },
+        {
+          "line": 43,
+          "level": 2,
+          "title": "repository"
+        },
+        {
+          "line": 293,
+          "level": 2,
+          "title": "runs"
+        },
+        {
+          "line": 393,
+          "level": 2,
+          "title": "Targeted reads"
+        }
+      ],
+      "title": "Audit and evidence index"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/AG_UNET_ARCHITECTURE_M8.json",
+      "bytes": 7725,
+      "sha256": "0651c6aca9654637d9f0543d054694ae9931d7eb5433fe0e2f7d8bba74cf9bc8",
+      "title": "AG_UNET_ARCHITECTURE_M8",
+      "reported_metadata": {
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ARTIFACTS.yaml",
+      "bytes": 83113,
+      "sha256": "e4106ce35eb19c95eacf806f43eb1e53f4ccf2a3afe75338d3efc349c0420735",
+      "title": "ARTIFACTS"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/EXTERNAL_ASSETS.json",
+      "bytes": 185185,
+      "sha256": "357d62eecc4a17c0bbf19c5025abf3c51642f3d013fb515bba3ea2d63686464a",
+      "title": "EXTERNAL_ASSETS",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "provenance/SOURCES.yaml",
+      "bytes": 48583,
+      "sha256": "d2c94c95bb9033dfd28eb52540b571726bef48cd8a2f79a89c59c731228e6507",
+      "title": "SOURCES"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/adaspot_gap_context_v1_completion.json",
+      "bytes": 3632,
+      "sha256": "15596bfd40aaa5e0fd481382e806c5fd320b96d827a39753ebbc80e68f784acf",
+      "title": "adaspot_gap_context_v1_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/adaspot_gap_prior_audit_20261015.json",
+      "bytes": 4710,
+      "sha256": "d61cd99ccc0d6b75c13a88050715b6b6a328afc7cdc89586f89bb848f9ef0725",
+      "title": "adaspot_gap_prior_audit_20261015",
+      "reported_metadata": {
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/adaspot_gap_v1_qualification.json",
+      "bytes": 7701,
+      "sha256": "053762358d89fd023bbfefe25fab40389c5bbaf2aee1cd1a764fd6a59dc7f7bb",
+      "title": "adaspot_gap_v1_qualification",
+      "reported_metadata": {
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/adaspot_phase0_v1_completion.json",
+      "bytes": 3361,
+      "sha256": "b93fa638dfaa827be98ac32c8845bc115c05a7bba402116a68f9005a89bfd2b3",
+      "title": "adaspot_phase0_v1_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/kernel_only_fresh_v1_qualification.json",
+      "bytes": 4647,
+      "sha256": "055f7298989ef2d6c8ad63acd193c1b98f48249dd99306477fabb895d5d2e6d9",
+      "title": "kernel_only_fresh_v1_qualification",
+      "reported_metadata": {
+        "status": "TRAINING_ON_CUDA",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/kernel_only_padding_v1_qualification.json",
+      "bytes": 3311,
+      "sha256": "4077444b980cbad87cf02a8690c1207ee7cc3bb97570a87d504c913b68a2923a",
+      "title": "kernel_only_padding_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/kernel_only_training_v1_completion.json",
+      "bytes": 3046,
+      "sha256": "2fd3789699d606137dc8b1e2263a7c4e97f42d8152db403e1802f774770c7384",
+      "title": "kernel_only_training_v1_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/kernel_only_training_v1_deletion.json",
+      "bytes": 1205,
+      "sha256": "4ffac6c54280c0101741e46b055a6f5544a586fd2e253bba59546d5de9107dcb",
+      "title": "kernel_only_training_v1_deletion",
+      "reported_metadata": {
+        "status": "DELETED_AT_USER_REQUEST"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/kernel_only_training_v1_qualification.json",
+      "bytes": 23458,
+      "sha256": "c0d804b0d85e9867c616ff6b5d2f445945fcb38b98ae070c2883bc0c37521bdf",
+      "title": "kernel_only_training_v1_qualification",
+      "reported_metadata": {
+        "status": "TRAINING_ON_CUDA",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/synthtext_target_generation_v2.json",
+      "bytes": 24951,
+      "sha256": "c97f865a734f18b9830cff6159b3a1930012c02760272acbd8ee5c9c066c10da",
+      "title": "synthtext_target_generation_v2",
+      "reported_metadata": {
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_crops_independent_audit.py.txt",
+      "bytes": 6722,
+      "sha256": "d70b92a00e56cdcd9d868027047d7ee686644afaf23c85d4f23cee163ddf0efe",
+      "title": "text_recall_crops_independent_audit.py"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_crops_v1_results.json",
+      "bytes": 17932,
+      "sha256": "8d8004e04eef5d4ad175cf07f21a3fde86f869d89c5abe6b65b4ee1a4e28b289",
+      "title": "text_recall_crops_v1_results",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_cuda_initialization_fix_v1.json",
+      "bytes": 4724,
+      "sha256": "2969443493e1bc8d2ae910d90097a454e8608ec0925d35b0f065834a31f6dd7b",
+      "title": "text_recall_cuda_initialization_fix_v1",
+      "reported_metadata": {
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_learned_crops_v1_results.json",
+      "bytes": 9667,
+      "sha256": "1a62171e9ca76b669adf66033d25b4b18c8e5980613dc22bb0a695a4ba914d90",
+      "title": "text_recall_learned_crops_v1_results",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_refinements_independent_audit.py.txt",
+      "bytes": 9108,
+      "sha256": "513961b1c07dd7972e715592c66a61022cf1b792eaabe695348290e0ea084607",
+      "title": "text_recall_refinements_independent_audit.py"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_refinements_resume_v1.json",
+      "bytes": 590,
+      "sha256": "a46450a9eda07a70e72232f35d91ddf5db02636eb03f07502679af1c62c6c018",
+      "title": "text_recall_refinements_resume_v1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_refinements_v1_results.json",
+      "bytes": 10844,
+      "sha256": "e5fca8f921f663e8105da871a7ff54e9f1c51354db59dc92c14b8a8b194bed04",
+      "title": "text_recall_refinements_v1_results",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/text_recall_resolution_v1_qualification.json",
+      "bytes": 8308,
+      "sha256": "28062d2177e06067b02b280503fd96e64aa15d1d0350a2a91df33cc78b13d989",
+      "title": "text_recall_resolution_v1_qualification",
+      "reported_metadata": {
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_crop_links_v1_qualification.json",
+      "bytes": 5196,
+      "sha256": "3a9e6896eff9e40d21577423f693f230b97aa600f4ca80bfea20ecb51a9406a1",
+      "title": "unet_crop_links_v1_qualification",
+      "reported_metadata": {
+        "status": "IMPLEMENTATION_QUALIFIED_CPU_ONLY",
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_detection_methods_v1_qualification.json",
+      "bytes": 10322,
+      "sha256": "720536c55f1ae0fb0600f7f3618e9e5dfb7316e2f4726357da7088b4fc6bc0e7",
+      "title": "unet_detection_methods_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_seeded_selective_v1_qualification.json",
+      "bytes": 8824,
+      "sha256": "9e2e210a7d5722ab4b2bae0804a9c9865b8122429ac199207c08b13be1b486c3",
+      "title": "unet_seeded_selective_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "implementation qualification; smoke-test result and held-out TRAIN geometry diagnostic",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_word_research_v1_qualification.json",
+      "bytes": 9538,
+      "sha256": "d213dcacfce49149f48143f423c1a4debbde988647a85d08d01bc5a1b56f2b79",
+      "title": "unet_word_research_v1_qualification",
+      "reported_metadata": {
+        "result_class": "implementation qualification plus exploratory held-out TRAIN diagnostic; not trained new-head performance",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_word_research_v2_qualification.json",
+      "bytes": 12207,
+      "sha256": "b8a2d8d8c79d63b1bc77f5ade3ef2e896c4f585c2c4e534f53355278a14efb24",
+      "title": "unet_word_research_v2_qualification",
+      "reported_metadata": {
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_center_vote_loss_v2_qualification.json",
+      "bytes": 5811,
+      "sha256": "28e34131de6a364651cc06cc6810de709366c651d1cc93b9f0d0826bbc5169dc",
+      "title": "word_center_vote_loss_v2_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_centerline_v1_qualification.json",
+      "bytes": 2399,
+      "sha256": "b7cb58bc4f3eeab850ea5980a553e119a11920feed586b7d1aae591f7d54da8b",
+      "title": "word_centerline_v1_qualification",
+      "reported_metadata": {
+        "status": "CPU_QUALIFIED_GPU_PENDING",
+        "result_class": "smoke-test result",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_contour_refinement_v1_results.json",
+      "bytes": 13822,
+      "sha256": "38f4697d050ddc126359340dfbaf20a576e07ac3708d4f87c0530c738fed135f",
+      "title": "word_contour_refinement_v1_results",
+      "reported_metadata": {
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_multitask_v1_completion_audit.json",
+      "bytes": 7429,
+      "sha256": "74eb529408c7083349fcceb1f5513fb457721f8db486ed843dd5de484d39838c",
+      "title": "word_multitask_v1_completion_audit",
+      "reported_metadata": {
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_multitask_v1_visual_archive.json",
+      "bytes": 979,
+      "sha256": "4c0ca42f52bed36ba649f146277cf6d12063cc0919f0a7108936b5377cc2e82e",
+      "title": "word_multitask_v1_visual_archive",
+      "reported_metadata": {
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate"
+      }
+    }
+  ]
+}

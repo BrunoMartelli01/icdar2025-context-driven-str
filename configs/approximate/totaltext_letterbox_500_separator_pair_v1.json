@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_letterbox_500_separator_pair",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "dataset": "total_text",
+  "split": "frozen_TRAIN_1130_validation_125",
+  "source_variant": "letterbox",
+  "source_completed_epochs": 100,
+  "fork_checkpoint_epoch": 71,
+  "fork_checkpoint_sha256": "5fca2ffc15b9689abbd5d75e80710ddd38d6419d9610fed840b2c54bb01f3991",
+  "fork_run_manifest_sha256": "d4bba53d7913dd214f928c326c5984aab6ecbbfe8d444bb6fcb6c3bd47880383",
+  "total_epochs_including_fork_prefix": 500,
+  "checkpoint_selection": "best_validation_foreground_iou_tie_earliest_epoch",
+  "probability_threshold": 0.5,
+  "branches": {
+    "letterbox_500_control": {"separation_weight": 3.0},
+    "letterbox_500_sep5": {"separation_weight": 5.0}
+  },
+  "scientific_choices": [
+    {"component": "fork_from_epoch_71", "classification": "ASSUMPTION", "rationale": "The earlier 100-epoch run retained only its best checkpoint at epoch 71; both controlled branches restore identical model, optimizer, and RNG states from that checkpoint and train epochs 72-500. They do not claim to continue from epoch 100."},
+    {"component": "separation_weight_5", "classification": "ASSUMPTION", "rationale": "One predeclared moderate increase from weight 3 to 5 tests stronger false-positive cost on valid inter-word separator pixels. No TEST data or threshold sweep selected this value."},
+    {"component": "parallel_single_gpu", "classification": "HARDWARE_DEVIATION", "rationale": "Two isolated training processes share one RTX 3090, with a free-VRAM preflight and per-process peak-memory reporting. Outputs may remain nondeterministic across process scheduling despite deterministic operators."}
+  ]
+}

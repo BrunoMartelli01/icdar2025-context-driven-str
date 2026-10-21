@@ -1,0 +1,34 @@
+{
+  "experiment": "gt-mask-localization-oracle-train-v1",
+  "reproduction_mode": "approximate",
+  "result_class": "APPROXIMATE_DIAGNOSTIC",
+  "scope": {"split": "TRAIN", "images": 229, "gt_words": 849},
+  "source_report_sha256": "38afc5fbb93bf6c6cc9970ad90454509f1089d6249a56447e6f60aecfbf2cc1b",
+  "train_manifest_sha256": "3aeecf40411326f0721e5d4eea1bf74a9357eab1c9da54a77d0624b6e24f7c14",
+  "checkpoint_sha256": "b450f19e79f649f8873a8b8db0d9a25ab0a7f144ac5f8676a2a80d5c1d8fd2f2",
+  "conditions": ["PRED128", "GT128", "GT_FULLRES"],
+  "methods": ["CURRENT_ALG1", "REPOSITORY_CONTOURS", "PRACTICAL_REMAP_V1", "V1_1_RESCUE", "REPOSITORY_NATIVE128"],
+  "native128_method_conditions": ["PRED128", "GT128"],
+  "repository_config": "configs/approximate/localization_repository_contours_v1.json",
+  "native_repository_config": "configs/approximate/localization_repository_contours_native128_v1.json",
+  "v1_config": "configs/approximate/pipeline_icdar13_practical_remap_v1.yaml",
+  "rescue_parameters": {
+    "max_normalized_gap": 0.4,
+    "max_gap_to_internal_ratio": 1.5,
+    "min_vertical_overlap": 0.5,
+    "max_center_y_ratio": 0.5,
+    "max_height_ratio": 2.5
+  },
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Algorithm1: true component area, padding, area ordering, max10; paper section3.3/Algorithm1"},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Keep existing contour variants including bbox-area semantics; do not equate these with paper component-area semantics"},
+    {"classification": "ASSUMPTION", "choice": "TRAIN-only counterfactual geometry diagnostic: replace predictions with exact-white-background Task2.2 glyph targets, not filled word boxes. Existing localization parameters unchanged"},
+    {"classification": "ASSUMPTION", "choice": "GT128 uses qualified bilinear PIL resize followed by >=0.5; original-coordinate methods use existing nearest binary backprojection"},
+    {"classification": "ASSUMPTION", "choice": "Keep all target foreground including Don't Care when generating proposals, just as validity is not applied to predicted masks downstream. Evaluate only care words. Ignored-region predictions are not uniquely supervised"},
+    {"classification": "ASSUMPTION", "choice": "v1 and previously user-frozen v1.1 rescue are practical grouping controls, not paper-faithful algorithms"},
+    {"classification": "UNRESOLVED", "choice": "No frozen selected v2 configuration available in checked artifacts; do not invent a selection or rerun its grid"}
+  ],
+  "ocr_run": false,
+  "table5_accuracy": null,
+  "tuning": false
+}

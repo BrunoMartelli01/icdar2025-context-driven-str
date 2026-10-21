@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_config": "configs/approximate/totaltext_v4_image_frequency_ablation_v1.json",
+  "source_config_sha256": "23d4dcd62e5597e4ed3be494dfef92c09e2696c07e53c18f7a9ee98b51e9a290",
+  "train_manifest": "manifests/total_text_train.yaml",
+  "word_manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+  "validation_ids_sha256": "f4bb0f047ed70c4090c64cd1ed83871723a38f18afab0d9d4fed6ed17d1adbd1",
+  "validation_count": 125,
+  "expected_validation_words": 983,
+  "input_size": [
+    512,
+    512
+  ],
+  "native_mask_size": [
+    256,
+    256
+  ],
+  "seed": 202503,
+  "skip_floor": 0.25,
+  "source_checkpoint_sha256": "47a941e17472d26c4fff259d0a81c061e23040059c49d97cf2a89a9430045cd8",
+  "source_run_manifest_sha256": "473a42e403cd13260dbb4a422a4cd4d7a3a64a25a2f56673bee0313c52bd4823",
+  "source_architecture": "experimental-unet-word-research-v1:control",
+  "source_epoch": 2,
+  "postprocessing": {
+    "method": "watershed",
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "center_threshold": 0.5,
+    "center_min_distance": 3,
+    "watershed_weights": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "embedding_distance": 1.5,
+    "padding": 0,
+    "min_area": 0,
+    "max_instances": null
+  },
+  "experiment_kind": "unet_detection_methods_v1",
+  "branches": [
+    "reference",
+    "control",
+    "scale_fusion",
+    "progressive_kernels",
+    "fusion_progressive",
+    "pretrained_control",
+    "pretrained_fusion_progressive"
+  ],
+  "epochs": 50,
+  "batch_size": 2,
+  "num_workers": 2,
+  "cpu_threads": 4,
+  "learning_rate": 1e-05,
+  "encoder_learning_rate": 1e-06,
+  "head_learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "fusion_channels": 32,
+  "kernel_fractions": [
+    0.5,
+    0.3,
+    0.1
+  ],
+  "precision": "float32",
+  "loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1.0,
+    "separation_weight": 3.0,
+    "lambda_text": 1.0,
+    "lambda_kernel": 1.0,
+    "lambda_larger_kernels": 1.0,
+    "lambda_nesting": 0.1
+  },
+  "synthtext": {
+    "max_images": 50000,
+    "coordinate_origin": 0,
+    "epochs": 5,
+    "learning_rate": 0.0001,
+    "encoder_learning_rate": 1e-05,
+    "checkpoint_selection": "last",
+    "excluded_population": "all1255_TotalText_TRAIN_RGB_SHA256",
+    "target_policy": "preserve_visible_words_v1"
+  },
+  "crop_views": [
+    "axis",
+    "oriented",
+    "bezier"
+  ],
+  "rectification": {
+    "pad": 0,
+    "envelope_bins": 8,
+    "minimum_occupied_bins": 6,
+    "minimum_pixels": 16,
+    "max_condition_number": 10000
+  },
+  "ocr": {
+    "batch_size": 8,
+    "decode_ar": true,
+    "refine_iters": 1,
+    "iou_threshold": 0.5,
+    "casefold": true,
+    "punctuation_retained_primary": true
+  },
+  "scientific_choices": [
+    {
+      "component": "backbone_family",
+      "classification": "PAPER_SPECIFIED",
+      "source": "papers/2503.15639v2.pdf section3.2",
+      "rationale": "Reuse ResNet50 attention-gated U-Net family; exact practical decoder remains an isolated extension",
+      "expected_effect": "No new backbone",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "source_split_targets_losses",
+      "classification": "REPOSITORY_SPECIFIED",
+      "source": "docs/UNET_WORD_RESEARCH.md",
+      "rationale": "Reuse qualified v1 control and TRAIN1130/125,512/native256,word owners,BCE+Dice,separators",
+      "expected_effect": "Preserve comparable starting point and annotations",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "encoder_adaptation",
+      "classification": "ASSUMPTION",
+      "rationale": "All feature convolutions adapt with lower encoder LR; BN affine and running statistics frozen; same policy in continuation and structural controls",
+      "expected_effect": "Improve text representations; source-reference and continuation effects reported separately",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "compact_scale_fusion",
+      "classification": "ASSUMPTION",
+      "source": "https://arxiv.org/abs/2202.10304",
+      "rationale": "Spatial3-way fusion of /8,/4,/2 decoder projections,32channels,zero64channel residual; inspired by ASF,not original DBNet++; exact integral nearest expansion via tensor expand/reduction for deterministic CUDA backward, not bilinear ASF interpolation",
+      "expected_effect": "Recover small words with little parameter increase",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "progressive_kernels",
+      "classification": "ASSUMPTION",
+      "source": "https://arxiv.org/abs/1903.12473",
+      "rationale": "Connected nested distance/max-distance nuclei at.5,.3,.1; two65-parameter heads and masked nesting penalty; confidence competitive expansion with explicit fallback; not original PSENet polygon targets/BFS",
+      "expected_effect": "Measure progressive separation independently of scale fusion",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "SynthText_domain_pretraining",
+      "classification": "ASSUMPTION",
+      "source": "https://github.com/MhLiao/DB#training",
+      "rationale": "Warm qualified v1 model on declared deterministic50000image external subset for5epochs,then identical50epochTotalText fine-tuning; last synthetic checkpoint, no target validation selection during synthetic stage. imnames/wordBB/txt only; explicit0-based coordinate origin follows Python generator,not automatically inferred from MAT storage; complete source hashes saved",
+      "expected_effect": "Specialize encoder without increasing inference parameters; additional data/updates differ from controls",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "training_hardware",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Single GPU FP32,batch2,sequential models; memory peaks and OOM explicitly measured, no automatic precision/batch reduction",
+      "expected_effect": "Attempt compatibility with8GB target; physical fit remains to be measured",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "rectification",
+      "classification": "ASSUMPTION",
+      "source": "https://arxiv.org/abs/2002.10200",
+      "rationale": "Reuse existing PCA/B\u00e9zier foreground-envelope geometry on original RGB support reconstructed by nearest resampling inside unchanged inverse-letterbox instance box; pad0; invalid fits preserve axis crop and record reason; not learned ABCNet/BezierAlign",
+      "expected_effect": "Reduce crop orientation/curvature error while preserving geometry matching",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "metrics_and_scope",
+      "classification": "ASSUMPTION",
+      "rationale": "Original RGB bbox IoU>=.5 maximum matching,all983care words,exact casefold punctuation retained; P/S secondary. Pixel macro/micro and any-native-pixel merge/split diagnostics. No area/top10/padding in extension; frozen shape thresholds; reused TRAIN holdout",
+      "expected_effect": "Measure true localized-and-read words and FP tradeoff; not official polygon/Table5 strict result",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "remaining_limits",
+      "classification": "UNRESOLVED",
+      "rationale": "80percent end-to-end benefit, independent transfer, SynthText near-duplicate overlap, and physical RTX3070 fit unmeasured; qualified PARSeq artifact not established as paper PARSeq-S",
+      "expected_effect": "Prevent unsupported reproduction/performance claims",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-001--text-domain-adaptation-scale-fusion-progressive-kernels-and-rectification"
+    },
+    {
+      "component": "SynthText_visible_word_target_policy",
+      "classification": "ASSUMPTION",
+      "source": "segmentation/synthtext_words.py; original50000image SynthText cohort target audit",
+      "rationale": "Keep the same selected images and original word annotations. Record completely off-image boxes as unobservable; never clamp them into the image. Restore pre-corridor owned GT pixels only for visible words otherwise erased entirely. Preflight all targets and bind per-image audits; remaining unrepresentable words still fail. TotalText targets, holdout and denominator remain unchanged.",
+      "expected_effect": "Prevent thin-word target erasure and off-image target failures during external domain pretraining; model effectiveness remains unmeasured.",
+      "ambiguity_entry": "docs/PAPER_AMBIGUITIES.md#udm-synthtext-targets-001--visible-and-thin-synthetic-word-targets"
+    }
+  ],
+  "opencv_threads": 1
+}

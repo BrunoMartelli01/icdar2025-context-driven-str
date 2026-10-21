@@ -1,0 +1,70 @@
+mode: APPROXIMATE
+result_class: PRACTICAL_APPROXIMATION_DIAGNOSTIC
+table_5_claim: false
+
+scope:
+  split: TRAIN
+  images: 229
+  test_access: forbidden
+  training: false
+
+paper_faithful_control:
+  caption_generation_profile: repository-v1
+  matching_scope: whole_caption
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+  behavior_changed: false
+
+practical_caption:
+  classification: ASSUMPTION
+  generation_profile: practical-antirepetition-v1
+  prompt_changed: false
+  generation:
+    max_new_tokens: 80
+    min_new_tokens: 20
+    length_penalty: 1.0
+    num_beams: 3
+    do_sample: false
+    early_stopping: true
+    no_repeat_ngram_size: 3
+    repetition_penalty: 1.1
+  rationale: >-
+    Allow a medium caption to terminate before it fills the token budget and
+    prevent repeated three-token loops. The pinned model, revision and prompt
+    remain unchanged.
+
+practical_matching:
+  classification: ASSUMPTION
+  alpha: 0.6
+  beta: 0.4
+  tau: 0.8
+  paired_score: true
+  variants:
+    exact_length:
+      caption_window_token_lengths: [candidate_token_length]
+    neighbor_lengths:
+      caption_window_token_length_offsets: [-1, 0, 1]
+  window_selection: maximum_paired_score_within_caption
+  lexical_mode: raw
+  semantic_model: sentence-transformers/all-mpnet-base-v2
+  promotion_status: pending_practical_caption_train_evaluation
+  rationale: >-
+    Compare a word-sized recognition candidate with word-sized contiguous
+    caption evidence. Averaging over all windows is intentionally excluded
+    because unrelated caption regions would recreate the full-caption length
+    dilution; semantic and lexical scores always refer to the same window.
+
+proposal_controls:
+  frozen_sets:
+    - practical_remap_v1
+    - BALANCED_ANCHOR_MEAN
+  full_unpruned_candidate_pool_allowed_for_routing: false
+
+scientific_choices:
+  - component: anti_repetition_caption_generation
+    classification: ASSUMPTION
+    ambiguity_ids: [C-002, C-003, C-004, C-005]
+  - component: local_caption_window_matching
+    classification: ASSUMPTION
+    ambiguity_ids: [S-001, S-002, S-003, S-005]

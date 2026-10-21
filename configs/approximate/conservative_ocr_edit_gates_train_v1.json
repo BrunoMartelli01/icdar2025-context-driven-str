@@ -1,0 +1,24 @@
+{
+  "mode": "APPROXIMATE",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "split": "TRAIN",
+  "images": 229,
+  "gt_words": 849,
+  "crops": 1203,
+  "source_report_sha256": "82546a92ec41fc0e6fb9e2e512cf64c97c6200318b6a2142362468331b32a3d9",
+  "model": "qwen2.5-1.5b",
+  "variant": "ocr_caption",
+  "max_edit_distances": [1, 2],
+  "distance": "unit-cost Levenshtein on Unicode casefold strings; no other normalization",
+  "output_gate": "reject empty output or any Unicode whitespace; exact fallback to original PARSeq",
+  "go_rule": "recovered>damaged AND (exact>502 OR lexical_matches>503) AND predicted_tokens<=1203",
+  "training": false,
+  "test_loaded": false,
+  "new_inference": false,
+  "table5_accuracy": null,
+  "scientific_choices": [
+    {"classification": "ASSUMPTION", "choice": "TRAIN post-hoc gates on frozen conservative Qwen caption outputs; thresholds1 and2 predeclared, no model or prompt changes. Raw and casefold distances saved; casefold distance drives the two gates consistently with casefold evaluation."},
+    {"classification": "ASSUMPTION", "choice": "GT-independent per-crop gate. Exact/recovered/damaged reuse frozen audit GT-to-best-IoU-crop assignment, NOT oracle multi-fragment associations. Image lexical matching uses casefold multisets, without geometry/order."},
+    {"classification": "UNRESOLVED", "choice": "TRAIN diagnostic GO is not independent generalization or permission to promote. No strict routing changes. Aggregate difference503 minus502 does not count individual assignment failures."}
+  ]
+}

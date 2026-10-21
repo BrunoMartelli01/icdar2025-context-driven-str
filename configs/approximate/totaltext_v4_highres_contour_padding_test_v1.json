@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "totaltext_highres_contour_padding_diagnostic",
+  "reproduction_mode": "approximate",
+  "classification": "PRACTICAL_APPROXIMATION",
+  "result_class": "Total-Text TEST exploratory diagnostic; not Table 5",
+  "test_manifest_sha256": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+  "variants": ["highres_baseline", "highres_separator", "highres_separator_residual"],
+  "mask_native_shape": [256, 256],
+  "probability_threshold": 0.5,
+  "find_contours": {"retrieval": "RETR_EXTERNAL", "approximation": "CHAIN_APPROX_SIMPLE"},
+  "padding_native_pixels": [0, 2, 4, 6, 8, 12],
+  "area_filter": "disabled",
+  "maximum_proposals": "disabled",
+  "bbox_remap": "floor_lower_ceil_upper_exclusive",
+  "evaluation": {
+    "split": "official_totaltext_test_300",
+    "word_denominator": 2204,
+    "spatial_matching": "maximum_one_to_one_bbox_iou_ge_0_5",
+    "exact": "Unicode_casefold_with_punctuation_retained",
+    "fuzzy": "RapidFuzz_casefold_ratio_ge_0_8",
+    "padding_overlap_population": "GT_word_ids_correct_by_spatial_one_to_one_exact"
+  },
+  "scientific_choices": [
+    {"component": "native_256_model", "classification": "ASSUMPTION", "rationale": "Practical higher-resolution v4 U-Net training; paper specifies 256 input and 128 mask."},
+    {"component": "padding_coordinate_frame", "classification": "ASSUMPTION", "rationale": "Measure padding in native-256 mask pixels before remapping to source RGB; paper does not resolve coordinate frame."},
+    {"component": "no_area_or_top10_filter", "classification": "ASSUMPTION", "rationale": "User-requested Total-Text diagnostic; unlike strict Algorithm 1, retain all external contours."},
+    {"component": "multi_padding_test", "classification": "ASSUMPTION", "rationale": "Predeclared exploratory TEST comparison only; do not select a deployment padding from TEST results."}
+  ]
+}
