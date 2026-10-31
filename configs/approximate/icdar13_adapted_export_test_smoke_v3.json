@@ -1,0 +1,48 @@
+{
+  "batch_size": 32,
+  "checkpoint_relative": "head_only/candidates/epoch_030.pt",
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "detector": {
+    "confidence_floor": 0.05,
+    "image_size": 640,
+    "max_detections": 300,
+    "nms_iou": 0.7
+  },
+  "device": "cuda:0",
+  "frozen_expert": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_selection_v1/frozen.json",
+  "frozen_router": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full",
+  "image_excluded": true,
+  "minimum_free_gpu_bytes": 2147483648,
+  "mode": "approximate",
+  "original_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_smoke_v3",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/deployment_qualification.json": "8f42efaf0c882464ff41ae0592b4f2e5c957f1efa85ed7e3094e8bc02eea97ab",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/selection_frozen.json": "207fa15ed096dac35ec865fdf728ad30ec2b10d9625b7a9d9b17888df2402bda",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_adaptation_v1/full/completion.json": "6d5762471421dc0291d614c0e1e510cd93341597866858d71e623e69de442e2a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_selection_v1/frozen.json": "0ccca05611047885be25f26b2698bb9ab064ac485ef6f013b788c43aa6cd023c"
+  },
+  "prediction_ids": [
+    "icdar13:1",
+    "icdar13:10",
+    "icdar13:100",
+    "icdar13:101"
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "TEST RGB inference only after frozen TRAIN/validation selection and independent gate audit. No annotation or fallback output enters frontend. Full head_only30 checkpoint and padding0/emission policy remain frozen. Historical upstream exposure unresolved.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, sequential FP32 YOLO/PARSeq, batch1/32, memory/OOM metadata.",
+    "PAPER_SPECIFIED": "Broad detector/PARSeq/fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Qualified original checkpoint/word policy/reader and unchanged RGB frame.",
+    "UNRESOLVED": "Upstream data exposure, fold-size and calibration shift, final90%/61 and common-dataset retention."
+  },
+  "seed": 20261029,
+  "split": "test",
+  "training_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_adaptation_v1/full"
+}

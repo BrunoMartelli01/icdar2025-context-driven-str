@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "ambiguity_record": "CAPTION-DETAIL-001",
+  "sample_protocol": "/extra1/bmartelli/context-str-runs/caption-detail-20261030-v1/sample_protocol.json",
+  "hf_cache": "/dev/shm/context-str-qwen2-vl-7b-20261030",
+  "device": "cuda:0",
+  "batch_size": 3,
+  "cpu_threads": 4,
+  "seed": 20261030,
+  "caption_target": {
+    "min_words": 60,
+    "max_words": 160
+  },
+  "caption_max_memory": {
+    "gpu": "6GiB",
+    "cpu": "48GiB"
+  },
+  "assets": {
+    "blip2": {
+      "model_id": "Salesforce/blip2-flan-t5-xl",
+      "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+        "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+      }
+    },
+    "instructblip": {
+      "model_id": "Salesforce/instructblip-flan-t5-xl",
+      "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+        "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+      }
+    },
+    "florence": {
+      "model_id": "microsoft/Florence-2-large-ft",
+      "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+      "weight_sha256": {
+        "model.safetensors": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3"
+      }
+    },
+    "qwen": {
+      "model_id": "Qwen/Qwen2-VL-7B-Instruct",
+      "revision": "eed13092ef92e448dd6875b2a00151bd3f7db0ac",
+      "weight_sha256": {
+        "model-00001-of-00005.safetensors": "eab4f4dc1abf860794c98ce3759b4ace1059fc0fc041ede76b88988b3557c132",
+        "model-00002-of-00005.safetensors": "0546b7cd070ff239de0f61a28770de6a0ac517ad313071e151653e38911ffb25",
+        "model-00003-of-00005.safetensors": "11368ea1e9c0039ca54012a74ac32d543a9e9d980b2d0ad7e93af0341ace1fe6",
+        "model-00004-of-00005.safetensors": "381e110d74db594cc24956af0e74a01ae02104497113a78926990c5bd1f395f6",
+        "model-00005-of-00005.safetensors": "e76ec4dc2e7c0dcbe3432e58fae08e62204a2ef2323069d85c8fa0affb87332a"
+      }
+    }
+  },
+  "profiles": {
+    "qwen_scene_detail": {
+      "caption_model": "qwen",
+      "prompt": "Describe the visible image in one coherent paragraph of about 80 to 120 words. Describe the setting when visible, the main objects bearing text, their colors and shapes, the placement and arrangement of the writing, and relevant nearby objects or background details. Use concrete spatial relationships. Describe only what is supported by the image; do not infer a named city, an unseen location, the purpose of objects, or a story. Quote text only if clearly readable. For a close-up, describe the visible object instead of inventing a wider scene. Return only the description.",
+      "generation": {
+        "max_new_tokens": 256,
+        "do_sample": false,
+        "num_beams": 1,
+        "repetition_penalty": 1.05
+      },
+      "min_pixels": 200704,
+      "max_pixels": 802816,
+      "placement": "cpu_offload",
+      "gpu_weight_budget": "7GiB",
+      "cpu_weight_budget": "40GiB"
+    }
+  },
+  "scientific_source_files": [
+    "caption/detailed_scene.py",
+    "caption/paper_batch_blip2.py",
+    "caption/paper_style_blip2.py",
+    "caption/blip2_captioner.py",
+    "scripts/probe_detailed_scene_captions.py",
+    "scripts/run_paper_caption_comparison.py",
+    "scoring/paper_image_router.py",
+    "caption/florence_scene.py",
+    "caption/qwen_scene.py",
+    "caption/qwen_batch_scene.py",
+    "scripts/probe_qwen_batch.py"
+  ],
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Scene description of text-bearing objects/background motivating semantic comparison, local paper3.4/Figure4 inspected.",
+    "REPOSITORY_SPECIFIED": "Already cached pinned BLIP2 and separate native InstructBLIP assets/classes/processors; previous raw caption and validation-image identities.",
+    "ASSUMPTION": "User explicitly permits longer detailed captions. Six predefined profiles, no-repeat3/repetition1.15, up to256 decoder tokens, native single paragraph or raw multi-aspect sentence assembly. Compare on nine development TRAIN images by visible fact coverage/unsupported claims/repetition, then nine CAL images and exact Figure4 diagnostic after selection. No OCR/GT/router-F1 enters caption generation or selection. Follow-up quality control after six initial profiles add unsupported inferences: two simpler InstructBLIP prompts and two native Florence caption tasks; same nine development RGBs, no annotations or recognition metrics. Florence is a separately named model ablation, not paper BLIP2. Qwen2-VL7B introduced as separate explicit caption-quality ablation after local BLIP/Instruct profiles hallucinate and Florence lacks detail. Official pinned revision and every shard SHA256 recorded. Two image-only prompts; choose on same development set. No annotation/OCR injection or manual caption rewriting.",
+    "HARDWARE_DEVIATION": "RTX3090 sequential FP16 native models, batch3; allocated/reserved memory measured, deterministic CUDA/TF32 off; no quantization, installs or downloads. Florence native FP32 and existing isolated pure-Python einops runtime dependency, without installation. Qwen native BF16/SDPA batch1, image budget256..1024 visual tokens. Temporary RAM checkpoint cache because neither writable disk has16.6GB free; raw outputs/config/hashes stay on persistent disk. No package changes. Explicit14GiB GPU/32GiB CPU weight dispatch to coexist with an already-running unrelated6.2GB ICDAR training job. Actual device map and memory peaks are saved. Offload output equivalence to single-device inference is not presumed. Subsequent15GiB GPU budget reduces CPU transfers; compare native generated token IDs on overlapping14GiB reference samples and record complete device maps/peaks, without presumed equivalence. Qualification15GiB failed before inference when a second independent6.2GB training process started. Preserve OOM receipt; explicitly qualify unchanged BF16 checkpoint/prompt with7GiB GPU/40GiB CPU weight budget. No quantization or package installation. Exact Figure4 diagnostic runs first after the already-frozen development choice, followed by all nine CAL images; no result changes the frozen prompt. Native batch3/left padding amortizes CPU weight transfers; preserve scalar paper and CAL reference, compare overlapping token/text output and independently decode every batch record. No assumed bitwise batch equivalence; report actual grids, memory and shared batch timing.",
+    "UNRESOLVED": "Author model/prompt/decoding remain unknown. Longer descriptions may hallucinate and InstructBLIP is a separate model ablation, never silently the paper BLIP2. Existing image/TEST exposure remains explicit."
+  },
+  "selected_profile": "qwen_scene_detail"
+}

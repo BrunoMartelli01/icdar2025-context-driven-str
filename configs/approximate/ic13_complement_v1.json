@@ -1,0 +1,156 @@
+{
+  "claim_label": "approximate reproduction",
+  "confidence_caps": [
+    1.01
+  ],
+  "confidence_grid": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "experts": [
+    "yolo"
+  ],
+  "extra_feature_archive": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/word_risk_features.json",
+  "fixed_source_correction": true,
+  "group_sets": [
+    [
+      "raw_ocr",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "word_risk"
+    ]
+  ],
+  "lexicons": {
+    "icdar13": {
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+      "train_pair_format": "json",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+    }
+  },
+  "maximum_overlap_grid": [
+    0.1,
+    0.3,
+    0.5,
+    0.7
+  ],
+  "mode": "approximate",
+  "original_router_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_raw_slot_recovery/staging",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_raw_slot_recovery/admission_frozen.json": "6378624cf6cac8fcc5b96d1166903a94458f7345682caf456ae7ab003e36ce09",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_raw_slot_recovery/raw_ocr_receipt.json": "43a3c856bbc3b2480e8cb0e4b5f13dc41c7be242444c4c88d032d5edcdc00b64",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/teacher/icdar13/counts.json": "60bf9ba6727ab323ec804c0297efcedf53a85f9678e054a658fe4525d1212e65",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/word_risk_features.json": "3e0925a884360f1e088ae51300a5797e3abdfd6dfc3d3829e5af05a2f749b63c",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/word_training_evidence.json": "d2ff94fa03dc30f80bdf651d66e81fe28327be51f11080e451cdcf90b7f130bf",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt": "1e7e60e9dc30534b117f1aebf17019d25a6b31163377d43d6d19d6183cc73e05",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/completion.json": "4ff35a427e68f7b4e8d3316e506b37b1fd376ca0055b988b0704a38cb807663d",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45"
+  },
+  "protect_numeric": false,
+  "protocol": "Validation-only finite U-Net novel-word complement to fixed YOLO640; source Generic correction and native256 lexical metric. No TEST labels used to select confidence/overlap.",
+  "recipes": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 5,
+      "trees": 200
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 15,
+      "trees": 200
+    }
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Finite U-Net novelty grid selected on original 23-image validation; fixed word correction, unchanged YOLO640 and TT-corrected U-Net outputs; TEST not used for selection.",
+    "HARDWARE_DEVIATION": "CPU cached extension, zero new neural inference or extra encoder.",
+    "PAPER_SPECIFIED": "Fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Existing PARSeq outputs, original confidence/word features, original Generic/Weak lexicon algorithm, native256 ignore and all care lexical F1.",
+    "UNRESOLVED": "Previously exposed TEST, small validation, teacher training exposure and TRAIN-only Weak versus released TEST Weak distribution shift; no strict/paper-equivalent claim."
+  },
+  "seed": 20261029,
+  "selection_tolerance": 0.001,
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement",
+  "targets": {
+    "icdar13": {
+      "f1": 0.9,
+      "fallback_images": 61,
+      "test_images": 233
+    }
+  },
+  "teacher_neural": {
+    "recognition_threshold": 0.0,
+    "score_threshold": 0.4
+  },
+  "teacher_raw_train": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "teacher_reference": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "teacher_study": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic",
+  "train_generic_base": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt",
+  "train_teacher_unmatched_policy": "source_reject",
+  "unet_source": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/experts/tt_corrected",
+  "unmatched_policies": [
+    "source_reject"
+  ],
+  "word_risk": {
+    "duplicate_iou": 0.5,
+    "folds": 5,
+    "iterations": 100,
+    "l2": 10.0,
+    "leaves": 7,
+    "minimum_leaf": 20,
+    "raw_ocr_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_raw_slot_recovery/raw_ocr"
+  }
+}

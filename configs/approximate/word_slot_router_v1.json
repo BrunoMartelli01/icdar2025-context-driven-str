@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "word_slot_router_v1",
+  "seed": 20261025,
+  "folds": 5,
+  "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+  "image_threshold_quantiles": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "fixed_image_unet_fraction": 0.5,
+  "quality_logistic_C": 1.0,
+  "quality_logistic_max_iter": 2000,
+  "append_thresholds": [0.5, 0.7, 0.85, 0.95, 1.01],
+  "replacement_thresholds": [0.5, 0.7, 0.85, 0.95, 1.01],
+  "replacement_margins": [0.0, 0.1, 0.2],
+  "conflict_iou": 0.3,
+  "iou_threshold": 0.5,
+  "selection": "calibration TRAIN only; nested student thresholds inside image-router folds; image-group OOF quality predictions for word-router tuning",
+  "scope": "Research extension; word router runs both experts, image router simulates selective fallback using frozen cached outputs",
+  "scientific_decisions": [
+    {"classification": "ASSUMPTION", "component": "utility_target", "rationale": "TP gain minus half the training-fold DeepSolo F1 times extra emitted predictions; penalizes FP and rewards recovered FN on a common word metric."},
+    {"classification": "ASSUMPTION", "component": "router_fitting", "rationale": "Shared frozen priors historically trained on official TRAIN; newly trained slot branches exclude calibration/evaluation. OOF gates do not constitute a fresh independent dataset."},
+    {"classification": "UNRESOLVED", "component": "latency", "rationale": "Cached branch selection measures word outcomes and logical calls, not end-to-end selective process latency."}
+  ]
+}

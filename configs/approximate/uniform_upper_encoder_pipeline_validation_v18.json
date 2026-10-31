@@ -1,0 +1,55 @@
+{
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "cases": {
+    "baseline": null,
+    "upper_best": {
+      "actual_encoder_context": true,
+      "epoch": 0,
+      "root": "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13"
+    },
+    "upper_final": {
+      "actual_encoder_context": true,
+      "epoch": 10,
+      "root": "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13"
+    }
+  },
+  "dataset": "icdar13",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-pipeline-validation-20261031-v18",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/best.pt": "98ef028ea35b8991934cbd9173b2f13bf7787eb75144abfa686dcd12ef238f7c",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/complete.json": "cab97123fbd3278201b9928af87b82253a77b19c2d7877943642230b30c51ae0",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/independent_training_audit.json": "2d2dc29bc3d593084568c41d213c8d0daf5240e1a39edc267ecd640b93d22a85",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/last.pt": "1016909226cad9a53be720e6798fea5bae5fa6a2a7f7807dee22a6cddbbb8a45",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/resolved_configuration.json": "f0f5339faab9c71edb102ff28657aa905679a2a9d115794adac6938d7ea681e8",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_upper_encoder_v18.json": "86e3f65a5ca17fac5e1e8bbf48006e77c7a0aa87fa6ebf0ac8bc9d5fb196e9da",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/replay_uniform_validation_checkpoints.py": "944684521c78ff09c29c0b1b95a4c639b2f603b7cf58414e24219de11952fe8c"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Apply the original v13 baseline-first full-pipeline VAL rule to retained best/final v18 endpoints, using actual adapted E4 mean/max context from each corresponding forward and transferred native PCA/heads. No matching refits or TEST claim. Hard12/46 quota unchanged.",
+    "UNRESOLVED": "Reused validation/upstream exposure, adapted feature calibration, matching OOF and head refits, other domains, final hard-budget targets."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json"
+}

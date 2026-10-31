@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "sources": {
+    "coverage": "/extra1/bmartelli/context-str-artifacts/yolo-coverage-resolution-v1/full/6c927d8d98d1",
+    "consistency": "/extra1/bmartelli/context-str-artifacts/yolo-frozen-consistency-v1/full/acb9b8f9d1cc",
+    "context": "/extra1/bmartelli/context-str-artifacts/yolo-context-quality-v1/full/5e1900aa7bc2",
+    "vqa": "/extra1/bmartelli/context-str-artifacts/yolo-residual-vqa-v1/full/83b4067d4722"
+  },
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-f1-quality-study-v1"
+}

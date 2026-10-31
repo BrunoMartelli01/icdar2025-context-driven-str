@@ -1,0 +1,87 @@
+{
+  "arms": [
+    "text_encoder",
+    "imagenet_control"
+  ],
+  "canvas_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "encoder_checkpoint": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth",
+  "encoder_prefix": "detection_transformer.backbone.0.backbone.",
+  "encoder_qualification": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/main_receipt.json",
+  "experiment_kind": "icdar13_text_pretrained_word_unet_b4_v2",
+  "image_hw": [
+    768,
+    768
+  ],
+  "inference": {
+    "kernel_threshold": 0.5,
+    "maximum_ocr_candidates": 50,
+    "minimum_transcript_probability": 0.9,
+    "native_size": 384,
+    "padding": 4,
+    "text_threshold": 0.5
+  },
+  "initial_gap_bias": -2.0,
+  "kernel_distance_fraction": 0.5,
+  "kernel_loss_weight": 1.0,
+  "minimum_free_disk_bytes": 4294967296,
+  "minimum_free_gpu_bytes": 8589934592,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training",
+  "parent_plan": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json",
+  "parseq_batch_size": 32,
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/main_receipt.json": "26b2c2254676e4e2cdd6a0f4dc8bfed33341d57056e2b9283a697467e5b0ecb1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json": "e3f0ea78798a0362bdecf4d23cf634eda515b21353714a7c006695f2077fe672"
+  },
+  "probability_threshold": 0.5,
+  "scientific_choices": {
+    "ASSUMPTION": "Matched ImageNet versus text-pretrained encoder initialization. Same trainable attention decoder/text+kernel heads, allTT1130+FIT183 at every epoch, AdamW1e-4 with explicit native4x weighting, no augmentation in this first matched control;30epochs, fixed-policy validation includingepoch0. This extends U-Net word localization directly; it does not run a detector transformer.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 with currently available memory; FP32/no TF32, physical4/accumulation2 retains effective8 and165 full-data optimizer steps per epoch. Qualify both arms at this shape before full execution; batch normalization differs from the retained physical1 smoke, so keep separate profiles. Native768/384, frozen encoder, PARSeq32, measured allocated/reserved/OOM. No RTX3070/8GB or latency claim.",
+    "PAPER_SPECIFIED": "ResNet50 attention U-Net, recognition/fallback family only.",
+    "REPOSITORY_SPECIFIED": "Qualified full TT U-Net state, exact word/kernel targets and loss, actual geometry/wordmetric; original IC13 FIT183/selection23/CAL23/TEST233 and TT1130; complete qualified official R50 detector encoder with zero-error15-map transfer.",
+    "UNRESOLVED": "Text donor already trained IC13 TRAIN including validation; prior TEST exploration, small validation, strict artifact/metric equivalence and efficacy remain unresolved."
+  },
+  "seed": 20261029,
+  "separation_weight": 3.0,
+  "skip_floor": 0.25,
+  "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+  "source_loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1.0
+  },
+  "target": {
+    "f1": 0.9,
+    "fallback_images": 61,
+    "total_images": 233
+  },
+  "training": {
+    "epochs": 30,
+    "gradient_accumulation": 2,
+    "gradient_clip_norm": 5.0,
+    "horizontal_flip_probability": 0.0,
+    "icdar_loss_weight": 4.0,
+    "learning_rate": 0.0001,
+    "num_workers": 2,
+    "physical_batch_size": 4,
+    "rotation_degrees": [
+      0.0,
+      0.0
+    ],
+    "rotation_probability": 0.0,
+    "seed": 20261029,
+    "weight_decay": 0.0001
+  },
+  "validation_interval": 5
+}

@@ -1,0 +1,82 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "datasets": {
+    "icdar13": {
+      "audit_sha256": "12bf9bdcf8f662845f64fbaf7dc98757575c9cceb4cb70499e6f9257af717e0c",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 884,
+          "detected_words": 884,
+          "f1": 0.829711975745326,
+          "fn": 274,
+          "fp": 63,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 821
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v4/icdar13/evaluation/results.json",
+      "report_sha256": "96421ccfb7c39676c944e343c57763abd2dc11f2b7ce286d19a7fb86511045de"
+    },
+    "icdar2015": {
+      "audit_sha256": "374f5a7499c895ce017f08c82e9b1b66ce37d24323a0dcc4134e876baeff22b2",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1727,
+          "detected_words": 1687,
+          "f1": 0.8012752391073327,
+          "fn": 569,
+          "fp": 179,
+          "gt_words": 2077,
+          "ignored_outputs": 40,
+          "images": 500,
+          "tp": 1508
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v4/icdar2015/evaluation/results.json",
+      "report_sha256": "425bedc638fdcf38844201ec9b7d2f456a3b820d04ce024babc6f381419463c2"
+    },
+    "totaltext": {
+      "audit_sha256": "0da862ef573ef4e269145aefa3caefa5dd42ad69270b3f5a9598c68a49a74465",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2050,
+          "detected_words": 2001,
+          "f1": 0.8052318668252081,
+          "fn": 511,
+          "fp": 308,
+          "gt_words": 2204,
+          "ignored_outputs": 49,
+          "images": 300,
+          "tp": 1693
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v4/totaltext/evaluation/results.json",
+      "report_sha256": "6217a94edae4a1fef02691dfa39699bd6186d481c6669c2241c182d343291188"
+    }
+  },
+  "goal_complete": false,
+  "logical_cached_routing": true,
+  "mode": "approximate",
+  "next_control": "Reuse existing shared encoder activations, no extra neural network",
+  "status": "FULL_TEST_AUDITED_IC13_UNMET_AT_USEFUL_QUOTAS"
+}

@@ -1,0 +1,296 @@
+{
+  "actual_new_neural_calls": 0,
+  "claim_label": "approximate reproduction",
+  "deployed_models_changed": false,
+  "domain_evidence": {
+    "icdar13": {
+      "export": {
+        "actual_deepsolo_calls": 0,
+        "actual_parseq_crop_inferences": 0,
+        "actual_unet_image_inferences": 0,
+        "added_raw_candidates": 11,
+        "checkpoint_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+        "claim_label": "approximate reproduction",
+        "crop_settings": {
+          "kernel_threshold": 0.5,
+          "maximum_ocr_candidates": 50,
+          "minimum_transcript_probability": 0.0,
+          "native_size": 384,
+          "padding": 4,
+          "text_threshold": 0.5
+        },
+        "deployment_requirement": "Two U-Net forwards and both scales PARSeq crop readings per image. Native masks/context retained; unchanged neural parameter count. Cached replay is not online latency.",
+        "ground_truth_used": false,
+        "mode": "approximate",
+        "source_sha256": "fa187452f3c69029189d78f970dfa58621f6ede4e9385903fc4308e9213abb62",
+        "status": "COMPLETE",
+        "total_images": 46
+      },
+      "independent_candidate_audit": {
+        "images": 46,
+        "scope": "Independent candidate ordering/admission replay with shared IoU primitive; exact native mask/context, source bytes and native-prefix preservation. No new neural calls.",
+        "status": "PASS"
+      },
+      "independent_pipeline_audit": {
+        "candidate_image_replays": 92,
+        "frozen_sha256": "0e2f7dd42c23e0bf64df25c2ea7ad06587e81ada7e7583a80fb0bae6f09894b0",
+        "scope": "Independent score sorting and Counter recount; shared declared features/fusion/bootstrap. Native actual-neural parity qualified separately.",
+        "status": "PASS"
+      },
+      "native_dependency": {
+        "actual_new_neural_calls": 0,
+        "kind": "REUSED_AUTHENTICATED_NATIVE_QUALIFICATION",
+        "original_audit": "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/native_parity_audit.json",
+        "original_audit_sha256": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+        "original_native_neural_images": 2,
+        "original_probe": "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/native_probe/complete.json",
+        "original_probe_sha256": "7d4d99f4b425c15d5efc160e752c0d7467d461e85aeedea1d2487d57a8283bb2",
+        "scope": "Existing genuine native768 map/context/transcript/crop parity, same checkpoint and crop policy. No new neural parity or blend-quality result is claimed.",
+        "source_sha256": "95ef18caebac24cf2178226f0a62ccb58178bb95f0212040f49f167793dbfb56",
+        "status": "PASS"
+      }
+    },
+    "icdar2015": {
+      "export": {
+        "actual_deepsolo_calls": 0,
+        "actual_parseq_crop_inferences": 0,
+        "actual_unet_image_inferences": 0,
+        "added_raw_candidates": 45,
+        "checkpoint_sha256": "88f915b3aad2d79e1d73c6631dc13b46a2d48a70a8d5537e9a8bf55b20b7798f",
+        "claim_label": "approximate reproduction",
+        "crop_settings": {
+          "kernel_threshold": 0.5,
+          "maximum_ocr_candidates": 50,
+          "minimum_transcript_probability": 0.0,
+          "native_size": 384,
+          "padding": 0,
+          "text_threshold": 0.5
+        },
+        "deployment_requirement": "Two U-Net forwards and both scales PARSeq crop readings per image. Native masks/context retained; unchanged neural parameter count. Cached replay is not online latency.",
+        "ground_truth_used": false,
+        "mode": "approximate",
+        "source_sha256": "fa187452f3c69029189d78f970dfa58621f6ede4e9385903fc4308e9213abb62",
+        "status": "COMPLETE",
+        "total_images": 100
+      },
+      "independent_candidate_audit": {
+        "images": 100,
+        "scope": "Independent candidate ordering/admission replay with shared IoU primitive; exact native mask/context, source bytes and native-prefix preservation. No new neural calls.",
+        "status": "PASS"
+      },
+      "independent_pipeline_audit": {
+        "candidate_image_replays": 200,
+        "frozen_sha256": "f41187cdb80ab39fbcf28f12142044fb9441e234321079869d19e455d16bc639",
+        "scope": "Independent score sorting and Counter recount; shared declared features/fusion/bootstrap. Native actual-neural parity qualified separately.",
+        "status": "PASS"
+      },
+      "native_dependency": {
+        "actual_new_neural_calls": 0,
+        "kind": "REUSED_AUTHENTICATED_NATIVE_QUALIFICATION",
+        "original_audit": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_parity_audit.json",
+        "original_audit_sha256": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+        "original_native_neural_images": 2,
+        "original_probe": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_probe/complete.json",
+        "original_probe_sha256": "ac09cc53cb6b9b90fc4ddbaa78a10b46d5b78579487a0dedf9a134a19dbfb725",
+        "scope": "Existing genuine native768 map/context/transcript/crop parity, same checkpoint and crop policy. No new neural parity or blend-quality result is claimed.",
+        "source_sha256": "95ef18caebac24cf2178226f0a62ccb58178bb95f0212040f49f167793dbfb56",
+        "status": "PASS"
+      }
+    },
+    "totaltext": {
+      "export": {
+        "actual_deepsolo_calls": 0,
+        "actual_parseq_crop_inferences": 0,
+        "actual_unet_image_inferences": 0,
+        "added_raw_candidates": 102,
+        "checkpoint_sha256": "1b848ac1af18be1a4d290051b1373ef28ed85d84e617d04781c0713c49fd6879",
+        "claim_label": "approximate reproduction",
+        "crop_settings": {
+          "kernel_threshold": 0.5,
+          "maximum_ocr_candidates": 50,
+          "minimum_transcript_probability": 0.0,
+          "native_size": 384,
+          "padding": 2,
+          "text_threshold": 0.5
+        },
+        "deployment_requirement": "Two U-Net forwards and both scales PARSeq crop readings per image. Native masks/context retained; unchanged neural parameter count. Cached replay is not online latency.",
+        "ground_truth_used": false,
+        "mode": "approximate",
+        "source_sha256": "fa187452f3c69029189d78f970dfa58621f6ede4e9385903fc4308e9213abb62",
+        "status": "COMPLETE",
+        "total_images": 125
+      },
+      "independent_candidate_audit": {
+        "images": 125,
+        "scope": "Independent candidate ordering/admission replay with shared IoU primitive; exact native mask/context, source bytes and native-prefix preservation. No new neural calls.",
+        "status": "PASS"
+      },
+      "independent_pipeline_audit": {
+        "candidate_image_replays": 250,
+        "frozen_sha256": "d0e950a5a26dae10bae2e5a640db6df2efbd21823ed624cca90622a00c29ed85",
+        "scope": "Independent score sorting and Counter recount; shared declared features/fusion/bootstrap. Native actual-neural parity qualified separately.",
+        "status": "PASS"
+      },
+      "native_dependency": {
+        "actual_new_neural_calls": 0,
+        "kind": "REUSED_AUTHENTICATED_NATIVE_QUALIFICATION",
+        "original_audit": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/native_parity_audit.json",
+        "original_audit_sha256": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+        "original_native_neural_images": 2,
+        "original_probe": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/native_probe/complete.json",
+        "original_probe_sha256": "f9809276dbdd79ed364f98170f723c7410f86a9c055c58912ffff118799e5d4e",
+        "scope": "Existing genuine native768 map/context/transcript/crop parity, same checkpoint and crop policy. No new neural parity or blend-quality result is claimed.",
+        "source_sha256": "95ef18caebac24cf2178226f0a62ccb58178bb95f0212040f49f167793dbfb56",
+        "status": "PASS"
+      }
+    }
+  },
+  "goal_complete": false,
+  "limitations": "Repeated small validation and earlier outcomes exposed; native-trained heads transferred to augmented observations; no unbiased generalization or goal-completion claim.",
+  "mode": "approximate",
+  "required_next_work": [
+    "Matching conditional decoder-heldout two-view observations and head qualification",
+    "Full RGB runtime integration and memory/cost qualification",
+    "Validation-frozen full TEST evaluation at61/233,228/500,150/300"
+  ],
+  "selection": {
+    "actual_new_deepsolo_calls": 0,
+    "claim_label": "approximate reproduction",
+    "config_sha256": "b17b5bbdf09a085d466b4831355837f2f9720af95158877a32f810d3131333bc",
+    "evidence_sha256": {
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar13-20261031-v21/independent_audit.json": "c14f6bf3ca0c81eeeefa5e53f999bb9038e08c23f8f911de7ac6ea881527d843",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar13-20261031-v21/independent_map_audit.json": "e065730cb560caad52665233832b7f3e3aa4cbee41c807595aba7b7871588b98",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar13-20261031-v21/selection_frozen.json": "0e2f7dd42c23e0bf64df25c2ea7ad06587e81ada7e7583a80fb0bae6f09894b0",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar2015-20261031-v21/independent_audit.json": "4e4c5a331701e30fb8061011d5837b5a8f2ecb331d26f83ff0c745227bc0e364",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar2015-20261031-v21/independent_map_audit.json": "21d9b0149d22483e1db4dfbfe7de5b2cccf738f4334dd972a3e18fa30940ca64",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar2015-20261031-v21/selection_frozen.json": "f41187cdb80ab39fbcf28f12142044fb9441e234321079869d19e455d16bc639",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-totaltext-20261031-v21/independent_audit.json": "4ac95ce4170c034626bf868afd40a7bd6a216136bd792f0f5d6e846f7703d591",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-totaltext-20261031-v21/independent_map_audit.json": "047c60ec990c78fb2b0aa7ba7cbc2d487a6a97b611b3b1f0935c0cade68bc97c",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-totaltext-20261031-v21/selection_frozen.json": "d0e950a5a26dae10bae2e5a640db6df2efbd21823ed624cca90622a00c29ed85"
+    },
+    "macro_gain": 0.003916724338405768,
+    "mode": "approximate",
+    "results": {
+      "icdar13": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 152,
+            "detected_words": 152,
+            "f1": 0.932475884244373,
+            "fn": 14,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 145
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        },
+        "gain": 0.003421551653062904,
+        "word_additions": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 153,
+            "detected_words": 153,
+            "f1": 0.9358974358974359,
+            "fn": 13,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 146
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        }
+      },
+      "icdar2015": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 374,
+            "detected_words": 366,
+            "f1": 0.8391959798994975,
+            "fn": 96,
+            "fp": 32,
+            "gt_words": 430,
+            "ignored_outputs": 8,
+            "images": 100,
+            "tp": 334
+          },
+          "deepsolo_images": 45,
+          "deepsolo_percentage": 45.0,
+          "total_images": 100
+        },
+        "gain": 0.009062726568164203,
+        "word_additions": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 382,
+            "detected_words": 374,
+            "f1": 0.8482587064676617,
+            "fn": 89,
+            "fp": 33,
+            "gt_words": 430,
+            "ignored_outputs": 8,
+            "images": 100,
+            "tp": 341
+          },
+          "deepsolo_images": 45,
+          "deepsolo_percentage": 45.0,
+          "total_images": 100
+        }
+      },
+      "totaltext": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 853,
+            "detected_words": 847,
+            "f1": 0.7890710382513662,
+            "fn": 261,
+            "fp": 125,
+            "gt_words": 983,
+            "ignored_outputs": 6,
+            "images": 125,
+            "tp": 722
+          },
+          "deepsolo_images": 62,
+          "deepsolo_percentage": 49.6,
+          "total_images": 125
+        },
+        "gain": -0.0007341052060098052,
+        "word_additions": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 877,
+            "detected_words": 869,
+            "f1": 0.7883369330453563,
+            "fn": 253,
+            "fp": 139,
+            "gt_words": 983,
+            "ignored_outputs": 8,
+            "images": 125,
+            "tp": 730
+          },
+          "deepsolo_images": 62,
+          "deepsolo_percentage": 49.6,
+          "total_images": 125
+        }
+      }
+    },
+    "scope": "Three-domain VAL inference screen with transferred original heads. Matching banks/refits and full TEST remain required; no goal-completion claim.",
+    "selected": "word_additions",
+    "source_sha256": "3aaebcf4b4c7fb8ea9ae73c07bdc455b05cb0878662e6d1d25ab6b1976bebf7a",
+    "status": "FROZEN",
+    "test_used_for_selection": false
+  },
+  "source_report_sha256": "c1cadc4d469cb41ac3eb2b086f8d76210b0ba19148759f54c404e9f0b0e8e51f",
+  "source_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-word-shared-validation-20261031-v21",
+  "status": "SHARED_VALIDATION_SCREEN_PASSED",
+  "test_used_for_selection": false
+}

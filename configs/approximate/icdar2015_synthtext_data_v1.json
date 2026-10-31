@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_existing_synthtext_cache_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "images": 50000,
+  "coordinate_origin": 0,
+  "target_policy": "preserve_visible_words_v1",
+  "workers": 4,
+  "source_manifest_sha256": "59e244b23db1409cecec0e861d23ea18f5fb1d004663d276c4188cc6037eb002",
+  "gt_mat_sha256": "5b44cba773f51dfa2d4a1b324c35cbc6905e4be8e9df867ac65b57c1bf8f150c",
+  "expected_target_summary": {
+    "annotation_words": 422616,
+    "visible_words": 422610,
+    "outside_image_words": 6,
+    "restored_contact_words": 20
+  },
+  "excluded_manifests": [
+    {
+      "population": "ICDAR2015 TRAIN",
+      "images": 1000,
+      "sha256": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739"
+    },
+    {
+      "population": "TotalText TRAIN",
+      "images": 1255,
+      "sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea"
+    },
+    {
+      "population": "ICDAR2015 TEST RGB hashes only",
+      "images": 500,
+      "sha256": "2d975369e44688e635b5fe4e79a595d662538e7607ad1ec9d95bad2b5c71fcf9"
+    }
+  ],
+  "scientific_choices": [
+    {
+      "component": "unchanged_existing_cohort_and_targets",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Recover exact original50k cohort from preserved manifest backup, verify originalMAT/RGB hashes, reuse qualified v2 visible-word preservation. No download or source mutation."
+    },
+    {
+      "component": "cached_supervision",
+      "classification": "ASSUMPTION",
+      "rationale": "Lossless uint8 masks/validity/separator and uint16 owners, target-audit receipts, exact cached/noncached paired-tensor qualification. Preserve all raw422616 labels; six wholly off-image boxes remain explicitly recorded. No silent sample replacement."
+    },
+    {
+      "component": "leakage_protection",
+      "classification": "ASSUMPTION",
+      "rationale": "Exclude exact image hashes from all original IC TRAIN, TT TRAIN and IC TEST. TEST manifest supplies only RGB hashes, no annotation or score is read for preparation/selection. Failure on overlap; perceptual similarity remains unresolved."
+    }
+  ]
+}

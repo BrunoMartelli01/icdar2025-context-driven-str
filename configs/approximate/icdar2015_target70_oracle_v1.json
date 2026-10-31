@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "TRAIN validation GT-assisted recognition diagnostic",
+  "training_profile": "configs/approximate/icdar2015_target70_v1.json",
+  "training_profile_sha256": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+  "expected_images": 100,
+  "expected_care_words": 430,
+  "methods": ["axis0", "axis2", "axis4", "quad0"],
+  "ocr_batch_size": 32,
+  "device": "cpu",
+  "classification": "ASSUMPTION",
+  "rationale": "Measure frozen PARSeq accuracy on perfect validation word boxes and quadrilaterals, with fixed original-pixel padding. This GT-assisted diagnostic cannot qualify deployable F1 or select TEST outputs. All 430 care words remain in every denominator."
+}

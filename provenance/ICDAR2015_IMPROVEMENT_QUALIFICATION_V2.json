@@ -1,0 +1,222 @@
+{
+  "claim_label": "approximate reproduction",
+  "classification": {
+    "auxiliary_cpu_parseq": "HARDWARE_DEVIATION",
+    "rationale": "FP32 CPU recognition on frozen GPU-derived masks during single-model GPU training. Final branch selection and TEST use the same GPU device; compare output text/metrics explicitly."
+  },
+  "cpu_qualification": {
+    "control512": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.3379721669980119,
+          "fn": 260,
+          "fp": 406,
+          "precision": 0.2951388888888889,
+          "recall": 0.3953488372093023,
+          "tp": 170
+        },
+        "alphanumeric_casefold_tp": 170,
+        "casefold_exact": {
+          "f1": 0.32803180914512925,
+          "fn": 265,
+          "fp": 411,
+          "precision": 0.2864583333333333,
+          "recall": 0.38372093023255816,
+          "tp": 165
+        },
+        "casefold_exact_tp": 165,
+        "empty_normalized_predictions": 40,
+        "geometry": {
+          "f1": 0.43339960238568587,
+          "fn": 212,
+          "fp": 358,
+          "precision": 0.3784722222222222,
+          "recall": 0.5069767441860465,
+          "tp": 218
+        },
+        "geometry_tp": 218,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 576,
+        "symbol_only_gt": 0
+      },
+      "device": "cpu",
+      "independent_audit_sha256": "62076ec791b8a7330d800ff9ab0eb6217fefdee86e17c976b8d8d279354eeaa5",
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu-v2/control512/results.json",
+      "sha256": "bde972e010491e09d6b46eb26d04c44ba6f4f6c2640e3b543fe10f677e407966"
+    },
+    "larger_bce": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.4114583333333333,
+          "fn": 193,
+          "fp": 485,
+          "precision": 0.32825484764542934,
+          "recall": 0.5511627906976744,
+          "tp": 237
+        },
+        "alphanumeric_casefold_tp": 237,
+        "casefold_exact": {
+          "f1": 0.4010416666666667,
+          "fn": 199,
+          "fp": 491,
+          "precision": 0.31994459833795014,
+          "recall": 0.5372093023255814,
+          "tp": 231
+        },
+        "casefold_exact_tp": 231,
+        "empty_normalized_predictions": 44,
+        "geometry": {
+          "f1": 0.4913194444444444,
+          "fn": 147,
+          "fp": 439,
+          "precision": 0.39196675900277006,
+          "recall": 0.6581395348837209,
+          "tp": 283
+        },
+        "geometry_tp": 283,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 722,
+        "symbol_only_gt": 0
+      },
+      "device": "cpu",
+      "independent_audit_sha256": "f931be3fbd25a5a0a6d52ab6da146eaaf0575bac7bfedc89a4ed8c5a269c63d4",
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu-v2/larger_bce/results.json",
+      "sha256": "ca2812b1c136f17a494ac8465bebce76648c67c6251ddff17a2958c222f212de"
+    },
+    "source_square512": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.27637130801687765,
+          "fn": 299,
+          "fp": 387,
+          "precision": 0.2528957528957529,
+          "recall": 0.30465116279069765,
+          "tp": 131
+        },
+        "alphanumeric_casefold_tp": 131,
+        "casefold_exact": {
+          "f1": 0.26582278481012656,
+          "fn": 304,
+          "fp": 392,
+          "precision": 0.24324324324324326,
+          "recall": 0.2930232558139535,
+          "tp": 126
+        },
+        "casefold_exact_tp": 126,
+        "empty_normalized_predictions": 29,
+        "geometry": {
+          "f1": 0.3649789029535865,
+          "fn": 257,
+          "fp": 345,
+          "precision": 0.333976833976834,
+          "recall": 0.40232558139534885,
+          "tp": 173
+        },
+        "geometry_tp": 173,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 518,
+        "symbol_only_gt": 0
+      },
+      "device": "cpu",
+      "independent_audit_sha256": "03759f141700c2056dbddc021fe556ac030cf1961430ceb23692516379bb1324",
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu-v2/source_square512/results.json",
+      "sha256": "c3e6874beb31cff2f7caeb9d387593bef898bfc53648a3c55ee516401491794d"
+    },
+    "source_square768": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.31840796019900497,
+          "fn": 238,
+          "fp": 584,
+          "precision": 0.24742268041237114,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "alphanumeric_casefold_tp": 192,
+        "casefold_exact": {
+          "f1": 0.3034825870646766,
+          "fn": 247,
+          "fp": 593,
+          "precision": 0.23582474226804123,
+          "recall": 0.4255813953488372,
+          "tp": 183
+        },
+        "casefold_exact_tp": 183,
+        "empty_normalized_predictions": 66,
+        "geometry": {
+          "f1": 0.41127694859038144,
+          "fn": 182,
+          "fp": 528,
+          "precision": 0.31958762886597936,
+          "recall": 0.5767441860465117,
+          "tp": 248
+        },
+        "geometry_tp": 248,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 776,
+        "symbol_only_gt": 0
+      },
+      "device": "cpu",
+      "independent_audit_sha256": "2db2aef65c436dcfd3854b9b4f5e2e63bcef179885d4c3c4e6deb429bbc9d179",
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu-v2/source_square768/results.json",
+      "sha256": "23f6fe4e63035c04b973de31b7ed8cc2c3418ccef9fb3bb47bd654fe1c12ea48"
+    }
+  },
+  "first_two_completed_training_arms": {
+    "all_encoder_tensors_identical_to_source": true,
+    "checkpoint_Adam_learning_rate": 1e-05,
+    "matched_sample_order_all20_epochs": true
+  },
+  "frozen_reader_failure": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu/control512/failure.json",
+    "resolution": "Regenerate native boxes from checksum-verified maps and verify stored geometry counts. Preserve training sources/checkpoints and original failed output. Regression test added.",
+    "sha256": "dce2f59b1ce75d7e9ee3f9f5ae0af7a1ba3d6d79ce8d70e2a1533ca5006e5def",
+    "source_snapshot_sha256": "ae712870d88a85a9d44d7de3336bf14fa56746a7bd06716397b9652665337e3f"
+  },
+  "previous_protocol_receipt_sha256": "8548dded0bc20060bfd8feb4b423d08e0346a357b3bddd380acc6e28d38c0bf2",
+  "reproduction_mode": "approximate",
+  "schema_version": 1,
+  "scope": "Corrected validation OCR integration, independent audits and50 focused tests. CPU qualification does not select the final branch or establish a TEST improvement.",
+  "source_sha256": {
+    "configs/approximate/icdar2015_improvement_word_f1_v1.json": "0a8c898d9edca9c8a5cc487a39f2195b581b09b160bb4cbeee4d86d8028be11d",
+    "configs/approximate/icdar2015_unet_improvement_v1.json": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+    "models/icdar2015_improvements.py": "7c1b87c35731832c7de11fb7e71e1a5266e7135ab6f83a08bf9b59da429688af",
+    "scripts/audit_icdar2015_improvement_target_geometry.py": "8baeb908900ddb768a3f7219bdb8fa51c07cd3057f4a9cb109c48a67b1c02cc6",
+    "scripts/audit_icdar2015_improvement_word_f1.py": "200632ccd4519fd03353038c928f56a2abef1967b3156f33601d3fb2fe02128f",
+    "scripts/audit_icdar2015_word_masks.py": "9101debec2be77463772fd50130fb2075b9ce960688398bacb14e3554f6f22aa",
+    "scripts/evaluate_icdar2015_improvement_test.py": "9b0aaf7f13038e08746aabdfaf02d5b2cf5a5f2a8f6bd59dfe47b24df5086e3b",
+    "scripts/evaluate_icdar2015_improvement_validation.py": "1bdfa1cca37a36f9699ef79b8fabd6350957aaa9e59436a261e5aab154d5ac64",
+    "scripts/preview_icdar2015_improvement_masks.py": "e5f337666964275b720b058e087321a2b521487d6712f53da67388a357e91146",
+    "scripts/screen_icdar2015_unet_resolutions.py": "6d99e66602abef807be1bb3975e424208435b095e6c7db456c4bf318c8e92a1a",
+    "scripts/select_icdar2015_improvement.py": "6f64feadf7d3ce64e9e1e482daffbb71ef31c7b6ac289ce5855e1b83c230787c",
+    "scripts/train_icdar2015_unet_improvement.py": "2c704a573733b27f39f8e15ee809a07bcf94e88d58a6d38759d4c521aa4f917f",
+    "segmentation/icdar2015_improvement_runtime.py": "05d6872d5430b1ca05016fd714e5dc5e5d4ec26cb79cde16f5da77dbd355f147",
+    "segmentation/icdar2015_improvements.py": "998903f340fa98889be8dd86a9fbb106e76f36adc3459c7592734870e3dc4e42",
+    "tests/models/test_icdar2015_improvements.py": "579ef88d8345ee01850633d5c5cdedae14c23ddf0e94ddf4c6cc29666997b1c0",
+    "tests/scripts/test_icdar2015_improvement_evaluation.py": "777304eb23f74590f8f71cf5171a0e7553db04d5a3901b3b81aa5f8768d07aa2",
+    "tests/scripts/test_icdar2015_improvement_failures.py": "6ef9cdec87962b28963d21749ee8042b55ff1bc96c7dace820eade357a8eeaba",
+    "tests/scripts/test_icdar2015_improvement_selection.py": "e6db1423827d85833243401c84f32191e0fd72c139a90351abd029e3a087a694",
+    "tests/segmentation/test_icdar2015_improvement_targets.py": "1781a0aa60d91ec3183780f2c247be6eac7b9b8d7267c2e85e0fc4febd07f6f2"
+  },
+  "status": "INTEGRATION_QUALIFIED_TRAINING_VARIANTS_IN_PROGRESS",
+  "target_geometry_diagnostic": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/target_geometry_validation100.json",
+    "sha256": "824c97724ec57b9d72b6f2dacf4b15a63273d8aa74ca932f427871de7c95496c"
+  },
+  "tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "paper",
+    "name": "pytest",
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/unit-tests-50.xml",
+    "sha256": "100c13e2bd05d081bfaeaf6a2b8a03b7779a93d6575b6005b68a8670c79d1636",
+    "skipped": "0",
+    "tests": "50",
+    "time": "5.462",
+    "timestamp": "2026-10-26T12:37:58.209613+01:00"
+  }
+}

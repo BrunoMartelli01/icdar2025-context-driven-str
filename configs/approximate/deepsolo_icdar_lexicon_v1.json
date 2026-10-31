@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1",
+  "protocol_path": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/predeclared_protocol_v2.json",
+  "protocol_sha256": "a909f53847690c3fff935db73904b32f2436e192ef85172428f7a28f73c14a04",
+  "lexicon_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15",
+  "lexicon_manifest": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/lexicon_manifest.json",
+  "lexicon_manifest_sha256": "2fdf947bceac0935b09dbfadd6d36b5d7806c3ffb4f3af28e4ddbb43a843e376",
+  "pinned_source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/adet/evaluation/text_evaluation_all.py",
+  "pinned_source_sha256": "46d938f8e5be61182519abc2eaa56eb267195981c155ffd98314175b6108e4a4",
+  "ic15_source_study": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1",
+  "ic13_source_study": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1",
+  "icdar13_root": "/extra1/bmartelli/datasets/context-str/icdar13",
+  "word_metric": "Unchanged casefold+isalnum lexical microF1; all care targets retained.",
+  "bootstrap_repetitions": 2000,
+  "seed": 20261028,
+  "source_match_distance_exclusive": 1.5,
+  "expected_test": {
+    "icdar2015": {
+      "images": 500,
+      "care_words": 2077,
+      "baseline_f1": 0.7527527527527528
+    },
+    "icdar13": {
+      "images": 233,
+      "care_words": 1095,
+      "baseline_f1": 0.8849557522123894
+    }
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "DeepSolo CVPR2023 Tables5/6 and supplement report lexicon-assisted E2E.",
+    "REPOSITORY_SPECIFIED": "Pinned DeepSolo source greedy CTC and order-sensitive minimum-Levenshtein/pair-list correction, distance<1.5; released official IC15 vocabularies.",
+    "ASSUMPTION": "Preserve requested lexical F1, use a shared Generic dictionary on IC13, compare fixed filtering vs keeping unmatched on calibration only.",
+    "UNRESOLVED": "IC13-specific adapted checkpoint/official Generic identity and exact context paper accuracy remain unresolved. Upstream training/calibration exposure persists."
+  },
+  "raw_inference_floor": 0.05,
+  "ignore_resolution": 256
+}

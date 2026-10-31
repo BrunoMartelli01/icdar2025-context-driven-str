@@ -1,0 +1,36 @@
+{
+  "care_words": 1095,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "expert_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3",
+  "fallback_images": 61,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "frontend_inference_reused": true,
+  "minimum_f1": 0.9,
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/completion.json": "28288c0108e70abe69a0baa5ae60229a47204c390b47716c267e76b740a6a542",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/index.json": "45c2b5c2ef7d67e45ee214746e77ca408ed880bb92621447f8e9afb9ffd6bc8d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/deployment_qualification.json": "84dab8499f52b5855b9264a4d98d2d2bb072d431cd54ce551083fbff07f40f19",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/resolved_configuration.json": "65402bf1e4b671fa54c20087556ca8349d1b0f3e160b5847aa9171519fa995cb",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/selection_frozen.json": "3b83f8f2af28a45da61c553dbd19adcd09aefd88f554e01fa1f9f6b8f92f0154",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/emission_frozen.json": "335a3529b9c7395f01ac049b3e6a0cd5be8c9cd56be9979985e1877182489b65",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_test_root": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+  "router_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13",
+  "scientific_choices": {
+    "ASSUMPTION": "Freeze the common conservative word-risk gate and conditional IoU/learned-probability text fusion selected on TRAIN/validation. Freeze 61/233 routing decisions before loading TEST fallback outputs or annotations. Native fallback and primary-word complement, no extra map network or fallback PARSeq reread.",
+    "HARDWARE_DEVIATION": "Cached previously generated actual RTX3090 FP32 neural frontend; CPU postprocessing on real cached predictions. No new neural inference, online execution, or latency measurement.",
+    "PAPER_SPECIFIED": "Motivation only; metric and adapted YOLO learned gate are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Qualified frozen detector/reader/counts and native256 ignore; authenticated optimized DeepSolo with original released TEST Generic resource.",
+    "UNRESOLVED": "Conditional expert/word OOF dependencies, TRAIN benchmark vocabulary includes validation types, upstream fitting, repeated historical TEST exploration and adaptive prior TEST feedback. Cross-dataset retention must be measured."
+  },
+  "test_protocol": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json",
+  "total_images": 233
+}

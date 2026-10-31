@@ -1,0 +1,67 @@
+{
+  "budgets": {
+    "icdar2015": {
+      "fallback_images": 228,
+      "images": 500
+    },
+    "totaltext": {
+      "fallback_images": 150,
+      "images": 300
+    }
+  },
+  "cases": [
+    "icdar2015__unet",
+    "icdar2015__yolo",
+    "totaltext__unet",
+    "totaltext__yolo"
+  ],
+  "ic15_teacher_root": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015",
+  "minimum_f1": {
+    "icdar2015__unet": 0.7909426013691416,
+    "icdar2015__yolo": 0.8084029359655783,
+    "totaltext__unet": 0.782,
+    "totaltext__yolo": 0.782
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/cases.json": "c291706afaf4a73702c790a12a86ff7a59758a71e3dd156f286de510573d71b5",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__unet__inputs.json": "62c1b3dca9f30cb14ba9e5f46b3d02d12eb91901b76265960b46a6171e794a9c",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__unet__maps.json": "f0cdfcd6baf54b2cdcdd059ac2063cffcd84bb9e6e0100274a87bc975ccb2a45",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__unet__observations.json": "f6f67d8783dc992eee4acb6fed0f9f3dee92e1433a93f48f29c7b857d04489f5",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__unet__train_labels.json": "3e9ee6794770d0b15f04b8773b1b38fa3a7740a51e395b6440c98db223a3fdbe",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__yolo__inputs.json": "62c1b3dca9f30cb14ba9e5f46b3d02d12eb91901b76265960b46a6171e794a9c",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__yolo__maps.json": "7273fc16bf6d436d166dd841d71232d0eccf18365f08ea34ef8a8bd6f0c4ad79",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__yolo__observations.json": "49a5297b4201d6fe1444d3dd52401e56fa797544810a626971c38e9f1852e6e2",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/icdar2015__yolo__train_labels.json": "c964c5aa873b86696470d758dc21a813cbf585cb049fb4b29c6b5e8a7d586498",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__unet__inputs.json": "60900e485edc424342799c001c3f3975a8298fe9e95e5baadaaa85f3ef81ef3d",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__unet__maps.json": "2adb5c1f2860fa470559e630df0f04c2a028aec15cd14f87271baf1cc2dd66d2",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__unet__observations.json": "a6de18643dc1bcb6226f68d7fd075cb8bf51e38ce93dcab005a2212e47c37c2d",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__unet__train_labels.json": "67b51a3fc72984fab9e2b8623ead0a2f9e5605c84e578e2e62731e4095febdf9",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__yolo__inputs.json": "7f775bd2abf4b8e18e1f8d6a5d34b7b7084c5306d8810ae93fe88f828aa8dbf3",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__yolo__maps.json": "03c8a1b94829b496f0a89f2711fc1357be39d6560d82a1a5839a463ea38c6b20",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__yolo__observations.json": "147f2e0d23ea05ec694b1ef91d5fb181ce1b2c97af21235f2b6a938ddca3b650",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/data/totaltext__yolo__train_labels.json": "760e80b7313807d904872d58a4bd359dd3d4e882177aa935c291bab3d222511f",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/deployment_qualification.json": "c983a7678245fd8ab85162e82386545eb66fdcad06a4bd82f3ca601f386368ec",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/icdar2015__unet/correction_frozen.json": "075e778a96624a0fe09c79274a56af573bc0e2b8e183289929c170ca6109a018",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/icdar2015__unet/observable_outputs.json": "70185260781c3a5ea0bde48b293f8e6d7f51d050a536be3f7aba8180a20b2d99",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/icdar2015__yolo/correction_frozen.json": "bd0ce521d1920d242eac8b476ecaa60dbae5de7008eb331e7b31faaba512ca77",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/icdar2015__yolo/observable_outputs.json": "394b1260e592440ce12a789c3730d9ce5646404a03afcfacf58b310542ce4f42",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/totaltext__unet/correction_frozen.json": "476567204d566db1d6c0f660eb451a66b79bd94cfaac26eb5977f16b4c78a41e",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/totaltext__unet/observable_outputs.json": "2754b3d9962b1feb8fd5c2a97691c5ba79382a09f6fa8992fb0e6c6e24ab970c",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/totaltext__yolo/correction_frozen.json": "623d7f9a52917c6f0f4d9a87008f8c97d52903b4a2c372f81c15301a86023c01",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/models/totaltext__yolo/observable_outputs.json": "f5a31b84b97b115ea12e69e681ab484d6804fec88c2855f768af688cba21bb91",
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/resolved_configuration.json": "1597030a21bb35ba710f36dfe10a290b0c4ed05162b8dba21d8dab59fba4a3d6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/resolved_configuration.json": "6d70fdf791d742c74be3392363e6c33a50afbab010b3b3c36eb0f8c4e0d8fa10"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Same fixed-emission18-feature word-risk, two-count utility/ref/ensemble/guard and optional.95 distinct-word complement procedure. Domain expert/DeepSolo variants stay qualified and dataset budgets stay150/300 and228/500. Pool selection+CAL uniformly asIC13; no TEST fitting or method choice. When authentic historicalTTU-Net observations lack native sequence confidence, use explicitly tagged existing balanced-confidence proxy, identical to existing word-feature missing-field handling.",
+    "HARDWARE_DEVIATION": "CPU cached-expert fitting; no new GPU orDeepSolo inference, map networks count as additional when required forYOLO.",
+    "PAPER_SPECIFIED": "Motivation only; learned routing is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Independently qualified commonv1 raw/corrected/traces/maps, native256 care/ignore, TRAIN-only dictionaries and actual optimized fallback predictions.",
+    "UNRESOLVED": "Historical and upstream fitting exposure, repeatedTEST exploration, benchmark dictionary shift and new-method retention versusoldcommon results."
+  },
+  "source_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full",
+  "template_gate_plan": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/resolved_configuration.json",
+  "tt_native_root": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf"
+}

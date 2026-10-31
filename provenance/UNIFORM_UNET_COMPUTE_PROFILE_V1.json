@@ -1,0 +1,94 @@
+{
+  "checkpoint_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+  "claim_label": "approximate reproduction",
+  "counting_protocol": "All nonzero FLOP events reported by PyTorch profiler with_flops=True: conv2d and elementwise add/mul in this network. Convolution multiply and add count separately. Unreported operators and memory traffic excluded; zero RGB tensor, batch1, inference only. See exact per-operator counts.",
+  "cpu_threads": 2,
+  "device": "cpu",
+  "external_report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/unet_compute_profile_v2.json",
+  "external_report_sha256": "e48648097d43039fea4a71d5953977863f3a370c74f6f16ef5f5fa82b2793fad",
+  "gpu_latency_measured": false,
+  "ground_truth_used": false,
+  "mode": "approximate",
+  "parameters": 58155146,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "precision": "float32",
+  "result_class": "smoke-test result",
+  "results": [
+    {
+      "counted_convolution_flops": 33030012928,
+      "counted_flops": 33033923072,
+      "cpu_profile_wall_seconds": 0.3596109077334404,
+      "input_bchw": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "operators": [
+        {
+          "calls": 79,
+          "flops": 33030012928,
+          "operator": "aten::conv2d"
+        },
+        {
+          "calls": 8,
+          "flops": 1004800,
+          "operator": "aten::add"
+        },
+        {
+          "calls": 8,
+          "flops": 2905344,
+          "operator": "aten::mul"
+        }
+      ],
+      "output_bchw": [
+        1,
+        2,
+        128,
+        128
+      ]
+    },
+    {
+      "counted_convolution_flops": 297270116352,
+      "counted_flops": 297305307648,
+      "cpu_profile_wall_seconds": 1.7207744047045708,
+      "input_bchw": [
+        1,
+        3,
+        768,
+        768
+      ],
+      "operators": [
+        {
+          "calls": 79,
+          "flops": 297270116352,
+          "operator": "aten::conv2d"
+        },
+        {
+          "calls": 8,
+          "flops": 9043200,
+          "operator": "aten::add"
+        },
+        {
+          "calls": 8,
+          "flops": 26148096,
+          "operator": "aten::mul"
+        }
+      ],
+      "output_bchw": [
+        1,
+        2,
+        384,
+        384
+      ]
+    }
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Declared partial-operation FLOP convention and synthetic zero input; no PARSeq/DeepSolo or backward pass included.",
+    "HARDWARE_DEVIATION": "CPU FP32 engineering shape/compute qualification of the same strict-loaded GPU deployment checkpoint; no change to production placement.",
+    "UNRESOLVED": "Paper FLOP convention equivalence, complete pipeline FLOPs and real idle-GPU latency remain unresolved."
+  },
+  "source_sha256": "02e345f2d8150a6bace99dc877b46da5c36320f73e7c62c3ad82d154d0cc1fd4",
+  "status": "COMPLETE",
+  "torch": "2.4.1+cu124"
+}

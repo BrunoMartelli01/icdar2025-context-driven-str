@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "trained_router_vocabulary_replay_v1",
+  "study_root": "/extra1/bmartelli/context-str-runs/trained-router-vocabulary-replay-20261028-v1",
+  "trained_router_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+  "seed": 20261028,
+  "bootstrap_draws": 2000,
+  "new_fallback": {
+    "icdar13": {
+      "label": "Generic calibrated",
+      "lexicon_kind": "Generic",
+      "neural": {
+        "score_threshold": 0.4,
+        "recognition_threshold": 0.0
+      },
+      "unmatched_policy": "keep_unmatched",
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "lexicon_paths": {
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt"
+      },
+      "per_image": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/ic13_dataset_v1/ordinary_native__Generic_keep_unmatched_per_image.json",
+      "results": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/ic13_dataset_v1/results.json",
+      "raw_folder": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+      "report_key": "ordinary_native__Generic_keep_unmatched",
+      "expected_images": 233,
+      "expected_gt_words": 1095
+    },
+    "icdar2015": {
+      "label": "Weak source rule",
+      "lexicon_kind": "Weak",
+      "neural": {
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.85
+      },
+      "unmatched_policy": "source_reject",
+      "checkpoint_sha256": "c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8",
+      "lexicon_paths": {
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt"
+      },
+      "per_image": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/icdar2015__prior_calibrated__Weak_source_reject_per_image.json",
+      "results": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/results.json",
+      "raw_folder": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440/test",
+      "report_key": "prior_calibrated__Weak_source_reject",
+      "expected_images": 500,
+      "expected_gt_words": 2077
+    }
+  },
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/results.json": "a7aef6ee622826a98d6265d7d2c8bee35e55578545692bda4a1e035c42a309f0",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/frozen_choices.json": "cdac0907f115674681a9571181094c23843eb3044a3fbf9f7103306db61bcea1",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/supplemental_audit.json": "9f240f7c3e9d3c1cbfc0df66fe989764d5b422cfc244b7d29d7aa092f07a2e18",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/report/deployment_qualification.json": "f8d0fc3168e67399d1597573ff25f2dc8ff4496465f9eedb208c83878dc9a1e5",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/test_scores/icdar13__unet.json": "16fdd9e6ed902995afe5433d41fcf74706a07b000b0ea564b1a6de48646d5912",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/test_scores/icdar13__yolo.json": "f927d2184eccf7f6ca36194f43f524e8ce65e5dc665f8c4062fd32f50783a8cc",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/test_scores/icdar2015__unet.json": "6afe0ccbb0eedd42cbb1242d353c4f8ffec3150b263ad8efca88613db745e473",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/test_scores/icdar2015__yolo.json": "9e2d34473290696ffe3638eb9fe35027d5aa22c394067328c3ee2d2a2f3444d7",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/models/icdar13__unet__ocr_tokens_maps__2.joblib": "5bcf48b7ad4a343be6e0ab69fe95edf2e180d30ca77f12bb66fa05767013636f",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/models/icdar13__yolo__ocr__3.joblib": "de8a32ceb63cf6ca2c116d6c7c0b08f6ad5fea65c482e4cb84fff172baecfbd7",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/models/icdar2015__unet__ocr_maps__1.joblib": "2774aa8810321957dd7d348b932ac5687287031b830bbc4777b8c5f78eb9e06c",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/models/icdar2015__yolo__ocr__3.joblib": "e4dea0b289d5f98b531dc35245f58eedc9aa379710dc3d9dacc4982333cf9bd9",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/ic13_dataset_v1/ordinary_native__Generic_keep_unmatched_per_image.json": "58cc5b15bddfe4d82c0f51962089bdc2f69d72c8bd74a248d0d04a575da87022",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/ic13_dataset_v1/results.json": "fe8ad0a51287ce77f1487d23170bd11fffe50ff33445e143be3d29ffd8fe4f8b",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/icdar2015__prior_calibrated__Weak_source_reject_per_image.json": "df7101ca0fa12e43fac8faff981e833da154f0bea78d4b3fc5023039041826b4",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/results.json": "4d7b7fb6ba33cb70fd9da29da34afd34e20a610c66469fdab2bbc501f0818dcf",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440/test/protocol.json": "a61eef15c35a6f0f58e4db252aeb804fee2532e4b3659bcbb171c2c7fdb532fd"
+  },
+  "rules": {
+    "weights": "unchanged selected native-dataset trained heads",
+    "thresholds": "all three original validation scalar cuts unchanged",
+    "budgets": "all three original predeclared batch quotas unchanged",
+    "extra_budget_curve": "fixed scores with RGB-hash ties; TEST labels score outcomes only; dense prefix best is descriptive, never deployment",
+    "metric": "Per-image lexical multiset microF1; Unicode casefold + isalnum; complete care GT incl empty-normalized; original trained-router native256 polygon ignore and care override",
+    "geometry": "Reuse original native-dataset router annotation/validity procedure. Reproject raw DeepSolo polygon. Invalid envelope retained as unmatchable FP.",
+    "new_training": false,
+    "new_neural_inference": false,
+    "lexicon": "Only DeepSolo fallback receives benchmark vocabulary; light expert outputs untouched"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Section3.5 Algorithm2 image fallback motivation; local paper inspected.",
+    "REPOSITORY_SPECIFIED": "Existing hash-qualified trained ICDAR heads, light expert choice, scores, eligibility, RGB tie keys, scalar cuts, quotas, correction primitives and full TEST populations.",
+    "ASSUMPTION": "User-requested substitution of qualified IC13 Generic and IC15 Weak fallback only; harmonized original trained-router ignore protocol; descriptive complete rank frontier, not new threshold selection.",
+    "HARDWARE_DEVIATION": "CPU cached-output replay; no current GPU inference or online latency measurement. Historical RTX3090 expert qualification retained.",
+    "UNRESOLVED": "Heads were trained against previous weaker fallback; utility target mismatch, historical TEST exposure, official polygon-Hmean/paper Table5 metric equivalence, finite validation, benchmark vocabulary side information and online speed."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "all_nonoptimizer_state_exact": true,
+      "best_sha256": "42703597cfc05f13c74cf84607477cc243062db0f6c8afc684ea760bd4e4d206",
+      "model_tensors": 452,
+      "new_bytes": 233038046,
+      "new_sha256": "b96051e20133525b54249e77f18ef41bc5587f74c013c939cea3142e24aaf74d",
+      "old_bytes": 493847549,
+      "old_sha256": "fa014dd7bde49c550997370482a64493c77e9e7b570359e0ef353121d093e5fb",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/smoke/icdar13/last.pt",
+      "plan_sha256": "8bb622cec11758249d608964f6f9a105fbf443925c3cf8e70041d7757d0eacf4",
+      "post_compaction_audit_sha256": "6f0f7051b782716ec15074303cce99461858d43e06c6833448aee6cd70a086cc"
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "best_sha256": "c7be8b73c1112295b0575c115cb39638b004cc78fea5522c3d34e37ca31167ed",
+      "model_tensors": 452,
+      "new_bytes": 233038046,
+      "new_sha256": "0b0cf0e7325895724fc547f65099531c48998811746f614d5f74db4ce158996c",
+      "old_bytes": 493847549,
+      "old_sha256": "d40e6dfbdb44930d861a8db4c51e07ddf2ccbf1f8e26a817fd8e281cf6fe5047",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/smoke/icdar2015/last.pt",
+      "plan_sha256": "65a090965d5095a1afa3cf3894a383cb54c0aa22fe4b00d8e697051c9a617ed6",
+      "post_compaction_audit_sha256": "77780330862c82a3f0b7569df130b9c2dd2a3216c4ef04945b3e94154f2fdee9"
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "best_sha256": "c0e7e0e0a85ad7d72c3b6cd88bf878879ffd946e91cbb618090954a0f80176c4",
+      "model_tensors": 452,
+      "new_bytes": 233038046,
+      "new_sha256": "7e42df9947b7cc53815a8d98208679edffdd3e6d8c136ad900cd2c8f85d1719b",
+      "old_bytes": 493847549,
+      "old_sha256": "d1ccea9d10c03bd7b31a1427bfd760963e5b40d4ed706c2bfa16fb18f33b86d8",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/smoke/totaltext/last.pt",
+      "plan_sha256": "8abc054bc947c20c70087543bea7c148b059ba46e24dad396acc3e2cc113c4c7",
+      "post_compaction_audit_sha256": "a048146a8735471db9b0255aec111a4eba29289615b44369d26decfef152e379"
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "best_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+      "model_tensors": 452,
+      "new_bytes": 233043038,
+      "new_sha256": "863509bcd8e57ce96f6d09e8d46bf7fabb8d3cca7cbf802ad7596e036d147e07",
+      "old_bytes": 493852541,
+      "old_sha256": "dce2aa481f56efbca53cc89fb04a83e75e0e77b9be14bc4ffa0ad6b1c3c5c16d",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/last.pt",
+      "plan_sha256": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+      "post_compaction_audit_sha256": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319"
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "best_sha256": "1b848ac1af18be1a4d290051b1373ef28ed85d84e617d04781c0713c49fd6879",
+      "model_tensors": 452,
+      "new_bytes": 233043102,
+      "new_sha256": "1b19e93fce282089080bdbd7fe2efd3bad0c68a51291849ae36ea05d6e01287d",
+      "old_bytes": 493852605,
+      "old_sha256": "20c97a97336bc601ed0798a2fc09faa206008cb92694a94a86dcabb42c2de232",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/last.pt",
+      "plan_sha256": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+      "post_compaction_audit_sha256": "7ebafdfd26f8077423d4eb312326d556110cc4f67ac416b6e74efefc8d590ecc"
+    }
+  ],
+  "claim_label": "engineering storage maintenance",
+  "failure_record": "/extra1/bmartelli/context-str-runs/uniform-completed-optimizer-storage-preflight-failure-v18.json",
+  "mode": "approximate",
+  "post_compaction_audits": "5/5 PASS",
+  "reclaimed_bytes": 1304047515,
+  "scope": "Selected weights untouched; every other final checkpoint field roundtrip-equal. Exact optimizer continuation removed from completed nonselected endpoints.",
+  "source_receipt_path": "/extra1/bmartelli/context-str-runs/uniform-completed-optimizer-storage-20261031-v18.json",
+  "source_receipt_sha256": "cd35df3b7cbdd13d3e482ea348cdd0c1c3d411e49f23be570dbbce583412d310",
+  "source_sha256": "a6d3145ea5ccdd775cdbcb8b6f8293fb864d6f7ac5fd5e537460984a4814614e",
+  "status": "COMPLETE"
+}

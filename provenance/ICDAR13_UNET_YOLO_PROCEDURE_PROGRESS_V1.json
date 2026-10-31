@@ -1,0 +1,25 @@
+{
+  "active_session": 17093,
+  "claim_label": "approximate reproduction",
+  "created_unix": 1793385529.883518,
+  "folds_completed": 0,
+  "folds_prepared": 5,
+  "historical_test_exposure": true,
+  "mode": "approximate",
+  "root": "/extra1/bmartelli/context-str-runs/icdar13-unet-yolo-procedure-20261030-v1",
+  "seen_crops": 950,
+  "seen_export_audit": "PASS",
+  "seen_images": 229,
+  "smoke_audit": "PASS",
+  "stage": "conditional decoder fold0, supervised sequential folds1-4 queued",
+  "status": "ACTIVE",
+  "supervisor_pid": 2265599,
+  "target": {
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_images": 61,
+    "total_images": 233
+  },
+  "test_used_for_selection": false,
+  "training_pid": 2264367,
+  "upstream_encoder_exposure": "Known ICDAR2013 TRAIN exposure, including heldout and validation"
+}

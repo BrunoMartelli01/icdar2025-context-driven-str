@@ -1,0 +1,14 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "reject_empty_transcriptions": true,
+  "fallback_fraction_controls": [
+    0.2,
+    0.25,
+    0.3
+  ],
+  "expected_test_images": 233,
+  "expected_test_care_words": 1095,
+  "smoke_expected_test_care_words": 26,
+  "scientific_choice": "ASSUMPTION: explicitly reject empty decodes as no-word outputs; retain raw rows and all care GT. Select branch/crop/OCR policy on selection images; calibrate unchanged head separately. Target F1 is aspirational."
+}

@@ -1,0 +1,27 @@
+{
+  "claim_label": "approximate reproduction",
+  "common_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt",
+  "distance_exclusive": 1.5,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "fold_seed": 20261029,
+  "folds": 5,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt": "1e7e60e9dc30534b117f1aebf17019d25a6b31163377d43d6d19d6183cc73e05",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/resolved_configuration.json": "0001c76cd4bc50daf8d418d522b7d15600e29b03193dec52ec7e5dd5025e3c2c",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json",
+  "raw_train": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "scientific_choices": {
+    "ASSUMPTION": "Five deterministic RGB-grouped FIT folds. Common base+FIT-only vocabulary for all TRAIN; common base+remaining FIT folds for heldout-fold teacher. Keep unmatched exactly as the frozen TEST fallback; no TEST lexicon bytes or predictions loaded. Preserve every care GT and every admitted output; punctuation-free casefold/isalnum micro-F1; no training or new light/router claim.",
+    "HARDWARE_DEVIATION": "CPU postprocessing of existing authenticated DeepSolo outputs; no new neural call, package or device change. Logical teacher counts are not online latency.",
+    "PAPER_SPECIFIED": "Broad fallback family only; not supervised fold-specific teacher construction.",
+    "REPOSITORY_SPECIFIED": "Fixed ViTAEv2-S+TextOCR checkpoint/profile resize1024/max1892, score.4/no character pruning; qualified raw envelope hashes and exact common vocabulary; original229 TRAIN and FIT183/selection23/CAL23 roles.",
+    "UNRESOLVED": "Known upstream DeepSolo/donor IC13 TRAIN exposure, smaller per-fold dictionaries, shared small validation, earlier TEST exploration and future router generalization."
+  },
+  "training_plan": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/resolved_configuration.json",
+  "unmatched_policy": "keep_unmatched"
+}

@@ -1,0 +1,393 @@
+{
+  "backward_smokes": {
+    "smoke-larger-bce": {
+      "cuda_peak_allocated_bytes": 8864066048,
+      "cuda_peak_reserved_bytes": 11884560384,
+      "input_shape": [
+        8,
+        3,
+        768,
+        768
+      ],
+      "oom": false,
+      "output_shape": [
+        8,
+        1,
+        384,
+        384
+      ],
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/smoke-larger-bce/run_manifest.json",
+      "sha256": "e000bd311147cc9715c377349bc0a8d72d8587062afd20859bf138be273d8b3e",
+      "status": "SUCCESS"
+    },
+    "smoke-larger-instance-gn": {
+      "cuda_peak_allocated_bytes": 8864012288,
+      "cuda_peak_reserved_bytes": 11884560384,
+      "input_shape": [
+        8,
+        3,
+        768,
+        768
+      ],
+      "oom": false,
+      "output_shape": [
+        8,
+        1,
+        384,
+        384
+      ],
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/smoke-larger-instance-gn/run_manifest.json",
+      "sha256": "44c8ef6d09cb45113da4bfca9ea66d5f16ed3992550cf4895436109ced6b43b1",
+      "status": "SUCCESS"
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "historical_scientific_sources_unchanged": {
+    "models/icdar2015_unet.py": "1a08c2054a746344150af5ccb4e07f990c57d7df7a9570e65214d6b01d87882e",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/scene_text_datasets.py": "1d6921fd05f57fbe0fc074b31728de6b319988810f232db98b60028cbde67428",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/prepare_icdar2015_word_regions.py": "84121a9be545a6fcfd66056b7800fe921b558b6f4af5b5d7af78fb0d99db99e1",
+    "scripts/train_icdar2015_totaltext_transfer.py": "f4e0a6de1bce2f7537c1b733e53afbc3262e8ecf79959cd4e6042b21cfb29fc3",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/evaluate.py": "f0af56d95c5991c21245bafe194ebca6aab5c5cc443bb04e28cbf7a0071d51f4",
+    "segmentation/icdar2015_transfer.py": "5b9d27e259a6d51f40ed7404c04b64b32580f4e7f45068c70f01595ebd829a11",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_regions.py": "2bb9ee7f642c6bdf6288ac0ea473c5e90115d726d079325dec5528343cfa1463",
+    "segmentation/train.py": "1d77b20d73aee8183f8a37105febc9424642654da74c91514015a8e918d7ebd0",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072"
+  },
+  "mask_audit": {
+    "aggregate": {
+      "icdar2015": {
+        "images": 1000,
+        "resolutions": {
+          "square1024": {
+            "after_native_guard": {
+              "components": 4453,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 3441,
+              "fragmented_words": 5,
+              "fused_components": 651,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 1661
+            },
+            "foreground_pixels_after": 2042620,
+            "foreground_pixels_before": 2054936
+          },
+          "square512": {
+            "after_native_guard": {
+              "components": 4451,
+              "fragmented_words": 7,
+              "fused_components": 0,
+              "lost_words": 4,
+              "words": 4448,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 3071,
+              "fragmented_words": 1,
+              "fused_components": 770,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 2146
+            },
+            "foreground_pixels_after": 496913,
+            "foreground_pixels_before": 513538
+          },
+          "square768": {
+            "after_native_guard": {
+              "components": 4453,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 3291,
+              "fragmented_words": 5,
+              "fused_components": 702,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 1862
+            },
+            "foreground_pixels_after": 1136279,
+            "foreground_pixels_before": 1152166
+          },
+          "wide1024": {
+            "after_native_guard": {
+              "components": 4453,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 3441,
+              "fragmented_words": 5,
+              "fused_components": 651,
+              "lost_words": 2,
+              "words": 4448,
+              "words_touched_by_fused_components": 1661
+            },
+            "foreground_pixels_after": 2042637,
+            "foreground_pixels_before": 2054953
+          }
+        },
+        "source": {
+          "components": 4543,
+          "fragmented_words": 87,
+          "fused_components": 0,
+          "lost_words": 0,
+          "words": 4448,
+          "words_touched_by_fused_components": 0
+        }
+      },
+      "total_text": {
+        "images": 1255,
+        "resolutions": {
+          "square1024": {
+            "after_native_guard": {
+              "components": 9292,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 8297,
+              "fragmented_words": 6,
+              "fused_components": 671,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 1666
+            },
+            "foreground_pixels_after": 21811683,
+            "foreground_pixels_before": 21825110
+          },
+          "square512": {
+            "after_native_guard": {
+              "components": 9291,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 1,
+              "words": 9285,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 7301,
+              "fragmented_words": 2,
+              "fused_components": 1095,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 3082
+            },
+            "foreground_pixels_after": 5421263,
+            "foreground_pixels_before": 5448641
+          },
+          "square768": {
+            "after_native_guard": {
+              "components": 9292,
+              "fragmented_words": 6,
+              "fused_components": 0,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 7849,
+              "fragmented_words": 6,
+              "fused_components": 894,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 2337
+            },
+            "foreground_pixels_after": 12249730,
+            "foreground_pixels_before": 12270293
+          },
+          "wide1024": {
+            "after_native_guard": {
+              "components": 9289,
+              "fragmented_words": 3,
+              "fused_components": 0,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 0
+            },
+            "before_native_guard": {
+              "components": 7742,
+              "fragmented_words": 3,
+              "fused_components": 946,
+              "lost_words": 0,
+              "words": 9285,
+              "words_touched_by_fused_components": 2493
+            },
+            "foreground_pixels_after": 11189742,
+            "foreground_pixels_before": 11211183
+          }
+        },
+        "source": {
+          "components": 9305,
+          "fragmented_words": 18,
+          "fused_components": 0,
+          "lost_words": 0,
+          "words": 9285,
+          "words_touched_by_fused_components": 0
+        }
+      }
+    },
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/results.json",
+    "sha256": "8c2a89bef2906164bf46be997d2ef5a4857e77b6328b45fda83c913d1b9caff7"
+  },
+  "qualified_environment_packages": {
+    "Pillow": "10.4.0",
+    "PyYAML": "6.0.1",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84",
+    "scipy": "1.17.1",
+    "torch": "2.4.1+cu124",
+    "torchvision": "0.19.1+cu124"
+  },
+  "remaining": [
+    "Complete all four matched20-epoch continuations",
+    "Compute validation100 symbol-free spatial word F1 and freeze branch selection",
+    "Evaluate selected branch on complete TEST500 and independently audit outputs",
+    "Report improvement against preserved baseline and finalize scientific records"
+  ],
+  "reproduction_mode": "approximate",
+  "resolution_screen": {
+    "aggregate": {
+      "square1024": {
+        "foreground_iou": 0.5866298667444263,
+        "fragmented_words": 49,
+        "fused_components": 27,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 61,
+        "lost_words": 30,
+        "matched_gt": 265,
+        "proposal_f1_iou_50": 0.4024297646165528,
+        "proposal_precision_iou_50": 0.2987598647125141,
+        "proposals": 887,
+        "word_recall_iou_50": 0.6162790697674418,
+        "words_touched_by_fused_components": 61
+      },
+      "square512": {
+        "foreground_iou": 0.5448843381331333,
+        "fragmented_words": 21,
+        "fused_components": 31,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 65,
+        "lost_words": 106,
+        "matched_gt": 173,
+        "proposal_f1_iou_50": 0.3649789029535865,
+        "proposal_precision_iou_50": 0.333976833976834,
+        "proposals": 518,
+        "word_recall_iou_50": 0.40232558139534885,
+        "words_touched_by_fused_components": 65
+      },
+      "square768": {
+        "foreground_iou": 0.5895067644969583,
+        "fragmented_words": 38,
+        "fused_components": 25,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 59,
+        "lost_words": 43,
+        "matched_gt": 248,
+        "proposal_f1_iou_50": 0.41127694859038144,
+        "proposal_precision_iou_50": 0.31958762886597936,
+        "proposals": 776,
+        "word_recall_iou_50": 0.5767441860465117,
+        "words_touched_by_fused_components": 59
+      },
+      "wide1024": {
+        "foreground_iou": 0.5839906974585457,
+        "fragmented_words": 49,
+        "fused_components": 27,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 61,
+        "lost_words": 29,
+        "matched_gt": 264,
+        "proposal_f1_iou_50": 0.39285714285714285,
+        "proposal_precision_iou_50": 0.2888402625820569,
+        "proposals": 914,
+        "word_recall_iou_50": 0.6139534883720931,
+        "words_touched_by_fused_components": 61
+      }
+    },
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/resolution-screen/results.json",
+    "selected_larger_resolution": "square768",
+    "sha256": "bdacc38e9d82e6e91b7fc3fcc7ff7d964f57baee095015a53d39f7e30a26d1c3"
+  },
+  "resolved_preflight_failures": [
+    {
+      "affected_ids": [
+        40,
+        149,
+        336
+      ],
+      "error": "Total-Text RGB checksum mismatch",
+      "resolution": "Recover only checksum-identical original bytes into isolated contained dataset; full checksum revalidation passed"
+    },
+    {
+      "error": "Linked dataset escapes data root",
+      "resolution": "Materialize contained copies without disabling root guard"
+    },
+    {
+      "error": "Matplotlib unavailable",
+      "resolution": "Use repository-consistent PIL target preview; no installation"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Frozen protocol and successful target/scale/backward qualification; no claim of completed training or TEST improvement",
+  "source_sha256": {
+    "configs/approximate/icdar2015_improvement_word_f1_v1.json": "0a8c898d9edca9c8a5cc487a39f2195b581b09b160bb4cbeee4d86d8028be11d",
+    "configs/approximate/icdar2015_unet_improvement_v1.json": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+    "models/icdar2015_improvements.py": "7c1b87c35731832c7de11fb7e71e1a5266e7135ab6f83a08bf9b59da429688af",
+    "scripts/audit_icdar2015_improvement_word_f1.py": "200632ccd4519fd03353038c928f56a2abef1967b3156f33601d3fb2fe02128f",
+    "scripts/audit_icdar2015_word_masks.py": "9101debec2be77463772fd50130fb2075b9ce960688398bacb14e3554f6f22aa",
+    "scripts/evaluate_icdar2015_improvement_test.py": "9b0aaf7f13038e08746aabdfaf02d5b2cf5a5f2a8f6bd59dfe47b24df5086e3b",
+    "scripts/evaluate_icdar2015_improvement_validation.py": "ae712870d88a85a9d44d7de3336bf14fa56746a7bd06716397b9652665337e3f",
+    "scripts/preview_icdar2015_improvement_masks.py": "e5f337666964275b720b058e087321a2b521487d6712f53da67388a357e91146",
+    "scripts/screen_icdar2015_unet_resolutions.py": "6d99e66602abef807be1bb3975e424208435b095e6c7db456c4bf318c8e92a1a",
+    "scripts/select_icdar2015_improvement.py": "6f64feadf7d3ce64e9e1e482daffbb71ef31c7b6ac289ce5855e1b83c230787c",
+    "scripts/train_icdar2015_unet_improvement.py": "2c704a573733b27f39f8e15ee809a07bcf94e88d58a6d38759d4c521aa4f917f",
+    "segmentation/icdar2015_improvement_runtime.py": "05d6872d5430b1ca05016fd714e5dc5e5d4ec26cb79cde16f5da77dbd355f147",
+    "segmentation/icdar2015_improvements.py": "998903f340fa98889be8dd86a9fbb106e76f36adc3459c7592734870e3dc4e42",
+    "tests/models/test_icdar2015_improvements.py": "579ef88d8345ee01850633d5c5cdedae14c23ddf0e94ddf4c6cc29666997b1c0",
+    "tests/scripts/test_icdar2015_improvement_evaluation.py": "ecc2f661c5be8f4eaf73459d94188d7432105bdb525d7dfc879afe6217d7c48c",
+    "tests/scripts/test_icdar2015_improvement_selection.py": "e6db1423827d85833243401c84f32191e0fd72c139a90351abd029e3a087a694",
+    "tests/segmentation/test_icdar2015_improvement_targets.py": "1781a0aa60d91ec3183780f2c247be6eac7b9b8d7267c2e85e0fc4febd07f6f2"
+  },
+  "status": "PRETRAIN_QUALIFIED_FULL_EXPERIMENT_IN_PROGRESS",
+  "tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "paper",
+    "junit_path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/unit-tests.xml",
+    "junit_sha256": "941265d059baad6bdd83f81e0c19c39dfbd35d2c5ba0fdeb2337c7fc1c352177",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "47",
+    "time": "3.601",
+    "timestamp": "2026-10-26T12:27:30.794784+01:00"
+  },
+  "verified_totaltext_view": {
+    "annotation_byte_equality_checked": 1255,
+    "historical_artifact_modified": false,
+    "qualification_path": "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/integrity_qualification.json",
+    "qualification_sha256": "2df2d97b2914fecb75be86665cb20972d765dc83b0b7ef3c8bb2f5f757aa60de"
+  }
+}

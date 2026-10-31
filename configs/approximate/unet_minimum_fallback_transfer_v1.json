@@ -1,0 +1,57 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "unet_minimum_fallback_transfer_v1",
+  "paths": {
+    "source_run": "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full",
+    "improved_run": "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2"
+  },
+  "primary_target": 0.798,
+  "targets": [
+    0.784,
+    0.798,
+    0.8
+  ],
+  "matching_iou": 0.5,
+  "seed": 20261026,
+  "model_names": [
+    "tabular_0",
+    "tabular_1",
+    "tabular_2",
+    "vision_0",
+    "vision_1",
+    "vision_2"
+  ],
+  "additional_profiles": [
+    "native_word",
+    "global_word"
+  ],
+  "profile_source_index": {
+    "native_word": "0.925",
+    "global_word": "0.95"
+  },
+  "bootstrap_replicates": 1000,
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/artifact_manifest.json": "106887f98f5b0584bd0adc2b336b943565f794bb9452812e70f8843e1ec403cf",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/selection_frozen.json": "fed654bc898ac96db47fe1a10cbacdd789a5cd97f7de2adbc80f6a6f02416736",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/model_catalog.json": "7cd5950ccfa47067a301c241d98d3a12fba4935d5b789c26f167b9b5e7ae423e",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/independent_audit.json": "8ef32e9738423b8da683e9e13b8bcb9e3a6017dc6f85ca53181eb5f6f44ab3cd",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/deployment_independent_audit.json": "3ffd7e72687eb09603c61870a9453778ca1cde26c70923281e0f84ee8a17158b"
+  },
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "scope": "Post-hoc exploratory complete replay of all frozen router recipes/rankings; transfer old-fallback predicted utility to previously TRAIN-selected improved DeepSolo profiles. TEST can select descriptive operating points only; no independent validation or development-selected-policy claim."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "scope": "Current development quotas failed to transfer. Exact paper protocol remains unresolved. Additional profiles lack lower-floor FIT coverage, so no retraining targets are fabricated."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "scope": "CPU replay of existing cached outputs; new online DeepSolo calls=0."
+    }
+  ]
+}

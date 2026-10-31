@@ -1,0 +1,207 @@
+{
+  "additional_neural_parameters": 0,
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar13",
+  "expected_oom_engineering_test": {
+    "actual_deepsolo_calls": 0,
+    "actual_parseq_crop_calls": 0,
+    "actual_unet_forward_calls": 0,
+    "failure_report": "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-oom-20261031-v14/failure_1793445830688958574.json",
+    "mode": "approximate",
+    "no_complete_artifact": true,
+    "original_error_propagated": true,
+    "peak_allocated": 6368768,
+    "peak_reserved": 8388608,
+    "per_process_memory_fraction": 0.001,
+    "result_class": "smoke-test result",
+    "scope": "Artificial per-process cap; verifies abort/reporting, not actual1024 memory failure.",
+    "stage": "Model initialization before neural inference",
+    "status": "PASS_EXPECTED_OOM"
+  },
+  "goal_complete": false,
+  "matching_training_refits_performed": false,
+  "mode": "approximate",
+  "resolutions": {
+    "1024": {
+      "audit": {
+        "candidate_image_replays": 92,
+        "frozen_sha256": "ddf860a1895d154f58a4e9be7a8e1c94d6c779d277f1556ebd554a3a3609e5c1",
+        "scope": "Independent score sorting and Counter recount; shared declared features/fusion/bootstrap. Native actual-neural parity qualified separately.",
+        "status": "PASS"
+      },
+      "audit_sha256": "fd36d8a3c22d049e58f35cbfb873ca38d539d2de562bb42e9a34a514b186b2a6",
+      "frontend": {
+        "actual_deepsolo_calls": 0,
+        "actual_parseq_crop_inferences": 254,
+        "actual_unet_image_inferences": 46,
+        "checkpoint_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+        "crop_settings": {
+          "kernel_threshold": 0.5,
+          "maximum_ocr_candidates": 50,
+          "minimum_transcript_probability": 0.0,
+          "native_size": 512,
+          "padding": 4,
+          "text_threshold": 0.5
+        },
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "ground_truth_used": false,
+        "input_hw": [
+          1024,
+          1024
+        ],
+        "mode": "approximate",
+        "model_loading_seconds": 1.012054156512022,
+        "native_hw": [
+          512,
+          512
+        ],
+        "out_of_memory": false,
+        "parseq_batch_size": 32,
+        "peak_allocated": 1168994816,
+        "peak_reserved": 1314914304,
+        "precision": "float32",
+        "seconds": 20.808083506301045,
+        "source_sha256": "860602ce610a741e79ed30a031b2cd042de05480d10b626bf558ff661dcfbefb",
+        "status": "COMPLETE",
+        "unet_batch_size": 1
+      },
+      "frozen_sha256": "ddf860a1895d154f58a4e9be7a8e1c94d6c779d277f1556ebd554a3a3609e5c1",
+      "native_parity": {
+        "images": 2,
+        "maps_and_context_exact": true,
+        "raw_readings_and_crop_hashes_exact": true,
+        "status": "PASS"
+      },
+      "paired_lower_gain": -0.028360574039727783,
+      "results": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 152,
+            "detected_words": 152,
+            "f1": 0.932475884244373,
+            "fn": 14,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 145
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        },
+        "scaled": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 155,
+            "detected_words": 155,
+            "f1": 0.9235668789808917,
+            "fn": 14,
+            "fp": 10,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 145
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        }
+      },
+      "selected": "baseline"
+    },
+    "512": {
+      "audit": {
+        "candidate_image_replays": 92,
+        "frozen_sha256": "b6d954cd02d38bbb5d44f82aee64fbab45db759b847913ef22577a16cf91a2a8",
+        "scope": "Independent score sorting and Counter recount; shared declared features/fusion/bootstrap. Native actual-neural parity qualified separately.",
+        "status": "PASS"
+      },
+      "audit_sha256": "616100520ecb317bcc6297a2bca006e923b676ba42e2229d1c7634afea221141",
+      "frontend": {
+        "actual_deepsolo_calls": 0,
+        "actual_parseq_crop_inferences": 179,
+        "actual_unet_image_inferences": 46,
+        "checkpoint_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+        "crop_settings": {
+          "kernel_threshold": 0.5,
+          "maximum_ocr_candidates": 50,
+          "minimum_transcript_probability": 0.0,
+          "native_size": 256,
+          "padding": 4,
+          "text_threshold": 0.5
+        },
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "ground_truth_used": false,
+        "input_hw": [
+          512,
+          512
+        ],
+        "mode": "approximate",
+        "model_loading_seconds": 0.9996630968526006,
+        "native_hw": [
+          256,
+          256
+        ],
+        "out_of_memory": false,
+        "parseq_batch_size": 32,
+        "peak_allocated": 723288576,
+        "peak_reserved": 809500672,
+        "precision": "float32",
+        "seconds": 7.665685902349651,
+        "source_sha256": "860602ce610a741e79ed30a031b2cd042de05480d10b626bf558ff661dcfbefb",
+        "status": "COMPLETE",
+        "unet_batch_size": 1
+      },
+      "frozen_sha256": "b6d954cd02d38bbb5d44f82aee64fbab45db759b847913ef22577a16cf91a2a8",
+      "native_parity": {
+        "images": 2,
+        "maps_and_context_exact": true,
+        "raw_readings_and_crop_hashes_exact": true,
+        "status": "PASS"
+      },
+      "paired_lower_gain": -0.06822227112704346,
+      "results": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 152,
+            "detected_words": 152,
+            "f1": 0.932475884244373,
+            "fn": 14,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 145
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        },
+        "scaled": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 154,
+            "detected_words": 154,
+            "f1": 0.9009584664536742,
+            "fn": 18,
+            "fp": 13,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 141
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        }
+      },
+      "selected": "baseline"
+    }
+  },
+  "scope": "46-image validation per resolution; actual scaled encoder contexts with transferred native heads. Native2-image parity and independent replay pass; no TEST or matched full native latency claim.",
+  "status": "SCALED_INFERENCE_AUDITED_BASELINE_RETAINED",
+  "test_opened": false
+}

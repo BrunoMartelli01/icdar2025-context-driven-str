@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "word_slot_analysis_v1",
+  "primary_student_selection": "maximize learned-branch word-router OOF calibration F1; tie fewer changed outputs then declared arm order",
+  "secondary_student_selection": "maximize standalone calibration F1; test ranking is descriptive only",
+  "independent_matching": "Hungarian binary adjacency; inherited original-pixel integer-edge IoU and exact Unicode casefold",
+  "scientific_decisions": [
+    {"classification": "ASSUMPTION", "component": "primary_model_selection", "rationale": "The user objective is complementary routed performance. Select among all learned branches using OOF calibration router F1, without TEST labels; compare with the same router on the frozen pixel-U-Net controls."},
+    {"classification": "UNRESOLVED", "component": "selection_variance", "rationale": "One seed, repeated historical TEST exposure and multiple compared methods limit generalization claims. Paired image bootstrap is conditional on the fitted models and selections."}
+  ]
+}

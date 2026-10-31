@@ -1,0 +1,82 @@
+{
+  "base_union_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json",
+  "base_utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v5.json",
+  "claim_label": "approximate reproduction",
+  "dataset_order": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "matching_bank_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22",
+  "maximum_domain_loss": 0.001,
+  "minimum_macro_gain": 0.001,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-matched-heads-20261031-v23",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/contract.json": "be511562ae6f36d648e1bd13cd13d7dbc6681ab51507eb431a31681860e6f280",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/frontend_policy.json": "8c27ecc54f99996cfaccd770f1d1ba0f3c53d2471379d13058cd32af85c40cdd",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/icdar13/validation_bank/independent_audit.json": "95295c862db3fae6e44e6fec36e0a2bf71401762809e15eca280c7522615d39f",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/icdar13/validation_bank/index.json": "8464501041e6dbdb70adeb90197f91a208c961bf468578d543f1124f07526f9a",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/icdar2015/validation_bank/independent_audit.json": "5ac81abd63f5f926fecb479cc307572863d093a1ac95383ce71dfe2aa13fc5ac",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/icdar2015/validation_bank/index.json": "9435cbe99bac596d2be9b6bd6c783a38696596b16f61f0f1a502c859c7cbd351",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/totaltext/validation_bank/independent_audit.json": "dfbc891fde83bc6091a9fbd5b9e95c1a086aa11cf097c84cd4f13bcb28234d67",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-matching-banks-20261031-v22/full/totaltext/validation_bank/index.json": "d6c45ce791c2c5bcabbdb0451cdbcbea4326de03fb7a18dc0721cded34e0b44f",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar13-20261031-v21/selection_frozen.json": "0e2f7dd42c23e0bf64df25c2ea7ad06587e81ada7e7583a80fb0bae6f09894b0",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar2015-20261031-v21/selection_frozen.json": "f41187cdb80ab39fbcf28f12142044fb9441e234321079869d19e455d16bc639",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-totaltext-20261031-v21/selection_frozen.json": "d0e950a5a26dae10bae2e5a640db6df2efbd21823ed624cca90622a00c29ed85",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_matching_banks_v22.json": "c0863376d0cc28a482e90e5b0fe2e7cb0ea9708ba2c4bc666966449507e5e922",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v5.json": "5b72223d34f60241f1f542d28bbee3f3bc97a6c100cc4a6e86cc7b24e4b4fbd3",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_observation_bank.py": "7bfa759edca1dd83446f37f608f0697a49b92a889649dd37ed72c98b6318fc54",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/audit_uniform_utility_fusion.py": "1107fe267ce21c3bb4a65354ff10d5c026a8f47b365255dd365d45a796bb90ae",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/refit_uniform_multiscale_heads.py": "41ac9bf44ab0615a883d6979b17c37638dcf9f9a49e33aea029b53517773b07b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/train_uniform_utility_fusion.py": "17b222729fed2c842102b245572f12b3cf97e271b8a58cab1236f9e936b0966f",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/train_uniform_word_union.py": "caa12852eb3b459b1d9c155ed25d8ccf4dbd217f6ec850c2daa628f2293877d9"
+  },
+  "reference_screens": {
+    "icdar13": "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar13-20261031-v21/selection_frozen.json",
+    "icdar2015": "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-icdar2015-20261031-v21/selection_frozen.json",
+    "totaltext": "/extra1/bmartelli/context-str-runs/uniform-multiscale-words-totaltext-20261031-v21/selection_frozen.json"
+  },
+  "repository_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str",
+  "scientific_choices": {
+    "ASSUMPTION": "Refit all word/count/fusion heads on complete matching conditional decoder-heldout native+1024 observations, with matching full-FIT-model VAL. Same original hyperparameter families/grids except hard quotas only and floor validation rounding. Keep lexical policy/PCA and all neural weights unchanged. Before refit results, choose all matched heads only if macro VAL gain>0.1point versus transferred v21 and no domain loses>0.1point; otherwise retain transferred heads consistently, documenting the negative refit. Identity remains eligible in word fusion. No TEST loaded or quota increase.",
+    "HARDWARE_DEVIATION": "Existing CPU environment float64 HGB/linear feature processing,2BLAS threads; original FP32 RGB views generated separately. This stage performs no new neural/DeepSolo inference. Cached counts do not measure online latency.",
+    "PAPER_SPECIFIED": "AG-UNet/PARSeq/DeepSolo motivation only; supervised learned routing and two-view augmentation are research extensions.",
+    "REPOSITORY_SPECIFIED": "Qualified original model families and finite hyperparameter grids: word HGB18features, normalized two-count HGB heads, native64-D PCA context and pooled word-fusion HGB24features; same recipes/correction resources all3 domains.",
+    "UNRESOLVED": "Repeated VAL, benchmark vocabularies, upstream exposure, nonnested stacking and true out-of-sample generalization. End-to-end RGB integration and full TEST at original caps still required."
+  },
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "deepsolo"
+  ],
+  "union_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_matched_union_v23.json",
+  "union_output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-matched-heads-20261031-v23/union",
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_matched_utility_v23.json",
+  "utility_output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-matched-heads-20261031-v23/utility"
+}

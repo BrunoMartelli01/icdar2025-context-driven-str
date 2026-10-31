@@ -1,0 +1,66 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/no_encoder_decay/validation/epoch_000/words.json": "e406ea5a385164d72f6cdb70e40db8442d6b344b4b295dbe9dce5c82455d69a9",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/posttraining-calibration-spec-v1.json": "5770c1e15d2861d918a4617384a9501f0be48bc7e65be0bea1dd6104f9b7bc58",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/qualification/unit-tests-v1.xml": "73073d50eea840c20b8d55d6abafccaf36ee20ffb15a97507d078d95ccab8c29",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/smoke-decay_control/run_manifest.json": "7bb12ca62e0d47a84cd80b48cfa6402a14c95d05955681e866920d51497f1941",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/smoke-no_encoder_decay/run_manifest.json": "7f83d74cca3c3da7cf41b68df482f61562360a2afb564b074d49d658bca1674b",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/source_snapshot_v1/manifest.json": "28e28269b3601878bb3173a6a4688edb1c6b3d63959a72dc59bd31d5af30a623",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/training-job-spec-v1.json": "d2941dba0f356084cd99bc892827809ef869d0defb3b9e3835bf337cec6fd681",
+    "/extra1/bmartelli/context-str-runs/icdar2015-encoder-decay-v1/training-launch-v1.json": "d9eceaaaed8836f5f632af8b6bbeac0934ca82cd2ac7a45853a2dec6cf2a1c5e"
+  },
+  "claim_label": "approximate reproduction",
+  "full_initial_validation_verified": true,
+  "full_training_complete": false,
+  "profile_sha256": "b79de943acd23dce42955be4cef7d06da42d8aa714428ae983e2d35c1a9729cc",
+  "reproduction_mode": "approximate",
+  "result_class": "unit/full-size backward qualification; not final F1",
+  "schema_version": 1,
+  "smokes": [
+    {
+      "branch": "no_encoder_decay",
+      "cuda_peak_allocated_bytes": 9990781440,
+      "cuda_peak_reserved_bytes": 13069451264,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "result_class": "smoke-test result"
+    },
+    {
+      "branch": "decay_control",
+      "cuda_peak_allocated_bytes": 9990781440,
+      "cuda_peak_reserved_bytes": 13069451264,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "result_class": "smoke-test result"
+    }
+  ],
+  "status": "PASS",
+  "test_data_used": false,
+  "tests_passed": 19
+}

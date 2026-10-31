@@ -1,0 +1,55 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_resolution",
+  "old_router": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+  "sizes": [
+    640,
+    960,
+    1280
+  ],
+  "joint_thresholds": [
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "detector_settings": {
+    "confidence_floor": 0.05,
+    "nms_iou": 0.7,
+    "max_detections": 300
+  },
+  "canonical_nms_iou": 0.5,
+  "seed": 20261029,
+  "cpu_threads": 4,
+  "parseq_batch_size": 32,
+  "generic_train_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic",
+  "generic_test_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13",
+  "minimum_free_gpu_bytes": 2147483648,
+  "checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+  "checkpoint_sha256": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af",
+  "scope": "New predeclared multi-scale light expert after single-resolution selection retained640. Reuse69 selection light outputs; infer remaining images at all3 fixed sizes without inspecting TEST GT. Select joint threshold and minimum scale support only on original selection23 using canonical-text clustering; head fitting/calibration remain separate, exact61/233 DeepSolo. This uses3 YOLO forwards, no new backbone or DeepSolo outputs.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Pinned YOLOv8s and PARSeq artifacts, Generic correction, native metric and original disjoint IDs.",
+    "ASSUMPTION": "Three fixed-resolution light predictions fused by canonical-word geometry and scale agreement; validation-only threshold/support grid, target-utility router with consensus descriptors. Explicitly more light inference than single640 expert.",
+    "HARDWARE_DEVIATION": "Shared RTX3090 FP32 batch1 detector and32 PARSeq with sequential isolated existing environments; record allocation/reservation and errors.",
+    "UNRESOLVED": "23-image selection is small, historical TEST exposure and upstream training overlap; no strict or official metric-equivalence claim."
+  },
+  "remaining_sizes": [
+    640,
+    960,
+    1280
+  ],
+  "fusion_minimum_supports": [
+    1,
+    2
+  ],
+  "fusion_joint_thresholds": [
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "conflict_nms_iou": 0.7
+}

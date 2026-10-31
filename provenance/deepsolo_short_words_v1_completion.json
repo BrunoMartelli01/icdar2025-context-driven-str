@@ -1,0 +1,332 @@
+{
+  "ambiguity_record": "DEEPSOLO-SHORT-WORDS-20261026",
+  "claim_label": "approximate reproduction",
+  "external_evidence_sha256": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-short-words-20261026-v1/resolved_configuration.json": "80c0e7455eebc5b83bf0460b0fee0c112e506f619f647947c5754a51dc17b62a",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-short-words-20261026-v1/results.json": "32c4dc7882ed7d179e53e721c8070e239f0fd3cb32a2d09d6f2bb718d0ca641d"
+  },
+  "filter_rule": "Normalize Unicode casefold then isalnum, independently retain GT and predictions with length>=3. Digits remain eligible; no GT-based geometry neutralization. Preserve all image records and original ignore/envelope flags.",
+  "guide": "docs/DEEPSOLO_SHORT_WORDS.md",
+  "limitations": [
+    "Different explicitly length-filtered local word population; not full official word spotting.",
+    "Inherited previous TEST exploration and original TRAIN-fit policies; no profile is chosen or retuned from new TEST scores.",
+    "No new model inference or hardware/latency qualification; inherited DeepSolo outputs retain previous provenance."
+  ],
+  "minimum_normalized_characters": 3,
+  "official_evaluation": false,
+  "populations": {
+    "excluded_care_words": 241,
+    "failed_images": 0,
+    "filtered_care_words": 1963,
+    "images": 300,
+    "unfiltered_care_words": 2204
+  },
+  "profiles": {
+    "baseline": {
+      "images_with_no_filtered_gt": 0,
+      "metrics": {
+        "localized": {
+          "delta_f1": 0.012132183489799386,
+          "filtered": {
+            "all_outputs": 2020,
+            "detected_words": 1963,
+            "f1": 0.825776872134488,
+            "fn": 342,
+            "fp": 342,
+            "gt_words": 1963,
+            "ignored_outputs": 57,
+            "images": 300,
+            "precision": 0.825776872134488,
+            "recall": 0.825776872134488,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1621
+          },
+          "unfiltered": {
+            "all_outputs": 2228,
+            "detected_words": 2164,
+            "f1": 0.8136446886446886,
+            "fn": 427,
+            "fp": 387,
+            "gt_words": 2204,
+            "ignored_outputs": 64,
+            "images": 300,
+            "precision": 0.8211645101663586,
+            "recall": 0.8062613430127041,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1777
+          }
+        },
+        "word": {
+          "delta_f1": 0.01050687722873156,
+          "filtered": {
+            "all_outputs": 2020,
+            "detected_words": 1963,
+            "f1": 0.8278145695364238,
+            "fn": 338,
+            "fp": 338,
+            "gt_words": 1963,
+            "ignored_outputs": 57,
+            "images": 300,
+            "precision": 0.8278145695364238,
+            "recall": 0.8278145695364238,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1625
+          },
+          "unfiltered": {
+            "all_outputs": 2228,
+            "detected_words": 2164,
+            "f1": 0.8173076923076923,
+            "fn": 419,
+            "fp": 379,
+            "gt_words": 2204,
+            "ignored_outputs": 64,
+            "images": 300,
+            "precision": 0.8248613678373382,
+            "recall": 0.8098911070780399,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1785
+          }
+        }
+      },
+      "policy": {
+        "decoder": "greedy",
+        "recognition_threshold": 0.0,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.4
+      },
+      "removed": {
+        "excluded_all_predictions": 208,
+        "excluded_care_predictions": 201,
+        "excluded_gt_words": 241,
+        "original_care_predictions": 2164,
+        "original_gt_words": 2204
+      },
+      "routing": {
+        "deepsolo_images": 300,
+        "deepsolo_percentage": 100.0,
+        "new_online_inference_calls": 0,
+        "total_images": 300,
+        "type": "DeepSolo-only cached replay"
+      }
+    },
+    "global_word": {
+      "images_with_no_filtered_gt": 0,
+      "metrics": {
+        "localized": {
+          "delta_f1": 0.018551536943619773,
+          "filtered": {
+            "all_outputs": 1874,
+            "detected_words": 1826,
+            "f1": 0.8318817629981525,
+            "fn": 387,
+            "fp": 250,
+            "gt_words": 1963,
+            "ignored_outputs": 48,
+            "images": 300,
+            "precision": 0.8630887185104053,
+            "recall": 0.8028527763627101,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1576
+          },
+          "unfiltered": {
+            "all_outputs": 2150,
+            "detected_words": 2087,
+            "f1": 0.8133302260545328,
+            "fn": 459,
+            "fp": 342,
+            "gt_words": 2204,
+            "ignored_outputs": 63,
+            "images": 300,
+            "precision": 0.8361284139913752,
+            "recall": 0.7917422867513612,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1745
+          }
+        },
+        "word": {
+          "delta_f1": 0.0152829896352078,
+          "filtered": {
+            "all_outputs": 1874,
+            "detected_words": 1826,
+            "f1": 0.839799419371866,
+            "fn": 372,
+            "fp": 235,
+            "gt_words": 1963,
+            "ignored_outputs": 48,
+            "images": 300,
+            "precision": 0.871303395399781,
+            "recall": 0.8104941416199695,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1591
+          },
+          "unfiltered": {
+            "all_outputs": 2150,
+            "detected_words": 2087,
+            "f1": 0.8245164297366582,
+            "fn": 435,
+            "fp": 318,
+            "gt_words": 2204,
+            "ignored_outputs": 63,
+            "images": 300,
+            "precision": 0.8476281744130331,
+            "recall": 0.8026315789473685,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1769
+          }
+        }
+      },
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": 0.3,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.95,
+        "resolution": "fused",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "removed": {
+        "excluded_all_predictions": 276,
+        "excluded_care_predictions": 261,
+        "excluded_gt_words": 241,
+        "original_care_predictions": 2087,
+        "original_gt_words": 2204
+      },
+      "routing": {
+        "deepsolo_images": 300,
+        "deepsolo_percentage": 100.0,
+        "new_online_inference_calls": 0,
+        "total_images": 300,
+        "type": "DeepSolo-only cached replay"
+      }
+    },
+    "native_word": {
+      "images_with_no_filtered_gt": 0,
+      "metrics": {
+        "localized": {
+          "delta_f1": 0.013289391409811113,
+          "filtered": {
+            "all_outputs": 1849,
+            "detected_words": 1804,
+            "f1": 0.8346164056278206,
+            "fn": 391,
+            "fp": 232,
+            "gt_words": 1963,
+            "ignored_outputs": 45,
+            "images": 300,
+            "precision": 0.8713968957871396,
+            "recall": 0.8008150789607743,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1572
+          },
+          "unfiltered": {
+            "all_outputs": 2071,
+            "detected_words": 2016,
+            "f1": 0.8213270142180095,
+            "fn": 471,
+            "fp": 283,
+            "gt_words": 2204,
+            "ignored_outputs": 55,
+            "images": 300,
+            "precision": 0.8596230158730159,
+            "recall": 0.7862976406533575,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1733
+          }
+        },
+        "word": {
+          "delta_f1": 0.0101998271343684,
+          "filtered": {
+            "all_outputs": 1849,
+            "detected_words": 1804,
+            "f1": 0.836740111494558,
+            "fn": 387,
+            "fp": 228,
+            "gt_words": 1963,
+            "ignored_outputs": 45,
+            "images": 300,
+            "precision": 0.8736141906873615,
+            "recall": 0.8028527763627101,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1576
+          },
+          "unfiltered": {
+            "all_outputs": 2071,
+            "detected_words": 2016,
+            "f1": 0.8265402843601896,
+            "fn": 460,
+            "fp": 272,
+            "gt_words": 2204,
+            "ignored_outputs": 55,
+            "images": 300,
+            "precision": 0.8650793650793651,
+            "recall": 0.7912885662431942,
+            "symbol_only_gt": 0,
+            "symbol_only_predictions": 0,
+            "tp": 1744
+          }
+        }
+      },
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": null,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.925,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "removed": {
+        "excluded_all_predictions": 222,
+        "excluded_care_predictions": 212,
+        "excluded_gt_words": 241,
+        "original_care_predictions": 2016,
+        "original_gt_words": 2204
+      },
+      "routing": {
+        "deepsolo_images": 300,
+        "deepsolo_percentage": 100.0,
+        "new_online_inference_calls": 0,
+        "total_images": 300,
+        "type": "DeepSolo-only cached replay"
+      }
+    }
+  },
+  "reproduction_mode": "approximate",
+  "routing": {
+    "deepsolo_images": 300,
+    "deepsolo_percentage": 100.0,
+    "new_online_inference_calls": 0,
+    "total_images": 300,
+    "type": "DeepSolo-only cached replay"
+  },
+  "schema_version": 1,
+  "source_sha256": {
+    "configs/approximate/deepsolo_short_words_v1.json": "1320cee7993b35b853cb0e14de1b5b219345956cc4b6c6c42a6e0de3c4e741e8",
+    "docs/DEEPSOLO_SHORT_WORDS.md": "71c827536a8ab7805853190d131a4b68ae95b49b341da8c985dbe451c5501703",
+    "scripts/evaluate_deepsolo_short_words.py": "807a349efe764696aae78512f6e3ff1bd5b04b7f75d4314267bf96e4a70da716",
+    "tests/scripts/test_deepsolo_short_words.py": "2ae7b927b551ead61bc419bcde97fd26bc1efd731e085c1303370ca7ab65543d"
+  },
+  "status": "SUCCESS",
+  "table_5_claim": false,
+  "test_fitting": false,
+  "tests_command": "OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/context-str-main-py311/bin/python -m pytest -q tests/scripts/test_deepsolo_short_words.py tests/recognition/test_deepsolo_word_f1.py tests/scripts/test_deepsolo_word_f1_fusion.py tests/scripts/test_audit_deepsolo_word_f1.py",
+  "verification": {
+    "focused_tests_passed": 23,
+    "independent_image_metric_checks": 1800,
+    "pytest_seconds": 1.76,
+    "source_and_code_hashes": "PASS",
+    "unfiltered_baseline_replay": "PASS"
+  }
+}

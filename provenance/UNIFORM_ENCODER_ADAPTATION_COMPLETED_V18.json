@@ -1,0 +1,168 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "claim_label": "approximate reproduction",
+  "evidence_sha256": {
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/complete.json": "cab97123fbd3278201b9928af87b82253a77b19c2d7877943642230b30c51ae0",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18/upper_encoder/full/icdar13/independent_training_audit.json": "2d2dc29bc3d593084568c41d213c8d0daf5240e1a39edc267ecd640b93d22a85",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-pipeline-validation-20261031-v18/independent_audit.json": "b9a8f0a30df1fa4e67be0d0dbf5079ed5b8cd2806d42f5b8d75b5e28354cf833",
+    "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-pipeline-validation-20261031-v18/selection_frozen.json": "e0accc7da8f4c1e26182bd6fa22de51b0ff9e008686426b04358f2c91906aca4"
+  },
+  "full_gpu_peak_allocated": 6155339776,
+  "full_gpu_peak_reserved": 7228882944,
+  "goal_complete": false,
+  "independent_audit": {
+    "actual_new_neural_calls": 0,
+    "candidate_image_replays": 138,
+    "candidates": 3,
+    "deepsolo_images_per_candidate": 12,
+    "deepsolo_percentage_per_candidate": 26.08695652173913,
+    "frozen_sha256": "e0accc7da8f4c1e26182bd6fa22de51b0ff9e008686426b04358f2c91906aca4",
+    "scope": "Independent score sorting and Counter recount of all saved predictions; shared declared feature/fusion/bootstrap primitives.",
+    "selected": "baseline",
+    "source_sha256": "fc0e901abd3a4a69a166761b4c4ff8a25b5486161e0795ed6ca513d3f7ed7aae",
+    "status": "PASS",
+    "total_images_per_candidate": 46,
+    "unique_images": 46
+  },
+  "limitations": "IC13 pilot, transferred native PCA/heads, no matching OOF/refits, no TEST or other-domain target claim. Baseline retained.",
+  "mode": "approximate",
+  "online_cost": "No additional forward or neural parameters; encoder backward trainable parameters increase32598114 to54618210. No matched online latency comparison.",
+  "selection": {
+    "config_sha256": "6b55a5ff112f6803f80a6bd5de2bd1606e9e09b6e5109d2a71a93a0f82319e4a",
+    "dataset": "icdar13",
+    "mode": "approximate",
+    "results": {
+      "baseline": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 152,
+          "detected_words": 152,
+          "f1": 0.932475884244373,
+          "fn": 14,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 145
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": 0.0,
+        "total_images": 46
+      },
+      "upper_best": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 152,
+          "detected_words": 152,
+          "f1": 0.932475884244373,
+          "fn": 14,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 145
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": 0.0,
+        "total_images": 46
+      },
+      "upper_final": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 158,
+          "detected_words": 157,
+          "f1": 0.9240506329113924,
+          "fn": 13,
+          "fp": 11,
+          "gt_words": 159,
+          "ignored_outputs": 1,
+          "images": 46,
+          "tp": 146
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": -0.03456213491824486,
+        "total_images": 46
+      }
+    },
+    "scope": "Complete frozen image/word/fusion pipeline on TRAIN-heldout validation. Endpoint checkpoints retained; diagnostic bootstrap is reported, not a promotion gate. Reused validation/historical exposure remain.",
+    "selected": "baseline",
+    "source_sha256": "944684521c78ff09c29c0b1b95a4c639b2f603b7cf58414e24219de11952fe8c",
+    "status": "FROZEN",
+    "test_used_for_selection": false
+  },
+  "status": "COMPLETED_AUDITED",
+  "training": {
+    "full": {
+      "actual_new_deepsolo_calls": 0,
+      "batch_size": 4,
+      "best_selection": {
+        "all_outputs": 160,
+        "detected_words": 160,
+        "f1": 0.8463949843260188,
+        "fn": 24,
+        "fp": 25,
+        "gt_words": 159,
+        "ignored_outputs": 0,
+        "images": 46,
+        "tp": 135
+      },
+      "checkpoint_sha256": "98ef028ea35b8991934cbd9173b2f13bf7787eb75144abfa686dcd12ef238f7c",
+      "epochs": 10,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_hw": [
+        768,
+        768
+      ],
+      "native_hw": [
+        384,
+        384
+      ],
+      "out_of_memory": false,
+      "parameter_count": 58155146,
+      "precision": "float32",
+      "selected_epoch": 0,
+      "status": "COMPLETE",
+      "trainable_parameters": 54618210
+    },
+    "smoke": {
+      "actual_new_deepsolo_calls": 0,
+      "batch_size": 4,
+      "best_selection": {
+        "all_outputs": 24,
+        "detected_words": 24,
+        "f1": 0.7111111111111111,
+        "fn": 5,
+        "fp": 8,
+        "gt_words": 21,
+        "ignored_outputs": 0,
+        "images": 4,
+        "tp": 16
+      },
+      "checkpoint_sha256": "0d3fdf69f25c97c6b6365786c3af21dbab98604d4603f60a4f3bb86eb18157ef",
+      "epochs": 1,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_hw": [
+        768,
+        768
+      ],
+      "native_hw": [
+        384,
+        384
+      ],
+      "out_of_memory": false,
+      "parameter_count": 58155146,
+      "precision": "float32",
+      "selected_epoch": 0,
+      "status": "COMPLETE",
+      "trainable_parameters": 54618210
+    }
+  },
+  "training_images": 1838,
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-20261031-v18",
+  "validation_root": "/extra1/bmartelli/context-str-runs/uniform-upper-encoder-pipeline-validation-20261031-v18"
+}

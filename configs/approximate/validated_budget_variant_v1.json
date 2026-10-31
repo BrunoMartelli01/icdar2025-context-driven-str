@@ -1,0 +1,162 @@
+{
+  "bootstrap_draws": 10000,
+  "cases": {
+    "ic13": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full"
+      }
+    ],
+    "icdar2015__unet": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__unet"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__unet"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet"
+      }
+    ],
+    "icdar2015__yolo": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__yolo"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo"
+      }
+    ],
+    "totaltext__unet": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__unet"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__unet"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet"
+      }
+    ],
+    "totaltext__yolo": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__yolo"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo"
+      }
+    ]
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/deployment_qualification.json": "e98cbb156b2a8c43042da3d07bc19eb595321608c1c7c3843dd6339494432379",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/selection_frozen.json": "7d4ce640f240c097f2acbb7a46dbcc0576c15e21d948855daecad3266866ba60",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/training_branches/3.json": "ddf720f28195526bbf978264dff487e118d0dafe07127f39ff2c693783be6218",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__unet/data/seen/case.json": "846e18da89546b1724d883b2f00a2135654faacba482384eead3e22fd2146a4b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__unet/deployment_qualification.json": "7ab7d94d3b408580c8dac639723001bf773744ac582b1ad63656c813df6892e7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__unet/selection_frozen.json": "a3c78913b59d0ae2af6204bcc185f7490c990844e2da33e91274053979f686a0",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__unet/training_branches/8.json": "21f609e5200f9323e915545e1e144fb5702ec3f674aeca1a810fb5c347e66f36",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/data/seen/case.json": "e23c75d530f25627be8c3c7192eb412f5a918dc3247cc34225ab854b5cff8aa4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/deployment_qualification.json": "7b209a53ff1c8965074567960aec1fc535de21e526c50e75f58e60c3bc09fe57",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/selection_frozen.json": "3a2c713fdf07176d30caece4744d22ee5912a2685c885d6bdc6d35edf2933504",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/training_branches/17.json": "5c52991c380f3cd850bd7a0f95b357dcd3c5171fd930b10f2df6cce5a65d72b1",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__unet/data/seen/case.json": "5cbd496dec2f2b21afe196974b195daed03c3e3e08be73b32696440039d0dbfe",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__unet/deployment_qualification.json": "eac8174c88822f912db815e9b4982aea21dd8329a743bede1264f3bd73a656f5",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__unet/selection_frozen.json": "3b090e212966253241479b5ade4dc5dd9c3413996bcc229123fdcb74a131694f",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__unet/training_branches/16.json": "b7ab84095564862ec6f803563ea50c31886a3c642bc5e15423597888375f49d7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/data/seen/case.json": "3d225b960e7fad826c123b17387b61753260c10d33c94a9a6422efb3b5076722",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/deployment_qualification.json": "9e3852b1e5fdf3dbb6279c23e2373d61caf420ace2fa8d6874af03a01d9a3325",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/selection_frozen.json": "f21c4d6a5634ecb774c52f29b8a7fddc9e63eaec1e9ec35fe040ab8098881c65",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/training_branches/0.json": "bf104f29ea1563c03ec20267dfbcea8ec8ca64db1f7ebe5bd7f21fd7b9ff13d8",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/deployment_qualification.json": "84dab8499f52b5855b9264a4d98d2d2bb072d431cd54ce551083fbff07f40f19",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/selection_frozen.json": "3b83f8f2af28a45da61c553dbd19adcd09aefd88f554e01fa1f9f6b8f92f0154",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/training_branches/3.json": "ddf720f28195526bbf978264dff487e118d0dafe07127f39ff2c693783be6218",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__unet/data/seen/case.json": "846e18da89546b1724d883b2f00a2135654faacba482384eead3e22fd2146a4b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__unet/deployment_qualification.json": "b15a5447a4ba729d6ba554466d90d4c8fa935fbcd39df90241a1c9c9f459548e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__unet/selection_frozen.json": "cfae2cc0c5fb74f282d55b28dd9e9bd25769d198fedbbcc1ab9733d67f8b7b57",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__unet/training_branches/1.json": "cfa80781c5f17d901c354f05a0b319dc2193f8d29746bc578939229539417d1b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__yolo/data/seen/case.json": "e23c75d530f25627be8c3c7192eb412f5a918dc3247cc34225ab854b5cff8aa4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__yolo/deployment_qualification.json": "ccd8e317c52bf87cbbe7ae3c51108ccbfc8c65c9ef1aadb08c7c9b08bd044c9a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__yolo/selection_frozen.json": "b03d51e7cc968ea395b5871ede1f5fcdece2f84a4947827ae914e14fd36e092e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/icdar2015__yolo/training_branches/7.json": "4edcf225641f0c47aafd919c58c76f667a2beeb3634f48fa00a575bb6f2ee776",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__unet/data/seen/case.json": "5cbd496dec2f2b21afe196974b195daed03c3e3e08be73b32696440039d0dbfe",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__unet/deployment_qualification.json": "e19898d612e5a709911d2f34db8cc26900cc8e54c9b61129ed34670ad86dbaa2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__unet/selection_frozen.json": "c1ac585c77c20145745db3882a5c07e235d4a330b5d565034ceb2243b5567fbc",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__unet/training_branches/16.json": "b7ab84095564862ec6f803563ea50c31886a3c642bc5e15423597888375f49d7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__yolo/data/seen/case.json": "3d225b960e7fad826c123b17387b61753260c10d33c94a9a6422efb3b5076722",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__yolo/deployment_qualification.json": "cf1d994ade5fad92e59e538c38c9f4080c4d34e2d047432934b37d8ab0cff3e2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__yolo/selection_frozen.json": "f29749168fa3122be0928c115207eae7d93ddf7859378a605a4e43929593cb2a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/totaltext__yolo/training_branches/0.json": "8fcc5fb1bc729c21b9508b355861e2df3316145a942f43aec70223837809d99a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/deployment_qualification.json": "39811fc5b68c0adc18ddf32b9f32cd57fc825e9bb98a0fc8fd362fc97db887f4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/reread_benchmark__0/train_branches.json": "9e42ff0cb3d187f41b9d186f4489259db2bd527da12c01d3da6fd6a616d6b4f2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/selection_frozen.json": "2638235b86ad89d4eb03c0896382d30ff91e9f00f32360838fd9d13675d59f3c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/seen/case.json": "846e18da89546b1724d883b2f00a2135654faacba482384eead3e22fd2146a4b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/deployment_qualification.json": "8fb4ef234caa02ad30a831306dd25992372d72884b8525a93a1fecc5b16bacd8",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/models/seen/native_benchmark__1/train_branches.json": "9c0cd976d93a2a7826f35b1cf0270c32a41e9d6deca1c8ba4c51446b7e0a828b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/selection_frozen.json": "81ac013192642eb22eccb9debf106bd7e8a76045dd39d76749fa06be47ad6e25",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/data/seen/case.json": "e23c75d530f25627be8c3c7192eb412f5a918dc3247cc34225ab854b5cff8aa4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/deployment_qualification.json": "97bf26847967c7c4b53703d31ccc71b46675c9c1d21697e14c49e659428e5733",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/models/seen/native_benchmark__1/train_branches.json": "bc7d4d4f2d094fa36d9c18c6e02d3eac81be085c3463c15bdfeacab155319ba7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/selection_frozen.json": "c10ecf84a7b37dfde5c6c69b05394824ab16b0ecc155c26d6537f0b76ab3ce06",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/seen/case.json": "5cbd496dec2f2b21afe196974b195daed03c3e3e08be73b32696440039d0dbfe",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/deployment_qualification.json": "6bbd2f4fe0a658d31e51a80cb573a2a59db81c3c50dd3cde5a1208d6eebf1f2a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/models/seen/native_benchmark__1/train_branches.json": "b2a53cc41935d2387e98e21f23c2e54f97346e2a6ff082695dc4d945f3e7de0d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/selection_frozen.json": "69ba32889126cd1837d2a39bb77275964e848cd8208054db94148d604f4371a7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/data/seen/case.json": "3d225b960e7fad826c123b17387b61753260c10d33c94a9a6422efb3b5076722",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/deployment_qualification.json": "65a6935a07bf688c97e421e541d805434c4bb24470c2f2af14a6840ea303eaeb",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/models/seen/native_benchmark__1/train_branches.json": "8fcc5fb1bc729c21b9508b355861e2df3316145a942f43aec70223837809d99a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/selection_frozen.json": "ebd7517fde090b8f41d6d1f24a927b45a229435816028da8204659511818f540"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Compare all three qualified families on the same validation images and budget. Bootstrap the best validation micro F1 over images; within one standard error minimize additional neural map models, then fallback reader passes, then maximize validation F1, then explicit list order.",
+    "HARDWARE_DEVIATION": "CPU bootstrap on genuine cached predictions; no new inference or online latency measurement.",
+    "PAPER_SPECIFIED": "Fallback/recognition motivation only; this trained cost-aware variant choice is not the paper method.",
+    "REPOSITORY_SPECIFIED": "Previously independently qualified fixed gates, risk/fusion policies, validation branches and exact dataset quotas.",
+    "UNRESOLVED": "Selector and candidate discovery are adaptive to historical TEST results. Candidate selection reused validation; expert/word folds are not fully nested; supplied benchmark vocabularies and upstream exposure remain."
+  },
+  "seed": 20261030
+}

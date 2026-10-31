@@ -1,0 +1,14 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "geometry_results_sha256": "87723b51d9897d8d8a3c39cc446291337b5b6c92e46f56ab8344e55c9d5a7647",
+  "source_words_sha256": "8e61e7e29c8d0b0577a3b4abcdad1f9b0b60512c26a6ef45887a5172629362ff",
+  "expected_candidates": 9,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "exploratory_word_followup_after_geometry_screen",
+      "rationale": "Original geometry resource gate.62 was not met and remains false in its immutable report. However support.2/seed.65 raises geometric matches282to307, with extra noise that frozen OCR confidence can reject. In a separate adaptive VAL-only extension, evaluate ALL9 cases using actual raw/emitted word F1, including exact source baseline replay. No TEST choices; repeated validation exploration is a limitation."
+    }
+  ]
+}

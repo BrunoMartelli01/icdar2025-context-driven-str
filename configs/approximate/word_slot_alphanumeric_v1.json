@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "word_slot_alphanumeric_reassessment_v1",
+  "text_normalization": "alphanumeric_casefold",
+  "source_run": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/study",
+  "source_provenance": "/extra1/bmartelli/projects/icdar2025-context-driven-str/provenance/word_slot_methods_v1_completion.json",
+  "source_artifact_sha256": {
+    "protocol.json": "e1711d62fb536bd41c5e09ab5e760f8d8a7cdb16f6efd219c9d448571c3affa1",
+    "analysis_source_sha256.json": "be14b3ca77732b50c0fd36a9c64f6ba10c86f4afe5935d5231853efd4188d5f5",
+    "word_results.json": "def1468b788f7d174f48577f2e5268e06142b7545fef258b2e27f05f2932baa7",
+    "word_per_image.json": "2736d370b74e9ea93eb79286432d9aee71d46b3bc7b7a956d9f377bbd70a544b",
+    "threshold_selection.json": "ec6b7233ab0653a018d64925283ed90b23a051e7b5cdcb75db8383208da45e84",
+    "router_results.json": "5afec7369e9e65cf3be5619f2646b6a4427d76cd8bd57fb0f0b150efd4c876a2",
+    "router_per_image.json": "2eb6563c24e0a7179fc982c979edc9b49710fbbe0fb84b3b21141d0ecee635e3",
+    "router_fit_audits.json": "57439f912feea6511ec8d3bcad13c054572d172aaf4398c7f5a287c62586d023",
+    "analysis_selection.json": "76c994a2721cb99d634ee614a2c9da4055329f33161cc348f99bd7be8c9445e1"
+  },
+  "router_config": "configs/approximate/word_slot_router_v1.json",
+  "analysis_config": "configs/approximate/word_slot_analysis_v1.json",
+  "controls_config": "configs/approximate/word_slot_controls_v1.json",
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "text_comparison",
+      "rationale": "User explicitly requests comparison without symbols. Unicode casefold then isalnum retains letters and numbers; punctuation, symbols and whitespace are removed from both GT and OCR. No accent or compatibility folding. Raw strings and geometry remain intact."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "empty_normalized_strings",
+      "rationale": "Empty normalized strings cannot match. Preserve every care GT and emitted prediction in denominators, including symbol-only entries."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "calibration_refit",
+      "rationale": "Keep historical fixed decisions as a separate normalization-only diagnostic. Refit the same declared thresholds and OOF routers under the new metric using TRAIN calibration only; source expert training remains unchanged."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "component": "generalization",
+      "rationale": "Repeatedly explored TEST, source prior calibration exposure, one seed and known duplicate RGBs remain; this is not official polygon evaluation or strict reproduction."
+    }
+  ]
+}

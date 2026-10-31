@@ -1,0 +1,507 @@
+{
+  "status": "PASS",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1",
+  "user_scope": "Both ICDAR2013 gates retrained with Generic;11 completed IC15 U-Net candidates screened on validation, pure TotalText evaluated on full TEST, selected long768 and YOLO gates retrained with Weak.",
+  "test_used_for_selection": false,
+  "all_official_test_images": true,
+  "actual_new_deepsolo_calls": 900,
+  "cached_fallback_predictions_reused": 1062,
+  "counts_scope": "Final router counts are logical cached decisions; physical inference is recorded separately.",
+  "focused_tests": "34 passed",
+  "audits": {
+    "icdar13": {
+      "immutable_code_files": 754,
+      "pinned_input_files": 42,
+      "expert_and_rgb_scope": 1,
+      "independent_ridge_normal_equations": 18,
+      "candidate_scopes_and_selection_routes": 30,
+      "independent_boosted_tree_replay": 12,
+      "calibration_cuts": 6,
+      "rebuilt_expert_observations": 924,
+      "complete_test_routes": 6,
+      "independent_fractional_oracle_certificates": 6,
+      "replacement_teacher_complete_populations": 1
+    },
+    "icdar2015": {
+      "immutable_code_files": 757,
+      "pinned_input_files": 42,
+      "expert_and_rgb_scope": 1,
+      "independent_ridge_normal_equations": 18,
+      "candidate_scopes_and_selection_routes": 30,
+      "independent_boosted_tree_replay": 12,
+      "calibration_cuts": 6,
+      "rebuilt_expert_observations": 3000,
+      "complete_test_routes": 6,
+      "independent_fractional_oracle_certificates": 6,
+      "replacement_teacher_complete_populations": 1
+    }
+  },
+  "candidate_audit": "PASS",
+  "teacher_audit_images": 1962,
+  "single_image_gate_replays": 1466,
+  "single_image_gate_decisions": 4398,
+  "artifacts_sha256": {
+    "icdar13/full/results.json": "53ef07aa1d2e96de8f1dee848bd7b00b095291872f9e1901a2c4ff23829a0467",
+    "icdar13/full/frozen_choices.json": "99e3dbf5ee041163b956a8f9bdfb9a4aad496570dcf8679767f4ee7f345ba051",
+    "icdar13/full/supplemental_audit.json": "6ab348ae9c25c9428330a18276e01014b4e0d818e8105c4b2f39f48351408f50",
+    "icdar13/full/resolved_configuration.json": "0ddd6e2efe8d81c00b1ac66da0fa8fb105ec2db8df5af975fcda68393500db07",
+    "icdar13/full/report/deployment_qualification.json": "5633ec65b7795e306433d7d28f13be97488580ec67cbc83be95b63debafe90ff",
+    "icdar13/full/report/thresholds.csv": "7752cc4567a36d3a75459f3428ab93cd8c23fdbcf57cfbc99f2d7c86d449fd45",
+    "icdar13/full/report/intervals.json": "7e595e61c37c6be8031b95672047c29ef3c8cd7d2e04cbbcef75feef7abf2519",
+    "teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45",
+    "teacher/icdar13/independent_audit.json": "1e5cd9202dab05cb2df9a9efa5695ef4f621de81b6436fce7412791b05b9dec3",
+    "icdar2015/full/results.json": "ec6e34d9238567296c9f0da6a6dcd6824785dc679f3ff838c4d0fbf4d27c160a",
+    "icdar2015/full/frozen_choices.json": "d8a8efd688cb1d73f7e51e54d0dec534a9962db6825704cc8583dfd176072aa4",
+    "icdar2015/full/supplemental_audit.json": "c756bf6f1c9829bcb72dd6c7e510a793dd4caff7d0a446fb682a94c60273af42",
+    "icdar2015/full/resolved_configuration.json": "2782781f294da06ecf192c118d68b50c68bcc54a40e9afd53515179b2aa94459",
+    "icdar2015/full/report/deployment_qualification.json": "3fb0aa00bec6de59721e0f7a80ce8eba3660a4751936e1368c8e4c56ace47e3d",
+    "icdar2015/full/report/thresholds.csv": "97e184a315c8dff16c27dcb9be606b51b2a323da4b28bd664c8919e7a4fca407",
+    "icdar2015/full/report/intervals.json": "a72c968958262b7a54d325dc23914fab688d5573a090973f142a5b20478986e0",
+    "teacher/icdar2015/counts.json": "075cc867cfed798ed90379cc649caa72b0109e092e9a4feae7d2a11bf4d49c01",
+    "teacher/icdar2015/independent_audit.json": "c6d8b27dbce67ef1ab453e1b5ecb9e5ce1cbe82ee1e66de2d1184f594e41c66d",
+    "comparison.json": "d14a148f43ef2dfc7800bd7e348ad8ed66cb6493e46c1a55a61feb27b4c19ca0",
+    "comparison.csv": "e580b5ded09f3a16b4a44154958e0db2afe1bb476e970c0887ea523a027cb6bc",
+    "comparison.png": "b63e3d4be68fc4fdfee7e90d6b91be0240b737d4c0cc23fd4b45b540265ef9af",
+    "comparison.svg": "2d28b210e16549affcd27df7f618c2e275f698d05fb358c39b92ce2541039063",
+    "candidate_selection_initial.json": "1737fd6e975b5fa6af2fb21c4c169353f014b329428cd0ce2ddc08730f81650e",
+    "candidate_selection_audit.json": "9eef1defcf8308c0724311c639f3289bdee173aaa9e157dc5df8cfb151201615",
+    "candidate_qualification.json": "090fa16388c7ff3ff0a94395534d0fde700dac134083d4acc0672939d7810f3e",
+    "totaltext_ic15_test.json": "ff44129068fdefd91561925413381370aff4002753595c744588502046cc4c3b",
+    "weak_train_dictionary_audit.json": "5e2fa978cf13d6bfbb8e1512927282c23c412eb59f148e21d592113f60a9308c",
+    "focused_tests_final.txt": "220dfa7c62afda271067839ae4d053e9c570b9b4b1f5764addfca61b66b926c6",
+    "memory_summary.json": "90950c1c564b6ff52dd717393b5462a5f4b57168f81b1272e5b18eb638f1d59f",
+    "git_diff_review.json": "63865e151937c0f463e9e4422a7f333834f025bd67cc2ca1c48b35a8016b9d2e",
+    "final_sources_manifest.json": "56f0f0bc3ec5db4397a685f3b7ece75c53753c5a5e5e6199a04fd61cd5d48e23",
+    "predeclared_configuration.json": "9b80723012ae318af8a38f45c7d7d81d5f83358a5491e615c07b90eeb53e2a5d",
+    "deepsolo_train/receipt_limit_0.json": "bd9cf13f31150f2a3fe759fcc62babc56314cf6a17e946094e6ed2601cc9a5b5",
+    "icdar2015_workflow_status_v2.json": "ac64548e1234127b52ee33003ee7ec5a92ee2b4b8605c0809d05ecdeea3b5a27",
+    "environment_main.json": "04b7b17534556df663d9da6ffb809519e1d48ecae5f54370274684768d6036e3",
+    "environment_plot.json": "627ee38c64c8bdb6aabb7467beb9355bca162ef9c8e22847e3e2c9744b406621",
+    "environment_legacy.json": "ba679e9f3bd0564f566491fa0804612479e93f3d6fdeff85460da17931b97643"
+  },
+  "source_sha256": {
+    "recognition/replacement_fallback_counts.py": "0b5b1dab9a4678e7bd6898641d1d93fec8f6c97e0880890df3d7ad5496ba8993",
+    "scripts/retrain_icdar_lexicon_router.py": "48e1899c721b7af6b5e65b621730a8dc99bba52c2799d29a21a13b98300813bd",
+    "scripts/report_router_lexicon_retraining.py": "8615dd3065ba5f2eed091030a777766ae2ef81463ac9b41fc9f4a667038c8a52",
+    "scripts/icdar_budget_stages.py": "37a60ba701eb7b250ad86497406b38038c3c842db6f7257e4c680fcc4e1d1c17",
+    "scripts/audit_icdar_budget_router.py": "e477e55d90873326978cb09b1e9beb027de32e683bbdf2c2041491f27ffb038c",
+    "tests/recognition/test_replacement_fallback_counts.py": "ce61c67587ded4ed3f447d5522f580aa8195417662948e454cb2bdb1e76ea753",
+    "configs/approximate/router_lexicon_retraining_v1.json": "9b80723012ae318af8a38f45c7d7d81d5f83358a5491e615c07b90eeb53e2a5d",
+    "docs/ROUTER_LEXICON_RETRAINING.md": "085a82d17ed89ddd64e8c61229614963664e31a85e1dd620765e928a2e7c2db2"
+  },
+  "summary": {
+    "icdar13": {
+      "unet": {
+        "all_deepsolo": {
+          "dataset": "icdar13",
+          "deepsolo_images": 233,
+          "deepsolo_percent": 100.0,
+          "expert": "unet",
+          "fn": 118,
+          "fp": 95,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 233,
+          "previous_deepsolo_percent": 100.0,
+          "previous_f1_percent": 90.17074296262113,
+          "retrained_f1_percent": 90.17074296262113,
+          "rule": "all_deepsolo",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 977
+        },
+        "all_light": {
+          "dataset": "icdar13",
+          "deepsolo_images": 0,
+          "deepsolo_percent": 0.0,
+          "expert": "unet",
+          "fn": 335,
+          "fp": 218,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 0,
+          "previous_deepsolo_percent": 0.0,
+          "previous_f1_percent": 73.32368547998071,
+          "retrained_f1_percent": 73.32368547998071,
+          "rule": "all_light",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 760
+        },
+        "batch_budget": {
+          "dataset": "icdar13",
+          "deepsolo_images": 70,
+          "deepsolo_percent": 30.042918454935624,
+          "expert": "unet",
+          "fn": 255,
+          "fp": 132,
+          "gain_pp": -2.726618064939468,
+          "paired_gain_interval95_pp": [
+            -5.032073664206194,
+            -0.6683953091939618
+          ],
+          "previous_deepsolo_images": 70,
+          "previous_deepsolo_percent": 30.042918454935624,
+          "previous_f1_percent": 84.00383141762453,
+          "retrained_f1_percent": 81.27721335268505,
+          "rule": "batch_budget",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 840
+        },
+        "expert": "tt_corrected",
+        "primary_acceptance": 0.7,
+        "validation_cut": {
+          "dataset": "icdar13",
+          "deepsolo_images": 109,
+          "deepsolo_percent": 46.78111587982833,
+          "expert": "unet",
+          "fn": 205,
+          "fp": 102,
+          "gain_pp": -1.049948378336285,
+          "paired_gain_interval95_pp": [
+            -3.1032761555826385,
+            0.9716876637718475
+          ],
+          "previous_deepsolo_images": 109,
+          "previous_deepsolo_percent": 46.78111587982833,
+          "previous_f1_percent": 86.33983817229891,
+          "retrained_f1_percent": 85.28988979396263,
+          "rule": "validation_cut",
+          "threshold": -0.11308343793838097,
+          "total_images": 233,
+          "tp": 890
+        }
+      },
+      "yolo": {
+        "all_deepsolo": {
+          "dataset": "icdar13",
+          "deepsolo_images": 233,
+          "deepsolo_percent": 100.0,
+          "expert": "yolo",
+          "fn": 118,
+          "fp": 95,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 233,
+          "previous_deepsolo_percent": 100.0,
+          "previous_f1_percent": 90.17074296262113,
+          "retrained_f1_percent": 90.17074296262113,
+          "rule": "all_deepsolo",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 977
+        },
+        "all_light": {
+          "dataset": "icdar13",
+          "deepsolo_images": 0,
+          "deepsolo_percent": 0.0,
+          "expert": "yolo",
+          "fn": 217,
+          "fp": 160,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 0,
+          "previous_deepsolo_percent": 0.0,
+          "previous_f1_percent": 82.32536333802156,
+          "retrained_f1_percent": 82.32536333802156,
+          "rule": "all_light",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 878
+        },
+        "batch_budget": {
+          "dataset": "icdar13",
+          "deepsolo_images": 70,
+          "deepsolo_percent": 30.042918454935624,
+          "expert": "yolo",
+          "fn": 167,
+          "fp": 112,
+          "gain_pp": -0.37994576605447916,
+          "paired_gain_interval95_pp": [
+            -1.5418066836928181,
+            0.6826106028217225
+          ],
+          "previous_deepsolo_images": 70,
+          "previous_deepsolo_percent": 30.042918454935624,
+          "previous_f1_percent": 87.31203007518798,
+          "retrained_f1_percent": 86.9320843091335,
+          "rule": "batch_budget",
+          "threshold": null,
+          "total_images": 233,
+          "tp": 928
+        },
+        "expert": "yolo",
+        "primary_acceptance": 0.7,
+        "validation_cut": {
+          "dataset": "icdar13",
+          "deepsolo_images": 73,
+          "deepsolo_percent": 31.330472103004293,
+          "expert": "yolo",
+          "fn": 165,
+          "fp": 111,
+          "gain_pp": -1.3414139498622468,
+          "paired_gain_interval95_pp": [
+            -2.457721648201006,
+            -0.3080867039467291
+          ],
+          "previous_deepsolo_images": 103,
+          "previous_deepsolo_percent": 44.20600858369099,
+          "previous_f1_percent": 88.42006563525551,
+          "retrained_f1_percent": 87.07865168539325,
+          "rule": "validation_cut",
+          "threshold": -0.02909236250083408,
+          "total_images": 233,
+          "tp": 930
+        }
+      }
+    },
+    "icdar2015": {
+      "unet": {
+        "all_deepsolo": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 500,
+          "deepsolo_percent": 100.0,
+          "expert": "unet",
+          "fn": 463,
+          "fp": 208,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 500,
+          "previous_deepsolo_percent": 100.0,
+          "previous_f1_percent": 82.79045909207488,
+          "retrained_f1_percent": 82.79045909207488,
+          "rule": "all_deepsolo",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1614
+        },
+        "all_light": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 0,
+          "deepsolo_percent": 0.0,
+          "expert": "unet",
+          "fn": 971,
+          "fp": 522,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 0,
+          "previous_deepsolo_percent": 0.0,
+          "previous_f1_percent": 59.70310391363023,
+          "retrained_f1_percent": 59.70310391363023,
+          "rule": "all_light",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1106
+        },
+        "batch_budget": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 250,
+          "deepsolo_percent": 50.0,
+          "expert": "unet",
+          "fn": 616,
+          "fp": 274,
+          "gain_pp": 5.172156280236029,
+          "paired_gain_interval95_pp": [
+            3.019818356918729,
+            7.421238622184936
+          ],
+          "previous_deepsolo_images": 250,
+          "previous_deepsolo_percent": 50.0,
+          "previous_f1_percent": 71.48051948051948,
+          "retrained_f1_percent": 76.6526757607555,
+          "rule": "batch_budget",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1461
+        },
+        "expert": "long768",
+        "primary_acceptance": 0.5,
+        "validation_cut": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 234,
+          "deepsolo_percent": 46.8,
+          "expert": "unet",
+          "fn": 636,
+          "fp": 288,
+          "gain_pp": 3.993024496944464,
+          "paired_gain_interval95_pp": [
+            1.7096879147380137,
+            6.369405065656565
+          ],
+          "previous_deepsolo_images": 263,
+          "previous_deepsolo_percent": 52.6,
+          "previous_f1_percent": 71.72951885565669,
+          "retrained_f1_percent": 75.72254335260115,
+          "rule": "validation_cut",
+          "threshold": -0.5500571778952948,
+          "total_images": 500,
+          "tp": 1441
+        }
+      },
+      "yolo": {
+        "all_deepsolo": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 500,
+          "deepsolo_percent": 100.0,
+          "expert": "yolo",
+          "fn": 463,
+          "fp": 208,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 500,
+          "previous_deepsolo_percent": 100.0,
+          "previous_f1_percent": 82.79045909207488,
+          "retrained_f1_percent": 82.79045909207488,
+          "rule": "all_deepsolo",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1614
+        },
+        "all_light": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 0,
+          "deepsolo_percent": 0.0,
+          "expert": "yolo",
+          "fn": 663,
+          "fp": 806,
+          "gain_pp": 0.0,
+          "previous_deepsolo_images": 0,
+          "previous_deepsolo_percent": 0.0,
+          "previous_f1_percent": 65.81335815685362,
+          "retrained_f1_percent": 65.81335815685362,
+          "rule": "all_light",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1414
+        },
+        "batch_budget": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 250,
+          "deepsolo_percent": 50.0,
+          "expert": "yolo",
+          "fn": 544,
+          "fp": 333,
+          "gain_pp": 1.882176368608024,
+          "paired_gain_interval95_pp": [
+            0.682463302883039,
+            3.140812866048101
+          ],
+          "previous_deepsolo_images": 250,
+          "previous_deepsolo_percent": 50.0,
+          "previous_f1_percent": 75.87587587587588,
+          "retrained_f1_percent": 77.7580522444839,
+          "rule": "batch_budget",
+          "threshold": null,
+          "total_images": 500,
+          "tp": 1533
+        },
+        "expert": "yolo",
+        "primary_acceptance": 0.5,
+        "validation_cut": {
+          "dataset": "icdar2015",
+          "deepsolo_images": 196,
+          "deepsolo_percent": 39.2,
+          "expert": "yolo",
+          "fn": 563,
+          "fp": 399,
+          "gain_pp": -0.08121029207948105,
+          "paired_gain_interval95_pp": [
+            -1.4130028132583932,
+            1.2582877220490336
+          ],
+          "previous_deepsolo_images": 254,
+          "previous_deepsolo_percent": 50.8,
+          "previous_f1_percent": 75.97093460285642,
+          "retrained_f1_percent": 75.88972431077694,
+          "rule": "validation_cut",
+          "threshold": -1.7407489754356074,
+          "total_images": 500,
+          "tp": 1514
+        }
+      }
+    }
+  },
+  "heads": {
+    "icdar13": {
+      "unet": {
+        "additional_encoder_families": 0,
+        "bytes": 6531,
+        "feature_dimension": 18,
+        "groups": [
+          "ocr"
+        ],
+        "incremental_scope": "Gate only; shared detector, OCR and selected expert are excluded",
+        "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar13/full/report/deployments/icdar13__unet.joblib",
+        "recipe": {
+          "alpha": 1.0,
+          "kind": "ridge"
+        },
+        "sha256": "02977a2faa8e1ea3cda5f6834af2677564da3166bb9f71c704db7a5b65ba6298",
+        "source_head_bytes": 5470
+      },
+      "yolo": {
+        "additional_encoder_families": 0,
+        "bytes": 6779,
+        "feature_dimension": 26,
+        "groups": [
+          "ocr",
+          "tokens"
+        ],
+        "incremental_scope": "Gate only; shared detector, OCR and selected expert are excluded",
+        "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar13/full/report/deployments/icdar13__yolo.joblib",
+        "recipe": {
+          "alpha": 100.0,
+          "kind": "ridge"
+        },
+        "sha256": "6b3b3df5d36880dc43e2c62211f041235febe44c0731650d71465431a8a88bce",
+        "source_head_bytes": 5718
+      }
+    },
+    "icdar2015": {
+      "unet": {
+        "additional_encoder_families": 0,
+        "bytes": 22841,
+        "feature_dimension": 26,
+        "groups": [
+          "ocr",
+          "tokens"
+        ],
+        "incremental_scope": "Gate only; shared detector, OCR and selected expert are excluded",
+        "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar2015/full/report/deployments/icdar2015__unet.joblib",
+        "recipe": {
+          "alpha": 1.0,
+          "kind": "ridge"
+        },
+        "sha256": "b5d0955a0a1f77b11870f2899d508a7450d08fa343049ce8b83ef46cca73cd79",
+        "source_head_bytes": 21764
+      },
+      "yolo": {
+        "additional_encoder_families": 0,
+        "bytes": 22566,
+        "feature_dimension": 18,
+        "groups": [
+          "ocr"
+        ],
+        "incremental_scope": "Gate only; shared detector, OCR and selected expert are excluded",
+        "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar2015/full/report/deployments/icdar2015__yolo.joblib",
+        "recipe": {
+          "alpha": 1.0,
+          "kind": "ridge"
+        },
+        "sha256": "e4229d6ff793049fb4ba1ddde3aeef60b1d329cc356937ebc1b2e1172e3465ae",
+        "source_head_bytes": 21505
+      }
+    }
+  },
+  "failures": [
+    {
+      "error": "TRAIN Weak first pair-list serialization cannot represent33 literal-space keys among2379 entries.",
+      "repair": "JSON preserves complete original uppercase/canonical entries; existing corrector instantiated directly; no GT filtering, word splitting or new inference. Regression and exact dictionary audit pass.",
+      "evidence": "failures/train_weak_pair_format_v1/"
+    }
+  ],
+  "scientific_limitations": [
+    "Approximate reproduction; custom lexical word F1 is not verified Table5 accuracy or official polygon Hmean.",
+    "Original split and upstream/TEST exposure retained; small validation, expert-seen TRAIN and TRAIN-only Weak dictionary-size/domain shift.",
+    "IC15 native care-override ignore protocol remains82.7905% at500/500 (100%), distinct from prior prepared-validity82.8968% at500/500 (100%).",
+    "Shared RTX3090 allocator peaks; no isolated online latency or8GB qualification.",
+    "No automatic production promotion; preserve both previous and retrained models."
+  ],
+  "external_completion_sha256": "4ff35a427e68f7b4e8d3316e506b37b1fd376ca0055b988b0704a38cb807663d"
+}

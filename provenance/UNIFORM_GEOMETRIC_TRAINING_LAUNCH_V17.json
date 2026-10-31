@@ -1,0 +1,38 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "additional_online_parameters": 0,
+  "child_pid": 2334954,
+  "claim_label": "approximate reproduction",
+  "config_sha256": "1785291ce63a7519123c8014d2c472804c3078969b319814f6e724ecbbc67f9b",
+  "controller_pid": 2334763,
+  "dataset": "icdar13",
+  "experiment_root": "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17",
+  "goal_complete": false,
+  "matched_control": "Original completed30-epoch nonaugmented IC13 arm",
+  "mode": "approximate",
+  "new_test_opened": false,
+  "other_domains_trained": false,
+  "paired_target_audit": {
+    "changed_rgb_replays": 13,
+    "finite_loss_and_gradients": true,
+    "invalid_pixel_gradients_zero": true,
+    "plan_sha256": "14f18a05c0bfdaa51c5d7206f6f8673d98943387cb12e5ca6aa43dae5728e397",
+    "same_sample_epoch_exact": true,
+    "sample_epoch_replays": 16,
+    "status": "PASS",
+    "test_opened": false
+  },
+  "smoke_audit": {
+    "audit_source_sha256": "de5c45172010a58f3dcdebaeeae2ab0067430263e6b715ba03bbb6878219ff73",
+    "best_checkpoint_sha256": "15729d86372ff216726978caf731fd32acec9ab40060933dcb9cd1af4c4a4f81",
+    "both_heads_learned": true,
+    "epochs": 1,
+    "frozen_encoder_tensors": 320,
+    "limitations": "Word recount shares declared annotation/ignore primitives; no independent neural refit",
+    "selected_epoch": 0,
+    "status": "PASS",
+    "validation_image_recounts": 8
+  },
+  "status": "GEOMETRIC_TRAINING_RUNNING",
+  "verified_utc": "2026-10-31T12:17:45.602279+00:00"
+}

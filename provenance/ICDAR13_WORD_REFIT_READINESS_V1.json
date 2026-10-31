@@ -1,0 +1,79 @@
+{
+  "status": "READY_AND_TRAINING",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "external_root": "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1",
+  "files_sha256": {
+    "mask_independent_audit.json": "297f7adaa5de21fa69a4ec0942869b3ed086e41bb248e7f72a78ae487fa2728a",
+    "icdar2015_target782_feasibility.json": "3a02341af40dc2e0b40023be2f4df78da9805129d3fa58295f0e46b5d081b5a8",
+    "full/resolved_configuration.json": "66840f26556303784c6f8891a956deabf34a37b73fd69b586d99ca382a02b0e3",
+    "smoke/completion.json": "90413741142753539f37af30101902c7f9391e1af867ba3a17e1f51ed90305f5",
+    "smoke/independent_audit.json": "b77e4c57a23d9b37b860f88567fb44761c9a516bee88c1bfb460592621da01a0",
+    "official_acquisition.json": "e8723f5bfd9559f377288be0a16bdb6c84bca742ef591f8e102bd1c366bf979f"
+  },
+  "mask_audit": {
+    "status": "PASS",
+    "mode": "approximate",
+    "claim_label": "approximate reproduction",
+    "images": 229,
+    "official_care_words": 849,
+    "native_lost_words": 0,
+    "native_fragmented_words": 0,
+    "native_fused_components": 0,
+    "normalized_word_transcription_mismatches": 0,
+    "raw_punctuation_difference_images": [
+      "117",
+      "143"
+    ],
+    "manifest_sha256": "8651730150f7ae41bc8e53a35d11b7ba295f007ac90a5a3b12db6d99074de07e",
+    "official_acquisition_sha256": "e8723f5bfd9559f377288be0a16bdb6c84bca742ef591f8e102bd1c366bf979f",
+    "active_training_plan_sha256": "66840f26556303784c6f8891a956deabf34a37b73fd69b586d99ca382a02b0e3",
+    "analysis_code_sha256": "c2c75a29f6c535df417857339b519104a110c5ef4b394e72e2942c692b2a7180",
+    "scope": "Independent SciPy connectivity on actual loader targets; official Task1 normalized word identity; hull geometry remains an explicit approximation"
+  },
+  "target": {
+    "icdar13": {
+      "f1": 0.9,
+      "strict_maximum_deepsolo_fraction": 0.3,
+      "maximum_images": 69,
+      "total_images": 233,
+      "percentage": 29.613733905579398
+    },
+    "icdar2015": {
+      "f1": 0.782,
+      "feasible": false
+    }
+  },
+  "icdar2015_oracle": {
+    "router_eligible": {
+      "tp": 1436,
+      "detected_words": 1753,
+      "gt_words": 2077,
+      "fp": 317,
+      "fn": 641,
+      "f1": 0.7498694516971279,
+      "deepsolo_images": 270,
+      "total_images": 500,
+      "deepsolo_percentage": 54.0,
+      "certificate": "0",
+      "uses_ground_truth": true
+    },
+    "unrestricted": {
+      "tp": 1435,
+      "detected_words": 1744,
+      "gt_words": 2077,
+      "fp": 309,
+      "fn": 642,
+      "f1": 0.7511122742737504,
+      "deepsolo_images": 259,
+      "total_images": 500,
+      "deepsolo_percentage": 51.8,
+      "certificate": "0",
+      "uses_ground_truth": true
+    }
+  },
+  "full_results_available_at_creation": false,
+  "live_status_path": "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full/workflow_status.json",
+  "expected_results_path": "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full/results.json",
+  "caveat": "Readiness evidence and completed mask/IC15 diagnostic only; full training/TEST target not achieved by this manifest"
+}

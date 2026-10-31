@@ -1,0 +1,59 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "icdar13_matched_totaltext_loss_controls_v1",
+  "seed": 20261028,
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "minimum_free_gpu_bytes": 10737418240,
+  "image_hw": [768, 768],
+  "canvas_fill_rgb": [124, 116, 104],
+  "probability_threshold": 0.5,
+  "skip_floor": 0.25,
+  "initial_gap_bias": -2.0,
+  "kernel_distance_fraction": 0.5,
+  "separation_weight": 3.0,
+  "kernel_loss_weight": 1.0,
+  "source_loss": {"bce_weight": 1.0, "dice_weight": 1.0, "smooth": 1.0},
+  "branches": ["refit_bce", "totaltext_bce_dice"],
+  "training": {
+    "epochs": 30,
+    "seed": 20261028,
+    "physical_batch_size": 8,
+    "num_workers": 2,
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "adam_betas": [0.9, 0.999],
+    "adam_epsilon": 1e-8,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [-15.0, 15.0]
+  },
+  "validation_interval": 5,
+  "parseq_batch_size": 32,
+  "inference": {
+    "native_size": 384,
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "maximum_ocr_candidates": 50,
+    "padding": 4,
+    "minimum_transcript_probability": 0.9
+  },
+  "policy_grid": {
+    "text_threshold": [0.5, 0.65, 0.8],
+    "padding": [0, 2, 4],
+    "minimum_transcript_probability": [0.0, 0.4, 0.7, 0.9]
+  },
+  "expected_populations": {"fit": 183, "selection": 23, "calibration": 23, "test": 233},
+  "expected_test_care_words": 1095,
+  "checkpoint_selection": "selection_lexical_micro_F1_fixed_policy_include_epoch0_earliest_tie",
+  "final_selection": "selection_only_finite_grid_source_then_refit_bce_then_totaltext_bce_dice_stable_ties",
+  "scientific_choices": [
+    {"component": "architecture_family", "classification": "PAPER_SPECIFIED", "rationale": "Paper section3.2 specifies a pretrained ResNet50 attention U-Net family; exact strict details remain unresolved.", "expected_effect": "Retain the qualified architecture family."},
+    {"component": "source_loss_and_backbone", "classification": "REPOSITORY_SPECIFIED", "rationale": "Reuse the pinned Total-Text Text+Kernel source, its exact masked BCE+Dice, frozen encoder/BN, Adam1e-5 constant, batch8 and separation3.", "expected_effect": "Test whether the native refit lost useful source supervision."},
+    {"component": "controlled_pilot", "classification": "ASSUMPTION", "rationale": "Two matched30-epoch controls on the existing183/23/23 RGB-disjoint split, same paired word targets and augmentation. Source epoch0 is eligible. This is a shorter pilot than the historical100-epoch refit; only loss differs between new arms. A preserved512 preflight lost owner20 in TRAIN126, so retain768/384 to preserve all849 words; do not delete that word or silently accept the failed audit.", "expected_effect": "Measure adaptation without attributing geometry/schedule changes to loss."},
+    {"component": "word_metric_and_selection", "classification": "ASSUMPTION", "rationale": "Keep per-image lexical multiset microF1, Unicode casefold+isalnum, inherited native256 ignore and all GT denominators; explicitly reject no-alphanumeric emissions. Select on23 TRAIN selection images, then evaluate unchanged CAL and TEST once. Preserve per-image/crop outputs and historical TEST exposure.", "expected_effect": "Optimize the requested symbol-free metric without TEST-driven tuning."},
+    {"component": "runtime", "classification": "HARDWARE_DEVIATION", "rationale": "Actual RTX3090, FP32, RGB768/native384, physical8, frozen encoder and PARSeq in one process; deterministic CUDA, no TF32 or AMP. Record actual peaks and propagate OOM.", "expected_effect": "Use the existing qualified environment; no8GB qualification or latency claim."},
+    {"component": "generalization", "classification": "UNRESOLVED", "rationale": "Small reused selection set, limited native training diversity, source-versus-corrected-pipeline confounding and strict PARSeq-S provenance remain unresolved.", "expected_effect": "A numerical gain cannot establish strict paper reproduction or its cause."}
+  ]
+}

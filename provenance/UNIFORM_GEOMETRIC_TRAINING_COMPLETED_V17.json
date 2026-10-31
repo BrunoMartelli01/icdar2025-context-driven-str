@@ -1,0 +1,165 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "claim_label": "approximate reproduction",
+  "evidence_sha256": {
+    "/extra1/bmartelli/context-str-runs/uniform-geometric-pipeline-validation-20261031-v17/independent_audit.json": "2691e3ea15c694b19b1f7ecda3ee3548c155bfcebd06acdecfda576939d79e35",
+    "/extra1/bmartelli/context-str-runs/uniform-geometric-pipeline-validation-20261031-v17/selection_frozen.json": "8c3ca74f973c84b70d72f7209bf7b83f64254d1332e8ea7a7e3784643dfc936b",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/complete.json": "b023088365d92536068c1de84b13f20751a1753eaf910b085f8237691ba6a47e",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/independent_training_audit.json": "6f3922243859e79ed3644da250c9abcf30ecbb7c898219a793edf39321e3d208"
+  },
+  "goal_complete": false,
+  "independent_audit": {
+    "actual_new_neural_calls": 0,
+    "candidate_image_replays": 138,
+    "candidates": 3,
+    "deepsolo_images_per_candidate": 12,
+    "deepsolo_percentage_per_candidate": 26.08695652173913,
+    "frozen_sha256": "8c3ca74f973c84b70d72f7209bf7b83f64254d1332e8ea7a7e3784643dfc936b",
+    "scope": "Independent score sorting and Counter recount of all saved predictions; shared declared feature/fusion/bootstrap primitives.",
+    "selected": "baseline",
+    "source_sha256": "2e4cbc5074e6ddfab0278aa6be6cc8063f262cc4c941ff78a1639526a32052ae",
+    "status": "PASS",
+    "total_images_per_candidate": 46,
+    "unique_images": 46
+  },
+  "limitations": "IC13 pilot only. Baseline retained by the predeclared tie rule; no TEST opening or three-domain geometry training claim.",
+  "mode": "approximate",
+  "selection": {
+    "config_sha256": "9edd47d4d52359d7a0edce4fa216ae831aeffa08730a1d2ea12321c9b82158bf",
+    "dataset": "icdar13",
+    "mode": "approximate",
+    "results": {
+      "baseline": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 152,
+          "detected_words": 152,
+          "f1": 0.932475884244373,
+          "fn": 14,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 145
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": 0.0,
+        "total_images": 46
+      },
+      "geometric_best": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 153,
+          "detected_words": 152,
+          "f1": 0.932475884244373,
+          "fn": 14,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 1,
+          "images": 46,
+          "tp": 145
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": -0.02028610418745559,
+        "total_images": 46
+      },
+      "geometric_final": {
+        "actual_new_neural_calls": 0,
+        "counts": {
+          "all_outputs": 147,
+          "detected_words": 146,
+          "f1": 0.9049180327868852,
+          "fn": 21,
+          "fp": 8,
+          "gt_words": 159,
+          "ignored_outputs": 1,
+          "images": 46,
+          "tp": 138
+        },
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "paired_lower_gain": -0.047613708204275434,
+        "total_images": 46
+      }
+    },
+    "scope": "Complete frozen image/word/fusion pipeline on TRAIN-heldout validation. Endpoint checkpoints retained; diagnostic bootstrap is reported, not a promotion gate. Reused validation/historical exposure remain.",
+    "selected": "baseline",
+    "source_sha256": "d73aab9d73fa8c5efc50cdb4dfb81fb2b5d4644545d1a8249599d03fcbd507c4",
+    "status": "FROZEN",
+    "test_used_for_selection": false
+  },
+  "status": "COMPLETED_AUDITED",
+  "test_used_for_selection": false,
+  "training": {
+    "full": {
+      "actual_new_deepsolo_calls": 0,
+      "batch_size": 4,
+      "best_selection": {
+        "all_outputs": 150,
+        "detected_words": 149,
+        "f1": 0.8441558441558441,
+        "fn": 29,
+        "fp": 19,
+        "gt_words": 159,
+        "ignored_outputs": 1,
+        "images": 46,
+        "tp": 130
+      },
+      "checkpoint_sha256": "2bfa227ba59cc02fe9bd348fdd24e0c2df59d7844b00a3c350df999c285de027",
+      "epochs": 30,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_hw": [
+        768,
+        768
+      ],
+      "native_hw": [
+        384,
+        384
+      ],
+      "out_of_memory": false,
+      "parameter_count": 58155146,
+      "precision": "float32",
+      "selected_epoch": 20,
+      "status": "COMPLETE",
+      "trainable_parameters": 32598114
+    },
+    "smoke": {
+      "actual_new_deepsolo_calls": 0,
+      "batch_size": 4,
+      "best_selection": {
+        "all_outputs": 0,
+        "detected_words": 0,
+        "f1": 0.0,
+        "fn": 21,
+        "fp": 0,
+        "gt_words": 21,
+        "ignored_outputs": 0,
+        "images": 4,
+        "tp": 0
+      },
+      "checkpoint_sha256": "15729d86372ff216726978caf731fd32acec9ab40060933dcb9cd1af4c4a4f81",
+      "epochs": 1,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_hw": [
+        768,
+        768
+      ],
+      "native_hw": [
+        384,
+        384
+      ],
+      "out_of_memory": false,
+      "parameter_count": 58155146,
+      "precision": "float32",
+      "selected_epoch": 0,
+      "status": "COMPLETE",
+      "trainable_parameters": 32598114
+    }
+  },
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17",
+  "validation_root": "/extra1/bmartelli/context-str-runs/uniform-geometric-pipeline-validation-20261031-v17"
+}

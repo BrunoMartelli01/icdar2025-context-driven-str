@@ -1,0 +1,525 @@
+{
+  "additional_correct_TEST_words": 429,
+  "claim_label": "approximate reproduction",
+  "comparison": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/comparison.json",
+    "sha256": "0730c78d9c712fa8c3a2ffa907f80a4505348a632ed96918ef7434d2b3844aa3"
+  },
+  "cpu_gpu_comparison": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/cpu_gpu_ocr_comparison.json",
+    "sha256": "02c247f5f4d81b6a319e0581419053bd2ca5c4715489dd27d1f97323b35b4e17"
+  },
+  "evaluation_suite": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/evaluation_suite.json",
+    "sha256": "2a9e16effccdd3f23e96355e262667f07f63c07f1c9beccb0a2da927546864ef"
+  },
+  "foreground_population_diagnostic": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/foreground_population_diagnostic.json",
+    "sha256": "9da8785af710f23a28e926f1fc6832e66084d888c973eb8e94389b51195d8e40"
+  },
+  "historical_TEST_bytes_unchanged": true,
+  "historical_scientific_sources_unchanged": true,
+  "limits": [
+    "Exploratory single-seed improvement; TEST had been inspected historically.",
+    "Fixed TRAIN validation100 selects resolution, epochs and branch; TEST never selects the model.",
+    "Micro original-exclusive-bbox IoU>=0.5 plus exact Unicode casefold+isalnum text; all predictions count, official ignored GT excluded.",
+    "Standalone U-Net/PARSeq approximate reproduction; not official polygon Hmean or paper Table3/5 reproduction."
+  ],
+  "mask_audit": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/results.json",
+    "sha256": "8c2a89bef2906164bf46be997d2ef5a4857e77b6328b45fda83c913d1b9caff7"
+  },
+  "prediction_preview": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-prediction-comparison.png",
+    "sha256": "0a57ddaba000a6eda26df70ae06aabd3325b0cb13ccf1cf0ed2c9e8590af2afe"
+  },
+  "preserved_failure": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/qualification-validation-ocr-cpu/control512/failure.json",
+    "sha256": "dce2f59b1ce75d7e9ee3f9f5ae0af7a1ba3d6d79ce8d70e2a1533ca5006e5def"
+  },
+  "prior_receipts": [
+    {
+      "path": "/extra1/bmartelli/projects/icdar2025-context-driven-str/provenance/ICDAR2015_IMPROVEMENT_PROTOCOL_V1.json",
+      "sha256": "8548dded0bc20060bfd8feb4b423d08e0346a357b3bddd380acc6e28d38c0bf2"
+    },
+    {
+      "path": "/extra1/bmartelli/projects/icdar2025-context-driven-str/provenance/ICDAR2015_IMPROVEMENT_QUALIFICATION_V2.json",
+      "sha256": "b80bc094f6f6f248c5247176d31fc69df210120bdf5e1432be0b1a73d5d2eb1d"
+    }
+  ],
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "schema_version": 1,
+  "selected_TEST_memory": {
+    "oom": false,
+    "parseq": {
+      "allocated": 205955584,
+      "reserved": 245366784
+    },
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "segmentation": {
+      "allocated": 650522112,
+      "reserved": 731906048
+    },
+    "segmentation_batch_size": 1
+  },
+  "selected_branch": "larger_bce",
+  "selected_checkpoint": {
+    "absolute_path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/larger_bce/best.pt",
+    "epoch": 18,
+    "path": "best.pt",
+    "sha256": "79efc8f7f44c719be92c6d8b2a69ce9f204030ff77e2fa05194ac191fa10fe91"
+  },
+  "selection": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/selection.json",
+    "sha256": "e243c239968ff5fb45780577fb4b0bc18db2ade829b97f595fa3a06518d36b92"
+  },
+  "source_sha256": {
+    "configs/approximate/icdar2015_improvement_word_f1_v1.json": "0a8c898d9edca9c8a5cc487a39f2195b581b09b160bb4cbeee4d86d8028be11d",
+    "configs/approximate/icdar2015_unet_improvement_v1.json": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+    "models/icdar2015_improvements.py": "7c1b87c35731832c7de11fb7e71e1a5266e7135ab6f83a08bf9b59da429688af",
+    "scripts/audit_icdar2015_improvement_target_geometry.py": "8baeb908900ddb768a3f7219bdb8fa51c07cd3057f4a9cb109c48a67b1c02cc6",
+    "scripts/audit_icdar2015_improvement_word_f1.py": "200632ccd4519fd03353038c928f56a2abef1967b3156f33601d3fb2fe02128f",
+    "scripts/audit_icdar2015_word_masks.py": "9101debec2be77463772fd50130fb2075b9ce960688398bacb14e3554f6f22aa",
+    "scripts/evaluate_icdar2015_improvement_test.py": "9b0aaf7f13038e08746aabdfaf02d5b2cf5a5f2a8f6bd59dfe47b24df5086e3b",
+    "scripts/evaluate_icdar2015_improvement_validation.py": "1bdfa1cca37a36f9699ef79b8fabd6350957aaa9e59436a261e5aab154d5ac64",
+    "scripts/preview_icdar2015_improvement_masks.py": "e5f337666964275b720b058e087321a2b521487d6712f53da67388a357e91146",
+    "scripts/preview_icdar2015_improvement_predictions.py": "20ea0b8da20484f3bf1854d99397aed475c021952b84dbe7d9014a88ec46d7ad",
+    "scripts/run_icdar2015_improvement_evaluation.py": "6d81073f526f807e9f5c3f7321e2e2f3c5fa372835b7a122ffa4fe488f601afa",
+    "scripts/screen_icdar2015_unet_resolutions.py": "6d99e66602abef807be1bb3975e424208435b095e6c7db456c4bf318c8e92a1a",
+    "scripts/select_icdar2015_improvement.py": "6f64feadf7d3ce64e9e1e482daffbb71ef31c7b6ac289ce5855e1b83c230787c",
+    "scripts/train_icdar2015_unet_improvement.py": "2c704a573733b27f39f8e15ee809a07bcf94e88d58a6d38759d4c521aa4f917f",
+    "segmentation/icdar2015_improvement_runtime.py": "05d6872d5430b1ca05016fd714e5dc5e5d4ec26cb79cde16f5da77dbd355f147",
+    "segmentation/icdar2015_improvements.py": "998903f340fa98889be8dd86a9fbb106e76f36adc3459c7592734870e3dc4e42",
+    "tests/models/test_icdar2015_improvements.py": "579ef88d8345ee01850633d5c5cdedae14c23ddf0e94ddf4c6cc29666997b1c0",
+    "tests/scripts/test_icdar2015_improvement_evaluation.py": "777304eb23f74590f8f71cf5171a0e7553db04d5a3901b3b81aa5f8768d07aa2",
+    "tests/scripts/test_icdar2015_improvement_failures.py": "6ef9cdec87962b28963d21749ee8042b55ff1bc96c7dace820eade357a8eeaba",
+    "tests/scripts/test_icdar2015_improvement_selection.py": "e6db1423827d85833243401c84f32191e0fd72c139a90351abd029e3a087a694",
+    "tests/segmentation/test_icdar2015_improvement_targets.py": "1781a0aa60d91ec3183780f2c247be6eac7b9b8d7267c2e85e0fc4febd07f6f2"
+  },
+  "status": "COMPLETE_VERIFIED",
+  "target_geometry_diagnostic": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/target_geometry_validation100.json",
+    "sha256": "824c97724ec57b9d72b6f2dacf4b15a63273d8aa74ca932f427871de7c95496c"
+  },
+  "target_preview": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/mask-audit/word-target-comparison.png",
+    "sha256": "b39c325526282fb4f82972e47610296af9c584445a190d4d1ab1eac6869cff77"
+  },
+  "test": {
+    "original_512": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.2787958115183246,
+          "fn": 1438,
+          "fp": 1868,
+          "precision": 0.25488631830873554,
+          "recall": 0.30765527202696197,
+          "tp": 639
+        },
+        "alphanumeric_casefold_tp": 639,
+        "casefold_exact": {
+          "f1": 0.262652705061082,
+          "fn": 1475,
+          "fp": 1905,
+          "precision": 0.24012764260071798,
+          "recall": 0.28984111699566684,
+          "tp": 602
+        },
+        "casefold_exact_tp": 602,
+        "empty_normalized_predictions": 164,
+        "geometry": {
+          "f1": 0.38394415357766143,
+          "fn": 1197,
+          "fp": 1627,
+          "precision": 0.3510171519744715,
+          "recall": 0.4236880115551276,
+          "tp": 880
+        },
+        "geometry_tp": 880,
+        "gt_words": 2077,
+        "images": 500,
+        "predictions": 2507,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 0,
+      "image_hw": [
+        512,
+        512
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v2/independent_audit.json",
+        "sha256": "3d1ad24de1d0097ab2a85615c9b0a5037097fc8550dd6c4b6306b2258d5e9a3d"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v2/results.json",
+        "sha256": "0053bb7c3a5dbe23c5e5e92eac294681e896787ff3c2c74730194583f96cf5cd"
+      }
+    },
+    "selected_768_bce": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.4075558099599313,
+          "fn": 1009,
+          "fp": 2096,
+          "precision": 0.33754740834386854,
+          "recall": 0.5142031776600867,
+          "tp": 1068
+        },
+        "alphanumeric_casefold_tp": 1068,
+        "casefold_exact": {
+          "f1": 0.3877122686510208,
+          "fn": 1061,
+          "fp": 2148,
+          "precision": 0.3211125158027813,
+          "recall": 0.4891670678863746,
+          "tp": 1016
+        },
+        "casefold_exact_tp": 1016,
+        "empty_normalized_predictions": 189,
+        "geometry": {
+          "f1": 0.5071551230681167,
+          "fn": 748,
+          "fp": 1835,
+          "precision": 0.4200379266750948,
+          "recall": 0.6398651901781416,
+          "tp": 1329
+        },
+        "geometry_tp": 1329,
+        "gt_words": 2077,
+        "images": 500,
+        "predictions": 3164,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 18,
+      "image_hw": [
+        768,
+        768
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/selected-test500/independent_audit.json",
+        "sha256": "41dba83b2a3af974ed98c27f4b421f0d883ccfa71fc61fa7e5d62b0963858488"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/selected-test500/results.json",
+        "sha256": "b40cbab72d3f5a9a4c57a05faae7278e59bcae4a3dee693361597e51e8e73061"
+      }
+    }
+  },
+  "training_integrity_audit": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/training_integrity_audit.json",
+    "sha256": "ae12c4635ea9c484b1c3707d45057009c59edd24faecb39f7c26b2ad003f466c"
+  },
+  "unit_tests": {
+    "artifact": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/unit-tests-50.xml",
+      "sha256": "100c13e2bd05d081bfaeaf6a2b8a03b7779a93d6575b6005b68a8670c79d1636"
+    },
+    "errors": "0",
+    "failures": "0",
+    "hostname": "paper",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "50",
+    "time": "5.462",
+    "timestamp": "2026-10-26T12:37:58.209613+01:00"
+  },
+  "validation": {
+    "control512": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.3379721669980119,
+          "fn": 260,
+          "fp": 406,
+          "precision": 0.2951388888888889,
+          "recall": 0.3953488372093023,
+          "tp": 170
+        },
+        "alphanumeric_casefold_tp": 170,
+        "casefold_exact": {
+          "f1": 0.32803180914512925,
+          "fn": 265,
+          "fp": 411,
+          "precision": 0.2864583333333333,
+          "recall": 0.38372093023255816,
+          "tp": 165
+        },
+        "casefold_exact_tp": 165,
+        "empty_normalized_predictions": 40,
+        "geometry": {
+          "f1": 0.43339960238568587,
+          "fn": 212,
+          "fp": 358,
+          "precision": 0.3784722222222222,
+          "recall": 0.5069767441860465,
+          "tp": 218
+        },
+        "geometry_tp": 218,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 576,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 12,
+      "image_hw": [
+        512,
+        512
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/control512/independent_audit.json",
+        "sha256": "05756d305383c0d7907fa57086777c2c05f36e6f1eff2be3b519b5257159118f"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/control512/results.json",
+        "sha256": "5c10872ff7a053195032039581c84bc1bec967c3ab22ff53e32789ce228fa405"
+      }
+    },
+    "larger_bce": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.4114583333333333,
+          "fn": 193,
+          "fp": 485,
+          "precision": 0.32825484764542934,
+          "recall": 0.5511627906976744,
+          "tp": 237
+        },
+        "alphanumeric_casefold_tp": 237,
+        "casefold_exact": {
+          "f1": 0.4010416666666667,
+          "fn": 199,
+          "fp": 491,
+          "precision": 0.31994459833795014,
+          "recall": 0.5372093023255814,
+          "tp": 231
+        },
+        "casefold_exact_tp": 231,
+        "empty_normalized_predictions": 44,
+        "geometry": {
+          "f1": 0.4913194444444444,
+          "fn": 147,
+          "fp": 439,
+          "precision": 0.39196675900277006,
+          "recall": 0.6581395348837209,
+          "tp": 283
+        },
+        "geometry_tp": 283,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 722,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 18,
+      "image_hw": [
+        768,
+        768
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_bce/independent_audit.json",
+        "sha256": "b07caffad2e3ffb7eeadf30bad120475262d084feeaaac08f472543a3abd4bdc"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_bce/results.json",
+        "sha256": "0c67ce85abf90ad3b2e2e15d315d312c0ceeab737f38bdd2ca4a5424305cefe0"
+      }
+    },
+    "larger_instance": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.31840796019900497,
+          "fn": 238,
+          "fp": 584,
+          "precision": 0.24742268041237114,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "alphanumeric_casefold_tp": 192,
+        "casefold_exact": {
+          "f1": 0.3034825870646766,
+          "fn": 247,
+          "fp": 593,
+          "precision": 0.23582474226804123,
+          "recall": 0.4255813953488372,
+          "tp": 183
+        },
+        "casefold_exact_tp": 183,
+        "empty_normalized_predictions": 66,
+        "geometry": {
+          "f1": 0.41127694859038144,
+          "fn": 182,
+          "fp": 528,
+          "precision": 0.31958762886597936,
+          "recall": 0.5767441860465117,
+          "tp": 248
+        },
+        "geometry_tp": 248,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 776,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 0,
+      "image_hw": [
+        768,
+        768
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_instance/independent_audit.json",
+        "sha256": "a2ddca111a7852975ea3d32dbbe23eca059e9bd00b6b99ece67eab2b21b54f02"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_instance/results.json",
+        "sha256": "c0754f65797c6996c399080dc7ac7ae9aaa1cf43d821410c4163db6034f1a2d4"
+      }
+    },
+    "larger_instance_gn": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.1260239445494644,
+          "fn": 330,
+          "fp": 1057,
+          "precision": 0.08643042350907519,
+          "recall": 0.23255813953488372,
+          "tp": 100
+        },
+        "alphanumeric_casefold_tp": 100,
+        "casefold_exact": {
+          "f1": 0.11594202898550725,
+          "fn": 338,
+          "fp": 1065,
+          "precision": 0.07951598962834917,
+          "recall": 0.21395348837209302,
+          "tp": 92
+        },
+        "casefold_exact_tp": 92,
+        "empty_normalized_predictions": 242,
+        "geometry": {
+          "f1": 0.1688720856962823,
+          "fn": 296,
+          "fp": 1023,
+          "precision": 0.11581676750216076,
+          "recall": 0.3116279069767442,
+          "tp": 134
+        },
+        "geometry_tp": 134,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 1157,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 20,
+      "image_hw": [
+        768,
+        768
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_instance_gn/independent_audit.json",
+        "sha256": "e75b5930739bebf3133a8f0743875f666794cedb477bde165c819af2a1ede07c"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/larger_instance_gn/results.json",
+        "sha256": "aa6b8fc3bf07374945dce2f5ce4f57db54cf55335c73c55c1765c45a5a98142d"
+      }
+    },
+    "source_square512": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.27637130801687765,
+          "fn": 299,
+          "fp": 387,
+          "precision": 0.2528957528957529,
+          "recall": 0.30465116279069765,
+          "tp": 131
+        },
+        "alphanumeric_casefold_tp": 131,
+        "casefold_exact": {
+          "f1": 0.26582278481012656,
+          "fn": 304,
+          "fp": 392,
+          "precision": 0.24324324324324326,
+          "recall": 0.2930232558139535,
+          "tp": 126
+        },
+        "casefold_exact_tp": 126,
+        "empty_normalized_predictions": 29,
+        "geometry": {
+          "f1": 0.3649789029535865,
+          "fn": 257,
+          "fp": 345,
+          "precision": 0.333976833976834,
+          "recall": 0.40232558139534885,
+          "tp": 173
+        },
+        "geometry_tp": 173,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 518,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 0,
+      "image_hw": [
+        512,
+        512
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/source_square512/independent_audit.json",
+        "sha256": "ec8f158f3037e6f0cd141ebc5056fc0e7faad3176ee55ac4e99c235b568f2d74"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/source_square512/results.json",
+        "sha256": "99ec1ed2b9736084d9f4910a07f10426283e9cc463493d716dc2c7ab91d94cf8"
+      }
+    },
+    "source_square768": {
+      "aggregate": {
+        "alphanumeric_casefold": {
+          "f1": 0.31840796019900497,
+          "fn": 238,
+          "fp": 584,
+          "precision": 0.24742268041237114,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "alphanumeric_casefold_tp": 192,
+        "casefold_exact": {
+          "f1": 0.3034825870646766,
+          "fn": 247,
+          "fp": 593,
+          "precision": 0.23582474226804123,
+          "recall": 0.4255813953488372,
+          "tp": 183
+        },
+        "casefold_exact_tp": 183,
+        "empty_normalized_predictions": 66,
+        "geometry": {
+          "f1": 0.41127694859038144,
+          "fn": 182,
+          "fp": 528,
+          "precision": 0.31958762886597936,
+          "recall": 0.5767441860465117,
+          "tp": 248
+        },
+        "geometry_tp": 248,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 776,
+        "symbol_only_gt": 0
+      },
+      "continuation_epoch": 0,
+      "image_hw": [
+        768,
+        768
+      ],
+      "independent_audit": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/source_square768/independent_audit.json",
+        "sha256": "b7a808e6fa155b05fd0928d106f6329826952b4a523437db80403e3fe67fd3c9"
+      },
+      "raw_result": {
+        "path": "/extra1/bmartelli/context-str-runs/icdar2015-unet-improvement-v1/validation-gpu/source_square768/results.json",
+        "sha256": "49d53a2f5d46ed3db509040930b96ea892eb9fdf9d597b5d6b58b15c9d1357f6"
+      }
+    }
+  },
+  "word_f1_gain_percentage_points": 12.875999844160669
+}

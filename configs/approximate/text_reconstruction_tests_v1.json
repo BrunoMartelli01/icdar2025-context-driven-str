@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "text_reconstruction_tests_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "TEXT-RECONSTRUCTION-TESTS-001",
+  "seed": 20261023,
+  "paths": {
+    "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+    "spell_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--murali1996--bert-base-cased-spell-correction/snapshots/d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "spell_vocabulary": "/extra1/bmartelli/context-str-artifacts/neuspell-word-head-v1/vocabulary.json",
+    "byt5_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d"
+  },
+  "source_sha256": {
+    "protocol.json": "a8ad787bf2b32ae611aaaad620f5a2aa1f2486dba7b7c6c0f825a087d9786ae0",
+    "final_artifact_manifest.json": "0aea02470190560d384ead91f3dd69654a386804b5e500184f7b7b6e84c22e71",
+    "ocr_0.jsonl": "3b02dea945f6035bdc752a673cbbfc61fd078feb13ccfff56084f4088bf438da",
+    "results.json": "34b3f1394cfa4317f6a78a46f63f2ed2482ba873066af63b622991ca76c74aa5",
+    "train_annotation_hashes.json": "9a90e3ebcd177c6f4ac7390d5fad2163bd8e9f87c6526830e14d605381746fda",
+    "evaluation_annotation_hashes.json": "b9e2b8a6178a46b913e4f27e43d67ebf86eb202f2143d1a5359cb2983e8581b1",
+    "test_annotation_hashes.json": "7becc8cb738009fbaa1f1ce40fb8dbc9e8c8fd8c067409bbb746442c2604b033"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "minimum_free_bytes": 18000000000,
+    "cublas_workspace_config": ":4096:8"
+  },
+  "spell": {
+    "model_id": "murali1996/bert-base-cased-spell-correction",
+    "revision": "d2a5bbccc41a0f4ff5e7c16e1c3b8d96ba8883b2",
+    "files_sha256": {
+      "config.json": "24ef2c56c2d5b14f471fbb3c67de0834a5e178cb624e1cdb1dbac90440218fa9",
+      "pytorch_model.bin": "c5b3c5ab535fc3782b2d02f301662d0106dd419e36c09626443366c9eb6f1bb5",
+      "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+      "tokenizer_config.json": "359fdd360be3de14228b56e2ca9c6c940ff0b1a3dc88a5bf32bdeeb21ec7be9c",
+      "vocab.txt": "eeaa9875b23b04b4c54ef759d03db9d1ba1554838f8fb26c5d96fa551df93d02"
+    },
+    "vocabulary_sha256": "3f316ac8aee0603a3de5c8a4daf0b88c300457701519b1aaa258af4f3a3c4495",
+    "label_count": 100002,
+    "allowed_unused_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "bert.embeddings.position_ids"
+    ],
+    "batch_size": 32,
+    "max_input_tokens": 256,
+    "saved_top_k": 10,
+    "minimum_source_length": 3,
+    "minimum_long_probability": 0.8,
+    "maximum_long_insertions": 8,
+    "method_policy": {
+      "minimum_source_length": 4,
+      "insertion_max_edits": 2,
+      "minimum_insertion_probability": 0.8,
+      "candidate_minimum_probability": 0.01,
+      "maximum_candidates": 6,
+      "pll_edit_penalty": 0.5,
+      "pll_minimum_gain": 1.5,
+      "rerank_oov_only": true
+    },
+    "eligibility_policy": {
+      "min_word_length": 3,
+      "long_word_length": 6,
+      "short_max_edits": 1,
+      "long_max_edits": 2,
+      "max_relative_edit": 0.3,
+      "minimum_probability": 0.5,
+      "minimum_log_probability_gain": 1.5,
+      "neighbours_per_side": 3,
+      "min_vertical_overlap": 0.5,
+      "max_horizontal_gap_heights": 8,
+      "max_caption_words": 80
+    }
+  },
+  "structure": {
+    "maximum_word_characters": 32,
+    "maximum_split_words": 3,
+    "minimum_split_characters": 2,
+    "maximum_split_candidates": 6,
+    "minimum_vertical_overlap": 0.5,
+    "maximum_gap_heights": 1.5,
+    "maximum_height_ratio": 2.5,
+    "maximum_neighbors": 2,
+    "maximum_merge_blocks": 3,
+    "maximum_operations_per_image": 300
+  },
+  "selector": {
+    "iterations": 150,
+    "max_leaf_nodes": 15,
+    "learning_rate": 0.08,
+    "l2_regularization": 1.0,
+    "min_samples_leaf": 30,
+    "thresholds": [
+      0.5,
+      0.7,
+      0.8,
+      0.9,
+      0.95,
+      0.99,
+      1.01
+    ],
+    "raw_threshold": 0.5,
+    "calibration_damage_limit": 2
+  },
+  "denoiser": {
+    "model_id": "google/byt5-small",
+    "revision": "68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+    "files_sha256": {
+      "special_tokens_map.json": "bda1d200ddf8b187ed2f2ff89a69c540e1bfde26993b762d534c20d82bfc8ec8",
+      "tokenizer_config.json": "3b791189b080dc37ab27ebd5cba352720ff150146217f93da1612ee8f41a846e",
+      "generation_config.json": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+      "config.json": "7845fb21b320f3fa05392ce151143502cf08729c8c89732da3293615885d3e83",
+      "pytorch_model.bin": "5c5aaf56299d6f2d4eaadad550a40765198828ead4d74f0a15f91cbe0961931a"
+    },
+    "epochs": 3,
+    "batch_size": 16,
+    "inference_batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "max_input_bytes": 128,
+    "max_target_bytes": 96,
+    "maximum_training_pairs": 18000,
+    "training_gt_coverage": 0.5,
+    "log_batches": 100,
+    "smoke_training_pairs": 128,
+    "repair_policy": {
+      "maximum_output_words": 3,
+      "maximum_output_bytes": 95,
+      "maximum_edits": 8,
+      "maximum_relative_edit": 0.75,
+      "protect_non_alphabetic": true
+    }
+  },
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "bootstrap_draws": 1000,
+  "smoke_images": {
+    "fit": 24,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "scientific_decisions": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Frozen M/K baseline, saved PARSeq observations and existing 1030/100/125/300 roles from the hash-bound October22 run. No U-Net/PARSeq updates or re-recognition."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Text-only correction is a new extension, absent from local paper sections3.3-3.5. Primary micro per-image lexical multiset metric with Unicode casefold, punctuation and every care GT; empty readings count as predictions."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "NeuSpell unchanged short insertion rule plus bounded8-character completion control; generic casing remains unresolved. OOV/probability gates do not imply calibrated correctness."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Horizontal bounded splits/merges and pretrained NeuSpell lexicon plus fit-only word counts/trigrams. Exact overlap deduplication is an alternative, not assumed character identity."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Balanced fit-only HistGradientBoosting labels reward per-image F1 gain without losing lexical matches; greedy conflict resolution consumes each input exactly once. Threshold chosen only on100 calibration images, damage limit2; KEEP always eligible."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Pinned pretrained ByT5-small full fine-tuning on real geometric TRAIN pairs, identity pairs, span deletion, fragment/overlap and concatenation corruption. Deterministic18000-example budget,3epochs. Geometric target alignment can be noisy; no GT in inference."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual PAPER RTX3090/24GiB, separate CUDA FP32 NeuSpell/ByT5 stages, batch16 ByT5, no AMP/TF32, deterministic algorithms. No paper hardware equivalence or8GiB qualification."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Literal partial words, misspelled signs, multilingual names and intended complete spelling can disagree. Original annotations stay fixed; report damaged words and all denominators."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "All historical cohorts were repeatedly explored; source segmenter saw calibration data and two TEST RGB duplicates. No independent generalization claim; report duplicate-free sensitivity."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "ByT5 bounded raw repair versus a second policy preserving every observed letter in order while permitting changed spaces. Same model/checkpoint/candidates; no extra inference. Short and long completion bounds, alphabetic protection and decoder3-word limit are declared research choices, not paper parameters."
+    }
+  ],
+  "expected_populations": {
+    "evaluation": {
+      "images": 125,
+      "care_words": 983,
+      "fixed_bbox_exact": 524
+    },
+    "test": {
+      "images": 300,
+      "care_words": 2204,
+      "fixed_bbox_exact": 1293
+    }
+  }
+}

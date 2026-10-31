@@ -1,0 +1,20 @@
+{
+  "reproduction_mode": "approximate",
+  "token_root": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054",
+  "cause_root": "/extra1/bmartelli/context-str-artifacts/router-cause-tests-v1/full/1115c7bd7812",
+  "improved_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2",
+  "unet_root": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control",
+  "unet_ranking_root": "/extra1/bmartelli/context-str-runs/word-slot-alphanumeric-20261025-v1/full_v2",
+  "unet_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+  "unet_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+  "deepsolo_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_word_f1_selected_native_word_v1.json",
+  "deepsolo_runtime": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/runtime.json",
+  "deepsolo_source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo",
+  "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+  "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1",
+  "clip_snapshot": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt"
+}

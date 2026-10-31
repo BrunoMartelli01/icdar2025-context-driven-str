@@ -1,0 +1,698 @@
+{
+  "actual_new_neural_calls": 0,
+  "caveats": [
+    "Historical adaptive TEST exposure",
+    "FIT-seen decoder observations",
+    "Shared validation and benchmark TRAIN vocabulary exposure",
+    "99% fallback does not establish the intended useful solution"
+  ],
+  "claim_label": "approximate reproduction",
+  "datasets": {
+    "icdar13": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/evaluation/independent_audit.json",
+      "audit_sha256": "d3a221d6ce97c0e46e258a8afec5d4a321e359386d6607be331462e07a0b3dde",
+      "evaluation_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/evaluation/results.json",
+      "evaluation_sha256": "f312f711d06025cacf2ce89fb8e4bcc92ed64c84b981da8998bcbe10d2120a1f",
+      "independent_policy_image_replays": 2796,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 983,
+          "detected_words": 983,
+          "f1": 0.8527430221366699,
+          "fn": 209,
+          "fp": 97,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 886
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "results": {
+        "117": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1082,
+            "detected_words": 1082,
+            "f1": 0.8415250344510795,
+            "fn": 179,
+            "fp": 166,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 916
+          },
+          "deepsolo_images": 117,
+          "deepsolo_percentage": 50.21459227467811,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "140": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1109,
+            "detected_words": 1109,
+            "f1": 0.8411978221415608,
+            "fn": 168,
+            "fp": 182,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 927
+          },
+          "deepsolo_images": 140,
+          "deepsolo_percentage": 60.08583690987125,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "164": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1104,
+            "detected_words": 1104,
+            "f1": 0.8549340609367895,
+            "fn": 155,
+            "fp": 164,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 940
+          },
+          "deepsolo_images": 164,
+          "deepsolo_percentage": 70.3862660944206,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "187": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1100,
+            "detected_words": 1100,
+            "f1": 0.85375854214123,
+            "fn": 158,
+            "fp": 163,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 937
+          },
+          "deepsolo_images": 187,
+          "deepsolo_percentage": 80.25751072961373,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "210": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1058,
+            "detected_words": 1058,
+            "f1": 0.889921040408732,
+            "fn": 137,
+            "fp": 100,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 958
+          },
+          "deepsolo_images": 210,
+          "deepsolo_percentage": 90.12875536480686,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "222": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1071,
+            "detected_words": 1071,
+            "f1": 0.889196675900277,
+            "fn": 132,
+            "fp": 108,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 963
+          },
+          "deepsolo_images": 222,
+          "deepsolo_percentage": 95.27896995708154,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "228": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1100,
+            "detected_words": 1100,
+            "f1": 0.8847380410022779,
+            "fn": 124,
+            "fp": 129,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 971
+          },
+          "deepsolo_images": 228,
+          "deepsolo_percentage": 97.85407725321889,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "231": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1072,
+            "detected_words": 1072,
+            "f1": 0.8989386248269498,
+            "fn": 121,
+            "fp": 98,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 974
+          },
+          "deepsolo_images": 231,
+          "deepsolo_percentage": 99.14163090128756,
+          "target": 0.897,
+          "target_met": true,
+          "total_images": 233
+        },
+        "233": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1072,
+            "detected_words": 1072,
+            "f1": 0.9017074296262113,
+            "fn": 118,
+            "fp": 95,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 977
+          },
+          "deepsolo_images": 233,
+          "deepsolo_percentage": 100.0,
+          "target": 0.897,
+          "target_met": true,
+          "total_images": 233
+        },
+        "61": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 983,
+            "detected_words": 983,
+            "f1": 0.8527430221366699,
+            "fn": 209,
+            "fp": 97,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 886
+          },
+          "deepsolo_images": 61,
+          "deepsolo_percentage": 26.180257510729614,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "70": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 989,
+            "detected_words": 989,
+            "f1": 0.8560460652591171,
+            "fn": 203,
+            "fp": 97,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 892
+          },
+          "deepsolo_images": 70,
+          "deepsolo_percentage": 30.042918454935624,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        },
+        "94": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1016,
+            "detected_words": 1016,
+            "f1": 0.8621506395073425,
+            "fn": 185,
+            "fp": 106,
+            "gt_words": 1095,
+            "ignored_outputs": 0,
+            "images": 233,
+            "tp": 910
+          },
+          "deepsolo_images": 94,
+          "deepsolo_percentage": 40.34334763948498,
+          "target": 0.897,
+          "target_met": false,
+          "total_images": 233
+        }
+      },
+      "validation_recommended_quota": 61
+    },
+    "icdar2015": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/evaluation/independent_audit.json",
+      "audit_sha256": "8bfb396bff620551a5313e184e691a5ee4822e91e4aa11052c427a6733ca1824",
+      "evaluation_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/evaluation/results.json",
+      "evaluation_sha256": "4b22a06824a5ba38d38fddaf57fb7091c1c2e267958dc4657dc87b2f7d1a7906",
+      "independent_policy_image_replays": 5000,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1689,
+          "detected_words": 1648,
+          "f1": 0.7962416107382551,
+          "fn": 594,
+          "fp": 165,
+          "gt_words": 2077,
+          "ignored_outputs": 41,
+          "images": 500,
+          "tp": 1483
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "results": {
+        "228": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1689,
+            "detected_words": 1648,
+            "f1": 0.7962416107382551,
+            "fn": 594,
+            "fp": 165,
+            "gt_words": 2077,
+            "ignored_outputs": 41,
+            "images": 500,
+            "tp": 1483
+          },
+          "deepsolo_images": 228,
+          "deepsolo_percentage": 45.6,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "250": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1725,
+            "detected_words": 1682,
+            "f1": 0.802341048151104,
+            "fn": 569,
+            "fp": 174,
+            "gt_words": 2077,
+            "ignored_outputs": 43,
+            "images": 500,
+            "tp": 1508
+          },
+          "deepsolo_images": 250,
+          "deepsolo_percentage": 50.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "300": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1772,
+            "detected_words": 1728,
+            "f1": 0.8126149802890933,
+            "fn": 531,
+            "fp": 182,
+            "gt_words": 2077,
+            "ignored_outputs": 44,
+            "images": 500,
+            "tp": 1546
+          },
+          "deepsolo_images": 300,
+          "deepsolo_percentage": 60.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "350": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1783,
+            "detected_words": 1739,
+            "f1": 0.8155136268343816,
+            "fn": 521,
+            "fp": 183,
+            "gt_words": 2077,
+            "ignored_outputs": 44,
+            "images": 500,
+            "tp": 1556
+          },
+          "deepsolo_images": 350,
+          "deepsolo_percentage": 70.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "400": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1850,
+            "detected_words": 1805,
+            "f1": 0.8263781555899021,
+            "fn": 473,
+            "fp": 201,
+            "gt_words": 2077,
+            "ignored_outputs": 45,
+            "images": 500,
+            "tp": 1604
+          },
+          "deepsolo_images": 400,
+          "deepsolo_percentage": 80.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "450": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1870,
+            "detected_words": 1824,
+            "f1": 0.825942066136888,
+            "fn": 466,
+            "fp": 213,
+            "gt_words": 2077,
+            "ignored_outputs": 46,
+            "images": 500,
+            "tp": 1611
+          },
+          "deepsolo_images": 450,
+          "deepsolo_percentage": 90.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "475": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1888,
+            "detected_words": 1840,
+            "f1": 0.8302272147051315,
+            "fn": 451,
+            "fp": 214,
+            "gt_words": 2077,
+            "ignored_outputs": 48,
+            "images": 500,
+            "tp": 1626
+          },
+          "deepsolo_images": 475,
+          "deepsolo_percentage": 95.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "488": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1905,
+            "detected_words": 1854,
+            "f1": 0.8359196133299415,
+            "fn": 434,
+            "fp": 211,
+            "gt_words": 2077,
+            "ignored_outputs": 51,
+            "images": 500,
+            "tp": 1643
+          },
+          "deepsolo_images": 488,
+          "deepsolo_percentage": 97.6,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "495": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1907,
+            "detected_words": 1857,
+            "f1": 0.836807320793086,
+            "fn": 431,
+            "fp": 211,
+            "gt_words": 2077,
+            "ignored_outputs": 50,
+            "images": 500,
+            "tp": 1646
+          },
+          "deepsolo_images": 495,
+          "deepsolo_percentage": 99.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        },
+        "500": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1910,
+            "detected_words": 1859,
+            "f1": 0.8363821138211383,
+            "fn": 431,
+            "fp": 213,
+            "gt_words": 2077,
+            "ignored_outputs": 51,
+            "images": 500,
+            "tp": 1646
+          },
+          "deepsolo_images": 500,
+          "deepsolo_percentage": 100.0,
+          "target": 0.782,
+          "target_met": true,
+          "total_images": 500
+        }
+      },
+      "validation_recommended_quota": 228
+    },
+    "totaltext": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/evaluation/independent_audit.json",
+      "audit_sha256": "71bb1eb9cb004e198d01a20cfee65ada4c50596f6ecaf790ab0287e620d7c639",
+      "evaluation_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/evaluation/results.json",
+      "evaluation_sha256": "485c263b71f46464383c369ab211b871ce0116fc32cc1ae9f8fdf28c8bf5191a",
+      "independent_policy_image_replays": 2700,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1870,
+          "detected_words": 1840,
+          "f1": 0.777942631058358,
+          "fn": 631,
+          "fp": 267,
+          "gt_words": 2204,
+          "ignored_outputs": 30,
+          "images": 300,
+          "tp": 1573
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": false,
+        "total_images": 300
+      },
+      "results": {
+        "150": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1870,
+            "detected_words": 1840,
+            "f1": 0.777942631058358,
+            "fn": 631,
+            "fp": 267,
+            "gt_words": 2204,
+            "ignored_outputs": 30,
+            "images": 300,
+            "tp": 1573
+          },
+          "deepsolo_images": 150,
+          "deepsolo_percentage": 50.0,
+          "target": 0.798,
+          "target_met": false,
+          "total_images": 300
+        },
+        "180": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1954,
+            "detected_words": 1915,
+            "f1": 0.794853119689245,
+            "fn": 567,
+            "fp": 278,
+            "gt_words": 2204,
+            "ignored_outputs": 39,
+            "images": 300,
+            "tp": 1637
+          },
+          "deepsolo_images": 180,
+          "deepsolo_percentage": 60.0,
+          "target": 0.798,
+          "target_met": false,
+          "total_images": 300
+        },
+        "210": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1971,
+            "detected_words": 1928,
+            "f1": 0.8020329138431752,
+            "fn": 547,
+            "fp": 271,
+            "gt_words": 2204,
+            "ignored_outputs": 43,
+            "images": 300,
+            "tp": 1657
+          },
+          "deepsolo_images": 210,
+          "deepsolo_percentage": 70.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "240": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 1979,
+            "detected_words": 1936,
+            "f1": 0.808695652173913,
+            "fn": 530,
+            "fp": 262,
+            "gt_words": 2204,
+            "ignored_outputs": 43,
+            "images": 300,
+            "tp": 1674
+          },
+          "deepsolo_images": 240,
+          "deepsolo_percentage": 80.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "270": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 2031,
+            "detected_words": 1989,
+            "f1": 0.8132601955640353,
+            "fn": 499,
+            "fp": 284,
+            "gt_words": 2204,
+            "ignored_outputs": 42,
+            "images": 300,
+            "tp": 1705
+          },
+          "deepsolo_images": 270,
+          "deepsolo_percentage": 90.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "285": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 2025,
+            "detected_words": 1977,
+            "f1": 0.819421191102607,
+            "fn": 491,
+            "fp": 264,
+            "gt_words": 2204,
+            "ignored_outputs": 48,
+            "images": 300,
+            "tp": 1713
+          },
+          "deepsolo_images": 285,
+          "deepsolo_percentage": 95.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "293": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 2079,
+            "detected_words": 2024,
+            "f1": 0.8207190160832545,
+            "fn": 469,
+            "fp": 289,
+            "gt_words": 2204,
+            "ignored_outputs": 55,
+            "images": 300,
+            "tp": 1735
+          },
+          "deepsolo_images": 293,
+          "deepsolo_percentage": 97.66666666666667,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "297": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 2073,
+            "detected_words": 2020,
+            "f1": 0.8262310606060606,
+            "fn": 459,
+            "fp": 275,
+            "gt_words": 2204,
+            "ignored_outputs": 53,
+            "images": 300,
+            "tp": 1745
+          },
+          "deepsolo_images": 297,
+          "deepsolo_percentage": 99.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        },
+        "300": {
+          "actual_new_deepsolo_neural_calls": 0,
+          "counts": {
+            "all_outputs": 2071,
+            "detected_words": 2016,
+            "f1": 0.8265402843601896,
+            "fn": 460,
+            "fp": 272,
+            "gt_words": 2204,
+            "ignored_outputs": 55,
+            "images": 300,
+            "tp": 1744
+          },
+          "deepsolo_images": 300,
+          "deepsolo_percentage": 100.0,
+          "target": 0.798,
+          "target_met": true,
+          "total_images": 300
+        }
+      },
+      "validation_recommended_quota": 270
+    }
+  },
+  "goal_complete": false,
+  "logical_cached_routing": true,
+  "metric": "Per-image casefold/alphanumeric exact word multiset micro F1; native care/ignore; no IoU",
+  "mode": "approximate",
+  "next_experiment": "Conditional decoder-heldout FIT supervision with the same runtime model family",
+  "online_latency_measured": false,
+  "operating_points_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_operating_points_v2.json",
+  "operating_points_sha256": "f95f6d9dcd0a485cba5488814046ecc538f6d76224222281a917facc31f4acf6",
+  "paper_metric_equivalence": "UNRESOLVED",
+  "status": "SECOND_CONTROL_COMPLETE_USEFUL_SHARED_TARGETS_UNMET"
+}

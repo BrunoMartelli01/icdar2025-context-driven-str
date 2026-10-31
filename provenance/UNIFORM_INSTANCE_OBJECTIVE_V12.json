@@ -1,0 +1,77 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "additional_online_parameters": 0,
+  "cases": {
+    "full": {
+      "audit_sha256": "1ec65ef2f335a45dbfd606a941c1ab8dc7bfce24e5e19f20531634738e8f6eef",
+      "counts": {
+        "all_outputs": 160,
+        "detected_words": 160,
+        "f1": 0.8463949843260188,
+        "fn": 24,
+        "fp": 25,
+        "gt_words": 159,
+        "ignored_outputs": 0,
+        "images": 46,
+        "tp": 135
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "epochs": 10,
+      "peak_allocated": 4948129792,
+      "peak_reserved": 6243221504,
+      "selected_epoch": 0,
+      "selected_tensors_equal_original": true,
+      "tensors_checked": 452,
+      "total_images": 46,
+      "training_seconds": 102.78404749277979
+    },
+    "smoke": {
+      "audit_sha256": "07883f57d10f70f298aeb4404a960482cbbbc8fab79e643f0304761fbb0c7b48",
+      "counts": {
+        "all_outputs": 24,
+        "detected_words": 24,
+        "f1": 0.7111111111111111,
+        "fn": 5,
+        "fp": 8,
+        "gt_words": 21,
+        "ignored_outputs": 0,
+        "images": 4,
+        "tp": 16
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "epochs": 1,
+      "peak_allocated": 4686154752,
+      "peak_reserved": 6232735744,
+      "selected_epoch": 0,
+      "selected_tensors_equal_original": true,
+      "tensors_checked": 452,
+      "total_images": 4,
+      "training_seconds": 0.8310883929952979
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar13",
+  "goal_complete": false,
+  "matched_control_root": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control",
+  "mode": "approximate",
+  "other_domains_trained": false,
+  "owner_coverage": {
+    "affected": [],
+    "foreground_pixels": 3261210,
+    "images": 229,
+    "maximum_word_area": 55883,
+    "median_word_area": 1448,
+    "minimum_word_area": 1,
+    "mode": "approximate",
+    "nonempty_words": 849,
+    "plan_sha256": "a722f8e0d0d4a789ee118a397620759edf0d486c469e32f6f9a7c2acfea58583",
+    "scope": "Native384 target/owner alignment on all229 TRAIN images; no inference or metric selection. Zero geometry augmentation makes training mask alignment identical.",
+    "status": "PASS",
+    "test_opened": false,
+    "unowned_foreground_pixels": 0
+  },
+  "status": "INSTANCE_OBJECTIVE_PILOT_AUDITED_NO_RAW_VALIDATION_GAIN",
+  "test_rgb_or_annotations_opened": false
+}

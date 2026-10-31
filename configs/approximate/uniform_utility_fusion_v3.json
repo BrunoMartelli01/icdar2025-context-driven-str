@@ -1,0 +1,142 @@
+{
+  "admission_thresholds": [
+    0.0,
+    0.5,
+    0.8
+  ],
+  "alternate_fallback_fractions": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    0.975,
+    0.99,
+    1.0
+  ],
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "claim_label": "approximate reproduction",
+  "complement_confidences": [
+    null,
+    0.95,
+    0.99
+  ],
+  "complement_maximum_overlap": 0.1,
+  "decoder_folds": 5,
+  "fallback_train_sources": {
+    "icdar13": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json",
+    "icdar2015": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json",
+    "totaltext": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json"
+  },
+  "fit_export_overrides": {
+    "icdar13": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar13/bank",
+    "icdar2015": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar2015/bank",
+    "totaltext": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/totaltext/bank"
+  },
+  "folds": 5,
+  "fusion_maximum_edit_distances": [
+    1,
+    2,
+    null
+  ],
+  "fusion_minimum_ious": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "fusion_minimum_probabilities": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "guards": [
+    false,
+    true
+  ],
+  "lexical_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/lexical_control_v2",
+  "lexicons": {
+    "icdar13": {
+      "distance_exclusive": 1.5,
+      "test": {
+        "pair_format": "source_text",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt"
+      },
+      "train": {
+        "pair_format": "json",
+        "pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+      }
+    },
+    "icdar2015": {
+      "distance_exclusive": 1.5,
+      "test": {
+        "pair_format": "source_text",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt"
+      },
+      "train": {
+        "pair_format": "json",
+        "pairs": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt"
+      }
+    },
+    "totaltext": null
+  },
+  "map_settings": {
+    "minimum_component_area": 4,
+    "probability_threshold": 0.5
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json": "47ded90049aa8a420c432861e0da0657332d6623ec355a8dedfc4b2b45b86f33",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json": "eacbd5ec76ccda1eae686447c726577f4cfc2a490c9a3be8cbd0a6a9cf24c7fa",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt": "5b7ccc0e3613e30d8ba05e66b90b18d7802f360d602ba59a3d0949c9a276daec",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar13/bank/independent_audit.json": "01d2d6746dbc83c3a52b57a62ee6d5ea36875f9189f6e124297aea99b2e411e7",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar13/bank/index.json": "e294d126ee71b0b6b69fc431c6308994a1703a96a2cb91a2bcc42b12dfc9b32c",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar2015/bank/independent_audit.json": "9e745263520ad9979d83a7f0ce28353bcb585684a07791a617ee54b80fb54f9d",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar2015/bank/index.json": "1b8c1f9c71fdceb50f8f4bebfcc7f64daa2f1919cd464ea11414f32c303db4a6",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/totaltext/bank/independent_audit.json": "394ae5dc931fa417958a1d90ba86bf907b7a9e31e96bd82d3e7dc0b9dcf459da",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/totaltext/bank/index.json": "c512181e3fa464094c7fb87954a2de6099905817b9ed7e7cbdcc78bf0446d948",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/lexical_control_v2/icdar13/lexical_selection_frozen.json": "ded998c35ee50d87bc7c9d319c700b1cc3837aa2492c560e845c31c5a2862fa3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/lexical_control_v2/icdar2015/lexical_selection_frozen.json": "3aaf6a72625a7e56f8d4825bf9703a0a2148d67be40bb30d5c14a36d47316da3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/lexical_control_v2/totaltext/lexical_selection_frozen.json": "1ad6e008ffad6c010309974514ec3f61d70537df66bfbcba15b07737af7fec28"
+  },
+  "ridge_alphas": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Identical HGB word risk, all observable raw/post OCR, token, lexical, map, geometry and risk groups, normalized two-count Ridge utility for all3 domains. Ridge/word admission selected on validation; reference is FIT all-DeepSolo F1. Freeze gate before selecting the shared post-fallback fusion grid. Admit fusion only when conditional paired-image bootstrap lower gain is positive; identity always eligible and fewer changed words preferred within0.1 points. Add larger explicitly predeclared quotas after initial TEST-exposed v1 failed. No TEST choice in this fit. Replace native FIT observations only by complete independently qualified conditional decoder-heldout banks, with full-FIT deployment experts on validation/TEST; same runtime model family for all3.",
+    "HARDWARE_DEVIATION": "CPU cached-output fitting and validation; same already-trained neural frontend, no additional neural model or fallback reread.",
+    "PAPER_SPECIFIED": "Broad localization/fallback motivation only; no claim to Algorithm2.",
+    "REPOSITORY_SPECIFIED": "Qualified uniformly retrained Text+Kernel U-Nets, native original OCR/probability maps, benchmark Generic/Weak resources and frozen lexical control.",
+    "UNRESOLVED": "Upstream encoder/initial decoder exposure, global validation epoch/emission selection, TRAIN vocabulary exposure, nonnested stacking, historical TEST research and final generalization/cost."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full",
+  "word_risk": {
+    "iterations": 100,
+    "l2": 10.0,
+    "leaves": 7,
+    "minimum_leaf": 20
+  }
+}

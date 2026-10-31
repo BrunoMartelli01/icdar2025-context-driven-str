@@ -1,0 +1,61 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "paths": {
+    "lightweight_run": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1",
+    "pruned_run": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/validation_pruned_v1",
+    "heavy_head": "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/models/final__corrected__epoch5.pt",
+    "clip_checkpoint": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/pytorch_model.bin",
+    "blip_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "paper": "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf"
+  },
+  "target": {
+    "nominal_metric_value": 0.798,
+    "metric": "symbol-free lexical micro F1, native256 ignore, no IoU",
+    "paper_comparison": "Nominal only: Table5 TotalText79.8 is recognition accuracy with unresolved operational metric; fallback count unavailable.",
+    "deepsolo_fraction_target": 0.5,
+    "deepsolo_fraction_range": [
+      0.45,
+      0.55
+    ]
+  },
+  "primary": "fixed_validation_acceptance_0.5",
+  "validation_acceptance_controls": [
+    0.45,
+    0.5,
+    0.55
+  ],
+  "batch_acceptance_control": 0.5,
+  "classifications": {
+    "PAPER_SPECIFIED": "Table5 TotalText ViTAEv2-S accuracy79.8 only; no TotalText paper fallback count is stated.",
+    "REPOSITORY_SPECIFIED": "Qualified corrected U-Net + essential18/ridge alpha1, prior frozen model and consistent native DeepSolo outputs.",
+    "ASSUMPTION": "User budget interpreted as45\u201355% DeepSolo; nominal F1 target79.8 kept distinct from paper accuracy; scalar cuts fixed by CAL100 acceptance quantiles of unchanged selected head.",
+    "HARDWARE_DEVIATION": "CPU frozen-head inference and weight/header inspection only; no GPU allocation or expert inference.",
+    "UNRESOLVED": "Exact paper-protocol comparability, historical expert/CAL/TEST exposure, resource versus risk guarantees."
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/frozen_choices.json": "73c77dfe9320b1fbb85f082eda1db49b4d56a9e8385a14256b10a85f99926e65",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/trials.json": "97dff85f89ee8ec337c9642091b72733ecd245c522e81c0aec0f75805644b328",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/independent_audit.json": "00c0f33e870cf791261f75cf87d75af22955f8d71374a695088f6a9136e0e18d",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/validation_pruned_v1/choice_frozen.json": "1d553851c2593a1d8db43e68fe88dcec6c8e51dcd8b3de0043da01193eb07e3c",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/validation_pruned_v1/selected_deployment.joblib": "5ada765d5c17381849978b0023582ef72fa260846e54ebce94ddb39c9b2d0e49",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/selection_features.npz": "abed62e031a851c7374126cf972b59c0c13849057055c0c5711eb63b31bade78",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/selection_feature_schema.json": "cbfd3ec044fadd5d8fd209cf400c3e14a3f188489993b0e490d03dfd0f6289f9",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/selection_branches.json": "80fdfc0e32aa4d03dd5f02914a2beb68e101dbc2068706ab0cf81a512028d322",
+    "/extra1/bmartelli/context-str-artifacts/router-validation-v1/full/9dc6c9951d67/resolved_configuration.json": "5ff2113ff02fd4a60ef49786213e77fb322c6baf670e82f0346c5fda39774b1b"
+  },
+  "experiment_kind": "essential_router_budget50_v1",
+  "expert_holdout_plan": "/extra1/bmartelli/context-str-artifacts/router-validation-v1/full/9dc6c9951d67/resolved_configuration.json",
+  "selection_images": 62,
+  "calibration_images": 63,
+  "partition_seed": 20261027,
+  "selection_acceptance": 0.5,
+  "selection_f1_tolerance": 0.0025,
+  "maximum_additional_encoders": 0,
+  "maximum_model_file_bytes": 262144,
+  "primary_model_choice": "Best selection F1 at50% acceptance; within0.25 points prefer fewer stored scalars then smaller serialized model.",
+  "eligibility": "Unchanged qualified corrected U-Net words; zero/blank outputs always defer.",
+  "validation_protocol": "Reuse only the 20 already fitted cheap-head candidates, each trained on FIT1028. SHA256 split the125 expert-holdout images into62 model-selection and63 cutoff-calibration images. Freeze before fresh TEST score evaluation. Historical prior exposure remains explicit."
+}

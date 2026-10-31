@@ -1,0 +1,26 @@
+{
+  "claim_label": "approximate reproduction",
+  "fallback_train_sources": {
+    "icdar13": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json",
+    "icdar2015": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json",
+    "totaltext": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json"
+  },
+  "guards": [
+    false,
+    true
+  ],
+  "mode": "approximate",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json": "47ded90049aa8a420c432861e0da0657332d6623ec355a8dedfc4b2b45b86f33"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Same HGB word-correctness recipe, 18 confidence/token/geometry descriptors, RGB-grouped word folds and negative expected-error score in all3 domains. Same admission, guard, post-routing fusion/complement grid, validation microF1 and earliest-grid exact tie rule per predeclared quota. Native benchmark teachers are supervised resources, not pre-fallback inference inputs. Higher fallback quotas allowed by user; validation chooses recommended quota before TEST.",
+    "HARDWARE_DEVIATION": "CPU word models and cached post-fallback validation; no new DeepSolo neural calls. Upstream GPU settings are frozen in the separate U-Net run.",
+    "PAPER_SPECIFIED": "Crop recognizer/DeepSolo fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Authenticated qualified native Generic/Weak/TotalText teacher envelopes, original full care/ignore protocol and exact primary quotas.",
+    "UNRESOLVED": "Source expert fit/pretraining exposure, word membership proxy rather than calibrated correctness, finite validation and historical TEST exploration; final targets and runtime cost."
+  },
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full"
+}

@@ -1,0 +1,60 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1",
+  "seed": 20261029,
+  "targets": {
+    "icdar13": {
+      "f1": "9/10",
+      "maximum_deepsolo_images": 61,
+      "images": 233,
+      "care_words": 1095
+    },
+    "icdar2015": {
+      "f1": "79/100",
+      "maximum_deepsolo_images": 228,
+      "images": 500,
+      "care_words": 2077
+    }
+  },
+  "oracle_sources": [
+    {
+      "dataset": "icdar13",
+      "expert": "unet",
+      "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar13/full/test_scores/icdar13__unet.json",
+      "sha256": "a6fbee863d318f023067ee907421acddb219974295d57560fac9f75f80b17868"
+    },
+    {
+      "dataset": "icdar13",
+      "expert": "yolo",
+      "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar13/full/test_scores/icdar13__yolo.json",
+      "sha256": "b07d8bf77d25fc500cc9e9ec9cd7238d388c4d6bf33e4c0d183c397f0b3fb295"
+    },
+    {
+      "dataset": "icdar2015",
+      "expert": "unet",
+      "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar2015/full/test_scores/icdar2015__unet.json",
+      "sha256": "a1e50e67193bc2074408fe48c0f37ad3313b5f9f9d8e87214778277440582a76"
+    },
+    {
+      "dataset": "icdar2015",
+      "expert": "yolo",
+      "path": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/icdar2015/full/test_scores/icdar2015__yolo.json",
+      "sha256": "49b42e3afe6c05da20f0679770c77396b131d3fd7fa568948fbba4b460366fda"
+    },
+    {
+      "dataset": "icdar13",
+      "expert": "unet_native_matched",
+      "path": "/extra1/bmartelli/context-str-runs/icdar13-matched-router-generic-20261028-v1/full/test_scores.json",
+      "sha256": "27e70b2583913a39b7c2534cbfa1726653514ca48d2ea2bb371dc16fab88739e"
+    }
+  ],
+  "scope": "Privileged GT image-oracle feasibility first. Fixed expert outputs and original lexical metric; guards and unrestricted whole-image selection reported separately. No learned weights or operational cut selected with TEST GT.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Local paper Section3.5/Algorithm2 image fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Existing authenticated expert counts and exact fractional oracle primitives.",
+    "ASSUMPTION": "User-requested exact61/233 and228/500 budgets, target-F1 feasibility residual and comparison without the optional nonempty-light guard.",
+    "HARDWARE_DEVIATION": "CPU cached-output diagnostic; no new neural inference or online latency measurement.",
+    "UNRESOLVED": "Oracle selection knows TEST GT and is not deployable; fixed-expert feasibility does not establish learnability or population generalization; official paper metric equivalence remains unresolved."
+  }
+}

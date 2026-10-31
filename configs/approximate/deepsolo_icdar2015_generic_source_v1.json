@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar2015",
+  "preset": "source",
+  "lexicon_kind": "Generic",
+  "checkpoint_sha256": "c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8",
+  "native_resize": [
+    1440,
+    4000
+  ],
+  "lexicon_paths": {
+    "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/GenericVocabulary_new.txt",
+    "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/GenericVocabulary_pair_list.txt"
+  },
+  "lexicon_sha256": {
+    "vocabulary": "b2c2f39eddcd0b3109d51aef0bfc0031134e59b34cd806b228cf9acf358d07af",
+    "pairs": "6fe1405f4aeed06a4826fbbaf9696eb206b343bd26b61f9c8d002d9a99fac6a3"
+  },
+  "distance_exclusive": 1.5,
+  "unmatched_policy": "source_reject",
+  "neural": {
+    "score_threshold": 0.35,
+    "recognition_threshold": 0.85
+  },
+  "metric": "Unchanged symbol-free lexical microF1; full care population; no GT or length filtering.",
+  "results_sha256": "4d7b7fb6ba33cb70fd9da29da34afd34e20a610c66469fdab2bbc501f0818dcf",
+  "report_key": "prior_calibrated__Generic_source_reject",
+  "test_metrics": {
+    "images": 500,
+    "tp": 1576,
+    "fp": 303,
+    "fn": 501,
+    "detected_words": 1879,
+    "gt_words": 2077,
+    "all_outputs": 1943,
+    "ignored_outputs": 64,
+    "precision": 0.8387440127727515,
+    "recall": 0.7587867116032739,
+    "f1": 0.7967644084934277,
+    "deepsolo_images": 500,
+    "total_images": 500,
+    "deepsolo_percent": 100.0,
+    "inference_scope": "Cached standalone DeepSolo plus CPU lexicon; no router or new neural inference"
+  },
+  "selection": "Predeclared original-source lexical rule with fixed neural filter; no TEST optimization.",
+  "deployment_scope": "Dataset-specific released benchmark Generic vocabulary; not a no-vocabulary score. No extra OCR, neural fitting, or GT input in postprocessing."
+}

@@ -1,0 +1,66 @@
+{
+  "batch_size": 32,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "crop_views": [
+    "axis_aligned",
+    "rectified"
+  ],
+  "detector_checkpoint": "/tmp/totaltext-text-detectors-v1/weights/fast_tiny-1acac421.pt",
+  "detector_config": {
+    "bin_thresh": 0.1,
+    "box_thresh": 0.1,
+    "filename": "fast_tiny-1acac421.pt",
+    "input_size": 1024,
+    "official_sha256_prefix": "1acac421",
+    "package": "python-doctr",
+    "reference_score": 0.4,
+    "reparameterize": true,
+    "score_controls": [
+      0.1,
+      0.4,
+      0.7
+    ],
+    "url": "https://doctr-static.mindee.com/models?id=v0.8.1/fast_tiny-1acac421.pt&src=0",
+    "version": "0.11.0"
+  },
+  "detector_name": "fast_tiny",
+  "device": "cuda:0",
+  "minimum_free_gpu_bytes": 2147483648,
+  "mode": "approximate",
+  "original_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fast_candidate_v1",
+  "output_views": [
+    "axis_aligned",
+    "best_ocr"
+  ],
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/localize/external_text_detectors.py": "8cac80f9cf9410b84d831d70b352b66672f63276afc8d2e1c7c421eecc8a3fa7",
+    "/tmp/totaltext-text-detectors-v1/weights/fast_tiny-1acac421.pt": "1acac421f5a89fc8da8bbe241c7b289cceda4cc1237b57da430a4ba1c39454c4"
+  },
+  "raw_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json",
+  "raw_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "scientific_choices": {
+    "ASSUMPTION": "TRAIN-only comparison of the already installed FAST-Tiny detector with fixed qualified docTR postprocessing and axis/best-2-view PARSeq. No TEST selection or new detector training. External light detector is a separately named extension, never called U-Net. Degenerate regions are explicitly counted as rejected before any word crop.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, sequential PARSeq-only FP32 CUDA batches32 over cached DeepSolo boxes, memory metadata and failure propagation.",
+    "PAPER_SPECIFIED": "PARSeq-S and DeepSolo fallback motivation only. Exact paper PARSeq-S artifact remains unresolved; this retains the qualified approximate artifact.",
+    "REPOSITORY_SPECIFIED": "Authenticated native ViTAEv2S+TextOCR DeepSolo boxes, PARSeq source/checkpoint/greedy decoding and original RGB frame.",
+    "UNRESOLVED": "Net transcript benefit, selection uncertainty, prior TEST/upstream exposure, common cross-dataset retention and90% with61/233 fallback. External pretrained training overlap is unqualified; no paper-equivalence claim."
+  },
+  "score_threshold": 0.4,
+  "seed": 20261029,
+  "smoke_images": 4
+}

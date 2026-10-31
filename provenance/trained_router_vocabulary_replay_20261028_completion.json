@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/trained-router-vocabulary-replay-20261028-v1",
+  "all_official_test_images": true,
+  "actual_new_neural_inferences": 0,
+  "new_training": false,
+  "heads_and_original_validation_cuts_and_quotas_unchanged": true,
+  "checks": {
+    "gate_replays": 1466,
+    "fallback_word_recounts": 733,
+    "light_word_recounts": 1466,
+    "frozen_policies": 32,
+    "frontier_points": 1408,
+    "prediction_only_exports": 733
+  },
+  "focused_tests": "33 passed",
+  "artifacts_sha256": {
+    "results.json": "1717901f8f6a45e8833788d3f9819f9a4adea0bd0835a3fc8db93730f367655f",
+    "independent_audit.json": "ecb37900af5752a003727c7c1a944aa814c22d322956c18992b112e1ff8272ab",
+    "execution.json": "1a444146f57986e2ba381ce3e7dbf4d6812bb92fc02f1ee2612407acc5409e09",
+    "input_evidence.json": "039cfd7b12503ce52ed528c68f69919396fb75366f973919cd7f4092d2fa2e84",
+    "ignore_policy_diagnostic.json": "e318d09a3fd15ebfa157f15ec40516bd369648d898d3db41eb613c447612933d",
+    "resolved_configuration.json": "ae39f65e69ff30b0e068b532caaade6deff9d78a653e0427476cb18c3d454f87",
+    "thresholds.csv": "08402c5f432a726ecf8a3d56a4f24c3794cf7467f1766f5faf442d6c74e0647a",
+    "dense_frontiers.csv": "9a2be3f701a51666c587e5367c2aa449c5643aa6c3d893431260208a65537bde",
+    "focused_tests_final.txt": "960b2b991448496c9b62a7122044e47eb89caffb016def094c76514ee26b6885",
+    "git_diff_review.json": "025f072b52e6536f7cda7f0e34bd3f3163f13d852d23d16f2e1261388482792c",
+    "source_snapshot_v1_manifest.json": "84cbd06dc2fe3ca27eae2e04512ca2aa51c378e0951abf2381ad1dc8a24fd105",
+    "environment_main.json": "35c99da2f5aaf6f61401ab34fb1befc333ed9a79f3a926b87e7dffff97c78959",
+    "environment_plot.json": "ce0896fa510d149468152ec41222ffac1fad3624335200351a812eaad6a35415",
+    "figures/frontiers.png": "d4c215360f9afe270bfe9514058e5b4bef8a3e478f14a69d9a032ba26c6db825",
+    "figures/frontiers.svg": "c582cd1b90aa3bdfdfc56d7ad662c7e5444d3e5494fb51e083d17bc2b8ef416e"
+  },
+  "source_sha256": {
+    "configs/approximate/trained_router_vocabulary_replay_v1.json": "ae39f65e69ff30b0e068b532caaade6deff9d78a653e0427476cb18c3d454f87",
+    "docs/TRAINED_ROUTER_VOCABULARY_REPLAY.md": "29381eda565217160791625fbe23f330a478605da8dd423c7c3576a1a1ddbf2e",
+    "recognition/router_fallback_replay.py": "abc3be478f30017703ac677580e8927793c4a1017922a80d5f090765598c2362",
+    "scripts/audit_trained_router_vocabulary_replay.py": "bd1f6b64e5488047278de8992340d9063ea687b3b4a169808ac992301c54e31d",
+    "scripts/replay_trained_router_vocabularies.py": "5d5700290ed79c4a5f207e518b655d57b67bd34abf4260dc2c1e7662c35039a7",
+    "scripts/report_trained_router_vocabulary_replay.py": "c8f29d9630a12f57d64c67baecd72947d2ac95d3325f366f2dafe243a2e10250",
+    "tests/recognition/test_router_fallback_replay.py": "ff6417c7144edd40e728101595ed427535b7b69be9182d843ba56c4ca15685c8"
+  },
+  "summary": {
+    "icdar13": {
+      "unet": {
+        "all_deepsolo": {
+          "f1": 0.9017074296262113,
+          "previous_f1": 0.8849557522123894,
+          "tp": 977,
+          "fp": 95,
+          "fn": 118,
+          "gt_words": 1095,
+          "deepsolo_images": 233,
+          "total_images": 233,
+          "deepsolo_percent": 100.0
+        },
+        "validation_0.7": {
+          "f1": 0.8633983817229891,
+          "previous_f1": 0.8488038277511962,
+          "tp": 907,
+          "fp": 99,
+          "fn": 188,
+          "gt_words": 1095,
+          "deepsolo_images": 109,
+          "total_images": 233,
+          "deepsolo_percent": 46.78111587982833
+        },
+        "batch_0.7": {
+          "f1": 0.8400383141762452,
+          "previous_f1": 0.8297153883260975,
+          "tp": 877,
+          "fp": 116,
+          "fn": 218,
+          "gt_words": 1095,
+          "deepsolo_images": 70,
+          "total_images": 233,
+          "deepsolo_percent": 30.042918454935624
+        }
+      },
+      "yolo": {
+        "all_deepsolo": {
+          "f1": 0.9017074296262113,
+          "previous_f1": 0.8849557522123894,
+          "tp": 977,
+          "fp": 95,
+          "fn": 118,
+          "gt_words": 1095,
+          "deepsolo_images": 233,
+          "total_images": 233,
+          "deepsolo_percent": 100.0
+        },
+        "validation_0.7": {
+          "f1": 0.8842006563525551,
+          "previous_f1": 0.8732261116367077,
+          "tp": 943,
+          "fp": 95,
+          "fn": 152,
+          "gt_words": 1095,
+          "deepsolo_images": 103,
+          "total_images": 233,
+          "deepsolo_percent": 44.20600858369099
+        },
+        "batch_0.7": {
+          "f1": 0.8731203007518797,
+          "previous_f1": 0.8622811168954093,
+          "tp": 929,
+          "fp": 104,
+          "fn": 166,
+          "gt_words": 1095,
+          "deepsolo_images": 70,
+          "total_images": 233,
+          "deepsolo_percent": 30.042918454935624
+        }
+      }
+    },
+    "icdar2015": {
+      "unet": {
+        "all_deepsolo": {
+          "f1": 0.8279045909207489,
+          "previous_f1": 0.7036654620547238,
+          "tp": 1614,
+          "fp": 208,
+          "fn": 463,
+          "gt_words": 2077,
+          "deepsolo_images": 500,
+          "total_images": 500,
+          "deepsolo_percent": 100.0
+        },
+        "validation_0.5": {
+          "f1": 0.7172951885565669,
+          "previous_f1": 0.6590138272893296,
+          "tp": 1379,
+          "fp": 389,
+          "fn": 698,
+          "gt_words": 2077,
+          "deepsolo_images": 263,
+          "total_images": 500,
+          "deepsolo_percent": 52.6
+        },
+        "batch_0.5": {
+          "f1": 0.7148051948051948,
+          "previous_f1": 0.6595467569679604,
+          "tp": 1376,
+          "fp": 397,
+          "fn": 701,
+          "gt_words": 2077,
+          "deepsolo_images": 250,
+          "total_images": 500,
+          "deepsolo_percent": 50.0
+        }
+      },
+      "yolo": {
+        "all_deepsolo": {
+          "f1": 0.8279045909207489,
+          "previous_f1": 0.7036654620547238,
+          "tp": 1614,
+          "fp": 208,
+          "fn": 463,
+          "gt_words": 2077,
+          "deepsolo_images": 500,
+          "total_images": 500,
+          "deepsolo_percent": 100.0
+        },
+        "validation_0.5": {
+          "f1": 0.7597093460285642,
+          "previous_f1": 0.6939600707606772,
+          "tp": 1516,
+          "fp": 398,
+          "fn": 561,
+          "gt_words": 2077,
+          "deepsolo_images": 254,
+          "total_images": 500,
+          "deepsolo_percent": 50.8
+        },
+        "batch_0.5": {
+          "f1": 0.7587587587587588,
+          "previous_f1": 0.6939187484229119,
+          "tp": 1516,
+          "fp": 403,
+          "fn": 561,
+          "gt_words": 2077,
+          "deepsolo_images": 250,
+          "total_images": 500,
+          "deepsolo_percent": 50.0
+        }
+      }
+    }
+  },
+  "failures": [
+    "Initial independent auditor expected a nonexistent raw-shard payload field in lightweight JSON; fixed to original schema and passed every recount/gate replay.",
+    "Main environment lacked matplotlib; used existing YOLO plotting environment, no installation."
+  ],
+  "scope": "Logical cached-output image routing. No online inference/latency measurement. Original trained-router care override preserved, with five IC15 ignore-to-care outputs and five extra FP versus standalone lexicon report. TEST rank optima descriptive only. No strict or protocol-matched paper claim.",
+  "external_completion_sha256": "a074394ddd53e55eda54acc70ddd45b673691b832cf6a0d8ec3005eb55ecfa0c"
+}

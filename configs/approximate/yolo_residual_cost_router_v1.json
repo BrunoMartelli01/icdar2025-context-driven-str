@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_study": {
+    "plan": "e72e1c5afc212470b697faf498a1972b2fade9f7e0af07f50870f83d51f8b0d1",
+    "results": "1d0f9b7912e0b577ee90bc1b09e42a984aec36b08d752ea9539515124ff30791",
+    "audit": "9d0addc8bd7926c4c35a32d0af3cd2e6515f7d8e5a0029d9b8be9d60027223ce"
+  },
+  "region_settings": {
+    "probability_threshold": 0.5,
+    "minimum_component_area": 4,
+    "minimum_uncovered_fraction": 0.5,
+    "minimum_other_head_support": 0.25
+  },
+  "control_families": [
+    "base_proxy_f1",
+    "all_checks_softcrop",
+    "coverage_baseline"
+  ],
+  "new_families": [
+    "residual_only",
+    "risk_native_count",
+    "risk_visual_count",
+    "risk_visual_mass",
+    "risk_visual_consensus",
+    "risk_base_consensus",
+    "f1_consensus_proxy",
+    "base_residual_penalty"
+  ],
+  "primary_family": "risk_visual_consensus",
+  "bypass_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "quality_f1_threshold": 0.8,
+  "secondary_quality_f1_threshold": 0.85,
+  "bootstrap_iterations": 10000,
+  "seed": 20261022,
+  "smoke_size_per_partition": 3,
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Inspected local sections 3.3/3.5 and Algorithm 2. Whole-image fallback is retained; this new region/cost router is an approximate extension, not the paper router."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse frozen YOLO640/PARSeq, original RGB-derived word evidence, Text/Kernel predicted probability maps, TRAIN80/45 and TEST300, complete ViTAEv2-S+TextOCR branches, exact casefold word-multiset/native256 ignore protocol and all983/2204 care words."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "A full predicted component is a missing-region candidate if area>=4, uncovered pixels>=4 and uncovered fraction>=0.5; cross-head corroboration requires support>=0.25. Padding canvas is excluded geometrically, with no annotation validity masks."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Region counts and uncovered mass divided by predicted-word foreground mass are missing-word proxies, not measured missed words. Positive per-word median supplies the mass scale; predicted-component median is the fallback and empty maps are neutral."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Native confidence and geometric mean of confidence, frozen CLIP rank and crop agreement are uncalibrated word evidence. Risk is twice summed word-error proxy plus a missing-region proxy. No learned weights, classifier, training, new model inference or word-output changes."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Freeze all eight new rules, primary family and settings before new TEST features. TRAIN80 selects family by final microF1 at each fixed budget; TRAIN45 independently supplies inclusive scalar cuts. Rank budgets and transferred scalar cuts remain distinct. All families and controls are reported."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Paired10000-image bootstrap fixes gates, with no multiplicity correction. Primary family and TRAIN-selected family are both compared with frozen base_proxy_f1 and complete DeepSolo. Zero or unfilled acceptance is explicit, never counted as a routing gain."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Predicted masks can miss or hallucinate text; components can fragment/merge words. Historically explored TEST, repeatedly reused TRAIN, DeepSolo Total-Text TRAIN fine-tuning, paper metric/checkpoint equivalence and total probe latency limit generalization and superiority claims."
+    }
+  ]
+}

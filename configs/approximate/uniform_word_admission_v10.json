@@ -1,0 +1,111 @@
+{
+  "admission_thresholds": [
+    0.0,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "base_pipeline_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json",
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "claim_label": "approximate reproduction",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "maximum_validation_drop": 0.001,
+  "minimum_sequence_probability": 0.0,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/pooled_word_admission_v10",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json": "47ded90049aa8a420c432861e0da0657332d6623ec355a8dedfc4b2b45b86f33",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar13/bank/independent_audit.json": "01d2d6746dbc83c3a52b57a62ee6d5ea36875f9189f6e124297aea99b2e411e7",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar2015/bank/independent_audit.json": "9e745263520ad9979d83a7f0ce28353bcb585684a07791a617ee54b80fb54f9d",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/totaltext/bank/independent_audit.json": "394ae5dc931fa417958a1d90ba86bf907b7a9e31e96bd82d3e7dc0b9dcf459da",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/icdar13/word_probabilities.json": "7bfff7426e6ac4a463697d9889bd175960ad97fa14a537b57a70b28aada33bbe",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/icdar2015/word_probabilities.json": "3802080a8d1213add9c5f43ea094c0912ca4a633e0e6e2d3f23919a3dfbd8e1c",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/totaltext/word_probabilities.json": "5cc9afa4c5d07ef52c2dd317079a8631b9438f3de5518b9316294a06d49e05b2",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/independent_audit.json": "b7f0bb27ee8429456170408765652a1bd1ed8fe06b07f800d23861613f4022d4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/selection_frozen.json": "f41c1e73f37fdacdf81aaaeb2e4dfe8052e052efc82e590c45d0fafd1eb283f2",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/independent_audit.json": "22d2a2af10998a205016706626bf5be1c4f64c469e2829b51b51f783261167a6",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/selection_frozen.json": "0256f04d11e1dfaa20cbe5ff037e0be32f536a61b143bb84d5e03628467f4649",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/independent_audit.json": "3898a875fd576fba1f14713c30f9b4f41279b5d5b58942694e62387cc4ca0d6e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/selection_frozen.json": "ee5bc4b156ed51b0480e34a244697d81f2413d153b58d54fd9a03251b8c35775",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v5.json": "5b72223d34f60241f1f542d28bbee3f3bc97a6c100cc4a6e86cc7b24e4b4fbd3",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/common_budget_pipeline.py": "23457bc55de6fc030c9fa91fbac0634a031251dcaa2255720397a669b87eb7aa",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/fixed_expert_budget.py": "bfea000a34d43a29c7bf626eef95dd5fafa93ecf321b8c0660310aeccf1c334b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/hard_fallback_budget.py": "2020142b61b94436f4eb5739e6a525433a836eef3392ed2863bdcd87ac3125be",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_lexical_risk.py": "6f266d6733bdc19450d3d1274a23bf6b9d4d13738f9ee7cfaafab356aa7dc026",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_pooled_gate.py": "3f7005bd639949e619f7f2220245a5047640a5bb8a7ddcb0be2326c92912e8ec",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_utility_fusion.py": "7db6468477f0e15de4c286bb28eac22791ed58dc7d8df1797fc82e27e09534ad",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_word_admission.py": "7f8fde704ca22afb80bb20887bbbc3f72876af3d5a1d0a2d25dabfb90e4f4733",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_word_union.py": "107bc01e4242e4be8c7f6cb0f2103528baa2a211a7d2e0058fc02bab118062ef",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/train_uniform_pooled_gate.py": "83dd58d52588366cef45d48e9255f0bf023597d15526fb75ec69924e5937de2b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/train_uniform_word_admission.py": "5ea38e2b60278d407d92cb33f1e410a9694f1e0a651bafad1350f2b7db9b532d",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/train_uniform_word_union.py": "caa12852eb3b459b1d9c155ed25d8ccf4dbd217f6ec850c2daa628f2293877d9"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "One shared pooled HGB word-correctness classifier, equal total domain word weight, existing18 observable features. Remove the native sequence-probability pre-cut uniformly (set0), preserving vocabulary correction/rejection. Four fixed recipes; per-domain validation probability threshold maximizing light F1 within0.1 percentage point with lower threshold preferred; pooled model eligible only if paired macro-bootstrap lower gain>0 and no mean domain loss>0.1 point. Identity retains native word policies.",
+    "HARDWARE_DEVIATION": "CPU cached experiment,2 threads; zero new neural inference or networks.",
+    "REPOSITORY_SPECIFIED": "Qualified conditional decoder-heldout FIT raw OCR and native validation,18-feature schema, native lexical micro-F1.",
+    "UNRESOLVED": "Historical TEST and upstream exposure, reused validation, nonnested word/expert folds, hard-budget targets and paper metric equivalence. No new TEST replay in this stage."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "snapshot_packages": [
+    "recognition",
+    "segmentation",
+    "scripts",
+    "models",
+    "localize",
+    "pipeline",
+    "scoring",
+    "deepsolo"
+  ],
+  "word_recipes": [
+    {
+      "iterations": 100,
+      "l2": 10.0,
+      "leaves": 3,
+      "minimum_leaf": 20
+    },
+    {
+      "iterations": 100,
+      "l2": 100.0,
+      "leaves": 3,
+      "minimum_leaf": 20
+    },
+    {
+      "iterations": 100,
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 20
+    },
+    {
+      "iterations": 100,
+      "l2": 100.0,
+      "leaves": 7,
+      "minimum_leaf": 20
+    }
+  ]
+}

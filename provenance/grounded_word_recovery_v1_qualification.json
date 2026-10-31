@@ -1,0 +1,3014 @@
+{
+  "status": "PASS",
+  "claim_label": "approximate reproduction",
+  "scientific_mode": "approximate",
+  "decision": "GROUNDED-WORD-RECOVERY-001",
+  "run_root": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1",
+  "authoritative_run": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full",
+  "immutable_source": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/source_snapshot_v4",
+  "source_snapshot_files_verified": 1567,
+  "source_snapshot_manifest_sha256": "0e7d38da0718f2e70444bbca566fb94dbe028f6cf44423286878d3b68c39d9fb",
+  "scientific_workspace_equals_immutable_source": true,
+  "scientific_source_sha256": {
+    "recognition/grounded_word_recovery.py": "92731a2d9967796ace0c876a3e39d5a1f3c805bdfa10bd4c6cc69f737ac58f12",
+    "models/grounded_word_recovery.py": "30c114670b01ff9b642914202cdcbe15fc7e9dc402cb5787706254dd3d2a24c9",
+    "scripts/run_grounded_word_recovery.py": "bfc72abcf3a9aea2a414d8f6baf6de4e198b4a9b52e9c75077d892ba2b45dbf5",
+    "scripts/grounded_word_editor.py": "08b4bd4f1cb38ec634285b8ce1bff8666c6047aad9f9c6b460998aec7b1ab78f",
+    "scripts/grounded_word_search.py": "729b7040cb9e87cd3065e120f314aaf08f5bbbdeebcf8670a5b129a72069723d",
+    "scripts/analyze_grounded_word_recovery.py": "4379034ab43e90c6a1fb963c2606f3e77112df19759edc95af513d9296de76e8",
+    "tests/recognition/test_grounded_word_recovery.py": "8895a33b1ccc1d5f2b33c46f29a51b387072cb4a6e49f1eee4b5062eaf0c0607",
+    "configs/approximate/grounded_word_recovery_v1.json": "fa8d06637af181db61ed70c13581855a539a9d279dadbd7b69168b061051e626",
+    "scripts/run_grounded_word_recovery.sh": "383c80735e7cad975d8b8f719f8fe1770921544ca79462352fbd4fa4acc81b2d"
+  },
+  "primary_manifest_sha256": "97784b3f487aee548424e75a3998aaeb03d91568007832eb4cfc8f96149e86e1",
+  "primary_artifacts_verified": 7247,
+  "configured_input_hashes_verified": 11,
+  "analysis_manifest_sha256": "f1b82885b5b621050d570f9b5520579feedef082412090999ba51c6bbdc78a9e",
+  "analysis_report_sha256": "77f9692bd1e943e2f81069fb90e1a8bc1643c315a63117193ab20f5022fcf38b",
+  "results_sha256": "06cb03dad68d8268a4abe842639fab540132e92b85a963f0d26949ef987e8881",
+  "result_summary": {
+    "evaluation": {
+      "baseline_gnn": {
+        "metric": {
+          "correct": 503,
+          "damaged": 0,
+          "f1": 0.5938606847697757,
+          "fn": 480,
+          "fp": 208,
+          "gt_words": 983,
+          "precision": 0.7074542897327707,
+          "predictions": 711,
+          "recall": 0.5116988809766022,
+          "recovered": 0
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 125,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2612812259400057,
+            -0.14826845930127358
+          ],
+          "delta_f1_points": -0.6609350482868259,
+          "images_improved": 1,
+          "images_unchanged": 117,
+          "images_worsened": 7,
+          "lost": 8,
+          "recovered": 0
+        }
+      },
+      "confidence_replacement": {
+        "metric": {
+          "correct": 503,
+          "damaged": 0,
+          "f1": 0.5938606847697757,
+          "fn": 480,
+          "fp": 208,
+          "gt_words": 983,
+          "precision": 0.7074542897327707,
+          "predictions": 711,
+          "recall": 0.5116988809766022,
+          "recovered": 0
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 125,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2612812259400057,
+            -0.14826845930127358
+          ],
+          "delta_f1_points": -0.6609350482868259,
+          "images_improved": 1,
+          "images_unchanged": 117,
+          "images_worsened": 7,
+          "lost": 8,
+          "recovered": 0
+        }
+      },
+      "editor_text_final": {
+        "metric": {
+          "correct": 525,
+          "damaged": 1,
+          "f1": 0.6169212690951822,
+          "fn": 458,
+          "fp": 194,
+          "gt_words": 983,
+          "precision": 0.7301808066759388,
+          "predictions": 719,
+          "recall": 0.5340793489318413,
+          "recovered": 23
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            1.2975189189728698,
+            3.512842758597117
+          ],
+          "delta_f1_points": 2.3060584325406475,
+          "images_improved": 18,
+          "images_unchanged": 105,
+          "images_worsened": 2,
+          "lost": 1,
+          "recovered": 23
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.6864526094891135,
+            2.729979504034569
+          ],
+          "delta_f1_points": 1.6451233842538215,
+          "images_improved": 11,
+          "images_unchanged": 113,
+          "images_worsened": 1,
+          "lost": 1,
+          "recovered": 15
+        }
+      },
+      "editor_text_selected": {
+        "metric": {
+          "correct": 525,
+          "damaged": 1,
+          "f1": 0.6169212690951822,
+          "fn": 458,
+          "fp": 194,
+          "gt_words": 983,
+          "precision": 0.7301808066759388,
+          "predictions": 719,
+          "recall": 0.5340793489318413,
+          "recovered": 23
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            1.2975189189728698,
+            3.512842758597117
+          ],
+          "delta_f1_points": 2.3060584325406475,
+          "images_improved": 18,
+          "images_unchanged": 105,
+          "images_worsened": 2,
+          "lost": 1,
+          "recovered": 23
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.6864526094891135,
+            2.729979504034569
+          ],
+          "delta_f1_points": 1.6451233842538215,
+          "images_improved": 11,
+          "images_unchanged": 113,
+          "images_worsened": 1,
+          "lost": 1,
+          "recovered": 15
+        }
+      },
+      "editor_visual_final": {
+        "metric": {
+          "correct": 527,
+          "damaged": 1,
+          "f1": 0.6192714453584018,
+          "fn": 456,
+          "fp": 192,
+          "gt_words": 983,
+          "precision": 0.7329624478442281,
+          "predictions": 719,
+          "recall": 0.5361139369277721,
+          "recovered": 25
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            1.4707968445957929,
+            3.779612705293526
+          ],
+          "delta_f1_points": 2.5410760588626125,
+          "images_improved": 20,
+          "images_unchanged": 103,
+          "images_worsened": 2,
+          "lost": 1,
+          "recovered": 25
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.869377811094459,
+            2.9835906095703058
+          ],
+          "delta_f1_points": 1.8801410105757865,
+          "images_improved": 13,
+          "images_unchanged": 111,
+          "images_worsened": 1,
+          "lost": 1,
+          "recovered": 17
+        }
+      },
+      "editor_visual_selected": {
+        "metric": {
+          "correct": 527,
+          "damaged": 1,
+          "f1": 0.6192714453584018,
+          "fn": 456,
+          "fp": 192,
+          "gt_words": 983,
+          "precision": 0.7329624478442281,
+          "predictions": 719,
+          "recall": 0.5361139369277721,
+          "recovered": 25
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            1.4707968445957929,
+            3.779612705293526
+          ],
+          "delta_f1_points": 2.5410760588626125,
+          "images_improved": 20,
+          "images_unchanged": 103,
+          "images_worsened": 2,
+          "lost": 1,
+          "recovered": 25
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.869377811094459,
+            2.9835906095703058
+          ],
+          "delta_f1_points": 1.8801410105757865,
+          "images_improved": 13,
+          "images_unchanged": 111,
+          "images_worsened": 1,
+          "lost": 1,
+          "recovered": 17
+        }
+      },
+      "search_fixed_matched": {
+        "metric": {
+          "correct": 525,
+          "damaged": 1,
+          "f1": 0.5938914027149321,
+          "fn": 458,
+          "fp": 260,
+          "gt_words": 983,
+          "precision": 0.6687898089171974,
+          "predictions": 785,
+          "recall": 0.5340793489318413,
+          "recovered": 23
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -1.0295267575871256,
+            1.0455127580864898
+          ],
+          "delta_f1_points": 0.003071794515641102,
+          "images_improved": 21,
+          "images_unchanged": 66,
+          "images_worsened": 38,
+          "lost": 1,
+          "recovered": 23
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.5289530201709016,
+            0.1653692405915323
+          ],
+          "delta_f1_points": -0.6578632537711848,
+          "images_improved": 15,
+          "images_unchanged": 73,
+          "images_worsened": 37,
+          "lost": 1,
+          "recovered": 15
+        }
+      },
+      "search_gnn_final": {
+        "metric": {
+          "correct": 523,
+          "damaged": 1,
+          "f1": 0.590293453724605,
+          "fn": 460,
+          "fp": 266,
+          "gt_words": 983,
+          "precision": 0.6628643852978454,
+          "predictions": 789,
+          "recall": 0.5320447609359105,
+          "recovered": 21
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -1.3495735952125183,
+            0.6646124643607101
+          ],
+          "delta_f1_points": -0.356723104517076,
+          "images_improved": 18,
+          "images_unchanged": 61,
+          "images_worsened": 46,
+          "lost": 1,
+          "recovered": 21
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.806636253946878,
+            -0.2326336379315089
+          ],
+          "delta_f1_points": -1.017658152803902,
+          "images_improved": 13,
+          "images_unchanged": 65,
+          "images_worsened": 47,
+          "lost": 1,
+          "recovered": 13
+        }
+      },
+      "search_gnn_matched": {
+        "metric": {
+          "correct": 523,
+          "damaged": 1,
+          "f1": 0.590293453724605,
+          "fn": 460,
+          "fp": 266,
+          "gt_words": 983,
+          "precision": 0.6628643852978454,
+          "predictions": 789,
+          "recall": 0.5320447609359105,
+          "recovered": 21
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -1.3495735952125183,
+            0.6646124643607101
+          ],
+          "delta_f1_points": -0.356723104517076,
+          "images_improved": 18,
+          "images_unchanged": 61,
+          "images_worsened": 46,
+          "lost": 1,
+          "recovered": 21
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.806636253946878,
+            -0.2326336379315089
+          ],
+          "delta_f1_points": -1.017658152803902,
+          "images_improved": 13,
+          "images_unchanged": 65,
+          "images_worsened": 47,
+          "lost": 1,
+          "recovered": 13
+        }
+      },
+      "search_gnn_selected": {
+        "metric": {
+          "correct": 515,
+          "damaged": 1,
+          "f1": 0.5974477958236659,
+          "fn": 468,
+          "fp": 226,
+          "gt_words": 983,
+          "precision": 0.6950067476383266,
+          "predictions": 741,
+          "recall": 0.5239064089521872,
+          "recovered": 13
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.382038783233776,
+            1.178616397617553
+          ],
+          "delta_f1_points": 0.3587111053890202,
+          "images_improved": 11,
+          "images_unchanged": 97,
+          "images_worsened": 17,
+          "lost": 1,
+          "recovered": 13
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.7879159904792783,
+            0.20396703601035598
+          ],
+          "delta_f1_points": -0.30222394289780574,
+          "images_improved": 5,
+          "images_unchanged": 104,
+          "images_worsened": 16,
+          "lost": 1,
+          "recovered": 5
+        }
+      },
+      "search_self_final": {
+        "metric": {
+          "correct": 521,
+          "damaged": 1,
+          "f1": 0.5897000565930957,
+          "fn": 462,
+          "fp": 263,
+          "gt_words": 983,
+          "precision": 0.6645408163265306,
+          "predictions": 784,
+          "recall": 0.5300101729399797,
+          "recovered": 19
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -1.3959893067826206,
+            0.6120538138767782
+          ],
+          "delta_f1_points": -0.4160628176680059,
+          "images_improved": 16,
+          "images_unchanged": 70,
+          "images_worsened": 39,
+          "lost": 1,
+          "recovered": 19
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.8419921560166377,
+            -0.3094008016617853
+          ],
+          "delta_f1_points": -1.0769978659548318,
+          "images_improved": 11,
+          "images_unchanged": 74,
+          "images_worsened": 40,
+          "lost": 1,
+          "recovered": 11
+        }
+      },
+      "search_self_selected": {
+        "metric": {
+          "correct": 517,
+          "damaged": 1,
+          "f1": 0.5997679814385151,
+          "fn": 466,
+          "fp": 224,
+          "gt_words": 983,
+          "precision": 0.6977058029689609,
+          "predictions": 741,
+          "recall": 0.525940996948118,
+          "recovered": 15
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.17660375950134227,
+            1.373758780971309
+          ],
+          "delta_f1_points": 0.5907296668739348,
+          "images_improved": 13,
+          "images_unchanged": 98,
+          "images_worsened": 14,
+          "lost": 1,
+          "recovered": 15
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.5944813027882259,
+            0.45684659754960877
+          ],
+          "delta_f1_points": -0.07020538141289112,
+          "images_improved": 7,
+          "images_unchanged": 105,
+          "images_worsened": 13,
+          "lost": 1,
+          "recovered": 7
+        }
+      },
+      "verifier_addonly": {
+        "metric": {
+          "correct": 509,
+          "damaged": 0,
+          "f1": 0.5981198589894242,
+          "fn": 474,
+          "fp": 210,
+          "gt_words": 983,
+          "precision": 0.7079276773296245,
+          "predictions": 719,
+          "recall": 0.5178026449643948,
+          "recovered": 6
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.05789854658700411,
+            0.8358175386468828
+          ],
+          "delta_f1_points": 0.42591742196484983,
+          "images_improved": 6,
+          "images_unchanged": 118,
+          "images_worsened": 1,
+          "lost": 0,
+          "recovered": 6
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.5918128922893587,
+            0.0
+          ],
+          "delta_f1_points": -0.2350176263219761,
+          "images_improved": 0,
+          "images_unchanged": 123,
+          "images_worsened": 2,
+          "lost": 2,
+          "recovered": 0
+        }
+      },
+      "verifier_final": {
+        "metric": {
+          "correct": 520,
+          "damaged": 2,
+          "f1": 0.5929304446978335,
+          "fn": 463,
+          "fp": 251,
+          "gt_words": 983,
+          "precision": 0.6744487678339819,
+          "predictions": 771,
+          "recall": 0.5289928789420142,
+          "recovered": 19
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2639286445444247,
+            0.9692468651812318
+          ],
+          "delta_f1_points": -0.0930240071942201,
+          "images_improved": 13,
+          "images_unchanged": 94,
+          "images_worsened": 18,
+          "lost": 2,
+          "recovered": 19
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.694053065483937,
+            0.0722357989780819
+          ],
+          "delta_f1_points": -0.753959055481046,
+          "images_improved": 8,
+          "images_unchanged": 99,
+          "images_worsened": 18,
+          "lost": 2,
+          "recovered": 11
+        }
+      },
+      "verifier_replacement": {
+        "metric": {
+          "correct": 511,
+          "damaged": 0,
+          "f1": 0.600470035252644,
+          "fn": 472,
+          "fp": 208,
+          "gt_words": 983,
+          "precision": 0.7107093184979137,
+          "predictions": 719,
+          "recall": 0.5198372329603256,
+          "recovered": 8
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.14826845930127341,
+            1.2612812259400057
+          ],
+          "delta_f1_points": 0.6609350482868259,
+          "images_improved": 7,
+          "images_unchanged": 117,
+          "images_worsened": 1,
+          "lost": 0,
+          "recovered": 8
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 125,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        }
+      }
+    },
+    "test": {
+      "baseline_gnn": {
+        "metric": {
+          "correct": 1201,
+          "damaged": 0,
+          "f1": 0.6101092202184404,
+          "fn": 1003,
+          "fp": 532,
+          "gt_words": 2204,
+          "precision": 0.6930178880553952,
+          "predictions": 1733,
+          "recall": 0.54491833030853,
+          "recovered": 0
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 300,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.029633158031709,
+            -0.14768748815652993
+          ],
+          "delta_f1_points": -0.5778160374822594,
+          "images_improved": 19,
+          "images_unchanged": 257,
+          "images_worsened": 24,
+          "lost": 26,
+          "recovered": 2
+        }
+      },
+      "confidence_replacement": {
+        "metric": {
+          "correct": 1201,
+          "damaged": 0,
+          "f1": 0.6101092202184404,
+          "fn": 1003,
+          "fp": 532,
+          "gt_words": 2204,
+          "precision": 0.6930178880553952,
+          "predictions": 1733,
+          "recall": 0.54491833030853,
+          "recovered": 0
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 300,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.029633158031709,
+            -0.14768748815652993
+          ],
+          "delta_f1_points": -0.5778160374822594,
+          "images_improved": 19,
+          "images_unchanged": 257,
+          "images_worsened": 24,
+          "lost": 26,
+          "recovered": 2
+        }
+      },
+      "editor_text_final": {
+        "metric": {
+          "correct": 1251,
+          "damaged": 9,
+          "f1": 0.6289592760180995,
+          "fn": 953,
+          "fp": 523,
+          "gt_words": 2204,
+          "precision": 0.7051860202931229,
+          "predictions": 1774,
+          "recall": 0.5676043557168784,
+          "recovered": 59
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.981288279727038,
+            2.749458266187124
+          ],
+          "delta_f1_points": 1.885005579965915,
+          "images_improved": 44,
+          "images_unchanged": 232,
+          "images_worsened": 24,
+          "lost": 9,
+          "recovered": 59
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.6188597669411668,
+            2.072552346753739
+          ],
+          "delta_f1_points": 1.3071895424836555,
+          "images_improved": 25,
+          "images_unchanged": 269,
+          "images_worsened": 6,
+          "lost": 7,
+          "recovered": 33
+        }
+      },
+      "editor_text_selected": {
+        "metric": {
+          "correct": 1251,
+          "damaged": 9,
+          "f1": 0.6289592760180995,
+          "fn": 953,
+          "fp": 523,
+          "gt_words": 2204,
+          "precision": 0.7051860202931229,
+          "predictions": 1774,
+          "recall": 0.5676043557168784,
+          "recovered": 59
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.981288279727038,
+            2.749458266187124
+          ],
+          "delta_f1_points": 1.885005579965915,
+          "images_improved": 44,
+          "images_unchanged": 232,
+          "images_worsened": 24,
+          "lost": 9,
+          "recovered": 59
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.6188597669411668,
+            2.072552346753739
+          ],
+          "delta_f1_points": 1.3071895424836555,
+          "images_improved": 25,
+          "images_unchanged": 269,
+          "images_worsened": 6,
+          "lost": 7,
+          "recovered": 33
+        }
+      },
+      "editor_visual_final": {
+        "metric": {
+          "correct": 1251,
+          "damaged": 16,
+          "f1": 0.6289592760180995,
+          "fn": 953,
+          "fp": 523,
+          "gt_words": 2204,
+          "precision": 0.7051860202931229,
+          "predictions": 1774,
+          "recall": 0.5676043557168784,
+          "recovered": 66
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.9023301634355589,
+            2.8570826259449134
+          ],
+          "delta_f1_points": 1.885005579965915,
+          "images_improved": 47,
+          "images_unchanged": 224,
+          "images_worsened": 29,
+          "lost": 16,
+          "recovered": 66
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.48122000679119814,
+            2.1606930289426005
+          ],
+          "delta_f1_points": 1.3071895424836555,
+          "images_improved": 30,
+          "images_unchanged": 259,
+          "images_worsened": 11,
+          "lost": 14,
+          "recovered": 40
+        }
+      },
+      "editor_visual_selected": {
+        "metric": {
+          "correct": 1251,
+          "damaged": 16,
+          "f1": 0.6289592760180995,
+          "fn": 953,
+          "fp": 523,
+          "gt_words": 2204,
+          "precision": 0.7051860202931229,
+          "predictions": 1774,
+          "recall": 0.5676043557168784,
+          "recovered": 66
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.9023301634355589,
+            2.8570826259449134
+          ],
+          "delta_f1_points": 1.885005579965915,
+          "images_improved": 47,
+          "images_unchanged": 224,
+          "images_worsened": 29,
+          "lost": 16,
+          "recovered": 66
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.48122000679119814,
+            2.1606930289426005
+          ],
+          "delta_f1_points": 1.3071895424836555,
+          "images_improved": 30,
+          "images_unchanged": 259,
+          "images_worsened": 11,
+          "lost": 14,
+          "recovered": 40
+        }
+      },
+      "search_fixed_matched": {
+        "metric": {
+          "correct": 1253,
+          "damaged": 2,
+          "f1": 0.6089914945321993,
+          "fn": 951,
+          "fp": 658,
+          "gt_words": 2204,
+          "precision": 0.6556776556776557,
+          "predictions": 1911,
+          "recall": 0.5685117967332124,
+          "recovered": 54
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.8706256086250794,
+            0.6152821150563057
+          ],
+          "delta_f1_points": -0.11177256862411333,
+          "images_improved": 45,
+          "images_unchanged": 157,
+          "images_worsened": 98,
+          "lost": 2,
+          "recovered": 54
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2531723145161147,
+            -0.1817432315086601
+          ],
+          "delta_f1_points": -0.6895886061063727,
+          "images_improved": 25,
+          "images_unchanged": 184,
+          "images_worsened": 91,
+          "lost": 0,
+          "recovered": 28
+        }
+      },
+      "search_gnn_final": {
+        "metric": {
+          "correct": 1259,
+          "damaged": 2,
+          "f1": 0.6093901258470474,
+          "fn": 945,
+          "fp": 669,
+          "gt_words": 2204,
+          "precision": 0.6530082987551867,
+          "predictions": 1928,
+          "recall": 0.5712341197822142,
+          "recovered": 60
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.8557563833699642,
+            0.7071871613434294
+          ],
+          "delta_f1_points": -0.07190943713929476,
+          "images_improved": 47,
+          "images_unchanged": 150,
+          "images_worsened": 103,
+          "lost": 2,
+          "recovered": 60
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2654192891628144,
+            -0.045853968695502685
+          ],
+          "delta_f1_points": -0.6497254746215542,
+          "images_improved": 30,
+          "images_unchanged": 173,
+          "images_worsened": 97,
+          "lost": 0,
+          "recovered": 34
+        }
+      },
+      "search_gnn_matched": {
+        "metric": {
+          "correct": 1259,
+          "damaged": 2,
+          "f1": 0.6093901258470474,
+          "fn": 945,
+          "fp": 669,
+          "gt_words": 2204,
+          "precision": 0.6530082987551867,
+          "predictions": 1928,
+          "recall": 0.5712341197822142,
+          "recovered": 60
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.8557563833699642,
+            0.7071871613434294
+          ],
+          "delta_f1_points": -0.07190943713929476,
+          "images_improved": 47,
+          "images_unchanged": 150,
+          "images_worsened": 103,
+          "lost": 2,
+          "recovered": 60
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2654192891628144,
+            -0.045853968695502685
+          ],
+          "delta_f1_points": -0.6497254746215542,
+          "images_improved": 30,
+          "images_unchanged": 173,
+          "images_worsened": 97,
+          "lost": 0,
+          "recovered": 34
+        }
+      },
+      "search_gnn_selected": {
+        "metric": {
+          "correct": 1246,
+          "damaged": 2,
+          "f1": 0.6180555555555556,
+          "fn": 958,
+          "fp": 582,
+          "gt_words": 2204,
+          "precision": 0.6816192560175055,
+          "predictions": 1828,
+          "recall": 0.5653357531760436,
+          "recovered": 47
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.18458334436874396,
+            1.3988089236706158
+          ],
+          "delta_f1_points": 0.7946335337115196,
+          "images_improved": 38,
+          "images_unchanged": 218,
+          "images_worsened": 44,
+          "lost": 2,
+          "recovered": 47
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.15594177084612942,
+            0.5812550185806218
+          ],
+          "delta_f1_points": 0.21681749622926016,
+          "images_improved": 18,
+          "images_unchanged": 253,
+          "images_worsened": 29,
+          "lost": 0,
+          "recovered": 21
+        }
+      },
+      "search_self_final": {
+        "metric": {
+          "correct": 1260,
+          "damaged": 2,
+          "f1": 0.6095791001451378,
+          "fn": 944,
+          "fp": 670,
+          "gt_words": 2204,
+          "precision": 0.6528497409326425,
+          "predictions": 1930,
+          "recall": 0.5716878402903811,
+          "recovered": 61
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.819284795809139,
+            0.759348943272853
+          ],
+          "delta_f1_points": -0.05301200733025535,
+          "images_improved": 47,
+          "images_unchanged": 154,
+          "images_worsened": 99,
+          "lost": 2,
+          "recovered": 61
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.2412929277466143,
+            -0.03184430147219756
+          ],
+          "delta_f1_points": -0.6308280448125148,
+          "images_improved": 30,
+          "images_unchanged": 174,
+          "images_worsened": 96,
+          "lost": 0,
+          "recovered": 35
+        }
+      },
+      "search_self_selected": {
+        "metric": {
+          "correct": 1248,
+          "damaged": 2,
+          "f1": 0.6187407040158651,
+          "fn": 956,
+          "fp": 582,
+          "gt_words": 2204,
+          "precision": 0.6819672131147541,
+          "predictions": 1830,
+          "recall": 0.5662431941923775,
+          "recovered": 49
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.23035401921865095,
+            1.5083444259118677
+          ],
+          "delta_f1_points": 0.8631483797424733,
+          "images_improved": 38,
+          "images_unchanged": 219,
+          "images_worsened": 43,
+          "lost": 2,
+          "recovered": 49
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.102789715539289,
+            0.6925159398250313
+          ],
+          "delta_f1_points": 0.28533234226021387,
+          "images_improved": 18,
+          "images_unchanged": 253,
+          "images_worsened": 29,
+          "lost": 0,
+          "recovered": 23
+        }
+      },
+      "verifier_addonly": {
+        "metric": {
+          "correct": 1219,
+          "damaged": 0,
+          "f1": 0.6133333333333333,
+          "fn": 985,
+          "fp": 552,
+          "gt_words": 2204,
+          "precision": 0.6883116883116883,
+          "predictions": 1771,
+          "recall": 0.5530852994555354,
+          "recovered": 18
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.023744684828407584,
+            0.5960217570509406
+          ],
+          "delta_f1_points": 0.32241131148929014,
+          "images_improved": 18,
+          "images_unchanged": 265,
+          "images_worsened": 17,
+          "lost": 0,
+          "recovered": 18
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -0.6407685448558581,
+            0.05582725033529622
+          ],
+          "delta_f1_points": -0.25540472599296926,
+          "images_improved": 2,
+          "images_unchanged": 292,
+          "images_worsened": 6,
+          "lost": 8,
+          "recovered": 2
+        }
+      },
+      "verifier_final": {
+        "metric": {
+          "correct": 1250,
+          "damaged": 6,
+          "f1": 0.60960741282614,
+          "fn": 954,
+          "fp": 647,
+          "gt_words": 2204,
+          "precision": 0.6589351607801792,
+          "predictions": 1897,
+          "recall": 0.5671506352087115,
+          "recovered": 55
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            -0.6921695478272749,
+            0.6849177744373166
+          ],
+          "delta_f1_points": -0.050180739230043514,
+          "images_improved": 45,
+          "images_unchanged": 198,
+          "images_worsened": 57,
+          "lost": 6,
+          "recovered": 55
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            -1.1523875390803595,
+            -0.11009650095061678
+          ],
+          "delta_f1_points": -0.6279967767123029,
+          "images_improved": 26,
+          "images_unchanged": 221,
+          "images_worsened": 53,
+          "lost": 4,
+          "recovered": 29
+        }
+      },
+      "verifier_replacement": {
+        "metric": {
+          "correct": 1225,
+          "damaged": 2,
+          "f1": 0.615887380593263,
+          "fn": 979,
+          "fp": 549,
+          "gt_words": 2204,
+          "precision": 0.6905298759864712,
+          "predictions": 1774,
+          "recall": 0.5558076225045372,
+          "recovered": 26
+        },
+        "versus_gnn": {
+          "conditional_image_bootstrap_95_points": [
+            0.14768748815652988,
+            1.029633158031709
+          ],
+          "delta_f1_points": 0.5778160374822594,
+          "images_improved": 24,
+          "images_unchanged": 257,
+          "images_worsened": 19,
+          "lost": 2,
+          "recovered": 26
+        },
+        "versus_verified": {
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "delta_f1_points": 0.0,
+          "images_improved": 0,
+          "images_unchanged": 300,
+          "images_worsened": 0,
+          "lost": 0,
+          "recovered": 0
+        }
+      }
+    }
+  },
+  "final_smoke": {
+    "criterion": "Independent SciPy maximum assignment counts; all care words/outputs; query cap/uniqueness",
+    "image_arm_checks": 270,
+    "query_trace_checks": 108,
+    "status": "PASS"
+  },
+  "full_audit": {
+    "criterion": "Independent SciPy maximum assignment counts; all care words/outputs; query cap/uniqueness",
+    "image_arm_checks": 6375,
+    "query_trace_checks": 2550,
+    "status": "PASS"
+  },
+  "unit_tests": {
+    "passed": 59,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "xml_sha256": "beb5dddb520ef191af604f76913bd7c3f0cbe4dff4e9a031329b912695ffdfd7"
+  },
+  "hardware": {
+    "host": "paper",
+    "user": "bmartelli",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "total_gpu_bytes": 25326911488,
+    "precision": "float32",
+    "tf32": false,
+    "seed": 20261025,
+    "deviation": "HARDWARE_DEVIATION"
+  },
+  "memory": {
+    "peak_allocated_bytes": 818767872,
+    "peak_reserved_bytes": 893386752,
+    "actual_oom": false
+  },
+  "per_stage_memory": [
+    {
+      "source": "visual_qualification.json",
+      "batch_size": 64,
+      "device": "cuda:0",
+      "free_before_bytes": 24470683648,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        64,
+        3,
+        32,
+        128
+      ],
+      "label": "frozen visual evidence",
+      "model_set": "Frozen PARSeq encoder FP32; no decoder calls",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 254 MiB\n",
+      "peak_allocated_bytes": 183689728,
+      "peak_reserved_bytes": 224395264,
+      "precision": "float32",
+      "resource_wait_seconds": 0.17947470396757126,
+      "seconds": 139.40268607996404,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "verifier/qualification.json",
+      "batch_size": 64,
+      "device": "cuda:0",
+      "free_before_bytes": 17915707392,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        64,
+        2,
+        16,
+        384
+      ],
+      "label": "grounded verifier",
+      "model_set": "Grounded RGB/context/text verifier + AdamW; cached frozen encoder",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 488 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 6012 MiB\n",
+      "peak_allocated_bytes": 204016640,
+      "peak_reserved_bytes": 245366784,
+      "precision": "float32",
+      "resource_wait_seconds": 0.05210285820066929,
+      "seconds": 123.63744493201375,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "editor/visual/qualification.json",
+      "batch_size": 64,
+      "device": "cuda:0",
+      "free_before_bytes": 18001690624,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": {
+        "maximum_action_length": 129,
+        "maximum_source_length": 65,
+        "visual_channels": 384,
+        "visual_columns": 16
+      },
+      "label": "edit visual",
+      "model_set": "Byte edit transducer + frozen grounded verifier + AdamW; cached visual sequences",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 570 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 5848 MiB\n",
+      "peak_allocated_bytes": 235503104,
+      "peak_reserved_bytes": 276824064,
+      "precision": "float32",
+      "resource_wait_seconds": 0.05634659621864557,
+      "seconds": 133.59641720494255,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "editor/text/qualification.json",
+      "batch_size": 64,
+      "device": "cuda:0",
+      "free_before_bytes": 17968136192,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": {
+        "maximum_action_length": 129,
+        "maximum_source_length": 65,
+        "visual_channels": 384,
+        "visual_columns": 16
+      },
+      "label": "edit text",
+      "model_set": "Byte edit transducer + frozen grounded verifier + AdamW; cached visual sequences",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 596 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 5854 MiB\n",
+      "peak_allocated_bytes": 237900800,
+      "peak_reserved_bytes": 281018368,
+      "precision": "float32",
+      "resource_wait_seconds": 0.05220590624958277,
+      "seconds": 154.88943927921355,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "search/self/qualification.json",
+      "batch_size": 32,
+      "device": "cuda:0",
+      "free_before_bytes": 20128202752,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        206,
+        400
+      ],
+      "label": "search utility self",
+      "model_set": "Query GNN/self + AdamW; frozen U-Net/PARSeq/verifier when required",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 494 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 1212 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 3202 MiB\n",
+      "peak_allocated_bytes": 818767872,
+      "peak_reserved_bytes": 893386752,
+      "precision": "float32",
+      "resource_wait_seconds": 0.0313419820740819,
+      "seconds": 310.0510474490002,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "search/gnn/qualification.json",
+      "batch_size": 32,
+      "device": "cuda:0",
+      "free_before_bytes": 20522467328,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        206,
+        400
+      ],
+      "label": "search utility gnn",
+      "model_set": "Query GNN/self + AdamW; frozen U-Net/PARSeq/verifier when required",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 922 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 3092 MiB\n",
+      "peak_allocated_bytes": 818767872,
+      "peak_reserved_bytes": 891289600,
+      "precision": "float32",
+      "resource_wait_seconds": 0.05271555995568633,
+      "seconds": 165.53854952799156,
+      "total_gpu_bytes": 25326911488
+    },
+    {
+      "source": "search/preparation_memory.json",
+      "batch_size": 1,
+      "device": "cuda:0",
+      "free_before_bytes": 20822360064,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "label": "new localization queries",
+      "model_set": "Frozen U-Net/PARSeq/grounded verifier; real FIT counterfactuals",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 562 MiB\n1900885, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 3166 MiB\n",
+      "peak_allocated_bytes": 760556544,
+      "peak_reserved_bytes": 834666496,
+      "precision": "float32",
+      "resource_wait_seconds": 0.03421455295756459,
+      "seconds": 714.2521867221221,
+      "total_gpu_bytes": 25326911488
+    }
+  ],
+  "search_battery_cost": {
+    "actual_new_native_OCR": 4198,
+    "actual_segmentation_calls": 5555,
+    "extra_encoder_passes": 16484,
+    "segmentation_state_after": "14b6aafa3e334748a92ea56405916c6685c10d4cc882125c91db544d1ce73acc",
+    "segmentation_state_before": "14b6aafa3e334748a92ea56405916c6685c10d4cc882125c91db544d1ce73acc"
+  },
+  "frozen_parseq": [
+    {
+      "after": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc",
+      "before": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc"
+    }
+  ],
+  "native_visual_evidence": {
+    "extra_encoder_passes": 31284,
+    "frozen_state_audits": [
+      {
+        "after": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc",
+        "before": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc"
+      }
+    ],
+    "memory": {
+      "batch_size": 64,
+      "device": "cuda:0",
+      "free_before_bytes": 24470683648,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        64,
+        3,
+        32,
+        128
+      ],
+      "label": "frozen visual evidence",
+      "model_set": "Frozen PARSeq encoder FP32; no decoder calls",
+      "oom": false,
+      "other_processes": "1898888, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 518 MiB\n1900336, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 254 MiB\n",
+      "peak_allocated_bytes": 183689728,
+      "peak_reserved_bytes": 224395264,
+      "precision": "float32",
+      "resource_wait_seconds": 0.17947470396757126,
+      "seconds": 139.40268607996404,
+      "total_gpu_bytes": 25326911488
+    },
+    "native_ocr_calls": 0,
+    "vertical_pooling": "mean over pretrained patch rows; retain all16 columns and384 channels"
+  },
+  "edit_findings": {
+    "text_repairs_above_verifier": 33,
+    "text_losses_above_verifier": 7,
+    "text_punctuation_only_repairs": 33,
+    "visual_repairs_above_verifier": 40,
+    "visual_losses_above_verifier": 14,
+    "visual_punctuation_only_repairs": 38,
+    "successful_missing_letter_insertions_test": 0,
+    "graph_advantage_established": false
+  },
+  "sensitivity": {
+    "images": 298,
+    "omitted": [
+      "total_text:578",
+      "total_text:656"
+    ],
+    "note": "Post-hoc sensitivity, not an independent split or primary metric; all other exposure remains.",
+    "results": {
+      "baseline_gnn": {
+        "metric": {
+          "correct": 1186,
+          "predictions": 1716,
+          "gt_words": 2187,
+          "fp": 530,
+          "f1": 0.6077376377145786
+        },
+        "versus_gnn": {
+          "delta_f1_points": 0.0,
+          "conditional_image_bootstrap_95_points": [
+            0.0,
+            0.0
+          ],
+          "recovered": 0,
+          "lost": 0,
+          "recovered_words": [],
+          "lost_words": [],
+          "images_improved": 0,
+          "images_worsened": 0,
+          "images_unchanged": 298
+        }
+      },
+      "verifier_replacement": {
+        "metric": {
+          "correct": 1210,
+          "predictions": 1757,
+          "gt_words": 2187,
+          "fp": 547,
+          "f1": 0.6135902636916836
+        },
+        "versus_gnn": {
+          "delta_f1_points": 0.5852625977105008,
+          "conditional_image_bootstrap_95_points": [
+            0.12083347243492693,
+            1.051212035316448
+          ],
+          "recovered": 26,
+          "lost": 2,
+          "recovered_words": [
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 0,
+              "text": "nauGHTY"
+            },
+            {
+              "sample_id": "total_text:194",
+              "gt_index": 17,
+              "text": "jack"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 5,
+              "text": "ORGANIC"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 8,
+              "text": "BUY"
+            },
+            {
+              "sample_id": "total_text:558",
+              "gt_index": 14,
+              "text": "FIRE"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 5,
+              "text": "Office"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 1,
+              "text": "Public"
+            },
+            {
+              "sample_id": "total_text:610",
+              "gt_index": 1,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 2,
+              "text": "WORLD"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 3,
+              "text": "BEANS"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 2,
+              "text": "Since"
+            },
+            {
+              "sample_id": "total_text:642",
+              "gt_index": 13,
+              "text": "BUILD"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 11,
+              "text": "Huong"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 26,
+              "text": "Your"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 16,
+              "text": "Filter"
+            },
+            {
+              "sample_id": "total_text:992",
+              "gt_index": 6,
+              "text": "COL"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 3,
+              "text": "WHARF"
+            },
+            {
+              "sample_id": "total_text:998",
+              "gt_index": 11,
+              "text": "White"
+            },
+            {
+              "sample_id": "total_text:1091",
+              "gt_index": 3,
+              "text": "SINCE"
+            },
+            {
+              "sample_id": "total_text:1199",
+              "gt_index": 0,
+              "text": "perrier"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 1,
+              "text": "NOW"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 2,
+              "text": "ON"
+            },
+            {
+              "sample_id": "total_text:1294",
+              "gt_index": 2,
+              "text": "GOURMET"
+            },
+            {
+              "sample_id": "total_text:1391",
+              "gt_index": 8,
+              "text": "BARS"
+            },
+            {
+              "sample_id": "total_text:1394",
+              "gt_index": 0,
+              "text": "HiPPie"
+            },
+            {
+              "sample_id": "total_text:1544",
+              "gt_index": 3,
+              "text": "BELLS"
+            }
+          ],
+          "lost_words": [
+            {
+              "sample_id": "total_text:199",
+              "gt_index": 2,
+              "text": "JUNCTION"
+            },
+            {
+              "sample_id": "total_text:612",
+              "gt_index": 2,
+              "text": "FRANCAIS"
+            }
+          ],
+          "images_improved": 24,
+          "images_worsened": 19,
+          "images_unchanged": 255
+        }
+      },
+      "search_self_selected": {
+        "metric": {
+          "correct": 1233,
+          "predictions": 1812,
+          "gt_words": 2187,
+          "fp": 579,
+          "f1": 0.6166541635408852
+        },
+        "versus_gnn": {
+          "delta_f1_points": 0.8916525826306643,
+          "conditional_image_bootstrap_95_points": [
+            0.258509507838107,
+            1.492166520641939
+          ],
+          "recovered": 49,
+          "lost": 2,
+          "recovered_words": [
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 0,
+              "text": "nauGHTY"
+            },
+            {
+              "sample_id": "total_text:194",
+              "gt_index": 17,
+              "text": "jack"
+            },
+            {
+              "sample_id": "total_text:198",
+              "gt_index": 2,
+              "text": "1PLY"
+            },
+            {
+              "sample_id": "total_text:493",
+              "gt_index": 2,
+              "text": "Welcome"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 5,
+              "text": "ORGANIC"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 7,
+              "text": "FREE"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 20,
+              "text": "25"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 8,
+              "text": "BUY"
+            },
+            {
+              "sample_id": "total_text:558",
+              "gt_index": 14,
+              "text": "FIRE"
+            },
+            {
+              "sample_id": "total_text:559",
+              "gt_index": 3,
+              "text": "COMPANY"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 5,
+              "text": "Office"
+            },
+            {
+              "sample_id": "total_text:576",
+              "gt_index": 5,
+              "text": "OPEN"
+            },
+            {
+              "sample_id": "total_text:579",
+              "gt_index": 6,
+              "text": "EXCIT"
+            },
+            {
+              "sample_id": "total_text:584",
+              "gt_index": 1,
+              "text": "CHENG"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 1,
+              "text": "Public"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 2,
+              "text": "of"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 20,
+              "text": "by"
+            },
+            {
+              "sample_id": "total_text:603",
+              "gt_index": 1,
+              "text": "FLYING"
+            },
+            {
+              "sample_id": "total_text:610",
+              "gt_index": 1,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 2,
+              "text": "WORLD"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 3,
+              "text": "BEANS"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 2,
+              "text": "Since"
+            },
+            {
+              "sample_id": "total_text:642",
+              "gt_index": 13,
+              "text": "BUILD"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 11,
+              "text": "Huong"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 22,
+              "text": "29"
+            },
+            {
+              "sample_id": "total_text:653",
+              "gt_index": 7,
+              "text": "26"
+            },
+            {
+              "sample_id": "total_text:660",
+              "gt_index": 2,
+              "text": "TOUR"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 28,
+              "text": "up"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 30,
+              "text": "FREE"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 9,
+              "text": "REAL"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 26,
+              "text": "Your"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 37,
+              "text": "so"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 16,
+              "text": "Filter"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 18,
+              "text": "Engine"
+            },
+            {
+              "sample_id": "total_text:903",
+              "gt_index": 8,
+              "text": "Wings"
+            },
+            {
+              "sample_id": "total_text:992",
+              "gt_index": 6,
+              "text": "COL"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 3,
+              "text": "WHARF"
+            },
+            {
+              "sample_id": "total_text:998",
+              "gt_index": 11,
+              "text": "White"
+            },
+            {
+              "sample_id": "total_text:1091",
+              "gt_index": 3,
+              "text": "SINCE"
+            },
+            {
+              "sample_id": "total_text:1096",
+              "gt_index": 3,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:1199",
+              "gt_index": 0,
+              "text": "perrier"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 1,
+              "text": "NOW"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 2,
+              "text": "ON"
+            },
+            {
+              "sample_id": "total_text:1294",
+              "gt_index": 2,
+              "text": "GOURMET"
+            },
+            {
+              "sample_id": "total_text:1391",
+              "gt_index": 8,
+              "text": "BARS"
+            },
+            {
+              "sample_id": "total_text:1394",
+              "gt_index": 0,
+              "text": "HiPPie"
+            },
+            {
+              "sample_id": "total_text:1544",
+              "gt_index": 3,
+              "text": "BELLS"
+            },
+            {
+              "sample_id": "total_text:1549",
+              "gt_index": 25,
+              "text": "USED"
+            },
+            {
+              "sample_id": "total_text:1549",
+              "gt_index": 31,
+              "text": "CABLE"
+            }
+          ],
+          "lost_words": [
+            {
+              "sample_id": "total_text:199",
+              "gt_index": 2,
+              "text": "JUNCTION"
+            },
+            {
+              "sample_id": "total_text:612",
+              "gt_index": 2,
+              "text": "FRANCAIS"
+            }
+          ],
+          "images_improved": 38,
+          "images_worsened": 42,
+          "images_unchanged": 218
+        }
+      },
+      "search_gnn_selected": {
+        "metric": {
+          "correct": 1231,
+          "predictions": 1810,
+          "gt_words": 2187,
+          "fp": 579,
+          "f1": 0.615961971478609
+        },
+        "versus_gnn": {
+          "delta_f1_points": 0.8224333764030423,
+          "conditional_image_bootstrap_95_points": [
+            0.19947055321616114,
+            1.4419120603472715
+          ],
+          "recovered": 47,
+          "lost": 2,
+          "recovered_words": [
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 0,
+              "text": "nauGHTY"
+            },
+            {
+              "sample_id": "total_text:97",
+              "gt_index": 1,
+              "text": "BEAR"
+            },
+            {
+              "sample_id": "total_text:194",
+              "gt_index": 17,
+              "text": "jack"
+            },
+            {
+              "sample_id": "total_text:198",
+              "gt_index": 2,
+              "text": "1PLY"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 5,
+              "text": "ORGANIC"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 7,
+              "text": "FREE"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 20,
+              "text": "25"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 8,
+              "text": "BUY"
+            },
+            {
+              "sample_id": "total_text:558",
+              "gt_index": 14,
+              "text": "FIRE"
+            },
+            {
+              "sample_id": "total_text:559",
+              "gt_index": 3,
+              "text": "COMPANY"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 5,
+              "text": "Office"
+            },
+            {
+              "sample_id": "total_text:579",
+              "gt_index": 6,
+              "text": "EXCIT"
+            },
+            {
+              "sample_id": "total_text:584",
+              "gt_index": 1,
+              "text": "CHENG"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 1,
+              "text": "Public"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 20,
+              "text": "by"
+            },
+            {
+              "sample_id": "total_text:603",
+              "gt_index": 1,
+              "text": "FLYING"
+            },
+            {
+              "sample_id": "total_text:610",
+              "gt_index": 1,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 2,
+              "text": "WORLD"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 3,
+              "text": "BEANS"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 2,
+              "text": "Since"
+            },
+            {
+              "sample_id": "total_text:642",
+              "gt_index": 13,
+              "text": "BUILD"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 11,
+              "text": "Huong"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 22,
+              "text": "29"
+            },
+            {
+              "sample_id": "total_text:653",
+              "gt_index": 7,
+              "text": "26"
+            },
+            {
+              "sample_id": "total_text:660",
+              "gt_index": 2,
+              "text": "TOUR"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 28,
+              "text": "up"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 30,
+              "text": "FREE"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 9,
+              "text": "REAL"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 26,
+              "text": "Your"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 16,
+              "text": "Filter"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 18,
+              "text": "Engine"
+            },
+            {
+              "sample_id": "total_text:903",
+              "gt_index": 8,
+              "text": "Wings"
+            },
+            {
+              "sample_id": "total_text:992",
+              "gt_index": 6,
+              "text": "COL"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 3,
+              "text": "WHARF"
+            },
+            {
+              "sample_id": "total_text:998",
+              "gt_index": 11,
+              "text": "White"
+            },
+            {
+              "sample_id": "total_text:1091",
+              "gt_index": 3,
+              "text": "SINCE"
+            },
+            {
+              "sample_id": "total_text:1199",
+              "gt_index": 0,
+              "text": "perrier"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 1,
+              "text": "NOW"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 2,
+              "text": "ON"
+            },
+            {
+              "sample_id": "total_text:1294",
+              "gt_index": 2,
+              "text": "GOURMET"
+            },
+            {
+              "sample_id": "total_text:1296",
+              "gt_index": 10,
+              "text": "SHOP"
+            },
+            {
+              "sample_id": "total_text:1391",
+              "gt_index": 8,
+              "text": "BARS"
+            },
+            {
+              "sample_id": "total_text:1394",
+              "gt_index": 0,
+              "text": "HiPPie"
+            },
+            {
+              "sample_id": "total_text:1539",
+              "gt_index": 1,
+              "text": "SAN"
+            },
+            {
+              "sample_id": "total_text:1544",
+              "gt_index": 3,
+              "text": "BELLS"
+            },
+            {
+              "sample_id": "total_text:1549",
+              "gt_index": 25,
+              "text": "USED"
+            },
+            {
+              "sample_id": "total_text:1549",
+              "gt_index": 31,
+              "text": "CABLE"
+            }
+          ],
+          "lost_words": [
+            {
+              "sample_id": "total_text:199",
+              "gt_index": 2,
+              "text": "JUNCTION"
+            },
+            {
+              "sample_id": "total_text:612",
+              "gt_index": 2,
+              "text": "FRANCAIS"
+            }
+          ],
+          "images_improved": 38,
+          "images_worsened": 43,
+          "images_unchanged": 217
+        }
+      },
+      "editor_text_selected": {
+        "metric": {
+          "correct": 1236,
+          "predictions": 1757,
+          "gt_words": 2187,
+          "fp": 521,
+          "f1": 0.6267748478701826
+        },
+        "versus_gnn": {
+          "delta_f1_points": 1.9037210155604,
+          "conditional_image_bootstrap_95_points": [
+            1.1154234000686178,
+            2.7984855950961935
+          ],
+          "recovered": 59,
+          "lost": 9,
+          "recovered_words": [
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 0,
+              "text": "nauGHTY"
+            },
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 1,
+              "text": "NURIS"
+            },
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 2,
+              "text": "NURIS"
+            },
+            {
+              "sample_id": "total_text:3",
+              "gt_index": 2,
+              "text": "NURS"
+            },
+            {
+              "sample_id": "total_text:191",
+              "gt_index": 0,
+              "text": "Prydes"
+            },
+            {
+              "sample_id": "total_text:194",
+              "gt_index": 17,
+              "text": "jack"
+            },
+            {
+              "sample_id": "total_text:393",
+              "gt_index": 10,
+              "text": "BRGY"
+            },
+            {
+              "sample_id": "total_text:393",
+              "gt_index": 11,
+              "text": "ASISAN"
+            },
+            {
+              "sample_id": "total_text:531",
+              "gt_index": 0,
+              "text": "Sams"
+            },
+            {
+              "sample_id": "total_text:532",
+              "gt_index": 2,
+              "text": "sheffield"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 5,
+              "text": "ORGANIC"
+            },
+            {
+              "sample_id": "total_text:544",
+              "gt_index": 2,
+              "text": "BTB"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 4,
+              "text": "1ST"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 8,
+              "text": "BUY"
+            },
+            {
+              "sample_id": "total_text:558",
+              "gt_index": 14,
+              "text": "FIRE"
+            },
+            {
+              "sample_id": "total_text:570",
+              "gt_index": 5,
+              "text": "org"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 0,
+              "text": "WG"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 5,
+              "text": "Office"
+            },
+            {
+              "sample_id": "total_text:579",
+              "gt_index": 16,
+              "text": "EAUTY"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 1,
+              "text": "Public"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 10,
+              "text": "garden"
+            },
+            {
+              "sample_id": "total_text:609",
+              "gt_index": 0,
+              "text": "Prydes"
+            },
+            {
+              "sample_id": "total_text:610",
+              "gt_index": 1,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 2,
+              "text": "WORLD"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 3,
+              "text": "BEANS"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 2,
+              "text": "Since"
+            },
+            {
+              "sample_id": "total_text:642",
+              "gt_index": 13,
+              "text": "BUILD"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 11,
+              "text": "Huong"
+            },
+            {
+              "sample_id": "total_text:653",
+              "gt_index": 3,
+              "text": "NO"
+            },
+            {
+              "sample_id": "total_text:654",
+              "gt_index": 1,
+              "text": "JOES"
+            },
+            {
+              "sample_id": "total_text:664",
+              "gt_index": 28,
+              "text": "599"
+            },
+            {
+              "sample_id": "total_text:677",
+              "gt_index": 0,
+              "text": "Rootin"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 4,
+              "text": "more"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 14,
+              "text": "more"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 17,
+              "text": "10"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 8,
+              "text": "today"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 10,
+              "text": "made"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 13,
+              "text": "good"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 26,
+              "text": "Your"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 16,
+              "text": "Filter"
+            },
+            {
+              "sample_id": "total_text:892",
+              "gt_index": 8,
+              "text": "CO"
+            },
+            {
+              "sample_id": "total_text:892",
+              "gt_index": 10,
+              "text": "SEWING"
+            },
+            {
+              "sample_id": "total_text:992",
+              "gt_index": 6,
+              "text": "COL"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 3,
+              "text": "WHARF"
+            },
+            {
+              "sample_id": "total_text:998",
+              "gt_index": 11,
+              "text": "White"
+            },
+            {
+              "sample_id": "total_text:1091",
+              "gt_index": 3,
+              "text": "SINCE"
+            },
+            {
+              "sample_id": "total_text:1093",
+              "gt_index": 3,
+              "text": "Lets"
+            },
+            {
+              "sample_id": "total_text:1192",
+              "gt_index": 1,
+              "text": "MOMS"
+            },
+            {
+              "sample_id": "total_text:1199",
+              "gt_index": 0,
+              "text": "perrier"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 1,
+              "text": "NOW"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 2,
+              "text": "ON"
+            },
+            {
+              "sample_id": "total_text:1294",
+              "gt_index": 2,
+              "text": "GOURMET"
+            },
+            {
+              "sample_id": "total_text:1295",
+              "gt_index": 2,
+              "text": "CARLOS"
+            },
+            {
+              "sample_id": "total_text:1391",
+              "gt_index": 8,
+              "text": "BARS"
+            },
+            {
+              "sample_id": "total_text:1394",
+              "gt_index": 0,
+              "text": "HiPPie"
+            },
+            {
+              "sample_id": "total_text:1544",
+              "gt_index": 3,
+              "text": "BELLS"
+            },
+            {
+              "sample_id": "total_text:1552",
+              "gt_index": 2,
+              "text": "DOORS"
+            },
+            {
+              "sample_id": "total_text:1552",
+              "gt_index": 4,
+              "text": "FASCIA"
+            },
+            {
+              "sample_id": "total_text:1553",
+              "gt_index": 0,
+              "text": "EZYS"
+            }
+          ],
+          "lost_words": [
+            {
+              "sample_id": "total_text:199",
+              "gt_index": 2,
+              "text": "JUNCTION"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 0,
+              "text": "McCOY'S"
+            },
+            {
+              "sample_id": "total_text:612",
+              "gt_index": 2,
+              "text": "FRANCAIS"
+            },
+            {
+              "sample_id": "total_text:635",
+              "gt_index": 1,
+              "text": "NITTI'S"
+            },
+            {
+              "sample_id": "total_text:637",
+              "gt_index": 1,
+              "text": "RED'S"
+            },
+            {
+              "sample_id": "total_text:645",
+              "gt_index": 1,
+              "text": "NIKITA'S"
+            },
+            {
+              "sample_id": "total_text:658",
+              "gt_index": 0,
+              "text": "Holly's"
+            },
+            {
+              "sample_id": "total_text:658",
+              "gt_index": 2,
+              "text": "Holly's"
+            },
+            {
+              "sample_id": "total_text:663",
+              "gt_index": 0,
+              "text": "KING'S"
+            }
+          ],
+          "images_improved": 44,
+          "images_worsened": 24,
+          "images_unchanged": 230
+        }
+      },
+      "editor_visual_selected": {
+        "metric": {
+          "correct": 1236,
+          "predictions": 1757,
+          "gt_words": 2187,
+          "fp": 521,
+          "f1": 0.6267748478701826
+        },
+        "versus_gnn": {
+          "delta_f1_points": 1.9037210155604,
+          "conditional_image_bootstrap_95_points": [
+            0.988844058856011,
+            2.9186216809838266
+          ],
+          "recovered": 66,
+          "lost": 16,
+          "recovered_words": [
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 0,
+              "text": "nauGHTY"
+            },
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 1,
+              "text": "NURIS"
+            },
+            {
+              "sample_id": "total_text:2",
+              "gt_index": 2,
+              "text": "NURIS"
+            },
+            {
+              "sample_id": "total_text:3",
+              "gt_index": 2,
+              "text": "NURS"
+            },
+            {
+              "sample_id": "total_text:191",
+              "gt_index": 0,
+              "text": "Prydes"
+            },
+            {
+              "sample_id": "total_text:194",
+              "gt_index": 17,
+              "text": "jack"
+            },
+            {
+              "sample_id": "total_text:393",
+              "gt_index": 10,
+              "text": "BRGY"
+            },
+            {
+              "sample_id": "total_text:393",
+              "gt_index": 11,
+              "text": "ASISAN"
+            },
+            {
+              "sample_id": "total_text:398",
+              "gt_index": 5,
+              "text": "CAFE"
+            },
+            {
+              "sample_id": "total_text:531",
+              "gt_index": 0,
+              "text": "Sams"
+            },
+            {
+              "sample_id": "total_text:532",
+              "gt_index": 2,
+              "text": "sheffield"
+            },
+            {
+              "sample_id": "total_text:540",
+              "gt_index": 5,
+              "text": "ORGANIC"
+            },
+            {
+              "sample_id": "total_text:544",
+              "gt_index": 2,
+              "text": "BTB"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 4,
+              "text": "1ST"
+            },
+            {
+              "sample_id": "total_text:549",
+              "gt_index": 8,
+              "text": "BUY"
+            },
+            {
+              "sample_id": "total_text:558",
+              "gt_index": 14,
+              "text": "FIRE"
+            },
+            {
+              "sample_id": "total_text:570",
+              "gt_index": 5,
+              "text": "org"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 0,
+              "text": "WG"
+            },
+            {
+              "sample_id": "total_text:572",
+              "gt_index": 5,
+              "text": "Office"
+            },
+            {
+              "sample_id": "total_text:579",
+              "gt_index": 16,
+              "text": "EAUTY"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 1,
+              "text": "Public"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 10,
+              "text": "garden"
+            },
+            {
+              "sample_id": "total_text:600",
+              "gt_index": 13,
+              "text": "cottages"
+            },
+            {
+              "sample_id": "total_text:609",
+              "gt_index": 0,
+              "text": "Prydes"
+            },
+            {
+              "sample_id": "total_text:610",
+              "gt_index": 1,
+              "text": "OF"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 2,
+              "text": "WORLD"
+            },
+            {
+              "sample_id": "total_text:631",
+              "gt_index": 3,
+              "text": "BEANS"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 2,
+              "text": "Since"
+            },
+            {
+              "sample_id": "total_text:642",
+              "gt_index": 13,
+              "text": "BUILD"
+            },
+            {
+              "sample_id": "total_text:651",
+              "gt_index": 11,
+              "text": "Huong"
+            },
+            {
+              "sample_id": "total_text:653",
+              "gt_index": 3,
+              "text": "NO"
+            },
+            {
+              "sample_id": "total_text:653",
+              "gt_index": 4,
+              "text": "24"
+            },
+            {
+              "sample_id": "total_text:662",
+              "gt_index": 6,
+              "text": "DANIELS"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 4,
+              "text": "more"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 14,
+              "text": "more"
+            },
+            {
+              "sample_id": "total_text:791",
+              "gt_index": 17,
+              "text": "10"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 8,
+              "text": "today"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 10,
+              "text": "made"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 13,
+              "text": "good"
+            },
+            {
+              "sample_id": "total_text:793",
+              "gt_index": 26,
+              "text": "Your"
+            },
+            {
+              "sample_id": "total_text:800",
+              "gt_index": 2,
+              "text": "EXIT"
+            },
+            {
+              "sample_id": "total_text:891",
+              "gt_index": 16,
+              "text": "Filter"
+            },
+            {
+              "sample_id": "total_text:892",
+              "gt_index": 8,
+              "text": "CO"
+            },
+            {
+              "sample_id": "total_text:992",
+              "gt_index": 6,
+              "text": "COL"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 2,
+              "text": "FISHERMANS"
+            },
+            {
+              "sample_id": "total_text:996",
+              "gt_index": 3,
+              "text": "WHARF"
+            },
+            {
+              "sample_id": "total_text:998",
+              "gt_index": 11,
+              "text": "White"
+            },
+            {
+              "sample_id": "total_text:1000",
+              "gt_index": 2,
+              "text": "BEER"
+            },
+            {
+              "sample_id": "total_text:1091",
+              "gt_index": 3,
+              "text": "SINCE"
+            },
+            {
+              "sample_id": "total_text:1093",
+              "gt_index": 3,
+              "text": "Lets"
+            },
+            {
+              "sample_id": "total_text:1099",
+              "gt_index": 5,
+              "text": "RDA"
+            },
+            {
+              "sample_id": "total_text:1192",
+              "gt_index": 1,
+              "text": "MOMS"
+            },
+            {
+              "sample_id": "total_text:1199",
+              "gt_index": 0,
+              "text": "perrier"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 1,
+              "text": "NOW"
+            },
+            {
+              "sample_id": "total_text:1292",
+              "gt_index": 2,
+              "text": "ON"
+            },
+            {
+              "sample_id": "total_text:1294",
+              "gt_index": 2,
+              "text": "GOURMET"
+            },
+            {
+              "sample_id": "total_text:1295",
+              "gt_index": 2,
+              "text": "CARLOS"
+            },
+            {
+              "sample_id": "total_text:1348",
+              "gt_index": 6,
+              "text": "Wings"
+            },
+            {
+              "sample_id": "total_text:1391",
+              "gt_index": 8,
+              "text": "BARS"
+            },
+            {
+              "sample_id": "total_text:1394",
+              "gt_index": 0,
+              "text": "HiPPie"
+            },
+            {
+              "sample_id": "total_text:1395",
+              "gt_index": 0,
+              "text": "Kelloggs"
+            },
+            {
+              "sample_id": "total_text:1544",
+              "gt_index": 3,
+              "text": "BELLS"
+            },
+            {
+              "sample_id": "total_text:1548",
+              "gt_index": 6,
+              "text": "CANNERY"
+            },
+            {
+              "sample_id": "total_text:1552",
+              "gt_index": 2,
+              "text": "DOORS"
+            },
+            {
+              "sample_id": "total_text:1552",
+              "gt_index": 4,
+              "text": "FASCIA"
+            },
+            {
+              "sample_id": "total_text:1553",
+              "gt_index": 0,
+              "text": "EZYS"
+            }
+          ],
+          "lost_words": [
+            {
+              "sample_id": "total_text:199",
+              "gt_index": 2,
+              "text": "JUNCTION"
+            },
+            {
+              "sample_id": "total_text:591",
+              "gt_index": 0,
+              "text": "McCOY'S"
+            },
+            {
+              "sample_id": "total_text:612",
+              "gt_index": 2,
+              "text": "FRANCAIS"
+            },
+            {
+              "sample_id": "total_text:635",
+              "gt_index": 1,
+              "text": "NITTI'S"
+            },
+            {
+              "sample_id": "total_text:637",
+              "gt_index": 1,
+              "text": "RED'S"
+            },
+            {
+              "sample_id": "total_text:641",
+              "gt_index": 0,
+              "text": "SAWYER'S"
+            },
+            {
+              "sample_id": "total_text:645",
+              "gt_index": 1,
+              "text": "NIKITA'S"
+            },
+            {
+              "sample_id": "total_text:648",
+              "gt_index": 1,
+              "text": "FISHERMAN'S"
+            },
+            {
+              "sample_id": "total_text:652",
+              "gt_index": 0,
+              "text": "T-BoneTom's"
+            },
+            {
+              "sample_id": "total_text:654",
+              "gt_index": 7,
+              "text": "bazzie's"
+            },
+            {
+              "sample_id": "total_text:658",
+              "gt_index": 0,
+              "text": "Holly's"
+            },
+            {
+              "sample_id": "total_text:658",
+              "gt_index": 2,
+              "text": "Holly's"
+            },
+            {
+              "sample_id": "total_text:662",
+              "gt_index": 12,
+              "text": "iebiggs.com"
+            },
+            {
+              "sample_id": "total_text:663",
+              "gt_index": 0,
+              "text": "KING'S"
+            },
+            {
+              "sample_id": "total_text:674",
+              "gt_index": 3,
+              "text": "CANADA'S"
+            },
+            {
+              "sample_id": "total_text:674",
+              "gt_index": 7,
+              "text": "CANADA'S"
+            }
+          ],
+          "images_improved": 47,
+          "images_worsened": 29,
+          "images_unchanged": 222
+        }
+      }
+    }
+  },
+  "historical_test_exploration": true,
+  "independent_validation": false,
+  "result_selection_uses_test": false,
+  "source_dataset_modified": false,
+  "strict_configuration_modified": false,
+  "model_promoted": false,
+  "packages_installed": false,
+  "preserved_failures": [
+    {
+      "attempt": "smoke1",
+      "reason": "Missing PHASES import; fixed before final smoke",
+      "path": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/smoke1/failure.json"
+    },
+    {
+      "attempt": "smoke2",
+      "reason": "Wrong working-directory approximate namespace rejection; no experiment output",
+      "path": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/smoke2.log"
+    },
+    {
+      "attempt": "smoke3",
+      "reason": "Text-dependent reused adjacency adapter; replaced by direct geometric adjacency with regression test",
+      "path": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/smoke3/failure.json"
+    },
+    {
+      "attempt": "smoke4",
+      "reason": "Insufficient-free-memory preflight; preserved other jobs; bounded resource scheduler added",
+      "path": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/smoke4/failure.json"
+    },
+    {
+      "attempt": "read-only lookup",
+      "reason": "Expected resolved_config.json did not exist; actual prior config found in protocol.json",
+      "path": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/preflight_failures.json"
+    },
+    {
+      "attempt": "optional visualization",
+      "reason": "Matplotlib unavailable; used existing PIL without installing dependencies"
+    }
+  ],
+  "helper_sha256": {
+    "analyze_mechanisms.py": "1269d33d9c5236dbd9fa77ad128597199002fc1f40ac291333cde1ee5b755bcd",
+    "analyze_edits_and_sensitivity.py": "140dea17e37227944298f195bc60e4ef83efd9250a9d8266a8bc0dce90a806c8"
+  }
+}

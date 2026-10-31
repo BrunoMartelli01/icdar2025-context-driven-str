@@ -1,0 +1,105 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "TRAIN validation operating-policy calibration",
+  "status": "SUCCESS_DIAGNOSTIC_ONLY_TARGET_NOT_ACHIEVED",
+  "source_files": {
+    "configs/approximate/icdar2015_target70_operating_policy_v1.json": "f3caa53798e6d0f29a1aa9566b7ba084d9c234e533f77863efa2212d77b1bb6d",
+    "segmentation/icdar2015_operating_policy.py": "c3eff75f44b2ce9d7aa570667adf8c35c8d3f85d2ad45f8c217db81d74b3440f",
+    "scripts/calibrate_icdar2015_target70_operating_policy.py": "a1b4066c0e3c1f11aac2d7880cd7ff3e2d00268dc25451cb594df3f9e8991a8f",
+    "configs/approximate/icdar2015_target70_oracle_v1.json": "bb613f27649272f3038edbbb4fc4d8c5ec97ecfbfd779740e4a7a17bc58f2387",
+    "scripts/diagnose_icdar2015_target70_oracle.py": "ab6a8652b8e51fd560c41b751341536f497a367d811357d3b84cf1742b956657",
+    "tests/segmentation/test_icdar2015_operating_crops.py": "16c432da4b222999be36eabc9acfa9bd6b8ed89518c01562566aca918e765e94",
+    "tests/scripts/test_icdar2015_target70_oracle_geometry.py": "5a3df9804cc5401ba63e74db2e60d98815b266c56f871b8bf7df29476abff081"
+  },
+  "result_path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/source-operating-policy-validation-v1/results.json",
+  "result_sha256": "2a1a9a57a7bcf0ae23e59d648914c2c15d61281d6ea2b66ab5ebd120f5daa630",
+  "candidate_count": 20,
+  "images": 100,
+  "care_words": 430,
+  "failed_samples": 0,
+  "selected": {
+    "crop_method": "oriented2",
+    "emission_policy": {
+      "confidence": "mean_token_confidence",
+      "minimum_alphanumeric_length": 3,
+      "threshold": 0.95
+    },
+    "emitted_aggregate": {
+      "alphanumeric_casefold": {
+        "f1": 0.592020592020592,
+        "fn": 200,
+        "fp": 117,
+        "precision": 0.6628242074927954,
+        "recall": 0.5348837209302325,
+        "tp": 230
+      },
+      "alphanumeric_casefold_tp": 230,
+      "casefold_exact": {
+        "f1": 0.5817245817245817,
+        "fn": 204,
+        "fp": 121,
+        "precision": 0.6512968299711815,
+        "recall": 0.5255813953488372,
+        "tp": 226
+      },
+      "casefold_exact_tp": 226,
+      "empty_normalized_predictions": 0,
+      "geometry": {
+        "f1": 0.6563706563706564,
+        "fn": 175,
+        "fp": 92,
+        "precision": 0.7348703170028819,
+        "recall": 0.5930232558139535,
+        "tp": 255
+      },
+      "geometry_tp": 255,
+      "gt_words": 430,
+      "images": 100,
+      "predictions": 347,
+      "symbol_only_gt": 0
+    },
+    "per_image_file": "threshold_0.5_oriented2/per_image.json",
+    "per_image_sha256": "1205acd0cf238abaa2e66dee7eac43487f211faa849752e53ed2128f557e4cd8",
+    "probability_threshold": 0.5,
+    "raw_aggregate": {
+      "alphanumeric_casefold": {
+        "f1": 0.4201388888888889,
+        "fn": 188,
+        "fp": 480,
+        "precision": 0.33518005540166207,
+        "recall": 0.5627906976744186,
+        "tp": 242
+      },
+      "alphanumeric_casefold_tp": 242,
+      "casefold_exact": {
+        "f1": 0.40625,
+        "fn": 196,
+        "fp": 488,
+        "precision": 0.32409972299168976,
+        "recall": 0.5441860465116279,
+        "tp": 234
+      },
+      "casefold_exact_tp": 234,
+      "empty_normalized_predictions": 34,
+      "geometry": {
+        "f1": 0.4913194444444444,
+        "fn": 147,
+        "fp": 439,
+        "precision": 0.39196675900277006,
+        "recall": 0.6581395348837209,
+        "tp": 283
+      },
+      "geometry_tp": 283,
+      "gt_words": 430,
+      "images": 100,
+      "predictions": 722,
+      "symbol_only_gt": 0
+    }
+  },
+  "source_geometry_path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/long768/validation/epoch_000/geometry.json",
+  "source_mask_directory": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/long768/validation/epoch_000/masks",
+  "data_root": "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1",
+  "test_evaluations": 0,
+  "goal_achieved": false
+}

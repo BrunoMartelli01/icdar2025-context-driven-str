@@ -1,0 +1,117 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "icdar13_matched_unet_new_generic_router_v1",
+  "seed": 20261028,
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "minimum_free_gpu_bytes": 3221225472,
+  "parseq_batch_size": 32,
+  "light_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full",
+  "teacher_counts": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "teacher_audit": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/independent_audit.json",
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "historical_router_root": "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-router-generic-20261028-v1",
+  "features": {
+    "maps": {
+      "minimum_component_area": 4,
+      "probability_threshold": 0.5
+    },
+    "token_probability_cutoffs": [
+      0.5,
+      0.9
+    ]
+  },
+  "heads": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 30,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    },
+    {
+      "iterations": 60,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    }
+  ],
+  "feature_groups": [
+    [
+      "ocr"
+    ],
+    [
+      "ocr",
+      "tokens"
+    ],
+    [
+      "ocr",
+      "maps"
+    ],
+    [
+      "ocr",
+      "tokens",
+      "maps"
+    ]
+  ],
+  "selection_tolerance": 0.0025,
+  "calibration_fraction_controls": [
+    0.2,
+    0.25,
+    0.3
+  ],
+  "diagnostic_fraction_controls": [
+    0.2,
+    0.25,
+    0.3,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "target_f1_diagnostic": 0.9,
+  "bootstrap_draws": 2000,
+  "numerical_replay_tolerance": 1e-09,
+  "expected_populations": {
+    "fit": 183,
+    "selection": 23,
+    "calibration": 23,
+    "test": 233
+  },
+  "expected_test_words": 1095,
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/resolved_configuration.json": "50ec73f44003ad4bfdeeaf8801d5c0c19c99a4fe01921897d91e8face06498ec",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/selection_frozen.json": "505301cf0f0d2a8d2d0b2fca1e7fafadecff7e472985a0f9490b0b64469c001e",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/results.json": "68678e9647e479189ac4d76b3ba6f1a1783ea734759dca08f106ab1af2f37629",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/independent_lexical_audit.json": "281e173544a07012c2c3525a91df81d13cfd695e11529a6bdb9d6327ffc051c9",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/totaltext_bce_dice/best.pt": "0e9a4bcc51ca1901e6b1c119c09f98c326703946e6ed92c0cba8fdcbd4265f65",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/independent_audit.json": "1e5cd9202dab05cb2df9a9efa5695ef4f621de81b6436fce7412791b05b9dec3",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50",
+    "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full/frozen_router.json": "da7e0a407a998e83e84920f4cc5aaaef4b23900daecc278e452a56aecfc9e5da",
+    "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full/test_scores.json": "1baf5989fdfabf69721d383b5bc7dc3bce9f46da9672faa29f9f4c0b7483dd68"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Paper3.5/Algorithm2 broad fallback motivation only; no trained gate is specified.",
+    "REPOSITORY_SPECIFIED": "Pinned improved U-Net/PARSeq predictions, Generic90.1707 teacher and native small-head utility/features/strict budgets/calibration interfaces.",
+    "ASSUMPTION": "User explicitly requests NEW router training, not frozen replay. Fit20 fresh Ridge/HGB candidates on FIT183, select on23 and calibrate unchanged winner on separate23. Keep complete symbol-free lexical metric and all233/1095 TEST denominators. Source U-Net saw fitting images; report expert-seen utility optimism. Keep original expert-specific emission policies; no GT-based word rejection. Latest explicit user budget: exactly61/233 DeepSolo images (26.18%); train/select against its rounded validation counterpart6/23, then rank with RGB ties for exact172 light /61 DeepSolo on TEST.",
+    "HARDWARE_DEVIATION": "Observed shared RTX3090 FP32 batch1 segmentation and PARSeq32 for183 missing FIT outputs; CPU small-head fitting, staged/cache reuse, actual inference peaks. Preserve other authorized GPU processes. No new DeepSolo physical inference or latency/8GB claim.",
+    "UNRESOLVED": "Small reused selection cohorts, expert-seen fitting images, historical TEST exposure, public Generic side information, original pretraining overlap and exact paper metric/artifact equivalence."
+  },
+  "primary_deepsolo_images": 61,
+  "validation_budget_rule": "round(validation_images * 61 / 233) DeepSolo images; select unchanged utility heads at that exact heldout count"
+}

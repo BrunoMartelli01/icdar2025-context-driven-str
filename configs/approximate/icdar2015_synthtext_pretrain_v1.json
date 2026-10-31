@@ -1,0 +1,170 @@
+{
+  "datasets": {
+    "icdar2015": {
+      "manifest": "manifests/icdar2015_train.yaml",
+      "manifest_sha256": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739",
+      "images": 1000
+    },
+    "total_text": {
+      "manifest": "manifests/total_text_train.yaml",
+      "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+      "images": 1255
+    }
+  },
+  "source_training_config": "configs/approximate/icdar2015_totaltext_transfer_v1.json",
+  "source_training_config_sha256": "6afa0d0fc2e1fc36b35ff25b4fe0bf6529af2e0aaea767be666fdea2f6128341",
+  "validation_count": 100,
+  "matching_iou_threshold": 0.5,
+  "canvas_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "skip_floor": 0.25,
+  "group_norm_max_groups": 32,
+  "parseq_batch_size": 32,
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_synthtext_pretraining_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_checkpoint_sha256": "c4676914dbcbf559a26fb98e51f5ae137b2a3ac66930d0191fca5b214fce5eb6",
+  "source_checkpoint_epoch": 50,
+  "source_effective_epoch": 106,
+  "source_architecture": "approximate-icdar2015-target70-agunet-v1:partial_encoder",
+  "source_run_manifest_sha256": "b8ecf15f90e20fccba7f2f116d9be9c8c5c2e8fd9e940c7b0945e4ecdea1bf43",
+  "previous_improvement_config_sha256": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+  "probability_threshold": 0.5,
+  "word_validation_interval": 5,
+  "validation_ocr_device": "cpu",
+  "minimum_target_word_f1": 0.7,
+  "aspirational_target_word_f1": 0.8,
+  "training": {
+    "epochs": 50,
+    "seed": 202503,
+    "batch_size": 8,
+    "num_workers": 2,
+    "precision": "float32",
+    "optimizer": "AdamW",
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      -15.0,
+      15.0
+    ],
+    "separation_weight": 3.0,
+    "instance_dice_weight": 0.5,
+    "instance_dice_margin_native_pixels": 2,
+    "loss_epsilon": 1e-06,
+    "checkpoint_selection": "validation_raw_symbol_free_word_F1_then_emitted_then_geometry_then_earliest",
+    "include_initial_state_as_epoch_zero": true,
+    "optimizer_initialization": "fresh_AdamW_each_stage_no_inherited_coupled_L2_moments",
+    "learning_rate_schedule": "cosine_per_epoch",
+    "minimum_learning_rate_ratio": 0.1,
+    "optimizer_foreach": false
+  },
+  "branches": {
+    "pretrain": {
+      "image_hw": [
+        512,
+        512
+      ],
+      "physical_batch_size": 8,
+      "gradient_accumulation": 1,
+      "encoder_trainable_stages": [
+        "layer3",
+        "layer4"
+      ],
+      "encoder_learning_rate": 1e-05,
+      "ignore_negative_weight": 0.0,
+      "gradient_clip_norm": 1.0,
+      "encoder_weight_decay": 0.0,
+      "epochs": 5,
+      "decoder_learning_rate": 0.0001
+    },
+    "finetune": {
+      "image_hw": [
+        736,
+        1280
+      ],
+      "physical_batch_size": 4,
+      "gradient_accumulation": 2,
+      "encoder_trainable_stages": [
+        "layer3",
+        "layer4"
+      ],
+      "encoder_learning_rate": 1e-06,
+      "ignore_negative_weight": 3.0,
+      "gradient_clip_norm": 1.0,
+      "encoder_weight_decay": 0.0,
+      "epochs": 50,
+      "decoder_learning_rate": 1e-05
+    }
+  },
+  "scientific_choices": [
+    {
+      "component": "same_paper_family",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Attention-gated U-Net with pretrained ResNet50 family; exact practical decoder remains approximate."
+    },
+    {
+      "component": "existing_source_and_data",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Qualified c467 source, original disjoint-word ICDAR masks/FIT900/VAL100, original already extracted50k SynthText cohort and qualified visible-word target policy. Preserve prior results and official TEST protocol."
+    },
+    {
+      "component": "diverse_pretraining_and_optimizer",
+      "classification": "ASSUMPTION",
+      "rationale": "Measured FIT/VAL geometry gap.8866/.5714 motivates5epochs synthetic pretraining then50target epochs. Fresh AdamW per stage with decoder decay.01 and encoder0, layer3/4 enabled/BN frozen, cosine to.1x and source profiles preserved. Data plus optimizer changes are a combined research extension, not a causal ablation or strict reproduction."
+    },
+    {
+      "component": "selection_and_masks",
+      "classification": "ASSUMPTION",
+      "rationale": "Synthetic stage uses declared last checkpoint. Target epoch/policy decisions use only original VAL100 with actual raw/emitted spatial correct-word F1; retain every original care word and all emitted predictions including ignored regions. Existing source controls remain eligible. Track native resampling word loss without removing raw annotations."
+    },
+    {
+      "component": "hardware_execution",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Actual RTX3090 FP32, synthetic physical8 and native physical4/accumulation2; decoder BN sees physical batches. Qualify complete backward allocated/reserved peaks and propagate OOM; no automatic substitution."
+    }
+  ],
+  "source_validation_report_sha256": "8e61e7e29c8d0b0577a3b4abcdad1f9b0b60512c26a6ef45887a5172629362ff",
+  "emission_policy_grid": {
+    "sequence_confidence": [
+      0.0,
+      0.4,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "mean_token_confidence": [
+      0.0,
+      0.7,
+      0.8,
+      0.9,
+      0.95
+    ],
+    "minimum_alphanumeric_length": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "source_training_profile": "configs/approximate/icdar2015_target70_v1.json",
+  "source_training_profile_sha256": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+  "synthetic_data_profile": "configs/approximate/icdar2015_synthtext_data_v1.json",
+  "synthetic_data_profile_sha256": "a241f266e6d6779d6681292a7e2c642122c96f7ed031f3084134ddcb8ba56b40",
+  "validation_image_hw": [
+    736,
+    1280
+  ],
+  "pretrain_checkpoint_selection": "last_epoch_no_target_label_selection"
+}

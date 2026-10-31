@@ -1,0 +1,66 @@
+{
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "cases": {
+    "baseline": null,
+    "control_final": {
+      "epoch": 10,
+      "root": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13"
+    },
+    "instance_final": {
+      "epoch": 10,
+      "root": "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12/instance_balanced/full/icdar13"
+    },
+    "photometric_final": {
+      "epoch": 10,
+      "root": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13"
+    }
+  },
+  "dataset": "icdar13",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-checkpoint-pipeline-validation-20261031-v13",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12/instance_balanced/full/icdar13/complete.json": "463e1e5971618649231a4e0751bd7c2742e78a8da21ed6c269edc77d205ecb7a",
+    "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12/instance_balanced/full/icdar13/independent_training_audit.json": "1ec65ef2f335a45dbfd606a941c1ab8dc7bfce24e5e19f20531634738e8f6eef",
+    "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12/instance_balanced/full/icdar13/last.pt": "2f2d830a496268a34670b0b5565dec8efca2a68f62e8290ba2e8fe561faad976",
+    "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12/instance_balanced/full/icdar13/resolved_configuration.json": "a722f8e0d0d4a789ee118a397620759edf0d486c469e32f6f9a7c2acfea58583",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/complete.json": "03a2597b7f9775d3f0d4dd7e871f63219b5e30b1e312a89b99ae3464a7eb6c32",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/independent_training_audit.json": "70b2ade0f93ba73cc4697d60f10fcd8b92529adf762f036e7f3443846eebe8a7",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/last.pt": "c9162068f9dbee5d536ec41bab762222bfd5da7d5415b46df60980496c63eb69",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/resolved_configuration.json": "052282860e4c5fa25bbe00267f3089673f1705561ec91d4b3d8de94e60485d57",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13/complete.json": "baa51529b90a5d7fa760d36970702712cf701f6f188b059dfa2fe7912600c1b7",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13/independent_training_audit.json": "2c03623964a676fc20d1d546a778279fd8b2dcc716501ba4316d3345fe7aa1c6",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13/last.pt": "7de77206248942a50f4a2ad042b6f60faa6372d8ac64eeb92b9b47cc1abb49af",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13/resolved_configuration.json": "5112b9ca4436e50e6f65fe471291ae2885d870095f46f79697067da388fc62e0",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_instance_objective_v12.json": "9ef274b18435e15eb9f97b3662146f5535590f3e56573cf105bf2977a6cf203f",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/replay_uniform_validation_checkpoints.py": "d73aab9d73fa8c5efc50cdb4dfb81fb2b5d4644545d1a8249599d03fcbd507c4"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Compare native baseline and all3 retained final ten-epoch checkpoints on the complete frozen word/image/fusion pipeline, exact hard floor quota. Same canonical crop geometry; verify baseline count/route parity. Select highest validation F1 within0.1 point, first configured name (baseline first). Paired bootstrap reported as uncertainty, not a mandatory promotion gate. Endpoint5 excluded because no retained weights. No new TEST. This separate protocol follows earlier raw-only negative selection.",
+    "HARDWARE_DEVIATION": "Two-thread CPU cached validation only; zero new neural calls and no additional deployment models.",
+    "REPOSITORY_SPECIFIED": "Qualified checkpoints/maps/raw crops, word/image heads, vocabulary, PCA, fusion, native care/ignore metric.",
+    "UNRESOLVED": "Reused small validation, historical/upstream exposure, cross-domain retention, matching OOF refits and hard-budget TEST target achievement."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json"
+}

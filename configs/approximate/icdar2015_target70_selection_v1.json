@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "classification": "ASSUMPTION",
+  "training_profile": "configs/approximate/icdar2015_target70_v1.json",
+  "training_profile_sha256": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+  "operating_profile": "configs/approximate/icdar2015_target70_operating_policy_v1.json",
+  "operating_profile_sha256": "f3caa53798e6d0f29a1aa9566b7ba084d9c234e533f77863efa2212d77b1bb6d",
+  "source_training_profile": "configs/approximate/icdar2015_unet_improvement_v1.json",
+  "source_training_profile_sha256": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+  "required_branches": ["long768", "adapt1280"],
+  "include_qualified_source": true,
+  "model_tiebreak": "operating_policy_selection_key_then_fewer_RGB_pixels_then_earlier_effective_epoch_then_source_then_name",
+  "rationale": "Require both full 100-epoch branches and their complete fixed-TRAIN-validation operating grids. Keep the qualified source eligible. Freeze a model and its output policy using validation only before reading any new TEST annotations. Report raw and emitted metrics and preserve all care denominators."
+}

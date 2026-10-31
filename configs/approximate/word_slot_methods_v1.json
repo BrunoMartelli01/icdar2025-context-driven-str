@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "word_slot_methods_v1",
+  "scientific_ambiguity": "WORD-SLOT-METHODS-001",
+  "seed": 20261025,
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "word_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/qualified_word_data",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "split_protocol": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/protocol.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "deepsolo_plan": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/resolved_configuration.json",
+    "deepsolo_results": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/results.json",
+    "deepsolo_runtime": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/runtime.json",
+    "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "split_protocol": "5ee0289a23ff9ff31f9db76d21d764a70b93debc52ba8362a0341517ba57c65d",
+    "deepsolo_results": "8e31e3dac1226a6b7f0989e54f0d3dc39e38492f7b8b2fdf1b387561544e4352",
+    "deepsolo_plan": "d21b32113271a9de2a9ef2d40c2d2b8b9a3e8f6a20331056d2c942522c244abe"
+  },
+  "runtime": {
+    "device": "cuda:0", "precision": "float32", "cpu_threads": 4,
+    "minimum_free_gpu_bytes": 8589934592, "deterministic_algorithms": true,
+    "allow_tf32": false, "cublas_workspace_config": ":4096:8",
+    "rgb_grid_device": "cpu", "feature_cache_dtype": "float32"
+  },
+  "architecture": {
+    "slots": 128, "width": 48, "heads": 4, "key_size": 24,
+    "skip_floor": 0.25, "strip_points": 8, "character_width": 384,
+    "feedback": true, "mask_initialization": false
+  },
+  "training": {
+    "warmup_epochs": 8, "branch_epochs": 3, "learning_rate": 0.0003,
+    "weight_decay": 0.0001, "gradient_accumulation": 4,
+    "gradient_clip_norm": 5.0, "mask_size": 128,
+    "no_object_weight": 0.1, "mask_weight": 1.0,
+    "denoising_groups": 2, "denoising_noise": 0.4,
+    "denoising_background_queries": 4, "denoising_weight": 0.5,
+    "dense_groups": 2, "dense_weight": 0.5, "dense_jitter": 0.2,
+    "ocr_crops_per_image": 4, "ocr_weight": 0.1,
+    "character_weight": 0.1, "character_temperature": 0.1,
+    "glyph_weight": 0.1, "strip_strength": 0.2,
+    "strip_regularization": 0.1, "minimum_grid_step": 0.00001,
+    "specialist_failure_weight": 3.0,
+    "mcl_exploration": 0.2,
+    "selection": "last fixed-budget epoch; no TEST checkpoint selection",
+    "augmentation": "none; preserve transcription and exact FP32 feature-cache replay"
+  },
+  "initialization": {"maximum_predicted_seeds": 32, "minimum_free_slots": 96,
+    "text_threshold": 0.65, "kernel_threshold": 0.5,
+    "policy": "GT-blind kernel regions initialize boxes only; every box remains movable and ninety-six slots remain unseeded; 128 slots cover the observed TRAIN maximum of 117 care words"},
+  "arms": {
+    "slot_control": {},
+    "denoising": {"denoising": true},
+    "mask_initialization": {"mask_initialization": true, "denoising": true},
+    "recognition_alignment": {"ocr": true},
+    "ccd_character": {"ccd": true},
+    "mae_character": {"ccd": true, "teacher": "mae"},
+    "siga_guidance": {"glyph": true},
+    "content_strip": {"ocr": true, "strip": true},
+    "pcgrad": {"ocr": true, "pcgrad": true},
+    "dense_matching": {"denoising": true, "dense": true},
+    "complementary_specialist": {"specialist": true, "ocr": true},
+    "multiple_choice": {"mcl": true, "ocr": true},
+    "combined": {"denoising": true, "ccd": true, "glyph": true, "ocr": true, "strip": true, "pcgrad": true, "specialist": true}
+  },
+  "ccd": {
+    "source": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/assets/ccd_vision_transformer.original.py",
+    "source_sha256": "bda9bb1d9fa1273dd65461b64841a16acc9649dd5ff507877d88f2bb547ca10b",
+    "checkpoint": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/assets/ccd_small.pth",
+    "checkpoint_sha256": "c2b1b812f5a40fdcce79bc05d396988cd7d3f016570b6883d18a7f46b27b1d4e",
+    "segmentation_source": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/assets/ccd_segmentor.original.py",
+    "segmentation_source_sha256": "8fede899c1966ca40d13220134a2b3db6ed27c8d0264fc5c36f4116b29764983",
+    "revision": "e3fa0b50f2465567fd006f68fa3770cbf8411b3b"
+  },
+  "mae": {
+    "source": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/assets/mae_vit.original.py",
+    "source_sha256": "628a1af35656e3baefdca900d9eca0dc40e771178ca278a3fe13da441af602b1",
+    "checkpoint": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/assets/mae_vit_small.pth",
+    "checkpoint_sha256": "5956fb5ed59eabac5358b054f6c110b944d0ca554928691c20b176b9344b2a2a",
+    "revision": "7fbb89a8e33b80e184d3aea8c3270f6d697827bf"
+  },
+  "evaluation": {
+    "iou_threshold": 0.5, "ocr_budget": 20, "presence_thresholds": [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7],
+    "confidence_thresholds": [0.0, 0.3, 0.5, 0.7, 0.85],
+    "nms_iou": 0.5, "bootstrap_draws": 2000,
+    "known_duplicate_test_ids": ["total_text:578", "total_text:656"],
+    "normalization": "exact Unicode casefold; punctuation retained",
+    "ignore": "care GT only; every prediction counts, including predictions in ignored regions",
+    "matching": "maximum one-to-one bbox IoU>=0.5 AND exact text",
+    "test_historically_explored": true,
+    "router": "TRAIN calibration/evaluation predictions only; image utility including FP/FN; TEST never fit"
+  },
+  "scientific_decisions": [
+    {"classification": "ASSUMPTION", "component": "new_word_slot_decoder_and_training", "rationale": "Research extension authorized by user; literature-inspired adaptations, not original-model replicas or STRICT path."},
+    {"classification": "ASSUMPTION", "component": "frozen_qualified_prior", "rationale": "Preserve trained text priors while training multi-scale slot feedback; same prior and shared warmup for all branches."},
+    {"classification": "HARDWARE_DEVIATION", "component": "hardware_sampling_and_batch", "rationale": "Measure current GPU; microbatch1 with accumulation4; deterministic CPU RGB/feature-grid backward; sequential legacy DeepSolo and main processes."},
+    {"classification": "UNRESOLVED", "component": "strict_artifacts_and_efficacy", "rationale": "Exact paper PARSeq-S and DeepSolo checkpoints unresolved; one-seed fixed-budget screen cannot establish convergence, novel-method priority, or strict reproduction."}
+  ]
+}

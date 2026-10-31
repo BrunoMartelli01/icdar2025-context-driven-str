@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "lightweight_unet_router_v1",
+  "paths": {
+    "source_run": "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2",
+    "native_fallback_run": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf",
+    "prepared": "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/prepared.pkl"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/resolved_configuration.json": "86e369380637a29bdced95e1e2225ec66566fecdddc28d5cb89affa2bd47fc96",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/results.json": "06c1694e52cce3294c3e94989d1049cb8ace25bd244de34aad7d2c90fee26b60",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/independent_audit.json": "b68cd39c7f5fc84f430574ed7e0a21b7d7881261562e64d287598e4967577d40",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/train/corrected.json": "b9eb44935a54932f243d463ecdc7fb3b9572e2f29846b88fe1e6b38f4526a76a",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/test/corrected.json": "be6da4be5d6c9c15f50473e634dbe4546cb17d3dfc5d50180d3dedbe2d0dd19d",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/train/branch_metrics_original.json": "4de6fc537cbe94c3beaf926c8eda7741494b31e73f15defc3e4c75de185ec16b",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/test/branch_metrics_native_word.json": "a13b74ca90f75136c786dc419f707258acbc58258958f93dd6998ce1fdce706d",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/prepared.pkl": "4db5413ee7fcaaaaf6a7f530d79af5643653fcf2d131ac0783a94c1488d2d503",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/resolved_configuration.json": "2f7254d5812c0a04c306713a7afdb6005dd7b78d31d3edd9d2d267df14dec3dc",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/results.json": "7b746460760da1699c3489522ac6b30d330f3913071e18c2ea56146f0a3b4550",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/completion.json": "a216984d3b964c14e6b8a4749b7abf390f03130f2b7c3d4a0a6cd3862f9231fa",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/independent_audit.json": "0e47a283fa0d87567bb2f5a56a56ec6182636317e0e863a9500df85fdb3e1f42",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/train/branches.json": "1716517bec367cb907adf403f8a4d1e8404de8c6f6fb4a8da7b9db878903e448",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/test/branches.json": "5f0dad9b23c2dfd411329e1f1bcc32a365618ef6c86a9b14b4d0447e08b18912"
+  },
+  "split_roles": {
+    "fit": "fit",
+    "evaluation": "selection",
+    "calibration": "calibration",
+    "test": "test"
+  },
+  "seed": 20261027,
+  "cpu_threads": 4,
+  "expected_images": {
+    "fit": 1028,
+    "selection": 125,
+    "calibration": 100,
+    "test": 300
+  },
+  "map_features": {
+    "probability_threshold": 0.5,
+    "minimum_component_area": 4
+  },
+  "pca_components": 8,
+  "feature_sets": {
+    "ocr": [
+      "ocr"
+    ],
+    "ocr_tokens": [
+      "ocr",
+      "tokens"
+    ],
+    "ocr_mask": [
+      "ocr",
+      "mask"
+    ],
+    "core": [
+      "ocr",
+      "tokens",
+      "mask"
+    ],
+    "core_local": [
+      "ocr",
+      "tokens",
+      "mask",
+      "local"
+    ],
+    "core_global": [
+      "ocr",
+      "tokens",
+      "mask",
+      "global"
+    ],
+    "core_blip": [
+      "ocr",
+      "tokens",
+      "mask",
+      "blip"
+    ],
+    "all": [
+      "ocr",
+      "tokens",
+      "mask",
+      "local",
+      "global",
+      "blip"
+    ],
+    "all_no_mask": [
+      "ocr",
+      "tokens",
+      "local",
+      "global",
+      "blip"
+    ],
+    "all_no_tokens": [
+      "ocr",
+      "mask",
+      "local",
+      "global",
+      "blip"
+    ]
+  },
+  "heads": [
+    {
+      "kind": "ridge",
+      "alpha": 1.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 30,
+      "leaves": 7,
+      "l2": 10.0,
+      "minimum_leaf": 40
+    },
+    {
+      "kind": "hgb",
+      "iterations": 60,
+      "leaves": 7,
+      "l2": 10.0,
+      "minimum_leaf": 40
+    }
+  ],
+  "selection_quotas": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "selection_f1_tolerance": 0.0025,
+  "selection_rule": "Best head per feature set by mean selection F1 at10/20/30percent acceptance. Among feature sets within0.25 F1 points of best, minimize additional foundation dependencies, then fitted stored scalar count, then dimension.",
+  "f1_loss_budgets": [
+    0.0,
+    0.0025,
+    0.005,
+    0.01
+  ],
+  "primary_policy": "calibration_f1_budget_0.0",
+  "conformal_alphas": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "bootstrap_draws": 1000,
+  "benchmark_repeats": 30,
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Full-image DeepSolo fallback motivation only; paper3.5/Algorithm2 does not specify this trained router.",
+    "REPOSITORY_SPECIFIED": "Frozen qualified corrected U-Net/PARSeq observations; original native256 ignore and symbol-free lexical metric; newly qualified native DeepSolo TRAIN/TEST caches.",
+    "ASSUMPTION": "Incremental feature ablations, small CPU ridge/boosted trees, word-count-normalized paired utility, fixed FIT/selection/calibration roles and no refit after calibration. Validation F1 loss budgets and nominal one-sided conformal utility bounds are separate.",
+    "HARDWARE_DEVIATION": "CPU cached-feature training and inference diagnostics with four threads; frozen expert generation costs excluded, no GPU qualification or measured online savings.",
+    "UNRESOLVED": "Historical expert TRAIN/calibration exposure and explored TEST, small calibration cohort, exchangeability and cross-dataset transfer, no global F1 guarantee from marginal conformal utility coverage."
+  },
+  "literature": [
+    {
+      "url": "https://proceedings.mlr.press/v162/verma22c.html",
+      "use": "Distinguish calibrated deferral evidence from raw confidence; current utility regression is not this OvA classification model."
+    },
+    {
+      "url": "https://arxiv.org/html/2107.07511v6",
+      "use": "One-sided split-conformal residual correction for a frozen regression head; nominal marginal utility coverage under exchangeability only."
+    },
+    {
+      "url": "https://arxiv.org/abs/2208.02814v4",
+      "use": "Risk-control motivation; no direct CRC theorem for nonmonotone global micro-F1 is claimed."
+    }
+  ],
+  "token_probability_cutoffs": [
+    0.5,
+    0.9
+  ],
+  "global_patch_count": 196,
+  "report_quotas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ]
+}

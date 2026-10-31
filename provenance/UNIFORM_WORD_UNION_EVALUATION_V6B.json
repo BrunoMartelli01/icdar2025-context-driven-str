@@ -1,0 +1,261 @@
+{
+  "actual_new_deepsolo_calls_for_full_metric_replay": 0,
+  "datasets": {
+    "icdar13": {
+      "audit_sha256": "e07964f78017927db5a2763c57ed4f0ea7505943a6d2a71b7bf5c3e5712e051d",
+      "common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 961,
+          "detected_words": 961,
+          "f1": 0.8832684824902723,
+          "fn": 187,
+          "fp": 53,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 908
+        },
+        "deepsolo_images": 187,
+        "deepsolo_percentage": 80.25751072961373,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "descriptive95": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1061,
+          "detected_words": 1061,
+          "f1": 0.8998144712430427,
+          "fn": 125,
+          "fp": 91,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 970
+        },
+        "deepsolo_images": 222,
+        "deepsolo_percentage": 95.27896995708154,
+        "target": 0.897,
+        "target_met": true,
+        "total_images": 233
+      },
+      "live_smoke": {
+        "actual_new_deepsolo_calls": 10,
+        "actual_new_unet_calls": 12,
+        "actual_parseq_crop_calls": 71,
+        "complete_sha256": "ced3f4d0c508d4c110c0f14eb15bb3b8bf397d41b055d11479da6223ac2b4c44",
+        "deepsolo_images": 10,
+        "deepsolo_percentage": 83.33333333333333,
+        "fallback_peak_allocated": 1418638336,
+        "fallback_peak_reserved": 2852126720,
+        "frontend_peak_allocated": 763219968,
+        "frontend_peak_reserved": 891289600,
+        "images": 12,
+        "mode": "approximate",
+        "no_ground_truth_in_runtime_input": true,
+        "out_of_memory": false,
+        "result_class": "smoke-test result",
+        "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+        "source_sha256": "02442e41c8911362df3b30719236efd0a48fb1e106e0ba9edae0910bb596abbb",
+        "status": "PASS",
+        "total_images": 12
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 926,
+          "detected_words": 926,
+          "f1": 0.8461157842652153,
+          "fn": 240,
+          "fp": 71,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 855
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/evaluation/results.json",
+      "report_sha256": "367120da9f61071a22361ca5af24c92ee6054bbbe9087ef40c225d39dbdf5db6"
+    },
+    "icdar2015": {
+      "audit_sha256": "a4955441a5fa2a0af0dda7b1728b870fabd6182421200c8a6424119f35a9e6be",
+      "common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1847,
+          "detected_words": 1800,
+          "f1": 0.8274438999226206,
+          "fn": 473,
+          "fp": 196,
+          "gt_words": 2077,
+          "ignored_outputs": 47,
+          "images": 500,
+          "tp": 1604
+        },
+        "deepsolo_images": 400,
+        "deepsolo_percentage": 80.0,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "descriptive95": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1878,
+          "detected_words": 1827,
+          "f1": 0.8283811475409836,
+          "fn": 460,
+          "fp": 210,
+          "gt_words": 2077,
+          "ignored_outputs": 51,
+          "images": 500,
+          "tp": 1617
+        },
+        "deepsolo_images": 475,
+        "deepsolo_percentage": 95.0,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "live_smoke": {
+        "actual_new_deepsolo_calls": 10,
+        "actual_new_unet_calls": 12,
+        "actual_parseq_crop_calls": 96,
+        "complete_sha256": "1a62a4be0e9806b78831d6b0bdce76b979f1640282b2023428ea4405d096a954",
+        "deepsolo_images": 10,
+        "deepsolo_percentage": 83.33333333333333,
+        "fallback_peak_allocated": 6947996160,
+        "fallback_peak_reserved": 12215910400,
+        "frontend_peak_allocated": 763219968,
+        "frontend_peak_reserved": 891289600,
+        "images": 12,
+        "mode": "approximate",
+        "no_ground_truth_in_runtime_input": true,
+        "out_of_memory": false,
+        "result_class": "smoke-test result",
+        "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+        "source_sha256": "02442e41c8911362df3b30719236efd0a48fb1e106e0ba9edae0910bb596abbb",
+        "status": "PASS",
+        "total_images": 12
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1731,
+          "detected_words": 1689,
+          "f1": 0.7992565055762082,
+          "fn": 572,
+          "fp": 184,
+          "gt_words": 2077,
+          "ignored_outputs": 42,
+          "images": 500,
+          "tp": 1505
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/evaluation/results.json",
+      "report_sha256": "2f020f125a232ddfd9a3606109922182cd73c66558200689dfc9a9d580c27c22"
+    },
+    "totaltext": {
+      "audit_sha256": "330ae4cd3b1f7b687f2bc93f20189ecd5fdca69ffc5ed8064cf121827092b488",
+      "common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2037,
+          "detected_words": 1990,
+          "f1": 0.8183118741058655,
+          "fn": 488,
+          "fp": 274,
+          "gt_words": 2204,
+          "ignored_outputs": 47,
+          "images": 300,
+          "tp": 1716
+        },
+        "deepsolo_images": 240,
+        "deepsolo_percentage": 80.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "descriptive95": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2059,
+          "detected_words": 2005,
+          "f1": 0.8248990258968876,
+          "fn": 468,
+          "fp": 269,
+          "gt_words": 2204,
+          "ignored_outputs": 54,
+          "images": 300,
+          "tp": 1736
+        },
+        "deepsolo_images": 285,
+        "deepsolo_percentage": 95.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "live_smoke": {
+        "actual_new_deepsolo_calls": 10,
+        "actual_new_unet_calls": 12,
+        "actual_parseq_crop_calls": 95,
+        "complete_sha256": "3d79981f21dc4846f5161899c325ef6e7bafa5915eaedc82612eb9b8b305d202",
+        "deepsolo_images": 10,
+        "deepsolo_percentage": 83.33333333333333,
+        "fallback_peak_allocated": 1665184768,
+        "fallback_peak_reserved": 5129633792,
+        "frontend_peak_allocated": 763219968,
+        "frontend_peak_reserved": 893386752,
+        "images": 12,
+        "mode": "approximate",
+        "no_ground_truth_in_runtime_input": true,
+        "out_of_memory": false,
+        "result_class": "smoke-test result",
+        "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+        "source_sha256": "02442e41c8911362df3b30719236efd0a48fb1e106e0ba9edae0910bb596abbb",
+        "status": "PASS",
+        "total_images": 12
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2082,
+          "detected_words": 2039,
+          "f1": 0.8079189252887108,
+          "fn": 490,
+          "fp": 325,
+          "gt_words": 2204,
+          "ignored_outputs": 43,
+          "images": 300,
+          "tp": 1714
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/evaluation/results.json",
+      "report_sha256": "3ac2f7631c9e6a7a6d24ece88adf3dd76561ddef0ce3de8981555a5c4800aec7"
+    }
+  },
+  "goal_complete": false,
+  "high_control_highlighted_after_test": true,
+  "logical_cached_routing": true,
+  "mode": "approximate",
+  "scope": "Full benchmark lexical micro F1; separate real12-image chain smokes; no paper accuracy equivalence or full-dataset online latency claim.",
+  "shared_union_model_sha256": "ed2328ceb06e2c272151c17dcf00001d0a101f20dd6c56ba408b2db615c411c6",
+  "status": "V6B_AUDITED_TARGETS_ONLY_AT_HIGH_FALLBACK"
+}

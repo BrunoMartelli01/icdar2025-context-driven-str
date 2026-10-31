@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "unet_corrected_token_router_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "UNET-CORRECTED-TOKEN-001",
+  "paths": {
+    "slot_root": "/extra1/bmartelli/context-str-runs/word-slot-methods-20261024-v1/study",
+    "alnum_root": "/extra1/bmartelli/context-str-runs/word-slot-alphanumeric-20261025-v1/full_v2",
+    "token_root": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054",
+    "replay_root": "/extra1/bmartelli/context-str-artifacts/router-improved-deepsolo-replay-v1/full/20261026",
+    "corrected_source": "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full",
+    "grounded_root": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full",
+    "source_ocr": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/source_ocr.pkl",
+    "cause_root": "/extra1/bmartelli/context-str-artifacts/router-cause-tests-v1/full/1115c7bd7812"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/prepared.pkl": "4db5413ee7fcaaaaf6a7f530d79af5643653fcf2d131ac0783a94c1488d2d503",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/artifact_manifest.json": "106887f98f5b0584bd0adc2b336b943565f794bb9452812e70f8843e1ec403cf",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/light_qualification.json": "320d79ca6c8360011939ee5a1c6909289b232d002c678ccfd294692126e37664",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/independent_audit.json": "70e36165379999bb3f4746e0dbb190b164a0998842e1c4642ca1d00effd76ae6",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/fit_light_predictions.json": "15113365ebf427cdbba30ce945f76720f5c4cb622445958f390aec4165b7e103",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/fit_verification_scores.json": "6b377f52491ea20a62222e057f93adfd7de5ddae4f4913f6c8d67d949c73d790",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/calibration_light_predictions.json": "8518bccfa534141b0f14ec6572f92ca37f7c8ff42f0bc8310a930b9be4e5d832",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/calibration_verification_scores.json": "7c315580ab43049df3d780cc202e664b476366602af01569f221f47485e42bc2",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/evaluation_light_predictions.json": "4ed590937c3a45549213b372787ebee60db08f7f3f36f9b573a0edd328ef1786",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/evaluation_verification_scores.json": "4ac50cb08c342242ce9df1253d6af816afb7e5e4ade8d65fc7fd4989bd0c6068",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/test_light_predictions.json": "5b6729872b91defc89090f3e253a3a75f2c91a2ad94d69e2377fcdbb49c7477c",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/test_verification_scores.json": "36295f4d9474eb3703799228d597a8adecf793c22dbd30f378294ff4602ebda4",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/resolved_config.json": "b612b2a227b4b38e5d9fadd4a61a6de08c0a46ac1613427836c1964bcdccc505",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/verifier/selection_frozen.json": "5905781fb91f4e7dc11f41e79b415c6b384104671d086041ea9f49f6846743dd",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/evaluation_verifier_replacement_predictions.json": "13a41ed5537c44f6a136baf021eb6a6987c0c6c45e47b1eb6159f8d89daded04",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/test_verifier_replacement_predictions.json": "a6ce89cc33ea26dd310d8b0d3263de293c25d922306e518c525f4500bfdd2b14",
+    "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/source_ocr.pkl": "fea73eb638dfa60e6ed9d62357844754ac55c0940653f6d45129f1708b0922e0",
+    "/extra1/bmartelli/context-str-artifacts/router-cause-tests-v1/full/1115c7bd7812/resolved_configuration.json": "50f8d693c52398cc990f89f946fcd53c284c595411e7146ca574550a44f7983f",
+    "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054/resolved_configuration.json": "828a93b4b245258d6697574df52e57404945612b990f25bc7b9687247f34f44e",
+    "/extra1/bmartelli/context-str-artifacts/router-improved-deepsolo-replay-v1/full/20261026/results.json": "50bb622923fe832e3fe37263170062c59fd9b52ea92e01a850d1cef390722ef2",
+    "/extra1/bmartelli/context-str-artifacts/router-improved-deepsolo-replay-v1/full/20261026/train/evaluation_rows.json": "0cfe15526ce84a5e0272ae67906d2f741bf17de10cbde668acc633583f2b6cc3",
+    "/extra1/bmartelli/context-str-artifacts/router-improved-deepsolo-replay-v1/full/20261026/test/evaluation_rows.json": "1df42c573a787be4b62c104bc43613df53f8a95f00d3532e9548113a8727fe0d",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/config.json": "eaf1c9089a8553c913d27ea66407f8bfc2be9989c80c9f331ddb3d63d4c5e8ad",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/merges.txt": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/preprocessor_config.json": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/pytorch_model.bin": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/special_tokens_map.json": "f8c0d6c39aee3f8431078ef6646567b0aba7f2246e9c54b8b99d55c22b707cbf",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/tokenizer.json": "a83e0809aa4c3af7208b2df632a7a69668c6d48775b3c3fe4e1b1199d1f8b8f4",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/tokenizer_config.json": "3f74b6a4d97fee70b3b96921a687fc5e3f2fb583f5f81e7c178c0c22281beade",
+    "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3/vocab.json": "3f0c4f7d2086b61b38487075278ea9ed04edb53a03cbb045b86c27190fa8fb69"
+  },
+  "student_arm": "qualified_grounded_unet_text_editor",
+  "native_confidence_tolerance": 1e-06,
+  "minimum_free_gpu_bytes": 2147483648,
+  "weak_word_iou": 0.5,
+  "training_profile": "original",
+  "test_profiles": [
+    "original",
+    "native_word"
+  ],
+  "folds": 5,
+  "primary_bypass_fraction": 0.5,
+  "bypass_fractions": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "fixed_threshold_fractions": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "bootstrap_draws": 1000,
+  "bootstrap_seed": 20261026,
+  "smoke_images": {
+    "train": 16,
+    "test": 4
+  },
+  "smoke_folds": 2,
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Full-image DeepSolo fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Qualified frozen U-Net/PARSeq, token architecture, pretrained source corrector and caches.",
+    "ASSUMPTION": "New token gate from the qualified corrected U-Net and its unedited verified prefix; RGB-verifier joint score fills detector-score feature, original PARSeq confidence inherited after edits. Recompute alphanumeric lexical targets with source ignore rules. Native optimized fallback evaluated as separate frozen transfer.",
+    "HARDWARE_DEVIATION": "RTX3090 CUDA FP32, sequential frozen models, cached U-Net/global context, no8GB qualification.",
+    "UNRESOLVED": "Independent validation, exact paper protocol, new calibrated correction safety and new-input gate generalization."
+  },
+  "source_selection_scope": "Frozen strongest completed corrected U-Net reference62.895928%, pre-existing calibrated text-editor endpoint. This is a historical reference, not new TEST model selection or universal optimality.",
+  "correction_scope": "Frozen qualified byte-level text editor selected by RGB verifier; inherited native OCR confidence, no new correction training.",
+  "known_exposure": "Source U-Net, corrector and lexical priors saw historical TRAIN; TEST historically explored; duplicates excluded as in token source, no independent-validation claim",
+  "student_selection": "Frozen strongest completed corrected U-Net reference62.895928%, pre-existing calibrated text-editor endpoint. This is a historical reference, not new TEST model selection or universal optimality."
+}

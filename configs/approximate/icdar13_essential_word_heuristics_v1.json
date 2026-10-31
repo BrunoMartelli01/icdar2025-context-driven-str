@@ -1,0 +1,59 @@
+{
+  "claim_label": "approximate reproduction",
+  "distance_exclusive": 1.5,
+  "expected_test_care_words": 1095,
+  "expected_test_images": 233,
+  "expert_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1",
+  "feature_settings": {
+    "kernel_cut": 0.5,
+    "observations": {
+      "grid_side": 1,
+      "map_cuts": [
+        0.5,
+        0.7
+      ],
+      "sequence_cuts": [
+        0.7,
+        0.9
+      ]
+    }
+  },
+  "fixed_test_counts": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "heuristics": [
+    "weakest_sequence",
+    "raw_surprisal",
+    "rejected_candidates",
+    "word_count",
+    "uncovered_text_mass",
+    "uncovered_kernel_components",
+    "unmatched_words",
+    "lexical_edits",
+    "estimated_word_risk"
+  ],
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/essential_heuristic_router_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/fit_generic_pairs.json": "8fb36a40f9502098d0258c2bb5fc626462c8bfcfce08d7eddde3ad55737fb923",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/fit_generic_vocabulary.txt": "bcf31c199c8d3f2476331cccc45a1004010d98bacd52349d34598c6c3288aa49",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/independent_audit.json": "c50608db976cdca42876d3251d0605f571fb1ae069c1cb168154cb594644b1da",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/policy/frozen.json": "42a1b61d01af90c1174d1afacc48f20fb0d65fbcf025376f7d9af796782b4dfd",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/resolved_configuration.json": "a7039e171a41997248256dee06b0763131f110bca620ddb8b91cd138f909206a",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/selected_expert/results.json": "3e019f883904000dd3e5a4676c853119baf44fc813feacac867ec4f194f8b380",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/full_fit/counts.json": "951644d1331711da64df9dd68c2d8b863b4b80f4d2b427d0491c6087428a45fb",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/independent_audit.json": "72dddf4e6ea8948a51c3023d7581816fd8c8582752d3e21a1e7d11c5112a9e77",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Nine predeclared inference-only risk formulas, chosen by heldout selection23 F1 at6fallbackimages (nearest integer to61/233). Deterministic descending score with RGB-file hash ties; exact61 fallback decisions on TEST. No empty-light guard. No learned regressor or fitting on seen FIT outputs; CAL remains an assessment group. This is a cheap baseline before expensive OOF gate fitting.",
+    "HARDWARE_DEVIATION": "CPU-only routing over authenticated cached outputs, zero new neural inference and zero added model parameters. Counts are logical fallback decisions, not actual online latency.",
+    "PAPER_SPECIFIED": "Broad image-level fallback family only.",
+    "REPOSITORY_SPECIFIED": "Complete audited text-pretrained U-Net/PARSeq expert, per-image counts and maps, existing observation_features, FIT-only train teacher and fixed TEST Generic DeepSolo; full Unicode casefold/isalnum lexical micro-F1.",
+    "UNRESOLVED": "Prior expert TEST result has been inspected; new routing selection uses selection-only labels but is exploratory, not independent confirmation. Small validation, train/test lexicon shift, known upstream TRAIN exposure and target generalization."
+  },
+  "target_f1": 0.9,
+  "test_deepsolo_images": 61,
+  "train_teacher_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/full_fit",
+  "validation_deepsolo_images": 6
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "ambiguity_record": "CAPTION-DETAIL-001",
+  "sample_protocol": "/extra1/bmartelli/context-str-runs/caption-detail-20261030-v1/sample_protocol.json",
+  "hf_cache": "/dev/shm/context-str-qwen2-vl-7b-20261030",
+  "device": "cuda:0",
+  "batch_size": 3,
+  "cpu_threads": 4,
+  "seed": 20261030,
+  "caption_target": {
+    "min_words": 60,
+    "max_words": 160
+  },
+  "assets": {
+    "qwen": {
+      "model_id": "Qwen/Qwen2-VL-7B-Instruct",
+      "revision": "eed13092ef92e448dd6875b2a00151bd3f7db0ac",
+      "weight_sha256": {
+        "model-00001-of-00005.safetensors": "eab4f4dc1abf860794c98ce3759b4ace1059fc0fc041ede76b88988b3557c132",
+        "model-00002-of-00005.safetensors": "0546b7cd070ff239de0f61a28770de6a0ac517ad313071e151653e38911ffb25",
+        "model-00003-of-00005.safetensors": "11368ea1e9c0039ca54012a74ac32d543a9e9d980b2d0ad7e93af0341ace1fe6",
+        "model-00004-of-00005.safetensors": "381e110d74db594cc24956af0e74a01ae02104497113a78926990c5bd1f395f6",
+        "model-00005-of-00005.safetensors": "e76ec4dc2e7c0dcbe3432e58fae08e62204a2ef2323069d85c8fa0affb87332a"
+      }
+    }
+  },
+  "profiles": {
+    "qwen_scene_detail": {
+      "caption_model": "qwen",
+      "prompt": "Describe the visible image in one coherent paragraph of about 80 to 120 words. Describe the setting when visible, the main objects bearing text, their colors and shapes, the placement and arrangement of the writing, and relevant nearby objects or background details. Use concrete spatial relationships. Describe only what is supported by the image; do not infer a named city, an unseen location, the purpose of objects, or a story. Quote text only if clearly readable. For a close-up, describe the visible object instead of inventing a wider scene. Return only the description.",
+      "generation": {
+        "max_new_tokens": 256,
+        "do_sample": false,
+        "num_beams": 1,
+        "repetition_penalty": 1.05
+      },
+      "min_pixels": 200704,
+      "max_pixels": 802816,
+      "placement": "single_device",
+      "gpu_weight_budget": null,
+      "cpu_weight_budget": null
+    }
+  },
+  "scientific_source_files": [
+    "caption/detailed_scene.py",
+    "caption/paper_batch_blip2.py",
+    "caption/paper_style_blip2.py",
+    "caption/blip2_captioner.py",
+    "scripts/probe_detailed_scene_captions.py",
+    "scripts/run_paper_caption_comparison.py",
+    "scoring/paper_image_router.py",
+    "caption/florence_scene.py",
+    "caption/qwen_scene.py",
+    "caption/qwen_batch_scene.py",
+    "scripts/probe_qwen_batch.py"
+  ],
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Scene caption and text/caption semantic and lexical comparison motivated by Section3.4, Figure4 and Algorithm2.",
+    "ASSUMPTION": "Separate Qwen2-VL7B caption ablation chosen on nine development images before CAL/paper diagnostics. Frozen image-only prompt; greedy generation, repetition_penalty1.05, max_new_tokens256, visual budget256..1024 tokens. No OCR, GT, scene-fact injection or authored caption rewriting.",
+    "HARDWARE_DEVIATION": "RTX3090 single-device native BF16/SDPA, batch1, deterministic algorithms and TF32 disabled. GPU now free; qualify full single-device placement independently of prior CPU-offload outputs. Record actual memory and raw token sequences, and compare finite overlapping references without assuming global equivalence. Temporary hash-verified RAM checkpoint cache; persistent raw outputs. Native batch3 with left token padding is separately qualified; compare actual overlapping scalar tokens and report differences, no presumed equivalence.",
+    "UNRESOLVED": "Unknown author BLIP2 checkpoint, prompt, decoder settings and length convention; Qwen is not the author captioner. Prior benchmark exposure and small visual quality sample limit generalization claims."
+  },
+  "selected_profile": "qwen_scene_detail"
+}

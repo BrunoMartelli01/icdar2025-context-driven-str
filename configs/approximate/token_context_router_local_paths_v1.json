@@ -1,0 +1,20 @@
+{
+  "reproduction_mode": "approximate",
+  "source_root": "/extra1/bmartelli/context-str-artifacts/shadow-inventory-router-v1/full/3f625f3bb35b",
+  "coverage_root": "/extra1/bmartelli/context-str-artifacts/yolo-coverage-resolution-v1/full/6c927d8d98d1",
+  "deepsolo_source_run": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66",
+  "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "train_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_train.yaml",
+  "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+  "annotation_subdir_template": "datasets/total_text/{split}/annotations",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "yolo_checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+  "deepsolo_checkpoint": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/vitae_textocr.pth",
+  "clip_snapshot": "/tmp/clip-word-verification-models/57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "blip_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+  "yolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-yolo-py311/bin/python",
+  "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1"
+}

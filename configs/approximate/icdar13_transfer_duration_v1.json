@@ -1,0 +1,19 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "epochs": 60,
+  "validation_epochs": [0, 10, 20, 30, 40, 50, 60],
+  "test_fixed_epochs": [0, 30, 60],
+  "training_arms": ["icdar13_only", "icdar13_totaltext_mixed"],
+  "mixed_totaltext_weight": 0.5,
+  "minimum_free_gpu_bytes": 10737418240,
+  "validation_protocol": "Pool existing disjoint selection23 and calibration23 for checkpoint selection; neither enters training. Both have prior upstream exposure. Earliest epoch wins ties. Freeze every selection before any test inference.",
+  "metric": "Per-image exact casefold-alphanumeric lexical micro-F1, no IoU; all care GT and all 233 test images retained; no DeepSolo.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Attention-gated ResNet50 U-Net, segmentation and recognition motivation only.",
+    "REPOSITORY_SPECIFIED": "Qualified Text+Kernel checkpoint, word targets, PARSeq, BCE+Dice, existing crop and word admission policy, split and data augmentation.",
+    "ASSUMPTION": "60-epoch comparison; same checkpoint and fixed crop policy; pooled held-out selection; half IC13/half Total-Text loss; fixed 0/30/60 test controls; earliest validation tie.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32, batch 8, sequential domain backward, U-Net and PARSeq co-resident.",
+    "UNRESOLVED": "Upstream validation and test exposure, small pooled validation, exact paper checkpoint and metric, broader corpus overlap, single seed and no guarantee that 60 epochs is optimal."
+  }
+}

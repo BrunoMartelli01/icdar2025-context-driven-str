@@ -1,0 +1,76 @@
+{
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "canvas": 1024,
+  "dataset": "icdar13",
+  "engineering_oom_test": {
+    "per_process_memory_fraction": 0.001,
+    "scope": "Expected model-initialization OOM only; no quality or real-hardware capacity claim"
+  },
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "minimum_free_disk_bytes": 6442450944,
+  "minimum_free_gpu_bytes": 10737418240,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-oom-20261031-v14",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/main_receipt.json": "26b2c2254676e4e2cdd6a0f4dc8bfed33341d57056e2b9283a697467e5b0ecb1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json": "e3f0ea78798a0362bdecf4d23cf634eda515b21353714a7c006695f2077fe672",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/best.pt": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/emission_selection/frozen.json": "e2ab3eabd1abd26e22293f0ffa59a4a5251ecab37de7b148951cbf23185b1b2e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/independent_training_audit.json": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1/manifests/icdar2015_train.yaml": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739",
+    "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/manifests/total_text_train.yaml": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/pipeline/uniform_scaled_frontend.py": "860602ce610a741e79ed30a031b2cd042de05480d10b626bf558ff661dcfbefb",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/pipeline/uniform_word_pipeline.py": "48c2438e8eae3b3c24fad46f662ba104f31727ec70f895831d9c778dc73426e9",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_utility_deployment.py": "86e4ce491d970d831b848ff8301eed2dcc0b51304f4b28de9d1e3392e9319b89",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_scaled_frontend.py": "d551d8ddfda2ce2a0c7d4ec3e4a5dfc99b0c1d43d68ff3aa6ba43f55c9985075"
+  },
+  "qualification_images": 2,
+  "result_class": "smoke-test result",
+  "scientific_choices": {
+    "ASSUMPTION": "One fixed1024/512 inference candidate from the original768-trained fully convolutional U-Net; identical weights, thresholds, original-RGB padding4 and cap50. Capture actual1024 encoder context and transfer the existing768-trained PCA/word/image/fusion heads. Exact two-image768 map/context/reading parity before generating all46 native validation images. Highest complete validation F1 with0.1-point identity tolerance; uncertainty reported. Hard12/46 fallback; no TEST.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 sequential batch1 U-Net / batch32 PARSeq; record allocated/reserved/OOM and wall time.1024 input area is16/9 of768; no extra deployment parameters or encoder passes.",
+    "REPOSITORY_SPECIFIED": "Qualified original neural weights, native input/mask mapping, component extraction, PARSeq, hard contracts and learned heads.",
+    "UNRESOLVED": "Cross-resolution feature transfer, matching FIT/OOF refits, higher compute, three-domain retention, repeated validation/historical exposure and hard-budget TEST targets."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "deepsolo"
+  ],
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json"
+}

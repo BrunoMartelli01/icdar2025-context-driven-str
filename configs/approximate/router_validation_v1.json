@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_sha256": {
+    "resolved_configuration.json": "2f7254d5812c0a04c306713a7afdb6005dd7b78d31d3edd9d2d267df14dec3dc",
+    "results.json": "7b746460760da1699c3489522ac6b30d330f3913071e18c2ea56146f0a3b4550",
+    "independent_audit.json": "0e47a283fa0d87567bb2f5a56a56ec6182636317e0e863a9500df85fdb3e1f42",
+    "completion.json": "a216984d3b964c14e6b8a4749b7abf390f03130f2b7c3d4a0a6cd3862f9231fa",
+    "frozen_choices.json": "757f117ac79049eb896e4ca7d81be145b639c9cae62ffbe8474ce2d47e0aae50",
+    "train/branches.json": "1716517bec367cb907adf403f8a4d1e8404de8c6f6fb4a8da7b9db878903e448",
+    "test/branches.json": "5f0dad9b23c2dfd411329e1f1bcc32a365618ef6c86a9b14b4d0447e08b18912",
+    "train/unet_receipt.json": "fcdcaa8ea91fc5e1029cd37e9428ed9e489d1acff3884aaf4780c00c6e5a353b",
+    "train/features_receipt.json": "96f63c60c35e288f6b604c6236b620f8c33783cd45fed6b8c611cfacfc492658",
+    "train/fallback_receipt.json": "dadbb06439e1236b73add3092b5271ec2752f75966b955210c594f1df05507ad",
+    "test/unet_receipt.json": "a5876dfe018b1a2614fa940ec8a2d294ed9619b7fff348187292e6361d60ab7d",
+    "test/features_receipt.json": "a8faedb91aaebe950e64bc8049ca9950d5a991baa97eedd652749a90b991d44f",
+    "test/fallback_receipt.json": "e238366eb4c47b3bf9fc43e6a393cbd0c59af23e7709d131a87c631532222d36"
+  },
+  "training": {
+    "epochs": 20,
+    "checkpoints": [
+      5,
+      10,
+      20
+    ]
+  },
+  "execution": {
+    "seed": 20280970
+  },
+  "seeds": [
+    20280970,
+    20280971,
+    20280972
+  ],
+  "primary_acceptance": 0.5,
+  "acceptance_targets": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "smoke": {
+    "fit": 24,
+    "validation": 8,
+    "test": 4
+  },
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Recover exact qualified1130/125 expert split by manifest/hash; remove existing two cross-TEST RGB copies to obtain1128 router fit and125 validation."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Both routers fit1128 only; choose5/10/20 epoch using validation microF1 at50% acceptance; primary seed fixed first, other two are variance diagnostics. Select all scalar cuts from validation using identical deployed weights; never refit afterward."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Keep same token architecture, alphanumeric labels, preprocessing, frozen experts and improved DeepSolo caches as qualified source. No new DeepSolo or foundation inference."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Diagnose expert-training exposure, fixed-image OOF/refit score bias, GT difficulty strata and OCR confidence filter without changing primary OCR filter or tuning on TEST."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Observed RTX3090 FP32 small token head, reused frozen CPU features, deterministic math attention, existing environments only; log per-checkpoint memory and failures."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Expert holdout125 was reused for historical checkpoint/model selection; historically explored TEST and one fixed expert restrict causal/generalization claims. Independent out-of-fold expert training is beyond this experiment."
+    }
+  ],
+  "diagnostics": {
+    "ocr_sequence_thresholds": [
+      0.0,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "gt_word_count_edges": [
+      3,
+      7,
+      15
+    ],
+    "gt_relative_height_edges": [
+      0.025,
+      0.05,
+      0.1
+    ]
+  }
+}

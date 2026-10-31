@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "TRAIN validation geometry diagnostic; not correct-word F1",
+  "source_training_profile": "configs/approximate/icdar2015_target70_v1.json",
+  "source_training_profile_sha256": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+  "source_geometry_sha256": "7ca4291876ad1574971c216e9c12f876371648eab39340db2861b9f75be04808",
+  "image_hw": [
+    736,
+    1280
+  ],
+  "support_thresholds": [
+    0.2,
+    0.35,
+    0.5
+  ],
+  "seed_thresholds": [
+    0.5,
+    0.65,
+    0.8
+  ],
+  "matching_iou_threshold": 0.5,
+  "minimum_geometry_f1_for_full_ocr": 0.62,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "single_foreground_probability_confidence_partition",
+      "rationale": "Derive confident seeds and support from the same frozen foreground map, use existing GT-blind minimax partition with unseeded fallback, remove only nonseed instance-boundary pixels to keep8-connected gaps. Never pass GT or ignore-validity into inference. Every final component including singletons counts."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "source_and_fixed_metric",
+      "rationale": "Qualified c467 probability maps, original VAL100/430care, original-image IoU.5 matching, no ignored-prediction censoring."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "resource_gate",
+      "rationale": "First run all9 geometry cases and exact.5/.5 baseline replay. Only if best geometry F1>=.62, run frozen PARSeq on ALL9 candidates before word/policy selection; geometry alone cannot establish word F1. Training queues and TEST remain unchanged."
+    }
+  ]
+}

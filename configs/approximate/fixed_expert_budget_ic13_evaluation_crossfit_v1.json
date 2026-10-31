@@ -1,0 +1,37 @@
+{
+  "care_words": 1095,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "expert_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3",
+  "fallback_images": 61,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "frontend_inference_reused": true,
+  "minimum_f1": 0.9,
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_crossfit_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/completion.json": "28288c0108e70abe69a0baa5ae60229a47204c390b47716c267e76b740a6a542",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/index.json": "45c2b5c2ef7d67e45ee214746e77ca408ed880bb92621447f8e9afb9ffd6bc8d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/full/deployment_qualification.json": "c97888cf3ea19caae848cf11be574561fda4a417e31472412172cbbcdde80899",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/full/resolved_configuration.json": "d0c34ee3abd28320e69ecc00e95af39861849823f13a22955244eec57becda12",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/full/selection_frozen.json": "2ce8c1148e73a0070015962ffccc6fdb7a2792cc02073131d368c7d62a681503",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/emission_frozen.json": "335a3529b9c7395f01ac049b3e6a0cd5be8c9cd56be9979985e1877182489b65",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_test_root": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+  "reread_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fixed_test_crossfit_v1/test",
+  "router_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/full",
+  "scientific_choices": {
+    "ASSUMPTION": "Fixed v4 detector, OOF-selected word policy and actual cached frontend. Five-fold trained count heads and thresholds selected using TRAIN crossfit plus46 validation only; exact61/233 TEST route frozen before fallback or annotation. Qualified domain DeepSolo and optional fixed rereading remain unchanged.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 neural frontend and selected-box rereads measured independently; CPU gate over cached outputs; no actual new DeepSolo neural inference or online latency measurement.",
+    "PAPER_SPECIFIED": "Motivation only; metric and adapted YOLO learned gate are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Qualified frozen detector/reader/counts and native256 ignore; authenticated optimized DeepSolo with original released TEST Generic resource.",
+    "UNRESOLVED": "Conditional non-nested source features, TRAIN Generic validation word exposure, upstream training and repeated historical TEST exploration. Verify common selection and retention on other datasets."
+  },
+  "test_protocol": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json",
+  "total_images": 233
+}

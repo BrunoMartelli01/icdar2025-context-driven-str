@@ -1,0 +1,49 @@
+{
+  "admission_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1",
+  "claim_label": "approximate reproduction",
+  "confidence_kinds": [
+    "sequence",
+    "balanced"
+  ],
+  "expected_validation_images": 46,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "minimum_validation_gain": 0.005,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_policy_v1",
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/resolved_configuration.json": "1bcd4fd782b1105066a22b93040a12d7122066c50d1f10b42e2affd30da6c489",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/train_data.json": "272d96300ec01d2721a576a8b44b4fcb50d395df8b3bc82142f50ba967b7afc4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train/completion.json": "8cdb371f9f084f1d5418634766805a2ac563b990a607664b8c911bf889f267d0",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train/index.json": "9165583d0367815847f8d6d36ae58494bac0bd60ef302bed9628faedc05aa85d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train/resolved_configuration.json": "2becd40b9942fba2544d7fbc3d28100e691d360946cba2e33e2be365b6bb73c0",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_train_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "require_lexical_match": [
+    false,
+    true
+  ],
+  "rereading_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train",
+  "scientific_choices": {
+    "ASSUMPTION": "One fixed finite replacement policy chosen on pooled46 validation images. Prefer no change and fewer edits on ties. Promotion requires at least0.5 F1 point gain. Each policy preserves original instances and geometry; no TEST trial selection.",
+    "HARDWARE_DEVIATION": "CPU policy replay over actual RTX3090 FP32 PARSeq TRAIN outputs.",
+    "PAPER_SPECIFIED": "Broad fallback/recognizer families only.",
+    "REPOSITORY_SPECIFIED": "Pinned real native DeepSolo boxes and PARSeq rereadings, FIT-only Generic matcher, all words/instances retained.",
+    "UNRESOLVED": "Small validation, prior TEST/upstream exposure,61-image learned routing and cross-dataset behavior."
+  },
+  "smoke": false,
+  "thresholds": [
+    0.5,
+    0.7,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "train_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json"
+}

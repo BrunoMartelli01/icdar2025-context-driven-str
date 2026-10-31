@@ -1,0 +1,49 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1",
+  "original_router": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+  "replay_root": "/extra1/bmartelli/context-str-runs/trained-router-vocabulary-replay-20261028-v1",
+  "seed": 20261028,
+  "teacher": {
+    "icdar13": {
+      "kind": "Generic",
+      "profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+      "raw_train": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train"
+    },
+    "icdar2015": {
+      "kind": "Weak",
+      "neural": {
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.85
+      },
+      "unmatched_policy": "source_reject",
+      "raw_new_train": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/deepsolo_train",
+      "raw_existing_validation": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440/validation",
+      "train_vocabulary": "All care transcriptions of official TRAIN1000 only; uppercase ordered unique entries and first canonical form. No TEST transcription or TEST vocabulary enters training/calibration.",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt"
+    }
+  },
+  "protocol": {
+    "partitions": "Reuse RGB-disjoint183/23/23 IC13 and900/50/50 IC15; TEST233/500 retained",
+    "candidates": "11 completed finite IC15 candidates; only50 selection images choose U-Net. Existing upstream operating policies may have seen all VAL100 historically; report limitation.",
+    "training": "Same five small heads, groups and paired-utility training; choose on selection and freeze on separate calibration; no new expert neural fitting.",
+    "budgets": "Original IC13 DeepSolo30%, IC15 DeepSolo50%; three original neighboring quota targets, plus transferred validation scalar cuts.",
+    "metric": "Unchanged full-care Unicode casefold+isalnum lexical microF1, native256 trained-router care override, empty/symbol-only denominators, invalid envelopes retained as unmatchable FP.",
+    "physical_inference": "900 new IC15 TRAIN DeepSolo calls; all other fallback and light predictions reused. CPU new heads; original real GPU outputs retain their own precision/model/input/memory provenance."
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Section3.5 Algorithm2 broad image fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Qualified selected experts and small-head utility/group/selection/calibration functions, original partitions and explicit approximate interfaces.",
+    "ASSUMPTION": "Train Weak vocabulary from TRAIN care words rather than benchmark TEST lexicon; no test-vocabulary leakage into fitting. Full native ignore/lexical metric, candidate screening on50 selection images, user-requested retraining.",
+    "HARDWARE_DEVIATION": "Sequential isolated legacy DeepSolo FP32 batch1 on observed shared RTX3090, and CPU small-head fitting. Preserve concurrent authorized training; allocator peaks do not qualify RTX3070/8GB or online latency.",
+    "UNRESOLVED": "Finite validation, upstream VAL100 checkpoint/policy exposure, expert-seen fit900, historical TEST exposure, external pretraining overlap, TRAIN1000 versus TEST500 Weak vocabulary-size shift and paper metric equivalence."
+  },
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/frozen_choices.json": "cdac0907f115674681a9571181094c23843eb3044a3fbf9f7103306db61bcea1",
+    "/extra1/bmartelli/context-str-runs/trained-router-vocabulary-replay-20261028-v1/completion.json": "a074394ddd53e55eda54acc70ddd45b673691b832cf6a0d8ec3005eb55ecfa0c",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/candidate_selection_initial.json": "1737fd6e975b5fa6af2fb21c4c169353f014b329428cd0ce2ddc08730f81650e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  }
+}

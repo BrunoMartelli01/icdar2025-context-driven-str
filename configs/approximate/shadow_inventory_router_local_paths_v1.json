@@ -1,0 +1,9 @@
+{
+  "reproduction_mode": "approximate",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "source_root": "/extra1/bmartelli/context-str-artifacts/creative-context-router-v1/full/5ef7dbab9e1e",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/shadow-inventory-router-v1",
+  "craft_checkpoint": "/tmp/totaltext-text-detectors-v1/weights/craft_mlt_25k.pth"
+}

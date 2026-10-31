@@ -1,0 +1,610 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "exploratory Total-Text TEST300",
+  "metric": "Unicode casefold plus isalnum; unpadded bboxIoU>=0.5; maximum one-to-one; all care GT and emitted outputs count; no ignore neutralization",
+  "images": 300,
+  "gt_words": 2204,
+  "deepsolo_images": 0,
+  "deepsolo_fraction": 0.0,
+  "rows": [
+    {
+      "version": "v1",
+      "arm": "unet_continuation",
+      "selected_epoch": 0,
+      "parameters": {
+        "total": 58155146,
+        "trainable": 32598114
+      },
+      "aggregate": {
+        "tp": 1400,
+        "predictions": 2324,
+        "gt": 2204,
+        "lexical_tp": 1434,
+        "localized": 1574,
+        "images": 300,
+        "fp": 924,
+        "fn": 804,
+        "precision": 0.6024096385542169,
+        "recall": 0.6352087114337568,
+        "f1": 0.6183745583038869,
+        "lexical_f1": 0.6333922261484098,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": 0.0
+    },
+    {
+      "version": "v1",
+      "arm": "global_detail",
+      "selected_epoch": 0,
+      "parameters": {
+        "total": 58226736,
+        "trainable": 32669704
+      },
+      "aggregate": {
+        "tp": 1400,
+        "predictions": 2326,
+        "gt": 2204,
+        "lexical_tp": 1434,
+        "localized": 1574,
+        "images": 300,
+        "fp": 926,
+        "fn": 804,
+        "precision": 0.6018916595012898,
+        "recall": 0.6352087114337568,
+        "f1": 0.6181015452538632,
+        "lexical_f1": 0.633112582781457,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": -0.027301305002369602
+    },
+    {
+      "version": "v1",
+      "arm": "local_transport",
+      "selected_epoch": 0,
+      "parameters": {
+        "total": 58226736,
+        "trainable": 32669704
+      },
+      "aggregate": {
+        "tp": 1400,
+        "predictions": 2326,
+        "gt": 2204,
+        "lexical_tp": 1434,
+        "localized": 1574,
+        "images": 300,
+        "fp": 926,
+        "fn": 804,
+        "precision": 0.6018916595012898,
+        "recall": 0.6352087114337568,
+        "f1": 0.6181015452538632,
+        "lexical_f1": 0.633112582781457,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": -0.027301305002369602
+    },
+    {
+      "version": "v2",
+      "arm": "unet_reference",
+      "selected_epoch": 0,
+      "parameters": {
+        "total": 58155146,
+        "trainable": 0
+      },
+      "aggregate": {
+        "tp": 1400,
+        "predictions": 2324,
+        "gt": 2204,
+        "lexical_tp": 1434,
+        "localized": 1574,
+        "images": 300,
+        "fp": 924,
+        "fn": 804,
+        "precision": 0.6024096385542169,
+        "recall": 0.6352087114337568,
+        "f1": 0.6183745583038869,
+        "lexical_f1": 0.6333922261484098,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": 0.0
+    },
+    {
+      "version": "v2",
+      "arm": "global_detail",
+      "selected_epoch": 6,
+      "parameters": {
+        "total": 58226736,
+        "trainable": 71590
+      },
+      "aggregate": {
+        "tp": 1367,
+        "predictions": 2099,
+        "gt": 2204,
+        "lexical_tp": 1406,
+        "localized": 1505,
+        "images": 300,
+        "fp": 732,
+        "fn": 837,
+        "precision": 0.6512625059552167,
+        "recall": 0.6202359346642469,
+        "f1": 0.635370671624448,
+        "lexical_f1": 0.6534975598419707,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": 1.6996113320561168
+    },
+    {
+      "version": "v2",
+      "arm": "local_transport",
+      "selected_epoch": 3,
+      "parameters": {
+        "total": 58226736,
+        "trainable": 71590
+      },
+      "aggregate": {
+        "tp": 1361,
+        "predictions": 2115,
+        "gt": 2204,
+        "lexical_tp": 1388,
+        "localized": 1519,
+        "images": 300,
+        "fp": 754,
+        "fn": 843,
+        "precision": 0.6434988179669031,
+        "recall": 0.617513611615245,
+        "f1": 0.6302384811298912,
+        "lexical_f1": 0.6427413753183607,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": 1.1863922826004347
+    },
+    {
+      "version": "v4",
+      "arm": "global_detail",
+      "selected_epoch": 6,
+      "trained_through_epoch": 12,
+      "parameters": {
+        "total": 58226736,
+        "trainable": 71590
+      },
+      "aggregate": {
+        "tp": 1367,
+        "predictions": 2099,
+        "gt": 2204,
+        "lexical_tp": 1406,
+        "localized": 1505,
+        "images": 300,
+        "fp": 732,
+        "fn": 837,
+        "precision": 0.6512625059552167,
+        "recall": 0.6202359346642469,
+        "f1": 0.635370671624448,
+        "lexical_f1": 0.6534975598419707,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "delta_f1_pp": 1.6996113320561168
+    }
+  ],
+  "fixed_policy_controls": {
+    "reproduction_mode": "approximate",
+    "claim_label": "approximate reproduction",
+    "result_class": "approximate reproduction; exploratory TEST300 controls",
+    "results": {
+      "unet_at_global_policy": {
+        "policy": {
+          "text_threshold": 0.65,
+          "padding256": 1,
+          "confidence": 0.6
+        },
+        "aggregate": {
+          "tp": 1355,
+          "predictions": 2098,
+          "gt": 2204,
+          "lexical_tp": 1396,
+          "localized": 1492,
+          "images": 300,
+          "fp": 743,
+          "fn": 849,
+          "precision": 0.6458531935176358,
+          "recall": 0.6147912885662432,
+          "f1": 0.6299395629939563,
+          "lexical_f1": 0.6490004649000465,
+          "deepsolo_images": 0,
+          "deepsolo_fraction": 0.0
+        },
+        "seconds": 41.52453000517562,
+        "memory": {
+          "peak_allocated_bytes": 628875264,
+          "peak_reserved_bytes": 792723456,
+          "allocated_bytes": 366727168,
+          "reserved_bytes": 792723456
+        },
+        "ocr_unique_inferred_cumulative": 1424,
+        "annotations_used_for_prediction": false
+      },
+      "global_at_unet_policy": {
+        "policy": {
+          "text_threshold": 0.5,
+          "padding256": 1,
+          "confidence": 0.4
+        },
+        "aggregate": {
+          "tp": 1396,
+          "predictions": 2320,
+          "gt": 2204,
+          "lexical_tp": 1432,
+          "localized": 1572,
+          "images": 300,
+          "fp": 924,
+          "fn": 808,
+          "precision": 0.6017241379310345,
+          "recall": 0.6333938294010889,
+          "f1": 0.6171529619805481,
+          "lexical_f1": 0.6330680813439434,
+          "deepsolo_images": 0,
+          "deepsolo_fraction": 0.0
+        },
+        "seconds": 110.74637547740713,
+        "memory": {
+          "peak_allocated_bytes": 960646144,
+          "peak_reserved_bytes": 1168113664,
+          "allocated_bytes": 698498048,
+          "reserved_bytes": 1168113664
+        },
+        "ocr_unique_inferred_cumulative": 3259,
+        "annotations_used_for_prediction": false
+      },
+      "original_unet": {
+        "tp": 1400,
+        "predictions": 2324,
+        "gt": 2204,
+        "lexical_tp": 1434,
+        "localized": 1574,
+        "images": 300,
+        "fp": 924,
+        "fn": 804,
+        "precision": 0.6024096385542169,
+        "recall": 0.6352087114337568,
+        "f1": 0.6183745583038869,
+        "lexical_f1": 0.6333922261484098,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "original_global": {
+        "tp": 1367,
+        "predictions": 2099,
+        "gt": 2204,
+        "lexical_tp": 1406,
+        "localized": 1505,
+        "images": 300,
+        "fp": 732,
+        "fn": 837,
+        "precision": 0.6512625059552167,
+        "recall": 0.6202359346642469,
+        "f1": 0.635370671624448,
+        "lexical_f1": 0.6534975598419707,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      },
+      "architecture_gain_at_unet_policy_pp": -0.12215963233387361,
+      "architecture_gain_at_global_policy_pp": 0.5431108630491788,
+      "policy_only_gain_on_unet_pp": 1.156500469006938
+    },
+    "deepsolo_images": 0,
+    "images": 300,
+    "deepsolo_fraction": 0.0
+  },
+  "closedness_pilot": {
+    "reproduction_mode": "approximate",
+    "claim_label": "approximate reproduction",
+    "result_class": "partial-dataset result; CAL-only pilot",
+    "selected": {
+      "policy": {
+        "confidence": 0.4,
+        "closedness": 0.4
+      },
+      "aggregate": {
+        "tp": 559,
+        "predictions": 716,
+        "gt": 802,
+        "lexical_tp": 565,
+        "localized": 617,
+        "images": 100,
+        "fp": 157,
+        "fn": 243,
+        "precision": 0.7807262569832403,
+        "recall": 0.6970074812967582,
+        "f1": 0.7364953886693018,
+        "lexical_f1": 0.7444005270092227,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      }
+    },
+    "confidence_only": {
+      "policy": {
+        "confidence": 0.6,
+        "closedness": -1.0
+      },
+      "aggregate": {
+        "tp": 546,
+        "predictions": 698,
+        "gt": 802,
+        "lexical_tp": 553,
+        "localized": 586,
+        "images": 100,
+        "fp": 152,
+        "fn": 256,
+        "precision": 0.7822349570200573,
+        "recall": 0.6807980049875312,
+        "f1": 0.728,
+        "lexical_f1": 0.7373333333333333,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      }
+    },
+    "oof": {
+      "tp": 537,
+      "predictions": 681,
+      "gt": 802,
+      "lexical_tp": 543,
+      "localized": 592,
+      "images": 100,
+      "fp": 144,
+      "fn": 265,
+      "precision": 0.788546255506608,
+      "recall": 0.669576059850374,
+      "f1": 0.7242076871207013,
+      "lexical_f1": 0.73229939312205,
+      "deepsolo_images": 0,
+      "deepsolo_fraction": 0.0
+    },
+    "oof_confidence_only": {
+      "tp": 556,
+      "predictions": 738,
+      "gt": 802,
+      "lexical_tp": 563,
+      "localized": 612,
+      "images": 100,
+      "fp": 182,
+      "fn": 246,
+      "precision": 0.7533875338753387,
+      "recall": 0.6932668329177057,
+      "f1": 0.7220779220779221,
+      "lexical_f1": 0.7311688311688311,
+      "deepsolo_images": 0,
+      "deepsolo_fraction": 0.0
+    },
+    "oof_gain_pp": 0.21297650427791748,
+    "oof_gain_versus_fixed_cal_baseline_pp": -0.37923128792987093,
+    "qualified_for_test": false,
+    "memory": {
+      "peak_allocated_bytes": 523753984,
+      "peak_reserved_bytes": 792723456,
+      "allocated_bytes": 235588096,
+      "reserved_bytes": 792723456
+    },
+    "parameters": 58226736
+  },
+  "source_sha256": {
+    "full/report.json": "2f93f04897c329ce571d29c162a7fdd8a069d529ad10d432bb190d4bf7f3a2fe",
+    "full/independent_audit.json": "9849a962cd83dec4e303289815543c63de7373e8139218254c4b26d798e0742a",
+    "frozen-v2-full/report.json": "a48e1c5160569831090f33fda9caf3c1662e4bbee2515deb5581b9946a8b1a8e",
+    "frozen-v2-full/independent_audit.json": "2c2807ecc96a2f903aca2cdae34b694083e5a601eb56ee88fef73b728292b17a",
+    "frozen-v2-full/cross_policy_controls/report.json": "3a26cb373bdc679f7bea64e37f7e6443799917494c4a9c37a3c56f2331e0377d",
+    "closedness-v3/calibration_pilot.json": "9dc59f32f84e184ec46393986215e183f3e4f10c8571066a3af733f1daae0fae",
+    "continuation-v4-status.json": "65ee804797980cd72a7d6d311e043f5d7bf482b871e68986be9f74b1c67aefbe",
+    "continuation-v4-epoch12/report.json": "ebd0851c0ed7d44d0aec0ca6fe8f9a5708d1ad57d0045ce75a4a9dd34ac9b4b9",
+    "continuation-v4-epoch12/independent_audit.json": "99c6953cdce69635647e925536e08aea1df0425b71f7ecb5061231533d2b6c71",
+    "continuation-v4-epoch12/global_detail/cal-epoch-012/complete.json": "7b9ed0ceaf0269c3eb039e2a8031868536967b190e6fcb58a6718d272f258252",
+    "affinity-split-v5/calibration_pilot.json": "7a41777662f723fbf61fb09835ddcdcee4ee25d6ae516c86c6195a7deeb55c6e",
+    "affinity-split-v5/split_summary.json": "01eb2a040ef68c8add3feca2f9939c070151a88398e1b1ecbfaef973c9ab9955",
+    "affinity-split-v5/selection_sealed.json": "4675d4e9e3811507a3720c31ba0c6c7981b8b167f97d32462c755ee5de23c206",
+    "frozen_source_tensor_audit.json": "2f0f08355d567168e1cdefad136735bae406a5ef442f875c0cf3f54a6740c0ca",
+    "affinity_split_v5_unit_tests.xml": "dd99f0d7144cbffba66b3670e2e8086056e1caa8cb29ed31777fb1ae2d856f53"
+  },
+  "status": "Completed v1/v2/v4; v3/v5 failed CAL-only qualification and were stopped before TEST; 70% not reached.",
+  "limitations": [
+    "Historical CAL/TEST reuse; source previously trained on CAL100 and two TRAIN/TEST duplicates.",
+    "Single seed; architecture gain at fixed newer policy+0.5431pp has a paired bootstrap interval crossing zero.",
+    "Legacy corrected64.9573% endpoint uses different geometry/selection; no new project-best claim."
+  ],
+  "continuation": {
+    "status": {
+      "stage": "SUCCESS",
+      "time_utc": "2026-10-27T17:59:29.598247+00:00",
+      "reproduction_mode": "approximate",
+      "final_run": "/extra1/bmartelli/context-str-runs/directional-transport-unet-20261026-v1/continuation-v4-epoch12",
+      "report": "/extra1/bmartelli/context-str-runs/directional-transport-unet-20261026-v1/continuation-v4-epoch12/report.json",
+      "cal_decisions": [
+        {
+          "parent_epoch": 6,
+          "total_epoch": 12,
+          "best_epoch": 6,
+          "best_cal_f1": 0.728,
+          "gain_pp": 0.0,
+          "continue_training": false
+        }
+      ]
+    },
+    "epoch12_cal": {
+      "tp": 538,
+      "predictions": 696,
+      "gt": 802,
+      "lexical_tp": 544,
+      "localized": 579,
+      "images": 100,
+      "fp": 158,
+      "fn": 264,
+      "precision": 0.7729885057471264,
+      "recall": 0.6708229426433915,
+      "f1": 0.7182910547396528,
+      "lexical_f1": 0.7263017356475301,
+      "deepsolo_images": 0,
+      "deepsolo_fraction": 0.0
+    },
+    "test_predictions_byte_identical_to_parent": true
+  },
+  "affinity_split_pilot": {
+    "reproduction_mode": "approximate",
+    "claim_label": "approximate reproduction",
+    "result_class": "partial-dataset result; CAL-only pilot",
+    "selected": {
+      "policy": {
+        "threshold": 0.8,
+        "confidence": 0.6
+      },
+      "aggregate": {
+        "tp": 548,
+        "predictions": 699,
+        "gt": 802,
+        "lexical_tp": 555,
+        "localized": 587,
+        "images": 100,
+        "fp": 151,
+        "fn": 254,
+        "precision": 0.7839771101573677,
+        "recall": 0.683291770573566,
+        "f1": 0.7301798800799467,
+        "lexical_f1": 0.7395069953364424,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      }
+    },
+    "baseline": {
+      "policy": {
+        "threshold": null,
+        "confidence": 0.6
+      },
+      "aggregate": {
+        "tp": 546,
+        "predictions": 698,
+        "gt": 802,
+        "lexical_tp": 553,
+        "localized": 586,
+        "images": 100,
+        "fp": 152,
+        "fn": 256,
+        "precision": 0.7822349570200573,
+        "recall": 0.6807980049875312,
+        "f1": 0.728,
+        "lexical_f1": 0.7373333333333333,
+        "deepsolo_images": 0,
+        "deepsolo_fraction": 0.0
+      }
+    },
+    "oof": {
+      "tp": 556,
+      "predictions": 738,
+      "gt": 802,
+      "lexical_tp": 563,
+      "localized": 612,
+      "images": 100,
+      "fp": 182,
+      "fn": 246,
+      "precision": 0.7533875338753387,
+      "recall": 0.6932668329177057,
+      "f1": 0.7220779220779221,
+      "lexical_f1": 0.7311688311688311,
+      "deepsolo_images": 0,
+      "deepsolo_fraction": 0.0
+    },
+    "oof_baseline": {
+      "tp": 556,
+      "predictions": 738,
+      "gt": 802,
+      "lexical_tp": 563,
+      "localized": 612,
+      "images": 100,
+      "fp": 182,
+      "fn": 246,
+      "precision": 0.7533875338753387,
+      "recall": 0.6932668329177057,
+      "f1": 0.7220779220779221,
+      "lexical_f1": 0.7311688311688311,
+      "deepsolo_images": 0,
+      "deepsolo_fraction": 0.0
+    },
+    "oof_gain_pp": 0.0,
+    "oof_gain_against_fixed_baseline_pp": -0.5922077922077884,
+    "qualified_for_test": false,
+    "memory": {
+      "peak_allocated_bytes": 654408704,
+      "peak_reserved_bytes": 1015021568,
+      "allocated_bytes": 391212032,
+      "reserved_bytes": 1015021568
+    },
+    "parameters": 58226736,
+    "inherited_ocr_entries": 20964,
+    "native_ocr_new_calls": 6,
+    "split_summary": {
+      "reproduction_mode": "approximate",
+      "result_class": "CAL-only pilot",
+      "results": {
+        "None": {
+          "split_instances": 0,
+          "added_instances": 0,
+          "images_with_splits": []
+        },
+        "0.5": {
+          "split_instances": 1,
+          "added_instances": 1,
+          "images_with_splits": [
+            "total_text:148"
+          ]
+        },
+        "0.6": {
+          "split_instances": 0,
+          "added_instances": 0,
+          "images_with_splits": []
+        },
+        "0.7": {
+          "split_instances": 1,
+          "added_instances": 1,
+          "images_with_splits": [
+            "total_text:832"
+          ]
+        },
+        "0.8": {
+          "split_instances": 1,
+          "added_instances": 1,
+          "images_with_splits": [
+            "total_text:687"
+          ]
+        }
+      }
+    }
+  },
+  "frozen_source_tensor_audit": {
+    "status": "PASS",
+    "reproduction_mode": "approximate",
+    "checks": {
+      "v2_global_best": {
+        "source_tensors_checked": 452,
+        "changed_source_tensors": []
+      },
+      "v2_local_best": {
+        "source_tensors_checked": 452,
+        "changed_source_tensors": []
+      },
+      "v4_global_last12": {
+        "source_tensors_checked": 452,
+        "changed_source_tensors": []
+      }
+    }
+  },
+  "target_70_achieved": false,
+  "user_objective_achieved": false,
+  "verification": {
+    "focused_tests_passed": 37,
+    "independently_checked_probability_maps": 5600,
+    "source_tensors_checked_per_checkpoint": 452,
+    "source_tensors_changed": 0
+  }
+}

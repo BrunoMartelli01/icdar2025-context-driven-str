@@ -1,0 +1,70 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/unit-tests-and-runtime-v1.xml": "5d65b5a563a53aca873cd4560c6dc7e86a27b2da768b4642acfbd86662fa3dc3",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/smoke-tt263-native1280-v1/run_manifest.json": "3aa3b7aed9986801b2bf288670a47094edf04bfd7d62c037d5d9ca39f3c02ad5",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/smoke-tt_partial23-native1280-v1/run_manifest.json": "78a59763f523ca78283fc89ec852d3772256298ba876c4d8a9c7b8ea5fc3a0cb",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/source_snapshot_v1/manifest.json": "83cf132d5943217b43663ecc3c40a632e61b5e067f92c7444b17c2217d8298f1",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-native1280-v1/run_contract.json": "99825085ee859994d48e1b6fede6f4aa810b6edbb39f59feb1b8d2a1599eb3a4",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-native1280-v1/validation/epoch_000/words.json": "49a3e3b69216fa28825d69c93b57a3b0474518692ff8e37ce7dca703008d3dcd"
+  },
+  "care_words_in_full_initial_validation": 430,
+  "claim_label": "approximate reproduction",
+  "full_training_complete": false,
+  "full_tt263_initial_validation_exact": true,
+  "images_in_full_initial_validation": 100,
+  "profile_sha256": "8dff835e811cf0908d7afae285c6c2ff949889a07f422177254407755a02e827",
+  "reproduction_mode": "approximate",
+  "result_class": "unit/full-size backward smoke qualification; not final quality",
+  "schema_version": 1,
+  "smokes": [
+    {
+      "completed_epochs": 1,
+      "cuda_peak_allocated_bytes": 9994451456,
+      "cuda_peak_reserved_bytes": 12771655680,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "source": "tt263",
+      "status": "SUCCESS",
+      "training_complete": false
+    },
+    {
+      "completed_epochs": 1,
+      "cuda_peak_allocated_bytes": 9994451456,
+      "cuda_peak_reserved_bytes": 12771655680,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "source": "tt_partial23",
+      "status": "SUCCESS",
+      "training_complete": false
+    }
+  ],
+  "status": "PASS",
+  "test_data_used": false,
+  "tests_passed": 17
+}

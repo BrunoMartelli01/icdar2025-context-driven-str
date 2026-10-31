@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "contextual_boundary_selection_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "CONTEXTUAL-BOUNDARY-SELECTION-001",
+  "seed": 20261024,
+  "paths": {
+    "text_run": "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full",
+    "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+    "byt5_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+    "bert_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+    "spell_vocabulary": "/extra1/bmartelli/context-str-artifacts/neuspell-word-head-v1/vocabulary.json",
+    "restoration_manifest": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/observations.json": "0477cc15261edcf7c581ad30c652ee9d28d237c7781fcb29b8562383784398f8",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/results.json": "3f1a5a477a04b0986801a52134cf8b5931e0ebb86e7632137a0d26d17d873fe4",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/denoiser_selected.pt": "d9bc8caebc5ecc16a5af985080f739e28f93377f9f02bbaeab6316dfabf88327",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/denoiser_calibration.json": "9b5723d20fcb331a103279125ca8af5dc9ba2ff95b89e6134c487987a18ca13c",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/denoiser_evaluation.json": "38ccc30be22600bf7843337e21c843e017ba17ddda889cb1d4d1adb5c7887412",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/denoiser_test.json": "463bd82f348a1f537f5e8b24bd8f9a8ff2a6817ab60daf3f9735973e3a02590c",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/final_artifact_manifest.json": "0aea02470190560d384ead91f3dd69654a386804b5e500184f7b7b6e84c22e71",
+    "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json": "f25504061f864d23306f97edda6618c8b2da86cf5ebe6f494b28284aef559c36",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/special_tokens_map.json": "bda1d200ddf8b187ed2f2ff89a69c540e1bfde26993b762d534c20d82bfc8ec8",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/tokenizer_config.json": "3b791189b080dc37ab27ebd5cba352720ff150146217f93da1612ee8f41a846e",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/generation_config.json": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/config.json": "7845fb21b320f3fa05392ce151143502cf08729c8c89732da3293615885d3e83",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/pytorch_model.bin": "5c5aaf56299d6f2d4eaadad550a40765198828ead4d74f0a15f91cbe0961931a",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "/extra1/bmartelli/context-str-artifacts/neuspell-word-head-v1/vocabulary.json": "3f316ac8aee0603a3de5c8a4daf0b88c300457701519b1aaa258af4f3a3c4495"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "minimum_free_bytes": 18000000000,
+    "cublas_workspace_config": ":4096:8"
+  },
+  "oof": {
+    "folds": 3,
+    "epochs": 1,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "max_training_pairs": 18000,
+    "log_batches": 200
+  },
+  "candidates": {
+    "maximum_characters": 32,
+    "maximum_words": 3,
+    "minimum_piece_characters": 2,
+    "maximum_lexical": 6,
+    "maximum_neural": 4,
+    "num_beams": 4,
+    "batch_size": 16,
+    "max_new_tokens": 96,
+    "minimum_characters": 4,
+    "max_input_bytes": 128
+  },
+  "context": {
+    "neighbours_per_side": 2,
+    "minimum_vertical_overlap": 0.5,
+    "maximum_gap_heights": 8.0,
+    "maximum_height_ratio": 2.5,
+    "max_tokens": 128,
+    "bert_batch_size": 32,
+    "allowed_unused_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ]
+  },
+  "selector": {
+    "iterations": 120,
+    "max_leaf_nodes": 7,
+    "min_samples_leaf": 30,
+    "learning_rate": 0.06,
+    "l2_regularization": 1.0,
+    "thresholds": [
+      0.1,
+      0.2,
+      0.35,
+      0.5,
+      0.65,
+      0.8,
+      0.9,
+      0.97,
+      1.01
+    ],
+    "damage_limits": [
+      0,
+      2
+    ],
+    "seeds": [
+      20261024,
+      20261025,
+      20261026
+    ],
+    "early_stopping": false
+  },
+  "visual": {
+    "relative_boundary_radius": 0.04
+  },
+  "bootstrap_draws": 2000,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "smoke_images": {
+    "fit": 24,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "scientific_decisions": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Frozen M/K OCR strings, 1030/100/125/300 cohorts and historical ByT5 epoch1; previous lexical metric and source byte provenance."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "New boundary-only candidate comparison: original always retained, exact Unicode letters copied, lexical alternatives and beam4 ByT5; image-separated3fold ByT5 training for FIT proposals, image-excluded lexical priors. The unchanged historical generator is used on held-out cohorts."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Matched HGB selectors: lexical only, plus target-only BERT no-context scores, plus local frozen OCR context, plus same-crop RGB projection features. Supervision explicitly separates recovery, damage and neutral edits. No candidate deletion and no new OCR/crop generation."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "GT-blind context derived only from baseline OCR and box geometry. RGB boundary locations use proportional Unicode character positions: exploratory alignment proxy, not measured true character alignment. Thresholds selected only on calibration with damage caps0/2 and KEEP eligible."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Verify actual GPU per stage; sequential FP32 ByT5 and BERT, no AMP/TF32, GPU memory receipts; RTX3090 does not qualify8GiB."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Repeated historical evaluation/TEST exploration, source segmentation calibration exposure, two known RGB duplicates, lexical annotation conventions and final-vs-OOF generator distribution shift; no independent validation or strict-paper claim."
+    }
+  ]
+}

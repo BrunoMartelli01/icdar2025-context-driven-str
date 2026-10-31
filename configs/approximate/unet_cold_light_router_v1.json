@@ -1,0 +1,98 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "unet_cold_light_router_v1",
+  "seed": 20261026,
+  "matching_iou": 0.5,
+  "cpu_threads": 4,
+  "paths": {
+    "source_run": "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full",
+    "grounded_run": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full",
+    "improved_run": "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2",
+    "native_ocr_cache": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/source_ocr.pkl"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/artifact_manifest.json": "106887f98f5b0584bd0adc2b336b943565f794bb9452812e70f8843e1ec403cf",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/prepared.pkl": "4db5413ee7fcaaaaf6a7f530d79af5643653fcf2d131ac0783a94c1488d2d503",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/features.npz": "74e39cda667a311c604f14b11f9a8e120fbcdbebfb7bfd27d6205aff3e1a4649",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+    "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/source_ocr.pkl": "fea73eb638dfa60e6ed9d62357844754ac55c0940653f6d45129f1708b0922e0"
+  },
+  "primary_target": 0.798,
+  "targets": [
+    0.784,
+    0.798,
+    0.8
+  ],
+  "additional_profiles": [
+    "native_word",
+    "global_word"
+  ],
+  "folds": 5,
+  "trees": 128,
+  "feature_sets": [
+    "tabular",
+    "coverage",
+    "vision_coverage"
+  ],
+  "recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 1000.0
+    },
+    {
+      "kind": "trees",
+      "max_depth": 3,
+      "min_samples_leaf": 12
+    },
+    {
+      "kind": "trees",
+      "max_depth": 5,
+      "min_samples_leaf": 8
+    }
+  ],
+  "bootstrap_replicates": 1000,
+  "coverage": {
+    "quantiles": [
+      0.0,
+      0.1,
+      0.5,
+      0.9,
+      1.0
+    ],
+    "map_thresholds": [
+      0.5,
+      0.65
+    ],
+    "component_minimum_areas": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "uncovered_component_fraction": 0.5
+  },
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "scope": "Post-hoc research adaptation after initial routing failure: use125 original light-gradient-heldout images as router development with5-fold OOF, explicitly no longer an independent evaluation set. Original1028 FIT and100 calibration are not utility-supervision data in this round."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "scope": "Predicted text/kernel residual component/mass features and original native OCR confidence; preserved primary metric and exact frozen experts. Select minimum OOF fallback quota above target; if none qualifies, report maximum-OOF-F1 policy as unqualified."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "scope": "Paper equivalence, historical TEST-informed research direction, expert checkpoint validation exposure, inherited training pixel copies and small development population."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "scope": "CPU cached-output replay and router fitting; no new online DeepSolo calls."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "goal_status": "active; full233-image F1>=.9 with at most61 DeepSolo images remains unproven",
+  "report": "docs/ICDAR13_UNET_DENSE_INSTANCES.md",
+  "summary_path": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_word_policy_qualification_v1.json",
+  "summary_sha256": "c252658231779862a53f5b23687bce075c16711570008ed4f03ee8e4ca7ad599"
+}

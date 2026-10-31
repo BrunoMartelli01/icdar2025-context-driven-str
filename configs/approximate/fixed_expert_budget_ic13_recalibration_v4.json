@@ -1,0 +1,39 @@
+{
+  "claim_label": "approximate reproduction",
+  "joint_thresholds": [
+    0.4,
+    0.6,
+    0.8
+  ],
+  "lexical_policies": [
+    "none",
+    "keep",
+    "reject"
+  ],
+  "lexicon_profile": "native_benchmark",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/data/oof/labels.json": "bfc11a2b6157d760d310d62a73465c0b36bb10ef95c466e76cf4fbf222cdf397",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/data/oof/observations.json": "508581d00c47abd674c0d153f909f9ed400dc4eb0d1bcce2f47770db2d5758a8",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/data/seen/labels.json": "6c2a20fd3f76bc35fd7ae2a90356a6696396c00fa35412c0bde03bb57739afd5",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/data/seen/observations.json": "2d3663373e644f7cc7fb9d25ed78ab5df486362b5e74f921ffa73649560bd7a9",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/independent_audit_v1.json": "5f6ecf2be88b5f6e7b658c9a13f9028855167df3d5a102da047e3cc7ad8ac682",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full/resolved_configuration.json": "6d70fdf791d742c74be3392363e6c33a50afbab010b3b3c36eb0f8c4e0d8fa10"
+  },
+  "same_text_nms_iou": 0.5,
+  "scientific_choices": {
+    "ASSUMPTION": "Select the existing18-policy padding0 grid from genuine183 image-excluded TRAIN light predictions, not the46-image validation winner; explicit supplied TRAIN Generic side information. Preserve fixed detector/reader weights; no new TEST candidate comparison. Conditional policy selection across folds; not unbiased nested CV.",
+    "HARDWARE_DEVIATION": "CPU cached prediction processing; no new neural inference.",
+    "PAPER_SPECIFIED": "Motivation only.",
+    "REPOSITORY_SPECIFIED": "Previously qualified raw detector/reader outputs and original finite grid; native ignore/care metric.",
+    "UNRESOLVED": "Generalization, benchmark vocabulary distribution, prior/repeated TEST exposure and retention of other datasets."
+  },
+  "selection_tolerance": 0.001,
+  "sequence_thresholds": [
+    0.0,
+    0.9
+  ],
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/full"
+}

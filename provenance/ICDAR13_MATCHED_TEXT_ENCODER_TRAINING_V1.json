@@ -1,0 +1,48 @@
+{
+  "claim_label": "approximate reproduction",
+  "deepsolo_images": 0,
+  "deepsolo_percentage": 0.0,
+  "goal_status": "active; full TEST router target remains unproven",
+  "mode": "approximate",
+  "report": "docs/ICDAR13_UNET_DENSE_INSTANCES.md",
+  "source_sha256": {
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/imagenet_control/best.pt": "212ac013a37a0a335c16d3f1769cac01706bf1b286b3c240306fba08bfdaa7aa",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/imagenet_control/complete.json": "bc8d8381e1432c1faf9cb423379beea6735d51fe039de3dce292ef2eac494b96",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/independent_audit.json": "709f8b801b2229f3481d9536cff84fe52fb2102593f18ab144c171d9fb4a95e1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/resolved_configuration.json": "0001c76cd4bc50daf8d418d522b7d15600e29b03193dec52ec7e5dd5025e3c2c",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/text_encoder/best.pt": "08aadb81afe280baac3fdd2b9f0c85ca1822fda192cc911450cbc0183a8335ef",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/text_encoder/complete.json": "7a9e8db7665d746e7da24614f07cf8300e65fd49ec847dbf7c71e97d46b2ec91"
+  },
+  "status": "BOTH_TRAINING_ARMS_AUDITED",
+  "total_images": 23,
+  "validation_results": {
+    "imagenet_control": {
+      "accuracy_tn0": 0.7368421052631579,
+      "all_outputs": 68,
+      "detected_words": 68,
+      "f1": 0.8484848484848485,
+      "fn": 8,
+      "fp": 12,
+      "gt_words": 64,
+      "ignored_outputs": 0,
+      "images": 23,
+      "precision": 0.8235294117647058,
+      "recall": 0.875,
+      "tp": 56
+    },
+    "text_encoder": {
+      "accuracy_tn0": 0.7887323943661971,
+      "all_outputs": 64,
+      "detected_words": 63,
+      "f1": 0.8818897637795275,
+      "fn": 8,
+      "fp": 7,
+      "gt_words": 64,
+      "ignored_outputs": 1,
+      "images": 23,
+      "precision": 0.8888888888888888,
+      "recall": 0.875,
+      "tp": 56
+    }
+  }
+}

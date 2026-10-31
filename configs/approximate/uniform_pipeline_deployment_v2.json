@@ -1,0 +1,37 @@
+{
+  "claim_label": "approximate reproduction",
+  "fallback_profiles": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_fallback_profiles_v1.json",
+  "minimum_free_fallback_gpu_bytes": 10737418240,
+  "mode": "approximate",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/postprocessor_qualification.json": "8d6dec1bb9450e353d6a23cdff942bb95749a875abb6cfaa8945c154f94cca45",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/complete.json": "31f37e4480a0e514e514bbea5231508442594849b3e8a01354c795ed661cb8f3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/emission_selection/frozen.json": "e2ab3eabd1abd26e22293f0ffa59a4a5251ecab37de7b148951cbf23185b1b2e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/independent_training_audit.json": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/complete.json": "f7effaeeeb94dc2c4eae3b81154b41f1613809688b1d6a3d3922e5a2d4dceeae",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/emission_selection/frozen.json": "b95f46a54d772378f5dfd60a85610bf85ace31a42bac0fc120fdbd796c65c931",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/independent_training_audit.json": "f7f8c6bbb24615fef71ffeab0ea6366cdb25ce2703a67550bf25edac7f992d40",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/complete.json": "7bd30590c05ddd7120fb5bbed963600f5ec2c8c108022c97ca8057d67ca94b35",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/emission_selection/frozen.json": "b32ec660b6c9c25fe5ea954057a06e9d7e4d4b129fc183efe4e9f1ed6f0f9c46",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/independent_training_audit.json": "7ebafdfd26f8077423d4eb312326d556110cc4f67ac416b6e74efefc8d590ecc",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/independent_audit.json": "0113ff3b4e258ad673065855b7faf67c5f0752c331feed3922cfe075b7f6eb8c",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/selection_frozen.json": "babab8a856fa4a20f9a469eec32b737753b6b1cc19e6dbd368ead2d9c9fa7d8f",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/independent_audit.json": "ea07431f1a4443d9ea45411f97f93ed7498e1c1d78e633113c3fa3b4506e6372",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/selection_frozen.json": "60cec94bfde65c4c092e6b60f0c0e687cf852120f0d99c07b744208b75615e44",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/independent_audit.json": "84dc40f5e81233442c992e7823c70d1a0e2030918f66d7f2b4fa99365573815b",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/selection_frozen.json": "7e5fc682405ed97135a7ea8ea1241887c270c4a431136ac0aeddb595f996c0e2",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_fallback_profiles_v1.json": "e24dbed93ceffda548141dcf6d787bf1440b9c7f6bed6bb4a886eeca10ba5e6e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v2.json": "3cec7fb3bdf6c2e4bf6bafe85e23c371da07d7ddfdcb76be1e65b4d2c78dcf7b"
+  },
+  "router_cpu_threads": 2,
+  "scientific_choices": {
+    "ASSUMPTION": "Integrate existing components with RGB-only manifests, exact quota ranking, ceil rescaling on other batch sizes, original-RGB crops and isolated legacy fallback. No changed neural weights or selection thresholds.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 sequential neural stages and legacy subprocess; cold loading and allocated/reserved peaks recorded. Existing qualified environments only.",
+    "REPOSITORY_SPECIFIED": "Qualified common full-FIT U-Net/PARSeq and utility/fusion v2; exact prediction-only fallback parity on1033 TEST images.",
+    "UNRESOLVED": "v2 primary targets fail on IC13/TT. End-to-end live qualification pending GPU; no paper-metric equivalence or general speed claim. Benchmark lexicon/pretraining and historical TEST exposure remain."
+  },
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v2.json"
+}

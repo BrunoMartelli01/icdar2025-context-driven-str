@@ -1,0 +1,81 @@
+{
+  "actual_problem_image_checks": 26,
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/preparation-launch-v1.json": "0d1ee92bf03a900628843de047e04c8bc769e15282ae7327f0445693de8916c0",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/prepared-data-v1/manifest.json": "f911724549be7b6cd53d4490fdddab345a2561ca58458d9b141f703cf85b54e2",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/prepared-data-v1/results.json": "59290de19174959ef0a9af573a94c9572637157db96bad39bacf8759ef4a8079",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/pretrain/validation/epoch_000/words.json": "e406ea5a385164d72f6cdb70e40db8442d6b344b4b295dbe9dce5c82455d69a9",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/qualification/actual-problem-image-cache-v1.json": "fe02ae5d898022736ae8c21acde62d02647806a3b38759807f946d31a732911b",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/qualification/cache-unit-tests-v1.xml": "dda6ff5303c0f7543d475cf65d281b81f3b68dfc3a157c9f69fc38b68ebb0935",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/qualification/cache-unit-tests-v2.xml": "19cab03eaf156631fda56e8695f484b5529d8c8b94fb74e2e21c08019fecfc24",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/qualification/stage-unit-tests-v2.xml": "b045f30a789bfbe18f78fa72691e8dfc2cec879a2a870a55238fa49b1a4c9883",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/smoke-finetune/run_manifest.json": "211858f82bf9a8074f3d3ab20c07d1253f3fe0007534b600a3588dcd58a8180a",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/smoke-pretrain/run_manifest.json": "c90be71588262abb6b6bc3618f2bffc3d34b81059b7ce808e0f5b9bd024e7f98",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/source_snapshot_v1/manifest.json": "4e11a7974c8aff2d46eaab30348fc7150ed416be98c12c6abe14fa740df2dedc",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/training-job-spec-v1.json": "05e4ca9756cb32c026073d9026e58f83656723ac7da31cb3c66bb0444dd88b0f",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/training-launch-v1.json": "a8c4be96e0d5067d572880147a7de5826f1a03d9c5a02be8f06c3444547007c4"
+  },
+  "cache_fixture_failures": "Initial2 missing probability_threshold fixture failures fixed; failing and passing XML preserved.",
+  "claim_label": "approximate reproduction",
+  "full_initial_VAL100_raw_exact": true,
+  "full_training_complete": false,
+  "goal_achieved": false,
+  "manifest_sha256": "f911724549be7b6cd53d4490fdddab345a2561ca58458d9b141f703cf85b54e2",
+  "prepared_images": 50000,
+  "reproduction_mode": "approximate",
+  "result_class": "complete data cache plus engineering backward qualification; not final F1",
+  "schema_version": 1,
+  "smokes": [
+    {
+      "cuda_peak_allocated_bytes": 5220027392,
+      "cuda_peak_reserved_bytes": 5964300288,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 1,
+      "input_shape": [
+        8,
+        3,
+        512,
+        512
+      ],
+      "oom": false,
+      "output_shape": [
+        8,
+        1,
+        256,
+        256
+      ],
+      "phase": "pretrain",
+      "result_class": "smoke-test result"
+    },
+    {
+      "cuda_peak_allocated_bytes": 9994451456,
+      "cuda_peak_reserved_bytes": 11800674304,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "phase": "finetune",
+      "result_class": "smoke-test result"
+    }
+  ],
+  "status": "PASS",
+  "target_summary": {
+    "annotation_words": 422616,
+    "outside_image_words": 6,
+    "restored_contact_words": 20,
+    "visible_words": 422610
+  },
+  "test_data_used": false,
+  "unit_tests_passed": 18
+}

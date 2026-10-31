@@ -1,0 +1,290 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/finetune/epochs.json": "d9d02ad7c1fe6befea1d445a39fdb9a19eb52695c5a1a6668728d92d82feb8e9",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/finetune/run_manifest.json": "4a7392322104004fa954315573e5f87ceeb47cbf11e58d516ca523785ec8e8be",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/operating-policy-validation-finetune-v1/results.json": "1d095cb56e249f33672f8037ff34f2a36c6ca9c58984d893ee5e4ada63a22e68",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/pretrain/epochs.json": "e8555ab9b34eb43f6d706f351272687ff362880142de1aba214c148e22dccb37",
+    "/extra1/bmartelli/context-str-runs/icdar2015-synthtext-pretrain-v1/pretrain/run_manifest.json": "7209d352be6345aecb42096ea931e05ebe4dfc0c7bf72401b183ea888122c609"
+  },
+  "claim_label": "approximate reproduction",
+  "conclusion": "Combined synthetic-data/AdamW recipe does not beat prior c467 native operating policy or seed-mask follow-up. Preserve all failures, sources and23 word-validated checkpoint archives; no inferior model is selected for TEST.",
+  "goal_achieved": false,
+  "phases": [
+    {
+      "checkpoint": {
+        "epoch": 5,
+        "path": "best.pt",
+        "sha256": "51266c4b3b991a5ec725e4ceeb60ef6fea3ebe6683b3d403d2c26f4724306e8a"
+      },
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.5013850415512465,
+          "fn": 249,
+          "fp": 111,
+          "precision": 0.6198630136986302,
+          "recall": 0.42093023255813955,
+          "tp": 181
+        },
+        "alphanumeric_casefold_tp": 181,
+        "casefold_exact": {
+          "f1": 0.48753462603878117,
+          "fn": 254,
+          "fp": 116,
+          "precision": 0.6027397260273972,
+          "recall": 0.40930232558139534,
+          "tp": 176
+        },
+        "casefold_exact_tp": 176,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5761772853185596,
+          "fn": 222,
+          "fp": 84,
+          "precision": 0.7123287671232876,
+          "recall": 0.48372093023255813,
+          "tp": 208
+        },
+        "geometry_tp": 208,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 292,
+        "symbol_only_gt": 0
+      },
+      "native_word_losses": [
+        2496,
+        2563,
+        2434,
+        2490,
+        2606
+      ],
+      "peak_allocated_bytes": 5220027392,
+      "peak_reserved_bytes": 5964300288,
+      "phase": "pretrain",
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.2895480225988701,
+          "fn": 225,
+          "fp": 781,
+          "precision": 0.2079107505070994,
+          "recall": 0.47674418604651164,
+          "tp": 205
+        },
+        "alphanumeric_casefold_tp": 205,
+        "casefold_exact": {
+          "f1": 0.2754237288135593,
+          "fn": 235,
+          "fp": 791,
+          "precision": 0.19776876267748478,
+          "recall": 0.45348837209302323,
+          "tp": 195
+        },
+        "casefold_exact_tp": 195,
+        "empty_normalized_predictions": 208,
+        "geometry": {
+          "f1": 0.3531073446327684,
+          "fn": 180,
+          "fp": 736,
+          "precision": 0.2535496957403651,
+          "recall": 0.5813953488372093,
+          "tp": 250
+        },
+        "geometry_tp": 250,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 986,
+        "symbol_only_gt": 0
+      },
+      "validation_geometry": {
+        "foreground_iou": 0.5445395632376041,
+        "fragmented_words": 25,
+        "fused_components": 49,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 108,
+        "lost_words": 37,
+        "matched_gt": 250,
+        "proposal_f1_iou_50": 0.3531073446327684,
+        "proposal_precision_iou_50": 0.2535496957403651,
+        "proposals": 986,
+        "word_recall_iou_50": 0.5813953488372093,
+        "words_touched_by_fused_components": 108
+      }
+    },
+    {
+      "checkpoint": {
+        "epoch": 42,
+        "path": "best.pt",
+        "sha256": "99ffbeacc869576c986e7a5f2fcf58182c98b7c842db5aeddf138669edec8a43"
+      },
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.4985507246376812,
+          "fn": 258,
+          "fp": 88,
+          "precision": 0.6615384615384615,
+          "recall": 0.4,
+          "tp": 172
+        },
+        "alphanumeric_casefold_tp": 172,
+        "casefold_exact": {
+          "f1": 0.48695652173913045,
+          "fn": 262,
+          "fp": 92,
+          "precision": 0.6461538461538462,
+          "recall": 0.39069767441860465,
+          "tp": 168
+        },
+        "casefold_exact_tp": 168,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5623188405797102,
+          "fn": 236,
+          "fp": 66,
+          "precision": 0.7461538461538462,
+          "recall": 0.4511627906976744,
+          "tp": 194
+        },
+        "geometry_tp": 194,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 260,
+        "symbol_only_gt": 0
+      },
+      "native_word_losses": null,
+      "peak_allocated_bytes": 9994451456,
+      "peak_reserved_bytes": 12765364224,
+      "phase": "finetune",
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.33955223880597013,
+          "fn": 248,
+          "fp": 460,
+          "precision": 0.2834890965732087,
+          "recall": 0.4232558139534884,
+          "tp": 182
+        },
+        "alphanumeric_casefold_tp": 182,
+        "casefold_exact": {
+          "f1": 0.3302238805970149,
+          "fn": 253,
+          "fp": 465,
+          "precision": 0.2757009345794392,
+          "recall": 0.4116279069767442,
+          "tp": 177
+        },
+        "casefold_exact_tp": 177,
+        "empty_normalized_predictions": 172,
+        "geometry": {
+          "f1": 0.4085820895522388,
+          "fn": 211,
+          "fp": 423,
+          "precision": 0.3411214953271028,
+          "recall": 0.5093023255813953,
+          "tp": 219
+        },
+        "geometry_tp": 219,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 642,
+        "symbol_only_gt": 0
+      },
+      "validation_geometry": {
+        "foreground_iou": 0.5799274741580224,
+        "fragmented_words": 66,
+        "fused_components": 31,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 60,
+        "lost_words": 75,
+        "matched_gt": 219,
+        "proposal_f1_iou_50": 0.4085820895522388,
+        "proposal_precision_iou_50": 0.3411214953271028,
+        "proposals": 642,
+        "word_recall_iou_50": 0.5093023255813953,
+        "words_touched_by_fused_components": 60
+      }
+    }
+  ],
+  "reproduction_mode": "approximate",
+  "result_class": "complete synthetic5epochs and FIT90050epochs with fixed VAL100; not TEST",
+  "schema_version": 1,
+  "selected_operating_policy": {
+    "crop_method": "oriented2",
+    "emission_policy": {
+      "confidence": "mean_token_confidence",
+      "minimum_alphanumeric_length": 3,
+      "threshold": 0.9
+    },
+    "emitted_aggregate": {
+      "alphanumeric_casefold": {
+        "f1": 0.5336927223719676,
+        "fn": 232,
+        "fp": 114,
+        "precision": 0.6346153846153846,
+        "recall": 0.4604651162790698,
+        "tp": 198
+      },
+      "alphanumeric_casefold_tp": 198,
+      "casefold_exact": {
+        "f1": 0.5175202156334232,
+        "fn": 238,
+        "fp": 120,
+        "precision": 0.6153846153846154,
+        "recall": 0.44651162790697674,
+        "tp": 192
+      },
+      "casefold_exact_tp": 192,
+      "empty_normalized_predictions": 0,
+      "geometry": {
+        "f1": 0.6172506738544474,
+        "fn": 201,
+        "fp": 83,
+        "precision": 0.7339743589743589,
+        "recall": 0.5325581395348837,
+        "tp": 229
+      },
+      "geometry_tp": 229,
+      "gt_words": 430,
+      "images": 100,
+      "predictions": 312,
+      "symbol_only_gt": 0
+    },
+    "per_image_file": "threshold_0.35_oriented2/per_image.json",
+    "per_image_sha256": "580c3291e5352e97fddc666bec9d0b59ae7e99a8a47330be5e2c921a6b20cf74",
+    "probability_threshold": 0.35,
+    "raw_aggregate": {
+      "alphanumeric_casefold": {
+        "f1": 0.3369294605809129,
+        "fn": 227,
+        "fp": 572,
+        "precision": 0.26193548387096777,
+        "recall": 0.4720930232558139,
+        "tp": 203
+      },
+      "alphanumeric_casefold_tp": 203,
+      "casefold_exact": {
+        "f1": 0.3236514522821577,
+        "fn": 235,
+        "fp": 580,
+        "precision": 0.25161290322580643,
+        "recall": 0.45348837209302323,
+        "tp": 195
+      },
+      "casefold_exact_tp": 195,
+      "empty_normalized_predictions": 140,
+      "geometry": {
+        "f1": 0.4,
+        "fn": 189,
+        "fp": 534,
+        "precision": 0.3109677419354839,
+        "recall": 0.5604651162790698,
+        "tp": 241
+      },
+      "geometry_tp": 241,
+      "gt_words": 430,
+      "images": 100,
+      "predictions": 775,
+      "symbol_only_gt": 0
+    }
+  },
+  "status": "SUCCESS",
+  "test_data_used": false
+}

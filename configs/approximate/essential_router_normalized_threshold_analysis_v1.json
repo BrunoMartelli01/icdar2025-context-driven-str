@@ -1,0 +1,65 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "essential_router_normalized_threshold_analysis_v1",
+  "seed": 20261028,
+  "paths": {
+    "icdar_transfer": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1",
+    "totaltext_essential": "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1",
+    "totaltext_features": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1",
+    "totaltext_native": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf",
+    "totaltext_yolo": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054",
+    "icdar13_root": "/extra1/bmartelli/datasets/context-str/icdar13",
+    "icdar2015_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1"
+  },
+  "experts": [
+    "unet",
+    "yolo"
+  ],
+  "datasets": [
+    "total_text",
+    "icdar13",
+    "icdar2015"
+  ],
+  "loss_budgets": [
+    0.0,
+    0.0025,
+    0.005,
+    0.01,
+    0.02
+  ],
+  "near_best_tolerances": [
+    0.0,
+    0.0025,
+    0.005,
+    0.01
+  ],
+  "bootstrap_draws": 2000,
+  "policies": [
+    "validation_minimum_deepsolo_at_no_loss",
+    "validation_maximum_f1",
+    "validation_minimum_deepsolo_near_best",
+    "raw_positive_utility",
+    "source_totaltext_policy_transfer",
+    "validation_minimum_deepsolo_with_simultaneous_bootstrap_band",
+    "shared_validation_cut_no_loss_on_each_dataset"
+  ],
+  "uncertainty": "Paired image bootstrap for frozen policies; calibration/selection variance and prior TEST exposure remain. No theorem guaranteeing preservation of population microF1.",
+  "test_scope": "Enumerate every distinct attainable score cut on full TEST as a descriptive Pareto/oracle analysis only. Do not deploy or rename TEST-selected optima as validation choices.",
+  "common_threshold": "Evaluate the same raw score cuts across all three TEST sets as an explicitly post-hoc existence check; include all-DeepSolo endpoint. Validation selects policies separately from their own paired outcomes.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Algorithm2 fallback motivation only; trained gate and accuracy/cost optimization are extensions.",
+    "REPOSITORY_SPECIFIED": "Same frozen30-feature Ridge, corrected U-Net chain, native YOLO expert, native256 ignore, symbol-free lexical microF1 and complete TEST denominators.",
+    "ASSUMPTION": "Validation paired counts use existing23-image IC13 heldout Task2.2 blank-line word groups and100-image IC15 heldout quadrilaterals, plus source TotalText CAL63. Use existing canonical Task2.2 transcription/geometry/ignore parsers; no invented word grouping or TEST split. Native YOLO confidence is an explicit feature shift.",
+    "HARDWARE_DEVIATION": "Sequential RTX3090 FP32 isolated expert processes and cached-output CPU threshold enumeration; no complete online latency claim.",
+    "UNRESOLVED": "Small validation, cross-dataset threshold transfer, historical expert/TEST exposure, external-corpus overlap, paper metric and IC13split equivalence, conditional bootstrap uncertainty."
+  },
+  "simultaneous_bootstrap": {
+    "alpha": 0.05,
+    "draws": 2000,
+    "method": "Maximum centered bootstrap F1-gain error across every cutoff, paired image resampling, fixed expert outputs; approximate conditional band, no finite-sample theorem"
+  },
+  "shared_validation_cut": "Enumerate common score cuts using only pooled validation inputs; choose minimum total DeepSolo subject to empirical noninferiority separately on all3 validation sets. Freeze before TEST frontier enumeration.",
+  "score_mode": "normalized_utility",
+  "exploratory_followup": "Declared after absolute-score analysis, before normalized TEST curve evaluation. Same fixed30-feature model; divide absolute utility by observed_raw_words+1. Fit all new cut choices on original validation only; no TEST selection."
+}

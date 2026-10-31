@@ -1,0 +1,293 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/detached_posttraining_calibration_v1.py": "9563cd8755c7268f379ef1ba818760b262f345d8d50c18bb827f83f652b921ab",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/detached_training_runner_v1.py": "568b333c050309fac4206b6fc1249903eff6670899f3eabf8b6c584eb3f896a5",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/posttraining-calibration-launch-v1.json": "069aeaf175a7a1b76949ffdd8eeb8ec10b20147195048ac9332138094ad6862a",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/posttraining-calibration-spec-v1.json": "5d9d523124b29c759cad7e6cc20323e20449c27c035dd92dc91c243afdb0204b",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/cpu-inference-operational-stop-v1.json": "92d9e0f081be268c806ea4b3fb20c2e79e7ce8a0f4aec648b2455d00d1602fb2",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/source-compatibility-v1.json": "68ec4126e770a7133bcff407529e57287160150a4941a9ef2d5343662038a7f1",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/unit-tests-and-runtime-v1.xml": "5d65b5a563a53aca873cd4560c6dc7e86a27b2da768b4642acfbd86662fa3dc3",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/source_snapshot_v1/manifest.json": "83cf132d5943217b43663ecc3c40a632e61b5e067f92c7444b17c2217d8298f1",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/training-job-spec-v1.json": "f49148c119c455ee61a2e36f1875ca00a2a9c8f55ba959d30f2a4944b4f80af6",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/training-launch-v1.json": "9e9f113550664caec52ba0fdefef9075d4240249888cfd13b7dd97d580af1a53",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-initial-val100-v1-cuda/geometry.json": "e8cefd3df677c8b6bc2c4fcbf913e3dccf6371974b4b965b3807e2decff89ac1",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-initial-val100-v1-cuda/results.json": "f59b26e5cac660c2d266d76c37466b16ebe90160dcbf3ab9708f321e2a625919",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-initial-val100-v1-cuda/words.json": "c6501881e1e09b54b74ef523bb8029a4865ecc20fc66c560840e2126f6f18bba",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt_partial23-initial-val100-v1-cuda/geometry.json": "bd8076dac41f8c95afd55e8d693c0b81d6ab056277041ce5b798ebe959a7757b",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt_partial23-initial-val100-v1-cuda/results.json": "6e57736a6f283131ffbc43baf46ef4603069236baf86065f5c84ca0ab4aa3fd6",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt_partial23-initial-val100-v1-cuda/words.json": "f82528d80de908e0674782392dc63e7c7f4f53068b80a56058a11e9ac95b09be"
+  },
+  "backward_memory_qualification_complete": false,
+  "claim_label": "approximate reproduction",
+  "exposure": {
+    "exact_image_hash_overlap": 0,
+    "icdar_train_images": 1000,
+    "scope": "Complete recorded manifests; not perceptual duplicate detection",
+    "totaltext_images": 1255
+  },
+  "full_training_complete": false,
+  "goal_achieved": false,
+  "initial_validation": {
+    "tt263": {
+      "emission_policy": {
+        "confidence": "mean_token_confidence",
+        "minimum_alphanumeric_length": 3,
+        "threshold": 0.95
+      },
+      "failed_samples": 0,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "oom": false,
+      "peak_allocated_bytes": 903720448,
+      "peak_reserved_bytes": 1077936128,
+      "status": "SUCCESS",
+      "validation_emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.44931506849315067,
+          "fn": 266,
+          "fp": 136,
+          "precision": 0.5466666666666666,
+          "recall": 0.3813953488372093,
+          "tp": 164
+        },
+        "alphanumeric_casefold_tp": 164,
+        "casefold_exact": {
+          "f1": 0.4383561643835616,
+          "fn": 270,
+          "fp": 140,
+          "precision": 0.5333333333333333,
+          "recall": 0.37209302325581395,
+          "tp": 160
+        },
+        "casefold_exact_tp": 160,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5260273972602739,
+          "fn": 238,
+          "fp": 108,
+          "precision": 0.64,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "geometry_tp": 192,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 300,
+        "symbol_only_gt": 0
+      },
+      "validation_geometry": {
+        "foreground_iou": 0.5721374289065664,
+        "fragmented_words": 25,
+        "fused_components": 71,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 171,
+        "lost_words": 10,
+        "matched_gt": 225,
+        "proposal_f1_iou_50": 0.2996005326231691,
+        "proposal_precision_iou_50": 0.20988805970149255,
+        "proposals": 1072,
+        "word_recall_iou_50": 0.5232558139534884,
+        "words_touched_by_fused_components": 171
+      },
+      "validation_words": {
+        "alphanumeric_casefold": {
+          "f1": 0.2396804260985353,
+          "fn": 250,
+          "fp": 892,
+          "precision": 0.16791044776119404,
+          "recall": 0.4186046511627907,
+          "tp": 180
+        },
+        "alphanumeric_casefold_tp": 180,
+        "casefold_exact": {
+          "f1": 0.22636484687083888,
+          "fn": 260,
+          "fp": 902,
+          "precision": 0.15858208955223882,
+          "recall": 0.3953488372093023,
+          "tp": 170
+        },
+        "casefold_exact_tp": 170,
+        "empty_normalized_predictions": 143,
+        "geometry": {
+          "f1": 0.2996005326231691,
+          "fn": 205,
+          "fp": 847,
+          "precision": 0.20988805970149255,
+          "recall": 0.5232558139534884,
+          "tp": 225
+        },
+        "geometry_tp": 225,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 1072,
+        "symbol_only_gt": 0
+      }
+    },
+    "tt_partial23": {
+      "emission_policy": {
+        "confidence": "sequence_confidence",
+        "minimum_alphanumeric_length": 3,
+        "threshold": 0.6
+      },
+      "failed_samples": 0,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "oom": false,
+      "peak_allocated_bytes": 903720448,
+      "peak_reserved_bytes": 1077936128,
+      "status": "SUCCESS",
+      "validation_emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.5070785070785071,
+          "fn": 233,
+          "fp": 150,
+          "precision": 0.5677233429394812,
+          "recall": 0.45813953488372094,
+          "tp": 197
+        },
+        "alphanumeric_casefold_tp": 197,
+        "casefold_exact": {
+          "f1": 0.49163449163449163,
+          "fn": 239,
+          "fp": 156,
+          "precision": 0.5504322766570605,
+          "recall": 0.4441860465116279,
+          "tp": 191
+        },
+        "casefold_exact_tp": 191,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5945945945945946,
+          "fn": 199,
+          "fp": 116,
+          "precision": 0.6657060518731989,
+          "recall": 0.5372093023255814,
+          "tp": 231
+        },
+        "geometry_tp": 231,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 347,
+        "symbol_only_gt": 0
+      },
+      "validation_geometry": {
+        "foreground_iou": 0.5971103119777974,
+        "fragmented_words": 35,
+        "fused_components": 56,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 124,
+        "lost_words": 25,
+        "matched_gt": 256,
+        "proposal_f1_iou_50": 0.42244224422442245,
+        "proposal_precision_iou_50": 0.3273657289002558,
+        "proposals": 782,
+        "word_recall_iou_50": 0.5953488372093023,
+        "words_touched_by_fused_components": 124
+      },
+      "validation_words": {
+        "alphanumeric_casefold": {
+          "f1": 0.33828382838283827,
+          "fn": 225,
+          "fp": 577,
+          "precision": 0.26214833759590794,
+          "recall": 0.47674418604651164,
+          "tp": 205
+        },
+        "alphanumeric_casefold_tp": 205,
+        "casefold_exact": {
+          "f1": 0.32673267326732675,
+          "fn": 232,
+          "fp": 584,
+          "precision": 0.2531969309462916,
+          "recall": 0.4604651162790698,
+          "tp": 198
+        },
+        "casefold_exact_tp": 198,
+        "empty_normalized_predictions": 81,
+        "geometry": {
+          "f1": 0.42244224422442245,
+          "fn": 174,
+          "fp": 526,
+          "precision": 0.3273657289002558,
+          "recall": 0.5953488372093023,
+          "tp": 256
+        },
+        "geometry_tp": 256,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 782,
+        "symbol_only_gt": 0
+      }
+    }
+  },
+  "reproduction_mode": "approximate",
+  "result_class": "complete TRAIN validation plus queued training readiness; not TEST",
+  "schema_version": 1,
+  "source_compatibility": {
+    "claim_label": "approximate reproduction",
+    "reproduction_mode": "approximate",
+    "result_class": "CPU architecture compatibility smoke; not detection performance",
+    "sources": [
+      {
+        "architecture": "practical-totaltext-v4-highres-agunet-v1",
+        "bitwise_equal_forward": true,
+        "checkpoint_sha256": "8cb13e9daaea77c5c85184d21ee79ea6d5d0700481b84046cad75c5b626061dc",
+        "engineering_input_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "engineering_output_shape": [
+          1,
+          1,
+          32,
+          48
+        ],
+        "epoch": 263,
+        "keys": 452,
+        "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+        "name": "tt263",
+        "parameter_count": 58155081,
+        "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-letterbox-500-separator-pair-v1/letterbox_500_control",
+        "run_manifest_sha256": "79fcee001bec71391ba127360b088937614bbcf9943c5028a6f0b237837797a5",
+        "strict_load": true
+      },
+      {
+        "architecture": "practical-totaltext-partial-encoder-v1:partial_encoder",
+        "bitwise_equal_forward": true,
+        "checkpoint_sha256": "64782ef59bddbb35614e107cbff4bd6301a30a05b0881394256198256215c9ef",
+        "engineering_input_shape": [
+          1,
+          3,
+          64,
+          96
+        ],
+        "engineering_output_shape": [
+          1,
+          1,
+          32,
+          48
+        ],
+        "epoch": 23,
+        "keys": 452,
+        "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+        "name": "tt_partial23",
+        "parameter_count": 58155081,
+        "run_directory": "/extra1/bmartelli/context-str-runs/totaltext-partial-encoder-50ep-v1/partial_encoder",
+        "run_manifest_sha256": "cdf9be527fda72b10a561c9817085d1713e29432bd2d343dddfd050bfb3acaa8",
+        "strict_load": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "status": "READY_FOR_QUEUED_BACKWARD_QUALIFICATION",
+  "test_data_used": false,
+  "tests_passed": 17,
+  "training_profile_sha256": "8dff835e811cf0908d7afae285c6c2ff949889a07f422177254407755a02e827",
+  "training_state_at_creation": {
+    "runner_pid": 2011491,
+    "spec": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/training-job-spec-v1.json",
+    "status": "WAITING_FOR_VALIDATION_AND_PREVIOUS_TRAINING",
+    "updated_utc": "2026-10-27T22:55:07.962146+00:00"
+  }
+}

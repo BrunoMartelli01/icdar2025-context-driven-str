@@ -1,0 +1,22 @@
+{
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/full",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/deployment_qualification.json": "39811fc5b68c0adc18ddf32b9f32cd57fc825e9bb98a0fc8fd362fc97db887f4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/completed.json": "de51c332b30692217cf1088091a62226f10c82f4f92d62c59ccf0620b31fbe3d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/resolved_configuration.json": "89f466e4a46a8d533a342abb2ad51163923dab396b6aa8b92e43a3d74bd8041e"
+  },
+  "require_expert_excluded": true,
+  "scientific_choices": {
+    "ASSUMPTION": "Fit the same finite image-count head families and word-risk features with five RGB-grouped FIT crossfolds. Select combined heldout-FIT and validation microF1 at separately scaled quotas, retaining an explicit validation floor; compare qualified fallback/complement variants with same cost-aware tie rule. No TEST labels or outputs enter fitting or selection. Sources and labels are conditionally stacked: source detectors and other word folds can have seen an outer-fold image; these scores are not fully nested unbiased CV.",
+    "HARDWARE_DEVIATION": "CPU float64 crossfit and cached predictions; no new GPU/DeepSolo inference.",
+    "PAPER_SPECIFIED": "Broad fallback motivation only; supervised count utility is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Original real prediction caches, expert-image-excluded FIT outputs when available, native256 ignore/care, trained word risk, already qualified per-dataset fallback variants and available real map features.",
+    "UNRESOLVED": "Prior/repeated TEST exploration, benchmark TRAIN-vocabulary validation exposure, conditional stacking, small validation and final generalization."
+  },
+  "selection_tolerance": 0.001,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full",
+  "source_view": "oof"
+}

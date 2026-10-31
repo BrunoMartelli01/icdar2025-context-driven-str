@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "word_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/qualified_word_data",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "gap_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/decoder/best.pt",
+    "split_protocol": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/protocol.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "source_word_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+    "input_restoration": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json",
+    "structure_checkpoint": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full/segmentation/structure/best.pt",
+    "prior_artifact_manifest": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full_artifact_manifest.json",
+    "prior_protocol": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full/protocol.json",
+    "prior_results": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full/results.json",
+    "source_selector_pre": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/selector_pre.pt",
+    "followup_artifact_manifest": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full_artifact_manifest.json",
+    "followup_protocol": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full/protocol.json",
+    "followup_results": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full/results.json"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "gap_checkpoint": "7f5212429b8c2e670c24759e213c2833b7cd70dc9d289fb7b3f301db81fe0aa3",
+    "split_protocol": "5ee0289a23ff9ff31f9db76d21d764a70b93debc52ba8362a0341517ba57c65d",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "input_restoration": "f25504061f864d23306f97edda6618c8b2da86cf5ebe6f494b28284aef559c36",
+    "structure_checkpoint": "7b32b1e55742b5ce643dd9effc5c13a1ca11ca7d0712d24d635294476cb1cf75",
+    "prior_artifact_manifest": "0cf65b4f77a8a19b9e8429076db3e2452983332940529200d92235503aeb8947",
+    "prior_protocol": "90530da6ade6db26a23dfd8ebfe6e4b965c567cb581293c969a4e05171203a37",
+    "prior_results": "9363c7e88305d85cf88433e2e3761c2ebe8b679e17daed81f83c4baa6bada6d6",
+    "source_selector_pre": "86ba9dfc29d6a9fd6da513d5151a96d6f1d410fcdf6ef98bc27096b7bbbcb287",
+    "followup_artifact_manifest": "40067d44f419f449fafa43ea67fe0511bf946173dccc79ce1b974c45c81875cf",
+    "followup_protocol": "59ba992ab62ecc03ee0dd7a0d78daa950fb59a7e8e307b318c8da1ee8762d200",
+    "followup_results": "c95c5257ca483e91f17a7b0c00e650e832dd694bcdb84f43a8f87183233a27b5"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "ocr_batch_size": 32,
+    "segmentation_batch_size": 1,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 8589934592,
+    "admission_margin_bytes": 805306368,
+    "admission_poll_seconds": 20
+  },
+  "metric_iou_threshold": 0.5,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+  "source_results_sha256": "34b3f1394cfa4317f6a78a46f63f2ed2482ba873066af63b622991ca76c74aa5",
+  "budget": 20,
+  "seed": 20261023,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction; user-authorized word-graph research extension",
+  "experiment_kind": "word_graph_recovery_v1",
+  "scientific_ambiguity": "WORD-GRAPH-RECOVERY-001",
+  "bootstrap_draws": 2000,
+  "filter_source": "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full",
+  "filter_source_sha256": {
+    "selector/pointwise.pt": "b2a31adef35ec7ae7462e04940d1f86b61868df37faa2e21630515982078b6dc",
+    "selector/selection_frozen.json": "818d9cd57d81299c00dfcdc52d180a7819ac3841b06a1aaf6e3b82f76e0ce331",
+    "selector/test_results.json": "2c70e34a0b148c5ce8461dcda6e31cfa1b37f4bce3ddc4e49a7d32cf79e903e9",
+    "selector/calibration_predictions.json": "0619e64138ff71a866c10844a90ba50ad26ee2a5d011767bfcffc4fe5c3cafef",
+    "selector/evaluation_predictions.json": "f7aa5a31a5d9b0276e455963d899046d810a731baee479b02f858e9b10002951",
+    "selector/test_predictions.json": "18d0c0c0e4be00077c54b55bf43c88e789acb5881c26c2fa4ccfc068fadab5f9",
+    "independent_audit.json": "3c7a6058922513c4d4317c63aa5d140ff786004f711ffba80b3e8e6f10fa4cd5"
+  },
+  "filter": {
+    "hidden": 32,
+    "threshold": 0.5,
+    "overlap": 0.6
+  },
+  "smoke": {
+    "fit": 8,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "prior_run": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full",
+  "followup_run": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full",
+  "require_independent_validation": false,
+  "critical_frozen_files": [
+    "recognition/parseq.py",
+    "models/adaspot_gap.py",
+    "models/unet_word_research.py",
+    "models/totaltext_word_kernel.py",
+    "models/unet_adv.py",
+    "localize/occlusion_four_tests.py"
+  ],
+  "new_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Explicit user-requested research extension: these four architectures/objectives are not strict paper reproduction; historical populations remain exploratory, source calibration exposure and duplicate TEST RGBs remain reported.",
+      "source": "WORD-GRAPH-RECOVERY-001"
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Lock original accepted observations. Learn FIT-only incremental exact word matching gains for already-budgeted candidates. Equal-capacity self/GNN controls use natural source candidates, frozen CNN crop statistics, gray crop pixels and stable Unicode character n-grams; no training vocabulary from held-out data."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Compare equal-capacity contour GCNs with original cyclic point loss versus additional full-owner bbox extent/asymmetric clipping/other-owner contamination losses. Identity and uniform-padding controls use calibration word F1."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Fresh U-Net and direct multiscale geometric decoders share every qualified frozen ResNet50 tensor and dense text/kernel/distance/direction supervision. Proposal/self/GNN start from identical new proposal weights. Graph losses use FIT predicted windows; original trained U-Net is an operational reference, not an equal-pretraining control."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Distance is per-owner normalized nearest exterior distance; direction is nearest-exterior unit vector inside foreground only. This is a documented adaptation of Das/TextBPN fields, not their exact target generator."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Regional GT/frozen/EMA arms have identical supervised labels, augmentations and updates. FIT-only OCR/IoU/purity/coverage verify teacher regions. Region targets are Dice and soft extrema, with no pseudo-background outside accepted windows; teacher windows refresh at declared epochs."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual PAPER RTX3090 FP32; sequential stages/models and explicit batches. CPU differentiable bilinear sampling/resizing avoids nondeterministic CUDA backward; this can differ from the paper runtime and is not RTX3070 qualification."
+    }
+  ],
+  "additions": {
+    "hidden": 64,
+    "layers": 3,
+    "text_bins": 32,
+    "neighbors": 8,
+    "maximum_distance": 6.0,
+    "minimum_feature_scale": 0.01,
+    "epochs": 25,
+    "calibration_every": 5,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "thresholds": [
+      "KEEP",
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "raw_threshold": 0.5
+  },
+  "contours_v3": {
+    "points": 32,
+    "hidden": 64,
+    "layers": 4,
+    "iterations": 3,
+    "maximum_step": 0.05,
+    "feature_size": 128,
+    "minimum_valid_fraction": 0.95,
+    "minimum_training_iou": 0.3,
+    "epochs": 20,
+    "calibration_every": 5,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "loss_beta": 0.1,
+    "gradient_clip": 5.0,
+    "inside_weight": 2.0,
+    "extent_weight": 1.0,
+    "contamination_weight": 0.5,
+    "padding_fractions": [
+      0.0,
+      0.025,
+      0.05,
+      0.1
+    ]
+  },
+  "geometry_v1": {
+    "points": 32,
+    "hidden": 64,
+    "layers": 4,
+    "iterations": 3,
+    "maximum_step": 0.05,
+    "feature_size": 128,
+    "minimum_valid_fraction": 0.95,
+    "minimum_training_iou": 0.3,
+    "epochs": 20,
+    "calibration_every": 5,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "loss_beta": 0.1,
+    "gradient_clip": 5.0,
+    "inside_weight": 2.0,
+    "extent_weight": 1.0,
+    "contamination_weight": 0.5,
+    "padding_fractions": [
+      0.0,
+      0.025,
+      0.05,
+      0.1
+    ],
+    "batch_size": 2,
+    "lateral_channels": 16,
+    "native_size": 256,
+    "geometry_weight": 0.5,
+    "contour_weight": 0.5,
+    "magnitude_weight": 0.1,
+    "unused_gap_bias": -2.0
+  },
+  "regional_v1": {
+    "epochs": 12,
+    "calibration_every": 3,
+    "batch_size": 4,
+    "learning_rate": 1e-06,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "brightness": 0.1,
+    "contrast": 0.1,
+    "occlusion_probability": 0.5,
+    "occlusion_width_fraction": 0.15,
+    "maximum_occluded_words": 4,
+    "teacher_confidence": 0.8,
+    "pixel_weight": 0.5,
+    "structure_weight": 0.5,
+    "encoder_frozen": true,
+    "teacher_update": "frozen qualified initial checkpoint; clean view",
+    "target_semantics": "Original clean text/kernel labels retained under synthetic RGB occlusion; natural amodal labels unavailable.",
+    "minimum_confidence": 0.8,
+    "minimum_iou": 0.5,
+    "minimum_purity": 0.9,
+    "minimum_coverage": 0.8,
+    "text_threshold": 0.65,
+    "extent_temperature": 2.0,
+    "extent_weight": 1.0,
+    "regional_weight": 0.5,
+    "ema_decay": 0.99,
+    "refresh_every": 3
+  },
+  "parent_recipe_provenance": {
+    "scientific_decisions": [
+      {
+        "classification": "PAPER_SPECIFIED",
+        "choice": "Original arXiv2503.15639v2 section3.2/3.3 defines segmentation/localization. Das pp7/10 motivates four-neighbor contour GCN iteration, cyclic point matching and teacher/student. Exact configurations for these new variants are not paper-specified."
+      },
+      {
+        "classification": "REPOSITORY_SPECIFIED",
+        "choice": "Preserve pinned M/K U-Net, PARSeq, word-owner targets, restored exact RGB data,1030/100/125/300 populations, original bboxIoU0.5 plus exact Unicode casefold/punctuation, all care/output denominators and cap20 before OCR. Reuse the audited epoch6 structural checkpoint and source64channel features."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "choice": "Threshold-only recalibration on calibration word F1 for both baseline and structural model; same predeclared grid and fixed model/filter weights. No TEST selection. This is separate from training versions."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "choice": "Restart epoch6 structural model with fresh matched AdamW and RNG in both arms. Only LR differs:3e-6 control vs1e-6 treatment.12additional epochs; select on calibration every3epochs, retaining source epoch6 on ties. Source optimizer/RNG state unavailable, so this is not an exact interrupted-training resume."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "choice": "TRAIN predicted-box RGB strip occlusion plus zeroed proposal-map strip creates graph fragments. Reuse majority owner targets only during fitting. One update per eligible original image; choose a synthetic view at probability.5 only when it adds positive same-word links. Compare self/GCN x standard/enriched, same capacity, normalization, seed, order and30epoch budget. Evaluate calibration every5epochs under fixed node.5/edge.7; baseline identity is eligible and trained final endpoints are reported. No inference augmentation."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "choice": "Contour variant uses existing full candidate boxes as32pixel-center control points, four cyclic neighbors+self, four residual layers,3deformation iterations, step.05source-box size, cyclic normalized SmoothL1 against the largest external v4owner contour. Original proposal IDs/alternatives are preserved. Zero offsets replay original boxes. This is an inspired contour-refinement extension, not full TextBPN/Das, a new proposal network, or a decoder replacement."
+      },
+      {
+        "classification": "HARDWARE_DEVIATION",
+        "choice": "Actual RTX3090, FP32/noAMP/TF32, frozen encoder/backbones and sequential stages. Contour field reduced to128square and cached on CPU; deterministic CPU bilinear grid sampling preserves coordinate gradients across transfers. These output-sensitive choices do not enter STRICT. Record allocation/reservation, device, model set, shapes and batch; propagate failures/OOM."
+      },
+      {
+        "classification": "UNRESOLVED",
+        "choice": "Independent generalization, training variance, natural-occlusion transfer, artificial graph-fragment distribution, disconnected/holed contour-target fidelity, pixel-center boundary conventions and full paper provenance remain unresolved. Historical TEST and calibration exposure/duplicate RGBs remain explicit. A new GNN benefit is not inferred from implementation or smoke."
+      },
+      {
+        "classification": "HARDWARE_DEVIATION",
+        "choice": "Measured prior identical U-Net/teacher model set reserved5.68GB. Admission requires6GiB free after CUDA initialization plus.75GiB before stage startup. Queue while busy without interrupting other jobs; runtime guard and OOM failures remain explicit."
+      }
+    ],
+    "frozen_source_files": [
+      "recognition/parseq.py",
+      "models/adaspot_gap.py",
+      "models/unet_word_research.py",
+      "models/totaltext_word_kernel.py",
+      "models/unet_adv.py",
+      "localize/occlusion_four_tests.py"
+    ],
+    "followup_frozen_files": [
+      "scripts/run_graph_occlusion_research.py",
+      "localize/graph_occlusion_research.py",
+      "scripts/run_teacher_student_tests.py",
+      "scripts/run_occlusion_four_tests.py",
+      "scripts/run_mask_crop_budget.py",
+      "segmentation/totaltext_word_kernel.py",
+      "segmentation/data.py"
+    ],
+    "graph": {
+      "seed_threshold": 0.8,
+      "minimum_seed_area": 2,
+      "maximum_pieces": 8,
+      "maximum_nodes": 128,
+      "neighbors": 8,
+      "maximum_distance": 6.0,
+      "owner_purity": 0.6,
+      "hidden": 64,
+      "layers": 4,
+      "epochs": 30,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.01,
+      "gradient_clip": 5.0,
+      "edge_loss_weight": 1.0,
+      "minimum_feature_scale": 0.01
+    },
+    "segmentation": {
+      "epochs": 12,
+      "calibration_every": 3,
+      "batch_size": 4,
+      "learning_rate": 3e-06,
+      "weight_decay": 0.01,
+      "gradient_clip": 5.0,
+      "brightness": 0.1,
+      "contrast": 0.1,
+      "occlusion_probability": 0.5,
+      "occlusion_width_fraction": 0.15,
+      "maximum_occluded_words": 4,
+      "teacher_confidence": 0.8,
+      "pixel_weight": 0.5,
+      "structure_weight": 0.5,
+      "encoder_frozen": true,
+      "teacher_update": "frozen qualified initial checkpoint; clean view",
+      "target_semantics": "Original clean text/kernel labels retained under synthetic RGB occlusion; natural amodal labels unavailable."
+    },
+    "recalibration": {
+      "thresholds": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.9
+      ]
+    },
+    "continuation": {
+      "additional_epochs": 12,
+      "calibration_every": 3,
+      "learning_rates": {
+        "control": 3e-06,
+        "low_lr": 1e-06
+      },
+      "optimizer_restart": "fresh AdamW in both arms; source optimizer/RNG not saved"
+    },
+    "enrichment": {
+      "width_fraction": 0.15,
+      "maximum_words": 4,
+      "probability": 0.5,
+      "minimum_positive_multiplier": 2.0,
+      "calibration_every": 5,
+      "inference_policy": {
+        "node": 0.5,
+        "edge": 0.7
+      },
+      "note": "Predicted-box RGB occlusion and matching zeroed TRAIN proposal-map strips; GT only assigns training owners and chooses a richer TRAIN variant. One update per eligible original image.",
+      "fill_rgb": [
+        128,
+        128,
+        128
+      ]
+    },
+    "contour": {
+      "points": 32,
+      "hidden": 64,
+      "layers": 4,
+      "iterations": 3,
+      "maximum_step": 0.05,
+      "feature_size": 128,
+      "minimum_valid_fraction": 0.95,
+      "minimum_training_iou": 0.3,
+      "epochs": 20,
+      "calibration_every": 5,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.01,
+      "loss_beta": 0.1,
+      "gradient_clip": 5.0
+    },
+    "scope": "Historical parent recipes only; these fields are NOT executed by word_graph_recovery_v1."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "sources": {
+    "residual": {"plan": "73b7832ddf0ff8532974636c3b09c23fb47ece18e5d383987533577c754d47c3", "results": "62dd5b86a4d57a0da51785433107cc73045773fc0bd86c1c6168eaa89e6d75e2", "audit": "a114717898caf6a25c1261c61f156811fc3b8020233bca16dfc30ad82acfd86e"},
+    "quality": {"plan": "e72e1c5afc212470b697faf498a1972b2fade9f7e0af07f50870f83d51f8b0d1", "results": "1d0f9b7912e0b577ee90bc1b09e42a984aec36b08d752ea9539515124ff30791", "audit": "9d0addc8bd7926c4c35a32d0af3cd2e6515f7d8e5a0029d9b8be9d60027223ce"}
+  },
+  "bypass_fractions": [0.2, 0.3, 0.5],
+  "quality_f1_threshold": 0.8,
+  "feature_sets": ["core", "full"],
+  "feature_settings": {
+    "lower_quantile": 0.2,
+    "control_features": ["base_proxy_f1", "all_checks_softcrop", "coverage_baseline"],
+    "head_features": ["foreground_pixels", "uncovered_pixels", "missing_regions", "corroborated_missing_regions", "missing_word_mass_equivalents", "word_mass_scale"],
+    "context_features": ["base_mpnet", "clip_plain_margin", "clip_context_margin", "base_lm_coherence", "base_lm_literal", "vqa_visual_drop_plain", "vqa_residual_context"]
+  },
+  "model_settings": {
+    "seed": 20261023,
+    "trees": 64,
+    "ridge_alphas": [1000.0, 100.0, 10.0, 1.0],
+    "logistic_C": [0.1, 1.0, 10.0],
+    "tree_depths": [2, 3],
+    "tree_leaf_sizes": [10, 5],
+    "logistic_max_iter": 2000,
+    "logistic_tolerance": 0.0000001
+  },
+  "model_kinds": ["oracle_logistic", "oracle_trees", "ridge", "trees"],
+  "primary_family": "oracle_logistic_core",
+  "cv_folds": 5,
+  "controls": ["base_proxy_f1", "all_checks_softcrop", "coverage_baseline", "risk_visual_consensus", "risk_visual_mass"],
+  "bootstrap_iterations": 10000,
+  "smoke_fit_images": 10,
+  "smoke_validation_images": 5,
+  "smoke_test_images": 5,
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Inspected local section3.5/Algorithm2. Whole-image DeepSolo fallback is retained. A trained router is an approximate extension, not the paper's training-free semantic/lexical rule."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse audited425 frozen YOLO640/PARSeq/CLIP/Text-Kernel/context/VQA features and complete ViTAEv2-S+TextOCR outputs, original TRAIN80/45 and TEST300, exact casefold word multisets and native256 ignore with983/2204 care words."},
+    {"classification": "ASSUMPTION", "choice": "The latest user authorizes training only the tabular router to approach the fixed-budget oracle. Base recognizers, detectors and embeddings stay frozen. Inputs contain only pre-fallback inference features; no test annotation or actual DeepSolo output enters a prediction."},
+    {"classification": "ASSUMPTION", "choice": "Fit80 only. Five-fold inner CV on these80 selects hyperparameters per family/budget by out-of-fold combined microF1. Every fold derives its teacher oracle and regression reference only from its own training samples. VAL45 selects among eight supervised families and supplies independent scalar cuts; do not refit on125."},
+    {"classification": "ASSUMPTION", "choice": "Direct oracle classifiers learn canonical optimal light/defer membership at each budget; a Fraction-based cardinality optimizer supplies zero-residual certificates. Ridge/forest regressors learn deltaTP and deltaPred and rank by2*predicted_deltaTP minus TRAIN-fit all-DeepSoloF1*predicted_deltaPred."},
+    {"classification": "ASSUMPTION", "choice": "Per-fit TRAIN-only standardization, explicit missing indicators/zero fill, core versus full contextual features, regularized linear/logistic models and small deterministic ExtraTrees. Persist portable JSON coefficients/trees and verify inference against sklearn. No package installation, pickle or neural-model updates."},
+    {"classification": "ASSUMPTION", "choice": "Freeze all trained models, VAL choices and cuts before new TEST predictions. Compare exact20/30/50% rank budgets, transferred inclusive cuts, all controls and all families. Report oracle F1 gap, canonical decision agreement and symmetric differences; tie-equivalent optimal subsets need not share IDs."},
+    {"classification": "ASSUMPTION", "choice": "Bootstrap paired images with gates fixed and no multiplicity correction. Fit80 scores are in-sample; inner OOF, VAL45, fullTRAIN125 and TEST300 are separate. Oracle/classification agreement is diagnostic, not an inference feature."},
+    {"classification": "UNRESOLVED", "choice": "Only80 fitting images, repeatedly explored TRAIN/TEST, DeepSolo Total-Text TRAIN fine-tuning, correlated features, oracle-label nonuniqueness, official metric equivalence and complete latency limit claims. Perfect selection is the target, not a promised attained result."}
+  ]
+}

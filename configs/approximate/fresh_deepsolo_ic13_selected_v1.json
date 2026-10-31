@@ -1,0 +1,25 @@
+{
+  "dataset": "icdar13",
+  "decision_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/decisions_before_fallback.json",
+  "deepsolo_images": 61,
+  "mode": "approximate",
+  "output_plan": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_plan_v1.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/runtime.json": "493f9a188220ae2170d26f34ec2dc07c392ff7df216cb70866b25b546a083a38",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/resolved_configuration.json": "fc1c0569ca2317b58fe6e86acba314162b469b1d8a9a97275c81e51c22678b98",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/decisions_before_fallback.json": "febf3bb474dcea1394ed75d11d53f48a845767c24bfaf65150047b60b241ba36",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/deployment_qualification.json": "cc6d1156db0135c9a0e921e6a53d0dca38bfb834d1d7994918d3e728ddb8780d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/selection_frozen.json": "d26944c604113f818816ba0a9f8c24286d083ee1ca2f256870b0095ee977fa1c",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_word_f1_selected_native_word_v1.json": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Rerun only frozen selected images, once each; use the previously frozen frontend and no TEST-dependent changes.",
+    "HARDWARE_DEVIATION": "Isolated legacy subprocess on RTX3090, FP32, batch1 and existing nondeterministic cuDNN settings; record CUDA peaks and failures.",
+    "PAPER_SPECIFIED": "Full-image DeepSolo fallback motivation.",
+    "REPOSITORY_SPECIFIED": "Previously qualified ViTAEv2-S/TextOCR checkpoint, native resolution, runtime, and pre-fallback decisions.",
+    "UNRESOLVED": "Historical TEST exposure and adaptive selection, upstream checkpoint training, non-nested features, and potential runtime variation."
+  },
+  "source_plan": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/resolved_configuration.json",
+  "total_images": 233
+}

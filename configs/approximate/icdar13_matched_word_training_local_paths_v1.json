@@ -1,0 +1,15 @@
+{
+  "mode": "approximate",
+  "parent_plan": "/extra1/bmartelli/context-str-runs/icdar13-word-refit-20261028-v1/full/resolved_configuration.json",
+  "parent_plan_sha256": "66840f26556303784c6f8891a956deabf34a37b73fd69b586d99ca382a02b0e3",
+  "population_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "targets_manifest": "/extra1/bmartelli/datasets/context-str/icdar13-word-regions-20261028-v2/manifest.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2",
+  "tt_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+  "tt_checkpoint_sha256": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+  "tt_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+  "tt_contract_sha256": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt"
+}

@@ -1,0 +1,37 @@
+{
+  "claim_label": "approximate reproduction",
+  "common_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt",
+  "lexical_policies": [
+    "none",
+    "keep",
+    "reject"
+  ],
+  "mode": "approximate",
+  "peak_thresholds": [
+    0.03,
+    0.1,
+    0.3
+  ],
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt": "1e7e60e9dc30534b117f1aebf17019d25a6b31163377d43d6d19d6183cc73e05",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/smoke/resolved_configuration.json": "15d0c4f3d8982d4c7511d5c822c857336042fad67b9c21326aa4cffe4d74d189"
+  },
+  "protocol": "Frozen trained checkpoint selected with predeclared fixed policy. Then27 finite peak/sequence/lexical choices on selection23 only, same NMS/padding/top50. Common base+FIT183 care transcriptions create TRAIN dictionary; no selection/CAL/TEST transcriptions used for it. TEST uses fixed released Generic. CAL/TEST after frozen policy; prior TEST exposure remains explicit.",
+  "run_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/smoke",
+  "scientific_choices": {
+    "ASSUMPTION": "Finite27-choice validation policy for new dense U-Net words. Full Generic source matching distance<=1 is optional and frozen before TEST. Separate FIT-only train vocabulary prevents the prior cross-role lexicon construction.",
+    "HARDWARE_DEVIATION": "Cached FP32 RTX3090 light-expert evaluation, zero new DeepSolo neural outputs.",
+    "PAPER_SPECIFIED": "Broad U-Net/PARSeq fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Original Generic resources and matcher, qualified PARSeq/care F1 and explicit native256 ignore.",
+    "UNRESOLVED": "Small validation, prior TEST exploration, train/test vocabulary distribution and model generalization."
+  },
+  "sequence_thresholds": [
+    0.4,
+    0.7,
+    0.9
+  ],
+  "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+  "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt"
+}

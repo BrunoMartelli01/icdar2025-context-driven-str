@@ -1,0 +1,60 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-ohem-v1/qualification/unit-tests-v1.xml": "73c428bcfb3b26ad8d9120339ebd3246340516e0d5470bd5b90f4ea547d766c1",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-ohem-v1/smoke-ohem-full-v1/run_manifest.json": "015fbb4288ababc68993a4c41306036a583cfb2294ae5d4ddfa0a5f10c2e1607",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-ohem-v1/smoke-ohem-partial-v1/run_manifest.json": "3fe16522ae3bba56e8412ff253a69ef7397b2be5cb358220de7c2fbeece464ed",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-ohem-v1/source_snapshot_v1/manifest.json": "c4ed485343f60842f8af4fb6b2ec9d82184272e5fd96b5520c181bf51e8eac8b",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-ohem-v1/threshold-screen-validation-v1.json": "9e6f1d2af40b63253b38e0e1f7bb9e76b8d98911f041f6c98ed83d8101cedd87"
+  },
+  "claim_label": "approximate reproduction",
+  "full_validation_initialization": "Both source epoch-zero raw aggregates reproduce the pinned source on all VAL100/430 care words.",
+  "reproduction_mode": "approximate",
+  "result_class": "unit and full-size backward smoke qualification; not quality result",
+  "schema_version": 1,
+  "smokes": [
+    {
+      "cuda_peak_allocated_bytes": 9992354304,
+      "cuda_peak_reserved_bytes": 13180600320,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "status": "SUCCESS"
+    },
+    {
+      "cuda_peak_allocated_bytes": 14253846016,
+      "cuda_peak_reserved_bytes": 17498636288,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gradient_accumulation": 2,
+      "input_shape": [
+        4,
+        3,
+        736,
+        1280
+      ],
+      "oom": false,
+      "output_shape": [
+        4,
+        1,
+        368,
+        640
+      ],
+      "status": "SUCCESS"
+    }
+  ],
+  "status": "PASS",
+  "test_data_used": false,
+  "training_profile_sha256": "1693f7b45f47f48c77bdf7f223062159bdc71c24e6a83b7eff7795c3c1c65c93",
+  "unit_tests_passed": 18
+}

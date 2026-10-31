@@ -1,0 +1,37 @@
+{
+  "deployment_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_pipeline_deployment_v6b.json",
+  "jobs": [
+    {
+      "dataset": "icdar13",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar13.json",
+      "policy_quota": 187,
+      "reference_images": 233
+    },
+    {
+      "dataset": "icdar2015",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar2015.json",
+      "policy_quota": 400,
+      "reference_images": 500
+    },
+    {
+      "dataset": "totaltext",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_totaltext.json",
+      "policy_quota": 240,
+      "reference_images": 300
+    }
+  ],
+  "main_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python",
+  "minimum_free_gpu_bytes": 15032385536,
+  "mode": "approximate",
+  "neural_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_smoke_v6b",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_source_manifest_v6b.json": "25412563337bb71f97273adf6f1200c92bbdcaaa280f37ff35812ac17f5308ac",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_pipeline_deployment_v6b.json": "3ddc5793c9990c90457f3f4382a2b839e0096f8082ddbca80f9f0850d943a5f3"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "12 RGB-only engineering samples per domain, frozen native reference quotas rescaled by ceil; no quality selection or latency benchmark.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32 main/legacy separate processes; require14GiB free; record actual memory and errors."
+  },
+  "source_snapshot": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_source_snapshot_v6b"
+}

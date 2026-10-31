@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "study_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1",
+  "source_study": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1",
+  "source_study_plan_sha256": "fc1c0569ca2317b58fe6e86acba314162b469b1d8a9a97275c81e51c22678b98",
+  "source_validation_plan_sha256": "c603e62cfe3c8c76d217ebc82cd90bcef7802d9ed767c92ec9bee8e6f8185df3",
+  "predeclared_protocol_sha256": "ccaaf6fac11acdff52abf5c5a355011c33ad6aa0958fb08cfcb3a9706a5af354",
+  "runtime": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/runtime.json",
+  "runtime_sha256": "31bdcdd1e6043a04319bcabe4e76a91e2b2f0e76567be7718cd0427d7ed01696",
+  "profiles": {
+    "tt_native1024": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_native1024_profile.json",
+    "tt_ic15resize1440": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_ic15resize1440_profile.json",
+    "ic15_official1440": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440_profile.json"
+  },
+  "plans": {
+    "tt_native1024_validation": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_native1024_validation_plan.json",
+    "tt_native1024_test": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_native1024_test_plan.json",
+    "tt_ic15resize1440_validation": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_ic15resize1440_validation_plan.json",
+    "tt_ic15resize1440_test": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/tt_ic15resize1440_test_plan.json",
+    "ic15_official1440_validation": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440_validation_plan.json",
+    "ic15_official1440_test": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/ic15_official1440_test_plan.json"
+  },
+  "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+  "seed": 20261028,
+  "bootstrap_repetitions": 2000,
+  "scientific_classifications": {
+    "PAPER_SPECIFIED": "Context paper Section4.3 cites standalone DeepSolo82 on ICDAR15, without a unique metric, lexicon, checkpoint or resize.",
+    "REPOSITORY_SPECIFIED": "Official pinned IC15 ViTAE+TextOCR checkpoint source, config resize1440/max4000, threshold0.3. Qualified legacy FP32 worker and existing symbol-free metric.",
+    "ASSUMPTION": "Isolate source-checkpoint/resize effects; fixed declared calibration grid. No lexicon or TEST policy tuning.",
+    "HARDWARE_DEVIATION": "Observed RTX3090 FP32 batch1, existing isolated subprocess, no dependency changes.",
+    "UNRESOLVED": "Exact paper82 protocol, training/calibration upstream exposure, official-author checksum unavailable, online latency."
+  },
+  "evaluation_input_manifest": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/evaluation_input_manifest.json",
+  "evaluation_input_manifest_sha256": "cfe68486a8e4f22d5204924c1e4ed137b2cc44ca9d53616bd50d936165f9bb5f",
+  "diagnostic_bbox_iou": 0.5,
+  "diagnostic_word_height_breaks": [
+    12,
+    24
+  ],
+  "ignore_resolution": 256,
+  "primary_metric": "Unchanged symbol-free word lexical microF1; Unicode casefold+isalnum, no lexicon, no spatial matching in primary metric.",
+  "user_metric_confirmation": "2026-10-28: retain word F1 with punctuation removed; do not replace it with paper accuracy or official E2E."
+}

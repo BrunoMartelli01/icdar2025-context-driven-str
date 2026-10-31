@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "selective_word_repair_tests_v1",
+  "scientific_ambiguity": "SELECTIVE-WORD-REPAIR-TESTS-001",
+  "seed": 20261024,
+  "paths": {
+    "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+    "filter_run": "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full",
+    "text_run": "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full",
+    "previous_additions_run": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full",
+    "restoration_manifest": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json",
+    "byt5_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/protocol.json": "a8ad787bf2b32ae611aaaad620f5a2aa1f2486dba7b7c6c0f825a087d9786ae0",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/final_artifact_manifest.json": "0aea02470190560d384ead91f3dd69654a386804b5e500184f7b7b6e84c22e71",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/ocr_0.jsonl": "3b02dea945f6035bdc752a673cbbfc61fd078feb13ccfff56084f4088bf438da",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/selector_pre.pt": "86ba9dfc29d6a9fd6da513d5151a96d6f1d410fcdf6ef98bc27096b7bbbcb287",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/selector_post.pt": "9765f7dbc373666300470337e1bdc5be4fa5ca1812d0e527d6914c33a406a9bb",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/results.json": "2462e105ab200151de074680dd172ebda96196d88df9701b53522898604c555a",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/selector/pointwise.pt": "b2a31adef35ec7ae7462e04940d1f86b61868df37faa2e21630515982078b6dc",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/selector/selection_frozen.json": "818d9cd57d81299c00dfcdc52d180a7819ac3841b06a1aaf6e3b82f76e0ce331",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/selector/test_results.json": "2c70e34a0b148c5ce8461dcda6e31cfa1b37f4bce3ddc4e49a7d32cf79e903e9",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/selector/calibration_results.json": "f47fa65bd5de2d34b97f895a6f437cb6ff51376a5854a809cc2ac58ac4a1f291",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/results.json": "3f1a5a477a04b0986801a52134cf8b5931e0ebb86e7632137a0d26d17d873fe4",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/observations.json": "0477cc15261edcf7c581ad30c652ee9d28d237c7781fcb29b8562383784398f8",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/denoiser_calibration.json": "9b5723d20fcb331a103279125ca8af5dc9ba2ff95b89e6134c487987a18ca13c",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/evaluation_per_image.json": "b64dd9b750e0e4f412e118775b3720ac8a364c7baad605d170bdbc9e3515f087",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/test_per_image.json": "e3c2c6d21b84573ecdda57bbdaaef1776d72d108f115c0eaca10ec5e04e60106",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/results.json": "b6ff83a6f22b4b511614a80652bc05795a2456747ff5527000901cf7f154e3e9",
+    "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json": "f25504061f864d23306f97edda6618c8b2da86cf5ebe6f494b28284aef559c36",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/special_tokens_map.json": "bda1d200ddf8b187ed2f2ff89a69c540e1bfde26993b762d534c20d82bfc8ec8",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/tokenizer_config.json": "3b791189b080dc37ab27ebd5cba352720ff150146217f93da1612ee8f41a846e",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/generation_config.json": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/config.json": "7845fb21b320f3fa05392ce151143502cf08729c8c89732da3293615885d3e83",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/pytorch_model.bin": "5c5aaf56299d6f2d4eaadad550a40765198828ead4d74f0a15f91cbe0961931a",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_baseline_results.json": "bf7a09bc96a9bc40ef766a9b6367d5c4f676ced0eebfcc2ca1553e4b279389f2",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_baseline_predictions.json": "ae56b1ceb1bef42821e8c8dfc6c22506ef5a9adb481521c81497e30afcb03e72",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_mlp_results.json": "5283b2d0191b8b5888cf54c76accbdae1218a86982be4a235c237756c51ded6b",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_mlp_predictions.json": "eb0d238497127ebf862068ea0ce2bd87809d9dcc8d19ae340a5f4b44afa75227",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_gnn_results.json": "a3152a0ba5f7453594d8592276671af71fa964396a79650ae721edefe9224305",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/evaluation_gnn_predictions.json": "d3bfa9402a804cc31e0ecce86e7077f7cfc54cf3521e5c58b3a4924053d1afcd",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_baseline_results.json": "9eb3781622bdce8180d88439c59039a21247dcab5a15933eaafe4a5d4493a9e2",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_baseline_predictions.json": "89c59d61f09fb7ea79b1e11542e0f7c6a282a94b24dfc03aa9c29d60dd27a1ae",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_mlp_results.json": "960a1d79f42de880d72adb98b197f6d0180315cfe55d79e78a11fd42333aecfb",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_mlp_predictions.json": "3c9554740ad0171d1ba90bd29924d70758c0c5c181ac089a9cb2b13d3a1cc62e",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_gnn_results.json": "e67caafb4ef45a0fcf2a16199a92e9f8782797d9a5b3b16f6f6bb5cccd726c46",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/test_gnn_predictions.json": "83cfc9584f2cadcee0747092f7ee7ce44f5747d6bb604d0168c37a71fbe0a758"
+  },
+  "budget": 20,
+  "matching_iou": 0.5,
+  "compatibility_iou": 0.6,
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "minimum_free_bytes": 8589934592,
+    "cublas_workspace_config": ":4096:8",
+    "ocr_batch_size": 32,
+    "encoder_batch_size": 32
+  },
+  "classifier": {
+    "max_iter": 120,
+    "max_leaf_nodes": 7,
+    "learning_rate": 0.06,
+    "min_samples_leaf": 25,
+    "l2_regularization": 1.0
+  },
+  "addition_thresholds": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8,
+    0.9,
+    0.97,
+    1.01
+  ],
+  "triage": {
+    "annotation_fraction": 0.3,
+    "text_thresholds": [
+      0.0,
+      0.1,
+      0.25,
+      0.4,
+      0.6
+    ],
+    "correct_thresholds": [
+      0.0,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      0.95
+    ],
+    "damage_limit": 2,
+    "oof_folds": 3,
+    "route_policy": {
+      "text_threshold": 0.2,
+      "correct_threshold": 0.8
+    },
+    "maximum_reread_parents": 2
+  },
+  "boundaries": {
+    "max_bytes": 128,
+    "maximum_pairs": 12000,
+    "gt_coverage": 0.85,
+    "maximum_neighbors": 1,
+    "neighbors": {
+      "minimum_vertical_overlap": 0.6,
+      "maximum_gap_heights": 1.0,
+      "maximum_height_ratio": 2.0
+    },
+    "hidden": 64,
+    "epochs": 12,
+    "batch_size": 1024,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "thresholds": [
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      0.9,
+      1.01
+    ],
+    "raw_threshold": 0.5,
+    "damage_limit": 2,
+    "maximum_output_words": 3,
+    "pretrained_revision": "68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+    "positive_loss_weight": 2.0,
+    "minimum_feature_scale": 0.01,
+    "gradient_clip": 1.0
+  },
+  "reread": {
+    "expansion_fraction": 0.1,
+    "neighbors": {
+      "minimum_vertical_overlap": 0.6,
+      "maximum_gap_heights": 1.0,
+      "maximum_height_ratio": 2.0
+    },
+    "minimum_split_aspect": 2.5,
+    "minimum_split_width": 16,
+    "split_window": [
+      0.3,
+      0.7
+    ],
+    "maximum_variants": 3,
+    "benefit_thresholds": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      0.95,
+      1.01
+    ],
+    "harm_thresholds": [
+      0.05,
+      0.15,
+      0.3
+    ],
+    "damage_limit": 2,
+    "feature_text_threshold": 0.65,
+    "confidence_gain": 0.0,
+    "raw_benefit_threshold": 0.5,
+    "raw_harm_threshold": 0.3
+  },
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "smoke_images": {
+    "fit": 24,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "smoke_pairs": 128,
+  "bootstrap_draws": 2000,
+  "scientific_decisions": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Qualified frozen source M/K maps, candidate pools, OCR, budget20 selectors and 1030/100/125/300 roles. Reuse prior additions as a separately identified frozen comparison, not a newly trained result."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "New HGB incremental-addition scorer; separate care-annotation-overlap and exact-read scorers. Overlap proxy does not prove physical text presence. Calibration includes identity and uses a declared damage budget."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Frozen pinned pretrained ByT5 encoder plus a trained Unicode-gap head; original characters are copied exactly. Clean FIT labels require identical compact characters, and synthetic joins require local spatial neighbors. This is not full ByT5 decoder fine-tuning."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "TRAIN three-fold out-of-fold triage scores route at most two uncertain parents per image. Discrete RGB expansions, local unions and probability-valley splits; learned benefit/harm classifiers preserve KEEP. Existing PARSeq adapter/weights/decoding remain fixed."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "PAPER RTX3090 single GPU, sequential FP32 ByT5 encoder and PARSeq stages, no AMP/TF32. CPU HGB; frozen encoder states cached on CPU. Explicit batches, model sets and peak allocated/reserved memory. No 8GiB qualification."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Historical repeated TEST inspection, source calibration exposure, known TRAIN/TEST identical RGBs, one seed and noisy annotation proxies preclude independent-generalization or strict reproduction claims."
+    }
+  ]
+}

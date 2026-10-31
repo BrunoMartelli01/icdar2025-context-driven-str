@@ -1,0 +1,81 @@
+{
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "canvas": 1024,
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar2015",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "larger_weight": 0.5,
+  "minimum_free_disk_bytes": 3221225472,
+  "minimum_free_gpu_bytes": 10737418240,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-icdar2015-20261031-v20",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/main_receipt.json": "26b2c2254676e4e2cdd6a0f4dc8bfed33341d57056e2b9283a697467e5b0ecb1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json": "e3f0ea78798a0362bdecf4d23cf634eda515b21353714a7c006695f2077fe672",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_parity_audit.json": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_probe/complete.json": "ac09cc53cb6b9b90fc4ddbaa78a10b46d5b78579487a0dedf9a134a19dbfb725",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/scaled/complete.json": "86d435c9b4991627d6dbbdc0d7cab34b41f3fe21b255c4091e570d54d9d7c7c7",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/scaled/index.json": "fbf50f0a25059cad76e0892c964f90b9ebdfff2e61a5adfd5815abd0b9ea6a31",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/best.pt": "88f915b3aad2d79e1d73c6631dc13b46a2d48a70a8d5537e9a8bf55b20b7798f",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/emission_selection/frozen.json": "b95f46a54d772378f5dfd60a85610bf85ace31a42bac0fc120fdbd796c65c931",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/independent_training_audit.json": "f7f8c6bbb24615fef71ffeab0ea6366cdb25ce2703a67550bf25edac7f992d40",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1/manifests/icdar2015_train.yaml": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739",
+    "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/manifests/total_text_train.yaml": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/pipeline/uniform_scaled_frontend.py": "860602ce610a741e79ed30a031b2cd042de05480d10b626bf558ff661dcfbefb",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/pipeline/uniform_word_pipeline.py": "48c2438e8eae3b3c24fad46f662ba104f31727ec70f895831d9c778dc73426e9",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_utility_deployment.py": "86e4ce491d970d831b848ff8301eed2dcc0b51304f4b28de9d1e3392e9319b89",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_multiscale_masks.py": "84e3a76b4862163b4ecb3dacc30049c0ead510aa5604a4b1f0fef0a4bd353f65",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_scaled_frontend.py": "d551d8ddfda2ce2a0c7d4ec3e4a5dfc99b0c1d43d68ff3aa6ba43f55c9985075",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/segmentation/uniform_multiscale_masks.py": "9196c97e28a17314446dffd5becb8c05d6e87cf7baa04da5326f82b73b6e2515"
+  },
+  "qualification_images": 2,
+  "scaled_export": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/scaled",
+  "scientific_choices": {
+    "ASSUMPTION": "Fixed equal native768/1024 probability mean under the predeclared v20 common screen. Native context, original heads and hard floor quota retained. No TEST, grid search or matching head refit.",
+    "HARDWARE_DEVIATION": "Existing FP32 RTX3090 inference caches; actual new PARSeq GPU reading only in this stage. Deployment would require two U-Net forwards per image, unchanged neural parameter count. Cached blend timing is not full online latency.",
+    "PAPER_SPECIFIED": "AG-UNet with ResNet50 and component localization motivation only; multi-resolution fusion is not specified.",
+    "REPOSITORY_SPECIFIED": "Authenticated actual native768 and1024 inference maps from identical selected IC13 weights, genuine PARSeq, retained original word/image/fusion heads and native encoder context.",
+    "UNRESOLVED": "Scale complementarity, reused validation, upstream exposure, matching head calibration, three-domain retention and hard-budget targets."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "deepsolo"
+  ],
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json"
+}

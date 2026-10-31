@@ -1,0 +1,38 @@
+{
+  "batch_size": 32,
+  "claim_label": "approximate reproduction",
+  "datasets": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7",
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json": "47ded90049aa8a420c432861e0da0657332d6623ec355a8dedfc4b2b45b86f33",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Same genuine PARSeq re-reading of native DeepSolo original-frame boxes across all3 domains; prepare only native TRAIN/selection, no TEST. Subsequent policy must compare identity and confidence-qualified text replacement on fixed routes.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 main runtime, seed/math configuration identical to common frontend; existing environments, one PARSeq model, measure peaks and failures.",
+    "REPOSITORY_SPECIFIED": "Pinned native teacher rows, original RGB and qualified PARSeq checkpoint/archive; historical IC13 VAL diagnostic confirms identical crop pixels.",
+    "UNRESOLVED": "Extra crop inference cost, native train/expert/vocabulary exposure and generalization; no recognition target or speed claim."
+  },
+  "teacher_sources": {
+    "icdar13": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json",
+    "icdar2015": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/data/fallbacks.json",
+    "totaltext": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/fallbacks.json"
+  },
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full"
+}

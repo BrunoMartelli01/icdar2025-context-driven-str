@@ -1,0 +1,117 @@
+{
+  "admission_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2",
+  "claim_label": "approximate reproduction",
+  "complement_confidences": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "complement_ious": [
+    0.1,
+    0.3,
+    0.5
+  ],
+  "cpu_threads": 4,
+  "fallback_images": 61,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "feature_groups": [
+    [
+      "post",
+      "risk"
+    ],
+    [
+      "raw",
+      "post",
+      "risk"
+    ],
+    [
+      "raw",
+      "post",
+      "tokens",
+      "risk"
+    ],
+    [
+      "raw",
+      "post",
+      "tokens",
+      "risk",
+      "geometry"
+    ]
+  ],
+  "head_recipes": [
+    {
+      "alpha": 0.1,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 1000.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    }
+  ],
+  "minimum_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/router_smoke_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/admission_complete.json": "2b53efb9d1532ee2447abf2e6f895d569de77df5e9e1cfdb94778b8a784b3e8b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/unet/admission_frozen.json": "459a1728c95f9ccb39427f53592ce4bdb824060ac9037a5bba82b88e14bb206a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/unet/training_outputs.json": "07e566abc1c3b9570cd0e1931e9d554f715d522af06c33326142367ead61a844",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/unet/word_folds.json": "7e3489b910346f0255828169d4a819404a256f487cb42aab718fb46186558bf3",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo/admission_frozen.json": "81dc795bcf2282dd07588183a6b9634c7d1f87084d03801646710678ec4b19c4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo/training_outputs.json": "88fbee517723880a465a679408c5eb1dcfb1204e83147482895d9172032a5ea7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo/word_folds.json": "f2ede23e39c7064df534ef1749bbd7c232d900c496736a5c27e7e6731f176619",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_tt/admission_frozen.json": "819ef3edfddcfd0368c3685660104921a870508bf5504a7a84d43b41f44046b1",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_tt/training_outputs.json": "9b3df4ad801002f7f747f755d4c007308c459b60195b6cded6a0ab4a95baec7c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_tt/word_folds.json": "f657a651a67ca770e26a5cc2dc8b217c6d5a5cc009365361d52e5fee09e0d646",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_unet/admission_frozen.json": "821d715fcd4c0d8195ca4f4f02806d31d04bef47d57aad626c29676efa8ac7eb",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_unet/training_outputs.json": "f69ab2de14821ad9034743cd6ab6250f56a27911c7e6ca80b20ad5ee792d316b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/models/yolo_unet/word_folds.json": "97bb2809be99acffe1236f485320f91d8b4f35bfb2f02599ca12075cf1f43a0f",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/resolved_configuration.json": "353d2c7fa0c84cefadd152b86387f30bbd15978ce2802f2bedcae1b38cc17458",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/smoke_v2/train_data.json": "ae532a86ded9593a780d5c5d68c2778be6fd260b11f6e9266b15d4c4f57f4233",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_train_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "references": [
+    0.85,
+    0.9,
+    0.95
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Fold-specific FIT-only teacher dictionaries, keep-unmatched consistent with TEST; finite validation-only complement, two-count regression, exact batch quota and common source-complexity tiebreak. Pool selection23/CAL23 as predeclared. Preserve prior raw predictions.",
+    "HARDWARE_DEVIATION": "CPU cached word reconciliation and small models; no new GPU/DeepSolo neural inference.",
+    "PAPER_SPECIFIED": "Fallback motivation only, not this trained policy.",
+    "REPOSITORY_SPECIFIED": "Authenticated cached ViTAEv2S+TextOCR native DeepSolo and unchanged user metric.",
+    "UNRESOLVED": "Historical TEST exposure, upstream expert exposure, small validation and final90%/cross-dataset retention."
+  },
+  "seed": 20261029,
+  "selection_tolerance": 0.001,
+  "total_images": 233,
+  "train_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json"
+}

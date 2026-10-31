@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "Repository-relative novelty of approximate router evidence, not general scientific novelty",
+  "paper_sections_inspected": ["3.5", "Figure 4", "Algorithm 2"],
+  "decisions": [
+    {"proposal": "Generic captions, neighbor context and geometry", "decision": "ALREADY_IMPLEMENTED", "sources": ["docs/YOLO_CONTEXT_QUALITY_ROUTER.md", "docs/OCR_EVIDENCE_GENERATION_BATTERY_TRAIN_V1.md", "docs/GEOMETRY_CONTEXT_RECONSTRUCTION_TRAIN_V1.md", "docs/PARSEQ_VISUAL_MARGIN_CONTEXT_GATE_TRAIN_V1.md"]},
+    {"proposal": "Target erasure and CLIP word foils", "decision": "ALREADY_IMPLEMENTED", "sources": ["docs/CLIP_INNOVATIVE_VERIFICATION.md"]},
+    {"proposal": "Whole-image residual text Yes/No", "decision": "ALREADY_IMPLEMENTED", "sources": ["docs/YOLO_RESIDUAL_TEXT_VQA.md"]},
+    {"proposal": "Independent Florence OCR quadrilaterals and dense scene objects as router inputs", "decision": "DISTINCT_EXTENSION", "difference": "Original RGB/task tokens only, followed by native polygon coverage and spatial reading disagreement; no production correction", "sources": ["diagnostics/lavis_captioner_candidates.py", "docs/TOTALTEXT_INDEPENDENT_DETECTOR_SLOTS.md", "docs/YOLO_RESIDUAL_COST_ROUTER.md"]},
+    {"proposal": "Generative exact-word local verification with target-erased and blank controls", "decision": "DISTINCT_EXTENSION", "difference": "Word-specific BLIP2 visual task on geometry-bounded line crops; no caption, no text-only judge and no CLIP cosine score", "sources": ["recognition/residual_text_vqa.py", "recognition/clip_innovative_verifier.py"]},
+    {"proposal": "Frozen original-image visual representation in trained router", "decision": "DISTINCT_EXTENSION", "difference": "1024 visual coordinates beyond the previous 46/90 scalar summaries; base encoder stays frozen", "sources": ["recognition/trainable_image_router.py", "docs/YOLO_TRAINABLE_ROUTER.md"]}
+  ],
+  "model_choice": "Use already local pinned Florence-2-large-ft, explicitly not Qwen3-VL",
+  "claim_label": "approximate reproduction",
+  "guaranteed_improvement": false
+}

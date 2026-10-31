@@ -1,0 +1,56 @@
+{
+  "deployment_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_pipeline_hard_budget_v9.json",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "jobs": [
+    {
+      "dataset": "icdar13",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar13.json",
+      "policy_quota": 61,
+      "reference_images": 233
+    },
+    {
+      "dataset": "icdar2015",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar2015.json",
+      "policy_quota": 228,
+      "reference_images": 500
+    },
+    {
+      "dataset": "totaltext",
+      "manifest": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_totaltext.json",
+      "policy_quota": 150,
+      "reference_images": 300
+    }
+  ],
+  "main_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python",
+  "minimum_free_gpu_bytes": 15032385536,
+  "mode": "approximate",
+  "neural_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_hard_budget_v9",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar13.json": "ef643490f0fe8f640b3ed8eb4d41ccc84fc8ec2fc555888a5b339d87adfcd322",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_icdar2015.json": "ddb8330b8acdab2e9c4f08bcc5628f4ddb17e9bf96550bbe5d41533f8a52bf0e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/rgb_smoke_totaltext.json": "5e005121f6584484141d99273144724b12b027561573bb43ed88460944f1e74d",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_pipeline_hard_budget_v9.json": "93b3f7f920fb3db88b03de68d1cec481c1d50a1e9c2badfd09928d71ced8b2e8"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "12 RGB-only engineering samples per domain, frozen native reference quotas rescaled by ceil; no quality selection or latency benchmark.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32 main/legacy separate processes; require14GiB free; record actual memory and errors."
+  },
+  "source_snapshot": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/hard_budget_pooled_gate_v9/code_snapshot"
+}

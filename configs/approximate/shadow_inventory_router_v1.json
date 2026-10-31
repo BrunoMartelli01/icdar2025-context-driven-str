@@ -1,0 +1,131 @@
+{
+  "reproduction_mode": "approximate",
+  "table_5_claim": false,
+  "model_settings": {
+    "seed": 20261023,
+    "trees": 64,
+    "ridge_alphas": [
+      1000.0,
+      100.0
+    ],
+    "logistic_C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "tree_depths": [
+      2,
+      3
+    ],
+    "tree_leaf_sizes": [
+      5
+    ],
+    "logistic_max_iter": 2000,
+    "logistic_tolerance": 1e-07
+  },
+  "bypass_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "quality_f1_threshold": 0.8,
+  "cv_folds": 5,
+  "controls": [
+    "base_proxy_f1",
+    "all_checks_softcrop",
+    "coverage_baseline",
+    "risk_visual_consensus",
+    "risk_visual_mass"
+  ],
+  "schema_version": 1,
+  "rules": [
+    "geometry",
+    "probe",
+    "recapture",
+    "agreement"
+  ],
+  "feature_sets": [
+    "core",
+    "shadow"
+  ],
+  "model_kinds": [
+    "ridge",
+    "trees"
+  ],
+  "primary_family": "rule_probe",
+  "primary_bypass_fraction": 0.5,
+  "source_pins": {
+    "plan": "fc9bdb171875bcd42fb5ef0656d743b9ec95bbc76c7c30cbed5e7e545424d3b3",
+    "results": "cf3a959547d863c5999febd331eaf7503705ac1c518526149d6420bac10c5d42",
+    "audit": "6bb44351c48074ab68451ec12c23f795f87f757c3d00dc12a17dbd4f1b6514e9"
+  },
+  "checkpoint_sha256": {
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "craft_checkpoint": "4a5efbfb48b4081100544e75e1e2b57f8de3d84f213004b14b85fd4b3748db17"
+  },
+  "detector": {
+    "package": "easyocr",
+    "version": "1.7.2",
+    "filename": "craft_mlt_25k.pth",
+    "url": "https://github.com/JaidedAI/EasyOCR/releases/download/pre-v1.1.6/craft_mlt_25k.zip",
+    "archive_member": "craft_mlt_25k.pth",
+    "official_md5": "2f8227d2def4037cdb3b34389dcf9ec1",
+    "canvas_size": 1280,
+    "mag_ratio": 1.5,
+    "text_threshold": 0.7,
+    "low_text": 0.4,
+    "link_threshold": 0.4,
+    "score_controls": [
+      0.7,
+      0.9
+    ],
+    "reference_score": 0.7
+  },
+  "inventory": {
+    "matching_iou": 0.25,
+    "maximum_probes": 3,
+    "covered_uncertainty_weight": 0.25
+  },
+  "execution": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "parseq_batch_size": 32
+  },
+  "smoke_sizes": {
+    "fit": 10,
+    "validation": 5,
+    "test": 5
+  },
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Algorithm 2 / section 3.5 routes uncertain complete images to DeepSolo; the proposed inventory signals are outside that paper."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Keep audited YOLO640+PARSeq and ViTAEv2-S/TextOCR DeepSolo words, native256 ignore masks, exact casefold multiset matching and 80/45 fitting/calibration split."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Four GT-blind inventory rules; CRAFT frozen general-purpose checkpoint; rectangle coverage and IoU .25 matching; maximum 3 suspect-region OCR probes selected before readings. Full independent OCR is a separate costly agreement control. No final-word edits."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Chapman capture-recapture is an uncalibrated count/risk heuristic. Correlated detections and false positives violate its classical assumptions; it is not a statistical completeness certificate."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Fit optional ridge/ExtraTrees branch-benefit regressors only on 80 TRAIN images, RGB-grouped 5-fold CV; choose family and scalar cuts using 45 VAL images. Primary untrained probe rule and 50% bypass declared before fresh TEST inference; report all arms."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Single RTX3090, FP32 sequential CRAFT/PARSeq, detector batch1, OCR batch32; no claim of qualification on historical 8GB GPU. Record state hashes, shape and CUDA peaks."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "The paper accuracy protocol is unspecified; this local nonspatial word F1 cannot establish an official paper win. Repeatedly explored TEST and small reused TRAIN constrain generalization. Shared PARSeq weights correlate recognizer errors."
+    }
+  ]
+}

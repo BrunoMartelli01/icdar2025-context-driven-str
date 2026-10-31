@@ -1,0 +1,109 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "unet_minimum_fallback_v1",
+  "seed": 20261026,
+  "paths": {
+    "grounded_run": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full",
+    "expert_run": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/artifact_manifest.json": "97784b3f487aee548424e75a3998aaeb03d91568007832eb4cfc8f96149e86e1",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/prepared.pkl": "89a5700b4a3f5032db09720593abe643113be1139fd2073f20e011de42f24725",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/resolved_config.json": "b612b2a227b4b38e5d9fadd4a61a6de08c0a46ac1613427836c1964bcdccc505",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/verifier/best.pt": "bd4c45c2b8a598a8f6ccf42c4b0035c255f5e12a734a8109d3e3618535d7c043",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/editor/text/best.pt": "972ebd085f99847653b973a7209540a816de2c2a856dce230a20bf623d626ef2",
+    "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054/resolved_configuration.json": "828a93b4b245258d6697574df52e57404945612b990f25bc7b9687247f34f44e",
+    "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054/independent_audit.json": "55c57e4e09522f0154ac9db90815a3ec18c1d0be4f80015b2f9068ee60fbd5cd",
+    "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054/results.json": "c7868186ea6d1e7af8022839921aae6133986a2a8d711e65d112f7b2422ed548",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd"
+  },
+  "primary_target": 0.798,
+  "selection_targets": [
+    0.784,
+    0.798,
+    0.8
+  ],
+  "selection_margins": [
+    0.0,
+    0.005
+  ],
+  "budget_steps": 100,
+  "matching_iou": 0.5,
+  "known_duplicate_train_ids": [
+    "total_text:81",
+    "total_text:212"
+  ],
+  "heavy_profiles": {
+    "0.0": {
+      "score_threshold": 0.4,
+      "recognition_threshold": 0.0
+    },
+    "0.9": {
+      "score_threshold": 0.4,
+      "recognition_threshold": 0.9
+    },
+    "0.925": {
+      "score_threshold": 0.4,
+      "recognition_threshold": 0.925
+    },
+    "0.95": {
+      "score_threshold": 0.4,
+      "recognition_threshold": 0.95
+    }
+  },
+  "folds": 5,
+  "trees": 128,
+  "feature_sets": [
+    "tabular",
+    "vision"
+  ],
+  "recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "trees",
+      "max_depth": 6,
+      "min_samples_leaf": 12
+    },
+    {
+      "kind": "trees",
+      "max_depth": 10,
+      "min_samples_leaf": 6
+    }
+  ],
+  "feature_quantiles": [
+    0.0,
+    0.1,
+    0.5,
+    0.9,
+    1.0
+  ],
+  "cpu_threads": 4,
+  "cublas_workspace_config": ":4096:8",
+  "online_DeepSolo_inference": false,
+  "bootstrap_replicates": 1000,
+  "smoke_images": {
+    "fit": 24,
+    "calibration": 10,
+    "evaluation": 8,
+    "test": 10
+  },
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "ambiguity": "UNET-MINIMUM-FALLBACK-001",
+      "scope": "All new architectures/descriptors/recipes, target utility, quota selection, exact/no-ignore metric, frozen source pairing and nominal numeric targets; no YOLO inference features."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "scope": "Actual RTX3090 FP32 frozen-head replay, cached RGB/experts, single CPU fitting; no AMP/TF32 or new online DeepSolo calls."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "scope": "Paper Table5 metric and Total-Text fallback count; historical expert/calibration/TEST exposure, one seed, independent validation, strict artifacts."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "bootstrap_draws": 10000,
+  "cases": {
+    "ic13": [
+      {
+        "kind": "fusion",
+        "label": "conservative_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13"
+      },
+      {
+        "kind": "fusion",
+        "label": "risk_fusion",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13"
+      },
+      {
+        "kind": "fixed",
+        "label": "fixed_gate",
+        "root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full"
+      }
+    ]
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_smoke_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/deployment_qualification.json": "e98cbb156b2a8c43042da3d07bc19eb595321608c1c7c3843dd6339494432379",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/selection_frozen.json": "7d4ce640f240c097f2acbb7a46dbcc0576c15e21d948855daecad3266866ba60",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13/training_branches/3.json": "ddf720f28195526bbf978264dff487e118d0dafe07127f39ff2c693783be6218",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/deployment_qualification.json": "84dab8499f52b5855b9264a4d98d2d2bb072d431cd54ce551083fbff07f40f19",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/selection_frozen.json": "3b83f8f2af28a45da61c553dbd19adcd09aefd88f554e01fa1f9f6b8f92f0154",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/training_branches/3.json": "ddf720f28195526bbf978264dff487e118d0dafe07127f39ff2c693783be6218",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/deployment_qualification.json": "39811fc5b68c0adc18ddf32b9f32cd57fc825e9bb98a0fc8fd362fc97db887f4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/reread_benchmark__0/train_branches.json": "9e42ff0cb3d187f41b9d186f4489259db2bd527da12c01d3da6fd6a616d6b4f2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/selection_frozen.json": "2638235b86ad89d4eb03c0896382d30ff91e9f00f32360838fd9d13675d59f3c"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "For all dataset/expert cases require zero additional neural map models and zero fallback reader passes, then choose the highest validation F1 and break exact ties by declared order. A missing eligible candidate is an error.",
+    "HARDWARE_DEVIATION": "CPU bootstrap on genuine cached predictions; no new inference or online latency measurement.",
+    "PAPER_SPECIFIED": "Fallback/recognition motivation only; this trained cost-aware variant choice is not the paper method.",
+    "REPOSITORY_SPECIFIED": "Previously independently qualified fixed gates, risk/fusion policies, validation branches and exact dataset quotas.",
+    "UNRESOLVED": "This follow-up rule was proposed after both earlier TEST results and the one-standard-error selector outcome. Reused validation, non-nested expert/word folds, supplied benchmark vocabularies and upstream exposure prevent an unbiased generalization claim."
+  },
+  "seed": 20261030,
+  "selection_rule": "no_extra_neural"
+}

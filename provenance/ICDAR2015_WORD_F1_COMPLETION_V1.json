@@ -1,0 +1,173 @@
+{
+  "ambiguity_id": "ICDAR2015-WORD-F1-001",
+  "audit": {
+    "checks": [
+      "independent CSV transcription/ignore/envelope replay",
+      "native probability threshold and RGB-only canvas reconstruction",
+      "independent SciPy 8-connected components and pixel areas",
+      "inverse letterbox crop coordinates",
+      "RGB and OCR file/crop hashes",
+      "independent SciPy bipartite matching",
+      "all TP/FP/FN and micro P/R/F1 aggregates"
+    ],
+    "crop_hashes_verified": 2507,
+    "images_checked": 500,
+    "status": "PASS"
+  },
+  "claim_label": "approximate reproduction",
+  "completed_at_utc": "2026-10-26T02:26:41.700863+00:00",
+  "evaluation_config": {
+    "path": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar2015_totaltext_transfer_word_f1_v1.json",
+    "sha256": "3e67014ca42c07d0f63cf7a267c2c8d876013e080bc94c7a8b5c27430f1e2480"
+  },
+  "limitations": [
+    "Standalone U-Net/PARSeq bbox proxy; not official polygon Hmean or paper Table 5.",
+    "All emitted detections count, including ignored-region, blank and symbol-only outputs.",
+    "No matched baseline training comparison or demonstrated improvement over original ICDAR2015 model.",
+    "RTX 3090 qualification, not RTX 3070 or full contextual-pipeline latency."
+  ],
+  "protocol": {
+    "path": "/extra1/bmartelli/projects/icdar2025-context-driven-str/provenance/ICDAR2015_WORD_F1_PROTOCOL_V1.json",
+    "sha256": "938135b780182210de07ac42167aef96fe9038383f84d0dedfaead9ff6eb9514"
+  },
+  "reproduction_mode": "approximate",
+  "result_class": "approximate reproduction",
+  "schema_version": 1,
+  "serialization_correction": {
+    "change": "Represent polygon coordinates as JSON-native lists. No scientific threshold, coordinate, crop, decoding, normalization or matching changes; all 500 probability/mask arrays and 2507 OCR records match exactly.",
+    "equivalence_audit": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v2/serialization_equivalence_audit.json",
+      "sha256": "0ec4eefcfe9557f7819e3cf434b666b0a7d644b440d0a947c123bdedf9e23af2"
+    },
+    "initial_cache_failure": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v1/completed_cache_failure.json",
+      "sha256": "af2658bd510aad141d94da8c143d29cbd0f6340527cdd23a1ef5d1d6590a806e"
+    },
+    "initial_evaluator_snapshot": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v1/source_snapshot/scripts/evaluate_icdar2015_totaltext_transfer_word_f1.py",
+      "sha256": "c94f590727b8993bd3ac89d243555282ee031e290c8ae724d8ad8e9c56fde83b"
+    },
+    "initial_result": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v1/results.json",
+      "sha256": "20ce7a3dddb50157b2d0e7c1638f10e6695306faab4b0c6cef5649b5b6633133"
+    }
+  },
+  "source_sha256": {
+    "recognition/deepsolo_word_f1.py": "588b6e83fcba6ef03f35cafa0558ab25704881f8c35d991bb1f06ee847030037",
+    "recognition/icdar2015_word_f1.py": "dad19e5ab826ce25603e4f53842a25b818ce9cbd765e29d37202ec0992e2ae3c",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "scripts/audit_icdar2015_word_f1.py": "7901f6fdb03238d80d438ad7c258df8b67b14845fafb3f186ca3578d394c997b",
+    "scripts/evaluate_icdar2015_totaltext_transfer_word_f1.py": "6e80e6dad6e64d54f6f2d10047925e402060db29d06288326d19beb5039426e3"
+  },
+  "status": "SUCCESS",
+  "test": {
+    "care_words": 2077,
+    "casefold_exact_control": {
+      "f1": 0.262652705061082,
+      "fn": 1475,
+      "fp": 1905,
+      "precision": 0.24012764260071798,
+      "recall": 0.28984111699566684,
+      "tp": 602
+    },
+    "completed_cache_verification": "PASS; reopens saved final report with identical protocol and no new inference",
+    "elapsed_seconds": 34.77879742020741,
+    "empty_normalized_predictions": 164,
+    "failed_samples": 0,
+    "geometry_control": {
+      "f1": 0.38394415357766143,
+      "fn": 1197,
+      "fp": 1627,
+      "precision": 0.3510171519744715,
+      "recall": 0.4236880115551276,
+      "tp": 880
+    },
+    "ignored_gt": 3153,
+    "images": 500,
+    "independent_audit": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v2/independent_audit.json",
+      "sha256": "3d1ad24de1d0097ab2a85615c9b0a5037097fc8550dd6c4b6306b2258d5e9a3d"
+    },
+    "matching": "maximum one-to-one original bbox IoU>=0.5 and exact normalized text",
+    "normalization": "Unicode casefold, then retain isalnum characters; empty normalized words never match; all original prediction/care denominators retained",
+    "ocr_peak_bytes": {
+      "allocated": 205955584,
+      "reserved": 245366784
+    },
+    "oom": false,
+    "parseq_batch_size": 32,
+    "precision": "float32",
+    "predictions": 2507,
+    "primary_word_f1": {
+      "f1": 0.2787958115183246,
+      "fn": 1438,
+      "fp": 1868,
+      "precision": 0.25488631830873554,
+      "recall": 0.30765527202696197,
+      "tp": 639
+    },
+    "report": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v2/results.json",
+      "sha256": "0053bb7c3a5dbe23c5e5e92eac294681e896787ff3c2c74730194583f96cf5cd"
+    },
+    "segmentation_batch_size": 1,
+    "segmentation_peak_bytes": {
+      "allocated": 497434112,
+      "reserved": 564133888
+    }
+  },
+  "tests": {
+    "failed": 0,
+    "independent_scipy_matching_cases": 768,
+    "passed": 30,
+    "test_files": [
+      "tests/recognition/test_icdar2015_word_f1.py",
+      "tests/scripts/test_evaluate_icdar2015_transfer_word_f1.py",
+      "tests/scripts/test_audit_icdar2015_word_f1.py",
+      "tests/segmentation/test_icdar2015_totaltext_transfer.py",
+      "tests/recognition/test_parseq_adapter.py"
+    ]
+  },
+  "training": {
+    "batch_size": 8,
+    "best_checkpoint": {
+      "epoch": 38,
+      "path": "best.pt",
+      "sha256": "823c4a416cdfa0af460d0f73bdb6c598aac6c8540e2c6acdfaa9c392dd55081c"
+    },
+    "best_checkpoint_absolute_path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-train/best.pt",
+    "best_validation": {
+      "foreground_iou": 0.5448843381331329,
+      "gt_with_predicted_bbox_iou_ge_0_5": 193,
+      "gt_words": 430,
+      "gt_words_lost_in_native_target": 0,
+      "gt_words_split_across_predicted_components": 21,
+      "gt_words_touched_by_fused_components": 65,
+      "matched_gt_iou_ge_25": 258,
+      "matched_gt_iou_ge_50": 193,
+      "matched_gt_iou_ge_75": 98,
+      "predicted_components": 518,
+      "predicted_components_touching_multiple_gt_words": 31,
+      "proposal_f1_iou_50": 0.40717299578059074,
+      "proposal_precision_iou_50": 0.37258687258687256,
+      "raw_proposals": 518,
+      "word_recall_iou_50": 0.44883720930232557
+    },
+    "cuda_peak_allocated_bytes": 4222142976,
+    "cuda_peak_reserved_bytes": 4647288832,
+    "elapsed_seconds": 2730.829783733003,
+    "epochs": 100,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "oom": false,
+    "optimizer_steps": 11300,
+    "precision": "float32",
+    "report": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-train/run_manifest.json",
+      "sha256": "e52cd1c4816ffae954dd7fe591fead9970f2cbd3700dad5f8de30a1568546bb9"
+    },
+    "train_image_passes": 90000,
+    "train_images": 900,
+    "training_complete": true,
+    "validation_images": 100
+  }
+}

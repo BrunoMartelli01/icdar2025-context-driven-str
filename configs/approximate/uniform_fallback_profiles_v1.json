@@ -1,0 +1,104 @@
+{
+  "claim_label": "approximate reproduction",
+  "evaluation_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_unet_evaluation_v1.json",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/runtime.json": "31bdcdd1e6043a04319bcabe4e76a91e2b2f0e76567be7718cd0427d7ed01696",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/trained-router-vocabulary-replay-20261028-v1/resolved_configuration.json": "ae39f65e69ff30b0e068b532caaade6deff9d78a653e0427476cb18c3d454f87",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/fallback_raw_index.json": "12ee867f6ca8ec8f813180295b62124a49290ed6306240cb3b28d4eab5c87445",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/icdar13.json": "0ee1841373dc99478efe78e743b8d2d27eb5ebe94def7deeb4cfbf2d6d35d6ce",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/icdar2015.json": "d4641da94a24ce5a13bceaa009c1933ca530426c19c3124868850098d5c3c195",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/totaltext.json": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar2015_selected_native_word_v1.json": "a55d646230b3356477b3ac5ceed2140d7206bbf5fdb8513f8805170bc6dea631",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_word_f1_selected_native_word_v1.json": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_unet_evaluation_v1.json": "7541895be06ecceeaf6c0fdab47306c1194b6b46182a343388b08355e50a77ae"
+  },
+  "profiles": {
+    "icdar13": {
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "claim_label": "approximate reproduction",
+      "lexicon": {
+        "distance_exclusive": 1.5,
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+        "pairs_sha256": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+        "unmatched_policy": "keep_unmatched",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+        "vocabulary_sha256": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed"
+      },
+      "mode": "approximate",
+      "neural_profile": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/icdar13.json",
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": null,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.0,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.4
+      },
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+      "runtime": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/runtime.json",
+      "source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo"
+    },
+    "icdar2015": {
+      "checkpoint_sha256": "c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8",
+      "claim_label": "approximate reproduction",
+      "lexicon": {
+        "distance_exclusive": 1.5,
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt",
+        "pairs_sha256": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+        "unmatched_policy": "source_reject",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt",
+        "vocabulary_sha256": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2"
+      },
+      "mode": "approximate",
+      "neural_profile": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/icdar2015.json",
+      "policy": {
+        "decoder": "greedy",
+        "recognition_threshold": 0.85,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+      "runtime": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/runtime.json",
+      "source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo"
+    },
+    "totaltext": {
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "claim_label": "approximate reproduction",
+      "lexicon": null,
+      "mode": "approximate",
+      "neural_profile": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/profiles/totaltext.json",
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": null,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.925,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+      "runtime": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1/runtime.json",
+      "source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo"
+    }
+  },
+  "raw_index": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/fallback_raw_index.json",
+  "scientific_choices": {
+    "ASSUMPTION": "One prediction-only postprocessor API shared across datasets; no scientific threshold is changed.",
+    "HARDWARE_DEVIATION": "Existing isolated main/legacy environments on actual RTX3090; no new inference or latency claim from cached parity audit.",
+    "REPOSITORY_SPECIFIED": "Exactly authenticated cached expert policies and resources; TT .35/.925/no lexicon; IC13 .4/0/Generic keep; IC15 .35/.85/Weak reject; qualified domain-specific ViTAEv2-S checkpoints and resizes.",
+    "UNRESOLVED": "Paper artifact/protocol equivalence; upstream exposure and historical TEST adaptation remain."
+  },
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full"
+}

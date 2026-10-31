@@ -1,0 +1,63 @@
+{
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 20261030
+  },
+  "cases": [
+    "totaltext__unet",
+    "totaltext__yolo",
+    "icdar2015__unet",
+    "icdar2015__yolo"
+  ],
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "common_pipeline_deepsolo_parity_threshold_v1",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/common-pipeline-parity-threshold-20261030-v1",
+  "pinned_inputs": {
+    "audit_report_v2/independent_audit.json": "edf294119f968e1b10f1bd56778d8b52842da7d4808c2442519171d8283f6954",
+    "cases.json": "c291706afaf4a73702c790a12a86ff7a59758a71e3dd156f286de510573d71b5",
+    "data/icdar2015__unet__test_labels.json": "6017b3f33218fd315274695e3e583208f6f4fc080722615c0561e1fcd14f6f9c",
+    "data/icdar2015__unet__train_labels.json": "3e9ee6794770d0b15f04b8773b1b38fa3a7740a51e395b6440c98db223a3fdbe",
+    "data/icdar2015__yolo__test_labels.json": "29cb57ae98378d58dcc63b238dc3b94e881b7d040ced085057d47b9d00a77f05",
+    "data/icdar2015__yolo__train_labels.json": "c964c5aa873b86696470d758dc21a813cbf585cb049fb4b29c6b5e8a7d586498",
+    "data/totaltext__unet__test_labels.json": "a45e8f400f4f357e881c238a216b4edcfc46c0befce809c07e097ef28ac506e9",
+    "data/totaltext__unet__train_labels.json": "67b51a3fc72984fab9e2b8623ead0a2f9e5605c84e578e2e62731e4095febdf9",
+    "data/totaltext__yolo__test_labels.json": "1f996dfe6adbfa07acf46a29bf86d566c1ee7eeb592dda2f652ce96af346a38f",
+    "data/totaltext__yolo__train_labels.json": "760e80b7313807d904872d58a4bd359dd3d4e882177aa935c291bab3d222511f",
+    "deployment_qualification.json": "c983a7678245fd8ab85162e82386545eb66fdcad06a4bd82f3ca601f386368ec",
+    "models/icdar2015__unet/observable_outputs.json": "70185260781c3a5ea0bde48b293f8e6d7f51d050a536be3f7aba8180a20b2d99",
+    "models/icdar2015__unet/scores.json": "5acdb520078014fb5ccae16439d9fff8759b39b0ea9d70f2ff06f0231e7b925b",
+    "models/icdar2015__unet/selection_frozen.json": "c3875b6718ab3b5ba144575b63672dbf93a406f9998222101f7625957b343192",
+    "models/icdar2015__unet/train_branches.json": "fd03957bbb5e44ca6625285926e095c95885df8f3a6a278da69170872e21d4c9",
+    "models/icdar2015__yolo/observable_outputs.json": "394b1260e592440ce12a789c3730d9ce5646404a03afcfacf58b310542ce4f42",
+    "models/icdar2015__yolo/scores.json": "a737e34466b6b93626ae8070a6fca9dd43deaa3b124893ecc53e1f99f3351bcc",
+    "models/icdar2015__yolo/selection_frozen.json": "f4e69d3b9e6d1b5e08d394546a27e20650467dbdde44867fa524f97bd1653d57",
+    "models/icdar2015__yolo/train_branches.json": "76a428ac2da314080ed94a11ed0d0533f901de650bb07646f45a9e5f25f55d4f",
+    "models/totaltext__unet/observable_outputs.json": "2754b3d9962b1feb8fd5c2a97691c5ba79382a09f6fa8992fb0e6c6e24ab970c",
+    "models/totaltext__unet/scores.json": "562ce4f83573925e315bac714563f2bc71c139d14e8d8d5277c09f07cfddb2d1",
+    "models/totaltext__unet/selection_frozen.json": "23d27142c7285cbd20d73816c34a040b0a0f5ba586a200f62a082e1c99bb5a7e",
+    "models/totaltext__unet/train_branches.json": "6ff8c2ca24446ae67c36deba32a7bd60a7aaa87916f8b556973da842e41cd77a",
+    "models/totaltext__yolo/observable_outputs.json": "f5a31b84b97b115ea12e69e681ab484d6804fec88c2855f768af688cba21bb91",
+    "models/totaltext__yolo/scores.json": "88b205505deedc6349d4f8611ac5acdc998a284fca4a951014cb1360cf62e993",
+    "models/totaltext__yolo/selection_frozen.json": "5a5b77ccde244f0526b73817fc13cef8f305e45e04ba3f6330d4d44acaf40868",
+    "models/totaltext__yolo/train_branches.json": "f91b6092495e3a9e5d3288d2640d112577ed9d79bbb2f53f36c064f14a9d92ca",
+    "resolved_configuration.json": "1597030a21bb35ba710f36dfe10a290b0c4ed05162b8dba21d8dab59fba4a3d6",
+    "test/icdar2015__unet.json": "96baf3163de50489b8aea06e4b883bd7b36a5b3c1184717ffa22a42592b5690b",
+    "test/icdar2015__yolo.json": "1d51c5ddc5a9f2b4ba1844d94b6b4478e75e9d1345d8074c4e60ef90f023864e",
+    "test/totaltext__unet.json": "7e7b08110f69ed0a14f2b6083a42bb31f2413ec2725971fb65b4d798f15897a5",
+    "test/totaltext__yolo.json": "73798d30e8ffcdb7da5374e0155f4d420ba85afa727eae4a175c775b5ca78a9f",
+    "training_complete.json": "2ccb547a3586243b4399894085a1af7bb8a1bbb546f676807b7ac6df0f5566ea"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Use unused CAL63 TT/CAL50 IC15 for empirical F1-parity threshold; maximum acceptance over all score tie groups, >= boundary, no threshold refit; case-specific thresholds from one shared rule.",
+    "HARDWARE_DEVIATION": "CPU cached score/count replay; no new neural inference and no online latency claim.",
+    "PAPER_SPECIFIED": "Section3.5 fallback motivation only; local paper3.3/3.5 inspected.",
+    "REPOSITORY_SPECIFIED": "Qualified common-v1 fixed scores, heads, corrections, RGB partitions, lexical care/ignore protocol and optimized dataset-specific DeepSolo outputs.",
+    "UNRESOLVED": "Small calibration populations, upstream expert/lexicon and historical TEST exposure, distribution shift; empirical CAL parity is not a TEST or population guarantee."
+  },
+  "selection_rule": "maximize accepted images subject to validation lexical micro F1 >= all DeepSolo; exact integer comparison; whole score ties; preserve selected guard",
+  "source_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full",
+  "test_policy": "freeze every case threshold before opening any test labels; do not change thresholds after test",
+  "threshold_rule": "accept eligible image if score >= lowest accepted validation score; accept_none when no nonempty feasible set",
+  "validation_role": "calibration"
+}

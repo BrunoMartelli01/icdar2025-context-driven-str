@@ -1,0 +1,11 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "classification": "ASSUMPTION",
+  "training_profile": "configs/approximate/icdar2015_target70_ohem_v1.json",
+  "training_profile_sha256": "1693f7b45f47f48c77bdf7f223062159bdc71c24e6a83b7eff7795c3c1c65c93",
+  "epochs": {"ohem_partial": [0, 20, 50, 100], "ohem_full": [0, 20, 50, 65]},
+  "thresholds": [0.5, 0.65, 0.8, 0.9, 0.95, 0.98],
+  "matching_iou_threshold": 0.5,
+  "rationale": "OHEM changes sampled positive/background proportions. Diagnose score calibration on saved complete TRAIN-validation probabilities, including higher thresholds. Geometry F1 is a diagnostic, not achieved correct-word F1; all430 care words and all components remain. No TEST decisions."
+}

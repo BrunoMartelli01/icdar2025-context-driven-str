@@ -1,0 +1,376 @@
+{
+  "claim_label": "approximate reproduction",
+  "common_method_identity": {
+    "recipe": {
+      "correction_confidence_caps": [
+        0.8,
+        0.9,
+        0.95,
+        1.01
+      ],
+      "ensemble_sizes": [
+        3,
+        5,
+        10
+      ],
+      "feature_groups": [
+        [
+          "raw_ocr"
+        ],
+        [
+          "raw_ocr",
+          "tokens",
+          "maps"
+        ],
+        [
+          "raw_ocr",
+          "post_ocr",
+          "lexical"
+        ],
+        [
+          "raw_ocr",
+          "tokens",
+          "post_ocr",
+          "lexical"
+        ],
+        [
+          "raw_ocr",
+          "post_ocr",
+          "lexical",
+          "risk"
+        ],
+        [
+          "raw_ocr",
+          "tokens",
+          "post_ocr",
+          "lexical",
+          "risk",
+          "maps",
+          "geometry"
+        ],
+        [
+          "raw_ocr",
+          "tokens",
+          "maps",
+          "risk"
+        ]
+      ],
+      "folds": 5,
+      "guards": [
+        false,
+        true
+      ],
+      "head_recipes": [
+        {
+          "alpha": 0.1,
+          "kind": "ridge"
+        },
+        {
+          "alpha": 1.0,
+          "kind": "ridge"
+        },
+        {
+          "alpha": 10.0,
+          "kind": "ridge"
+        },
+        {
+          "alpha": 100.0,
+          "kind": "ridge"
+        },
+        {
+          "alpha": 1000.0,
+          "kind": "ridge"
+        },
+        {
+          "iterations": 100,
+          "kind": "hgb",
+          "l2": 10.0,
+          "leaves": 7,
+          "minimum_leaf": 10
+        },
+        {
+          "iterations": 100,
+          "kind": "hgb",
+          "l2": 10.0,
+          "leaves": 7,
+          "minimum_leaf": 30
+        },
+        {
+          "depth": 8,
+          "kind": "extra_trees",
+          "minimum_leaf": 5,
+          "trees": 200
+        },
+        {
+          "depth": 8,
+          "kind": "extra_trees",
+          "minimum_leaf": 15,
+          "trees": 200
+        }
+      ],
+      "map_features": {
+        "minimum_component_area": 4,
+        "probability_threshold": 0.5
+      },
+      "reference_grid": [
+        0.7,
+        0.75,
+        0.79,
+        0.8,
+        0.82,
+        0.85,
+        0.9
+      ],
+      "seed": 20261029,
+      "selection_tolerance": 0.001,
+      "unmatched_policies": [
+        "keep_unmatched",
+        "source_reject"
+      ],
+      "word_risk": {
+        "iterations": 100,
+        "l2": 10.0,
+        "leaves": 7,
+        "minimum_leaf": 20
+      }
+    },
+    "recipe_sha256": "de8e43f1729465d8509fc0a7b1ff1d8fe4acf1f0e541fab87ca8fd1989a15263",
+    "scientific_core_ast_sha256": {
+      "choose_light": "26909e8990974d1d42cfcd10e4d7bbcf774e212b72c6a6678f6a16449da51847",
+      "counts": "20aeef2c6bd9fd079b7aa91a5b1325953217dcac00f6fe4cbde21c79d5054597",
+      "fit_count_head": "25e3bcbd751fdbba7531e7aff3c5e34d53d98e8c25259a0116abe21eb1e8da47",
+      "fit_word_risk": "aad5ab434d05a5b4576e5830b667d36d90d7f8a3d5d2342411480defae8898e2",
+      "geometry_features": "d2b73f1d656cea51ce7f7e36eb15555074081ed832e3e432e44f76b35c334195",
+      "grouped_folds": "19b66652ec4f40552394ff67a39176b1079ae554beaf58a041c073ccfa8c086d",
+      "image_features": "c840bb3faa403d936d33455c05950839e76a388a16430e282d3ceecba9c1fa93",
+      "map_features": "055f6a13833194e297cdd3bb49887aa111681b77e0e3809001befd8105e0d481",
+      "micro": "ab71c8682ff8e00c236aec43df8fa41f59b9f54cb57a6333670d1cadf7fbdd20",
+      "normalize": "e5684e65b30c0b655b6cbc1d1e75a49e67c6d3d415c04654b07dd626060e3c62",
+      "predict_counts": "0e4c8e4429127708ef5ded442a54b5f17f569b82c87f12d44e5447de0951146d",
+      "risk_features": "50ede5b543ec22e3bee8fef43457cd1c2bae9ac35be2eec98e7d643552500962",
+      "route": "16b7b359520ad6956c1dc5588d2c6f2f24ece1a950586a9442313f16a42f8c52",
+      "word_features": "951f37aaacae7eade82b6011740ec5e4c7f6292793817f1e32136d13d31d8785"
+    },
+    "scope": "Identical correction/features/learning/selection/quota core around qualified domain-specific expert and vocabulary inputs",
+    "validation": "Separate selection/CAL, unchanged. Historical first source predates its later explicit configuration switch; recorded roles prove separate execution."
+  },
+  "common_tt_ic15_accepted": true,
+  "current_entrypoint_sha256": {
+    "recognition/common_budget_deployment.py": "1e6be606a4ab499fec91ce77c9ac82b243e0a1a705ec5573437a7b02ac722e01",
+    "recognition/common_budget_pipeline.py": "23457bc55de6fc030c9fa91fbac0634a031251dcaa2255720397a669b87eb7aa",
+    "scripts/audit_common_budget_pipeline.py": "9083f3ff11b29bb93d13293a1a8b14af2d3eaea0d7a461347a767bdce68b918b",
+    "scripts/plot_common_pipeline.py": "a2ef7201daf15e43e4538d914e87e6a8aa166ee824513c1cb62cd80a03b3829d",
+    "scripts/report_common_pipeline.py": "ffe29c2cdcd2e8eebcc274426accd2a77fe6b2f96291debebfbc580bc848294c",
+    "scripts/run_common_budget_pipeline.py": "4a8755690022c33bd9d80473963126136a630aeeaf549fc196f99a40c47e5c88"
+  },
+  "engineering_smokes": [
+    "smoke",
+    "smoke_pooled_v2",
+    "smoke_icdar13_v1"
+  ],
+  "execution": {
+    "actual_new_deepsolo_inference": 0,
+    "actual_new_gpu_inference": 0,
+    "actual_new_parseq_inference": 0,
+    "cpu_threads": 4,
+    "device": "CPU",
+    "feature_precision": "float64",
+    "gpu_memory_measurements": "Not applicable: no new GPU workload",
+    "joblib": "1.5.3",
+    "numpy": "1.26.4",
+    "python": "3.11.11",
+    "routing": "Logical cached-output decisions; no measured online latency",
+    "sklearn": "1.9.0"
+  },
+  "external_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1",
+  "icdar13_requested_target": 0.9,
+  "icdar13_target_met": false,
+  "joint_report": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/final_report_v1",
+  "limitations": [
+    "Historical TEST and upstream model/policy exposure",
+    "Benchmark vocabulary side information differs by dataset; IC13 TRAIN Generic inherits allTRAIN229 words",
+    "OOF word-risk fitting does not make upstream experts OOF",
+    "Shared correction/risk/routing core around retained qualified expert adapters, not identical upstream U-Net/GNN training",
+    "Exact transductive batch quotas, not streaming scalar thresholds",
+    "Conditional bootstrap excludes training and selection uncertainty",
+    "Strict paper metric/artifact equivalence unresolved"
+  ],
+  "mode": "approximate",
+  "prepared_but_unexecuted_full_control": "pooled_validation_v2",
+  "preserved_failure": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/auditor_failure_v1.json",
+  "qualified_independent_audits": {
+    "full": {
+      "annotation_free_deployment_replays": 2050,
+      "independent_selected_image_head_fits": 6,
+      "independent_word_oof_fits": 20,
+      "per_image_count_replays": 6106,
+      "selection_trial_replays": 4224
+    },
+    "icdar13_v1": {
+      "annotation_free_deployment_replays": 837,
+      "independent_selected_image_head_fits": 7,
+      "independent_word_oof_fits": 15,
+      "per_image_count_replays": 1386,
+      "selection_trial_replays": 3168
+    }
+  },
+  "recorded_utc": "2026-10-29T17:03:01.247515+00:00",
+  "repeated_audit_scope": "Main audit_report_v1 preserved; latest audit_report_v2 executed from immutable pooled_validation_v2/code_snapshot; no model changes",
+  "report_artifact_sha256": {
+    "final_report_v1/REPORT.md": "685160378cc9ae8458b7ea54776f6ecd475ef1d3fd38da68eb1c050afe177431",
+    "final_report_v1/common_method_identity.json": "ef9d5256c42956113273fd333ee13b0f09a9d6ef6f03a290d45e144db74947ab",
+    "final_report_v1/common_pipeline.png": "cefc403716b229bd485c6632a2ac4e39db338a42143f1c511ef48ad3dd0fda1d",
+    "final_report_v1/common_pipeline.svg": "efc2e273e8a9b9f66d7a0b01f8ca34d79801513d202d36da32224e859363c922",
+    "final_report_v1/comparison.csv": "3bab84494836e2c62de2997dd2f368bbdfb10c462f5acb6fd7df145d1045026f",
+    "final_report_v1/comparison.json": "ca19224db3b212d97f385ef6ac734f90b71a50fe7d113ba26caf375ee69a8905",
+    "final_report_v1/icdar13_gt_oracles.json": "781401438bee1c1625e8c0eb0652d716b27b359bac6e10e754d0c8e915f36d07",
+    "final_report_v1/model_inventory.json": "a0070359e55a75a4b308d0451c58fdd10d15f879360fe46a5c1784897c2c9d6e",
+    "final_report_v1/summary.json": "7c03404441a8697aeb8a2315491779fcecc81b7f0a4b8dc395f53c85b64e58da",
+    "final_report_v1/trained_artifact_manifest.json": "a84945c3e1087ff0fee6bbdaa693332ec8b00ef98eddd64fe4a547b1b129e1cf"
+  },
+  "results": [
+    {
+      "baseline_f1_percent": 78.93333333333334,
+      "dataset": "icdar2015",
+      "deepsolo_images": 228,
+      "deepsolo_percentage": 45.6,
+      "difference_points": 0.16092680358082978,
+      "f1_percent": 79.09426013691416,
+      "target_f1_percent": 78.93333333333334,
+      "target_met": true,
+      "total_images": 500,
+      "version": "unet"
+    },
+    {
+      "baseline_f1_percent": 79.94897959183673,
+      "dataset": "icdar2015",
+      "deepsolo_images": 228,
+      "deepsolo_percentage": 45.6,
+      "difference_points": 0.8913140047210999,
+      "f1_percent": 80.84029359655783,
+      "target_f1_percent": 79.94897959183673,
+      "target_met": true,
+      "total_images": 500,
+      "version": "yolo"
+    },
+    {
+      "baseline_f1_percent": 79.99041456985381,
+      "dataset": "totaltext",
+      "deepsolo_images": 150,
+      "deepsolo_percentage": 50.0,
+      "difference_points": -0.27852981595225534,
+      "f1_percent": 79.71188475390156,
+      "target_f1_percent": 78.2,
+      "target_met": true,
+      "total_images": 300,
+      "version": "unet"
+    },
+    {
+      "baseline_f1_percent": 80.95576058670451,
+      "dataset": "totaltext",
+      "deepsolo_images": 150,
+      "deepsolo_percentage": 50.0,
+      "difference_points": -0.016927016292000996,
+      "f1_percent": 80.93883357041251,
+      "target_f1_percent": 78.2,
+      "target_met": true,
+      "total_images": 300,
+      "version": "yolo"
+    },
+    {
+      "baseline_f1_percent": 82.34155781325593,
+      "dataset": "icdar13",
+      "deepsolo_images": 61,
+      "deepsolo_percentage": 26.180257510729614,
+      "difference_points": 2.08784257359127,
+      "f1_percent": 84.42940038684719,
+      "target_f1_percent": 90.0,
+      "target_met": false,
+      "total_images": 233,
+      "version": "unet"
+    },
+    {
+      "baseline_f1_percent": 86.98140200286123,
+      "dataset": "icdar13",
+      "deepsolo_images": 61,
+      "deepsolo_percentage": 26.180257510729614,
+      "difference_points": -0.3746816999743441,
+      "f1_percent": 86.60672030288688,
+      "target_f1_percent": 90.0,
+      "target_met": false,
+      "total_images": 233,
+      "version": "yolo"
+    },
+    {
+      "baseline_f1_percent": 87.72748483434438,
+      "dataset": "icdar13",
+      "deepsolo_images": 61,
+      "deepsolo_percentage": 26.180257510729614,
+      "difference_points": -0.8072621998360341,
+      "f1_percent": 86.92022263450835,
+      "target_f1_percent": 90.0,
+      "target_met": false,
+      "total_images": 233,
+      "version": "yolo_unet"
+    }
+  ],
+  "runs": {
+    "full": {
+      "audit_path": "audit_report_v2/independent_audit.json",
+      "audit_sha256": "edf294119f968e1b10f1bd56778d8b52842da7d4808c2442519171d8283f6954",
+      "claim_label": "approximate reproduction",
+      "executed_source_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/code_snapshot",
+      "mode": "approximate",
+      "qualification_sha256": "c983a7678245fd8ab85162e82386545eb66fdcad06a4bd82f3ca601f386368ec",
+      "resolved_configuration_sha256": "1597030a21bb35ba710f36dfe10a290b0c4ed05162b8dba21d8dab59fba4a3d6",
+      "results_sha256": "c4db35ffabe45092648673923c71c22e25106e1df966103d9f5222c5bbd9578d",
+      "root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full"
+    },
+    "icdar13_v1": {
+      "audit_path": "audit_report_v1/independent_audit.json",
+      "audit_sha256": "be1ec0b4d57da5a552839502cd4c851f01facf72741317e6815235872ec98e0f",
+      "claim_label": "approximate reproduction",
+      "executed_source_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/icdar13_v1/code_snapshot",
+      "mode": "approximate",
+      "qualification_sha256": "1d9c31f7b774ae157c45eb40fb3c65da2c4a22d2bc9e6e9e36873058fbdf33d5",
+      "resolved_configuration_sha256": "f2fb0778ec95cb353945d7369ce688efde1967aeca138c34e653f06930cb5a8b",
+      "results_sha256": "254b24f7505f02c6b0b00625926c2b57e4806d91f3f29f3e66fdc87fd7598a83",
+      "root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/icdar13_v1"
+    }
+  },
+  "scientific_training": {
+    "cases": 7,
+    "image_count_head_bundles": 441,
+    "scope": "Unique full scientific models; smokes, unit fixtures and repeated independent refits excluded",
+    "word_risk_models": 42
+  },
+  "status": "COMPLETE_COMMON_TT_IC15_ACCEPTED_IC13_TEST_BELOW90",
+  "tests": {
+    "command": ".venvs/context-str-main-py311/bin/python -m pytest -q tests/recognition/test_common_budget_pipeline.py tests/recognition/test_budget_target_oracle.py tests/recognition/test_deepsolo_lexicon.py",
+    "new_focused_tests": 10,
+    "passed": 15
+  },
+  "trained_manifest_file_count": 574,
+  "trained_manifest_sha256": "a84945c3e1087ff0fee6bbdaa693332ec8b00ef98eddd64fe4a547b1b129e1cf",
+  "user_criteria": {
+    "additional_full_run": "pooled_validation_v2 prepared but not executed; pooled smoke is engineering qualification only",
+    "chosen_run": "full",
+    "icdar2015": {
+      "fallback_images": 228,
+      "minimum_f1_by_version": {
+        "unet": 0.7893333333333333,
+        "yolo": 0.7994897959183673
+      },
+      "total_images": 500
+    },
+    "preserve_original_baseline_comparisons": true,
+    "scope": "User steering after first common-pipeline results",
+    "totaltext": {
+      "fallback_images": 150,
+      "minimum_f1": 0.782,
+      "strictly_above": true,
+      "total_images": 300
+    },
+    "user_instruction": "allora se total-text rimane sopra 78.2 va bene"
+  }
+}

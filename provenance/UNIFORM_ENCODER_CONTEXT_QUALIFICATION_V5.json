@@ -1,0 +1,77 @@
+{
+  "components": 64,
+  "encoder_identical_all3": true,
+  "extra_runtime_neural_models": 0,
+  "goal_complete": false,
+  "hook_smoke": {
+    "checks": {
+      "icdar13": {
+        "actual_new_unet_calls": 2,
+        "actual_parseq_crop_calls": 16,
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "images": 2,
+        "max_encoder_abs_delta": 0.0,
+        "max_mask_abs_delta": 0.0,
+        "out_of_memory": false,
+        "peak_allocated": 763219968,
+        "peak_reserved": 849346560,
+        "total_images": 2
+      },
+      "icdar2015": {
+        "actual_new_unet_calls": 2,
+        "actual_parseq_crop_calls": 10,
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "images": 2,
+        "max_encoder_abs_delta": 0.0,
+        "max_mask_abs_delta": 0.0,
+        "out_of_memory": false,
+        "peak_allocated": 858878464,
+        "peak_reserved": 981467136,
+        "total_images": 2
+      },
+      "totaltext": {
+        "actual_new_unet_calls": 2,
+        "actual_parseq_crop_calls": 16,
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "images": 2,
+        "max_encoder_abs_delta": 0.0,
+        "max_mask_abs_delta": 0.0,
+        "out_of_memory": false,
+        "peak_allocated": 858878464,
+        "peak_reserved": 983564288,
+        "total_images": 2
+      }
+    },
+    "result_class": "smoke-test result",
+    "scope": "Same frozen encoder context and unchanged original crop transcripts/boxes; numerical tolerance1e-5, no final metric or speed claim.",
+    "status": "PASS"
+  },
+  "images": 3515,
+  "mode": "approximate",
+  "paths": {
+    "frozen.json": {
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/encoder_context_v5/frozen.json",
+      "sha256": "d9232b21ebdf4e4b1798869156d09d63df629048c4b6efb8d30656d56d471cb2"
+    },
+    "independent_audit.json": {
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/encoder_context_v5/independent_audit.json",
+      "sha256": "fa4f413b948c51a7baaad40ba4bc3a904c9f5ccc1e2f4f643a634cb6b5968ee2"
+    },
+    "index.json": {
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/encoder_context_v5/index.json",
+      "sha256": "b4da7b2be460c4e2ce5a09a5fe3ea3769aa4b02937c8ff534bde94cc6ca77f4c"
+    },
+    "projection.joblib": {
+      "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/encoder_context_v5/projection.joblib",
+      "sha256": "777499309420f327e9b7ea469219a73434d36cd41a25fe141f36f65dc39aee11"
+    }
+  },
+  "pooled_fit_images": 2211,
+  "projection_refit": true,
+  "protected_rgb_excluded": true,
+  "status": "QUALIFIED_SHARED_ENCODER_FEATURES",
+  "upstream_encoder_exposure": true
+}

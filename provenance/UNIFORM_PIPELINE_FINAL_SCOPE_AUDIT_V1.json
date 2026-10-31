@@ -1,0 +1,220 @@
+{
+  "claim_label": "approximate reproduction",
+  "cleanup": {
+    "reclaimed_bytes": 23675456542,
+    "reclaimed_gib": 22.049487141892314,
+    "verified_nonimproving_checkpoints_removed": 35
+  },
+  "cold_batch_cost_receipt": "provenance/UNIFORM_COLD_BATCH_COST_V6B.json",
+  "common95_highlighted_after_test": true,
+  "compute_efficiency_improvement_demonstrated": false,
+  "datasets": {
+    "icdar13": {
+      "actual_new_deepsolo_calls_for_metric_replay": 0,
+      "care_words": 1095,
+      "deepsolo_images": 222,
+      "deepsolo_percentage": 95.27896995708154,
+      "f1": 0.8998144712430427,
+      "frozen_common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 961,
+          "detected_words": 961,
+          "f1": 0.8832684824902723,
+          "fn": 187,
+          "fp": 53,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 908
+        },
+        "deepsolo_images": 187,
+        "deepsolo_percentage": 80.25751072961373,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "full_test_images": 233,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 926,
+          "detected_words": 926,
+          "f1": 0.8461157842652153,
+          "fn": 240,
+          "fp": 71,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 855
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "selected_unet_epoch": 25,
+      "target": 0.897,
+      "target_met": true,
+      "total_images": 233
+    },
+    "icdar2015": {
+      "actual_new_deepsolo_calls_for_metric_replay": 0,
+      "care_words": 2077,
+      "deepsolo_images": 475,
+      "deepsolo_percentage": 95.0,
+      "f1": 0.8283811475409836,
+      "frozen_common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1847,
+          "detected_words": 1800,
+          "f1": 0.8274438999226206,
+          "fn": 473,
+          "fp": 196,
+          "gt_words": 2077,
+          "ignored_outputs": 47,
+          "images": 500,
+          "tp": 1604
+        },
+        "deepsolo_images": 400,
+        "deepsolo_percentage": 80.0,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "full_test_images": 500,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1731,
+          "detected_words": 1689,
+          "f1": 0.7992565055762082,
+          "fn": 572,
+          "fp": 184,
+          "gt_words": 2077,
+          "ignored_outputs": 42,
+          "images": 500,
+          "tp": 1505
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "selected_unet_epoch": 30,
+      "target": 0.782,
+      "target_met": true,
+      "total_images": 500
+    },
+    "totaltext": {
+      "actual_new_deepsolo_calls_for_metric_replay": 0,
+      "care_words": 2204,
+      "deepsolo_images": 285,
+      "deepsolo_percentage": 95.0,
+      "f1": 0.8248990258968876,
+      "frozen_common80": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2037,
+          "detected_words": 1990,
+          "f1": 0.8183118741058655,
+          "fn": 488,
+          "fp": 274,
+          "gt_words": 2204,
+          "ignored_outputs": 47,
+          "images": 300,
+          "tp": 1716
+        },
+        "deepsolo_images": 240,
+        "deepsolo_percentage": 80.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "full_test_images": 300,
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2082,
+          "detected_words": 2039,
+          "f1": 0.8079189252887108,
+          "fn": 490,
+          "fp": 325,
+          "gt_words": 2204,
+          "ignored_outputs": 43,
+          "images": 300,
+          "tp": 1714
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "selected_unet_epoch": 15,
+      "target": 0.798,
+      "target_met": true,
+      "total_images": 300
+    }
+  },
+  "evidence_sha256": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar13/bank/independent_audit.json": "01d2d6746dbc83c3a52b57a62ee6d5ea36875f9189f6e124297aea99b2e411e7",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/icdar2015/bank/independent_audit.json": "9e745263520ad9979d83a7f0ce28353bcb585684a07791a617ee54b80fb54f9d",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/totaltext/bank/independent_audit.json": "394ae5dc931fa417958a1d90ba86bf907b7a9e31e96bd82d3e7dc0b9dcf459da",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/postprocessor_qualification.json": "8d6dec1bb9450e353d6a23cdff942bb95749a875abb6cfaa8945c154f94cca45",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/complete.json": "31f37e4480a0e514e514bbea5231508442594849b3e8a01354c795ed661cb8f3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/emission_selection/frozen.json": "e2ab3eabd1abd26e22293f0ffa59a4a5251ecab37de7b148951cbf23185b1b2e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/independent_training_audit.json": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/complete.json": "f7effaeeeb94dc2c4eae3b81154b41f1613809688b1d6a3d3922e5a2d4dceeae",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/emission_selection/frozen.json": "b95f46a54d772378f5dfd60a85610bf85ace31a42bac0fc120fdbd796c65c931",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/independent_training_audit.json": "f7f8c6bbb24615fef71ffeab0ea6366cdb25ce2703a67550bf25edac7f992d40",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/complete.json": "7bd30590c05ddd7120fb5bbed963600f5ec2c8c108022c97ca8057d67ca94b35",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/emission_selection/frozen.json": "b32ec660b6c9c25fe5ea954057a06e9d7e4d4b129fc183efe4e9f1ed6f0f9c46",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/independent_training_audit.json": "7ebafdfd26f8077423d4eb312326d556110cc4f67ac416b6e74efefc8d590ecc",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_smoke_v6b/icdar13/independent_engineering_audit.json": "10edda3c7d0f7e89b7dda083c3fd55bf9c0c991d03a0e04b139b061ebc93ea1d",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_smoke_v6b/icdar2015/independent_engineering_audit.json": "d7b5166bf403aef227d5aa23e4d1df204521c3fb2ca6bdc1fe3e244fef8b55c6",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_smoke_v6b/totaltext/independent_engineering_audit.json": "6f37dee7ec9e694c5d2fbe865f37120fc5f2f58038a2410c327a62d52677f85b",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/evaluation/independent_audit.json": "e07964f78017927db5a2763c57ed4f0ea7505943a6d2a71b7bf5c3e5712e051d",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/independent_audit.json": "b7f0bb27ee8429456170408765652a1bd1ed8fe06b07f800d23861613f4022d4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar13/selection_frozen.json": "f41c1e73f37fdacdf81aaaeb2e4dfe8052e052efc82e590c45d0fafd1eb283f2",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/evaluation/independent_audit.json": "a4955441a5fa2a0af0dda7b1728b870fabd6182421200c8a6424119f35a9e6be",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/independent_audit.json": "22d2a2af10998a205016706626bf5be1c4f64c469e2829b51b51f783261167a6",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/icdar2015/selection_frozen.json": "0256f04d11e1dfaa20cbe5ff037e0be32f536a61b143bb84d5e03628467f4649",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/evaluation/independent_audit.json": "330ae4cd3b1f7b687f2bc93f20189ecd5fdca69ffc5ed8064cf121827092b488",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/independent_audit.json": "3898a875fd576fba1f14713c30f9b4f41279b5d5b58942694e62387cc4ca0d6e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/word_union_v6b/totaltext/selection_frozen.json": "ee5bc4b156ed51b0480e34a244697d81f2413d153b58d54fd9a03251b8c35775",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_fallback_profiles_v1.json": "e24dbed93ceffda548141dcf6d787bf1440b9c7f6bed6bb4a886eeca10ba5e6e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "provenance/UNIFORM_WORD_UNION_EVALUATION_V6B.json": "0d5f0774a8dc3f9fabcecd7428a118d77195666b6afb7a1b7cd98210ed8de45b"
+  },
+  "full_dataset_online_latency_measured": false,
+  "higher_fallback_evaluation_authorized": true,
+  "limitations": [
+    "Exploratory benchmark control, not an independently confirmed operating point.",
+    "Historical benchmark and validation reuse, conditional decoder-heldout training and upstream pretrained exposure.",
+    "Domain-specific weights and benchmark vocabularies under one shared method.",
+    "Original lower-fallback objective remains unmet on ICDAR2013.",
+    "Full metrics replay authenticated cached experts; real RGB chain tested separately on12 images per domain."
+  ],
+  "mode": "approximate",
+  "paper_metric_equivalence_verified": false,
+  "primary_budget_targets_all_met": false,
+  "status": "AUDITED_NUMERICAL_TARGETS_MET_WITH_HIGH_FALLBACK",
+  "strict_reproduction": false,
+  "validation_frozen_common80_targets_all_met": false,
+  "verification": {
+    "deployment_pins_checked": 21,
+    "experiment_library_check": "PASS",
+    "focused_tests_failed": 0,
+    "focused_tests_passed": 41,
+    "independent_training_metric_and_engineering_audits": "PASS",
+    "source_only_catalog_check": "PASS"
+  },
+  "verified_utc": "2026-10-31T06:40:21.478937+00:00"
+}

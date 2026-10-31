@@ -1,0 +1,22 @@
+{
+  "bootstrap_draws": 1000,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/one_se_fixed_gate_v1/smoke",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke/deployment_qualification_v2.json": "4a2f8ff73e20f0f32f1f9a0a1e5b92c9a4ac2f892100dc5d468d8412ed31e6e3",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke/resolved_configuration.json": "972e61b8b8fd1f03dd0aa4dbb747899c3f628b2db04b407ae96c5fdb66153203",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke/selection_frozen.json": "7db55da9e75f90cde169472328af54cca2b11b369bdd531ce3511fe804a03039",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke/source_input_sha256.json": "66b3ae3ca7a4e539326c2bf111536af5e104e6279d11e6b1df950b6aba2d3c52",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke/targets.json": "dd4d56019078ac97cb0a827bf3858aec75812cbad347cab3d84167f6f8778b3e"
+  },
+  "qualification_name": "deployment_qualification_v2.json",
+  "scientific_choices": {
+    "ASSUMPTION": "From the complete audited TRAIN-crossfit plus validation candidate grid, estimate conditional image-bootstrap F1 standard error of its highest pooled point. Among candidates within one standard error, prefer fewer extra map models, fewer fallback PARSeq crops and lower CPU model complexity. Require either a fitted count head or trained word-risk model; do not select a purely untrained confidence control. Use previously declared validation floor and exact dataset budget. No TEST labels or outputs determine the selection.",
+    "HARDWARE_DEVIATION": "CPU float64 cached inference and NumPy bootstrap on existing dependencies; no new GPU or DeepSolo inference in selection.",
+    "PAPER_SPECIFIED": "Scene text localization and fallback motivation only; uncertainty-aware trained selection is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Independently refitted and audited five-fold image/word-risk predictions with native256 care/ignore and domain-specific authenticated DeepSolo outputs.",
+    "UNRESOLVED": "Conditional/non-nested crossfit, finite-sample bootstrap after candidate search, TRAIN benchmark vocabulary includes validation word types, upstream data overlap, repeated historical TEST exploration and eventual cross-dataset retained performance."
+  },
+  "seed": 20261029,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_fixed_gate_v1/smoke"
+}

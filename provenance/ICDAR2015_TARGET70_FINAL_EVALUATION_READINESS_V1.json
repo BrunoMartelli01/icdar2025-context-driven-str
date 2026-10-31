@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "status": "ENGINEERING_CHECKS_PASS_FINAL_REAL_SELECTION_AND_TEST_PENDING",
+  "source_files": {
+    "configs/approximate/icdar2015_target70_selection_v1.json": "184e2a16a01a4a4c9155c14f28c17690f728a009df80fa279dca196ed104f983",
+    "configs/approximate/icdar2015_target70_word_f1_v1.json": "ec790243b9a24a5faa5d1d74cf9d8fe78c6b473a5f7b01ed6763a65032ad3be0",
+    "segmentation/icdar2015_target70_selection.py": "b57fea7a236a78ac31b807f9e0dd0706bf6cb1316ccd8e6a4420e65753880b63",
+    "scripts/select_icdar2015_target70.py": "f956119d9a2559f5996c04c73ec23068e05f594731adf6df120bbc3c1bdf0dc3",
+    "scripts/evaluate_icdar2015_target70.py": "787cfda09d832dca59bb2a05d2f2b3fad36e026fb6df9626b058ba3aeec202fa",
+    "scripts/audit_icdar2015_target70.py": "5bd1819886c85c0dbd9a0ee06a74065caba1f5e4a01b43d3364b01921ff5e284",
+    "tests/scripts/test_icdar2015_target70_final_selection.py": "ff977400376e9431a7cf96955f6e6649597c8863c726b36064f5daa5b8676e49",
+    "tests/scripts/test_icdar2015_target70_test_evaluation.py": "d462db164aa3bff7e5fded486e80cdac3899437dfae3bc45f42e80494bef8fce",
+    "tests/scripts/test_icdar2015_target70_independent_audit.py": "bde27bbace27ba54e0779d716c29a67d9bfbb8d4efefb6e1c7f71ba631c28ca7"
+  },
+  "focused_tests": {
+    "passed": 12,
+    "failed": 0,
+    "report": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/final-evaluation-audit-unit-tests-v1.xml",
+    "sha256": "ee4c7140660087823062bf81cf11a5929c96bf69bc9c8ca728ed8399e34fc9fa"
+  },
+  "real_source_smoke": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/selector-source-smoke-v1.json",
+    "sha256": "f369cc69a50b5d96abbbe16cb9e28dc8626ce49906e37fee945fb640cf893224",
+    "scope": "source checkpoint strict loading and complete source validation-grid replay only",
+    "validation_images": 100,
+    "care_words": 430,
+    "operating_candidates_replayed": 20,
+    "strict_checkpoint_loading": true,
+    "engineering_forward_shape": [
+      1,
+      1,
+      32,
+      48
+    ]
+  },
+  "complete_final_selection_run": false,
+  "test_evaluations_this_extension": 0,
+  "target_achieved": false,
+  "audit_scope": "Independent CSV/CC/inverse mapping/output membership/matching/F1; production crop renderer shared and neural inference not recomputed"
+}

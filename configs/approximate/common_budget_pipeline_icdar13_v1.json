@@ -1,0 +1,240 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "common_budget_pipeline_icdar13_extension_v1",
+  "output_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1",
+  "datasets": [
+    "icdar13"
+  ],
+  "experts": [
+    "unet",
+    "yolo",
+    "yolo_unet"
+  ],
+  "seed": 20261029,
+  "cpu_threads": 4,
+  "folds": 5,
+  "snapshot_packages": [
+    "recognition",
+    "scripts",
+    "segmentation",
+    "localize",
+    "models",
+    "pipeline",
+    "caption",
+    "scoring",
+    "research"
+  ],
+  "sources": {
+    "icdar13": {
+      "original": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+      "map_expert": "tt_corrected",
+      "prepared_files": {
+        "unet": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar13__unet.json",
+        "yolo": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/prepared/icdar13__yolo.json",
+        "yolo_unet": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/prepared/icdar13__yolo.json"
+      },
+      "teacher_scenes": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/prepared/icdar13__yolo.json"
+    }
+  },
+  "lexicons": {
+    "icdar13": {
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+      "train_pair_format": "json",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt",
+      "distance_exclusive": 1.5
+    }
+  },
+  "budgets": {
+    "icdar13": {
+      "images": 233,
+      "fallback_images": 61,
+      "care_words": 1095,
+      "minimum_f1": 0.9,
+      "baseline_f1": {
+        "unet": 0.8234155781325593,
+        "yolo": 0.8698140200286123,
+        "yolo_unet": 0.8772748483434438
+      }
+    }
+  },
+  "map_features": {
+    "probability_threshold": 0.5,
+    "minimum_component_area": 4
+  },
+  "correction_confidence_caps": [
+    0.8,
+    0.9,
+    0.95,
+    1.01
+  ],
+  "unmatched_policies": [
+    "keep_unmatched",
+    "source_reject"
+  ],
+  "reference_grid": [
+    0.7,
+    0.75,
+    0.79,
+    0.8,
+    0.82,
+    0.85,
+    0.9
+  ],
+  "guards": [
+    false,
+    true
+  ],
+  "word_risk": {
+    "iterations": 100,
+    "leaves": 7,
+    "minimum_leaf": 20,
+    "l2": 10.0
+  },
+  "feature_groups": [
+    [
+      "raw_ocr"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "risk",
+      "maps",
+      "geometry"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps",
+      "risk"
+    ]
+  ],
+  "head_recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 0.1
+    },
+    {
+      "kind": "ridge",
+      "alpha": 1.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 1000.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "minimum_leaf": 10,
+      "l2": 10.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "minimum_leaf": 30,
+      "l2": 10.0
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 5
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 15
+    }
+  ],
+  "ensemble_sizes": [
+    3,
+    5,
+    10
+  ],
+  "selection_tolerance": 0.001,
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/frozen_choices.json": "cdac0907f115674681a9571181094c23843eb3044a3fbf9f7103306db61bcea1",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar13__unet.json": "1caf638bdc0cdb9722842f05728daec6668347ea7b2bfe9792820779551e8c8b",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/prepared/icdar13__yolo.json": "8eaa2a1d3d12a8e1b32ab60c52972ec59e5be4e9d46341c6a7124ef9ca3e2909",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/prepared/icdar13__yolo.json": "3024f315f7ad2091d7268bbde5213f76a26351d446268b8896bab3ec590a6610",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/results.json": "b77f939998310bcefb48a2172bb17df47eddb4c4e42132ca753b68dd29d041e8",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar13__unet.json": "8b331a9fea3b665cdbda6e6d3ca5fb9fa84483dfa62311b7338e9c9d830a0718",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/results.json": "96bf8f4e85b3cb238db86228b99e0f4dd8de5c4eb321f4bc1b89c471c9493cb4",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/branches/icdar13__yolo.json": "8d26b87b7a38460ad5c0fbde2281d43849df3686b64b5dfbd936cca5af1c466f",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/results.json": "892baa684d0facaeda8c040c5d6b6e7c4e05b91b53a93dde4cbf688e4f65c18c",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/branches/icdar13__yolo.json": "d1447cdda67c106cac9ddd25bbc59e0dd946dec25b55ddcca803ad485c7fcf7e"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Attention U-Net/recognizer/fallback motivation only, paper3.2/3.3/3.5 inspected.",
+    "REPOSITORY_SPECIFIED": "Qualified light/PARSeq observations, all care and native256 ignore, benchmark Weak resources and per-dataset authenticated optimized DeepSolo. Existing expert weights/resolutions are retained.",
+    "ASSUMPTION": "Shared correction grid, raw/post OCR and explicit missing-channel map features, five-RGB-fold word-risk labels from FIT only, two normalized count-difference targets, common Ridge/HGB/ExtraTrees grid, reference grid, guard/ensemble selection and exact budget order. Same procedure and independently learned weights for all four cases. TT unused oldCAL100 joins1028 FIT, with expert-unseen selection62/CAL63; IC15 FIT900/selection50/CAL50. No TEST model/feature/threshold selection. IC13 extension explicitly requested after the TT/IC15 result. Keep the exact same common training/correction/feature/reference/guard/ensemble recipe and original183/23/23 TRAIN roles; test UNet, recovered-slot YOLO and YOLO+UNet complement separately, budget61/233 (26.18%). Use one authenticated split-Generic teacher consistently for all three TRAIN cases. Target90% is evaluated, not used to pick TEST trials.",
+    "HARDWARE_DEVIATION": "CPU float64 feature/head processing over authenticated caches; no new GPU or DeepSolo inference.",
+    "UNRESOLVED": "Historical TEST exploration, upstream expert/corrector fitting exposure, TRAIN Weak versus released TEST Weak side-information shift, paper-equivalent metric/weights, and whether one procedure meets all four existing baselines. IC13 train dictionary inherited from allTRAIN229 is upstream side information shared across FIT/selection/CAL; new FIT-only gate/word folds do not make the whole pipeline independently cross-fitted."
+  },
+  "baseline_artifacts": {
+    "icdar13__unet": {
+      "results": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/results.json",
+      "branches": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar13__unet.json",
+      "kind": "lexical_exact_budget",
+      "dataset": "icdar13",
+      "expert": "unet"
+    },
+    "icdar13__yolo": {
+      "results": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/results.json",
+      "branches": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_word_risk/branches/icdar13__yolo.json",
+      "kind": "lexical_exact_budget",
+      "dataset": "icdar13",
+      "expert": "yolo"
+    },
+    "icdar13__yolo_unet": {
+      "results": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/results.json",
+      "branches": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/branches/icdar13__yolo.json",
+      "kind": "lexical_exact_budget",
+      "dataset": "icdar13",
+      "expert": "yolo"
+    }
+  },
+  "validation_policy": "separate"
+}

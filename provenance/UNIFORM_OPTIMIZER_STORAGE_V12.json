@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "all_nonoptimizer_state_exact": true,
+      "new_bytes": 233038046,
+      "new_sha256": "54b75c7e6bef861370c42e0ba72e14124a78ed5b585ec603d3ec56041af8bedc",
+      "old_bytes": 493847549,
+      "old_sha256": "e77a5711ce8947ceb270c82c521ace466302e5fca6d583a984a56990ba757e9d",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/smoke/icdar13/last.pt",
+      "preserved_best_sha256": "472dcff0bc0b5d7b531c785b0c0655b39ad790df109f244a3e41efeb7f7860ce",
+      "preserved_tensor_count": 452
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "new_bytes": 233038046,
+      "new_sha256": "9a940293977a3046db1506b28ae961488ff8e750e8fa0ade7cfd947438435bdc",
+      "old_bytes": 493847549,
+      "old_sha256": "4447cda3f782fe4760ca8545924f557464f3699e2d408ab5f85e8ad07da85451",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/smoke/icdar13/last.pt",
+      "preserved_best_sha256": "c9effcc8e0b47149da19758b4ee2a442d97023bb989130dcefc2b7fd8d774e19",
+      "preserved_tensor_count": 452
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "new_bytes": 233039582,
+      "new_sha256": "c9162068f9dbee5d536ec41bab762222bfd5da7d5415b46df60980496c63eb69",
+      "old_bytes": 493849085,
+      "old_sha256": "e1d7d5eacd09ed21d6a9fa26bd2533555f7ddf2e5034bef6f943ac746c4bf5d8",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/last.pt",
+      "preserved_best_sha256": "cf52fea7ccc4dfc1054f54ae339983641a37b45738eb33b5c7d230467200f39a",
+      "preserved_tensor_count": 452
+    },
+    {
+      "all_nonoptimizer_state_exact": true,
+      "new_bytes": 233039582,
+      "new_sha256": "7de77206248942a50f4a2ad042b6f60faa6372d8ac64eeb92b9b47cc1abb49af",
+      "old_bytes": 493849085,
+      "old_sha256": "9626df51a0537118170da159892fb94c7d2a5c87653d40bb8e0fc81ddeb48023",
+      "optimizer_continuation_available": false,
+      "path": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/photometric/full/icdar13/last.pt",
+      "preserved_best_sha256": "482a71b9e8946e29b3ea90cf8e694eb4fa759a32e92ba7e1ee9e0fdfbaa3b7df",
+      "preserved_tensor_count": 452
+    }
+  ],
+  "post_compaction_training_audits": "PASS all4 from original frozen source",
+  "reclaimed_bytes": 1043238012,
+  "scope": "Final model, RNG, history and metadata preserved exactly. Completed non-improving cases only; optimizer continuation state explicitly removed. Selected checkpoints untouched.",
+  "source_sha256": "8c7934f20543231863810c58bde1dfa248b58bbbe1a94b1529780dd4fbf06eda",
+  "status": "COMPLETE"
+}

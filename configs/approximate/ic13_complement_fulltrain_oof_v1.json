@@ -1,0 +1,94 @@
+{
+  "claim_label": "approximate reproduction",
+  "cv_folds": 5,
+  "fallback_images": 61,
+  "feature_groups": [
+    [
+      "raw_ocr",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "word_risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "word_risk"
+    ]
+  ],
+  "mode": "approximate",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/complement_frozen.json": "f5ff66d3e8a8b168e29e1cf628aa00e6a48410035043b0225f9f45f4667a52d7",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/complement_receipt.json": "159094b2d6121fcd1d6cc691b5cb46cfb364b7481ec0e2343bc883d2dcaeecc8",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/branches/icdar13__yolo.json": "d1447cdda67c106cac9ddd25bbc59e0dd946dec25b55ddcca803ad485c7fcf7e",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/frozen.json": "ccf176b9dbdf9b13f279a8959b0578bc8bded50cb673abdeafad5c31f007de67",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/models/icdar13__yolo__features.npz": "41e1a3461b2bc2327f44a531b88408fdc5f34539a54372f9f60e6498d07877ed",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/staging/resolved_configuration.json": "f65d01fbc346210ae2d0b31feffb8e78b166e5a40755e1f0580afc272bb9b04c"
+  },
+  "protocol": "Exact61/233 logical cached DeepSolo budget; model selected using GROUP OOF on all229 TRAIN images, then refit all229. TEST only once after frozen receipt. Existing complement policy and FIT-only word-risk archive fixed.",
+  "recipes": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 5,
+      "trees": 200
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 15,
+      "trees": 200
+    }
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Group-by-image-RGB fivefold OOF router model selection on TRAIN229, then refit all TRAIN229; complement policy was preselected on embedded selection23 and is reused unchanged",
+    "HARDWARE_DEVIATION": "CPU cached regression fitting, no neural inference",
+    "PAPER_SPECIFIED": "DeepSolo fallback motivation only",
+    "REPOSITORY_SPECIFIED": "Existing fixed experts, lexical micro F1, native256 ignore and fixed61-image budget",
+    "UNRESOLVED": "Prior TEST exposure and small train cannot establish a held-out independent population guarantee"
+  },
+  "seed": 20261029,
+  "source_plan": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/staging/resolved_configuration.json",
+  "source_router_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/fulltrain_oof",
+  "target_f1": 0.9,
+  "test_images": 233
+}

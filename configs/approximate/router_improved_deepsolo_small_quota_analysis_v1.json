@@ -1,0 +1,10 @@
+{
+  "reproduction_mode": "approximate",
+  "repository_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str",
+  "results_sha256": "50bb622923fe832e3fe37263170062c59fd9b52ea92e01a850d1cef390722ef2",
+  "seed": 20261026,
+  "bootstrap_replicates": 1000,
+  "fraction": 0.1,
+  "classification": "ASSUMPTION",
+  "scope": "Post-main-results conditional paired intervals for all26 frozen routers, all4 profiles, both metrics at the previously evaluated10percent quota. No TEST selection."
+}

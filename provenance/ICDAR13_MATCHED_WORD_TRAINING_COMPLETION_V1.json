@@ -1,0 +1,221 @@
+{
+  "status": "COMPLETE",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "approximate reproduction",
+  "recorded_utc": "2026-10-28T21:05:33.224781+00:00",
+  "external_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full",
+  "metric": "Per-image lexical multiset micro F1; Unicode casefold+isalnum; native256 ignore; no IoU; explicit no-alphanumeric rejection; all care GT retained",
+  "selected_expert": {
+    "candidate": "totaltext_bce_dice",
+    "checkpoint": "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/totaltext_bce_dice/best.pt",
+    "checkpoint_sha256": "0e9a4bcc51ca1901e6b1c119c09f98c326703946e6ed92c0cba8fdcbd4265f65",
+    "counts": {
+      "accuracy_tn0": 0.8235294117647058,
+      "all_outputs": 60,
+      "detected_words": 60,
+      "f1": 0.9032258064516129,
+      "fn": 8,
+      "fp": 4,
+      "gt_words": 64,
+      "ignored_outputs": 0,
+      "images": 23,
+      "precision": 0.9333333333333333,
+      "recall": 0.875,
+      "tp": 56
+    },
+    "settings": {
+      "kernel_threshold": 0.5,
+      "maximum_ocr_candidates": 50,
+      "minimum_transcript_probability": 0.9,
+      "native_size": 384,
+      "padding": 4,
+      "text_threshold": 0.5
+    },
+    "split": "selection"
+  },
+  "test_result": {
+    "actual_deepsolo_calls": 0,
+    "candidate": "selected",
+    "counts": {
+      "accuracy_tn0": 0.5857359635811836,
+      "all_outputs": 995,
+      "detected_words": 995,
+      "f1": 0.738755980861244,
+      "fn": 323,
+      "fp": 223,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "precision": 0.7758793969849246,
+      "recall": 0.7050228310502283,
+      "tp": 772
+    },
+    "deepsolo_images": 0,
+    "deepsolo_percentage": 0.0,
+    "gpu_allocated": 440520704,
+    "gpu_reserved": 836763648,
+    "settings": {
+      "kernel_threshold": 0.5,
+      "maximum_ocr_candidates": 50,
+      "minimum_transcript_probability": 0.9,
+      "native_size": 384,
+      "padding": 4,
+      "text_threshold": 0.5
+    },
+    "split": "test",
+    "total_images": 233
+  },
+  "training": {
+    "refit_bce": {
+      "best_epoch": 20,
+      "best_validation": {
+        "accuracy_tn0": 0.7746478873239436,
+        "all_outputs": 63,
+        "detected_words": 62,
+        "f1": 0.873015873015873,
+        "fn": 9,
+        "fp": 7,
+        "gt_words": 64,
+        "ignored_outputs": 1,
+        "images": 23,
+        "precision": 0.8870967741935484,
+        "recall": 0.859375,
+        "tp": 55
+      },
+      "checkpoint_sha256": "30d6a2d2dc68824ef988d88d10e101e9c88e02cd8d9c1d71c8da7244a9cbed22",
+      "epochs": 30,
+      "fit_images": 183,
+      "peak_allocated": 8998063104,
+      "peak_reserved": 12079595520,
+      "result_class": "approximate reproduction",
+      "status": "SUCCESS"
+    },
+    "totaltext_bce_dice": {
+      "best_epoch": 30,
+      "best_validation": {
+        "accuracy_tn0": 0.8115942028985508,
+        "all_outputs": 61,
+        "detected_words": 61,
+        "f1": 0.896,
+        "fn": 8,
+        "fp": 5,
+        "gt_words": 64,
+        "ignored_outputs": 0,
+        "images": 23,
+        "precision": 0.9180327868852459,
+        "recall": 0.875,
+        "tp": 56
+      },
+      "checkpoint_sha256": "0e9a4bcc51ca1901e6b1c119c09f98c326703946e6ed92c0cba8fdcbd4265f65",
+      "epochs": 30,
+      "fit_images": 183,
+      "peak_allocated": 8996948992,
+      "peak_reserved": 12060721152,
+      "result_class": "approximate reproduction",
+      "status": "SUCCESS"
+    }
+  },
+  "baseline_controls": {
+    "native": {
+      "f1": 0.723342939481268,
+      "original_f1": 0.7185114503816794,
+      "counts": {
+        "tp": 753,
+        "fp": 234,
+        "fn": 342
+      },
+      "original_counts": {
+        "tp": 753,
+        "fp": 248,
+        "fn": 342
+      },
+      "deepsolo_images": 0,
+      "total_images": 233,
+      "deepsolo_percentage": 0.0
+    },
+    "corrected_totaltext": {
+      "f1": 0.7360774818401937,
+      "original_f1": 0.733236854799807,
+      "counts": {
+        "tp": 760,
+        "fp": 210,
+        "fn": 335
+      },
+      "original_counts": {
+        "tp": 760,
+        "fp": 218,
+        "fn": 335
+      },
+      "deepsolo_images": 0,
+      "total_images": 233,
+      "deepsolo_percentage": 0.0
+    }
+  },
+  "observed_improvement_percentage_points": {
+    "native": 1.5413041379976011,
+    "corrected_totaltext": 0.2678499021050329
+  },
+  "total_training_epochs": 60,
+  "total_fitting_image_passes": 10980,
+  "tests": {
+    "focused_unit_tests_passed": 19,
+    "full_batch_cuda_backward_smokes": 2,
+    "independent_csv_counter_audit": "PASS"
+  },
+  "hardware": {
+    "cuda": "12.4",
+    "cudnn": 90100,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "image_hw": [
+      768,
+      768
+    ],
+    "inference_batch": 1,
+    "model_set": "one frozen-encoder Text+Kernel U-Net and genuine qualified PARSeq; no DeepSolo",
+    "parseq_batch": 32,
+    "precision": "float32",
+    "segmentation_batch": 8,
+    "torch": "2.4.1+cu124"
+  },
+  "actual_deepsolo_calls": 0,
+  "test_used_for_selection": false,
+  "historical_test_exposure": true,
+  "limitations": [
+    "Small reused selection cohort; selection90.32 versus CAL72.73 and TEST73.88",
+    "Only0.2678-point observed margin over corrected Total-Text; no robust superiority claim",
+    "Historical native comparison changes loss, batch, optimizer schedule, duration and crop policy",
+    "RTX3090 FP32 physical8; not8GB qualification",
+    "Lexical multiset F1 without IoU; not official polygon Hmean or Table5 accuracy"
+  ],
+  "preserved_failures": [
+    "v1 native512 loses TRAIN126 owner20; no GPU training in that failed run",
+    "report_failed_missing_matplotlib_v1",
+    "report_failed_interpreter_resolution_v2"
+  ],
+  "files_sha256": {
+    "resolved_configuration.json": "50ec73f44003ad4bfdeeaf8801d5c0c19c99a4fe01921897d91e8face06498ec",
+    "target_audit.json": "0b1c3eb24c1a0ab9f1b80927fedebdeec618602206b4df24c62fc7444246b8e9",
+    "results.json": "68678e9647e479189ac4d76b3ba6f1a1783ea734759dca08f106ab1af2f37629",
+    "independent_lexical_audit.json": "281e173544a07012c2c3525a91df81d13cfd695e11529a6bdb9d6327ffc051c9",
+    "selection_frozen.json": "505301cf0f0d2a8d2d0b2fca1e7fafadecff7e472985a0f9490b0b64469c001e",
+    "refit_bce/training.json": "48a2da1b542475bdf93d1eabfbec1f8972599ee34f8172aca3394475ea106afc",
+    "refit_bce/epochs.json": "f4b2b6beaa093cf02bde4b95e99da80ba75bcd5b9864fd00a2e2f771eccadb05",
+    "refit_bce/best.pt": "30d6a2d2dc68824ef988d88d10e101e9c88e02cd8d9c1d71c8da7244a9cbed22",
+    "totaltext_bce_dice/training.json": "b6fb0aa961d6204817acd842d57709d8266e588e2bace827a76909726144b06d",
+    "totaltext_bce_dice/epochs.json": "8da8465932260e5cdb0d34d9247311d41fffb8fd84dd13bc83003a7c71977b93",
+    "totaltext_bce_dice/best.pt": "0e9a4bcc51ca1901e6b1c119c09f98c326703946e6ed92c0cba8fdcbd4265f65",
+    "report/comparison.csv": "f243a9f09c9e0d3ac3d7ec68c886a1b128d88079025582985ccf61caf1f1e0f4",
+    "report/training_and_test.png": "86e565f4cb0ecd19f9980a4f2a0bed0a04e73d2f838c6deb47d14a2c146085ee",
+    "report/SUMMARY.md": "b585e6ec6717a8176d49d1a70ec0c8e916e5ac6464d095fcaf48ba083ee08a04",
+    "report/selection_geometry.json": "f182a1444a7646e2b5f79232c984dc6737b7fb414745c37f587642b05425b29f",
+    "report/report_metadata.json": "35c18787be623b842eaf9ca2fc55fdf3ae1b9853eeee6e822ba6a32db50f2cae",
+    "report/selected_expert.json": "b59eaa4c33076fbb379191641a97933aec06b186c48abb21c83cea2a9074c673",
+    "postprocessing_sources/scripts/audit_icdar13_matched_word_training.py": "3a3c43afa3578a5a11fea877cddc68bfc1fe67888e95b21c89292ebf3c454d0f",
+    "postprocessing_sources/scripts/report_icdar13_matched_word_training.py": "79b2d766d4a778c71a9fd7f3c41ee504c45896379016bdbaa025d18f86f2eedf"
+  },
+  "external_controls_sha256": {
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/historical_refit_emission_audit_v2.json": "c91d87db59e23f959cabd1b5a7876970ec259c9f9b3181ada401cc4c94c9096f",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/historical_corrected_totaltext_emission_audit_v2.json": "f89ae420373bf256f390986d0cab62b5eec10bf66af204d237b47eb1b8b6540b"
+  }
+}

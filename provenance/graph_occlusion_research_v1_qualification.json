@@ -1,0 +1,119 @@
+{
+  "status": "IMPLEMENTED_GPU_SMOKE_PASSED_FULL_RUNNING",
+  "claim_label": "approximate reproduction",
+  "external_run_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1",
+  "unit_tests": {
+    "passed": 69,
+    "runner": "pytest",
+    "scope": [
+      "tests/localize/test_graph_occlusion_research.py",
+      "tests/localize/test_teacher_student_tests.py",
+      "tests/localize/test_occlusion_four_tests.py",
+      "tests/recognition/test_parseq_adapter.py",
+      "tests/segmentation/test_word_multitask.py"
+    ]
+  },
+  "smoke": {
+    "root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/smoke_v2",
+    "independent_audit": {
+      "status": "PASS",
+      "image_arm_checks": 72,
+      "algorithm": "independent SciPy maximum bipartite matching"
+    },
+    "weight_audit": {
+      "status": "PASS",
+      "arms": {
+        "occlusion": {
+          "teacher_changed": [],
+          "encoder_changed": [],
+          "student_changed_tensors": 132,
+          "teacher_frozen": true
+        },
+        "pixel": {
+          "teacher_changed": [],
+          "encoder_changed": [],
+          "student_changed_tensors": 132,
+          "teacher_frozen": true
+        },
+        "structure": {
+          "teacher_changed": [],
+          "encoder_changed": [],
+          "student_changed_tensors": 132,
+          "teacher_frozen": true
+        }
+      }
+    },
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "torch": "2.4.1+cu124",
+      "numpy": "1.26.4",
+      "python": "3.11.11",
+      "other_gpu_jobs": "1756566, .venvs/context-str-main-py311/bin/python, 4094 MiB\n1756646, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 254 MiB\n",
+      "device": "cuda:0",
+      "precision": "float32",
+      "cpu_threads": 4,
+      "ocr_batch_size": 32,
+      "segmentation_batch_size": 1,
+      "cublas_workspace_config": ":4096:8",
+      "minimum_free_gpu_bytes": 4294967296,
+      "deterministic_algorithms": true,
+      "tf32": false
+    },
+    "results_not_efficacy_evidence": true
+  },
+  "full_status": "RUNNING",
+  "changes_from_smoke": "Only minimum free VRAM requirement tightened from4GiB to8GiB; scientific/training code and parameters unchanged.",
+  "preserved_failures": [
+    {
+      "kind": "test invocation",
+      "error": "Initial pytest invocation referenced nonexistent tests/models/test_word_multitask.py; corrected to tests/segmentation/test_word_multitask.py;69tests pass."
+    },
+    {
+      "kind": "input integrity",
+      "root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/smoke_v1",
+      "error": "Three historical TRAIN JPEG paths drifted; isolated exact-byte restoration; checksums retained."
+    },
+    {
+      "kind": "GPU admission guard",
+      "root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full_attempt1_vram",
+      "error": "Another GPU workload reduced free VRAM below8GiB before execution. Guard propagated failure; failed attempt preserved. Relaunched after free VRAM recovered; full GPU export verified running."
+    }
+  ],
+  "paper_sha256": {
+    "papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "/extra1/bmartelli/.codex/attachments/7824bf4e-e660-4ad5-8884-0aca38e4fa15/Das_Occlusion_Detection_KBS.pdf": "c50a492403298df36a197439a42b805994c62454a1bbcbea2de0077f628711ac"
+  },
+  "launch": {
+    "pid": 1757212,
+    "source_snapshot": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/source_snapshot_v4",
+    "log": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full_attempt2.log",
+    "output": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full",
+    "source_manifest_sha256": "c76d6c04b8d60583c7e471b773cc5f7de81d1c37067aecfc94aa3cd4985a25b6",
+    "scientific_python_identical_to_smoke": true,
+    "previous_attempt": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/full_attempt1_vram"
+  },
+  "observed_full_status": {
+    "status": "RUNNING",
+    "phase": "GRAPH_EXPORT",
+    "utc": "2026-10-23T00:34:43.760356+00:00",
+    "pid": 1757213,
+    "images": 1150,
+    "total": 1555
+  },
+  "source_isolation": "Full snapshot_v4 preserves all Python bytes from passing smoke_v2; concurrent unrelated Python edits seen during snapshot_v3 were excluded.",
+  "frozen_dependencies": {
+    "recognition/parseq.py": true,
+    "models/adaspot_gap.py": true,
+    "models/unet_word_research.py": true,
+    "models/totaltext_word_kernel.py": true,
+    "models/unet_adv.py": true,
+    "localize/occlusion_four_tests.py": true
+  },
+  "input_restoration_sha256": "f25504061f864d23306f97edda6618c8b2da86cf5ebe6f494b28284aef559c36",
+  "artifact_finalization": {
+    "pid": 1757405,
+    "source": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/finalize_graph_occlusion_run.py",
+    "source_sha256": "72d47cd10cdb23acc9462cbafafaeb425adc27dfae2d7f643e4f41d5317d693d",
+    "purpose": "Post-run read-only scientific artifact checksum finalization"
+  }
+}

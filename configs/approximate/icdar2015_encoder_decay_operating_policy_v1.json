@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "classification": "ASSUMPTION",
+  "training_profile": "configs/approximate/icdar2015_encoder_decay_v1.json",
+  "training_profile_sha256": "b79de943acd23dce42955be4cef7d06da42d8aa714428ae983e2d35c1a9729cc",
+  "probability_thresholds": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+  ],
+  "crop_methods": [
+    "axis0",
+    "axis2",
+    "oriented0",
+    "oriented2"
+  ],
+  "component_area_minimum": 0,
+  "maximum_components": null,
+  "matching_iou_threshold": 0.5,
+  "selection": "emitted_word_f1_then_raw_word_f1_then_recall_then_axis_crop_then_threshold_nearest_0.5_then_smaller_padding",
+  "rationale": "TRAIN-validation-only operating policy calibration on saved U-Net probabilities. Geometry uses every original component bbox; crop orientation/padding affects OCR only. Preserve raw and emitted metrics, all care GT and every emitted prediction, including ignored regions. Freeze weights and policy before TEST."
+}

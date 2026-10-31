@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "bypass_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "quality_f1_threshold": 0.8,
+  "model_settings": {
+    "seed": 20261023,
+    "trees": 64,
+    "ridge_alphas": [
+      1000.0,
+      100.0
+    ],
+    "logistic_C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "tree_depths": [
+      2,
+      3
+    ],
+    "tree_leaf_sizes": [
+      5
+    ],
+    "logistic_max_iter": 2000,
+    "logistic_tolerance": 1e-07
+  },
+  "cv_folds": 5,
+  "controls": [
+    "base_proxy_f1",
+    "all_checks_softcrop",
+    "coverage_baseline",
+    "risk_visual_consensus",
+    "risk_visual_mass"
+  ],
+  "bootstrap_iterations": 10000,
+  "source_pins": {
+    "plan": "bed354abf739b5a835238e11db47efdeaa0cca3fe75c529edf4e826380c66dd8",
+    "results": "4cc9986599bc23c4f7a8cd621af4ab040a021b8bf1637d3ce64fe186b55ab646",
+    "audit": "85dfae66dd4a8e7677de1bce7671b1de9b405e68739d5ff2aa1d5f43631152a1"
+  },
+  "feature_sets": [
+    "core",
+    "swap",
+    "permutation",
+    "glyph",
+    "structure",
+    "render",
+    "all"
+  ],
+  "model_kinds": [
+    "ridge",
+    "trees"
+  ],
+  "primary_family": "trees_all",
+  "memory_k": [
+    3,
+    5,
+    9
+  ],
+  "memory_variants": [
+    "visual",
+    "joint"
+  ],
+  "smoke_sizes": {
+    "fit": 10,
+    "validation": 5,
+    "test": 5
+  },
+  "execution": {
+    "seed": 20261023,
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 1
+  },
+  "geometry": {
+    "line_max_gap_heights": 2.0,
+    "line_min_height_ratio": 0.5,
+    "line_padding_heights": 0.3,
+    "line_vertical_overlap": 0.5,
+    "mask_value": 128,
+    "maximum_line_words": 5,
+    "maximum_verified_words": 1,
+    "region_covered_fraction": 0.5,
+    "text_object_terms": [
+      "sign",
+      "signboard",
+      "billboard",
+      "banner",
+      "poster",
+      "label",
+      "menu",
+      "license plate",
+      "awning"
+    ],
+    "word_in_region_fraction": 0.3
+  },
+  "swap_settings": {
+    "context_padding_heights": 2.0,
+    "protected_padding_heights": 0.25,
+    "mask_value": 128
+  },
+  "question": "Question: Is the exact printed word {word} visible in this image? Answer yes or no. Answer:",
+  "permutation_settings": {
+    "minimum_center_gap": 0.003,
+    "glyph_shape": [
+      16,
+      24
+    ]
+  },
+  "glyph_settings": {
+    "minimum_character_probability": 0.85,
+    "maximum_characters": 256,
+    "minimum_visual_similarity": 0.93,
+    "maximum_word_overlap": 0.5
+  },
+  "render_settings": {
+    "font_size": 40,
+    "shape": [
+      128,
+      32
+    ],
+    "minimum_edge_magnitude": 5.0,
+    "edge_quantile": 0.85,
+    "minimum_neighbor_confidence": 0.9,
+    "maximum_neighbors": 2,
+    "angles": [
+      -10,
+      0,
+      10
+    ]
+  },
+  "font_sha256": {
+    "0": "437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db",
+    "1": "aa2ebed70cf6a389400a49feeb976c785de411f387d0cff998472590760cc2b6",
+    "2": "59f23d4b8983a0cd08ad33a4b12ff27dc588c325ccc4d881cc0f522f530f3b93",
+    "3": "328cb91ee147f88ee4817173189a28907838a7dcd5e78799dfab7628821da3fa",
+    "4": "8c8b4894c328236143c9f57f690e2199482e0a4bed2567747e99ffbbf84ca3af",
+    "5": "cdad31bd653b7e7f14cc0671de5c05ec91661f2fa8ba9d4ed3c2c511c6a3ed03"
+  },
+  "verifier_identity": {
+    "configuration_file_sha256": {
+      "added_tokens.json": "61cc266f300a23591ea4c0d216f64b4af16b6ef372c4083ca0a111d667c3df76",
+      "config.json": "e84bd1b01fd28fdddc25c28116473d86c4f9968e739ff48daab317480c863b96",
+      "generation_config.json": "a87bb55053109274ee3adf4c506e4994959233be2071e87dee239a7b6feea5e4",
+      "model.safetensors.index.json": "544765d9d3c33ee9f875a4f196a8a76d7ef4be9cbe1284f3ae2a4888565c6529",
+      "preprocessor_config.json": "231d39b9cf3312f5ea2d82b6ea0a2da82cb5b1bd492ccb9feb7dde1303b2dfb5",
+      "processor_config.json": "5d33768c38eb7d1963c10c78f2753f6de714ff96744217cf9b2647d83abd016a",
+      "pytorch_model.bin.index.json": "019a5eb31326b1313ac6e2af072f9ee731f887b2ebd5853e5345c85b58fa3e1a",
+      "special_tokens_map.json": "7a1985a994c41886db38c719d2a3d2f40606663cc19d7c5d6a85d349320e06d2",
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "9e7f8634597e8e717576e3ff4007b63b1c5c059e20b26d4fd9fe483f24f9efd3",
+      "tokenizer_config.json": "d9b923bf12b1a3e040f719270a5c84745ed4a16468d0ef81b5e72463dca4d30b"
+    },
+    "model_id": "Salesforce/blip2-flan-t5-xl",
+    "processor_files_present": true,
+    "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "status": "ready",
+    "weight_sha256": {
+      "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+      "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    }
+  },
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Original local paper3.5/Figure4/Algorithm2 retains complete whole-image DeepSolo fallback. These six context probes are approximate extensions, not strict paper components."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse the immutable audited425 YOLO640/PARSeq branches and grounded-context source: TRAIN80/VAL45, TEST300,983/2204 care words, exact-casefold multiset/native256 ignore, complete frozen DeepSolo ViTAEv2-S+TextOCR outcomes. Never edit word outputs."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Context transplantation preserves native target pixels plus a guard band, canvas coordinates and framing across original/neutral/dissimilar TRAIN-background views; keep a foreign-background-without-target negative control. Donors use only fitting TRAIN80 visual embeddings, excluding same RGB. This tests local context, not exact SceneFaith reproduction."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "PARSeq conditional probabilities for the fixed predicted string use official forward/reverse/odd-even permutation masks and null context. This measures context sensitivity, not independent samples or calibrated correctness. EOS is saved and excluded from character summaries. No OCR candidate changes."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Last decoder cross-attention supplies monotonic character windows, which are spatial proxies, not character annotations or causal explanations. Same-line cross-word similar edge patches with contradictory labels produce a soft risk; absent evidence is explicitly missing."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Menu/price and hours/time English patterns supply partial structural risks only in detected compatible contexts. A lone time or price can be legitimate; no hard rejection, no inserted/missing word truth."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Approximate inverse graphics chooses one of six pinned fonts and three fixed angles from other confident same-line words, excluding the target; compare symmetric nearest-edge distances for target and foil. This prototype models font/line angle with gray-edge invariance, not a complete perspective/color generative renderer."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "A TRAIN error memory uses kNN on frozen image embeddings or image-plus-standardized-core vectors, predicts deltaTP/deltaPred and excludes same IDs/RGB. It is supervised by TRAIN branch outcomes, with no new neural updates and no target or TEST labels in retrieval."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Seven feature ablations with Ridge/ExtraTrees plus two memory families and five frozen controls. Five-fold TRAIN80 CV selects model hyperparameters by final microF1; fold-only labels/scalers/references/memories. VAL45 chooses the family and scalar cut per20/30/50% quota; freeze before any new TEST probes. No refit125."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual RTX3090 FP32, sequential frozen PARSeq/BLIP2, vision batch1 and Yes/No batch2. Record allocated/reserved VRAM, state identity, input shape and incremental probe times. No dependency installation or model downloads."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Scarce80-image fit data, prior TEST exploration, source pretrained overlap, context-paste artifacts, weak VLM exact-spelling ability, imperfect attention alignment, font-bank coverage and partial structured scenes can limit gains. Report every arm, failures, partial evidence and confidence intervals; no guaranteed perfect separation or paper-superiority claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Inner CV groups identical original RGB hashes. Historical TRAIN80/VAL45 IDs remain unchanged. Retrieve excludes identical RGB even across TRAIN/TEST; the previously explored evaluation population is retained."
+    }
+  ],
+  "cv_protocol": "GroupKFold by original RGB SHA256, no shuffle"
+}

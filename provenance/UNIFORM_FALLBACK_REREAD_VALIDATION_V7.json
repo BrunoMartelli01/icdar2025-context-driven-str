@@ -1,0 +1,183 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "actual_parseq_crop_inferences": 40653,
+  "goal_complete": false,
+  "mode": "approximate",
+  "peak_allocated": 206086656,
+  "peak_reserved": 278921216,
+  "reader_audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7/independent_audit.json",
+  "reader_audit_sha256": "df0613b9923f421e25b99037d16f6f3a924de0994b1eccfc0364d073ff2bd83a",
+  "results": {
+    "icdar13": {
+      "common80": {
+        "baseline": {
+          "all_outputs": 154,
+          "detected_words": 153,
+          "f1": 0.9423076923076923,
+          "fn": 12,
+          "fp": 6,
+          "gt_words": 159,
+          "ignored_outputs": 1,
+          "images": 46,
+          "tp": 147
+        },
+        "best_validation_f1": 0.9487179487179487,
+        "deepsolo_images": 37,
+        "deepsolo_percentage": 80.43478260869566,
+        "eligible_policies": 0,
+        "total_images": 46
+      },
+      "common90": {
+        "baseline": {
+          "all_outputs": 158,
+          "detected_words": 157,
+          "f1": 0.9493670886075949,
+          "fn": 9,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 1,
+          "images": 46,
+          "tp": 150
+        },
+        "best_validation_f1": 0.9556962025316456,
+        "deepsolo_images": 41,
+        "deepsolo_percentage": 89.1304347826087,
+        "eligible_policies": 0,
+        "total_images": 46
+      },
+      "primary": {
+        "baseline": {
+          "all_outputs": 152,
+          "detected_words": 152,
+          "f1": 0.932475884244373,
+          "fn": 14,
+          "fp": 7,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 145
+        },
+        "best_validation_f1": 0.9389067524115756,
+        "deepsolo_images": 12,
+        "deepsolo_percentage": 26.08695652173913,
+        "eligible_policies": 0,
+        "total_images": 46
+      }
+    },
+    "icdar2015": {
+      "common80": {
+        "baseline": {
+          "all_outputs": 403,
+          "detected_words": 394,
+          "f1": 0.8762135922330098,
+          "fn": 69,
+          "fp": 33,
+          "gt_words": 430,
+          "ignored_outputs": 9,
+          "images": 100,
+          "tp": 361
+        },
+        "best_validation_f1": 0.8786407766990292,
+        "deepsolo_images": 80,
+        "deepsolo_percentage": 80.0,
+        "eligible_policies": 0,
+        "total_images": 100
+      },
+      "common90": {
+        "baseline": {
+          "all_outputs": 406,
+          "detected_words": 397,
+          "f1": 0.8778718258766627,
+          "fn": 67,
+          "fp": 34,
+          "gt_words": 430,
+          "ignored_outputs": 9,
+          "images": 100,
+          "tp": 363
+        },
+        "best_validation_f1": 0.8802902055622733,
+        "deepsolo_images": 90,
+        "deepsolo_percentage": 90.0,
+        "eligible_policies": 0,
+        "total_images": 100
+      },
+      "primary": {
+        "baseline": {
+          "all_outputs": 378,
+          "detected_words": 370,
+          "f1": 0.845,
+          "fn": 92,
+          "fp": 32,
+          "gt_words": 430,
+          "ignored_outputs": 8,
+          "images": 100,
+          "tp": 338
+        },
+        "best_validation_f1": 0.8475,
+        "deepsolo_images": 46,
+        "deepsolo_percentage": 46.0,
+        "eligible_policies": 0,
+        "total_images": 100
+      }
+    },
+    "totaltext": {
+      "common80": {
+        "baseline": {
+          "all_outputs": 844,
+          "detected_words": 836,
+          "f1": 0.80043980208906,
+          "fn": 255,
+          "fp": 108,
+          "gt_words": 983,
+          "ignored_outputs": 8,
+          "images": 125,
+          "tp": 728
+        },
+        "best_validation_f1": 0.8081363386476086,
+        "deepsolo_images": 100,
+        "deepsolo_percentage": 80.0,
+        "eligible_policies": 2,
+        "total_images": 125
+      },
+      "common90": {
+        "baseline": {
+          "all_outputs": 857,
+          "detected_words": 849,
+          "f1": 0.8024017467248908,
+          "fn": 248,
+          "fp": 114,
+          "gt_words": 983,
+          "ignored_outputs": 8,
+          "images": 125,
+          "tp": 735
+        },
+        "best_validation_f1": 0.8111353711790393,
+        "deepsolo_images": 112,
+        "deepsolo_percentage": 89.6,
+        "eligible_policies": 5,
+        "total_images": 125
+      },
+      "primary": {
+        "baseline": {
+          "all_outputs": 853,
+          "detected_words": 847,
+          "f1": 0.7890710382513662,
+          "fn": 261,
+          "fp": 125,
+          "gt_words": 983,
+          "ignored_outputs": 6,
+          "images": 125,
+          "tp": 722
+        },
+        "best_validation_f1": 0.7945355191256831,
+        "deepsolo_images": 62,
+        "deepsolo_percentage": 49.6,
+        "eligible_policies": 1,
+        "total_images": 125
+      }
+    }
+  },
+  "seconds": 122.72207586746663,
+  "status": "TRAIN_READINGS_QUALIFIED_VALIDATION_DIAGNOSTIC_COMPLETE",
+  "validation_scope": "No TEST; confidence-qualified reread does not pass positive paired-bootstrap lower gain for IC13/IC15 controls. Existing final pipeline unchanged."
+}

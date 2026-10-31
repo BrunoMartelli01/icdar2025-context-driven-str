@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "result_class": "smoke-test result: adapted historical baseline audit",
+  "status": "PASS",
+  "original_baseline_results_sha256": "b40cbab72d3f5a9a4c57a05faae7278e59bcae4a3dee693361597e51e8e73061",
+  "audit_path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/legacy-audit-smoke-v1/independent_audit.json",
+  "audit_sha256": "bfc5f02832ab6773a6c169ffb57507366acc9ad5d8ca8772eb2fba17723f259e",
+  "adaptation_receipt_sha256": "4084c285fe2c7f9e2661a43804aa5e42828d8a70b57e6201d833bebe20a60102",
+  "auditor_sha256": "5bd1819886c85c0dbd9a0ee06a74065caba1f5e4a01b43d3364b01921ff5e284",
+  "images": 500,
+  "care_words": 2077,
+  "ignored_gt": 3153,
+  "raw_predictions": 3164,
+  "emitted_predictions": 3164,
+  "crop_hashes_verified": 3164,
+  "normalized_word_f1": 0.4075558099599313,
+  "new_model_inference_run": false,
+  "test_parameter_selection_performed": false,
+  "target70_complete_model_test_pending": true,
+  "target_achieved": false,
+  "scope_limits": [
+    "production crop renderer shared",
+    "no neural inference recomputation",
+    "historical outputs reused, not a new model evaluation"
+  ]
+}

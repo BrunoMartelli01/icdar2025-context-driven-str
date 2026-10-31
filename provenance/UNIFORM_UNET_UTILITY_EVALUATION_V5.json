@@ -1,0 +1,148 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "common_shared_projection_bytes": 2231137,
+  "datasets": {
+    "icdar13": {
+      "audit_sha256": "5d7b946adf55d7a30011ba3edf08853a49889564682f9a7f63c6d744705807ec",
+      "deployed_cpu_model_bytes": 594341,
+      "descriptive_95_percent_control": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1056,
+          "detected_words": 1056,
+          "f1": 0.897257089725709,
+          "fn": 130,
+          "fp": 91,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 965
+        },
+        "deepsolo_images": 222,
+        "deepsolo_percentage": 95.27896995708154,
+        "target": 0.897,
+        "target_met": true,
+        "total_images": 233
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 929,
+          "detected_words": 929,
+          "f1": 0.8468379446640316,
+          "fn": 238,
+          "fp": 72,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 857
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/icdar13/evaluation/results.json",
+      "report_sha256": "87c9264c7f53baab64a2a114f989fa60c7dc5174a3bdcf1fe5f2230481dc045c"
+    },
+    "icdar2015": {
+      "audit_sha256": "690f0ff287ffbfd15ed1da5970cb1674adea283426e3f6c84e1b98c5d87d2cad",
+      "deployed_cpu_model_bytes": 754517,
+      "descriptive_95_percent_control": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1878,
+          "detected_words": 1827,
+          "f1": 0.8283811475409836,
+          "fn": 460,
+          "fp": 210,
+          "gt_words": 2077,
+          "ignored_outputs": 51,
+          "images": 500,
+          "tp": 1617
+        },
+        "deepsolo_images": 475,
+        "deepsolo_percentage": 95.0,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1731,
+          "detected_words": 1689,
+          "f1": 0.7992565055762082,
+          "fn": 572,
+          "fp": 184,
+          "gt_words": 2077,
+          "ignored_outputs": 42,
+          "images": 500,
+          "tp": 1505
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/icdar2015/evaluation/results.json",
+      "report_sha256": "b1452f8367034cd59b6ee728bf8caccbe3ee1c0baa79d946b6f16daf96f3f630"
+    },
+    "totaltext": {
+      "audit_sha256": "fcfc933dc2f165afc14678f82fb3d9fbbc730e8e55b3646199efb7853cd0e7f6",
+      "deployed_cpu_model_bytes": 872165,
+      "descriptive_95_percent_control": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2059,
+          "detected_words": 2005,
+          "f1": 0.8248990258968876,
+          "fn": 468,
+          "fp": 269,
+          "gt_words": 2204,
+          "ignored_outputs": 54,
+          "images": 300,
+          "tp": 1736
+        },
+        "deepsolo_images": 285,
+        "deepsolo_percentage": 95.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1979,
+          "detected_words": 1938,
+          "f1": 0.7996137131820377,
+          "fn": 548,
+          "fp": 282,
+          "gt_words": 2204,
+          "ignored_outputs": 41,
+          "images": 300,
+          "tp": 1656
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v5/totaltext/evaluation/results.json",
+      "report_sha256": "05bae8bfc6542126d23870eac20bdce29c0bb52dfeafb212f5a8cc3531ab11cc"
+    }
+  },
+  "goal_complete": false,
+  "high_fallback_control_highlighted_after_test": true,
+  "intended_budget_objective_met": false,
+  "logical_cached_routing": true,
+  "mode": "approximate",
+  "next_stage": "Investigate shared learned word-level fusion using only existing expert outputs, without another neural network",
+  "operating_points_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_operating_points_v5.json",
+  "paper_metric_equivalence": "UNRESOLVED",
+  "reason": "Primary IC13 and validation-frozen common80% point fail;95% is an exploratory control and does not establish a useful cost reduction.",
+  "status": "FULL_TEST_AUDITED_ALL_TARGETS_ONLY_AT_HIGH_FALLBACK_CONTROL"
+}

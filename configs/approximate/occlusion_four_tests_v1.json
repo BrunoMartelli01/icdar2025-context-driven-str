@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "occlusion_four_tests_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "OCCLUSION-FOUR-TESTS-001",
+  "seed": 20261022,
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "word_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "gap_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/decoder/best.pt",
+    "split_protocol": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/protocol.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "bert_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "gap_checkpoint": "7f5212429b8c2e670c24759e213c2833b7cd70dc9d289fb7b3f301db81fe0aa3",
+    "split_protocol": "5ee0289a23ff9ff31f9db76d21d764a70b93debc52ba8362a0341517ba57c65d",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "ocr_batch_size": 32,
+    "segmentation_batch_size": 1,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 4294967296
+  },
+  "code_roots": [
+    "localize",
+    "recognition",
+    "models",
+    "scripts",
+    "segmentation",
+    "pipeline",
+    "scoring"
+  ],
+  "initial_gap_bias": -2.0,
+  "gap_epoch": 1,
+  "gap_threshold": 0.9,
+  "hypotheses": {
+    "maximum_extra": 32,
+    "seed_thresholds": [
+      0.8,
+      0.95
+    ],
+    "minimum_seed_area": 3,
+    "maximum_pieces": 4,
+    "minimum_piece_area": 6,
+    "merge_vertical_overlap": 0.5,
+    "merge_gap_height": 0.4,
+    "maximum_merge_neighbors": 2
+  },
+  "mser": {
+    "maximum_side": 1024,
+    "deltas": [
+      3,
+      5,
+      7
+    ],
+    "reference_delta_index": 1,
+    "minimum_area": 12,
+    "maximum_area_fraction": 0.08,
+    "minimum_height": 4,
+    "aspect_range": [
+      0.08,
+      12.0
+    ],
+    "fill_range": [
+      0.08,
+      0.95
+    ],
+    "maximum_components": 192,
+    "minimum_stability": 0.7,
+    "height_ratio": 2.0,
+    "minimum_center_dx": 0.2,
+    "maximum_center_dy": 0.6,
+    "maximum_gap_height": 0.8,
+    "maximum_tone_difference": 0.25,
+    "group_lengths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      12
+    ],
+    "maximum_word_candidates": 24
+  },
+  "selector": {
+    "epochs": 100,
+    "hidden": 32,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "minimum_feature_scale": 0.01,
+    "costs": [
+      0.0,
+      0.15,
+      0.3
+    ],
+    "margins": [
+      0.0,
+      0.1,
+      0.25
+    ],
+    "admission_thresholds": [
+      0.0,
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ]
+  },
+  "correction": {
+    "expansions": [
+      0.0,
+      0.1,
+      0.25
+    ],
+    "minimum_votes": [
+      1,
+      2
+    ],
+    "minimum_gains": [
+      0.0,
+      0.05,
+      0.15,
+      1000000.0
+    ],
+    "context_weights": [
+      0.0,
+      0.05,
+      0.1
+    ],
+    "maximum_context_word_length": 30,
+    "context_neighbors": 2
+  },
+  "bert": {
+    "model_id": "google-bert/bert-base-uncased",
+    "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "revision_evidence": "https://huggingface.co/api/models/google-bert/bert-base-uncased",
+    "precision": "float32",
+    "batch_size": 16,
+    "max_input_tokens": 256,
+    "seed": 20261006,
+    "cpu_threads": 4,
+    "scoring": "target_only_mean_PLL_word_l2r",
+    "allowed_unused_checkpoint_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ],
+    "weight_sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+    "files_sha256": {
+      "config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+      "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+  },
+  "budgets": [
+    10,
+    20,
+    40
+  ],
+  "nms_iou": 0.5,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "smoke_images": {
+    "fit": 8,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Original paper sections3.2-3.5 provide segmentation/localized RGB recognition/context; this suite is a separate component ablation, never strict/Table5."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Freeze checksum-qualified M/K control and previous1030fit Gap epoch1; original512/native256 letterbox decoder, qualified PARSeq AR/refine1, BERT local-only checkpoint and scoring implementation. All125 evaluation IDs excluded from Gap updates; all metrics share unchanged casefold+punctuation and care GT with no ignored-prediction neutralization."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "All new bounds/thresholds/MLPs and policies are declared here before results. Fit classifiers only on1030 TRAIN IDs; calibrate only100; freeze selection before125 evaluation or300 TEST transcript access. No GT enters generators, RGB grouping, pre-OCR ranking, view/context inference. Generated candidates have fixed bounded pools; baseline instances remain available. BERT uses original nearby OCR only, no recursively corrected context or new captions. Identity/KEEP wins calibration ties."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "SS-MSER-inspired compares region boxes across OpenCV delta3/5/7 and thresholds stability. It does NOT implement the underspecified soft-set weighted formula or claim exact Das replication. Shared deterministic geometric/color component grouping; no trained graph network or claimed occlusion restoration."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual single RTX3090, FP32, batch1 segmentation, batch32 PARSeq, sequential segmentation/OCR/BERT; no AMP/TF32 or automatic CPU fallback; report allocated/reserved peaks and OOM. Small selector CPU training recorded separately."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Historically explored TEST/evaluation, prior checkpoint selection reuse, two known identical TRAIN/TEST RGBs, generalization, run-to-run training variance and exact paper SS-MSER are unresolved. Primary full300 plus explicit duplicate-excluded sensitivity; no official polygon/strict/full-context-DeepSolo result. Budget timings exclude proposal/preselection/segmentation and include loading; full end-to-end cost is not qualified."
+    }
+  ],
+  "metric_iou_threshold": 0.5
+}

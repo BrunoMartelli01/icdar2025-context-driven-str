@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "ambiguity_record": "CAPTION-DETAIL-001",
+  "sample_protocol": "/extra1/bmartelli/context-str-runs/caption-detail-20261030-v1/sample_protocol.json",
+  "hf_cache": "/extra1/bmartelli/context-str-artifacts/huggingface",
+  "device": "cuda:0",
+  "batch_size": 3,
+  "cpu_threads": 4,
+  "seed": 20261030,
+  "caption_target": {
+    "min_words": 60,
+    "max_words": 160
+  },
+  "caption_max_memory": {
+    "gpu": "6GiB",
+    "cpu": "48GiB"
+  },
+  "assets": {
+    "blip2": {
+      "model_id": "Salesforce/blip2-flan-t5-xl",
+      "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+        "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+      }
+    },
+    "instructblip": {
+      "model_id": "Salesforce/instructblip-flan-t5-xl",
+      "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+        "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+      }
+    },
+    "florence": {
+      "model_id": "microsoft/Florence-2-large-ft",
+      "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+      "weight_sha256": {
+        "model.safetensors": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3"
+      }
+    }
+  },
+  "profiles": {
+    "instructblip_simple": {
+      "caption_model": "instructblip",
+      "assembly": "single",
+      "prompts": [
+        "Describe the image in detail."
+      ],
+      "generation": {
+        "max_new_tokens": 192,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      }
+    },
+    "instructblip_visual": {
+      "caption_model": "instructblip",
+      "assembly": "single",
+      "prompts": [
+        "Give a detailed description of the visible objects, their colors and their positions in this image."
+      ],
+      "generation": {
+        "max_new_tokens": 192,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.1
+      }
+    },
+    "florence_detailed": {
+      "caption_model": "florence",
+      "task": "<DETAILED_CAPTION>",
+      "generation": {
+        "max_new_tokens": 256,
+        "num_beams": 3,
+        "do_sample": false
+      }
+    },
+    "florence_more_detailed": {
+      "caption_model": "florence",
+      "task": "<MORE_DETAILED_CAPTION>",
+      "generation": {
+        "max_new_tokens": 256,
+        "num_beams": 3,
+        "do_sample": false
+      }
+    }
+  },
+  "scientific_source_files": [
+    "caption/detailed_scene.py",
+    "caption/paper_batch_blip2.py",
+    "caption/paper_style_blip2.py",
+    "caption/blip2_captioner.py",
+    "scripts/probe_detailed_scene_captions.py",
+    "scripts/run_paper_caption_comparison.py",
+    "scoring/paper_image_router.py",
+    "caption/florence_scene.py"
+  ],
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Scene description of text-bearing objects/background motivating semantic comparison, local paper3.4/Figure4 inspected.",
+    "REPOSITORY_SPECIFIED": "Already cached pinned BLIP2 and separate native InstructBLIP assets/classes/processors; previous raw caption and validation-image identities.",
+    "ASSUMPTION": "User explicitly permits longer detailed captions. Six predefined profiles, no-repeat3/repetition1.15, up to256 decoder tokens, native single paragraph or raw multi-aspect sentence assembly. Compare on nine development TRAIN images by visible fact coverage/unsupported claims/repetition, then nine CAL images and exact Figure4 diagnostic after selection. No OCR/GT/router-F1 enters caption generation or selection. Follow-up quality control after six initial profiles add unsupported inferences: two simpler InstructBLIP prompts and two native Florence caption tasks; same nine development RGBs, no annotations or recognition metrics. Florence is a separately named model ablation, not paper BLIP2.",
+    "HARDWARE_DEVIATION": "RTX3090 sequential FP16 native models, batch3; allocated/reserved memory measured, deterministic CUDA/TF32 off; no quantization, installs or downloads. Florence native FP32 and existing isolated pure-Python einops runtime dependency, without installation.",
+    "UNRESOLVED": "Author model/prompt/decoding remain unknown. Longer descriptions may hallucinate and InstructBLIP is a separate model ablation, never silently the paper BLIP2. Existing image/TEST exposure remains explicit."
+  },
+  "runtime_dependencies": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/lavis-captioner-candidates-20260914/runtime-deps"
+}

@@ -1,0 +1,147 @@
+{
+  "status": "COMPLETED_AND_AUDITED",
+  "claim_label": "approximate reproduction",
+  "external_run_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2",
+  "unit_tests": {
+    "passed": 81,
+    "runner": "pytest",
+    "files": [
+      "tests/localize/test_graph_occlusion_followups.py",
+      "tests/localize/test_graph_occlusion_research.py",
+      "tests/localize/test_teacher_student_tests.py",
+      "tests/localize/test_occlusion_four_tests.py",
+      "tests/recognition/test_parseq_adapter.py",
+      "tests/segmentation/test_word_multitask.py"
+    ]
+  },
+  "smoke": {
+    "root": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/smoke_v1",
+    "independent_audit": {
+      "status": "PASS",
+      "image_arm_checks": 160,
+      "algorithm": "Independent SciPy maximum bipartite matching"
+    },
+    "continuation_weight_audit": {
+      "status": "PASS",
+      "arms": {
+        "control": {
+          "encoder_changed": [],
+          "teacher_changed": [],
+          "student_changed_tensors": 132
+        },
+        "low_lr": {
+          "encoder_changed": [],
+          "teacher_changed": [],
+          "student_changed_tensors": 132
+        }
+      }
+    },
+    "enrichment": {
+      "status": "SUCCESS",
+      "clean_positive_edges": 2,
+      "augmented_positive_edges": 19,
+      "images_with_more_positive_edges": 7,
+      "images": 8
+    },
+    "contour": {
+      "status": "SUCCESS",
+      "selections": {
+        "self": {
+          "epoch": 0,
+          "f1": 0.8205128205128205
+        },
+        "gnn": {
+          "epoch": 0,
+          "f1": 0.8205128205128205
+        }
+      },
+      "parameters": {
+        "self": 37826,
+        "gnn": 37826
+      }
+    },
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "torch": "2.4.1+cu124",
+      "numpy": "1.26.4",
+      "python": "3.11.11",
+      "other_gpu_jobs": "1779016, .venvs/context-str-main-py311/bin/python, 568 MiB\n1779433, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 254 MiB\n",
+      "device": "cuda:0",
+      "precision": "float32",
+      "cpu_threads": 4,
+      "ocr_batch_size": 32,
+      "segmentation_batch_size": 1,
+      "cublas_workspace_config": ":4096:8",
+      "minimum_free_gpu_bytes": 6442450944,
+      "admission_margin_bytes": 805306368,
+      "admission_poll_seconds": 20,
+      "deterministic_algorithms": true,
+      "tf32": false
+    },
+    "results_are_not_efficacy_evidence": true
+  },
+  "launch": {
+    "pid": 1779869,
+    "source_snapshot": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/source_snapshot_v2",
+    "log": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full.log",
+    "output": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full",
+    "source_manifest_sha256": "079846a8096a1c1b1e6f60bf40eaf14a5270942478936ed5f341fec7577ded80",
+    "scientific_python_identical_to_passing_smoke": true
+  },
+  "observed_full_status": {
+    "status": "SUCCESS",
+    "phase": "REPORT_COMPLETE",
+    "utc": "2026-10-23T13:54:22.330809+00:00",
+    "pid": 1781281
+  },
+  "frozen_dependencies": {
+    "localize/graph_occlusion_research.py": true,
+    "localize/occlusion_four_tests.py": true,
+    "models/adaspot_gap.py": true,
+    "models/totaltext_word_kernel.py": true,
+    "models/unet_adv.py": true,
+    "models/unet_word_research.py": true,
+    "recognition/parseq.py": true,
+    "scripts/run_graph_occlusion_research.py": true,
+    "scripts/run_mask_crop_budget.py": true,
+    "scripts/run_occlusion_four_tests.py": true,
+    "scripts/run_teacher_student_tests.py": true,
+    "segmentation/data.py": true,
+    "segmentation/totaltext_word_kernel.py": true
+  },
+  "scientific_python_identical_to_smoke": true,
+  "paper_sha256": {
+    "papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "/extra1/bmartelli/.codex/attachments/7824bf4e-e660-4ad5-8884-0aca38e4fa15/Das_Occlusion_Detection_KBS.pdf": "c50a492403298df36a197439a42b805994c62454a1bbcbea2de0077f628711ac"
+  },
+  "preserved_failures": [],
+  "contour_identity_audit": {
+    "status": "PASS",
+    "candidate_checks": 224,
+    "images": 20,
+    "scope": "Zero-offset contour model, native/original crop equality and exact frozen filter features; CPU audit only"
+  },
+  "full_status": "SUCCESS",
+  "full_results_sha256": "c95c5257ca483e91f17a7b0c00e650e832dd694bcdb84f43a8f87183233a27b5",
+  "full_independent_audit": {
+    "status": "PASS",
+    "image_arm_checks": 8500,
+    "algorithm": "Independent SciPy maximum bipartite matching"
+  },
+  "full_artifact_manifest_sha256": "40067d44f419f449fafa43ea67fe0511bf946173dccc79ce1b974c45c81875cf",
+  "source_manifest_recheck": {
+    "status": "PASS",
+    "artifacts": 13633,
+    "scope": "Every original full-run artifact rehashed after read-only failure investigation; archived outputs unchanged"
+  },
+  "failure_analysis": {
+    "report": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/failure_analysis_v1/report.md",
+    "sha256": "c0646aa23b5abebf4a87dfd5746d2c89747d86aae23f4280b360b2fb80041578",
+    "diagnostic_only": true
+  },
+  "future_trace_logging_fix": {
+    "archived_scientific_results_unchanged": true,
+    "focused_tests_passed": 82,
+    "patch": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/failure_analysis_v1/trace_logging_fix.patch"
+  }
+}

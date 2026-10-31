@@ -1,0 +1,37 @@
+{
+  "batch_size": 32,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "minimum_free_gpu_bytes": 2147483648,
+  "mode": "approximate",
+  "original_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1",
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json",
+  "raw_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "scientific_choices": {
+    "ASSUMPTION": "Reread original-axis exclusive boundary envelopes at padding0/2/4; keep every native fallback instance; only TRAIN cache preparation before downstream policy selection. No TEST labels or geometry used.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, sequential PARSeq-only FP32 CUDA batches32 over cached DeepSolo boxes, memory metadata and failure propagation.",
+    "PAPER_SPECIFIED": "PARSeq-S and DeepSolo fallback motivation only. Exact paper PARSeq-S artifact remains unresolved; this retains the qualified approximate artifact.",
+    "REPOSITORY_SPECIFIED": "Authenticated native ViTAEv2S+TextOCR DeepSolo boxes, PARSeq source/checkpoint/greedy decoding and original RGB frame.",
+    "UNRESOLVED": "Net transcript benefit, selection uncertainty, prior TEST/upstream exposure, common cross-dataset retention and90% with61/233 fallback."
+  },
+  "score_threshold": 0.4,
+  "seed": 20261029,
+  "smoke_images": 4
+}

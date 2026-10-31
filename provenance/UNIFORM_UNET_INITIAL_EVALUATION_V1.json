@@ -1,0 +1,118 @@
+{
+  "cases": {
+    "icdar13": {
+      "audit": {
+        "care_words": 1095,
+        "full_test_images": 233,
+        "policy_image_replays": 2097,
+        "quotas": 9,
+        "result_sha256": "6631bb5055a2c6e797c31b7ff0913e318ee25184db1fc4190950d22a1b82056b",
+        "router_sha256": "69b6e3b7ef2208596b6a0cfccce3b932e969c39db974778be5e2e086a76b4ec2",
+        "scope": "Independent Counter metric and independent ranking; shared declared feature and geometry primitives",
+        "source_sha256": "aa3c315f29d2141daa22f0895bf30ff4080099486b90cd233155efc277a6d49b",
+        "status": "PASS"
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1024,
+          "detected_words": 1024,
+          "f1": 0.8334119867862199,
+          "fn": 212,
+          "fp": 141,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 883
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "policy_selected_on_validation": true,
+        "scope": "Logical replay of authenticated cached fallbacks; no online latency measurement",
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "source_result": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/evaluation/results.json",
+      "validation_recommended_quota": 61
+    },
+    "icdar2015": {
+      "audit": {
+        "care_words": 2077,
+        "full_test_images": 500,
+        "policy_image_replays": 3500,
+        "quotas": 7,
+        "result_sha256": "700e71dabbfb105cd1083038abfd02de7ac13c76c1eaf5f89ee996a2862deb17",
+        "router_sha256": "d9052a5d9c6200d72d05ab409b48e102196e2ed78b119f2e7aa69c3aca007249",
+        "scope": "Independent Counter metric and independent ranking; shared declared feature and geometry primitives",
+        "source_sha256": "aa3c315f29d2141daa22f0895bf30ff4080099486b90cd233155efc277a6d49b",
+        "status": "PASS"
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1702,
+          "detected_words": 1660,
+          "f1": 0.7503344929087503,
+          "fn": 675,
+          "fp": 258,
+          "gt_words": 2077,
+          "ignored_outputs": 42,
+          "images": 500,
+          "tp": 1402
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "policy_selected_on_validation": true,
+        "scope": "Logical replay of authenticated cached fallbacks; no online latency measurement",
+        "target": 0.782,
+        "target_met": false,
+        "total_images": 500
+      },
+      "source_result": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/evaluation/results.json",
+      "validation_recommended_quota": 228
+    },
+    "totaltext": {
+      "audit": {
+        "care_words": 2204,
+        "full_test_images": 300,
+        "policy_image_replays": 1800,
+        "quotas": 6,
+        "result_sha256": "3fd104053dd652469771f8e60ba58573b183b1db643fd7b6dc4390046335f57e",
+        "router_sha256": "d6608dbe5427598cd4fab084fae3cd0063c933b1f6e1514a164380a78c6a5518",
+        "scope": "Independent Counter metric and independent ranking; shared declared feature and geometry primitives",
+        "source_sha256": "aa3c315f29d2141daa22f0895bf30ff4080099486b90cd233155efc277a6d49b",
+        "status": "PASS"
+      },
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 2050,
+          "detected_words": 2002,
+          "f1": 0.7960057061340942,
+          "fn": 530,
+          "fp": 328,
+          "gt_words": 2204,
+          "ignored_outputs": 48,
+          "images": 300,
+          "tp": 1674
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "policy_selected_on_validation": true,
+        "scope": "Logical replay of authenticated cached fallbacks; no online latency measurement",
+        "target": 0.798,
+        "target_met": false,
+        "total_images": 300
+      },
+      "source_result": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/evaluation/results.json",
+      "validation_recommended_quota": 240
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "cleanup_reclaimed_gib": 22.049487141892314,
+  "external_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1",
+  "goal_complete": false,
+  "next_study": "Shared lexical preparation, Ridge image utility and conservative conditional fusion, retaining all3 uniformly retrained networks",
+  "status": "INITIAL_STUDY_COMPLETE_ALL_PRIMARY_TARGETS_UNMET"
+}

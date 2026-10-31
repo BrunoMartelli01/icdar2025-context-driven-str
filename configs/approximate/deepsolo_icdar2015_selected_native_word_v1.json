@@ -1,0 +1,93 @@
+{
+  "ambiguity_record": "DEEPSOLO-IC15-GAP-20261028",
+  "batch_size": 1,
+  "bootstrap_repetitions": 2000,
+  "candidate": "ART-DEEPSOLO-VITAEV2S-IC15-TEXTOCR-CANDIDATE",
+  "checkpoint_sha256": "c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8",
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "diagnostic_bbox_iou": 0.5,
+  "evaluation_result_sha256": "bc4022d0d694fd4151433cf5258ef3f5e3fce32eceb97ac6f5131fa3a38ad50d",
+  "export_protocol_sha256": "0926ac4cc911e56c7992410ae2e99b046618cd7798322fa5ecd44fd4bc0facd4",
+  "fusion_ious": [
+    0.3,
+    0.5
+  ],
+  "inference_floor": 0.05,
+  "matching_iou": 0.5,
+  "metric": "Unchanged symbol-free word lexical microF1; Unicode casefold+isalnum, no lexicon, no spatial matching in primary metric.",
+  "postprocess_resize_policy": "synchronize cached ViTAE min_size_test/max_size_test with each input resize",
+  "precision": "float32",
+  "profile": "icdar2015_native_word_calibration_v1",
+  "profile_source_code_sha256": "75c038655809812ffd3d3d3950ffcfd8dd58e192c191ed55981098a4caa6a72e",
+  "recognition_rank_powers": [
+    0,
+    1
+  ],
+  "recognition_thresholds": [
+    0.0,
+    0.7,
+    0.8,
+    0.85,
+    0.9,
+    0.925,
+    0.95
+  ],
+  "reproduction_mode": "approximate",
+  "resolutions": {
+    "native": [
+      1440,
+      4000
+    ]
+  },
+  "schema_version": 1,
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Official pinned IC15 ViTAEv2S+TextOCR checkpoint c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8, RGB shortest1440/max4000, divisor32 and greedy CTC. No lexicon correction."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Instance threshold0.35 and character confidence0.85 chosen on the existing100 TRAIN calibration images, excluding TEST selection. Preserve all symbol-free lexical care denominators and native256 ignore."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Qualified existing legacy host runtime on RTX3090, FP32 batch1, separate model process. Allocated/reserved peaks and complete shards retained. Preserve legacy matmul/cudnn TF32 permissions (both enabled), cuDNN enabled/benchmarkFalse/deterministicFalse and inference seed20261025; FP32 storage does not mean TF32 permissions were disabled."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Exact paper82 recognition metric/checkpoint and upstream calibration exposure. No strict reproduction, official benchmark equivalence, online speed or8GB whole-pipeline qualification."
+    }
+  ],
+  "score_thresholds": [
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "seed": 20261025,
+  "selected_policy": {
+    "resolution": "native",
+    "decoder": "greedy",
+    "score_threshold": 0.35,
+    "recognition_threshold": 0.85,
+    "same_text_nms_iou": null
+  },
+  "selection_rule": "highest TRAIN word F1 within declared native-only policies",
+  "selection_sha256": "728df80bf6de31053a57d3b6ebdfc24fbe883895ae73fd62eb52eb0e2d7c1327",
+  "source_plan_sha256": "d21b32113271a9de2a9ef2d40c2d2b8b9a3e8f6a20331056d2c942522c244abe",
+  "table_5_claim": false,
+  "upstream_base_config_sha256": "1f8ee3635bc41829c9e3cd00f1abe247173eb3fa5977760bde5cbb10b5b11491",
+  "upstream_config_sha256": "085a6686632b0b882d0a06b0b45ae1b819c6fefea1d3262bd6d88788a372c86f",
+  "calibration_exposure": "Official upstream pretraining/fine-tuning may use all ICDAR2015 TRAIN, including the existing100 calibration images. This is postprocessing calibration, not unseen-expert validation.",
+  "calibration_choices_sha256": "ac18f1795c582ad92defed5bd9f292751543cf10c72e07f9a33f57e89ff4d48c",
+  "evaluation_dataset": "ICDAR2015 full TEST500,2077 care words"
+}

@@ -1,0 +1,47 @@
+{
+  "admission_thresholds": [
+    0.0,
+    0.3,
+    0.5,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "bootstrap_draws": 1000,
+  "cpu_threads": 2,
+  "guards": [
+    false,
+    true
+  ],
+  "heuristics": [
+    "expected_errors",
+    "weakest_word"
+  ],
+  "minimum_validation_f1": 0.0,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v2/smoke",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/data/fallbacks.json": "54d61624cfabcb81941beb3cf2bbe2ab6265b423aceba031d826befc4a979e2e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/data/seen/case.json": "6f0863da86a97a0a3b34279266c4cd502014b2d9dd4549ce6d482b7e61a0f3b5",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/data/seen/labels.json": "c841612e7181c79b72661ad7a4286778b8edad5ae86eaebc2cd5514b11b32867",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/data/seen/observations.json": "0e7b709f8aaaed2bb35b5d4b11c9883bf745c42d61c48948b26347d14272c86f",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/deployment_qualification.json": "8083e5c147c63458c3de214942450529f163d0ac9d14ad2def5b2776a8c94cb6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/models/seen/completed.json": "651e719c125b07abc8555fdd48fad4af6ac327ced001b6a2106f47cae0993006",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/models/seen/word_folds.json": "e93f8b98e0dad5afb63ebac9bb993d6d13ff254f12a05fc15c8b3d05173ea4a9",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/models/seen/word_full.joblib": "bb4c4db133418fc6309b0563beb38c6fbb461ed1e8c3dbed2c87666c17cead8c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/models/seen/word_probabilities.json": "73a70aaf609e0c90534192b138e74ef0cfdbe2b38a96af62494c3604b6ce9025",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke/resolved_configuration.json": "230f63f19042c120137e1461cbaaaf705e6e6a6287b61afe0f3e4aa12a793a00"
+  },
+  "prefer_fewer_filtered_words": true,
+  "require_expert_excluded": false,
+  "scientific_choices": {
+    "ASSUMPTION": "Compute word-risk probabilities once on the frozen original emission trace. Apply the same finite admission threshold grid and two risk aggregations on all datasets, then use fixed exact dataset budgets; optional frozen complementary primary words are appended only after fallback. Select by pooled crossfold FIT and validation micro F1, within one conditional bootstrap standard error preferring fewer auxiliary models or rereads and greater pooled F1. No TEST labels or fallback outputs enter selection. Conservative follow-up: among candidates within the same conditional one-standard-error band and identical neural cost, prefer removing fewer original expert words before comparing F1. This encodes recall preservation, chosen after the prior exploratory ICDAR2015 U-Net test exposed a loss; all candidate ranking and numeric thresholds are still computed on TRAIN/validation.",
+    "HARDWARE_DEVIATION": "CPU float64 processing over cached genuine outputs, no new neural inference during selection.",
+    "PAPER_SPECIFIED": "PARSeq/localization/fallback motivation only. Learned word admission and risk route are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Previously trained and independently audited small HGB word correctness model, genuine OCR candidates and domain-optimized fallback outputs; fixed native256 care/ignore metric.",
+    "UNRESOLVED": "TRAIN/validation benchmark vocabulary side information, conditional/non-nested expert/word folds, bootstrap after candidate search, upstream data overlap and repeated historical TEST exploration."
+  },
+  "seed": 20261029,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3/smoke",
+  "source_view": "seen"
+}

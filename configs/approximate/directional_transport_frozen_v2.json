@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "directional_transport_frozen_v2",
+  "scientific_ambiguity": "DIRECTIONAL-TRANSPORT-FROZEN-002",
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "word_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/qualified_word_data",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "historical_word_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+    "split_pickle": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/prepared.pkl"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "split_pickle": "89a5700b4a3f5032db09720593abe643113be1139fd2073f20e011de42f24725"
+  },
+  "seed": 20261026,
+  "excluded_fit_ids": [
+    "total_text:81",
+    "total_text:212"
+  ],
+  "metric_iou_threshold": 0.5,
+  "architecture": {
+    "baseline_parameters": 58155146,
+    "baseline_trainable_parameters": 32598114,
+    "maximum_parameter_ratio": 1.1,
+    "skip_floor": 0.25,
+    "initial_gap_bias": -2.0,
+    "widths": [
+      32,
+      24,
+      16,
+      12
+    ],
+    "radii": [
+      1,
+      4
+    ],
+    "detail_width": 16
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "num_workers": 2,
+    "ocr_batch_size": 32,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 8589934592
+  },
+  "augmentation": {
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      -15.0,
+      15.0
+    ],
+    "canvas_fill_rgb": [
+      124,
+      116,
+      104
+    ]
+  },
+  "targets": {
+    "distance_fraction": 0.5
+  },
+  "loss": {
+    "bce_weight": 1.0,
+    "dice_weight": 1.0,
+    "smooth": 1.0,
+    "separation_weight": 3.0,
+    "ownership_weight": 0.2
+  },
+  "training": {
+    "epochs": 6,
+    "evaluation_epochs": [
+      0,
+      3,
+      6
+    ],
+    "batch_size": 4,
+    "source_learning_rate": 1e-05,
+    "new_learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "gradient_clip": 5.0,
+    "freeze_source": true,
+    "baseline_epochs": 0,
+    "retain_evaluation_checkpoints": true
+  },
+  "postprocessing": {
+    "text_thresholds": [
+      0.5,
+      0.65,
+      0.8
+    ],
+    "kernel_threshold": 0.5,
+    "padding256": [
+      0,
+      1
+    ],
+    "minimum_area256": 4,
+    "maximum_instances": 40,
+    "confidence_thresholds": [
+      0.0,
+      0.01,
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      0.9
+    ]
+  },
+  "smoke": {
+    "fit": 8,
+    "calibration": 2,
+    "evaluation": 2,
+    "test": 2
+  },
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Original paper section3.2 specifies attention-gated U-Net with pretrained ResNet50; sections3.3/3.5 specify components/crop recognition. Exact architecture/recognizer artifacts remain unresolved."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Qualified warm-start58.155146M two-head decoder, restored original TRAIN image bytes, word-owner/contact guards, kernels and deterministic letterbox transforms; fixed native PARSeq AR/refine1 artifacts."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "New low-rank, four-axis, dilated, ownership-supervised dense feature transport at all decoder scales; zero-initialized RGB full-resolution residual. Global averaged-gate control has identical active parameters and ownership loss. Full-resolution targets are computed from original masks/owners, never enlarged native256 targets."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Predeclared six-epoch frozen-source pilot: matched global/local image order, augmentation and update budget; CAL100 selects among epochs0/3/6 and54 common postprocess policies. The source U-Net reference has zero training epochs. TEST300 only after selections sealed. FIT1028 excludes TRAIN81/212 duplicate images, but warm-start source previously saw them and CAL100; historical TEST/CAL exposure prevents fresh generalization claims."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Primary micro word F1: Unicode casefold then isalnum; maximum one-to-one unpadded original bboxIoU>=.5 plus exact normalized text. All care GT/all emitted outputs count, including empty and duplicate strings; no ignore-area neutralization. Separate lexical F1 is secondary. Common minarea4 at native256 scale, cap40, padding0/1 scaled with native resolution, CAL native PARSeq sequence-confidence threshold."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Verified RTX3090, single GPU FP32 without TF32 or AMP; batch4, frozen encoder/statistics, sequential arm execution, recognizer released between validation and training. Record allocated/reserved peaks, input shape, and OOM; never silently reduce batch."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "No claim of worldwide novelty. Directional propagation and semantic/shape streams have established precedents (SPN2017/Gated-SCNN2019). New application is an experimental extension, with single-seed optimization/convergence and annotation/crop artifacts as limitations. Strict AG-UNet/PARSeq-S provenance and reproduction blockers remain unchanged."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "After completed v1 continuation controls fall below epoch0 on CAL100, freeze every source U-Net weight and all source BatchNorm running statistics. Train only71,590 new transport/RGB-detail parameters. Use an explicit zero-epoch frozen U-Net reference and matched global/local six-epoch budgets with epochs0/3/6 eligible. This tests source drift without adding capacity, new OCR models or TEST-based selection."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Preserve every eligible evaluation-epoch model checkpoint in addition to best/last; this retention change does not alter optimization, inference or the predeclared CAL policy grid."
+    }
+  ]
+}

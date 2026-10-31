@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "official_evaluation": false,
+  "table_5_claim": false,
+  "minimum_normalized_characters": 3,
+  "filter_target": "both predictions and ground truth independently, after Unicode casefold and isalnum normalization",
+  "matching_iou": 0.5,
+  "expected_test_images": 300,
+  "expected_unfiltered_test_care_words": 2204,
+  "baseline_policy": {
+    "resolution": "native",
+    "decoder": "greedy",
+    "score_threshold": 0.4,
+    "recognition_threshold": 0.0,
+    "same_text_nms_iou": null
+  },
+  "input_sha256": {
+    "processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+    "deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+    "results.json": "14ba99dca9fb3dd8a97b15a7d05e2bbaebecc231a83f8bdb4bf50fcb01cabc08"
+  },
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Frozen upstream word-spotting evaluator specifies MIN_LENGTH_CARE_WORD=3, but its full care, polygon, numeric and transcription rules are separate. Reuse unchanged saved DeepSolo predictions, previously TRAIN-selected native/global policies and original ignore/envelope flags."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "User-requested length-only diagnostic removes normalized strings shorter than three characters independently from GT and predictions. Digits remain allowed; no GT-overlap neutralization is introduced. Preserve all 300 images including images with no remaining care words. Do not retune or select a profile on TEST. This explicitly changes the evaluated word population and does not replace historical results."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "This symmetric length-filtered local metric is not official Total-Text word spotting and cannot establish reproduction of the published83.6% F1. Full official GT/polygon/ignore/transcription equivalence remains unresolved."
+    }
+  ],
+  "ambiguity_record": "DEEPSOLO-SHORT-WORDS-20261026"
+}

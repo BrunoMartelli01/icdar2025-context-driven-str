@@ -1,0 +1,29 @@
+{
+  "care_words": 35,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "fallback_images": 2,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "minimum_f1": 0.9,
+  "minimum_validation_f1": 0.0,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_smoke_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/deployment_qualification.json": "c983a7678245fd8ab85162e82386545eb66fdcad06a4bd82f3ca601f386368ec",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/router_smoke_v1/deployment_qualification.json": "346046fd43c50ad4dd8a24504968fcf7ac4a4347253b9c8ecd5f8c4f6c144b07",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/router_smoke_v1/pipeline_frozen.json": "44f8b1ed1104ae4e32df7713a213af33d0c8cb20428a0833ed18b3a15b6e8016",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/router_smoke_v1/resolved_configuration.json": "dc514a63f647be513b9dc09ab2face571cffa42716d29db88fb1a3e1c343c6bf",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "protected_qualifications": [
+    "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1/full/deployment_qualification.json"
+  ],
+  "raw_test_root": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+  "router_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/router_smoke_v1",
+  "smoke": true,
+  "test_protocol": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json",
+  "total_images": 8
+}

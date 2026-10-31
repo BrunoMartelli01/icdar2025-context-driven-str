@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "experiment_kind": "contextual_boundary_calibration_sensitivity_v1",
+  "source_run": "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full",
+  "source_protocol_sha256": "28941716d37d7c8da427bcfcb5e502ec9838e427bc1c25455087550cd81c66fa",
+  "seed": 20261024,
+  "arms": [
+    "lexical_seed20261024",
+    "word_lm_seed20261024",
+    "context_seed20261024",
+    "context_visual_seed20261024"
+  ],
+  "damage_limits": [
+    0,
+    2
+  ],
+  "bootstrap_draws": 2000,
+  "thresholds": "Every maximum candidate utility observed on a calibration block plus KEEP1.01",
+  "objectives": [
+    "correct_then_f1",
+    "f1_then_correct"
+  ],
+  "scientific_classification": "ASSUMPTION",
+  "limitations": "More calibration search increases finite-sample selection risk; no evaluation/TEST thresholds or model changes."
+}

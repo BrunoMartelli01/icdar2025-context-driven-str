@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "ambiguity_record": "CAPTION-DETAIL-001",
+  "sample_protocol": "/extra1/bmartelli/context-str-runs/caption-detail-20261030-v1/sample_protocol.json",
+  "hf_cache": "/extra1/bmartelli/context-str-artifacts/huggingface",
+  "device": "cuda:0",
+  "batch_size": 3,
+  "cpu_threads": 4,
+  "seed": 20261030,
+  "caption_target": {
+    "min_words": 60,
+    "max_words": 160
+  },
+  "caption_max_memory": {
+    "gpu": "6GiB",
+    "cpu": "48GiB"
+  },
+  "assets": {
+    "blip2": {
+      "model_id": "Salesforce/blip2-flan-t5-xl",
+      "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+        "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+      }
+    },
+    "instructblip": {
+      "model_id": "Salesforce/instructblip-flan-t5-xl",
+      "revision": "bf9bd58cb3bb06e88c03b80f9cc346b90094bc6d",
+      "weight_sha256": {
+        "model-00001-of-00002.safetensors": "17cee128ee8cd7594fdbab95129819ea07997851a2426bd3ee0c24c4583d9054",
+        "model-00002-of-00002.safetensors": "56d404fca61133f4dd9b7607e4528ab68882fc4a649d26b18c341fb129951050"
+      }
+    }
+  },
+  "profiles": {
+    "blip2_long": {
+      "caption_model": "blip2",
+      "assembly": "single",
+      "prompts": [
+        "Describe only what is visibly present in this image in one coherent paragraph. Focus on the main objects carrying text, their shapes, colors and surfaces, the placement and arrangement of the lettering, and nearby objects and background details. Mention spatial relationships and lighting where visible. Include readable words only when clear; do not guess an unreadable transcription or a named location. For a tight crop, describe the visible close-up rather than inventing a wider setting. Aim for 80 to 140 words when the image supports that detail. Avoid repetition and speculation. Return only the visual description."
+      ],
+      "generation": {
+        "max_new_tokens": 256,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    },
+    "blip2_aspects": {
+      "caption_model": "blip2",
+      "assembly": "paragraph_join",
+      "prompts": [
+        "Describe the main text-bearing object and the visible setting in two complete sentences. Use only visible evidence; if the image is a tight close-up, say so rather than guessing the wider location. Do not guess unreadable words.",
+        "Describe the colors, shapes, materials and spatial arrangement of the main text-bearing object and its lettering in two complete sentences. Do not repeat a general scene introduction and do not guess text.",
+        "Describe the nearby objects, background, lighting and visible spatial relationships in two complete sentences. Include only details visible in the image; do not infer a city, business type or off-image objects."
+      ],
+      "generation": {
+        "max_new_tokens": 96,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    },
+    "instructblip_long": {
+      "caption_model": "instructblip",
+      "assembly": "single",
+      "prompts": [
+        "Describe only what is visibly present in this image in one coherent paragraph. Focus on the main objects carrying text, their shapes, colors and surfaces, the placement and arrangement of the lettering, and nearby objects and background details. Mention spatial relationships and lighting where visible. Include readable words only when clear; do not guess an unreadable transcription or a named location. For a tight crop, describe the visible close-up rather than inventing a wider setting. Aim for 80 to 140 words when the image supports that detail. Avoid repetition and speculation. Return only the visual description."
+      ],
+      "generation": {
+        "max_new_tokens": 256,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    },
+    "instructblip_aspects": {
+      "caption_model": "instructblip",
+      "assembly": "paragraph_join",
+      "prompts": [
+        "Describe the main text-bearing object and the visible setting in two complete sentences. Use only visible evidence; if the image is a tight close-up, say so rather than guessing the wider location. Do not guess unreadable words.",
+        "Describe the colors, shapes, materials and spatial arrangement of the main text-bearing object and its lettering in two complete sentences. Do not repeat a general scene introduction and do not guess text.",
+        "Describe the nearby objects, background, lighting and visible spatial relationships in two complete sentences. Include only details visible in the image; do not infer a city, business type or off-image objects."
+      ],
+      "generation": {
+        "max_new_tokens": 96,
+        "min_new_tokens": 0,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    },
+    "instructblip_long_min64": {
+      "caption_model": "instructblip",
+      "assembly": "single",
+      "prompts": [
+        "Describe only what is visibly present in this image in one coherent paragraph. Focus on the main objects carrying text, their shapes, colors and surfaces, the placement and arrangement of the lettering, and nearby objects and background details. Mention spatial relationships and lighting where visible. Include readable words only when clear; do not guess an unreadable transcription or a named location. For a tight crop, describe the visible close-up rather than inventing a wider setting. Aim for 80 to 140 words when the image supports that detail. Avoid repetition and speculation. Return only the visual description."
+      ],
+      "generation": {
+        "max_new_tokens": 256,
+        "min_new_tokens": 64,
+        "num_beams": 3,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    },
+    "instructblip_long_beam5": {
+      "caption_model": "instructblip",
+      "assembly": "single",
+      "prompts": [
+        "Describe only what is visibly present in this image in one coherent paragraph. Focus on the main objects carrying text, their shapes, colors and surfaces, the placement and arrangement of the lettering, and nearby objects and background details. Mention spatial relationships and lighting where visible. Include readable words only when clear; do not guess an unreadable transcription or a named location. For a tight crop, describe the visible close-up rather than inventing a wider setting. Aim for 80 to 140 words when the image supports that detail. Avoid repetition and speculation. Return only the visual description."
+      ],
+      "generation": {
+        "max_new_tokens": 256,
+        "min_new_tokens": 64,
+        "num_beams": 5,
+        "do_sample": false,
+        "early_stopping": true,
+        "no_repeat_ngram_size": 3,
+        "repetition_penalty": 1.15,
+        "length_penalty": 1.0
+      }
+    }
+  },
+  "scientific_source_files": [
+    "caption/detailed_scene.py",
+    "caption/paper_batch_blip2.py",
+    "caption/paper_style_blip2.py",
+    "caption/blip2_captioner.py",
+    "scripts/probe_detailed_scene_captions.py",
+    "scripts/run_paper_caption_comparison.py",
+    "scoring/paper_image_router.py"
+  ],
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Scene description of text-bearing objects/background motivating semantic comparison, local paper3.4/Figure4 inspected.",
+    "REPOSITORY_SPECIFIED": "Already cached pinned BLIP2 and separate native InstructBLIP assets/classes/processors; previous raw caption and validation-image identities.",
+    "ASSUMPTION": "User explicitly permits longer detailed captions. Six predefined profiles, no-repeat3/repetition1.15, up to256 decoder tokens, native single paragraph or raw multi-aspect sentence assembly. Compare on nine development TRAIN images by visible fact coverage/unsupported claims/repetition, then nine CAL images and exact Figure4 diagnostic after selection. No OCR/GT/router-F1 enters caption generation or selection.",
+    "HARDWARE_DEVIATION": "RTX3090 sequential FP16 native models, batch3; allocated/reserved memory measured, deterministic CUDA/TF32 off; no quantization, installs or downloads.",
+    "UNRESOLVED": "Author model/prompt/decoding remain unknown. Longer descriptions may hallucinate and InstructBLIP is a separate model ablation, never silently the paper BLIP2. Existing image/TEST exposure remains explicit."
+  }
+}

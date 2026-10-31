@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_totaltext_transfer_word_f1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar2015",
+  "split_role": "test",
+  "expected_images": 500,
+  "expected_care_words": 2077,
+  "test_manifest_sha256": "2d975369e44688e635b5fe4e79a595d662538e7607ad1ec9d95bad2b5c71fcf9",
+  "training_config_sha256": "6afa0d0fc2e1fc36b35ff25b4fe0bf6529af2e0aaea767be666fdea2f6128341",
+  "segmentation_batch_size": 1,
+  "parseq_batch_size": 32,
+  "probability_threshold": 0.5,
+  "connectivity": 8,
+  "min_component_area": 0,
+  "padding_native_pixels": 0,
+  "maximum_proposals": null,
+  "text_normalization": "unicode_casefold_then_isalnum",
+  "matching_iou_threshold": 0.5,
+  "prediction_ignore_policy": "all_outputs_count_including_ignored_regions",
+  "ground_truth_policy": "exclude_official_ignored_instances_keep_all_care_words",
+  "scientific_choices": [
+    {"component": "segmentation_to_crop_recognition", "classification": "PAPER_SPECIFIED", "rationale": "Paper sections 3.2/3.3 describe segmentation, connected regions and crop recognition."},
+    {"component": "qualified_approximate_parseq", "classification": "REPOSITORY_SPECIFIED", "rationale": "Reuse the checksum-locked official PARSeq runtime/checkpoint adapter; exact paper PARSeq-S artifact remains unresolved."},
+    {"component": "standalone_unet_parseq_diagnostic", "classification": "ASSUMPTION", "rationale": "Evaluate the newly trained U-Net and crop OCR alone, without changing the complete contextual pipeline or claiming Table 5 reproduction."},
+    {"component": "word_metric_without_symbols", "classification": "ASSUMPTION", "rationale": "User requests symbol-free word F1. Keep Unicode letters/numbers after casefold; one-to-one bbox IoU>=0.5 plus exact normalized text. Empty normalized outputs never match and all original care/prediction denominators remain."},
+    {"component": "crop_geometry", "classification": "ASSUMPTION", "rationale": "Transfer frozen letterbox512/native256, 8-connected component extrema, no area/top-ten limit and pad0; invert letterbox to original RGB. GT boxes use inclusive raster extrema plus one, clamped to RGB bounds. This is not official polygon Hmean."},
+    {"component": "sequential_model_loading", "classification": "HARDWARE_DEVIATION", "rationale": "Unload segmentation before PARSeq; FP32, segmentation batch1 and OCR batch32. Record separate allocated/reserved GPU peaks; no end-to-end latency claim."}
+  ]
+}

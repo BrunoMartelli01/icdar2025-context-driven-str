@@ -1,0 +1,29 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_raw_slot_recovery",
+  "old_router": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+  "generic_train_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic",
+  "generic_test_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13",
+  "test_raw_ocr": "/tmp/scene-text-yolo-transfer-v1/cuda-0/full/icdar13/ocr",
+  "joint_thresholds": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "same_text_nms_iou": 0.5,
+  "seed": 20261029,
+  "cpu_threads": 4,
+  "parseq_batch_size": 32,
+  "minimum_free_gpu_bytes": 2147483648,
+  "scope": "Reuse frozen YOLO640 boxes and every authenticated cached TEST crop reading; perform missing TRAIN PARSeq on all original low-floor boxes. Select joint-confidence cutoff on23 selection images using TRAIN-only Generic source correction then canonical-word NMS, before any new TEST evaluation. Existing validation roles and teacher unchanged.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Broad localization/recognition/fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Original YOLO640 low-floor slots, genuine pinned PARSeq, source lexicon correction and native word F1.",
+    "ASSUMPTION": "Recover raw low-confidence candidates before lexical correction; validation-selected finite joint cut and same-canonical-word NMS after edits. This changes the light expert explicitly.",
+    "HARDWARE_DEVIATION": "Existing RTX3090, FP32 PARSeq, batch32, sequential loading and actual per-image memory reporting.",
+    "UNRESOLVED": "Dataset/expert exposure, prior TEST history, small selection/calibration, no exact paper metric or online cost equivalence."
+  }
+}

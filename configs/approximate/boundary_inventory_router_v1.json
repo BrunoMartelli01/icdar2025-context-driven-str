@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "table_5_claim": false,
+  "source_pins": {
+    "plan": "43e2afacd1dc02a9f9851ba0152d42da8b548ac80af903686596b263e52c6ada",
+    "results": "c407101dc578f1066a194d5d71bccaeba0f3366e9b1fbfb004af79f97dd0cd80",
+    "audit": "cca587ed79c3ddf00d8ce8307a2ad004b2f3d1512d570e50bc6dcc6551f1cca0"
+  },
+  "rules": [
+    "geometry",
+    "probe",
+    "recapture",
+    "agreement"
+  ],
+  "half_width_fractions": [
+    0.0,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "audit_weights": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "quality_f1_threshold": 0.8,
+  "references": {
+    "0.2": "base_proxy_f1",
+    "0.3": "risk_visual_consensus",
+    "0.5": "risk_visual_mass"
+  },
+  "primary_bypass_fraction": 0.5,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Protect old router decisions outside a rank band. Tune width/weight on TRAIN80; select a rule or unchanged baseline using VAL45, favor baseline on ties. Batch quota only; no online scalar deployment claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Follow-up after observing aggregate TEST results of the unrestricted inventory experiment. TEST evidence already exists; do not claim prospective independent validation. All policy choices use TRAIN/VAL only and all outcomes are reported."
+    }
+  ]
+}

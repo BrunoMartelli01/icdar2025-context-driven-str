@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "sources": {
+    "residual": {
+      "plan": "73b7832ddf0ff8532974636c3b09c23fb47ece18e5d383987533577c754d47c3",
+      "results": "62dd5b86a4d57a0da51785433107cc73045773fc0bd86c1c6168eaa89e6d75e2",
+      "audit": "a114717898caf6a25c1261c61f156811fc3b8020233bca16dfc30ad82acfd86e"
+    },
+    "quality": {
+      "plan": "e72e1c5afc212470b697faf498a1972b2fade9f7e0af07f50870f83d51f8b0d1",
+      "results": "1d0f9b7912e0b577ee90bc1b09e42a984aec36b08d752ea9539515124ff30791",
+      "audit": "9d0addc8bd7926c4c35a32d0af3cd2e6515f7d8e5a0029d9b8be9d60027223ce"
+    }
+  },
+  "bypass_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "quality_f1_threshold": 0.8,
+  "feature_sets": [
+    "core",
+    "inventory",
+    "verified",
+    "visual",
+    "combined"
+  ],
+  "feature_settings": {
+    "lower_quantile": 0.2,
+    "control_features": [
+      "base_proxy_f1",
+      "all_checks_softcrop",
+      "coverage_baseline"
+    ],
+    "head_features": [
+      "foreground_pixels",
+      "uncovered_pixels",
+      "missing_regions",
+      "corroborated_missing_regions",
+      "missing_word_mass_equivalents",
+      "word_mass_scale"
+    ],
+    "context_features": [
+      "base_mpnet",
+      "clip_plain_margin",
+      "clip_context_margin",
+      "base_lm_coherence",
+      "base_lm_literal",
+      "vqa_visual_drop_plain",
+      "vqa_residual_context"
+    ]
+  },
+  "model_settings": {
+    "seed": 20261023,
+    "trees": 64,
+    "ridge_alphas": [
+      1000.0,
+      100.0
+    ],
+    "logistic_C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "tree_depths": [
+      2,
+      3
+    ],
+    "tree_leaf_sizes": [
+      5
+    ],
+    "logistic_max_iter": 2000,
+    "logistic_tolerance": 1e-07
+  },
+  "model_kinds": [
+    "ridge",
+    "trees"
+  ],
+  "primary_family": "ridge_verified",
+  "cv_folds": 5,
+  "controls": [
+    "base_proxy_f1",
+    "all_checks_softcrop",
+    "coverage_baseline",
+    "risk_visual_consensus",
+    "risk_visual_mass"
+  ],
+  "bootstrap_iterations": 10000,
+  "smoke_fit_images": 10,
+  "smoke_validation_images": 5,
+  "smoke_test_images": 5,
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Inspected local section3.5/Algorithm2. Whole-image DeepSolo fallback is retained. A trained router is an approximate extension, not the paper's training-free semantic/lexical rule."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse audited425 frozen YOLO640/PARSeq/CLIP/Text-Kernel/context/VQA features and complete ViTAEv2-S+TextOCR outputs, original TRAIN80/45 and TEST300, exact casefold word multisets and native256 ignore with983/2204 care words."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Novelty audit: independent Florence OCR_WITH_REGION/DENSE_REGION_CAPTION inventory; exact-word BLIP2 line/target-erased/blank checks; frozen image representations. Prior CLIP masking, text-only neighbor correction and geometry alone are not new methods."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Use locally available pinned Florence-large-ft, not an uninstalled Qwen3-VL. This is an explicitly different experimental model choice, with no claim to reproduce Qwen results."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Independent inventory sees only original RGB and task tokens. Region coverage uses native rasterized quadrilaterals; associated readings preserve casefolded punctuation/repetitions. Text-bearing object labels supply risk, not missing-word truth."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "At most one suspicious nonempty word per image is probed. A bounded line neighborhood is chosen by geometry; compare exact-word and deterministic foil Yes/No support on local/original, target-erased and blank views. Unchecked words remain unchecked; scores are not calibrated F1 probabilities."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Five feature ablations core/inventory/verified/visual/combined use Ridge and small ExtraTrees delta-TP/delta-output regressors. Fit80 CV and VAL45 selection are unchanged; all choices precede new TEST visual inference. No base output is edited."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Sequential frozen visual models in separate stages on actual RTX3090, FP32 batch1. Extra probes add latency; report incremental runtime/VRAM separately from cached upstream and fallback costs."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Independent inventory is imperfect, decoder truncation may omit regions, object boxes need not be full of text, original line grouping is approximate for curved text, masks can cover neighbors, and 80 fitting images limit visual feature learning. No guaranteed perfect selection or benchmark superiority."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Treat both missing EOS and reaching the explicit generation cap as incomplete/ambiguous, because a forced EOS at the token cap can mimic natural completion. Raw tokens and decoder-start-aware parsing are preserved. A byte-identical qualified neural contract may reuse only explicit immutable TRAIN inventory outputs; record source plans, receipt and per-image hashes. Freeze new choices before all new TEST probes."
+    }
+  ],
+  "baseline_source": {
+    "plan": "4ffdcfa461d79b043b7300a3407adac5e160555b08bff87f135383db3b9fcd2e",
+    "results": "516fa4a4737df416d76777c8a70397f6bce83fda359c12f7d9c0d716475e099a",
+    "audit": "865eb6142f6aa49441609f60daed2094edb87c04de54fbb0c2345598a74ad30d"
+  },
+  "inventory_settings": {
+    "tasks": [
+      "<OCR_WITH_REGION>",
+      "<DENSE_REGION_CAPTION>"
+    ],
+    "generation": {
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": false
+    },
+    "embedding_dimension": 1024
+  },
+  "geometry_settings": {
+    "word_in_region_fraction": 0.3,
+    "region_covered_fraction": 0.5,
+    "text_object_terms": [
+      "sign",
+      "signboard",
+      "billboard",
+      "banner",
+      "poster",
+      "label",
+      "menu",
+      "license plate",
+      "awning"
+    ],
+    "line_vertical_overlap": 0.5,
+    "line_max_gap_heights": 2.0,
+    "line_min_height_ratio": 0.5,
+    "maximum_line_words": 5,
+    "line_padding_heights": 0.3,
+    "maximum_verified_words": 1,
+    "mask_value": 128
+  },
+  "verification_question": "Question: Is the exact printed word {word} visible in this image? Answer yes or no. Answer:",
+  "execution": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 1,
+    "seed": 20261023
+  },
+  "inventory_identity": {
+    "model_id": "microsoft/Florence-2-large-ft",
+    "revision": "4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+    "file_sha256": {
+      "config.json": "fa081841369aa9c6e42faf5c52368d673b561e2c5f8fa03d1256e7408cb4130e",
+      "configuration_florence2.py": "653bafddc9651eaff1583a16db4a2bb27d33ec7d541dfab7201aaa4ecaa1cfbf",
+      "generation_config.json": "30e9865458ecc8ee931eeeb43f44f1d169c5ab95be39e0072142a7a6b8f31990",
+      "model.safetensors": "8b4e610c952eef90a836c56cda0f398a672a3a6ca7b4d96b0e09a86dee42e2c3",
+      "modeling_florence2.py": "5bb7aa72c6ba62e96e1bbae6bc1aaf7b4e8e28cdfc62e670de3d5b67eeab1fdf",
+      "preprocessor_config.json": "2f5921bbc53c7cc04251e1027b45b1cec726276be6db23d1bb40641bfbe2cf29",
+      "processing_florence2.py": "4bd7158536cbf1c7891fc8efd94437d79fd09f07f539c7398fab8a885d7d8bca",
+      "tokenizer.json": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "tokenizer_config.json": "79ffcf43af8ebda99d165f61d243180da2e2639952e41e71e11611c18770489c",
+      "vocab.json": "394fdc63c71aabe0a9b97117f5d62fb5fcc4d59b2b3ea929a3929e6a53217b3c"
+    }
+  },
+  "verifier_identity": {
+    "configuration_file_sha256": {
+      "added_tokens.json": "61cc266f300a23591ea4c0d216f64b4af16b6ef372c4083ca0a111d667c3df76",
+      "config.json": "e84bd1b01fd28fdddc25c28116473d86c4f9968e739ff48daab317480c863b96",
+      "generation_config.json": "a87bb55053109274ee3adf4c506e4994959233be2071e87dee239a7b6feea5e4",
+      "model.safetensors.index.json": "544765d9d3c33ee9f875a4f196a8a76d7ef4be9cbe1284f3ae2a4888565c6529",
+      "preprocessor_config.json": "231d39b9cf3312f5ea2d82b6ea0a2da82cb5b1bd492ccb9feb7dde1303b2dfb5",
+      "processor_config.json": "5d33768c38eb7d1963c10c78f2753f6de714ff96744217cf9b2647d83abd016a",
+      "pytorch_model.bin.index.json": "019a5eb31326b1313ac6e2af072f9ee731f887b2ebd5853e5345c85b58fa3e1a",
+      "special_tokens_map.json": "7a1985a994c41886db38c719d2a3d2f40606663cc19d7c5d6a85d349320e06d2",
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "9e7f8634597e8e717576e3ff4007b63b1c5c059e20b26d4fd9fe483f24f9efd3",
+      "tokenizer_config.json": "d9b923bf12b1a3e040f719270a5c84745ed4a16468d0ef81b5e72463dca4d30b"
+    },
+    "model_id": "Salesforce/blip2-flan-t5-xl",
+    "processor_files_present": true,
+    "revision": "0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+    "status": "ready",
+    "weight_sha256": {
+      "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+      "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    }
+  }
+}

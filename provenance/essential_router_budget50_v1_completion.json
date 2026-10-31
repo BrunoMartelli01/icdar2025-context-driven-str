@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "external_root": "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1",
+  "sources": {
+    "predeclared_config.json": "8d6e4af1474b7f4403251aa9202c3c126d902d9bbf292258a8232acf5763fae4",
+    "frozen_validation_cuts.json": "37a535c7674e4f084aa50699d19ff53823b41b173b29b58c1fd4a3e739303ef9",
+    "initial_fixed_validation_evaluation.json": "e17a56d966bc7bf0e1f03c08218425e50f89a8ed6437fb41490d1d76dbaf03fe",
+    "budget_protocol_predeclared.json": "d8216b1c37b33488944baf76edde542306936b92d0fdcc049c6492b5a1aa3326",
+    "weight_comparison.json": "e9e4bac02f36d98928e690f8455134602707eee4d7f02d3695699f7b338f5a88",
+    "source_snapshot_v1_manifest.json": "875ed789c9e6cda2a254de4cdae1b4c2fe96f8018290edb960a55464b5b4d3bf"
+  },
+  "completion": {
+    "results.json": "b98ed72d0340304bbfce31b5f9e43dd0cf7d3c6c0166f5b1a04d210af8725e91",
+    "completion.json": "a01dde7810cc9ac34bfbd217b9ddd52aaa67b91b00b4ff01480aee5d42d8a59c",
+    "frozen_choices.json": "896a000dc5785ff59961955d401ea3154b79c5f7b2e39e1ac74049bff40ccfdc",
+    "independent_audit.json": "46d8a31249fcb079457387582e3e122ee81e5e4ed4ea036c54dde648b98f1903",
+    "deployment.joblib": "8352e30002c99b6d74703d09d88e1c0a1e6fb6c3a5ada0aeea9bb14a27ef54dc"
+  },
+  "primary": {
+    "f1": 0.8003834172058472,
+    "deepsolo_images": 151,
+    "total_images": 300,
+    "deepsolo_percent": 50.333333333333336
+  },
+  "numerical_inference_bytes": 728,
+  "deployment_bytes": 28146,
+  "scope": "Logical cached routing, no new DeepSolo inference, no strict reproduction or verified equivalent paper metric."
+}

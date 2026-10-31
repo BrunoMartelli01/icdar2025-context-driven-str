@@ -100,6 +100,18 @@ Configuration: [configs/approximate/adaspot_phase0_v1.json](<../../configs/appro
 
 Results/status: read the dated guide and its source audits; no numerical comparison registered here.
 
+## ICDAR2013 full-word U-Net refit and ICDAR2015 fallback feasibility
+
+ID: `icdar13-word-refit`. [Guide](<../../docs/ICDAR13_WORD_REFIT.md>).
+
+Code: [recognition/fallback_feasibility.py](<../../recognition/fallback_feasibility.py>), [scripts/analyze_icdar_fallback_target.py](<../../scripts/analyze_icdar_fallback_target.py>), [scripts/audit_icdar13_word_targets.py](<../../scripts/audit_icdar13_word_targets.py>), [scripts/finish_icdar13_word_refit.py](<../../scripts/finish_icdar13_word_refit.py>), [scripts/prepare_icdar13_word_refit.py](<../../scripts/prepare_icdar13_word_refit.py>), [scripts/recheck_icdar13_word_refit.py](<../../scripts/recheck_icdar13_word_refit.py>), [scripts/train_icdar13_word_refit.py](<../../scripts/train_icdar13_word_refit.py>), [segmentation/icdar13_word_refit.py](<../../segmentation/icdar13_word_refit.py>).
+
+Configuration: [configs/approximate/icdar13_word_refit_finish_smoke_v1.json](<../../configs/approximate/icdar13_word_refit_finish_smoke_v1.json>), [configs/approximate/icdar13_word_refit_finish_v1.json](<../../configs/approximate/icdar13_word_refit_finish_v1.json>), [configs/approximate/icdar13_word_refit_local_paths_v1.json](<../../configs/approximate/icdar13_word_refit_local_paths_v1.json>), [configs/approximate/icdar13_word_refit_v1.json](<../../configs/approximate/icdar13_word_refit_v1.json>).
+
+Tests: [tests/recognition/test_fallback_feasibility.py](<../../tests/recognition/test_fallback_feasibility.py>), [tests/scripts/test_finish_icdar13_word_refit.py](<../../tests/scripts/test_finish_icdar13_word_refit.py>), [tests/segmentation/test_icdar13_word_refit.py](<../../tests/segmentation/test_icdar13_word_refit.py>).
+
+Results/status: read the dated guide and its source audits; no numerical comparison registered here.
+
 ## New U-Net trained on Kernel GT
 
 ID: `kernel-only-fresh`. [Guide](<../../docs/KERNEL_ONLY_FRESH.md>).
@@ -230,6 +242,16 @@ Configuration: [configs/approximate/word_center_votes_totaltext_train_v2.json](<
 
 Results/status: read the dated guide and its source audits; no numerical comparison registered here.
 
+## Word evidence graphs: four controlled factors
+
+ID: `word-evidence-graphs`. [Guide](<../../docs/WORD_EVIDENCE_GRAPHS.md>).
+
+Code: [scripts/run_word_evidence_graphs.py](<../../scripts/run_word_evidence_graphs.py>).
+
+Configuration: [configs/approximate/word_evidence_graphs_v1.json](<../../configs/approximate/word_evidence_graphs_v1.json>).
+
+Results/status: read the dated guide and its source audits; no numerical comparison registered here.
+
 ## Text+Kernel: three controlled word-evidence tests
 
 ID: `word-evidence-suite`. [Guide](<../../docs/WORD_EVIDENCE_SUITE.md>).
@@ -239,6 +261,18 @@ Code: [scripts/run_word_evidence_suite.py](<../../scripts/run_word_evidence_suit
 Configuration: [configs/approximate/word_evidence_suite_v1.json](<../../configs/approximate/word_evidence_suite_v1.json>).
 
 Tests: [tests/segmentation/test_word_evidence_suite.py](<../../tests/segmentation/test_word_evidence_suite.py>).
+
+Results/status: read the dated guide and its source audits; no numerical comparison registered here.
+
+## Word hypotheses, complete crops, geometric decoders and regional distillation
+
+ID: `word-graph-recovery`. [Guide](<../../docs/WORD_GRAPH_RECOVERY.md>).
+
+Code: [localize/word_graph_recovery.py](<../../localize/word_graph_recovery.py>), [models/word_graph_decoder.py](<../../models/word_graph_decoder.py>), [scripts/qualify_word_graph_decoder.py](<../../scripts/qualify_word_graph_decoder.py>), [scripts/run_word_graph_recovery.py](<../../scripts/run_word_graph_recovery.py>), [scripts/run_word_graph_recovery.sh](<../../scripts/run_word_graph_recovery.sh>), [scripts/word_graph_geometry_stages.py](<../../scripts/word_graph_geometry_stages.py>), [scripts/word_graph_regional_stages.py](<../../scripts/word_graph_regional_stages.py>).
+
+Configuration: [configs/approximate/word_graph_recovery_v1.json](<../../configs/approximate/word_graph_recovery_v1.json>).
+
+Tests: [tests/localize/test_word_graph_recovery.py](<../../tests/localize/test_word_graph_recovery.py>), [tests/models/test_word_graph_decoder.py](<../../tests/models/test_word_graph_decoder.py>).
 
 Results/status: read the dated guide and its source audits; no numerical comparison registered here.
 

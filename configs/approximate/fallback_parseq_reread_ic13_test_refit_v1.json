@@ -1,0 +1,39 @@
+{
+  "batch_size": 32,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "decision_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_refit_v1/decisions_before_fallback.json",
+  "device": "cuda:0",
+  "fallback_images": 61,
+  "minimum_free_gpu_bytes": 2147483648,
+  "mode": "approximate",
+  "original_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fixed_test_refit_v1",
+  "paddings": [
+    0
+  ],
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_refit_v1/decisions_before_fallback.json": "25d4f77f1ea25e6a26451238bc02219cf052d8703770bb6d8052ffc38e8531e4",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_protocol": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json",
+  "raw_root": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+  "scientific_choices": {
+    "ASSUMPTION": "Only the61 frozen selected TEST DeepSolo images may be opened. Annotation-free boundary envelopes, padding0 only, frozen sequence>=.9 transcript replacement; no TEST labels or parameter selection. This stage only generates genuine PARSeq rereads, evaluation later.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, sequential PARSeq-only FP32 CUDA batches32 over cached DeepSolo boxes, memory metadata and failure propagation.",
+    "PAPER_SPECIFIED": "PARSeq-S and DeepSolo fallback motivation only. Exact paper PARSeq-S artifact remains unresolved; this retains the qualified approximate artifact.",
+    "REPOSITORY_SPECIFIED": "Authenticated native ViTAEv2S+TextOCR DeepSolo boxes, PARSeq source/checkpoint/greedy decoding and original RGB frame.",
+    "UNRESOLVED": "Net transcript benefit, selection uncertainty, prior TEST/upstream exposure, common cross-dataset retention and90% with61/233 fallback."
+  },
+  "score_threshold": 0.4,
+  "seed": 20261029,
+  "smoke_images": 4,
+  "split": "test"
+}

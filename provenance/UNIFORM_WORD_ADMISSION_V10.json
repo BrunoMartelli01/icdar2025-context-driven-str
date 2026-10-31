@@ -1,0 +1,318 @@
+{
+  "actual_new_neural_calls": 0,
+  "audit_sha256": "d974c81f36f50103c7f4b0bb1eadb7899e2a31d633dea5381761857070c168da",
+  "baseline": {
+    "icdar13": {
+      "counts": {
+        "all_outputs": 139,
+        "detected_words": 139,
+        "f1": 0.9060402684563759,
+        "fn": 24,
+        "fp": 4,
+        "gt_words": 159,
+        "ignored_outputs": 0,
+        "images": 46,
+        "tp": 135
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 46
+    },
+    "icdar2015": {
+      "counts": {
+        "all_outputs": 282,
+        "detected_words": 280,
+        "f1": 0.723943661971831,
+        "fn": 173,
+        "fp": 23,
+        "gt_words": 430,
+        "ignored_outputs": 2,
+        "images": 100,
+        "tp": 257
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 100
+    },
+    "totaltext": {
+      "counts": {
+        "all_outputs": 641,
+        "detected_words": 641,
+        "f1": 0.6884236453201971,
+        "fn": 424,
+        "fp": 82,
+        "gt_words": 983,
+        "ignored_outputs": 0,
+        "images": 125,
+        "tp": 559
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 125
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "fit_words": 16122,
+  "frozen_sha256": "da30e10cc00652a515435faa3c49b0dfceb85816e65e0ce58cdb1eae92b9d5fe",
+  "goal_complete": false,
+  "mode": "approximate",
+  "models_refitted": 4,
+  "new_test_replay": false,
+  "retained_deployed_pipeline": "v6b with v9 hard budget profile",
+  "status": "NO_SHARED_WORD_ADMISSION_GAIN",
+  "test_used_for_selection": false,
+  "trials": [
+    {
+      "eligible": false,
+      "macro_lower_gain": -0.017881803776554038,
+      "model": "pooled_word_0.joblib",
+      "results": {
+        "icdar13": {
+          "counts": {
+            "all_outputs": 145,
+            "detected_words": 145,
+            "f1": 0.8881578947368421,
+            "fn": 24,
+            "fp": 10,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 135
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.7,
+          "total_images": 46
+        },
+        "icdar2015": {
+          "counts": {
+            "all_outputs": 314,
+            "detected_words": 307,
+            "f1": 0.7164179104477612,
+            "fn": 166,
+            "fp": 43,
+            "gt_words": 430,
+            "ignored_outputs": 7,
+            "images": 100,
+            "tp": 264
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 100
+        },
+        "totaltext": {
+          "counts": {
+            "all_outputs": 795,
+            "detected_words": 787,
+            "f1": 0.6892655367231638,
+            "fn": 373,
+            "fp": 177,
+            "gt_words": 983,
+            "ignored_outputs": 8,
+            "images": 125,
+            "tp": 610
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 125
+        }
+      },
+      "validation_gains": {
+        "icdar13": -0.017882373719533717,
+        "icdar2015": -0.007525751524069868,
+        "totaltext": 0.0008418914029667546
+      }
+    },
+    {
+      "eligible": false,
+      "macro_lower_gain": -0.023115392580921188,
+      "model": "pooled_word_1.joblib",
+      "results": {
+        "icdar13": {
+          "counts": {
+            "all_outputs": 144,
+            "detected_words": 144,
+            "f1": 0.8844884488448845,
+            "fn": 25,
+            "fp": 10,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 134
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.7,
+          "total_images": 46
+        },
+        "icdar2015": {
+          "counts": {
+            "all_outputs": 324,
+            "detected_words": 316,
+            "f1": 0.710455764075067,
+            "fn": 165,
+            "fp": 51,
+            "gt_words": 430,
+            "ignored_outputs": 8,
+            "images": 100,
+            "tp": 265
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 100
+        },
+        "totaltext": {
+          "counts": {
+            "all_outputs": 803,
+            "detected_words": 794,
+            "f1": 0.6865503657850309,
+            "fn": 373,
+            "fp": 184,
+            "gt_words": 983,
+            "ignored_outputs": 9,
+            "images": 125,
+            "tp": 610
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 125
+        }
+      },
+      "validation_gains": {
+        "icdar13": -0.02155181961149133,
+        "icdar2015": -0.013487897896763967,
+        "totaltext": -0.001873279535166139
+      }
+    },
+    {
+      "eligible": false,
+      "macro_lower_gain": -0.012877564515273644,
+      "model": "pooled_word_2.joblib",
+      "results": {
+        "icdar13": {
+          "counts": {
+            "all_outputs": 147,
+            "detected_words": 147,
+            "f1": 0.8888888888888888,
+            "fn": 23,
+            "fp": 11,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 136
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.5,
+          "total_images": 46
+        },
+        "icdar2015": {
+          "counts": {
+            "all_outputs": 302,
+            "detected_words": 299,
+            "f1": 0.7297668038408779,
+            "fn": 164,
+            "fp": 33,
+            "gt_words": 430,
+            "ignored_outputs": 3,
+            "images": 100,
+            "tp": 266
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 100
+        },
+        "totaltext": {
+          "counts": {
+            "all_outputs": 766,
+            "detected_words": 761,
+            "f1": 0.6892201834862385,
+            "fn": 382,
+            "fp": 160,
+            "gt_words": 983,
+            "ignored_outputs": 5,
+            "images": 125,
+            "tp": 601
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 125
+        }
+      },
+      "validation_gains": {
+        "icdar13": -0.017151379567487024,
+        "icdar2015": 0.005823141869046866,
+        "totaltext": 0.0007965381660414161
+      }
+    },
+    {
+      "eligible": false,
+      "macro_lower_gain": -0.011427066208107437,
+      "model": "pooled_word_3.joblib",
+      "results": {
+        "icdar13": {
+          "counts": {
+            "all_outputs": 141,
+            "detected_words": 141,
+            "f1": 0.8933333333333333,
+            "fn": 25,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 134
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.7,
+          "total_images": 46
+        },
+        "icdar2015": {
+          "counts": {
+            "all_outputs": 301,
+            "detected_words": 298,
+            "f1": 0.728021978021978,
+            "fn": 165,
+            "fp": 33,
+            "gt_words": 430,
+            "ignored_outputs": 3,
+            "images": 100,
+            "tp": 265
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 100
+        },
+        "totaltext": {
+          "counts": {
+            "all_outputs": 770,
+            "detected_words": 766,
+            "f1": 0.6906803887935964,
+            "fn": 379,
+            "fp": 162,
+            "gt_words": 983,
+            "ignored_outputs": 4,
+            "images": 125,
+            "tp": 604
+          },
+          "deepsolo_images": 0,
+          "deepsolo_percentage": 0.0,
+          "threshold": 0.3,
+          "total_images": 125
+        }
+      },
+      "validation_gains": {
+        "icdar13": -0.012706935123042551,
+        "icdar2015": 0.004078316050146968,
+        "totaltext": 0.0022567434733993252
+      }
+    }
+  ]
+}

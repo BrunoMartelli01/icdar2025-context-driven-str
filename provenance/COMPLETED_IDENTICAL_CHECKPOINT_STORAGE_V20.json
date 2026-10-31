@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "model_optimizer_metadata_and_paths_preserved": true,
+      "original_copy_inode": 67519469,
+      "preserved_bytes": 1203146282,
+      "reclaimed_allocated_bytes": 1203150848,
+      "sha256": "f9a1a24cbf3facf7274920f01ed1c0205c7bb438c016b5549736fb899d5da0b0",
+      "shared_inode": 67378186,
+      "source": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/full/generators/historical_0/checkpoint.pt",
+      "target": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/generators/historical_0/checkpoint.pt"
+    },
+    {
+      "model_optimizer_metadata_and_paths_preserved": true,
+      "original_copy_inode": 67521182,
+      "preserved_bytes": 1203145898,
+      "reclaimed_allocated_bytes": 1203150848,
+      "sha256": "e82db91f3b682614c882154cef63e1076c28ea98271112b0ad5f78fc031145f9",
+      "shared_inode": 67379555,
+      "source": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/full/generators/historical_1/checkpoint.pt",
+      "target": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/generators/historical_1/checkpoint.pt"
+    },
+    {
+      "model_optimizer_metadata_and_paths_preserved": true,
+      "original_copy_inode": 67521206,
+      "preserved_bytes": 1203146922,
+      "reclaimed_allocated_bytes": 1203154944,
+      "sha256": "668e37f0a2800b8cd40b5d5c40b66308d0b85f89bfccbc59c940d9611aa6f9d1",
+      "shared_inode": 67380650,
+      "source": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/full/generators/historical_2/checkpoint.pt",
+      "target": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/generators/historical_2/checkpoint.pt"
+    },
+    {
+      "model_optimizer_metadata_and_paths_preserved": true,
+      "original_copy_inode": 67523042,
+      "preserved_bytes": 1203154730,
+      "reclaimed_allocated_bytes": 1203159040,
+      "sha256": "32a4d32668633f94a615d61838c42647afe9820b67bcf529ff66fe5559ea31e7",
+      "shared_inode": 67381921,
+      "source": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/full/generators/historical_final/checkpoint.pt",
+      "target": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/generators/historical_final/checkpoint.pt"
+    }
+  ],
+  "original_generator_stage_guards": "Existing qualified receipt prevents any in-place generator checkpoint rewrite in scripts/run_image_context_correction.py.",
+  "reclaimed_allocated_bytes": 4812615680,
+  "reuse_evidence_sha256": "3da90e1102401ef00496927eb1acff49345ca6a679c4f2ab335b1f48977083cc",
+  "scientific_effect": "None: all4 checkpoint byte hashes, paths, permissions, mtime and serialized metadata preserved; duplicate storage only.",
+  "scope": "Completed immutable historical copies only. All checkpoint bytes, paths, permissions and mtime preserved; future replacement writes must be atomic, never in-place.",
+  "source_receipt_path": "/extra1/bmartelli/context-str-runs/completed-identical-checkpoint-deduplication-20261031-v20.json",
+  "source_receipt_sha256": "3bfa42b21516d523caff7941fe37d8a7c9fad00f1f0ca9fc9a970f4f11b43087",
+  "source_sha256": "395708bd8c21fac4ccce720c8b7938fe5bccf7b72999f793b06873bd6e4d7a3b",
+  "status": "COMPLETE"
+}

@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "primary_arm": "token_context",
+  "arms": [
+    "scalar",
+    "pooled_context",
+    "token_context",
+    "likelihood",
+    "dense",
+    "combined"
+  ],
+  "primary_bypass_fraction": 0.5,
+  "bypass_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "cv_folds": 5,
+  "snapshot_packages": [
+    "scripts",
+    "recognition",
+    "deepsolo",
+    "segmentation",
+    "localize",
+    "models",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "diagnostics"
+  ],
+  "source_pins": {
+    "plan": "43e2afacd1dc02a9f9851ba0152d42da8b548ac80af903686596b263e52c6ada",
+    "results": "c407101dc578f1066a194d5d71bccaeba0f3366e9b1fbfb004af79f97dd0cd80",
+    "audit": "cca587ed79c3ddf00d8ce8307a2ad004b2f3d1512d570e50bc6dcc6551f1cca0"
+  },
+  "deepsolo_pins": {
+    "plan": "d21b32113271a9de2a9ef2d40c2d2b8b9a3e8f6a20331056d2c942522c244abe",
+    "results": "8e31e3dac1226a6b7f0989e54f0d3dc39e38492f7b8b2fdf1b387561544e4352"
+  },
+  "assets": {
+    "files": {
+      "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+      "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+      "yolo_checkpoint": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af",
+      "deepsolo_checkpoint": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a"
+    },
+    "clip_files": {
+      "config.json": "eaf1c9089a8553c913d27ea66407f8bfc2be9989c80c9f331ddb3d63d4c5e8ad",
+      "merges.txt": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "preprocessor_config.json": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+      "pytorch_model.bin": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+      "special_tokens_map.json": "f8c0d6c39aee3f8431078ef6646567b0aba7f2246e9c54b8b99d55c22b707cbf",
+      "tokenizer.json": "a83e0809aa4c3af7208b2df632a7a69668c6d48775b3c3fe4e1b1199d1f8b8f4",
+      "tokenizer_config.json": "3f74b6a4d97fee70b3b96921a687fc5e3f2fb583f5f81e7c178c0c22281beade",
+      "vocab.json": "3f0c4f7d2086b61b38487075278ea9ed04edb53a03cbb045b86c27190fa8fb69"
+    },
+    "blip_files": {
+      "added_tokens.json": "61cc266f300a23591ea4c0d216f64b4af16b6ef372c4083ca0a111d667c3df76",
+      "config.json": "e84bd1b01fd28fdddc25c28116473d86c4f9968e739ff48daab317480c863b96",
+      "generation_config.json": "a87bb55053109274ee3adf4c506e4994959233be2071e87dee239a7b6feea5e4",
+      "model.safetensors.index.json": "544765d9d3c33ee9f875a4f196a8a76d7ef4be9cbe1284f3ae2a4888565c6529",
+      "preprocessor_config.json": "231d39b9cf3312f5ea2d82b6ea0a2da82cb5b1bd492ccb9feb7dde1303b2dfb5",
+      "processor_config.json": "5d33768c38eb7d1963c10c78f2753f6de714ff96744217cf9b2647d83abd016a",
+      "pytorch_model.bin.index.json": "019a5eb31326b1313ac6e2af072f9ee731f887b2ebd5853e5345c85b58fa3e1a",
+      "special_tokens_map.json": "7a1985a994c41886db38c719d2a3d2f40606663cc19d7c5d6a85d349320e06d2",
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "9e7f8634597e8e717576e3ff4007b63b1c5c059e20b26d4fd9fe483f24f9efd3",
+      "tokenizer_config.json": "d9b923bf12b1a3e040f719270a5c84745ed4a16468d0ef81b5e72463dca4d30b",
+      "model-00001-of-00002.safetensors": "23bb7a7a78644afa9a138dd6c4360edf51ca5fc6da1c5d01f147b964ad7c0c6d",
+      "model-00002-of-00002.safetensors": "c77bd5bcdbc0945c57444d34d28bd4452dc715c3d8aef54e2e91459fdafb7e03"
+    },
+    "deepsolo_checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a"
+  },
+  "execution": {
+    "seed": 20261024,
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "parseq_batch_size": 32,
+    "log_every": 25,
+    "attention_backend": "math"
+  },
+  "architecture": {
+    "clip_dim": 512,
+    "query_dim": 768,
+    "query_count": 32,
+    "word_geometry_dim": 12,
+    "scalar_dim": 18,
+    "likelihood_dim": 14,
+    "hidden_dim": 64,
+    "heads": 4,
+    "mlp_dim": 128,
+    "initialization_std": 0.02
+  },
+  "clip": {
+    "clip_dim": 512,
+    "tile_grid": [
+      2,
+      2
+    ],
+    "padding_rgb": [
+      0,
+      0,
+      0
+    ],
+    "image_batch_size": 8,
+    "text_batch_size": 32,
+    "native_tolerance": 1e-05,
+    "word_template": "The printed word {word}."
+  },
+  "blip": {
+    "query_count": 32,
+    "query_dim": 768,
+    "image_size": 224,
+    "prompt": "Read the visible text. The text is:",
+    "language_batch_size": 2,
+    "maximum_input_tokens": 512,
+    "maximum_target_tokens": 128,
+    "local_margin_height": 1.0,
+    "erasure_rgb": [
+      128,
+      128,
+      128
+    ],
+    "native_tolerance": 0.0002
+  },
+  "training": {
+    "epochs": 20,
+    "checkpoints": [
+      5,
+      10,
+      20
+    ],
+    "batch_size": 8,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.001,
+    "gradient_clip": 5.0,
+    "huber_beta": 1.0,
+    "ranking_weight": 0.2,
+    "auxiliary_word_weight": 0.1,
+    "minimum_target_scale": 1.0,
+    "seed_stride": 9973
+  },
+  "dense_training": {
+    "epochs": 3,
+    "hidden_dim": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "word_weight": 1.0,
+    "gradient_clip": 5.0,
+    "auxiliary_iou": 0.5
+  },
+  "transport": {
+    "epsilon": 0.1,
+    "rho": 0.5,
+    "iterations": 40,
+    "mass_floor": 1e-08,
+    "spatial_cost": 2.0
+  },
+  "light_inference": {
+    "image_size": 640,
+    "confidence_floor": 0.05,
+    "nms_iou": 0.7,
+    "max_detections": 300
+  },
+  "selection": {
+    "joint_threshold": 0.6,
+    "nms_iou": 0.5
+  },
+  "fallback": {
+    "candidate_id": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE",
+    "score_threshold": 0.4
+  },
+  "metric": {
+    "name": "word_multiset_casefold",
+    "aggregation": "micro over all images",
+    "matching": "exact Unicode casefold word multiset, punctuation retained; no IoU",
+    "native_ignore_size": 256,
+    "ignore": "prediction ignored only when its native256 footprint has no care pixel; native empty footprint remains",
+    "empty_predictions": "retained as FP unless ignored; missing care words FN; empty images retained",
+    "accuracy": "TP/(TP+FP+FN), TN=0",
+    "oracle": "exact fixed-cardinality final micro-F1 oracle; diagnostic GT only"
+  },
+  "smoke": {
+    "legacy_fit": 10,
+    "legacy_validation": 5,
+    "fresh_train": 2,
+    "test": 5,
+    "epochs": 2,
+    "checkpoints": [
+      1,
+      2
+    ],
+    "cv_folds": 2,
+    "dense_epochs": 1
+  },
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper3.5/Fig4/Algorithm2 motivates scene context and whole-image DeepSolo fallback. The new token/likelihood/transport algorithms are extensions, not the paper router."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Frozen audited YOLO640/PARSeq selector and qualified DeepSolo ViTAEv2-S/TextOCR outputs; revalidate exact counts on cached125 TRAIN and300 TEST images."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Full official TRAIN1255 minus exact TEST RGB duplicates; grouped5fold OOF selection by final micro-F1 at50percent bypass, then refit every usable TRAIN image. Expert checkpoints have seen TRAIN; TEST has historically been explored."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Fit-only standardization and paired deltaTP/deltaPred regression plus cost-weighted ranking. ReferenceF1 uses fit-only DeepSolo totals. No F1>=.8 target."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "CLIP square-padded global plus2x2 native224 tiles; projected intermediate patch tokens are heuristic features. BLIP2 raw32 queries and all OCR word tokens enter a small attention router."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "BLIP2 teacher-forced actual transcripts, complete whole-word chunks, EOS, original-minus-gray-erased global/local evidence; no Yes/No or calibrated correctness claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Fold-only dense text-support and word-compatibility adaptors, weak care-GT bbox auxiliary supervision. Unbalanced Sinkhorn allows unmatched mass and uses all patches/words. No claim of one-to-one word correctness labels."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Baseline scalar80 vs scalar full uses matched18 scalar features and the same learning family; it does not reproduce the old46feature router. Separate pooled-context and combined ablations."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "RTX3090 FP32 sequential foundation models, YOLO batch1, CLIP batch8, BLIP vision1/language2, PARSeq CPU32, tiny router8, isolated native DeepSolo worker; TF32off, deterministic math attention. Not qualified for8GB GPU."
+    }
+  ]
+}

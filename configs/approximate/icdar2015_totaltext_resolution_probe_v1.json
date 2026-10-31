@@ -1,0 +1,162 @@
+{
+  "datasets": {
+    "icdar2015": {
+      "manifest": "manifests/icdar2015_train.yaml",
+      "manifest_sha256": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739",
+      "images": 1000
+    },
+    "total_text": {
+      "manifest": "manifests/total_text_train.yaml",
+      "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+      "images": 1255
+    }
+  },
+  "source_training_config": "configs/approximate/icdar2015_totaltext_transfer_v1.json",
+  "source_training_config_sha256": "6afa0d0fc2e1fc36b35ff25b4fe0bf6529af2e0aaea767be666fdea2f6128341",
+  "validation_count": 100,
+  "matching_iou_threshold": 0.5,
+  "canvas_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "skip_floor": 0.25,
+  "group_norm_max_groups": 32,
+  "parseq_batch_size": 32,
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_explicit_totaltext_weight_transfer",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "probability_threshold": 0.5,
+  "word_validation_interval": 5,
+  "validation_ocr_device": "cpu",
+  "minimum_target_word_f1": 0.7,
+  "aspirational_target_word_f1": 0.8,
+  "training": {
+    "epochs": 100,
+    "seed": 202503,
+    "batch_size": 8,
+    "num_workers": 2,
+    "precision": "float32",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      -15.0,
+      15.0
+    ],
+    "separation_weight": 3.0,
+    "instance_dice_weight": 0.5,
+    "instance_dice_margin_native_pixels": 2,
+    "loss_epsilon": 1e-06,
+    "checkpoint_selection": "validation_raw_symbol_free_word_F1_then_emitted_then_geometry_then_earliest",
+    "include_initial_state_as_epoch_zero": true,
+    "optimizer_initialization": "fresh_Adam_after_complete_strict_TotalText_weight_transfer",
+    "learning_rate_schedule": "cosine_per_epoch",
+    "minimum_learning_rate_ratio": 0.1
+  },
+  "branches": {
+    "native1280": {
+      "image_hw": [
+        1152,
+        2048
+      ],
+      "physical_batch_size": 4,
+      "gradient_accumulation": 2,
+      "encoder_trainable_stages": [
+        "layer3",
+        "layer4"
+      ],
+      "encoder_learning_rate": 1e-05,
+      "ignore_negative_weight": 3.0,
+      "gradient_clip_norm": 1.0
+    }
+  },
+  "scientific_choices": [
+    {
+      "component": "family_and_BCE_Adam",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Paper sections3.2 and4.1 specify attention-gated ResNet50 U-Net, BCE and Adam decoder LR1e-4, WD.01. Exact decoder remains approximate."
+    },
+    {
+      "component": "fixed_masks_split_and_runtime",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Reuse qualified disjoint-word masks, FIT900/VAL100, single-output 452-tensor decoder, frozen PARSeq and unchanged correct-word metric."
+    },
+    {
+      "component": "explicit_TotalText_weights",
+      "classification": "ASSUMPTION",
+      "rationale": "Compare actual pretrained TotalText epoch263 and partial-encoder epoch23 weights. Strict 1:1 tensor loading; no implicit ImageNet-only substitution. Check exact image-hash overlap with ICDAR TRAIN. All model/epoch/policy choices use original VAL100 only."
+    },
+    {
+      "component": "domain_adaptation",
+      "classification": "ASSUMPTION",
+      "rationale": "Fresh seeded Adam, 100 epochs, decoder1e-4 and layer3/4 convolutions1e-5 cosine to0.1x, encoder BN frozen, clipping1, original BCE separator/ignored-negative weight3. Source epoch0 remains eligible. Raw word F1 is primary; emitted F1 reported separately. No OHEM."
+    },
+    {
+      "component": "native_shape_and_batch",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "FP32 RGB736x1280/native368x640, physical4 accumulation2 on actual RTX3090. Encoder BN frozen; decoder BN sees4. Qualify memory; propagate OOM without substitution."
+    },
+    {
+      "component": "validation_only_1p6_resolution",
+      "classification": "ASSUMPTION",
+      "rationale": "Fixed source weights and VAL100 at1152x2048 test whether larger text improves localization/OCR relative to736x1280. Every430 care GT and all predicted components stay; no TEST decisions and no training under this profile. Source/native training queues remain unchanged."
+    },
+    {
+      "component": "larger_validation_GPU_shape",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "FP32 batch1 segmentation, CPU PARSeq32, actual RTX3090 shared with existing training. Record actual allocated/reserved peaks and propagate OOM; no automatic shape/batch substitution."
+    }
+  ],
+  "emission_policy_grid": {
+    "sequence_confidence": [
+      0.0,
+      0.4,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "mean_token_confidence": [
+      0.0,
+      0.7,
+      0.8,
+      0.9,
+      0.95
+    ],
+    "minimum_alphanumeric_length": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "sources": {
+    "tt263": {
+      "checkpoint_sha256": "8cb13e9daaea77c5c85184d21ee79ea6d5d0700481b84046cad75c5b626061dc",
+      "run_manifest_sha256": "79fcee001bec71391ba127360b088937614bbcf9943c5028a6f0b237837797a5",
+      "architecture": "practical-totaltext-v4-highres-agunet-v1",
+      "epoch": 263,
+      "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea"
+    },
+    "tt_partial23": {
+      "checkpoint_sha256": "64782ef59bddbb35614e107cbff4bd6301a30a05b0881394256198256215c9ef",
+      "run_manifest_sha256": "cdf9be527fda72b10a561c9817085d1713e29432bd2d343dddfd050bfb3acaa8",
+      "architecture": "practical-totaltext-partial-encoder-v1:partial_encoder",
+      "epoch": 23,
+      "manifest_sha256": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea"
+    }
+  },
+  "experiment_role": "validation_only_resolution_probe_no_training",
+  "base_profile": "configs/approximate/icdar2015_totaltext_weights_v1.json",
+  "base_profile_sha256": "8dff835e811cf0908d7afae285c6c2ff949889a07f422177254407755a02e827",
+  "training_fields_used": false
+}

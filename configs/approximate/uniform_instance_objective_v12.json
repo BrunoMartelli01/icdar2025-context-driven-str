@@ -1,0 +1,101 @@
+{
+  "claim_label": "approximate reproduction",
+  "dataset_order": [
+    "icdar13"
+  ],
+  "experiment_kind": "uniform_instance_text_continuation_v12",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "loss_override": {
+    "instance_balanced_text": {
+      "dice_margin": 2,
+      "dice_weight": 0.5,
+      "epsilon": 1e-06
+    }
+  },
+  "matched_control_root": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-instance-objective-20261031-v12",
+  "pilot_dataset": "icdar13",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/main_receipt.json": "26b2c2254676e4e2cdd6a0f4dc8bfed33341d57056e2b9283a697467e5b0ecb1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json": "e3f0ea78798a0362bdecf4d23cf634eda515b21353714a7c006695f2077fe672",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/complete.json": "03a2597b7f9775d3f0d4dd7e871f63219b5e30b1e312a89b99ae3464a7eb6c32",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/independent_training_audit.json": "70b2ade0f93ba73cc4697d60f10fcd8b92529adf762f036e7f3443846eebe8a7",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13/resolved_configuration.json": "052282860e4c5fa25bbe00267f3089673f1705561ec91d4b3d8de94e60485d57",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/smoke/icdar13/complete.json": "92b654cc451876cc5101061b5cac4694c3c2f6b78d14e68d05779d68a354a6bc",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/smoke/icdar13/independent_training_audit.json": "6ad874628f43cf03b2bc404deada53e556014d0690986dd000dd8a6f11e7eb6a",
+    "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/smoke/icdar13/resolved_configuration.json": "4b8f5879b9ed05795a38cfaf21e7dedc3cda03c362e41673787fdfe3ddd0bc5b",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/best.pt": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/complete.json": "31f37e4480a0e514e514bbea5231508442594849b3e8a01354c795ed661cb8f3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/independent_training_audit.json": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/best.pt": "88f915b3aad2d79e1d73c6631dc13b46a2d48a70a8d5537e9a8bf55b20b7798f",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/complete.json": "f7effaeeeb94dc2c4eae3b81154b41f1613809688b1d6a3d3922e5a2d4dceeae",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/independent_training_audit.json": "f7f8c6bbb24615fef71ffeab0ea6366cdb25ce2703a67550bf25edac7f992d40",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/best.pt": "1b848ac1af18be1a4d290051b1373ef28ed85d84e617d04781c0713c49fd6879",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/complete.json": "7bd30590c05ddd7120fb5bbed963600f5ec2c8c108022c97ca8057d67ca94b35",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/independent_training_audit.json": "7ebafdfd26f8077423d4eb312326d556110cc4f67ac416b6e74efefc8d590ecc",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649",
+    "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1/manifests/icdar2015_train.yaml": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739",
+    "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/manifests/total_text_train.yaml": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar2015_unet_improvement_v1.json": "f6fab32f3b78a6ac9229ecd5fefffdcec3e9dc26e55d4c2dfbe3aabd98edc839",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_unet_fusion_v1.json": "bc9476d98b288b4c51ee986a4d3b4d7daee41dae961d7050863aab884bde3d8b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/run_uniform_photometric_pilot.py": "b8c336d8bc2116ef36e62fe4aff0e0b47be5d62a94df3094fda8d862e556c828",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/run_uniform_unet_training.py": "989f2f7eabb7adbb7d2ba64662a56a8e317d4c2d494a7f946c1d340aeeacb3d0",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/segmentation/icdar2015_improvements.py": "998903f340fa98889be8dd86a9fbb106e76f36adc3459c7592734870e3dc4e42",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/segmentation/uniform_instance_objective.py": "82b318ad3820b4f452afca22514c206e0a16c20af3eb99961fd10985e534d386",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/segmentation/uniform_photometric_training.py": "b7b0b881dda7692d4b19d2ae98880d95ca4ae8b7733313decccfa8eec72c60ea"
+  },
+  "result_scope": "IC13 ten-epoch owner-balanced text loss pilot versus the pinned completed v11 control. Same initialization/configuration/partitions except text objective. No TEST/router or three-domain target claim.",
+  "scientific_choices": {
+    "ASSUMPTION": "Replace only text supervision with the existing instance-balanced BCE+localDice objective, dice_weight.5,margin2,epsilon1e-6 as in the prior qualified IC15 config. Equal per-owner positive cost within each image; unchanged masked BCE+Dice kernel objective and per-image averaging. Same native checkpoint, fresh AdamW1e-5,10epochs,physical4/accum2,seed/geometry/order/validation as completed v11 no-augmentation control. Verify the matched controls before preparation; epoch0 count parity; select earliest maximum VAL F1 includingepoch0. IC13 screen only; no TEST opening.",
+    "HARDWARE_DEVIATION": "FP32 RTX3090,768/384,physical4/accum2; allocated/reserved/OOM recorded. No added online parameters or forward passes.",
+    "PAPER_SPECIFIED": "Paper3.2 AG-UNet/ResNet50 and4.2 BCE training motivation only. Proposed owner-balanced/localDice loss is an explicitly approximate research extension.",
+    "REPOSITORY_SPECIFIED": "Existing complete native models, strict source loading, frozen text-pretrained encoder, photo implementation and deterministic per-epoch/per-sample generator.",
+    "UNRESOLVED": "Generalization, upstream benchmark exposure, reused validation, small-word benefit, transfer to the other two domains, subsequent word/router refits and hard-budget target achievement."
+  },
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "deepsolo"
+  ],
+  "source_training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full",
+  "training_override": {
+    "epochs": 10,
+    "learning_rate": 1e-05
+  },
+  "variants": {
+    "instance_balanced": null
+  }
+}

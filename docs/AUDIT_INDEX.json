@@ -515,6 +515,74 @@
     },
     {
       "root": "repository",
+      "path": "docs/BUDGET_DISTILLED_ROUTER.md",
+      "bytes": 14496,
+      "sha256": "6ddaacfb0009b0b990ccb78efe098109e24384deb28927a3101cda32150f59ba",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Cheap DeepSolo-supervised router at half-image acceptance"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Predeclared experiment"
+        },
+        {
+          "line": 44,
+          "level": 2,
+          "title": "Boundaries and qualifications"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Completed studies and negative result"
+        },
+        {
+          "line": 102,
+          "level": 3,
+          "title": "Validation-derived scalar cuts"
+        },
+        {
+          "line": 119,
+          "level": 3,
+          "title": "Artifacts, qualification and deployment boundary"
+        },
+        {
+          "line": 169,
+          "level": 2,
+          "title": "Verified existing alternative on the corrected U-Net expert"
+        }
+      ],
+      "title": "Cheap DeepSolo-supervised router at half-image acceptance"
+    },
+    {
+      "root": "repository",
+      "path": "docs/BUDGET_TARGET_ROUTER.md",
+      "bytes": 11634,
+      "sha256": "9f914376344cf462243ba7d44c864ee336b084778eaecd30f4c5dbf08be1f217",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Exact budget feasibility of existing ICDAR experts"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "title": "Trained extensions at the requested budgets"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Cost, provenance and limits"
+        }
+      ],
+      "title": "Exact budget feasibility of existing ICDAR experts"
+    },
+    {
+      "root": "repository",
       "path": "docs/CENTER_GUIDED_WORD_CROPS.md",
       "bytes": 10284,
       "sha256": "67fc0ba7102b4eb51fa27fc3fe541874d82e2eea6f3f96f2cd228e78c80e05da",
@@ -929,6 +997,143 @@
     },
     {
       "root": "repository",
+      "path": "docs/COMMON_BUDGET_PIPELINE.md",
+      "bytes": 15422,
+      "sha256": "3890122255787884f768060f98452edd85e46739f8690ca638470cdee8e2b9f2",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Shared budgeted OCR pipeline for Total-Text and ICDAR2015"
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "title": "Shared procedure declared before evaluation"
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "title": "Boundaries and execution"
+        },
+        {
+          "line": 95,
+          "level": 2,
+          "title": "Completed first run and the next validation control"
+        },
+        {
+          "line": 128,
+          "level": 2,
+          "title": "User acceptance revision and ICDAR2013 extension"
+        },
+        {
+          "line": 152,
+          "level": 2,
+          "title": "Completed qualified results"
+        },
+        {
+          "line": 200,
+          "level": 2,
+          "title": "Qualification, deployment and evidence"
+        },
+        {
+          "line": 252,
+          "level": 2,
+          "title": "Subsequent scalar-threshold parity study"
+        }
+      ],
+      "title": "Shared budgeted OCR pipeline for Total-Text and ICDAR2015"
+    },
+    {
+      "root": "repository",
+      "path": "docs/COMMON_PARITY_THRESHOLD.md",
+      "bytes": 8330,
+      "sha256": "5873a8fec58053757216b35dedab70fa4c494f81ba18c00c80e24d783926ed09",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo parity thresholds for the common Total-Text / ICDAR2015 procedure"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Protocol and boundaries"
+        },
+        {
+          "line": 41,
+          "level": 2,
+          "title": "CAL-selected thresholds applied unchanged to TEST"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "TEST-label diagnostic: maximum of the fixed score ordering"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Reproduction, qualification and artifacts"
+        }
+      ],
+      "title": "DeepSolo parity thresholds for the common Total-Text / ICDAR2015 procedure"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CONTEXTUAL_BOUNDARY_SELECTION.md",
+      "bytes": 13974,
+      "sha256": "6df148a6a27d698fb99683c5159cac079d6fef083446ea36fa92220e2b419934",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Contextual selection of OCR word boundaries"
+        },
+        {
+          "line": 22,
+          "level": 2,
+          "title": "Frozen inputs and folds"
+        },
+        {
+          "line": 38,
+          "level": 2,
+          "title": "Candidate pool and controlled comparisons"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Evaluation and limitations"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Execution"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Completed results and interpretation"
+        },
+        {
+          "line": 158,
+          "level": 3,
+          "title": "Threshold and objective sensitivity"
+        },
+        {
+          "line": 168,
+          "level": 3,
+          "title": "Why selection still fails"
+        },
+        {
+          "line": 208,
+          "level": 3,
+          "title": "Qualification and artifacts"
+        }
+      ],
+      "title": "Contextual selection of OCR word boundaries"
+    },
+    {
+      "root": "repository",
       "path": "docs/CONTEXTUAL_OCR_CORRECTION_TRAIN_V1.md",
       "bytes": 7034,
       "sha256": "e523668c64c144ddbf3d4d329c9c2cc63c0ff324d62066d772b90c6ca6f1d87d",
@@ -1023,6 +1228,60 @@
         }
       ],
       "title": "Full TRAIN plain-text OCR correction diagnostic"
+    },
+    {
+      "root": "repository",
+      "path": "docs/CREATIVE_CONTEXT_ROUTER.md",
+      "bytes": 16132,
+      "sha256": "c647f70be81aa8837e9e13d60992beff0af9e1809e313ef209947fef2e118c9e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Six context signals for whole-image OCR routing"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Six implementations and their boundaries"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Frozen comparison protocol"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Files, resources and execution"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Qualification and evidence"
+        },
+        {
+          "line": 150,
+          "level": 2,
+          "title": "Completed full run and cache replay"
+        },
+        {
+          "line": 175,
+          "level": 2,
+          "title": "Selected policy, TRAIN and TEST kept separate"
+        },
+        {
+          "line": 208,
+          "level": 2,
+          "title": "Interpretation and signal coverage"
+        },
+        {
+          "line": 237,
+          "level": 2,
+          "title": "Final engineering/scientific verification"
+        }
+      ],
+      "title": "Six context signals for whole-image OCR routing"
     },
     {
       "root": "repository",
@@ -1177,6 +1436,94 @@
     },
     {
       "root": "repository",
+      "path": "docs/DEEPSOLO_ICDAR2015_GAP.md",
+      "bytes": 10506,
+      "sha256": "61d230df8d7fe02bcb4108481db7382f70ee48b55a8d056cbcee045f76201714",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo ICDAR2015: checkpoint and threshold gap analysis"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "title": "Result"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "What caused the gap"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "title": "Remaining errors under the unchanged metric"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Fixed evaluation and calibration protocol"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Artifacts, hardware and verification"
+        }
+      ],
+      "title": "DeepSolo ICDAR2015: checkpoint and threshold gap analysis"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DEEPSOLO_ICDAR_LEXICONS.md",
+      "bytes": 12997,
+      "sha256": "69db3ad03db770d69c8149a3cd5dd9985a29f1bd85ac9b4e624fd2bbdbd70a0b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo with released ICDAR lexicons"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "title": "Main outcomes"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "ICDAR2015: all fixed settings"
+        },
+        {
+          "line": 30,
+          "level": 2,
+          "title": "ICDAR2013: correct dataset resources"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Sources and exact correction"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "Calibration, metric and uncertainty"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Prediction-only profiles and outputs"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Verification"
+        }
+      ],
+      "title": "DeepSolo with released ICDAR lexicons"
+    },
+    {
+      "root": "repository",
       "path": "docs/DEEPSOLO_RUNTIME.md",
       "bytes": 15959,
       "sha256": "48358d137fcbc124972d65c46a1737b54a468d5dd0231075c553f3d4b2c0fc0d",
@@ -1251,6 +1598,35 @@
     },
     {
       "root": "repository",
+      "path": "docs/DEEPSOLO_SHORT_WORDS.md",
+      "bytes": 4521,
+      "sha256": "71c827536a8ab7805853190d131a4b68ae95b49b341da8c985dbe451c5501703",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo minimum-three-character diagnostic"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Exact rule and evidence"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "TEST300 results"
+        },
+        {
+          "line": 55,
+          "level": 2,
+          "title": "Reproduction and validation"
+        }
+      ],
+      "title": "DeepSolo minimum-three-character diagnostic"
+    },
+    {
+      "root": "repository",
       "path": "docs/DEEPSOLO_TEXTOCR_IC13_COMPARISON.md",
       "bytes": 7094,
       "sha256": "638d53948aa83012bd67a8f06e69d49a6b52b5533812cf6400cad5c683830752",
@@ -1311,6 +1687,241 @@
         }
       ],
       "title": "ViTAEv2-S+TextOCR GPU evaluation — 2026-10-19"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DEEPSOLO_WORD_F1_STUDY.md",
+      "bytes": 16041,
+      "sha256": "08e9027829e7cbf70a57947a0b734164019f0e14266523fc68b390647613b426",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "DeepSolo symbol-free word F1 study — 2026-10-25"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Evidence and comparison boundaries"
+        },
+        {
+          "line": 47,
+          "level": 2,
+          "title": "Ordinary baseline and first diagnostic"
+        },
+        {
+          "line": 83,
+          "level": 2,
+          "title": "Additional inference and final selection"
+        },
+        {
+          "line": 103,
+          "level": 2,
+          "title": "Corrected results and deployable profiles"
+        },
+        {
+          "line": 179,
+          "level": 2,
+          "title": "Reproduce and inspect"
+        },
+        {
+          "line": 219,
+          "level": 2,
+          "title": "Rejected first resolution experiment"
+        },
+        {
+          "line": 245,
+          "level": 2,
+          "title": "Completed GPU export and memory"
+        },
+        {
+          "line": 264,
+          "level": 2,
+          "title": "Scientific classifications and limitations"
+        }
+      ],
+      "title": "DeepSolo symbol-free word F1 study — 2026-10-25"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DETAILED_SCENE_CAPTIONS.md",
+      "bytes": 18027,
+      "sha256": "eb64315778548908eac62914e645a6fd3e7b45a679716298ea815525a7deaf7a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Improving scene-caption quality"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Quality target and selection boundary"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Predeclared candidates and observed limitations"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Implementation and evidence"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Completed qualification and recognition ablation"
+        },
+        {
+          "line": 140,
+          "level": 2,
+          "title": "Runtime qualification boundary"
+        },
+        {
+          "line": 164,
+          "level": 2,
+          "title": "Frozen development selection"
+        },
+        {
+          "line": 222,
+          "level": 2,
+          "title": "Completed three-dataset recognition results"
+        }
+      ],
+      "title": "Improving scene-caption quality"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DIRECTIONAL_TRANSPORT_RESULTS.md",
+      "bytes": 10900,
+      "sha256": "1558c578f2c56a12da7d0e50e9639f006f6ccfa255fe7e48599799861e180768",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Directional decoder word-F1 results and failure analysis"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Completed comparison"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Architecture versus operating policy"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Why the tested paths fail"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Continuation and graph-decoding outcomes"
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "title": "Evidence"
+        }
+      ],
+      "title": "Directional decoder word-F1 results and failure analysis"
+    },
+    {
+      "root": "repository",
+      "path": "docs/DIRECTIONAL_TRANSPORT_UNET.md",
+      "bytes": 13539,
+      "sha256": "affd133815d2bf0264f62fe31963ba0372b72210947ab4224459b4b0d5131064",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Directional transport and RGB detail decoder study"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Architecture and controls"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Protocol"
+        },
+        {
+          "line": 87,
+          "level": 2,
+          "title": "Evidence and execution"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "CAL-only diagnostic and snapshot qualification"
+        },
+        {
+          "line": 168,
+          "level": 2,
+          "title": "Frozen-source follow-up (v2)"
+        },
+        {
+          "line": 200,
+          "level": 2,
+          "title": "Controlled normalization diagnostic"
+        }
+      ],
+      "title": "Directional transport and RGB detail decoder study"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ENCODER_FAMILY_ROUTER.md",
+      "bytes": 12867,
+      "sha256": "f7f94b5eea179bd58bf31f59c1be1c7b721ea7aa15ad61066cdac3d6da3f169d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Matched training of CLIP, BLIP and combined image routers"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Predeclared comparison"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Evidence and implementation"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Completed full experiment"
+        },
+        {
+          "line": 106,
+          "level": 2,
+          "title": "Equal-budget signal control"
+        },
+        {
+          "line": 124,
+          "level": 2,
+          "title": "All predeclared fixed-cut controls"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Visual-only BLIP qualification and failures"
+        },
+        {
+          "line": 151,
+          "level": 2,
+          "title": "Independent verification and reproducibility"
+        }
+      ],
+      "title": "Matched training of CLIP, BLIP and combined image routers"
     },
     {
       "root": "repository",
@@ -1404,6 +2015,138 @@
         }
       ],
       "title": "Reproduction Environment Boundaries"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ESSENTIAL_ROUTER_BUDGET50.md",
+      "bytes": 6369,
+      "sha256": "7b4acfe7e03f276cf7d0a176f9e238c3a7b360aef3889577af5c150baf57f3a6",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Essential router weights and validation calibration near half fallback"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "title": "Frozen validation protocol"
+        },
+        {
+          "line": 38,
+          "level": 2,
+          "title": "TEST results"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Incremental router weights"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Artifacts and verification"
+        }
+      ],
+      "title": "Essential router weights and validation calibration near half fallback"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ESSENTIAL_ROUTER_ICDAR_TRANSFER.md",
+      "bytes": 10365,
+      "sha256": "92ca18695b16767a5dc526ddb26b315fd56e574d7a06eb5d8844f88fddf8d4e4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Essential router transfer to ICDAR2013 and ICDAR2015"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Fixed experts and full data"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Comparable gate fitting and separate controls"
+        },
+        {
+          "line": 77,
+          "level": 2,
+          "title": "Exact local metric"
+        },
+        {
+          "line": 98,
+          "level": 2,
+          "title": "Execution and measured memory"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "title": "Verification and preserved failures"
+        },
+        {
+          "line": 159,
+          "level": 2,
+          "title": "Artifacts and code"
+        }
+      ],
+      "title": "Essential router transfer to ICDAR2013 and ICDAR2015"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ESSENTIAL_ROUTER_THRESHOLD_ANALYSIS.md",
+      "bytes": 14572,
+      "sha256": "ee84ec410d9d9a11264a5e3661aa09f29e9a9201da93d1c9e32bab75a82fdf6e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Essential router: threshold selection on three datasets"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Method and interpretation"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Matched half-fallback control"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Minimum fallback without an observed TEST F1 loss"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Can a cutoff exceed DeepSolo?"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "title": "One common YOLO cutoff across the three datasets"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Validation-selected single-image policies on TEST"
+        },
+        {
+          "line": 101,
+          "level": 2,
+          "title": "Controls, uncertainty and deployment"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Evidence and verification"
+        }
+      ],
+      "title": "Essential router: threshold selection on three datasets"
     },
     {
       "root": "repository",
@@ -1663,6 +2406,177 @@
     },
     {
       "root": "repository",
+      "path": "docs/GRAPH_OCCLUSION_FOLLOWUPS.md",
+      "bytes": 11460,
+      "sha256": "aff07cab1e018646dacc848ea66418b5b417927ae8feaa670a3d2d30c3956a74",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Four controlled graph/occlusion follow-ups"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Evidence and controls"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Runtime and scientific limits"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "Implementation and execution"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "Qualification and launch status"
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "title": "Completed results and failure investigation"
+        }
+      ],
+      "title": "Four controlled graph/occlusion follow-ups"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GRAPH_OCCLUSION_RESEARCH.md",
+      "bytes": 7621,
+      "sha256": "9336c270786b41c9c4699fb65c23cb01c0c54c5d35887f6b0818eb2adae92d73",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Fragment graphs and occlusion-aware U-Net teacher/student"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Scientific basis and actual new factors"
+        },
+        {
+          "line": 48,
+          "level": 2,
+          "title": "Fixed populations, controls and metric"
+        },
+        {
+          "line": 72,
+          "level": 2,
+          "title": "Artifacts and runtime"
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "title": "Qualification and launch"
+        }
+      ],
+      "title": "Fragment graphs and occlusion-aware U-Net teacher/student"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GROUNDED_CONTEXT_ROUTER.md",
+      "bytes": 15009,
+      "sha256": "d4ea193fd35fc1f43725aeb39d90c1ce5beea4f5fa19a5c939833e85e7f98e9e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Grounded context inventory and local verification router"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Novelty check"
+        },
+        {
+          "line": 22,
+          "level": 2,
+          "title": "Explicit experiment"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Runtime and execution"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "Sources and limitations"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Verification status"
+        },
+        {
+          "line": 142,
+          "level": 2,
+          "title": "Completed result: no improvement"
+        },
+        {
+          "line": 181,
+          "level": 2,
+          "title": "Diagnostic evidence, not new selector tuning"
+        },
+        {
+          "line": 204,
+          "level": 2,
+          "title": "Final qualification"
+        }
+      ],
+      "title": "Grounded context inventory and local verification router"
+    },
+    {
+      "root": "repository",
+      "path": "docs/GROUNDED_CONTEXT_ROUTER_NOVELTY.json",
+      "bytes": 2083,
+      "sha256": "218d74fb1fd193ad23bd886a3b50f10aa5f6fbb17094a3fd04c237e624b4aafa",
+      "title": "GROUNDED_CONTEXT_ROUTER_NOVELTY",
+      "reported_metadata": {
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "docs/GROUNDED_WORD_RECOVERY.md",
+      "bytes": 12521,
+      "sha256": "a4025948e140396a6e8169afcc7f601e95750ea30fe8f277926c1799575c4a00",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Grounded verification, new localization queries and visual byte edits"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Evidence and controlled factors"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Protocol and assumptions"
+        },
+        {
+          "line": 83,
+          "level": 2,
+          "title": "Runtime and qualification"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Completed results and decision"
+        }
+      ],
+      "title": "Grounded verification, new localization queries and visual byte edits"
+    },
+    {
+      "root": "repository",
       "path": "docs/GT_WORD_GROUP_SELECTOR.md",
       "bytes": 2576,
       "sha256": "5f2e4935b2c89ebbfc1f249a7197a6a0d6ab0e03c74a0382d2c9a247e966f742",
@@ -1818,6 +2732,113 @@
     },
     {
       "root": "repository",
+      "path": "docs/ICDAR13_HYPOTHESIS_TESTS.md",
+      "bytes": 14878,
+      "sha256": "21297aa0e7e0242db77f8ad0804dec57e5ef0832674817e3fe5ca0ec16ac5cd4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013: vocabulary, crop, cross-fitting and mixed-data controls"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Qualification and frozen full-data diagnostics"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Completed out-of-fold light expert evidence"
+        },
+        {
+          "line": 131,
+          "level": 2,
+          "title": "Completed trained-router results"
+        },
+        {
+          "line": 174,
+          "level": 2,
+          "title": "Completed mixed Total-Text replay result"
+        }
+      ],
+      "title": "ICDAR2013: vocabulary, crop, cross-fitting and mixed-data controls"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_MATCHED_ROUTER_GENERIC.md",
+      "bytes": 7986,
+      "sha256": "1a96393ae6b8102a50682ac87997d9d685ff93c0bb1f418a45390921930aea47",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Newly trained ICDAR2013 U-Net/Generic-DeepSolo router at exactly61 fallback images"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Full TEST outcome"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Actual fresh training"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Observed generalization limitation"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Qualification, runtime and evidence"
+        }
+      ],
+      "title": "Newly trained ICDAR2013 U-Net/Generic-DeepSolo router at exactly61 fallback images"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_MATCHED_WORD_TRAINING.md",
+      "bytes": 12090,
+      "sha256": "7d6569963370b3d3425cdb479f1e0371e83529b2a1e09e67ef0e5be8877d18a3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013 symbol-free word F1: audit and matched Total-Text loss controls"
+        },
+        {
+          "line": 14,
+          "level": 2,
+          "title": "What the historical comparison actually establishes"
+        },
+        {
+          "line": 55,
+          "level": 2,
+          "title": "Failed512 preflight and retained word supervision"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Frozen experimental boundaries"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "Qualification and execution"
+        },
+        {
+          "line": 135,
+          "level": 2,
+          "title": "Completed results and interpretation"
+        }
+      ],
+      "title": "ICDAR2013 symbol-free word F1: audit and matched Total-Text loss controls"
+    },
+    {
+      "root": "repository",
       "path": "docs/ICDAR13_ROUTING_AUDIT.md",
       "bytes": 5327,
       "sha256": "5bb7c73280519477efd69bbdb5f793d8c9aa73c46cae42f4d126f07564a2b1b8",
@@ -1844,6 +2865,640 @@
         }
       ],
       "title": "ICDAR13 routing audit and persistent comparison"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_TRANSFER_DURATION.md",
+      "bytes": 7652,
+      "sha256": "b0e2629e74550ae712502153fb6712da1db82a89cf555fc674a4297efd41b252",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013 Total-Text transfer and training duration"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Predeclared comparison"
+        },
+        {
+          "line": 42,
+          "level": 2,
+          "title": "Implementation and execution"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Completed results"
+        }
+      ],
+      "title": "ICDAR2013 Total-Text transfer and training duration"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_UNET_DENSE_INSTANCES.md",
+      "bytes": 22406,
+      "sha256": "41d4d8c7fe64a343054db82021f248b6a4d4a11d40f5ad6de899485d2fb9f0ae",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013: U-Net dense word instances toward the 61-image fallback target"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Evidence and new factor"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Fixed training and evaluation boundary"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Provenance and runtime"
+        },
+        {
+          "line": 97,
+          "level": 2,
+          "title": "Executed qualification and current run"
+        },
+        {
+          "line": 144,
+          "level": 2,
+          "title": "Preparation of joint adaptation and a text-pretrained encoder"
+        },
+        {
+          "line": 186,
+          "level": 2,
+          "title": "Predeclared matched word-U-Net adaptation"
+        },
+        {
+          "line": 236,
+          "level": 2,
+          "title": "Completed text-encoder arm and frozen downstream evaluation"
+        },
+        {
+          "line": 317,
+          "level": 2,
+          "title": "Fold-safe TRAIN teacher preparation"
+        }
+      ],
+      "title": "ICDAR2013: U-Net dense word instances toward the 61-image fallback target"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_UNET_YOLO_PROCEDURE.md",
+      "bytes": 2900,
+      "sha256": "b56f1188b9911fa8b4ccb0110237acadd79c9585a9cf2f880720087769eacee5",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013 U-Net: matched YOLO selection procedure"
+        }
+      ],
+      "title": "ICDAR2013 U-Net: matched YOLO selection procedure"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR13_WORD_REFIT.md",
+      "bytes": 22741,
+      "sha256": "a3855bb934c822d19a3f1f98a5333b9a67118f9ba8b07d71341fb6b5564437f1",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2013 full-word U-Net refit and ICDAR2015 fallback feasibility"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Mask finding and isolated correction"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Predeclared training and selection"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Official word annotations recovered after the training contract froze"
+        },
+        {
+          "line": 120,
+          "level": 2,
+          "title": "Qualification and automatic completion"
+        },
+        {
+          "line": 155,
+          "level": 2,
+          "title": "ICDAR2015: minimum fallback needed for target F1 78.2%"
+        },
+        {
+          "line": 207,
+          "level": 2,
+          "title": "Completed training and independent recheck"
+        },
+        {
+          "line": 213,
+          "level": 3,
+          "title": "TEST routes"
+        },
+        {
+          "line": 231,
+          "level": 3,
+          "title": "The90% target is impossible at this budget for the current fixed outputs"
+        },
+        {
+          "line": 237,
+          "level": 3,
+          "title": "What the recheck establishes"
+        },
+        {
+          "line": 243,
+          "level": 3,
+          "title": "Generalization evidence"
+        },
+        {
+          "line": 258,
+          "level": 3,
+          "title": "Comparison with previous frozen pipelines at the same strict budget"
+        },
+        {
+          "line": 268,
+          "level": 3,
+          "title": "Completion evidence"
+        },
+        {
+          "line": 284,
+          "level": 3,
+          "title": "Supervision masks versus predicted masks"
+        }
+      ],
+      "title": "ICDAR2013 full-word U-Net refit and ICDAR2015 fallback feasibility"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_ENCODER_DECAY.md",
+      "bytes": 5495,
+      "sha256": "80d32cb154f3af1e3774fdb0e2c03b849e1d7f6f09e818d861d7b1c73dc88f49",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015: matched encoder regularization experiment"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Evidence motivating the experiment"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Predeclared matched comparison"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Completed result"
+        }
+      ],
+      "title": "ICDAR2015: matched encoder regularization experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_SEED_PARTITION.md",
+      "bytes": 3226,
+      "sha256": "b59788a2d514de137b1e4c790ff7f2dc4c29019b3a0f6fdd3a2c48d8bd3af999",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015: confidence seeds for a frozen single-output U-Net"
+        }
+      ],
+      "title": "ICDAR2015: confidence seeds for a frozen single-output U-Net"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_SYNTHTEXT_PRETRAINING.md",
+      "bytes": 6987,
+      "sha256": "24de467d44d98a91184562289d46b926a5e4b3996cfa3d3e9dd38135445653d4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015: existing SynthText data for broader text pretraining"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Data preparation"
+        },
+        {
+          "line": 37,
+          "level": 2,
+          "title": "Predeclared training stages and evidence boundary"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Actual readiness and start"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Completed result"
+        }
+      ],
+      "title": "ICDAR2015: existing SynthText data for broader text pretraining"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_TARGET70.md",
+      "bytes": 17771,
+      "sha256": "9b41855f78d1a128896a0e82a07fb2d6ea5ab813be2f3a7edc58064265799be7",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015 U-Net: the 70% correct-word F1 objective"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Evidence and fixed evaluation"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Predeclared first training comparison"
+        },
+        {
+          "line": 67,
+          "level": 2,
+          "title": "Word selection and output calibration"
+        },
+        {
+          "line": 119,
+          "level": 2,
+          "title": "Perfect-localization diagnostic"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "title": "Execution and completion evidence"
+        },
+        {
+          "line": 229,
+          "level": 2,
+          "title": "Completed first comparison and TEST500 result"
+        }
+      ],
+      "title": "ICDAR2015 U-Net: the 70% correct-word F1 objective"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_TARGET70_OHEM.md",
+      "bytes": 7264,
+      "sha256": "c80193f0379c60f20cfb8324b80b194a5e7b1a0b0cefdba0fe69900584b74164",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015 target70: hard-negative loss and complete encoder adaptation"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Evidence for the next comparison"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Predeclared experiment"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Exact supervision and checkpoint selection"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Qualification and validation evidence"
+        }
+      ],
+      "title": "ICDAR2015 target70: hard-negative loss and complete encoder adaptation"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_TOTALTEXT_TRANSFER.md",
+      "bytes": 9920,
+      "sha256": "e45d01e3b6cf58dccbffaa9942e88634d503314182437b8cfbcaae7955ad6ea3",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015 U-Net and word-mask transfer from Total-Text"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Comparison and selected changes"
+        },
+        {
+          "line": 46,
+          "level": 2,
+          "title": "Complete TRAIN target audit"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "Validation and scientific boundaries"
+        },
+        {
+          "line": 115,
+          "level": 2,
+          "title": "Reproducible commands on PAPER"
+        },
+        {
+          "line": 149,
+          "level": 2,
+          "title": "Implementation qualification"
+        }
+      ],
+      "title": "ICDAR2015 U-Net and word-mask transfer from Total-Text"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_TOTALTEXT_WEIGHTS.md",
+      "bytes": 7103,
+      "sha256": "ea4cad43b2bda9c057fd4ae7d29eecf13dbbac17792a634c77ca5a3af814d415",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015: explicit transfer of trained Total-Text weights"
+        },
+        {
+          "line": 43,
+          "level": 2,
+          "title": "Initial validation and execution readiness"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "title": "Completed larger-inference validation probe"
+        }
+      ],
+      "title": "ICDAR2015: explicit transfer of trained Total-Text weights"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_UNET_IMPROVEMENT.md",
+      "bytes": 18102,
+      "sha256": "a590be8ce8622a78bf13a1d5035b1341b3d52eb7c212267c8f1dbe33e4e871b8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Controlled ICDAR2015 U-Net improvement"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Frozen protocol"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "title": "Data integrity qualification"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Completed target and resolution checks"
+        },
+        {
+          "line": 135,
+          "level": 2,
+          "title": "OCR runtime qualification"
+        },
+        {
+          "line": 173,
+          "level": 2,
+          "title": "Execution and evidence"
+        },
+        {
+          "line": 192,
+          "level": 2,
+          "title": "Completed matched training and GPU validation"
+        },
+        {
+          "line": 240,
+          "level": 2,
+          "title": "Complete TEST500 result"
+        }
+      ],
+      "title": "Controlled ICDAR2015 U-Net improvement"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR2015_WORD_F1.md",
+      "bytes": 11190,
+      "sha256": "d8724c62152cad086609f9754ab4c15ba0d3f777b571c6f3a2303f1370c18459",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR2015 full training and symbol-free word F1"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Frozen training and evaluation protocol"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Evidence classification"
+        },
+        {
+          "line": 89,
+          "level": 2,
+          "title": "Execution"
+        },
+        {
+          "line": 114,
+          "level": 2,
+          "title": "Completed results"
+        },
+        {
+          "line": 171,
+          "level": 3,
+          "title": "Completed-cache serialization correction"
+        }
+      ],
+      "title": "ICDAR2015 full training and symbol-free word F1"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ICDAR_TRAINED_BUDGET_ROUTER.md",
+      "bytes": 15131,
+      "sha256": "29cc96268f208c888028f74544bb4925ac9a44ef7fe32cdd482167fc88a91666",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Dataset-specific cheap YOLO/U-Net routing on ICDAR2013 and ICDAR2015"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Predeclared protocol"
+        },
+        {
+          "line": 76,
+          "level": 2,
+          "title": "Scientific boundaries"
+        },
+        {
+          "line": 100,
+          "level": 2,
+          "title": "Verification and deployment outputs"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Completed full TEST evaluation"
+        },
+        {
+          "line": 123,
+          "level": 3,
+          "title": "Primary fixed-budget results"
+        },
+        {
+          "line": 134,
+          "level": 3,
+          "title": "Baselines with the identical metric and ignore policy"
+        },
+        {
+          "line": 145,
+          "level": 3,
+          "title": "Scalar thresholds selected only on separate validation calibration"
+        },
+        {
+          "line": 164,
+          "level": 3,
+          "title": "Interpretation and head cost"
+        },
+        {
+          "line": 177,
+          "level": 3,
+          "title": "Evidence and completion checks"
+        }
+      ],
+      "title": "Dataset-specific cheap YOLO/U-Net routing on ICDAR2013 and ICDAR2015"
+    },
+    {
+      "root": "repository",
+      "path": "docs/IMAGE_CONTEXT_CORRECTION.md",
+      "bytes": 13376,
+      "sha256": "2721d27fb66e86a003dda5ac4d6488df4260645673461647a115883abacab025",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Image-wide OCR correction battery"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "New method and controlled context tests"
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "title": "Training data, characters and fragments"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "False positives and evaluation"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "title": "Execution and qualification"
+        },
+        {
+          "line": 179,
+          "level": 2,
+          "title": "Completed findings"
+        }
+      ],
+      "title": "Image-wide OCR correction battery"
+    },
+    {
+      "root": "repository",
+      "path": "docs/IMAGE_CONTEXT_CORRECTION_RESULTS.md",
+      "bytes": 20432,
+      "sha256": "0145d7f67428eefabb78b5a74ed93d81a23501b98f6a659758490dc1f1588312",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Image-wide OCR correction: completed results"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Scope and protocol"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Frozen correction profiles"
+        },
+        {
+          "line": 46,
+          "level": 2,
+          "title": "Why the correction gains remain small"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "title": "Matched generator recipes"
+        },
+        {
+          "line": 68,
+          "level": 2,
+          "title": "False positives and joint composition"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "What the 80% target requires"
+        },
+        {
+          "line": 101,
+          "level": 2,
+          "title": "Qualification and preserved failures"
+        },
+        {
+          "line": 113,
+          "level": 2,
+          "title": "Evidence and rerun entry points"
+        }
+      ],
+      "title": "Image-wide OCR correction: completed results"
     },
     {
       "root": "repository",
@@ -1925,6 +3580,119 @@
         }
       ],
       "title": "English source and evidence policy"
+    },
+    {
+      "root": "repository",
+      "path": "docs/LIGHTWEIGHT_ICDAR13_90.md",
+      "bytes": 34053,
+      "sha256": "050fa717c42730a46a7d68ad975dcfb3f1d926528eb43d21478be4f99ef413bc",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Lightweight ICDAR2013 90% fixed-budget research"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Declared first experiment"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "First completed admission/router experiment"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "title": "Declared fallback rereading follow-up"
+        },
+        {
+          "line": 127,
+          "level": 2,
+          "title": "Lightweight detector control and supervised adaptation"
+        },
+        {
+          "line": 204,
+          "level": 2,
+          "title": "Declared fixed-emission count gate"
+        },
+        {
+          "line": 240,
+          "level": 2,
+          "title": "Completed fixed-emission trial v3 (negative TEST)"
+        },
+        {
+          "line": 273,
+          "level": 2,
+          "title": "Expert-OOF operating point and retained common procedure"
+        },
+        {
+          "line": 393,
+          "level": 2,
+          "title": "Conservative gate and conditional fallback fusion: full TEST results"
+        },
+        {
+          "line": 444,
+          "level": 2,
+          "title": "Qualified no-extra-neural common selector"
+        },
+        {
+          "line": 499,
+          "level": 2,
+          "title": "Fresh selected-image DeepSolo verification"
+        }
+      ],
+      "title": "Lightweight ICDAR2013 90% fixed-budget research"
+    },
+    {
+      "root": "repository",
+      "path": "docs/LIGHTWEIGHT_UNET_ROUTER.md",
+      "bytes": 10361,
+      "sha256": "1b4546890d7984e0caa5109f164f5c0473ff5774796d31b9ae6979f660927b97",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Lightweight corrected-U-Net router: retained signals and calibration"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "title": "Implemented reduction"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "title": "Feature evidence"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "title": "Frozen calibration policies on TEST"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Meaningful general rule"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Descriptive quota comparison"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Qualification and limitations"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Reproducible implementation"
+        }
+      ],
+      "title": "Lightweight corrected-U-Net router: retained signals and calibration"
     },
     {
       "root": "repository",
@@ -2018,6 +3786,60 @@
       "reported_metadata": {
         "result_class": "approximate reproduction"
       }
+    },
+    {
+      "root": "repository",
+      "path": "docs/OCCLUSION_FOUR_TESTS.md",
+      "bytes": 12970,
+      "sha256": "65429c72f2ddda0d24df89c7c88e38ea0980e8ce491e08c195b4882e3b8ba8a4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Four occlusion-inspired component experiments"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Implementation and evidence"
+        },
+        {
+          "line": 24,
+          "level": 2,
+          "title": "Frozen populations and protocol"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "Four comparisons"
+        },
+        {
+          "line": 83,
+          "level": 2,
+          "title": "Artifacts and execution"
+        },
+        {
+          "line": 108,
+          "level": 2,
+          "title": "Qualification and limitations"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "title": "Completed results (2026-10-22)"
+        },
+        {
+          "line": 154,
+          "level": 3,
+          "title": "Recognition budget tradeoff"
+        },
+        {
+          "line": 167,
+          "level": 3,
+          "title": "Audit and interpretation"
+        }
+      ],
+      "title": "Four occlusion-inspired component experiments"
     },
     {
       "root": "repository",
@@ -2124,8 +3946,8 @@
     {
       "root": "repository",
       "path": "docs/PAPER_AMBIGUITIES.md",
-      "bytes": 669040,
-      "sha256": "d52b86cf3e313fa1687d1cd89de9148760282e4641fe4f47efd47934ebcfb82d",
+      "bytes": 976704,
+      "sha256": "a080452188ee49766d7b82b34e7c0adeaa2c701f713b77c08cfd8dd89747c0aa",
       "headings": [
         {
           "line": 1,
@@ -3489,11 +5311,670 @@
         },
         {
           "line": 9252,
+          "level": 3,
+          "title": "YOLO-F1-QUALITY-STUDY-001 — Sweeping accepted-image quality targets (2026-10-22)"
+        },
+        {
+          "line": 9313,
           "level": 2,
           "title": "REPORTING-ENGLISH-LIBRARY-001 — English experiment navigation and saved summaries"
+        },
+        {
+          "line": 9341,
+          "level": 2,
+          "title": "OCCLUSION-FOUR-TESTS-001 — Four occlusion-inspired component experiments"
+        },
+        {
+          "line": 9380,
+          "level": 2,
+          "title": "YOLO-RESIDUAL-COST-001 — Residual-region and error-cost routing (2026-10-22)"
+        },
+        {
+          "line": 9431,
+          "level": 2,
+          "title": "TEACHER-STUDENT-TESTS-001 — Controlled teacher/student research pilots"
+        },
+        {
+          "line": 9466,
+          "level": 2,
+          "title": "YOLO-TRAINABLE-ROUTER-001 — Supervised oracle-separation routing (2026-10-23)"
+        },
+        {
+          "line": 9525,
+          "level": 2,
+          "title": "GRAPH-OCCLUSION-RESEARCH-001 — Fragment graphs and clean-to-occluded U-Net"
+        },
+        {
+          "line": 9536,
+          "level": 2,
+          "title": "GROUNDED-CONTEXT-ROUTER-001 — Independent inventory and local visual routing (2026-10-23)"
+        },
+        {
+          "line": 9594,
+          "level": 2,
+          "title": "CREATIVE-CONTEXT-ROUTER-001 — Six context signals and error retrieval (2026-10-23)"
+        },
+        {
+          "line": 9664,
+          "level": 2,
+          "title": "TEXT-RECONSTRUCTION-TESTS-001 — Frozen-OCR completion and learned text reconstruction"
+        },
+        {
+          "line": 9719,
+          "level": 2,
+          "title": "GRAPH-OCCLUSION-FOLLOWUPS-002 — Controlled training and contour GCN"
+        },
+        {
+          "line": 9731,
+          "level": 2,
+          "title": "TEXT-RECONSTRUCTION-RESULTS-001 — Completed frozen-OCR reconstruction tests"
+        },
+        {
+          "line": 9762,
+          "level": 2,
+          "title": "SHADOW-INVENTORY-ROUTER-001 — Dedicated detector audits and bounded corrections"
+        },
+        {
+          "line": 9776,
+          "level": 2,
+          "title": "WORD-GRAPH-RECOVERY-001 — Locked word hypotheses, complete crops, graph decoder and regional teacher"
+        },
+        {
+          "line": 9818,
+          "level": 2,
+          "title": "SELECTIVE-WORD-REPAIR-TESTS-001 — selective repair and false-positive controls"
+        },
+        {
+          "line": 9831,
+          "level": 2,
+          "title": "SELECTIVE-WORD-REPAIR-RESULTS-001 — completed approximate battery"
+        },
+        {
+          "line": 9843,
+          "level": 2,
+          "title": "TOKEN-CONTEXT-ROUTER-001 — full-TRAIN paired-benefit context routers"
+        },
+        {
+          "line": 9857,
+          "level": 2,
+          "title": "CONTEXTUAL-BOUNDARY-SELECTION-001 — Contextual comparison of copied-character OCR divisions"
+        },
+        {
+          "line": 9870,
+          "level": 2,
+          "title": "WORD-EVIDENCE-GRAPHS-001 — Typed relations, visual ownership, spatial characters and active observations"
+        },
+        {
+          "line": 9883,
+          "level": 3,
+          "title": "CONTEXTUAL-BOUNDARY-SELECTION-001 supplementary calibration sensitivity"
+        },
+        {
+          "line": 9889,
+          "level": 2,
+          "title": "CONTEXTUAL-BOUNDARY-RESULTS-001 — Completed copied-character selection battery"
+        },
+        {
+          "line": 9898,
+          "level": 2,
+          "title": "WORD-SLOT-METHODS-001 — Multi-scale word-slot decoder and complementary experts"
+        },
+        {
+          "line": 9923,
+          "level": 2,
+          "title": "WORD-SLOT-ALPHANUMERIC-001 — User-directed comparison without symbols"
+        },
+        {
+          "line": 9937,
+          "level": 2,
+          "title": "ICDAR2015-TOTALTEXT-TRANSFER-001 — U-Net and disjoint word-mask transfer"
+        },
+        {
+          "line": 10001,
+          "level": 2,
+          "title": "DEEPSOLO-WORD-F1-20261025 — Symbol-free DeepSolo baseline and optimization"
+        },
+        {
+          "line": 10063,
+          "level": 2,
+          "title": "GROUNDED-WORD-RECOVERY-001 — Joint word validity, localization queries and visual edits"
+        },
+        {
+          "line": 10078,
+          "level": 2,
+          "title": "IMAGE-CONTEXT-CORRECTION-001 — Image-wide OCR correction battery"
+        },
+        {
+          "line": 10115,
+          "level": 2,
+          "title": "ROUTER-CAUSE-TESTS-001 — controlled verification of routing failure hypotheses"
+        },
+        {
+          "line": 10178,
+          "level": 2,
+          "title": "ROUTER-CAUSE-TESTS-002 — completed hypothesis tests and supplementary analysis"
+        },
+        {
+          "line": 10186,
+          "level": 2,
+          "title": "ICDAR2015-WORD-F1-001 — Full transfer training and symbol-free word F1"
+        },
+        {
+          "line": 10259,
+          "level": 2,
+          "title": "ROUTER-IMPROVED-DEEPSOLO-REPLAY-001 — punctuation and improved fallback transfer"
+        },
+        {
+          "line": 10272,
+          "level": 2,
+          "title": "DEEPSOLO-SHORT-WORDS-20261026 — Symmetric minimum-length reassessment"
+        },
+        {
+          "line": 10305,
+          "level": 1,
+          "title": "ICDAR2015-UNET-IMPROVEMENT-001 — Controlled larger-input word ablations"
+        },
+        {
+          "line": 10356,
+          "level": 2,
+          "title": "UNET-MINIMUM-FALLBACK-001 — Corrected U-Net with minimum DeepSolo image cost"
+        },
+        {
+          "line": 10383,
+          "level": 2,
+          "title": "UNET-TOKEN-ROUTER-001 — matched token routing on the best qualified U-Net control"
+        },
+        {
+          "line": 10395,
+          "level": 2,
+          "title": "ICDAR2015-TARGET70-001 — Long training and native-resolution encoder adaptation"
+        },
+        {
+          "line": 10410,
+          "level": 2,
+          "title": "ICDAR2015-TARGET70-OHEM-001 — Hard negatives and complete encoder feature adaptation"
+        },
+        {
+          "line": 10421,
+          "level": 2,
+          "title": "UNET-CORRECTED-TOKEN-001 — Token image gating with the qualified corrected U-Net"
+        },
+        {
+          "line": 10438,
+          "level": 2,
+          "title": "DIRECTIONAL-TRANSPORT-001 — Ownership-conditioned dense decoder and RGB detail"
+        },
+        {
+          "line": 10479,
+          "level": 2,
+          "title": "IMAGE-CONTEXT-CORRECTION-RESULTS-001 — Completed downstream correction battery"
+        },
+        {
+          "line": 10534,
+          "level": 2,
+          "title": "DIRECTIONAL-TRANSPORT-001-PROVENANCE — Warm-start exposure clarification"
+        },
+        {
+          "line": 10544,
+          "level": 2,
+          "title": "DIRECTIONAL-TRANSPORT-001-CROPS — Ground-truth crop diagnostic"
+        },
+        {
+          "line": 10555,
+          "level": 2,
+          "title": "UNET-TOKEN-COMPLETION-20261027 — measured results and raw-score calibration"
+        },
+        {
+          "line": 10564,
+          "level": 2,
+          "title": "DIRECTIONAL-TRANSPORT-FROZEN-002 — Preserve source while learning residual paths"
+        },
+        {
+          "line": 10590,
+          "level": 2,
+          "title": "UNET-CORRECTED-THRESHOLDS-001 — Frozen-gate threshold and marginal-loss diagnosis"
+        },
+        {
+          "line": 10603,
+          "level": 2,
+          "title": "DIRECTIONAL-TRANSPORT-FROZEN-002-BN — Post-hoc normalization intervention"
+        },
+        {
+          "line": 10616,
+          "level": 2,
+          "title": "LIGHTWEIGHT-UNET-ROUTER-001 — Useful signals and calibration of a smaller gate"
+        },
+        {
+          "line": 10635,
+          "level": 2,
+          "title": "ROUTER-VALIDATION-001 — Expert exposure and unchanged-weight validation calibration"
+        },
+        {
+          "line": 10646,
+          "level": 2,
+          "title": "ROUTER-VALIDATION-COMPLETION-20261027 — measured calibration and localization controls"
+        },
+        {
+          "line": 10654,
+          "level": 2,
+          "title": "DIRECTIONAL-CLOSEDNESS-003 — Read ownership outputs as component completeness"
+        },
+        {
+          "line": 10675,
+          "level": 2,
+          "title": "DIRECTIONAL-CONTINUATION-004 — CAL-controlled continuation of the positive regime"
+        },
+        {
+          "line": 10707,
+          "level": 2,
+          "title": "DIRECTIONAL-AFFINITY-SPLIT-005 — Conservative graph instance decoding"
+        },
+        {
+          "line": 10735,
+          "level": 2,
+          "title": "BUDGET-DISTILLED-ROUTER-001 — Cheap paired-expert gate at half acceptance"
+        },
+        {
+          "line": 10740,
+          "level": 2,
+          "title": "BUDGET-DISTILLED-ADAPT-002 — Explicit expert-unseen router adaptation"
+        },
+        {
+          "line": 10745,
+          "level": 2,
+          "title": "BUDGET-DISTILLED-UNSEEN-003 — Exclude expert-fitting labels entirely"
+        },
+        {
+          "line": 10750,
+          "level": 2,
+          "title": "BUDGET-DISTILLED-COMPLETION-20261027 — Audited negative selector result"
+        },
+        {
+          "line": 10754,
+          "level": 2,
+          "title": "ESSENTIAL-BUDGET 50-001 — Router storage and held-out calibration near half fallback"
+        },
+        {
+          "line": 10769,
+          "level": 2,
+          "title": "ICDAR2015-TOTALTEXT-WEIGHTS-001 — Explicit cross-dataset weight initialization"
+        },
+        {
+          "line": 10776,
+          "level": 2,
+          "title": "ESSENTIAL-PORTABLE-RECHECK-20261027 — Existing qualified corrected-expert gate"
+        },
+        {
+          "line": 10780,
+          "level": 2,
+          "title": "ENCODER-FAMILY-ROUTER-001 — Matched CLIP/BLIP encoder signals with larger trainable heads"
+        },
+        {
+          "line": 10799,
+          "level": 2,
+          "title": "ICDAR2015-TOTALTEXT-RESOLUTION-001 — Larger validation inference before adaptation"
+        },
+        {
+          "line": 10804,
+          "level": 2,
+          "title": "ICDAR-TRAINED-BUDGET-001 — Four dataset-specific cheap gates"
+        },
+        {
+          "line": 10808,
+          "level": 3,
+          "title": "ICDAR-TRAINED-BUDGET-002 — Dataset-specific fallback budget before full fitting"
+        },
+        {
+          "line": 10824,
+          "level": 2,
+          "title": "ICDAR2015-ENCODER-DECAY-001 — Coupled L2 under frozen encoder BN"
+        },
+        {
+          "line": 10828,
+          "level": 3,
+          "title": "ICDAR13-WORD-REFIT-001 — Full-word supervision and strict fallback budget"
+        },
+        {
+          "line": 10846,
+          "level": 2,
+          "title": "ICDAR2015-SEED-PARTITION-001 — Confidence partition of a frozen single-output mask"
+        },
+        {
+          "line": 10853,
+          "level": 3,
+          "title": "ICDAR13-WORD-REFIT-002 — Official word identity verified; target scope"
+        },
+        {
+          "line": 10872,
+          "level": 2,
+          "title": "ESSENTIAL-ICDAR-TRANSFER-001 — Complete fixed-expert ICDAR gate transfer"
+        },
+        {
+          "line": 10884,
+          "level": 2,
+          "title": "ESSENTIAL-THRESHOLD-FRONTIER-001 — Pareto cuts, matched YOLO fitting and DeepSolo comparison"
+        },
+        {
+          "line": 10904,
+          "level": 2,
+          "title": "DEEPSOLO-IC15-GAP-20261028 — Dataset checkpoint, resize and fixed word F1"
+        },
+        {
+          "line": 10918,
+          "level": 3,
+          "title": "ICDAR13-WORD-REFIT-003 — Completed outcome and post-hoc target verification"
+        },
+        {
+          "line": 10935,
+          "level": 2,
+          "title": "DEEPSOLO-ICDAR-LEXICON-20261028 — Official vocabulary correction with unchanged word F1"
+        },
+        {
+          "line": 10949,
+          "level": 2,
+          "title": "ICDAR2015-SYNTHTEXT-001 — Data diversity after measured fitting/generalization gap"
+        },
+        {
+          "line": 10961,
+          "level": 2,
+          "title": "ICDAR13-MATCHED-LOSS-001 — Native word F1 and the Total-Text recipe audit"
+        },
+        {
+          "line": 10976,
+          "level": 2,
+          "title": "TRAINED-ROUTER-VOCABULARY-REPLAY-20261028 — frozen gate, replacement fallback"
+        },
+        {
+          "line": 10986,
+          "level": 2,
+          "title": "ROUTER-LEXICON-RETRAINING-20261028 — new teachers and finite IC15 expert selection"
+        },
+        {
+          "line": 10997,
+          "level": 2,
+          "title": "ICDAR13-MATCHED-ROUTER-GENERIC-001 — Fresh gate training with Generic90 and exact61-image fallback"
+        },
+        {
+          "line": 11014,
+          "level": 2,
+          "title": "ICDAR13-HYPOTHESIS-001 — Controlled vocabulary, crop, cross-fitting and TT replay tests"
+        },
+        {
+          "line": 11048,
+          "level": 2,
+          "title": "ICDAR2015-MULTIVIEW-001 — Multiple input views of one fixed U-Net"
+        },
+        {
+          "line": 11052,
+          "level": 2,
+          "title": "ICDAR2015-WORD-SIZE-001 — Component area and proposal height on frozen views"
+        },
+        {
+          "line": 11055,
+          "level": 2,
+          "title": "BUDGET-TARGET-ROUTER-20261029 — Feasibility, lexical light correction and 61/228-image budgets"
+        },
+        {
+          "line": 11068,
+          "level": 2,
+          "title": "ICDAR13-DENSE-INSTANCES-20261029 — Complete word extents from U-Net centers"
+        },
+        {
+          "line": 11080,
+          "level": 2,
+          "title": "ICDAR13-TRANSFER-DURATION-20261029 — Transfer and additional epochs"
+        },
+        {
+          "line": 11097,
+          "level": 2,
+          "title": "ICDAR13-TEXT-ENCODER-20261029 — Text-pretrained ResNet50 initialization"
+        },
+        {
+          "line": 11120,
+          "level": 2,
+          "title": "ICDAR13-TEXT-WORD-POLICY-20261029 — Frozen evaluation of the matched word U-Net"
+        },
+        {
+          "line": 11160,
+          "level": 2,
+          "title": "ICDAR13-FOLD-SAFE-TEACHER-20261029 — TRAIN and heldout-fold vocabulary boundaries"
+        },
+        {
+          "line": 11186,
+          "level": 2,
+          "title": "COMMON-BUDGET-PIPELINE-001 — Shared TT/IC15 count-utility procedure"
+        },
+        {
+          "line": 11222,
+          "level": 3,
+          "title": "COMMON-PARITY-THRESHOLD-001 — Maximal acceptance at DeepSolo F1"
+        },
+        {
+          "line": 11262,
+          "level": 2,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Learned admission before a fixed image budget"
+        },
+        {
+          "line": 11284,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 follow-ups"
+        },
+        {
+          "line": 11311,
+          "level": 2,
+          "title": "PAPER-CAPTION-COMPARISON-001 — three-dataset caption gate comparison"
+        },
+        {
+          "line": 11318,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Expert-OOF operating-point follow-up"
+        },
+        {
+          "line": 11331,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Fixed-epoch all-TRAIN detector refit"
+        },
+        {
+          "line": 11348,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Image-gate cross-fitting follow-up"
+        },
+        {
+          "line": 11360,
+          "level": 2,
+          "title": "CAPTION-DETAIL-001 — longer grounded scene descriptions"
+        },
+        {
+          "line": 11365,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Uncertainty-aware lightweight selector"
+        },
+        {
+          "line": 11380,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Shared risk admission before budget routing"
+        },
+        {
+          "line": 11394,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Conditional fallback transcript fusion"
+        },
+        {
+          "line": 11408,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Conservative risk-selection follow-up"
+        },
+        {
+          "line": 11420,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Validation-only cost-aware variant selection"
+        },
+        {
+          "line": 11448,
+          "level": 3,
+          "title": "LIGHTWEIGHT-IC13-90-001 — Fresh selected DeepSolo execution"
+        },
+        {
+          "line": 11476,
+          "level": 3,
+          "title": "ICDAR13-UNET-YOLO-PROCEDURE-001 — Matched conditional decoder folds"
+        },
+        {
+          "line": 11505,
+          "level": 2,
+          "title": "UNIFORM-UNET-FUSION-001 — Common training, routing and fusion on three datasets"
+        },
+        {
+          "line": 11532,
+          "level": 2,
+          "title": "UNIFORM-UTILITY-FUSION-002 — Negative initial result and common CPU control"
+        },
+        {
+          "line": 11555,
+          "level": 2,
+          "title": "UNIFORM-DECODER-OOF-003 — Conditional heldout supervision for the shared gate"
+        },
+        {
+          "line": 11585,
+          "level": 2,
+          "title": "UNIFORM-INFERENCE-004 — RGB boundary, exact fallback parity and compute scope"
+        },
+        {
+          "line": 11610,
+          "level": 3,
+          "title": "CAPTION-DETAIL-001 — Frozen detailed caption qualification and matched replay"
+        },
+        {
+          "line": 11645,
+          "level": 2,
+          "title": "UNIFORM-HGB-UTILITY-005 — Shared nonlinear image utility control"
+        },
+        {
+          "line": 11664,
+          "level": 2,
+          "title": "UNIFORM-ENCODER-CONTEXT-006 — Reuse existing shared encoder activations"
+        },
+        {
+          "line": 11685,
+          "level": 2,
+          "title": "UNIFORM-WORD-UNION-007 — Shared learned post-fallback word fusion"
+        },
+        {
+          "line": 11718,
+          "level": 2,
+          "title": "UNIFORM-FALLBACK-REREAD-008 — Conditional existing-model crop rereading"
+        },
+        {
+          "line": 11735,
+          "level": 3,
+          "title": "CAPTION-DETAIL-001 — Complete evaluation and final claim boundary"
+        },
+        {
+          "line": 11765,
+          "level": 2,
+          "title": "UNIFORM-HARD-BUDGET-009: resumed image-budget constraint"
+        },
+        {
+          "line": 11797,
+          "level": 2,
+          "title": "UNIFORM-WORD-ADMISSION-010: shared light-word calibration under hard budgets"
+        },
+        {
+          "line": 11827,
+          "level": 2,
+          "title": "UNIFORM-PHOTOMETRIC-CONTINUATION-011: matched light-network robustness pilot"
+        },
+        {
+          "line": 11855,
+          "level": 2,
+          "title": "UNIFORM-INSTANCE-OBJECTIVE-012: per-owner text objective under hard budgets"
+        },
+        {
+          "line": 11894,
+          "level": 2,
+          "title": "UNIFORM-CHECKPOINT-PIPELINE-013: full-pipeline validation of retained endpoints"
+        },
+        {
+          "line": 11924,
+          "level": 2,
+          "title": "UNIFORM-SCALED-FRONTEND-014: controlled input-resolution inference probe"
+        },
+        {
+          "line": 11957,
+          "level": 2,
+          "title": "UNIFORM-SCALED-FRONTEND-015: reduced-resolution grouping follow-up"
+        },
+        {
+          "line": 11977,
+          "level": 2,
+          "title": "UNIFORM-GEOMETRIC-TRAINING-017: augmentation from the original initialization"
+        },
+        {
+          "line": 12007,
+          "level": 1,
+          "title": "UNIFORM-ENCODER-ADAPTATION-018 — Explicit upper-encoder continuation"
+        },
+        {
+          "line": 12031,
+          "level": 2,
+          "title": "UNIFORM-MULTISCALE-MASKS-019 — Fixed two-resolution probability fusion"
+        },
+        {
+          "line": 12051,
+          "level": 2,
+          "title": "UNIFORM-MULTISCALE-WORDS-021 — Conservative second-view word additions"
+        },
+        {
+          "line": 12074,
+          "level": 2,
+          "title": "UNIFORM-MULTISCALE-MATCHING-BANKS-022 — Matching heldout two-view inputs"
+        },
+        {
+          "line": 12099,
+          "level": 2,
+          "title": "UNIFORM-MULTISCALE-MATCHED-HEADS-023 — Matching-input refits at hard quotas"
         }
       ],
       "title": "Paper Ambiguities and Reproduction Blockers"
+    },
+    {
+      "root": "repository",
+      "path": "docs/PAPER_CAPTION_ROUTER_COMPARISON.md",
+      "bytes": 13206,
+      "sha256": "beb96740d7978f392414eaa26d840dcec0978ea334b20060ef7b49c3f1bf1933",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Caption router versus the qualified lightweight router"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Protocol declared before inference"
+        },
+        {
+          "line": 47,
+          "level": 2,
+          "title": "Metric and execution"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "Caption similarity review requested by the user"
+        },
+        {
+          "line": 112,
+          "level": 2,
+          "title": "Complete TEST results"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "Verification and preserved failures"
+        }
+      ],
+      "title": "Caption router versus the qualified lightweight router"
     },
     {
       "root": "repository",
@@ -3605,8 +6086,8 @@
     {
       "root": "repository",
       "path": "docs/README.md",
-      "bytes": 8976,
-      "sha256": "a88881b799997a059fa537cb9036efe73aaba5afc2d5b8767eef2548126d8b2d",
+      "bytes": 13508,
+      "sha256": "307804a1ebbd2ef78b394164aa751c55758a90f6a201bc1aee4b9f06240321dc",
       "headings": [
         {
           "line": 1,
@@ -3619,22 +6100,22 @@
           "title": "Where to start"
         },
         {
-          "line": 41,
+          "line": 70,
           "level": 2,
           "title": "Search without loading the entire history"
         },
         {
-          "line": 59,
+          "line": 88,
           "level": 2,
           "title": "Compare results"
         },
         {
-          "line": 93,
+          "line": 122,
           "level": 2,
           "title": "Available comparisons"
         },
         {
-          "line": 125,
+          "line": 154,
           "level": 2,
           "title": "Update without losing evidence"
         }
@@ -4189,6 +6670,192 @@
     },
     {
       "root": "repository",
+      "path": "docs/ROUTER_CAUSE_TESTS.md",
+      "bytes": 20189,
+      "sha256": "d15407dfd8ea0f5b9cdced943c77c5e15f21557a91a8a8f533b562a8a89110be",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Controlled tests of context-router failure causes"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "title": "Predeclared tests"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Input and diagnostic boundaries"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Execution"
+        },
+        {
+          "line": 98,
+          "level": 2,
+          "title": "Qualification and current status"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Automatic paired analysis"
+        },
+        {
+          "line": 161,
+          "level": 2,
+          "title": "Completed findings"
+        },
+        {
+          "line": 282,
+          "level": 2,
+          "title": "Priorities supported by these tests"
+        }
+      ],
+      "title": "Controlled tests of context-router failure causes"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ROUTER_IMPROVED_DEEPSOLO_REPLAY.md",
+      "bytes": 9391,
+      "sha256": "518722a55fac2a6e00bfdf476c6ec7b26613a43b2fa706ec3eedb5a0cf20e720",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen routers with improved DeepSolo and two transcription metrics"
+        },
+        {
+          "line": 12,
+          "level": 2,
+          "title": "Why the previous numbers differ"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "DeepSolo endpoint replay"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "Frozen decisions with the improved fallback"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "TRAIN populations and training limitations"
+        },
+        {
+          "line": 121,
+          "level": 2,
+          "title": "Reproducibility and completion evidence"
+        }
+      ],
+      "title": "Frozen routers with improved DeepSolo and two transcription metrics"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ROUTER_LEXICON_RETRAINING.md",
+      "bytes": 10256,
+      "sha256": "085a82d17ed89ddd64e8c61229614963664e31a85e1dd620765e928a2e7c2db2",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "ICDAR router retraining with corrected DeepSolo teachers"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "TRAIN Weak serialization repair"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Completed results"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "title": "Separate validation scalar cuts"
+        },
+        {
+          "line": 97,
+          "level": 3,
+          "title": "ICDAR2015 U-Net comparison"
+        },
+        {
+          "line": 117,
+          "level": 3,
+          "title": "Interpretation, gate size and qualifications"
+        }
+      ],
+      "title": "ICDAR router retraining with corrected DeepSolo teachers"
+    },
+    {
+      "root": "repository",
+      "path": "docs/ROUTER_VALIDATION_STUDY.md",
+      "bytes": 11484,
+      "sha256": "8bc51f75d93fe20deba7be93c92185719db199fbaaa727db8077aec74f2aa3a8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Router generalization and held-out validation calibration"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Findings motivating the new protocol"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Predeclared correction"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Evidence and qualifications"
+        },
+        {
+          "line": 73,
+          "level": 2,
+          "title": "Completed evidence and diagnosis"
+        },
+        {
+          "line": 89,
+          "level": 3,
+          "title": "Isolating recognition from crop extraction"
+        },
+        {
+          "line": 108,
+          "level": 3,
+          "title": "Spatial coverage partition"
+        },
+        {
+          "line": 128,
+          "level": 3,
+          "title": "What changed in the router protocol"
+        },
+        {
+          "line": 142,
+          "level": 3,
+          "title": "Validation50% operating point"
+        },
+        {
+          "line": 167,
+          "level": 2,
+          "title": "Consequences and remaining causal work"
+        }
+      ],
+      "title": "Router generalization and held-out validation calibration"
+    },
+    {
+      "root": "repository",
       "path": "docs/SCENE_TEXT_DATASETS.md",
       "bytes": 6183,
       "sha256": "96d5a9ffba70782b9c5594c0d1ded43e6c0195cb264296e8796f3159cb744d01",
@@ -4296,6 +6963,40 @@
     },
     {
       "root": "repository",
+      "path": "docs/SELECTIVE_WORD_REPAIR_TESTS.md",
+      "bytes": 12780,
+      "sha256": "c670ee6876dd9973cb94f32b26e2de2576f72ea1b9fa1598b46fa6a9831a5c2d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Selective word repair and false-positive control"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "title": "Controlled experiments"
+        },
+        {
+          "line": 63,
+          "level": 2,
+          "title": "Data, metrics and qualification"
+        },
+        {
+          "line": 105,
+          "level": 2,
+          "title": "Completed full results, 2026-10-24"
+        },
+        {
+          "line": 170,
+          "level": 2,
+          "title": "Failure limits, costs and qualification"
+        }
+      ],
+      "title": "Selective word repair and false-positive control"
+    },
+    {
+      "root": "repository",
       "path": "docs/SEPARATED_WORD_GT.md",
       "bytes": 18784,
       "sha256": "805e5cd59d39f94e4eb006e102c9f0ba1bbd072e67b1a8ef52da290c610234c7",
@@ -4332,6 +7033,84 @@
         }
       ],
       "title": "Separated full-word masks from downloaded datasets"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SHADOW_INVENTORY_ROUTER.md",
+      "bytes": 12333,
+      "sha256": "07fbaad2d189cd317cae8b3ebba64eb0e3f3b44d5c819fafa186a7dbcdc4f14d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Independent inventories and bounded routing corrections"
+        },
+        {
+          "line": 6,
+          "level": 2,
+          "title": "What is new in this repository"
+        },
+        {
+          "line": 32,
+          "level": 2,
+          "title": "Frozen protocol"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Implementation and selection"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "Results"
+        },
+        {
+          "line": 142,
+          "level": 2,
+          "title": "Runtime and verification"
+        },
+        {
+          "line": 172,
+          "level": 2,
+          "title": "Reproduce and inspect"
+        }
+      ],
+      "title": "Independent inventories and bounded routing corrections"
+    },
+    {
+      "root": "repository",
+      "path": "docs/SHARED_PIPELINE_CODE_TOUR.md",
+      "bytes": 8740,
+      "sha256": "612e478fdbe715a6f9f724abab038116b7bf9a7eb882406291f9ab9dff09b283",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Shared pipeline: code tour for a research presentation"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Suggested presentation order"
+        },
+        {
+          "line": 40,
+          "level": 2,
+          "title": "Entry point, profiles and outputs"
+        },
+        {
+          "line": 69,
+          "level": 2,
+          "title": "Latest candidate versus the qualified runtime"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Tests and scientific boundaries to show"
+        }
+      ],
+      "title": "Shared pipeline: code tour for a research presentation"
     },
     {
       "root": "repository",
@@ -4430,6 +7209,45 @@
         }
       ],
       "title": "Automatic acquisition for the detection experiment"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TEACHER_STUDENT_TESTS.md",
+      "bytes": 13782,
+      "sha256": "d3a5b3b86eea58bdb66e8616a977f41201ae49eb50ca500cd4a560b8fc994856",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Five teacher/student and selection pilots"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Evidence inspected"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "title": "Populations and evaluation"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "title": "Five experiments"
+        },
+        {
+          "line": 92,
+          "level": 2,
+          "title": "Reproducibility and qualification"
+        },
+        {
+          "line": 135,
+          "level": 2,
+          "title": "Completed results"
+        }
+      ],
+      "title": "Five teacher/student and selection pilots"
     },
     {
       "root": "repository",
@@ -4540,6 +7358,60 @@
     },
     {
       "root": "repository",
+      "path": "docs/TEXT_RECONSTRUCTION_TESTS.md",
+      "bytes": 15759,
+      "sha256": "20e36af01e5f8b762c20179d2edb4296696644427faa8752505a2806b5a459ec",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen OCR: completion, structural selection, and byte denoising"
+        },
+        {
+          "line": 18,
+          "level": 2,
+          "title": "Scientific basis and earlier evidence"
+        },
+        {
+          "line": 43,
+          "level": 2,
+          "title": "Fixed data and evidence boundaries"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "title": "Three experiments"
+        },
+        {
+          "line": 110,
+          "level": 2,
+          "title": "Metrics and audit"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Execution and qualification"
+        },
+        {
+          "line": 170,
+          "level": 2,
+          "title": "Completed results and interpretation"
+        },
+        {
+          "line": 213,
+          "level": 3,
+          "title": "What produces the apparent gain?"
+        },
+        {
+          "line": 242,
+          "level": 3,
+          "title": "Verification and artifacts"
+        }
+      ],
+      "title": "Frozen OCR: completion, structural selection, and byte denoising"
+    },
+    {
+      "root": "repository",
       "path": "docs/TIGHTER_WORD_GT_V2.md",
       "bytes": 7890,
       "sha256": "72c9ed638ce25f3845aa48162dba18827920bb626efa8d115fde618d4ce2b5ca",
@@ -4571,6 +7443,40 @@
         }
       ],
       "title": "Compact word GT v2 and isolated retraining"
+    },
+    {
+      "root": "repository",
+      "path": "docs/TOKEN_CONTEXT_ROUTER.md",
+      "bytes": 9367,
+      "sha256": "4f91fc701f87e2aa93b1059b838867196be5265e5f7d1d799e2da0ad4419cf35",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Three context routers with full-TRAIN benefit supervision"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Implemented proposals"
+        },
+        {
+          "line": 36,
+          "level": 2,
+          "title": "Objective and evaluation"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Execution and provenance"
+        },
+        {
+          "line": 111,
+          "level": 2,
+          "title": "Qualification and launch status (2026-10-24)"
+        }
+      ],
+      "title": "Three context routers with full-TRAIN benefit supervision"
     },
     {
       "root": "repository",
@@ -5308,6 +8214,45 @@
     },
     {
       "root": "repository",
+      "path": "docs/TRAINED_ROUTER_VOCABULARY_REPLAY.md",
+      "bytes": 10309,
+      "sha256": "29381eda565217160791625fbe23f330a478605da8dd423c7c3576a1a1ddbf2e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen trained routers with ICDAR-specific DeepSolo vocabularies"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Fixed predeclared budgets"
+        },
+        {
+          "line": 20,
+          "level": 2,
+          "title": "Original validation scalar cuts"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Full DeepSolo endpoint and complete rank curves"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Interpretation and uncertainty"
+        },
+        {
+          "line": 78,
+          "level": 2,
+          "title": "Verification and evidence"
+        }
+      ],
+      "title": "Frozen trained routers with ICDAR-specific DeepSolo vocabularies"
+    },
+    {
+      "root": "repository",
       "path": "docs/TRAIN_GROUPING_FAILURES_AND_RECOVERY.md",
       "bytes": 9191,
       "sha256": "dc963361eb070f7a5202feab21d99f77b47a8b4a4147dbc85c7a64eded6c7256",
@@ -5383,6 +8328,89 @@
         }
       ],
       "title": "Auxiliary recognition supervision of shared U-Net features"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_CORRECTED_TOKEN_ROUTER.md",
+      "bytes": 12993,
+      "sha256": "c15fe9c1f6e1bb6bb7214b52b36707bd33f64baff98f78a310bcd712fd760d48",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Token image routing with the qualified corrected U-Net"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Frozen reference and controlled comparison"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "Tokens, training and thresholds"
+        },
+        {
+          "line": 55,
+          "level": 2,
+          "title": "Metric and fallback boundary"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "title": "Completed results"
+        },
+        {
+          "line": 118,
+          "level": 2,
+          "title": "What the corrections and router actually achieve"
+        },
+        {
+          "line": 152,
+          "level": 2,
+          "title": "Execution and qualification"
+        }
+      ],
+      "title": "Token image routing with the qualified corrected U-Net"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_CORRECTED_TOKEN_THRESHOLDS.md",
+      "bytes": 8899,
+      "sha256": "8d3f18603cc8f6cdf41cfd1fd2357a054e32a17e11bc92d68125a7471b212ea7",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Frozen TRAIN thresholds and the 40-to-50 percent acceptance loss"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "title": "Threshold meaning and transfer"
+        },
+        {
+          "line": 39,
+          "level": 2,
+          "title": "Expert generalization boundary"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Exact loss from accepting more images"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "title": "What should change next"
+        },
+        {
+          "line": 91,
+          "level": 2,
+          "title": "Validation"
+        }
+      ],
+      "title": "Frozen TRAIN thresholds and the 40-to-50 percent acceptance loss"
     },
     {
       "root": "repository",
@@ -5508,6 +8536,35 @@
     },
     {
       "root": "repository",
+      "path": "docs/UNET_MINIMUM_FALLBACK.md",
+      "bytes": 9106,
+      "sha256": "f7ede71a1eb1541561ae6b94a9c3a35c87317b1920c06f2f8cab3f836b381ace",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Corrected U-Net branch with minimum DeepSolo image fallback"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Objective and protocol"
+        },
+        {
+          "line": 56,
+          "level": 2,
+          "title": "Classification and execution"
+        },
+        {
+          "line": 79,
+          "level": 2,
+          "title": "Completed outcome"
+        }
+      ],
+      "title": "Corrected U-Net branch with minimum DeepSolo image fallback"
+    },
+    {
+      "root": "repository",
       "path": "docs/UNET_RESTART_STORAGE.md",
       "bytes": 3844,
       "sha256": "03b1b5cfa1443fc329bef9a94295b9ab94a791d851d371d4f2d5568c44f9618a",
@@ -5553,6 +8610,70 @@
         }
       ],
       "title": "Nucleus-guided links and selective crop refinement"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNET_TOKEN_ROUTER.md",
+      "bytes": 14683,
+      "sha256": "507048a7f8bed08056fc8c061c31d3a75117a950abc3f0c4968baa2958054886",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Matched token-router training on qualified U-Net and YOLO"
+        },
+        {
+          "line": 10,
+          "level": 2,
+          "title": "Backbone selection and retained pipeline"
+        },
+        {
+          "line": 35,
+          "level": 2,
+          "title": "Matched router experiment"
+        },
+        {
+          "line": 66,
+          "level": 2,
+          "title": "Runtime, qualification and status"
+        },
+        {
+          "line": 104,
+          "level": 2,
+          "title": "Qualification and completed full run"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "title": "Audited results"
+        },
+        {
+          "line": 140,
+          "level": 3,
+          "title": "Standalone endpoints"
+        },
+        {
+          "line": 151,
+          "level": 3,
+          "title": "Equal acceptance quotas"
+        },
+        {
+          "line": 166,
+          "level": 3,
+          "title": "Scalar cuts transferred from TRAIN OOF"
+        },
+        {
+          "line": 179,
+          "level": 3,
+          "title": "Interpretation and score calibration diagnostic"
+        },
+        {
+          "line": 189,
+          "level": 3,
+          "title": "Full-run memory and reproducibility"
+        }
+      ],
+      "title": "Matched token-router training on qualified U-Net and YOLO"
     },
     {
       "root": "repository",
@@ -5648,6 +8769,168 @@
     },
     {
       "root": "repository",
+      "path": "docs/UNIFORM_HARD_BUDGET.md",
+      "bytes": 21315,
+      "sha256": "bcf3ecb5e3e3e6e3630c770b2950a6e48416d252e283400dd40a985cd4938e75",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Uniform pipeline with hard fallback budgets"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Budget enforcement"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "title": "First isolated comparison"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "title": "Completed first milestone"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "title": "Shared word admission and matched U-Net continuation"
+        },
+        {
+          "line": 133,
+          "level": 2,
+          "title": "Owner-balanced objective and full-pipeline checkpoint comparison"
+        },
+        {
+          "line": 174,
+          "level": 2,
+          "title": "Resolution controls and next matched training arm"
+        },
+        {
+          "line": 271,
+          "level": 2,
+          "title": "Completed shared multiscale validation screens"
+        }
+      ],
+      "title": "Uniform pipeline with hard fallback budgets"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNIFORM_PIPELINE_CURRENT_RESULTS.md",
+      "bytes": 6182,
+      "sha256": "65b5fe7307de89a8bc82790ca7b1bb8e7234d7f64dae58907460be234d33ac0b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Uniform pipeline: current verified result"
+        }
+      ],
+      "title": "Uniform pipeline: current verified result"
+    },
+    {
+      "root": "repository",
+      "path": "docs/UNIFORM_UNET_FUSION.md",
+      "bytes": 41980,
+      "sha256": "ab8b48a637056f429875b70e30d6899a785b12fde1821760b960386015df88fa",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Uniform U-Net, word-risk routing and conditional fusion"
+        },
+        {
+          "line": 17,
+          "level": 2,
+          "title": "Frozen first experiment"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Metric, limitations and cost assessment"
+        },
+        {
+          "line": 99,
+          "level": 2,
+          "title": "Execution and disk cleanup"
+        },
+        {
+          "line": 138,
+          "level": 2,
+          "title": "Initial execution qualification"
+        },
+        {
+          "line": 171,
+          "level": 2,
+          "title": "Completed initial full TEST evaluation (negative result)"
+        },
+        {
+          "line": 193,
+          "level": 2,
+          "title": "Shared lexical/utility control declared after initial TEST exposure"
+        },
+        {
+          "line": 239,
+          "level": 2,
+          "title": "Completed lexical/utility control (v2)"
+        },
+        {
+          "line": 273,
+          "level": 2,
+          "title": "Conditional decoder-heldout supervision (v3, pending)"
+        },
+        {
+          "line": 325,
+          "level": 2,
+          "title": "Current router and inference path explained"
+        },
+        {
+          "line": 381,
+          "level": 2,
+          "title": "Measured asset inventory before v3 results"
+        },
+        {
+          "line": 407,
+          "level": 2,
+          "title": "U-Net tensor path and localization details"
+        },
+        {
+          "line": 464,
+          "level": 2,
+          "title": "One RGB inference entry point and fallback parity"
+        },
+        {
+          "line": 516,
+          "level": 2,
+          "title": "Declared U-Net operation count"
+        },
+        {
+          "line": 538,
+          "level": 2,
+          "title": "Completed v3 and real RGB-chain engineering qualification"
+        },
+        {
+          "line": 579,
+          "level": 2,
+          "title": "V4 result and shared encoder reuse (v5)"
+        },
+        {
+          "line": 621,
+          "level": 2,
+          "title": "Shared learned word union (v6, qualification pending)"
+        },
+        {
+          "line": 655,
+          "level": 2,
+          "title": "V7 negative calibration follow-up and V8 geometry diagnostics"
+        }
+      ],
+      "title": "Uniform U-Net, word-risk routing and conditional fusion"
+    },
+    {
+      "root": "repository",
       "path": "docs/WORD_CENTERLINE.md",
       "bytes": 10521,
       "sha256": "2366506bb4f225d32edd53a9adde91353dbbc8ad76c1ab9155cd0d6f1b268f7f",
@@ -5740,6 +9023,35 @@
     },
     {
       "root": "repository",
+      "path": "docs/WORD_EVIDENCE_GRAPHS.md",
+      "bytes": 7092,
+      "sha256": "d2ba6989f9d90ad783768e10b9045451cc9e16e337839dfa8e0bbab5452a375a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Word evidence graphs: four controlled factors"
+        },
+        {
+          "line": 15,
+          "level": 2,
+          "title": "Factors and matched controls"
+        },
+        {
+          "line": 47,
+          "level": 2,
+          "title": "Protocol and execution"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "title": "Completed full results"
+        }
+      ],
+      "title": "Word evidence graphs: four controlled factors"
+    },
+    {
+      "root": "repository",
       "path": "docs/WORD_EVIDENCE_SUITE.md",
       "bytes": 5480,
       "sha256": "ff9cb5d8ace0060283e6b619dfc89b02d96b2cda3ab2a8f266737a3c90b0dd13",
@@ -5776,6 +9088,50 @@
         }
       ],
       "title": "Text+Kernel: three controlled word-evidence tests"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_GRAPH_RECOVERY.md",
+      "bytes": 12948,
+      "sha256": "df8474c2846582701bd89c5b95d423694cf2b9a676ad91e768d35bb0527698cb",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Word hypotheses, complete crops, geometric decoders and regional distillation"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Evidence and changes relative to earlier negative tests"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "title": "1. Locked-output word hypothesis graph"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "title": "2. Full-word contour objective and uniform-padding control"
+        },
+        {
+          "line": 68,
+          "level": 2,
+          "title": "3. True U-Net-free geometry proposal/deformation decoder"
+        },
+        {
+          "line": 102,
+          "level": 2,
+          "title": "4. Verified regional teacher/student"
+        },
+        {
+          "line": 126,
+          "level": 2,
+          "title": "Protocol, limitations and execution"
+        }
+      ],
+      "title": "Word hypotheses, complete crops, geometric decoders and regional distillation"
     },
     {
       "root": "repository",
@@ -5978,6 +9334,84 @@
     },
     {
       "root": "repository",
+      "path": "docs/WORD_SLOT_ALPHANUMERIC.md",
+      "bytes": 9013,
+      "sha256": "0fb9fd9715b0e9151ad8c35854f0a47da82d2d9a37c2f245aa566c6f490eb2ce",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Symbol-free comparison of word-slot U-Net, PARSeq and DeepSolo"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Comparison rule"
+        },
+        {
+          "line": 28,
+          "level": 2,
+          "title": "Separate normalization and calibration effects"
+        },
+        {
+          "line": 50,
+          "level": 2,
+          "title": "Measured outcome, 2026-10-25"
+        },
+        {
+          "line": 84,
+          "level": 2,
+          "title": "Target paper comparison and mandatory routing cost"
+        },
+        {
+          "line": 123,
+          "level": 2,
+          "title": "Verification and limitations"
+        }
+      ],
+      "title": "Symbol-free comparison of word-slot U-Net, PARSeq and DeepSolo"
+    },
+    {
+      "root": "repository",
+      "path": "docs/WORD_SLOT_METHODS.md",
+      "bytes": 20871,
+      "sha256": "530791ec75dc4731e4fc198957ed326dbc895a31bf21c75140eefdcd6040fd7b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Multi-scale word slots and complementary DeepSolo routing"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "title": "Architecture and controls"
+        },
+        {
+          "line": 90,
+          "level": 2,
+          "title": "Literature factors actually implemented"
+        },
+        {
+          "line": 143,
+          "level": 2,
+          "title": "Data, metrics and routing"
+        },
+        {
+          "line": 208,
+          "level": 2,
+          "title": "Reproduction and evidence"
+        },
+        {
+          "line": 252,
+          "level": 2,
+          "title": "Original punctuation-retaining experiment, 2026-10-25"
+        }
+      ],
+      "title": "Multi-scale word slots and complementary DeepSolo routing"
+    },
+    {
+      "root": "repository",
       "path": "docs/YOLO_CONTEXT_QUALITY_ROUTER.md",
       "bytes": 7140,
       "sha256": "4b90ffdc2a1a13b48e8f92681069001e05ae31996d3007c82b2026f75497bcf9",
@@ -6056,6 +9490,35 @@
     },
     {
       "root": "repository",
+      "path": "docs/YOLO_F1_QUALITY_STUDY.md",
+      "bytes": 10629,
+      "sha256": "f637d50306a0d62600ca377ff58e08fd802f502c3e19e73dc420d79b088ac468",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Per-image F1 quality targets with frozen DeepSolo fallback"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "title": "Results"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "title": "Frozen protocol"
+        },
+        {
+          "line": 129,
+          "level": 2,
+          "title": "Reproduction and evidence"
+        }
+      ],
+      "title": "Per-image F1 quality targets with frozen DeepSolo fallback"
+    },
+    {
+      "root": "repository",
       "path": "docs/YOLO_PAIRED_ROUTER_COMPARISON.md",
       "bytes": 8635,
       "sha256": "035c59bc66c9163218b22d64e525261c1b1fbf41835bda231feff4f5c9ea6abc",
@@ -6124,6 +9587,40 @@
     },
     {
       "root": "repository",
+      "path": "docs/YOLO_RESIDUAL_COST_ROUTER.md",
+      "bytes": 8650,
+      "sha256": "bf17420daae8b7feab49a1f7c427fab6d01c743fc034c465797cabbe5ed11a4a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Residual-region and word-error-cost routing"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "title": "Predeclared protocol"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "title": "Files and execution"
+        },
+        {
+          "line": 74,
+          "level": 2,
+          "title": "Completed results"
+        },
+        {
+          "line": 141,
+          "level": 2,
+          "title": "CLIP sentence and word interpretation"
+        }
+      ],
+      "title": "Residual-region and word-error-cost routing"
+    },
+    {
+      "root": "repository",
       "path": "docs/YOLO_RESIDUAL_TEXT_VQA.md",
       "bytes": 6285,
       "sha256": "ccb479599b177b44fa71ab0df705398bc975e832c51246ebc4625368d259e361",
@@ -6184,6 +9681,45 @@
         }
       ],
       "title": "YOLO routing with inference-only text coverage and resolution controls"
+    },
+    {
+      "root": "repository",
+      "path": "docs/YOLO_TRAINABLE_ROUTER.md",
+      "bytes": 8549,
+      "sha256": "46d0cc54a297a3295cb419499f52d973fa63c67628aa623893c07d805cd81c7e",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "title": "Supervised router targeting fixed-budget oracle separation"
+        },
+        {
+          "line": 8,
+          "level": 2,
+          "title": "Frozen protocol"
+        },
+        {
+          "line": 51,
+          "level": 2,
+          "title": "Limitations"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "title": "Files and commands"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "title": "Completed measurement"
+        },
+        {
+          "line": 117,
+          "level": 2,
+          "title": "Evidence and verification"
+        }
+      ],
+      "title": "Supervised router targeting fixed-budget oracle separation"
     },
     {
       "root": "repository",
@@ -6325,11 +9861,499 @@
     },
     {
       "root": "repository",
+      "path": "provenance/BUDGET_TARGET_ROUTER_COMPLETION_V1.json",
+      "bytes": 638,
+      "sha256": "78526db92778a533de1d97c7a698c3e7766bbf77a8b537cfc4fc1bc742523786",
+      "title": "BUDGET_TARGET_ROUTER_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "EXPERIMENTS_AUDITED_TARGET_PARTIAL",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/COMMON_BUDGET_PIPELINE_COMPLETION_V1.json",
+      "bytes": 13938,
+      "sha256": "d2f0bae9d67fe50a881c6d02979b1ca58ef054272d621f59717372afde0acb89",
+      "title": "COMMON_BUDGET_PIPELINE_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE_COMMON_TT_IC15_ACCEPTED_IC13_TEST_BELOW90",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/COMMON_PARITY_THRESHOLD_COMPLETION_V1.json",
+      "bytes": 11456,
+      "sha256": "092dea1680a33ad4f3589920e9153b64f3b24a00f4d6e3a5624a335e3dfd5ec5",
+      "title": "COMMON_PARITY_THRESHOLD_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "STUDY_COMPLETE_EFFICIENCY_TARGET_UNMET",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/COMPLETED_IDENTICAL_CHECKPOINT_STORAGE_V20.json",
+      "bytes": 3392,
+      "sha256": "1a1b9f28e57c2fd6468c304f2d9820b41fa0a4e301cc2af33572a004e6a5e942",
+      "title": "COMPLETED_IDENTICAL_CHECKPOINT_STORAGE_V20",
+      "reported_metadata": {
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/DETAILED_CAPTION_ROUTER_COMPLETION_V1.json",
+      "bytes": 16412,
+      "sha256": "38dcf8b5a94305d8e0679041bc845d317df4378a13476370653cf10a860f18de",
+      "title": "DETAILED_CAPTION_ROUTER_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE_APPROXIMATE_EVALUATION",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/EXTERNAL_ASSETS.json",
       "bytes": 185185,
       "sha256": "357d62eecc4a17c0bbf19c5025abf3c51642f3d013fb515bba3ea2d63686464a",
       "title": "EXTERNAL_ASSETS",
       "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_DENSE_CONTROL_VALIDATION_V1.json",
+      "bytes": 341,
+      "sha256": "758601d00920e50f733fea60da8b2094e49568338f1d1f27ba67ee18e72f91e3",
+      "title": "ICDAR13_DENSE_CONTROL_VALIDATION_V1",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_FOLD_SAFE_TEACHERS_V1.json",
+      "bytes": 1577,
+      "sha256": "bc79d653d465ac6c6ccd8bc9853dd65a5b5745ca86aaf1a7d124656c7f3bd25e",
+      "title": "ICDAR13_FOLD_SAFE_TEACHERS_V1",
+      "reported_metadata": {
+        "status": "TEACHER_PREPARATION_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_HYPOTHESIS_TESTS_COMPLETION_V1.json",
+      "bytes": 96568,
+      "sha256": "cbb9c5e2f7fbc79c7b0b00e0f895fc9641c47eedcee3c7db8c105910a67ab7d2",
+      "title": "ICDAR13_HYPOTHESIS_TESTS_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_MATCHED_ROUTER_GENERIC_COMPLETION_V1.json",
+      "bytes": 12566,
+      "sha256": "562e985b1ec9a9e4f63c773386727021b3cb3a95fff5b16260e069eff16f9869",
+      "title": "ICDAR13_MATCHED_ROUTER_GENERIC_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_MATCHED_TEXT_ENCODER_TRAINING_V1.json",
+      "bytes": 2309,
+      "sha256": "23455a7b552bc7012ddb6805545fbe35d7856786e4f3a89034dd9d54e73332c7",
+      "title": "ICDAR13_MATCHED_TEXT_ENCODER_TRAINING_V1",
+      "reported_metadata": {
+        "status": "BOTH_TRAINING_ARMS_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_MATCHED_WORD_TRAINING_COMPLETION_V1.json",
+      "bytes": 8215,
+      "sha256": "ea2d674712d1919f5f925bce8be90ca5b6d02bd8cf02c281413bca2ae4a74e4f",
+      "title": "ICDAR13_MATCHED_WORD_TRAINING_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "result_class": "approximate reproduction",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_TEXT_WORD_POLICY_QUALIFICATION_V1.json",
+      "bytes": 376,
+      "sha256": "8e44280309837688aeeaa63e730729f53f99371ca541c385f99d733373431aef",
+      "title": "ICDAR13_TEXT_WORD_POLICY_QUALIFICATION_V1",
+      "reported_metadata": {}
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_UNET_YOLO_PROCEDURE_PROGRESS_V1.json",
+      "bytes": 816,
+      "sha256": "4d1b30f82ba2aeacaa88a3991017d514ae97d6a003c56ab37c93b1329e06aea6",
+      "title": "ICDAR13_UNET_YOLO_PROCEDURE_PROGRESS_V1",
+      "reported_metadata": {
+        "status": "ACTIVE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_WORD_REFIT_COMPLETION_V1.json",
+      "bytes": 18416,
+      "sha256": "9edbb2656b6b2344dd2c11165b428374df56c2dbc366d5218f20b0cb47b779df",
+      "title": "ICDAR13_WORD_REFIT_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR13_WORD_REFIT_READINESS_V1.json",
+      "bytes": 3133,
+      "sha256": "76f93f72b2a7b34be07af22989d23f8acfb161b50e4b194f187f6cde3b2a29f1",
+      "title": "ICDAR13_WORD_REFIT_READINESS_V1",
+      "reported_metadata": {
+        "status": "READY_AND_TRAINING",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_ENCODER_DECAY_COMPLETION_V1.json",
+      "bytes": 11135,
+      "sha256": "70d0ba4c0e73619c3c6c5f6a2a5416c4d1a13a466aec095b203d70a79a0c85a1",
+      "title": "ICDAR2015_ENCODER_DECAY_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete50-epoch matched FIT900/VAL100 comparison; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_ENCODER_DECAY_QUALIFICATION_V1.json",
+      "bytes": 2709,
+      "sha256": "21812d50437108871b48b23061434d503128630693f5d37433fb99087aca2eda",
+      "title": "ICDAR2015_ENCODER_DECAY_QUALIFICATION_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "unit/full-size backward qualification; not final F1",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_FIT_GAP_V1.json",
+      "bytes": 2172,
+      "sha256": "f36a29606a9d092836bedb69d0ecddec4a000eb86c1e9ed26bca38a9b664a42a",
+      "title": "ICDAR2015_FIT_GAP_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "FIT900 localization diagnostic; not word F1 or generalization",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_IMPROVEMENT_COMPLETION_V1.json",
+      "bytes": 19950,
+      "sha256": "2f97f2e7169e42ccd834e2c7ab1e747fe86d3f121bdcc2a252486d5a3d959e03",
+      "title": "ICDAR2015_IMPROVEMENT_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE_VERIFIED",
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_IMPROVEMENT_PROTOCOL_V1.json",
+      "bytes": 15884,
+      "sha256": "8548dded0bc20060bfd8feb4b423d08e0346a357b3bddd380acc6e28d38c0bf2",
+      "title": "ICDAR2015_IMPROVEMENT_PROTOCOL_V1",
+      "reported_metadata": {
+        "status": "PRETRAIN_QUALIFIED_FULL_EXPERIMENT_IN_PROGRESS",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_IMPROVEMENT_QUALIFICATION_V2.json",
+      "bytes": 9818,
+      "sha256": "b80bc094f6f6f248c5247176d31fc69df210120bdf5e1432be0b1a73d5d2eb1d",
+      "title": "ICDAR2015_IMPROVEMENT_QUALIFICATION_V2",
+      "reported_metadata": {
+        "status": "INTEGRATION_QUALIFIED_TRAINING_VARIANTS_IN_PROGRESS",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_SEED_PARTITION_WORD_PROBE_V1.json",
+      "bytes": 25483,
+      "sha256": "8ce889f00991d37200e6227fd37d038ceba6c253a047c36fc9b277dff2e979d3",
+      "title": "ICDAR2015_SEED_PARTITION_WORD_PROBE_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "exploratory complete fixed TRAIN VAL100 word comparison; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_SYNTHTEXT_COMPLETION_V1.json",
+      "bytes": 9049,
+      "sha256": "741e6c3a1db4c5ab7ab16137b798468baa830697f1815b220338124039029ec3",
+      "title": "ICDAR2015_SYNTHTEXT_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete synthetic5epochs and FIT90050epochs with fixed VAL100; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_SYNTHTEXT_READINESS_V1.json",
+      "bytes": 3998,
+      "sha256": "4ec7099bd0bcfb3e903a3722e2c96720bf956afb3607cff0f77a80d2f23bc4b9",
+      "title": "ICDAR2015_SYNTHTEXT_READINESS_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "complete data cache plus engineering backward qualification; not final F1",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_FINAL_EVALUATION_READINESS_V1.json",
+      "bytes": 2397,
+      "sha256": "db35a218ca30a686ac166e343e8bb69603c3dab8e680983c5a9a1d2ccfe09fc8",
+      "title": "ICDAR2015_TARGET70_FINAL_EVALUATION_READINESS_V1",
+      "reported_metadata": {
+        "status": "ENGINEERING_CHECKS_PASS_FINAL_REAL_SELECTION_AND_TEST_PENDING",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_LEGACY_AUDIT_SMOKE_V1.json",
+      "bytes": 1236,
+      "sha256": "36da6b0378f0571c99d2fd61cf730630ff31643ba2d2defec4efac1cac917c48",
+      "title": "ICDAR2015_TARGET70_LEGACY_AUDIT_SMOKE_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "smoke-test result: adapted historical baseline audit",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_OCR_DEVICE_V1.json",
+      "bytes": 1402,
+      "sha256": "6a7a5a205e07f21664bafbfe5b412f127c7d66c0422c6086d2f0b81bd38685b0",
+      "title": "ICDAR2015_TARGET70_OCR_DEVICE_V1",
+      "reported_metadata": {
+        "status": "PASS_SOURCE_VALIDATION_ONLY",
+        "result_class": "full TRAIN validation OCR device qualification",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_OHEM_COMPLETION_V1.json",
+      "bytes": 9382,
+      "sha256": "77b6be8a96ca42abe5104ff364f2e56f2dc2541bd004402429aff1c1722a558b",
+      "title": "ICDAR2015_TARGET70_OHEM_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete100-epoch fixed TRAIN validation comparison; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_OHEM_QUALIFICATION_V1.json",
+      "bytes": 2181,
+      "sha256": "a43f7f1d32b7dc9bb5a30cc4c89fad9d97e4f182cc786c5024aae6d7839b1d4b",
+      "title": "ICDAR2015_TARGET70_OHEM_QUALIFICATION_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "unit and full-size backward smoke qualification; not quality result",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_QUALIFICATION_V1.json",
+      "bytes": 2236,
+      "sha256": "649758e2ee6fa8844d8396fe6daa84b68fd1be74c2363cfe144ee230313f11d7",
+      "title": "ICDAR2015_TARGET70_QUALIFICATION_V1",
+      "reported_metadata": {
+        "status": "TRAINING_IN_PROGRESS_GOAL_NOT_ACHIEVED",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_SOURCE_POLICY_V1.json",
+      "bytes": 3972,
+      "sha256": "9ab54ee89fdd4bbfe1ff8b555dbbc4c3219da4298437e9154a0363dc5d9526ed",
+      "title": "ICDAR2015_TARGET70_SOURCE_POLICY_V1",
+      "reported_metadata": {
+        "status": "SUCCESS_DIAGNOSTIC_ONLY_TARGET_NOT_ACHIEVED",
+        "result_class": "TRAIN validation operating-policy calibration",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TARGET70_TEST500_COMPLETION_V1.json",
+      "bytes": 6316,
+      "sha256": "a0a76d2665740e8f5d72ca8aecfa3556700436bf33c616f18ff994a747f49fe3",
+      "title": "ICDAR2015_TARGET70_TEST500_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete official TEST500 evaluation",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TOTALTEXT_RESOLUTION_PROBE_V1.json",
+      "bytes": 12753,
+      "sha256": "f05828a2b997397c06abb405ffef7922e85b97c5aa00dd3581404712dc75905a",
+      "title": "ICDAR2015_TOTALTEXT_RESOLUTION_PROBE_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete fixed TRAIN VAL100 resolution diagnostic; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TOTALTEXT_TRANSFER_V1.json",
+      "bytes": 6320,
+      "sha256": "df972732d1952e7991daac9d1c5c4178dffcaafff143cf6fb2dffa5f3512a6d0",
+      "title": "ICDAR2015_TOTALTEXT_TRANSFER_V1",
+      "reported_metadata": {
+        "status": "implementation_and_target_qualification_passed",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TOTALTEXT_WEIGHTS_BACKWARD_QUALIFICATION_V1.json",
+      "bytes": 2676,
+      "sha256": "5d156ef2dc71b962c16c424eba9f0dd98a3c742b4de29794f92e7e2a27975415",
+      "title": "ICDAR2015_TOTALTEXT_WEIGHTS_BACKWARD_QUALIFICATION_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "unit/full-size backward smoke qualification; not final quality",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TOTALTEXT_WEIGHTS_COMPLETION_V1.json",
+      "bytes": 16321,
+      "sha256": "82f58d732474e73a0878722ebca3ab9813f0a8613dc7f0b09cfe94ed41e359a4",
+      "title": "ICDAR2015_TOTALTEXT_WEIGHTS_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "complete100-epoch fixed TRAIN validation comparison; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_TOTALTEXT_WEIGHTS_READINESS_V1.json",
+      "bytes": 11664,
+      "sha256": "b92eef48bb151fe055b0a7017d46a1e773f6cb653738f7de88e616d8a1716df6",
+      "title": "ICDAR2015_TOTALTEXT_WEIGHTS_READINESS_V1",
+      "reported_metadata": {
+        "status": "READY_FOR_QUEUED_BACKWARD_QUALIFICATION",
+        "result_class": "complete TRAIN validation plus queued training readiness; not TEST",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_WORD_F1_COMPLETION_V1.json",
+      "bytes": 7419,
+      "sha256": "e6b9c193a25550b8721d1c732ee01e054960404b8480edc25f305d5965f9faa6",
+      "title": "ICDAR2015_WORD_F1_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "result_class": "approximate reproduction",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR2015_WORD_F1_PROTOCOL_V1.json",
+      "bytes": 3984,
+      "sha256": "938135b780182210de07ac42167aef96fe9038383f84d0dedfaead9ff6eb9514",
+      "title": "ICDAR2015_WORD_F1_PROTOCOL_V1",
+      "reported_metadata": {
+        "status": "protocol_frozen_before_TEST_inference",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/ICDAR_TRAINED_BUDGET_ROUTER.json",
+      "bytes": 34853,
+      "sha256": "838e2f1bc6ef0facedaa7a1846cce39babebd074e1344032ade368f1bf8bda6a",
+      "title": "ICDAR_TRAINED_BUDGET_ROUTER",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "complete-dataset approximate reproduction",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/IMAGE_CONTEXT_CORRECTION_V1.json",
+      "bytes": 223110,
+      "sha256": "3ed80d10835744fb672bb35df80f0c58117a9a2a7c5430279d0cc163dc4d7307",
+      "title": "IMAGE_CONTEXT_CORRECTION_V1",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "claim_label": "approximate reproduction / exploratory transcription research"
+      }
     },
     {
       "root": "repository",
@@ -6341,10 +10365,375 @@
     },
     {
       "root": "repository",
+      "path": "provenance/LIGHTWEIGHT_ICDAR13_90_PROGRESS_V1.json",
+      "bytes": 43596,
+      "sha256": "8b6f162d06f0ded8241f25c2ed83939773918236cc79d85ffd42fc516d6a5468",
+      "title": "LIGHTWEIGHT_ICDAR13_90_PROGRESS_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/PAPER_CAPTION_ROUTER_COMPARISON_COMPLETION_V1.json",
+      "bytes": 18461,
+      "sha256": "ae5e9f4ee150b1c498e2a189e3123053453e0bd8f5cd48f1e21b57ec8e985b7f",
+      "title": "PAPER_CAPTION_ROUTER_COMPARISON_COMPLETION_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/SOURCES.yaml",
       "bytes": 48583,
       "sha256": "d2c94c95bb9033dfd28eb52540b571726bef48cd8a2f79a89c59c731228e6507",
       "title": "SOURCES"
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_CHECKPOINT_VALIDATION_V13.json",
+      "bytes": 2923,
+      "sha256": "8994fafc966283e5942d2ca3c8d04c11971baa84c07f803dd7d4009bb9b0e0b2",
+      "title": "UNIFORM_CHECKPOINT_VALIDATION_V13",
+      "reported_metadata": {
+        "status": "FULL_PIPELINE_VALIDATION_RETAINS_BASELINE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_COLD_BATCH_COST_V3.json",
+      "bytes": 2360,
+      "sha256": "9f8e150f4bf62d363d80c988bf55851e0d1da9282a963a4d344b170fbdb86be8",
+      "title": "UNIFORM_COLD_BATCH_COST_V3",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "result_class": "smoke-test result"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_COLD_BATCH_COST_V6B.json",
+      "bytes": 1513,
+      "sha256": "ff0ff9cef748d6c57ab9a8b79fcb3947fb2a4d60dac7163114b9ddc690f615a4",
+      "title": "UNIFORM_COLD_BATCH_COST_V6B",
+      "reported_metadata": {
+        "status": "ENGINEERING_COLD_BATCH_COMPARISON",
+        "result_class": "smoke-test result"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_COMPLETED_STORAGE_V18.json",
+      "bytes": 4582,
+      "sha256": "2287d97e977dc5e28d45b062d10d6e94d880990f5da20d8835aeb33979e6f5f9",
+      "title": "UNIFORM_COMPLETED_STORAGE_V18",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "claim_label": "engineering storage maintenance"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_DECODER_OOF_COMPLETION_V3.json",
+      "bytes": 7567,
+      "sha256": "c64fc9225e5ccdf1a9307bd5f086cb8212313fbe542b226e751b55964ca80bdd",
+      "title": "UNIFORM_DECODER_OOF_COMPLETION_V3",
+      "reported_metadata": {
+        "status": "ALL_15_CONDITIONAL_DECODER_FOLDS_QUALIFIED"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_DECODER_OOF_PROGRESS_V3.json",
+      "bytes": 804,
+      "sha256": "89f3739bf6e28a261a0b1107f4008affeb2827c58e5806b8922588cd2a2a0ade",
+      "title": "UNIFORM_DECODER_OOF_PROGRESS_V3",
+      "reported_metadata": {
+        "status": "QUEUED_NO_V3_QUALITY_RESULT"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_ENCODER_ADAPTATION_COMPLETED_V18.json",
+      "bytes": 5956,
+      "sha256": "83c91a761d6bebda91c15b72f4baeba3296153cee0a9ee8bfd0f5cc7c54fa0ea",
+      "title": "UNIFORM_ENCODER_ADAPTATION_COMPLETED_V18",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_ENCODER_CONTEXT_QUALIFICATION_V5.json",
+      "bytes": 2736,
+      "sha256": "116176316f071fc18a5c0f946dcf451d74c6ece790d04cb44b9c126769067d0b",
+      "title": "UNIFORM_ENCODER_CONTEXT_QUALIFICATION_V5",
+      "reported_metadata": {
+        "status": "QUALIFIED_SHARED_ENCODER_FEATURES"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_FALLBACK_PARITY_V1.json",
+      "bytes": 1725,
+      "sha256": "ace2105ebb18f28c4ddcb68728a63ab943d3530cf9f52f23839c22486f099b69",
+      "title": "UNIFORM_FALLBACK_PARITY_V1",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_FALLBACK_REREAD_VALIDATION_V7.json",
+      "bytes": 5146,
+      "sha256": "e0e3678d45e2e9aed8ac3bf9b982576f87f1e7229b2f3d525c0fea3376e85450",
+      "title": "UNIFORM_FALLBACK_REREAD_VALIDATION_V7",
+      "reported_metadata": {
+        "status": "TRAIN_READINGS_QUALIFIED_VALIDATION_DIAGNOSTIC_COMPLETE"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_GEOMETRIC_TRAINING_COMPLETED_V17.json",
+      "bytes": 5685,
+      "sha256": "a95f082da621a30dee311ece6affb995a3af6c164f9cd34cc7a295070a6bb1d9",
+      "title": "UNIFORM_GEOMETRIC_TRAINING_COMPLETED_V17",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_GEOMETRIC_TRAINING_LAUNCH_V17.json",
+      "bytes": 1499,
+      "sha256": "00e22952d14a733ee2b197bff3fc7d6260f535a38eabec282789e9d116c246ad",
+      "title": "UNIFORM_GEOMETRIC_TRAINING_LAUNCH_V17",
+      "reported_metadata": {
+        "status": "GEOMETRIC_TRAINING_RUNNING",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_HARD_BUDGET_V9.json",
+      "bytes": 7037,
+      "sha256": "ef0b42bf3c3b586d91692b92910a9bc1f602cc5f889e580cca896ad61a114ff3",
+      "title": "UNIFORM_HARD_BUDGET_V9",
+      "reported_metadata": {
+        "status": "ACTIVE_HARD_BUDGET_OBJECTIVE_NOT_MET",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_INSTANCE_OBJECTIVE_V12.json",
+      "bytes": 2438,
+      "sha256": "f952e3a3508c1989874b3eb7861dcce8801d605d3d815e24e68915a9cd93c518",
+      "title": "UNIFORM_INSTANCE_OBJECTIVE_V12",
+      "reported_metadata": {
+        "status": "INSTANCE_OBJECTIVE_PILOT_AUDITED_NO_RAW_VALIDATION_GAIN",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_MULTISCALE_MASKS_IC13_V19.json",
+      "bytes": 5871,
+      "sha256": "4b9c8d09f3e9a770efb4ab0e91092652336cfb59c65af41659f9779e1d9fbf99",
+      "title": "UNIFORM_MULTISCALE_MASKS_IC13_V19",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDITED_IC13_SCREEN",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_MULTISCALE_SHARED_VALIDATION_V20.json",
+      "bytes": 6263,
+      "sha256": "4c5809cc4c28aa6ca1265de1689929906a3c5a39fb1b300ee213fdc940d02cb5",
+      "title": "UNIFORM_MULTISCALE_SHARED_VALIDATION_V20",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_MULTISCALE_WORDS_SHARED_VALIDATION_V21.json",
+      "bytes": 14185,
+      "sha256": "2008f7bacdd28123bfa66483a54328a94707f6f1fd50fae4e3192edc053c79fb",
+      "title": "UNIFORM_MULTISCALE_WORDS_SHARED_VALIDATION_V21",
+      "reported_metadata": {
+        "status": "SHARED_VALIDATION_SCREEN_PASSED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_OPTIMIZER_STORAGE_V12.json",
+      "bytes": 2857,
+      "sha256": "9d527cae297d26da1a1259aefc29779c3d792cee9e3c529ccc0f44a25c1a19bf",
+      "title": "UNIFORM_OPTIMIZER_STORAGE_V12",
+      "reported_metadata": {
+        "status": "COMPLETE"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_PHOTOMETRIC_PILOT_LAUNCH_V11.json",
+      "bytes": 1996,
+      "sha256": "3e00a595a86ed0292b2502d9787e5b47a1060a8300bcc223b2ada1e849e08a11",
+      "title": "UNIFORM_PHOTOMETRIC_PILOT_LAUNCH_V11",
+      "reported_metadata": {
+        "status": "PILOT_RUNNING",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_PHOTOMETRIC_PILOT_V11.json",
+      "bytes": 7132,
+      "sha256": "ca1d8f5251980e48398e112ca3137d1d7d365b5518e879037a7472da24f36df0",
+      "title": "UNIFORM_PHOTOMETRIC_PILOT_V11",
+      "reported_metadata": {
+        "status": "MATCHED_PILOT_AUDITED_NO_VALIDATION_GAIN",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_PIPELINE_ASSET_INVENTORY_V2.json",
+      "bytes": 4495,
+      "sha256": "1fb86490cba7fa96df8c6628ec138e1188e64377cbc75ab6de25e5f22a21db3c",
+      "title": "UNIFORM_PIPELINE_ASSET_INVENTORY_V2",
+      "reported_metadata": {
+        "status": "QUALIFIED_ASSET_INVENTORY_ONLY"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_PIPELINE_FINAL_SCOPE_AUDIT_V1.json",
+      "bytes": 11548,
+      "sha256": "3498cda870f4188472f57257145422422aefd127100537e35b682b42ee1ef851",
+      "title": "UNIFORM_PIPELINE_FINAL_SCOPE_AUDIT_V1",
+      "reported_metadata": {
+        "status": "AUDITED_NUMERICAL_TARGETS_MET_WITH_HIGH_FALLBACK",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_RGB_PIPELINE_SMOKE_V3.json",
+      "bytes": 3015,
+      "sha256": "5d54a7a102e345d194fd3bb95a239ade705968e6e7d5507605d8cb59d35d0416",
+      "title": "UNIFORM_RGB_PIPELINE_SMOKE_V3",
+      "reported_metadata": {
+        "status": "PASS",
+        "result_class": "smoke-test result"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_SCALED_FRONTEND_V14_V15.json",
+      "bytes": 7109,
+      "sha256": "9580ad1c92dca6516c005e7819187f9e75837c98a5c5649cf7788a9102827a79",
+      "title": "UNIFORM_SCALED_FRONTEND_V14_V15",
+      "reported_metadata": {
+        "status": "SCALED_INFERENCE_AUDITED_BASELINE_RETAINED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_COMPUTE_PROFILE_V1.json",
+      "bytes": 2913,
+      "sha256": "b3013d02b593e9e3eb3f7885a1b0fc6c7a92b45bbfa5a0452d40f2d2d2664097",
+      "title": "UNIFORM_UNET_COMPUTE_PROFILE_V1",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "result_class": "smoke-test result",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_INITIAL_EVALUATION_V1.json",
+      "bytes": 4717,
+      "sha256": "44e5ad7efe0007e313c4ec80d7e1ed7db6120e20973b87cdee68c3080d2ece95",
+      "title": "UNIFORM_UNET_INITIAL_EVALUATION_V1",
+      "reported_metadata": {
+        "status": "INITIAL_STUDY_COMPLETE_ALL_PRIMARY_TARGETS_UNMET",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_UTILITY_EVALUATION_V2.json",
+      "bytes": 21260,
+      "sha256": "0fc2266d97cf8c91a9235af4c96069cd0e4ad6ecd9f4f4f9e3f1c9e1c192ba28",
+      "title": "UNIFORM_UNET_UTILITY_EVALUATION_V2",
+      "reported_metadata": {
+        "status": "SECOND_CONTROL_COMPLETE_USEFUL_SHARED_TARGETS_UNMET",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_UTILITY_EVALUATION_V3.json",
+      "bytes": 3778,
+      "sha256": "6b6f0631bcc2d4e3d86cce512fea71e147961c369eaecfd1430793a4680e0e85",
+      "title": "UNIFORM_UNET_UTILITY_EVALUATION_V3",
+      "reported_metadata": {
+        "status": "V3_FULL_TEST_AUDITED_IC13_TARGET_UNMET"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_UTILITY_EVALUATION_V4.json",
+      "bytes": 2860,
+      "sha256": "a208d542d5e16ece69fee0e0c3631d8c212646076ef27362bdaa135ac335f647",
+      "title": "UNIFORM_UNET_UTILITY_EVALUATION_V4",
+      "reported_metadata": {
+        "status": "FULL_TEST_AUDITED_IC13_UNMET_AT_USEFUL_QUOTAS"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_UNET_UTILITY_EVALUATION_V5.json",
+      "bytes": 5106,
+      "sha256": "fe975cdb6e0c92f3ba059cd81f764eaff2a6ea93b8bbf79082f8424237060695",
+      "title": "UNIFORM_UNET_UTILITY_EVALUATION_V5",
+      "reported_metadata": {
+        "status": "FULL_TEST_AUDITED_ALL_TARGETS_ONLY_AT_HIGH_FALLBACK_CONTROL"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_WORD_ADMISSION_V10.json",
+      "bytes": 8416,
+      "sha256": "521cb7c2b4574b4dfe6c093403d9a38382272c2f1f8ecd0eb524cdecc9121d79",
+      "title": "UNIFORM_WORD_ADMISSION_V10",
+      "reported_metadata": {
+        "status": "NO_SHARED_WORD_ADMISSION_GAIN",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/UNIFORM_WORD_UNION_EVALUATION_V6B.json",
+      "bytes": 9211,
+      "sha256": "0d5f0774a8dc3f9fabcecd7428a118d77195666b6afb7a1b7cd98210ed8de45b",
+      "title": "UNIFORM_WORD_UNION_EVALUATION_V6B",
+      "reported_metadata": {
+        "status": "V6B_AUDITED_TARGETS_ONLY_AT_HIGH_FALLBACK"
+      }
     },
     {
       "root": "repository",
@@ -6387,6 +10776,153 @@
       "reported_metadata": {
         "status": "COMPLETED_AND_AUDITED",
         "result_class": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/budget_distilled_router_20261027_completion.json",
+      "bytes": 120691,
+      "sha256": "f827effce4109509cb434139599d6c0c0ebce4e87614f4362a3c267329b18424",
+      "title": "budget_distilled_router_20261027_completion",
+      "reported_metadata": {
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/contextual_boundary_selection_v1_qualification.json",
+      "bytes": 2999,
+      "sha256": "c11342ff054495253a63f2acc6557a9b0c8b3bed16eee3f712befb1cdb4cd1fa",
+      "title": "contextual_boundary_selection_v1_qualification",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "claim_label": "approximate reproduction / exploratory transcription experiment"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/deepsolo_icdar2015_gap_20261028_completion.json",
+      "bytes": 20409,
+      "sha256": "5c4e0593d74063087fbe573ff280343dc0db9a5e4e0ec7a0a06ff1ec77065141",
+      "title": "deepsolo_icdar2015_gap_20261028_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/deepsolo_icdar_lexicons_20261028_completion.json",
+      "bytes": 20390,
+      "sha256": "e05d8ae74be562778b5afae428c2755b122943c518ef1baafc313b1cacb7b197",
+      "title": "deepsolo_icdar_lexicons_20261028_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/deepsolo_short_words_v1_completion.json",
+      "bytes": 11040,
+      "sha256": "13b315f641d24ef1ee1bcc8bb57031b687c7351107254e89f6ba2e13738841a1",
+      "title": "deepsolo_short_words_v1_completion",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/deepsolo_word_f1_20261025_completion.json",
+      "bytes": 23082,
+      "sha256": "0435148888f01170936f74049a039210710732bb37d77c53253249096d2ff7f9",
+      "title": "deepsolo_word_f1_20261025_completion",
+      "reported_metadata": {
+        "status": "COMPLETE",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/directional_transport_results.json",
+      "bytes": 17915,
+      "sha256": "a216c9103e88ac922475aee275f9273ebe41b10ca591b69a58ade445ff1f6e27",
+      "title": "directional_transport_results",
+      "reported_metadata": {
+        "status": "Completed v1/v2/v4; v3/v5 failed CAL-only qualification and were stopped before TEST; 70% not reached.",
+        "result_class": "exploratory Total-Text TEST300",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/encoder_family_router_v1_completion.json",
+      "bytes": 7982,
+      "sha256": "ee5c8a06a1f1de79b5099ac91d616d590f7a1d977e12ad0ddda1777a595efb80",
+      "title": "encoder_family_router_v1_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/essential_router_budget50_v1_completion.json",
+      "bytes": 1662,
+      "sha256": "a59b87274005f0523737cfc7dc5507f7e99eeac51988104ce969d48338ce80ec",
+      "title": "essential_router_budget50_v1_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/essential_router_three_datasets_20261028_completion.json",
+      "bytes": 47623,
+      "sha256": "10f9d500b8867a96d067aff7d6e56321fb5254b8fc8e8c480523e57103b15af3",
+      "title": "essential_router_three_datasets_20261028_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/graph_occlusion_followups_v2_qualification.json",
+      "bytes": 5462,
+      "sha256": "876a9623de125d152cc599c97eddd67f844c49266642fc3fd3a1d1c7dc67d636",
+      "title": "graph_occlusion_followups_v2_qualification",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/graph_occlusion_research_v1_qualification.json",
+      "bytes": 5129,
+      "sha256": "5108fc1346f745e617e47d40bc4f33e0d2c7dede9170eb03a6f8900aa3de359d",
+      "title": "graph_occlusion_research_v1_qualification",
+      "reported_metadata": {
+        "status": "IMPLEMENTED_GPU_SMOKE_PASSED_FULL_RUNNING",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/grounded_word_recovery_v1_qualification.json",
+      "bytes": 88197,
+      "sha256": "e5b11f6cf06d864cd4a00994c00c230284e076b7191a65574935297d823f898e",
+      "title": "grounded_word_recovery_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
       }
     },
     {
@@ -6446,6 +10982,75 @@
     },
     {
       "root": "repository",
+      "path": "provenance/lightweight_unet_router_v1_completion.json",
+      "bytes": 36788,
+      "sha256": "18be13ecdd1cb01caaface74a66e913dcabc57bfc548ca18c021404a88f20f04",
+      "title": "lightweight_unet_router_v1_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDIT_PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/router_cause_tests_20261026_completion.json",
+      "bytes": 142321,
+      "sha256": "8fc6e45f64bbf7e0edb1ef05839bc60b05d975fa66fad996c23bbaf0279cee0a",
+      "title": "router_cause_tests_20261026_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDIT_PASS",
+        "result_class": "EXPLORATORY_CONTROLLED_CAUSE_ANALYSIS",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/router_improved_deepsolo_20261026_completion.json",
+      "bytes": 1138943,
+      "sha256": "90cb4fdebdd0334313f514bb02bb47d283bbc45b402c1a860222c4fbb2d9d94a",
+      "title": "router_improved_deepsolo_20261026_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDIT_PASS",
+        "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/router_lexicon_retraining_20261028_completion.json",
+      "bytes": 20737,
+      "sha256": "185c0c797132d71541be143f0ea5c4f4a7a1cfda48abc2ad68c80532b0ff9426",
+      "title": "router_lexicon_retraining_20261028_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/router_validation_20261027_completion.json",
+      "bytes": 91735,
+      "sha256": "af71e6128fb44de7869fc70ee65a961b948f13843b7614ebdda3cf3cd1dc35bd",
+      "title": "router_validation_20261027_completion",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/selective_word_repair_tests_v1_qualification.json",
+      "bytes": 2321,
+      "sha256": "bb2a30675bfcf0a91a24e89ebe504769f5105e11cfaa337bd36e05acece3d30b",
+      "title": "selective_word_repair_tests_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/synthtext_target_generation_v2.json",
       "bytes": 24951,
       "sha256": "c97f865a734f18b9830cff6159b3a1930012c02760272acbd8ee5c9c066c10da",
@@ -6453,6 +11058,18 @@
       "reported_metadata": {
         "result_class": "smoke-test result",
         "reproduction_mode": "approximate",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/teacher_student_tests_v1_qualification.json",
+      "bytes": 4748,
+      "sha256": "a41cd2162c41f824da6f4079fa7f46e2d275680d6d0ca1f42837e3d06ff72e1b",
+      "title": "teacher_student_tests_v1_qualification",
+      "reported_metadata": {
+        "status": "COMPLETED_AND_AUDITED",
+        "result_class": "approximate reproduction; short-budget exploratory pilot",
         "claim_label": "approximate reproduction"
       }
     },
@@ -6538,6 +11155,49 @@
     },
     {
       "root": "repository",
+      "path": "provenance/text_reconstruction_byt5_small.json",
+      "bytes": 1171,
+      "sha256": "e4068dd2ee38292015c1f85d651ead78f1d4e52c694f285a52b289eb9eefe167",
+      "title": "text_reconstruction_byt5_small",
+      "reported_metadata": {
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/trained_router_vocabulary_replay_20261028_completion.json",
+      "bytes": 7583,
+      "sha256": "472b193069ccba468f5a0ef9ad8f502c9b2d65e6b710c910615da190355e4616",
+      "title": "trained_router_vocabulary_replay_20261028_completion",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_corrected_token_router_v1_completion.json",
+      "bytes": 88178,
+      "sha256": "c7eada4211e3cfcc30b5bb94a46f0902f18a8847649079e47c1aa4d60e2f067c",
+      "title": "unet_corrected_token_router_v1_completion",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDIT_PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_corrected_token_thresholds_v1_analysis.json",
+      "bytes": 110117,
+      "sha256": "d80aec4f78ab5573fc01b6c9d3f101eb52be0554ea6d67514a34885356530711",
+      "title": "unet_corrected_token_thresholds_v1_analysis",
+      "reported_metadata": {
+        "status": "COMPLETED_AUDIT_PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/unet_crop_links_v1_qualification.json",
       "bytes": 5196,
       "sha256": "3a9e6896eff9e40d21577423f693f230b97aa600f4ca80bfea20ecb51a9406a1",
@@ -6563,6 +11223,17 @@
     },
     {
       "root": "repository",
+      "path": "provenance/unet_minimum_fallback_v1_qualification.json",
+      "bytes": 26430,
+      "sha256": "831ca4dba5b1fe54bbb458f90e51217e37bf3f8a818ed242cc8aaa1a8cef4910",
+      "title": "unet_minimum_fallback_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/unet_seeded_selective_v1_qualification.json",
       "bytes": 8824,
       "sha256": "9e2e210a7d5722ab4b2bae0804a9c9865b8122429ac199207c08b13be1b486c3",
@@ -6571,6 +11242,17 @@
         "status": "PASS",
         "result_class": "implementation qualification; smoke-test result and held-out TRAIN geometry diagnostic",
         "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/unet_token_router_20261027_completion.json",
+      "bytes": 118725,
+      "sha256": "4dde0e9820b7f637ca1cd15711980dd707ad6b582d83a0dacdf2e56c1e9f0cea",
+      "title": "unet_token_router_20261027_completion",
+      "reported_metadata": {
+        "status": "SUCCESS",
+        "claim_label": "approximate reproduction"
       }
     },
     {
@@ -6634,6 +11316,28 @@
     },
     {
       "root": "repository",
+      "path": "provenance/word_evidence_graphs_v1_qualification.json",
+      "bytes": 3968,
+      "sha256": "3f56d151d2b6188c5d496ea6f5a7342e53eb50dae23049c3a4fbf83cb80515f1",
+      "title": "word_evidence_graphs_v1_qualification",
+      "reported_metadata": {
+        "status": "PASS",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_graph_recovery_v1_qualification.json",
+      "bytes": 4081,
+      "sha256": "e7a6481faee769c38f1613488a95f6097fabec44e26b184a8dff9bcb9415779c",
+      "title": "word_graph_recovery_v1_qualification",
+      "reported_metadata": {
+        "status": "IMPLEMENTED_GPU_QUALIFIED_FULL_LAUNCHED",
+        "result_class": "approximate reproduction; research extension"
+      }
+    },
+    {
+      "root": "repository",
       "path": "provenance/word_multitask_v1_completion_audit.json",
       "bytes": 7429,
       "sha256": "74eb529408c7083349fcceb1f5513fb457721f8db486ed843dd5de484d39838c",
@@ -6652,6 +11356,40 @@
       "reported_metadata": {
         "result_class": "approximate reproduction",
         "reproduction_mode": "approximate"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_slot_alphanumeric_v1_completion.json",
+      "bytes": 89277,
+      "sha256": "aa2427d49bfb1a656017e718fc41ee956be4ebffac37756f577a3dd14b3c4caf",
+      "title": "word_slot_alphanumeric_v1_completion",
+      "reported_metadata": {
+        "status": "IMPLEMENTATION_AND_REASSESSMENT_COMPLETE",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_slot_methods_v1_completion.json",
+      "bytes": 123012,
+      "sha256": "ce74c644d6bbe840f7dbac2030d0889fb0dd260526f5acc5c58487b4868155f0",
+      "title": "word_slot_methods_v1_completion",
+      "reported_metadata": {
+        "status": "IMPLEMENTATION_AND_EVALUATION_COMPLETE",
+        "result_class": "complete Total-Text TEST images under alternative spatial/exact research protocol; single-seed fixed-budget screen",
+        "claim_label": "approximate reproduction"
+      }
+    },
+    {
+      "root": "repository",
+      "path": "provenance/word_slot_router_reporting_v1.json",
+      "bytes": 31804,
+      "sha256": "9e6eb7f4aa98168683277500c026a8b008f2903dcfa12e7693a6d72f9cd36082",
+      "title": "word_slot_router_reporting_v1",
+      "reported_metadata": {
+        "status": "REPORTING_AUDIT_COMPLETE",
+        "claim_label": "approximate reproduction / reporting audit"
       }
     }
   ]

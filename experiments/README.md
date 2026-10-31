@@ -7,12 +7,12 @@ The catalog does not infer completion or merge incompatible protocols.
 | --- | ---: | --- |
 | [paper](paper/README.md) | 6 | Paper baseline and scientific specification |
 | [datasets](datasets/README.md) | 8 | Datasets, targets, and annotation preparation |
-| [word-instances](word-instances/README.md) | 26 | Word instances, kernels, links, centers, and Gap |
+| [word-instances](word-instances/README.md) | 29 | Word instances, kernels, links, centers, and Gap |
 | [crops](crops/README.md) | 16 | Crop generation, selection, and refinement |
-| [recognition](recognition/README.md) | 16 | Recognition, language correction, and candidate verification |
-| [routing](routing/README.md) | 23 | Context, captioning, CLIP and YOLO routing |
+| [recognition](recognition/README.md) | 21 | Recognition, language correction, and candidate verification |
+| [routing](routing/README.md) | 41 | Context, captioning, CLIP and YOLO routing |
 | [runtime](runtime/README.md) | 2 | Environments and isolated model runtimes |
-| [analysis](analysis/README.md) | 19 | Diagnostics, audits, ablations and research synthesis |
+| [analysis](analysis/README.md) | 62 | Diagnostics, audits, ablations and research synthesis |
 
 ```bash
 python3 -m research experiments --family word-instances

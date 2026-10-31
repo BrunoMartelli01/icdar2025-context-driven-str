@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "single_unet_multiview_validation",
+  "source_selection_sha256": "be95876b5903be3dd1457ab5b1f94d60103ee7d87d622cb3273f050df4ee7936",
+  "source_selection_profile_sha256": "184e2a16a01a4a4c9155c14f28c17690f728a009df80fa279dca196ed104f983",
+  "source_checkpoint_sha256": "c4676914dbcbf559a26fb98e51f5ae137b2a3ac66930d0191fca5b214fce5eb6",
+  "native_baseline_sha256": "cb655f64144ab87840b6ebd1f1cb6d791d83e8ca88fd53aa4aee516b669c9873",
+  "seed_baseline_sha256": "c950fb1c1d4d01e4cd94a582771ba78dc0c16fb55d766dee106dcf615bb4d080",
+  "probability_threshold": 0.5,
+  "seed_support": 0.2,
+  "seed_threshold": 0.65,
+  "matching_iou_threshold": 0.5,
+  "views": [
+    {
+      "name": "native",
+      "hw": [
+        736,
+        1280
+      ],
+      "horizontal_flip": false
+    },
+    {
+      "name": "small",
+      "hw": [
+        576,
+        1024
+      ],
+      "horizontal_flip": false
+    },
+    {
+      "name": "large",
+      "hw": [
+        1152,
+        2048
+      ],
+      "horizontal_flip": false
+    },
+    {
+      "name": "largest",
+      "hw": [
+        1440,
+        2560
+      ],
+      "horizontal_flip": false
+    },
+    {
+      "name": "native",
+      "hw": [
+        736,
+        1280
+      ],
+      "horizontal_flip": true
+    },
+    {
+      "name": "small",
+      "hw": [
+        576,
+        1024
+      ],
+      "horizontal_flip": true
+    },
+    {
+      "name": "large",
+      "hw": [
+        1152,
+        2048
+      ],
+      "horizontal_flip": true
+    },
+    {
+      "name": "largest",
+      "hw": [
+        1440,
+        2560
+      ],
+      "horizontal_flip": true
+    }
+  ],
+  "postprocessing": [
+    {
+      "name": "seed",
+      "crop": "axis0"
+    },
+    {
+      "name": "cc",
+      "crop": "axis2"
+    }
+  ],
+  "pools": {
+    "baseline_seed": [
+      "native/seed"
+    ],
+    "native_both": [
+      "native/seed",
+      "native/cc"
+    ],
+    "native_small": [
+      "native/seed",
+      "native/cc",
+      "small/seed",
+      "small/cc"
+    ],
+    "native_small_large": [
+      "native/seed",
+      "native/cc",
+      "small/seed",
+      "small/cc",
+      "large/seed",
+      "large/cc"
+    ],
+    "all_original": [
+      "native/seed",
+      "native/cc",
+      "small/seed",
+      "small/cc",
+      "large/seed",
+      "large/cc",
+      "largest/seed",
+      "largest/cc"
+    ],
+    "all_flips": [
+      "native/seed",
+      "native/cc",
+      "small/seed",
+      "small/cc",
+      "large/seed",
+      "large/cc",
+      "largest/seed",
+      "largest/cc",
+      "native_flip/seed",
+      "native_flip/cc",
+      "small_flip/seed",
+      "small_flip/cc",
+      "large_flip/seed",
+      "large_flip/cc",
+      "largest_flip/seed",
+      "largest_flip/cc"
+    ]
+  },
+  "confidence_grids": {
+    "sequence_confidence": [
+      0.6,
+      0.7,
+      0.8
+    ],
+    "mean_token_confidence": [
+      0.8,
+      0.9,
+      0.95
+    ]
+  },
+  "minimum_lengths": [
+    0,
+    3
+  ],
+  "nms_iou_thresholds": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "component": "single_checkpoint_multiview",
+      "rationale": "One fixed qualified U-Net, four explicit sizes and horizontal flip with native probability reversal. Test no alternate trained experts. All modes are an approximate research extension beyond paper3.3; increased compute is reported."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "component": "cross_stream_nms_and_admission",
+      "rationale": "GT-blind confidence ranking and cross-stream-only hard NMS, original boxes unchanged. Same-stream admitted components preserved; all emitted outputs including ignored regions count. Predeclare216 pool/policy cases using only fixed VAL100/430care. Reused validation is a limitation."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "component": "source_and_recognizer",
+      "rationale": "Fixed c467 weights, prior qualified crop methods and confidence-seed partition; frozen original PARSeq/runtime and unchanged normalization/IoU."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "component": "execution",
+      "rationale": "Actual RTX3090 FP32 segmentation batch1, CPU PARSeq32, sequential views; record peaks and OOM. No silent precision/shape/model substitution."
+    }
+  ]
+}

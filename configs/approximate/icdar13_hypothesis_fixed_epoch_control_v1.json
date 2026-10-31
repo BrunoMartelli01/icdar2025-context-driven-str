@@ -1,0 +1,15 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "run_root": "/extra1/bmartelli/context-str-runs/icdar13-hypothesis-tests-20261029-v1/full",
+  "parent_plan_sha256": "9f11782e31a7e672ecb9b1d4dca349ab5ea645ba109ea385dc2b4402d2426980",
+  "epochs": 30,
+  "checkpoint": "mixed_totaltext/last.pt",
+  "evaluation_splits": [
+    "calibration",
+    "test"
+  ],
+  "scope": "Predeclared secondary equal30-epoch mixed-data control, additional to selection-chosen epoch. Declared while fold3 runs, before mixed training or its evaluation. Same qualified fixed crop/emission policy; no model or policy selected from TEST. Reuse selected outputs if selected_epoch==30 after exact state equality verification.",
+  "scientific_classification": "ASSUMPTION",
+  "minimum_free_gpu_bytes": 3221225472
+}

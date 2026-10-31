@@ -1,0 +1,118 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "icdar13_hypothesis_tests_v1",
+  "seed": 20261028,
+  "fold_seed": 20261029,
+  "folds": 5,
+  "epochs": 30,
+  "mixed_validation_epochs": [
+    0,
+    10,
+    20,
+    30
+  ],
+  "light_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full",
+  "router_root": "/extra1/bmartelli/context-str-runs/icdar13-matched-router-generic-20261028-v1/full",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-hypothesis-tests-20261029-v1",
+  "teacher_counts": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "tt_data_root": "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1",
+  "tt_manifest": "manifests/total_text_train.yaml",
+  "tt_split_seed": 202503,
+  "tt_validation_count": 125,
+  "tt_replay_weight": 0.5,
+  "crop_iou_threshold": 0.5,
+  "gt_crop_padding": [
+    0,
+    4
+  ],
+  "generic_policies": [
+    "none",
+    "generic_keep",
+    "generic_conservative"
+  ],
+  "conservative_vocabulary": {
+    "minimum_length": 4,
+    "protect_probability": 0.99
+  },
+  "heads": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 30,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    },
+    {
+      "iterations": 60,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    }
+  ],
+  "feature_groups": [
+    [
+      "ocr"
+    ],
+    [
+      "ocr",
+      "tokens"
+    ],
+    [
+      "ocr",
+      "maps"
+    ],
+    [
+      "ocr",
+      "tokens",
+      "maps"
+    ]
+  ],
+  "selection_tolerance": 0.0025,
+  "features": {
+    "maps": {
+      "minimum_component_area": 4,
+      "probability_threshold": 0.5
+    },
+    "token_probability_cutoffs": [
+      0.5,
+      0.9
+    ]
+  },
+  "primary_deepsolo_images": 61,
+  "cpu_threads": 4,
+  "minimum_free_gpu_bytes": 10737418240,
+  "parseq_batch_size": 32,
+  "bootstrap_draws": 2000,
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "ResNet50 attention U-Net family; PARSeq recognition and DeepSolo fallback motivation, paper3.2/3.5/4.1 only.",
+    "REPOSITORY_SPECIFIED": "Qualified complete Total-Text state, native768/384 full-word targets, masked BCE+Dice, frozen encoder/BN and Adam1e-5/weight_decay.01/physical8; real Generic teacher outputs. Reuse the existing checksum-qualified contained TT view; historical TRAIN40/149/336 RGB drift is preserved, not accepted.",
+    "ASSUMPTION": "Five RGB-grouped folds on FIT183 from fixed source, fixed30 epochs without fold-label selection; compare identical gate grids fitted with seen vs OOF observations. Small reused selection23 chooses each gate. Additional raw-feature/no-empty-guard control separate. Vocabulary three fixed policies chosen on selection23 only, on identical emitted words; keep unmatched. GT crop diagnostics on selection/CAL/TEST never enter a deployable method. Mixed control preserves every IC FIT exposure and optimizer step, adding one matched-size TT batch per step with .5/.5 domain loss. Selection0/10/20/30 only; CAL/TEST never choose a model. Full233/1095 metric unchanged. Synthetic pretraining is a conditional future stage, outside this first matched TT replay test.",
+    "HARDWARE_DEVIATION": "Observed RTX3090 FP32 physical8; sequential domain backward in mixed training, sequential model lifecycle, CPU tabular fitting/cache reuse. Record allocated/reserved peaks and propagate OOM.",
+    "UNRESOLVED": "Small reused selection and historical TEST exposure; upstream source overlap beyond RGB checks; OOF trained on146/147 instead of final183; generalization and strict metric/provenance blockers."
+  },
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/resolved_configuration.json": "50ec73f44003ad4bfdeeaf8801d5c0c19c99a4fe01921897d91e8face06498ec",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-word-training-20261028-v2/full/selection_frozen.json": "505301cf0f0d2a8d2d0b2fca1e7fafadecff7e472985a0f9490b0b64469c001e",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-router-generic-20261028-v1/full/results.json": "ef1a65732fdcf09a5f5447b6c0a9ddeb66d982e6dd7abc070dea40b441c20ce4",
+    "/extra1/bmartelli/context-str-runs/icdar13-matched-router-generic-20261028-v1/full/resolved_configuration.json": "bd4df955e5db3e13ca8f4c6e024542ed1514da2b95627b6b14c7f1c397927be4",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50",
+    "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/manifests/total_text_train.yaml": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "/extra1/bmartelli/datasets/context-str/totaltext-v4-verified-improvement-view-v1/integrity_qualification.json": "2df2d97b2914fecb75be86665cb20972d765dc83b0b7ef3c8bb2f5f757aa60de"
+  }
+}

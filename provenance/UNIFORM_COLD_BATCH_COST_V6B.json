@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "icdar13": {
+      "heavy_only_deepsolo_images": 12,
+      "heavy_only_deepsolo_percentage": 100.0,
+      "heavy_only_seconds": 8.929268721491098,
+      "heavy_only_total_images": 12,
+      "pipeline_deepsolo_images": 10,
+      "pipeline_deepsolo_percentage": 83.33333333333333,
+      "pipeline_seconds": 15.228304545395076,
+      "pipeline_total_images": 12,
+      "ratio": 1.705436919906259
+    },
+    "icdar2015": {
+      "heavy_only_deepsolo_images": 12,
+      "heavy_only_deepsolo_percentage": 100.0,
+      "heavy_only_seconds": 13.33400046825409,
+      "heavy_only_total_images": 12,
+      "pipeline_deepsolo_images": 10,
+      "pipeline_deepsolo_percentage": 83.33333333333333,
+      "pipeline_seconds": 20.906286787241697,
+      "pipeline_total_images": 12,
+      "ratio": 1.5678930593272358
+    },
+    "totaltext": {
+      "heavy_only_deepsolo_images": 12,
+      "heavy_only_deepsolo_percentage": 100.0,
+      "heavy_only_seconds": 8.279650270938873,
+      "heavy_only_total_images": 12,
+      "pipeline_deepsolo_images": 10,
+      "pipeline_deepsolo_percentage": 83.33333333333333,
+      "pipeline_seconds": 14.472452903166413,
+      "pipeline_total_images": 12,
+      "ratio": 1.7479546151802987
+    }
+  },
+  "mode": "approximate",
+  "result_class": "smoke-test result",
+  "scope": "Same12 RGB images and neural assets, separate one-off cold runs; includes setup/I/O; not repeated randomized benchmarking or full-dataset latency.",
+  "status": "ENGINEERING_COLD_BATCH_COMPARISON"
+}

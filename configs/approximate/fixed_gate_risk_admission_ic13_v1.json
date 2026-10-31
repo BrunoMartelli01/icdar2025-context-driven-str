@@ -1,0 +1,46 @@
+{
+  "admission_thresholds": [
+    0.0,
+    0.3,
+    0.5,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "bootstrap_draws": 10000,
+  "cpu_threads": 2,
+  "guards": [
+    false,
+    true
+  ],
+  "heuristics": [
+    "expected_errors",
+    "weakest_word"
+  ],
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/ic13",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/labels.json": "666940befe1dac7075a95941ddbede95b797090a0057c68c5e46f04f25b613a6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/observations.json": "44b87a184140bab6bb6a7466adad7aadc59427eab5082320f7e533ef58bc63cf",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/deployment_qualification.json": "39811fc5b68c0adc18ddf32b9f32cd57fc825e9bb98a0fc8fd362fc97db887f4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/completed.json": "de51c332b30692217cf1088091a62226f10c82f4f92d62c59ccf0620b31fbe3d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/word_folds.json": "c90f967f8b67b5a8eae3b13044eb76567e65f3fa8b2692e618dc4ae18b1e9796",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/word_full.joblib": "5ab293f22c173ade1dc5272bff3111627aa9e03ce3d566ed84ac4dc89bf996af",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/word_probabilities.json": "2f0ad2a3577c74f2315f3d2f264ab58a54f3a05c4ea81ba0e356ffa72296b1ea",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/resolved_configuration.json": "89f466e4a46a8d533a342abb2ad51163923dab396b6aa8b92e43a3d74bd8041e"
+  },
+  "require_expert_excluded": true,
+  "scientific_choices": {
+    "ASSUMPTION": "Compute word-risk probabilities once on the frozen original emission trace. Apply the same finite admission threshold grid and two risk aggregations on all datasets, then use fixed exact dataset budgets; optional frozen complementary primary words are appended only after fallback. Select by pooled crossfold FIT and validation micro F1, within one conditional bootstrap standard error preferring fewer auxiliary models or rereads and greater pooled F1. No TEST labels or fallback outputs enter selection.",
+    "HARDWARE_DEVIATION": "CPU float64 processing over cached genuine outputs, no new neural inference during selection.",
+    "PAPER_SPECIFIED": "PARSeq/localization/fallback motivation only. Learned word admission and risk route are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Previously trained and independently audited small HGB word correctness model, genuine OCR candidates and domain-optimized fallback outputs; fixed native256 care/ignore metric.",
+    "UNRESOLVED": "TRAIN/validation benchmark vocabulary side information, conditional/non-nested expert/word folds, bootstrap after candidate search, upstream data overlap and repeated historical TEST exploration."
+  },
+  "seed": 20261029,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full",
+  "source_view": "oof"
+}

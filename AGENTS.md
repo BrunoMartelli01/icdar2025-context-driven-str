@@ -247,6 +247,16 @@ Keep these result classes separate in filenames, metadata, tables, and prose:
 
 Store experiment results in machine-readable form in addition to human-readable summaries. Preserve per-sample outputs sufficient to audit aggregate metrics. Do not omit failed samples from a denominator without an explicit protocol rule and reported count.
 
+User-directed router reporting requirement: every router result must include
+the number of images sent to DeepSolo, the total evaluated images, and the
+percentage (for example,277/300,92.33%). Include these counts in user-facing
+summaries, tables and plots, including word-level routers that run both experts.
+Distinguish logical routing decisions on cached outputs from actual online
+inference or measured latency. If a paper does not report its dataset-specific
+fallback count, mark it unavailable rather than inferring it from FLOPs or from
+another dataset. Distinguish nominal comparison with a reported paper number
+from a verified comparison under the same metric and evaluation protocol.
+
 The final scientific target includes reproduction or documented analysis of:
 
 - Table 3: segmentation foreground IoU and F1.

@@ -1,0 +1,104 @@
+{
+  "ambiguity_record": "DEEPSOLO-WORD-F1-20261025",
+  "batch_size": 1,
+  "bootstrap_repetitions": 2000,
+  "candidate": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE",
+  "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "diagnostic_bbox_iou": 0.5,
+  "evaluation_result_sha256": "14ba99dca9fb3dd8a97b15a7d05e2bbaebecc231a83f8bdb4bf50fcb01cabc08",
+  "export_protocol_sha256": "0926ac4cc911e56c7992410ae2e99b046618cd7798322fa5ecd44fd4bc0facd4",
+  "fusion_ious": [
+    0.3,
+    0.5
+  ],
+  "inference_floor": 0.05,
+  "matching_iou": 0.5,
+  "metric": "Report micro F1 for symbol-free per-image word multiset and one-to-one bbox IoU>=0.5 matching separately; preserve every care denominator, including empty normalized targets/outputs.",
+  "postprocess_resize_policy": "synchronize cached ViTAE min_size_test/max_size_test with each input resize",
+  "precision": "float32",
+  "profile": "native_word",
+  "profile_source_code_sha256": "75c038655809812ffd3d3d3950ffcfd8dd58e192c191ed55981098a4caa6a72e",
+  "recognition_rank_powers": [
+    0,
+    1
+  ],
+  "recognition_thresholds": [
+    0.0,
+    0.7,
+    0.8,
+    0.85,
+    0.9,
+    0.925,
+    0.95
+  ],
+  "reproduction_mode": "approximate",
+  "resolutions": {
+    "large": [
+      1536,
+      2838
+    ],
+    "native": [
+      1024,
+      1892
+    ]
+  },
+  "schema_version": 1,
+  "scientific_choices": [
+    {
+      "choice": "Pinned qualified ViTAEv2-S+TextOCR checkpoint, strict loading, 36 printing CTC labels, native BGR preprocessing and divisor32 padding.",
+      "classification": "REPOSITORY_SPECIFIED"
+    },
+    {
+      "choice": "Expand native detection floor and compare 1.5x test resize; select resolution and confidence thresholds on the frozen TRAIN125 population only. Keep greedy decoding because the first TRAIN study did not select beam search. Preserve symbol-free metric and all care words. Previously explored TEST300 is a descriptive paired evaluation, not an untouched holdout.",
+      "classification": "ASSUMPTION"
+    },
+    {
+      "choice": "Existing legacy host subprocess on observed RTX3090, FP32 batch1; retain one checkpoint in memory across images, one model at a time. Seed Python/NumPy/PyTorch/CUDA. cuDNN enabled, benchmark false, deterministic false. Record actual shape, memory and OOM; abort without alternate output.",
+      "classification": "HARDWARE_DEVIATION"
+    },
+    {
+      "choice": "Exact context-driven-paper checkpoint and metric, official polygon evaluation equivalence and any globally optimal configuration remain unresolved.",
+      "classification": "UNRESOLVED"
+    },
+    {
+      "choice": "Select single-resolution and confidence-ranked cross-scale fusion policies independently for each metric on TRAIN125 only. Suppress overlapping predictions only across scales. Freeze selections before TEST metrics; preserve complete per-image evidence and paired image-bootstrap uncertainty. This finite search cannot establish a global maximum.",
+      "classification": "ASSUMPTION"
+    },
+    {
+      "choice": "Correct the experiment wrapper to synchronize both resize and ViTAE inverse-coordinate attributes. Supersedes invalid large-view geometry in resolution-v1 and fusion-final-v1. No scientific model, weight or source modification.",
+      "classification": "REPOSITORY_SPECIFIED"
+    }
+  ],
+  "score_thresholds": [
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "seed": 20261025,
+  "selected_policy": {
+    "decoder": "greedy",
+    "fusion_iou": null,
+    "recognition_rank_power": 0,
+    "recognition_threshold": 0.925,
+    "resolution": "native",
+    "same_text_nms_iou": null,
+    "score_threshold": 0.35
+  },
+  "selection_rule": "highest TRAIN word F1 within declared native-only policies",
+  "selection_sha256": "728df80bf6de31053a57d3b6ebdfc24fbe883895ae73fd62eb52eb0e2d7c1327",
+  "source_plan_sha256": "d21b32113271a9de2a9ef2d40c2d2b8b9a3e8f6a20331056d2c942522c244abe",
+  "table_5_claim": false,
+  "upstream_base_config_sha256": "1f8ee3635bc41829c9e3cd00f1abe247173eb3fa5977760bde5cbb10b5b11491",
+  "upstream_config_sha256": "4132f6862a7ddf4c8232a2cdfb125e22d38ef9a6ec6407610a561e1a5cd221b5"
+}

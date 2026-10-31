@@ -1,0 +1,6 @@
+{
+  "goal_status": "active;90 percent with<=61/233 DeepSolo remains unmet",
+  "report": "docs/ICDAR13_UNET_DENSE_INSTANCES.md",
+  "summary_path": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/dense_control_summary.json",
+  "summary_sha256": "f85a2ce4fc9c5f20fe14a30d0b9ff857e1d0a212dd0af47e08fbb9b564bafb5d"
+}

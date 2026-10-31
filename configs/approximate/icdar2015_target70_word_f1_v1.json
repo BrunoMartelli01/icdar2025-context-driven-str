@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_target70_frozen_operating_policy_test500",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar2015",
+  "split_role": "test",
+  "expected_images": 500,
+  "expected_care_words": 2077,
+  "test_manifest_sha256": "2d975369e44688e635b5fe4e79a595d662538e7607ad1ec9d95bad2b5c71fcf9",
+  "training_config_sha256": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+  "segmentation_batch_size": 1,
+  "parseq_batch_size": 32,
+  "probability_threshold": 0.5,
+  "connectivity": 8,
+  "min_component_area": 0,
+  "padding_native_pixels": 0,
+  "maximum_proposals": null,
+  "text_normalization": "unicode_casefold_then_isalnum",
+  "matching_iou_threshold": 0.5,
+  "prediction_ignore_policy": "all_outputs_count_including_ignored_regions",
+  "ground_truth_policy": "exclude_official_ignored_instances_keep_all_care_words",
+  "scientific_choices": [
+    {
+      "component": "segmentation_to_crop_recognition",
+      "classification": "PAPER_SPECIFIED",
+      "rationale": "Paper sections 3.2/3.3 describe segmentation, connected regions and crop recognition."
+    },
+    {
+      "component": "qualified_approximate_parseq",
+      "classification": "REPOSITORY_SPECIFIED",
+      "rationale": "Reuse the checksum-locked official PARSeq runtime/checkpoint adapter; exact paper PARSeq-S artifact remains unresolved."
+    },
+    {
+      "component": "standalone_unet_parseq_diagnostic",
+      "classification": "ASSUMPTION",
+      "rationale": "Evaluate the newly trained U-Net and crop OCR alone, without changing the complete contextual pipeline or claiming Table 5 reproduction."
+    },
+    {
+      "component": "word_metric_without_symbols",
+      "classification": "ASSUMPTION",
+      "rationale": "User requests symbol-free word F1. Keep Unicode letters/numbers after casefold; one-to-one bbox IoU>=0.5 plus exact normalized text. Empty normalized outputs never match and all original care/prediction denominators remain."
+    },
+    {
+      "component": "crop_geometry",
+      "classification": "ASSUMPTION",
+      "rationale": "Use the model and image shape frozen from fixed TRAIN validation100; native logits are half RGB dimensions. Keep every8-connected component and its original matching bbox, with no area/top-ten cap. OCR orientation and original-RGB padding are frozen from validation. Invert explicit aspect letterbox; GT inclusive extrema plus one clamped to RGB. This is not official polygon Hmean."
+    },
+    {
+      "component": "sequential_model_loading",
+      "classification": "HARDWARE_DEVIATION",
+      "rationale": "Unload segmentation before PARSeq; FP32, segmentation batch1 and OCR batch32. Record separate allocated/reserved GPU peaks; no end-to-end latency claim."
+    },
+    {
+      "component": "frozen_target70_selection",
+      "classification": "ASSUMPTION",
+      "rationale": "Require both completed100-epoch branches, complete TRAIN-validation operating grids and exact selected CPU/GPU OCR qualification. Freeze checkpoint, segmentation threshold, crop method and emission policy before TEST. Report raw and emitted populations with all2077 care words and all emitted ignored-region predictions retained."
+    }
+  ],
+  "selection_profile_sha256": "184e2a16a01a4a4c9155c14f28c17690f728a009df80fa279dca196ed104f983",
+  "expected_ignored_gt": 3153
+}

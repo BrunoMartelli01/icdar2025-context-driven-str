@@ -1,0 +1,53 @@
+{
+  "atol": 0.0001,
+  "checkpoint": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth",
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "inputs": [
+    {
+      "id": "input_0",
+      "image_sha256": "9f5ff745212e2484219394f45ca3c733449ed1b332d4a7b86ea2db5add011c31",
+      "path": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/input_0.npy",
+      "sample_id": "icdar13:train:100",
+      "sha256": "ee75d05f1d32ab42fa1e5d0e738fed4325c6ded6b7497c8ff350e61ce336f58a"
+    },
+    {
+      "id": "input_1",
+      "image_sha256": "16a8b8c263478f9250ba73df0ccf8c932bfec28dd63416a6d05e10afebe2474e",
+      "path": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/input_1.npy",
+      "sample_id": "icdar13:train:101",
+      "sha256": "273008db22e5714eb18a45a2fe251d9f7d8045cd02fd8aaff6798b6e322f548e"
+    },
+    {
+      "id": "input_2",
+      "image_sha256": "43524ab83453638e1f4e1aae64c50ecee898cf687612ffec6937ff7e6fd30a35",
+      "path": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification/input_2.npy",
+      "sample_id": "icdar13:train:102",
+      "sha256": "b5b214ae94d7da005ccc68f422f2c29cced3676dd8012dc52ec8889013011a12"
+    }
+  ],
+  "legacy_config": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/configs/R_50/TotalText/finetune_150k_tt_mlt_13_15.yaml",
+  "legacy_source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/encoder_transfer_qualification",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-dbadae995035246bad3376c7a44c015c69e9b313.tar.gz": "828c63e1c19f07d03ae094e4dd39a1eb093b0660a604bef75324f8e716693bfb",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/configs/R_50/Base_det.yaml": "f9067a1acbede4d2a94c915631d797b2914e1fa868c7642f1c34417018988879",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/configs/R_50/TotalText/finetune_150k_tt_mlt_13_15.yaml": "0da913239e4b3f11ae1bad19e0b104996f7c3f3607aa2a7f4b1f52e3838b702d",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/source-commit.txt": "f1eb17487108d42b01a35b204d382351aac69a8a3b0391ab5581300f0a1b12ba"
+  },
+  "prefix": "detection_transformer.backbone.0.backbone.",
+  "rtol": 0.0001,
+  "scientific_choices": {
+    "ASSUMPTION": "Initialization from the complete already qualified text-trained R50 encoder; no transformer/detection/recognition decoder is copied. FrozenBN affine/running values map to eval-mode torchvision BN. Compare functional maps independently before a U-Net training experiment.",
+    "HARDWARE_DEVIATION": "CPU cross-environment encoder-only equality check, no complete DeepSolo recognition call.",
+    "REPOSITORY_SPECIFIED": "Official pinned DeepSolo R50 TT checkpoint/code/config and known Synth150K+MLT+IC13+IC15+TT TRAIN exposure; weights may have seen all IC13 TRAIN validation images.",
+    "UNRESOLVED": "Transferred U-Net efficacy and pretraining validation exposure; this is not a strict reproduction or a fresh holdout."
+  },
+  "source_archive": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-dbadae995035246bad3376c7a44c015c69e9b313.tar.gz",
+  "source_archive_sha256": "828c63e1c19f07d03ae094e4dd39a1eb093b0660a604bef75324f8e716693bfb",
+  "source_commit_marker": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/source-commit.txt",
+  "source_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+  "source_type": "github_commit_archive"
+}

@@ -1,0 +1,74 @@
+{
+  "ambiguity_id": "ICDAR2015-WORD-F1-001",
+  "claim_label": "approximate reproduction",
+  "config": {
+    "claim_label": "approximate reproduction",
+    "connectivity": 8,
+    "dataset": "icdar2015",
+    "expected_care_words": 2077,
+    "expected_images": 500,
+    "experiment_kind": "icdar2015_totaltext_transfer_word_f1",
+    "ground_truth_policy": "exclude_official_ignored_instances_keep_all_care_words",
+    "matching_iou_threshold": 0.5,
+    "maximum_proposals": null,
+    "min_component_area": 0,
+    "padding_native_pixels": 0,
+    "parseq_batch_size": 32,
+    "prediction_ignore_policy": "all_outputs_count_including_ignored_regions",
+    "probability_threshold": 0.5,
+    "reproduction_mode": "approximate",
+    "schema_version": 1,
+    "scientific_choices": [
+      {
+        "classification": "PAPER_SPECIFIED",
+        "component": "segmentation_to_crop_recognition",
+        "rationale": "Paper sections 3.2/3.3 describe segmentation, connected regions and crop recognition."
+      },
+      {
+        "classification": "REPOSITORY_SPECIFIED",
+        "component": "qualified_approximate_parseq",
+        "rationale": "Reuse the checksum-locked official PARSeq runtime/checkpoint adapter; exact paper PARSeq-S artifact remains unresolved."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "component": "standalone_unet_parseq_diagnostic",
+        "rationale": "Evaluate the newly trained U-Net and crop OCR alone, without changing the complete contextual pipeline or claiming Table 5 reproduction."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "component": "word_metric_without_symbols",
+        "rationale": "User requests symbol-free word F1. Keep Unicode letters/numbers after casefold; one-to-one bbox IoU>=0.5 plus exact normalized text. Empty normalized outputs never match and all original care/prediction denominators remain."
+      },
+      {
+        "classification": "ASSUMPTION",
+        "component": "crop_geometry",
+        "rationale": "Transfer frozen letterbox512/native256, 8-connected component extrema, no area/top-ten limit and pad0; invert letterbox to original RGB. GT boxes use inclusive raster extrema plus one, clamped to RGB bounds. This is not official polygon Hmean."
+      },
+      {
+        "classification": "HARDWARE_DEVIATION",
+        "component": "sequential_model_loading",
+        "rationale": "Unload segmentation before PARSeq; FP32, segmentation batch1 and OCR batch32. Record separate allocated/reserved GPU peaks; no end-to-end latency claim."
+      }
+    ],
+    "segmentation_batch_size": 1,
+    "split_role": "test",
+    "test_manifest_sha256": "2d975369e44688e635b5fe4e79a595d662538e7607ad1ec9d95bad2b5c71fcf9",
+    "text_normalization": "unicode_casefold_then_isalnum",
+    "training_config_sha256": "6afa0d0fc2e1fc36b35ff25b4fe0bf6529af2e0aaea767be666fdea2f6128341"
+  },
+  "evaluation_output": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-word-f1-test-v1",
+  "full_training_status": "running",
+  "reproduction_mode": "approximate",
+  "schema_version": 1,
+  "source_sha256": {
+    "configs/approximate/icdar2015_totaltext_transfer_word_f1_v1.json": "3e67014ca42c07d0f63cf7a267c2c8d876013e080bc94c7a8b5c27430f1e2480",
+    "recognition/deepsolo_word_f1.py": "588b6e83fcba6ef03f35cafa0558ab25704881f8c35d991bb1f06ee847030037",
+    "recognition/icdar2015_word_f1.py": "dad19e5ab826ce25603e4f53842a25b818ce9cbd765e29d37202ec0992e2ae3c",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/evaluate_icdar2015_totaltext_transfer_word_f1.py": "c94f590727b8993bd3ac89d243555282ee031e290c8ae724d8ad8e9c56fde83b"
+  },
+  "status": "protocol_frozen_before_TEST_inference",
+  "test_evaluation_performed": false,
+  "training_run": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-train"
+}

@@ -1,0 +1,227 @@
+{
+  "claim_label": "approximate reproduction",
+  "complement_confidences": [
+    0.95
+  ],
+  "complement_iou": 0.1,
+  "cpu_threads": 4,
+  "ensemble_sizes": [
+    3,
+    5,
+    10
+  ],
+  "expert_frozen": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_selection_v1/frozen.json",
+  "fallback_images": 61,
+  "fallback_profiles": {
+    "native_benchmark": {
+      "extra_reader_crops": 0,
+      "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+      "primary_eligible": true,
+      "raw_train_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+      "train_lexicon": {
+        "distance_exclusive": 1.5,
+        "format": "vocabulary_and_json_pairs",
+        "label_scope": "Common base plus all229 TRAIN including validation transcripts; supplied-benchmark-vocabulary condition",
+        "pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+      },
+      "train_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json"
+    },
+    "native_fit_control": {
+      "extra_reader_crops": 0,
+      "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+      "primary_eligible": false,
+      "raw_train_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+      "train_lexicon": {
+        "distance_exclusive": 1.5,
+        "format": "pairs_only_json",
+        "label_scope": "FIT183 only plus base; diagnostic excluded from primary selection",
+        "pairs": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/fit_vocabulary.json"
+      },
+      "train_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json"
+    },
+    "reread_benchmark": {
+      "extra_reader_crops": 1,
+      "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+      "primary_eligible": true,
+      "raw_train_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+      "reread_profile": {
+        "index": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train/index.json",
+        "policy": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_policy_v1/frozen.json"
+      },
+      "train_lexicon": {
+        "distance_exclusive": 1.5,
+        "format": "vocabulary_and_json_pairs",
+        "label_scope": "Common base plus all229 TRAIN including validation transcripts; supplied-benchmark-vocabulary condition",
+        "pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+      },
+      "train_protocol": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json"
+    }
+  },
+  "feature_groups": [
+    [
+      "raw_ocr"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "risk",
+      "maps",
+      "geometry"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps",
+      "risk"
+    ]
+  ],
+  "fold_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_oof_v1",
+  "folds": 5,
+  "folds_manifest": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_oof_v1/folds.json",
+  "guards": [
+    false,
+    true
+  ],
+  "head_recipes": [
+    {
+      "alpha": 0.1,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 1000.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 5,
+      "trees": 200
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 15,
+      "trees": 200
+    }
+  ],
+  "heuristics": [
+    "expected_errors",
+    "weakest_word",
+    "weakest_sequence"
+  ],
+  "minimum_f1": 0.9,
+  "mode": "approximate",
+  "original_plan": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v3",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_provenance.json": "e039caace79dbe75dad244f8c0d2aaa99be6abc6c0dc4082ccfaf1ebc3deba39",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train/protocol.json": "a014069bd9a9b1e340848c8d107e84b2157d33fd47523d4b73d482210a73acef",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_seen_train_v1/completion.json": "8da0656b52d893a63730cbcb155f5f3bc6bb1b7a098586ef8b216b9afce2f103",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_seen_train_v1/independent_validation_replay_v1.json": "d09dc9def9866ef314e894aefe269c7d95f0fc18959b120c75110d117cdcdea7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_seen_train_v1/index.json": "fd2b1511afcb2e9e27f4cf917df890dc963d1dbb583a377856c0cabe6456194d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/fit_vocabulary.json": "8fb36a40f9502098d0258c2bb5fc626462c8bfcfce08d7eddde3ad55737fb923",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fallback_v1/train/index.json": "9165583d0367815847f8d6d36ae58494bac0bd60ef302bed9628faedc05aa85d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_policy_v1/frozen.json": "4ad73aa0565d0fbb8a19fd0de2de0714ab172bbe38c709ad5d2eee18fa8fc7a2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_oof_v1/folds.json": "50a4a192fbed8a02aeaa1fbbe77d798426167a63d1d6fa8bcf900dc795231658",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_adaptation_v1/full/head_only/candidates/epoch_030.pt": "ecfb532de21f282e2c4e9323c59b8b31adf0545079704f966a940a1af6ca4166",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_selection_v1/frozen.json": "0ccca05611047885be25f26b2698bb9ab064ac485ef6f013b788c43aa6cd023c",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "reference_grid": [
+    0.7,
+    0.75,
+    0.79,
+    0.8,
+    0.82,
+    0.85,
+    0.9
+  ],
+  "required_views": [
+    "seen"
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Shared finite word-risk/count/reference/ensemble/quota procedure around fixed emissions. Emitted-text correctness labels with raw counterfactual rejected candidates. Compare seen and image-excluded sources. Primary benchmark TRAIN229 dictionary includes validation word types, matching supplied benchmark vocabulary assistance; conditional validation, not blind generalization. FIT-only teacher is diagnostic only. Prefer fewer additional map models/reread crops and image-excluded source on ties. No TEST method selection.",
+    "HARDWARE_DEVIATION": "CPU float64 heads/features over genuine cached outputs, single-GPU RTX3090 source fitting qualified separately; no new neural inference in this gate stage.",
+    "PAPER_SPECIFIED": "Fallback/PARSeq motivation only; learned utility and adapted YOLO are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Existing source18/lexical/map/risk feature primitives, fixed expert policies, normalized two-count heads, historical TRAIN Generic resource and authentic cached native DeepSolo/PARSeq rerereadings.",
+    "UNRESOLVED": "Historical TEST/pretraining exposure, validation reuse, TRAIN versus released TEST vocabulary distribution, source-fold size shift, conditional stacking dependence and >=90%/61 with coherent cross-dataset retention."
+  },
+  "seed": 20261029,
+  "seen_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_seen_train_v1",
+  "selection_tolerance": 0.001,
+  "smoke_fit_images": 40,
+  "smoke_validation_images": 8,
+  "snapshot_packages": [
+    "recognition",
+    "scripts",
+    "segmentation",
+    "localize",
+    "models",
+    "pipeline",
+    "caption",
+    "scoring",
+    "research"
+  ],
+  "total_images": 233,
+  "word_risk": {
+    "iterations": 100,
+    "l2": 10.0,
+    "leaves": 7,
+    "minimum_leaf": 20
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "admission_thresholds": [
+    0.0,
+    0.3,
+    0.5,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "bootstrap_draws": 10000,
+  "cpu_threads": 2,
+  "guards": [
+    false,
+    true
+  ],
+  "heuristics": [
+    "expected_errors",
+    "weakest_word"
+  ],
+  "minimum_validation_f1": 0.0,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/icdar2015__yolo",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/data/fallbacks.json": "1bf3ddef8de41b1bd307b3f07041f15e0202705ecb679aff21b44402b75d18f7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/data/seen/case.json": "e23c75d530f25627be8c3c7192eb412f5a918dc3247cc34225ab854b5cff8aa4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/data/seen/labels.json": "21a6074856c834b91800b259468b7258a472745e33a79138454025404c77615e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/data/seen/observations.json": "8a180958296b3ac46457dad83fc0a1c04e59efed15cedaab9827bc8ec2f6951b",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/deployment_qualification.json": "97bf26847967c7c4b53703d31ccc71b46675c9c1d21697e14c49e659428e5733",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/models/seen/completed.json": "acf7997a93ae3a3a666cb27e26c94757ff5368211ccabbd619b7ff2b8ca79783",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/models/seen/word_folds.json": "2f711ae27fc4d02036950095373921074676b3975936d033b0b6d38ef696faf6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/models/seen/word_full.joblib": "edd72f8c1afccbf6907b20d4460e1fda1c1a1250d2b9cbc8fc7a5711f8b8927e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/models/seen/word_probabilities.json": "c4f3df935ffa655a4f8266b092f5ba562d9b554584eee246caf664ff72b2cc68",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/resolved_configuration.json": "3811daac5c490d631192fb72e8183776aba6a04d6df9f44fe2ffb0ba727b826a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/fixed_expert_budget_retention_v1.json": "b97116468849fc8013719dd6e6c99dbe024864468067eb85f996ddaebbef6020"
+  },
+  "require_expert_excluded": false,
+  "retention_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/fixed_expert_budget_retention_v1.json",
+  "scientific_choices": {
+    "ASSUMPTION": "Compute word-risk probabilities once on the frozen original emission trace. Apply the same finite admission threshold grid and two risk aggregations on all datasets, then use fixed exact dataset budgets; optional frozen complementary primary words are appended only after fallback. Select by pooled crossfold FIT and validation micro F1, within one conditional bootstrap standard error preferring fewer auxiliary models or rereads and greater pooled F1. No TEST labels or fallback outputs enter selection.",
+    "HARDWARE_DEVIATION": "CPU float64 processing over cached genuine outputs, no new neural inference during selection.",
+    "PAPER_SPECIFIED": "PARSeq/localization/fallback motivation only. Learned word admission and risk route are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Previously trained and independently audited small HGB word correctness model, genuine OCR candidates and domain-optimized fallback outputs; fixed native256 care/ignore metric.",
+    "UNRESOLVED": "TRAIN/validation benchmark vocabulary side information, conditional/non-nested expert/word folds, bootstrap after candidate search, upstream data overlap and repeated historical TEST exploration."
+  },
+  "seed": 20261029,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo",
+  "source_view": "seen"
+}

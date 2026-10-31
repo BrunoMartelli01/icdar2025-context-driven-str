@@ -1,0 +1,59 @@
+{
+  "candidate_module": "scripts.qualify_uniform_multiscale_words",
+  "candidate_name": "word_additions",
+  "claim_label": "approximate reproduction",
+  "completed_icdar13_screen": null,
+  "jobs": {
+    "icdar13": {
+      "blend_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar13_template_v21.json",
+      "existing_scale_root": "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14",
+      "resolved_blend_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar13_v21.json",
+      "scale_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_scaled_frontend_v14.json"
+    },
+    "icdar2015": {
+      "blend_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar2015_template_v21.json",
+      "existing_scale_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20",
+      "resolved_blend_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar2015_v21.json",
+      "scale_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_icdar2015_v20.json"
+    },
+    "totaltext": {
+      "blend_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_totaltext_template_v21.json",
+      "existing_scale_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20",
+      "resolved_blend_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_totaltext_v21.json",
+      "scale_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_totaltext_v20b.json"
+    }
+  },
+  "maximum_domain_loss": 0.001,
+  "minimum_macro_gain": 0.001,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-word-shared-validation-20261031-v21",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_parity_audit.json": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/native_probe/complete.json": "ac09cc53cb6b9b90fc4ddbaa78a10b46d5b78579487a0dedf9a134a19dbfb725",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/scaled/complete.json": "86d435c9b4991627d6dbbdc0d7cab34b41f3fe21b255c4091e570d54d9d7c7c7",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-icdar2015-20261031-v20/scaled/index.json": "fbf50f0a25059cad76e0892c964f90b9ebdfff2e61a5adfd5815abd0b9ea6a31",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/native_parity_audit.json": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/native_probe/complete.json": "f9809276dbdd79ed364f98170f723c7410f86a9c055c58912ffff118799e5d4e",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/scaled/complete.json": "384732f98de17594cf30d406e15ac922ac0e75685f5317146e45d04c3a4412a3",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-scaled-totaltext-20261031-v20/scaled/index.json": "af64a235c3f0912dbc195ed90df83d6c466b9d081ec0317889fe200c6f0edd11",
+    "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/native_parity_audit.json": "787560828de9e61f59a725434823a6afbffeb7831ecef7b3734f899b32a58a01",
+    "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/native_probe/complete.json": "7d4d99f4b425c15d5efc160e752c0d7467d461e85aeedea1d2487d57a8283bb2",
+    "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/scaled/complete.json": "fa6364e9a0fbca497cd93e1a35c4c1af0c810f6702ac98dd675c45a0e1a6391f",
+    "/extra1/bmartelli/context-str-runs/uniform-scaled-frontend-20261031-v14/scaled/index.json": "51a2b6d803222136f9514a9ba4a2942d5fd15019fc601f79c8e8ccb2c880388e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_icdar2015_v20.json": "729799a8236101217590fd5cc12fca8df1402176caccb46baaef7ad48fbd7b46",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_totaltext_v20b.json": "3802824eecbb4755d75e127950c9066e05184f61f933f37d08c79bb3f017ba6a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar13_template_v21.json": "4979efc7918a6c4cd6625b8b1452709485e53a4ab365904cdd3039b501e8b65e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_icdar2015_template_v21.json": "a0cb067bf9d16e64b87a500379ff6e352728c6e23539c26ac13c5e4039d62bd8",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_words_totaltext_template_v21.json": "97b687beba75ea0cd602fe8616cfce8c33d5f5feaa23506858a8d953e27736e7",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_scaled_frontend_v14.json": "5bdaa7ea3cd9e28a345803775ec6d7f9c51688741a552051d92124ed3391a0f1",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/recognition/uniform_multiscale_words.py": "784e5afcdfc411e32e2bb0726a04be56af78bbf47d34e79232e52aeaf86b6b3e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_multiscale_native_dependency.py": "95ef18caebac24cf2178226f0a62ccb58178bb95f0212040f49f167793dbfb56",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_multiscale_words.py": "fa187452f3c69029189d78f970dfa58621f6ede4e9385903fc4308e9213abb62",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_scaled_frontend.py": "6a846698b4a31b236ab434634303b5f42abcf5b41ca142351e436873531c8a2b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_shared_multiscale.py": "3aaebcf4b4c7fb8ea9ae73c07bdc455b05cb0878662e6d1d25ab6b1976bebf7a"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Before any word-addition score, retain one common method only if macro VAL gain>0.1point and no domain loss>0.1point; otherwise baseline. Transferred heads screen only, repeated VAL and earlier mask-mean outcomes exposed; no unbiased quality or TEST claim. No parameter grid or dataset-specific fusion rule.",
+    "UNRESOLVED": "Matching banks/refits, validation uncertainty, upstream exposure and full hard-budget target achievement."
+  }
+}

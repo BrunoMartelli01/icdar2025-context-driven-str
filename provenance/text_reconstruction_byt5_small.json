@@ -1,0 +1,20 @@
+{
+  "claim_label": "approximate reproduction",
+  "classification": "ASSUMPTION",
+  "experiment": "TEXT-RECONSTRUCTION-TESTS-001",
+  "files_sha256": {
+    "config.json": "7845fb21b320f3fa05392ce151143502cf08729c8c89732da3293615885d3e83",
+    "generation_config.json": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+    "pytorch_model.bin": "5c5aaf56299d6f2d4eaadad550a40765198828ead4d74f0a15f91cbe0961931a",
+    "special_tokens_map.json": "bda1d200ddf8b187ed2f2ff89a69c540e1bfde26993b762d534c20d82bfc8ec8",
+    "tokenizer_config.json": "3b791189b080dc37ab27ebd5cba352720ff150146217f93da1612ee8f41a846e"
+  },
+  "model_id": "google/byt5-small",
+  "packages_installed": false,
+  "revision": "68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+  "schema_version": 1,
+  "snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+  "source": "https://huggingface.co/google/byt5-small/tree/68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+  "task": "Full fine-tuning for frozen scene-OCR text reconstruction; not an OCR-trained original checkpoint.",
+  "weights_in_repository": false
+}

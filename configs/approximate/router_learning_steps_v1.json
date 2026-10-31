@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "confidence_level": 0.95,
+  "seed": 20261025,
+  "bootstrap_replicates": 1000,
+  "cpu_threads": 4,
+  "cpu_head_replay_tolerance": 0.0001,
+  "score_tie_tolerance": 1e-06,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Conditional paired pixel-group and empirical matched-seed bootstrap with fixed trained models and routes; no multiple-comparison correction. Interpret small learning curves as constant-epoch rather than constant-update interventions."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Add likelihood-only versus scalar-only feature sensitivities on the frozen CPU BLIP likelihood head. No model fitting; nonlinear interactions remain separate. Predeclare analysis before full omission-probe outputs."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Small frozen likelihood head replayed in FP32 on CPU, tolerance1e-4 checked against original GPU scores. Foundation embeddings and model predictions remain unchanged."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Compare OOF checkpoints with constant optimizer steps: full5/half10/quarter20 epochs, and full10/half20. Report actual per-fold update counts; quarter runs can differ slightly because of batch rounding. This additional control was specified before learning-curve trial results, without TEST model selection."
+    }
+  ],
+  "constant_update_pairs": [
+    {
+      "left": [
+        "baseline",
+        5
+      ],
+      "right": [
+        "learning50",
+        10
+      ]
+    },
+    {
+      "left": [
+        "baseline",
+        5
+      ],
+      "right": [
+        "learning25",
+        20
+      ]
+    },
+    {
+      "left": [
+        "baseline",
+        10
+      ],
+      "right": [
+        "learning50",
+        20
+      ]
+    }
+  ],
+  "smoke_pairs": [
+    {
+      "left": [
+        "baseline",
+        1
+      ],
+      "right": [
+        "learning50",
+        2
+      ]
+    },
+    {
+      "left": [
+        "baseline",
+        1
+      ],
+      "right": [
+        "learning25",
+        2
+      ]
+    }
+  ],
+  "poll_seconds": 15
+}

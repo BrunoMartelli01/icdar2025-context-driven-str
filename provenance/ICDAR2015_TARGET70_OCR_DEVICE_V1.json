@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "classification": "HARDWARE_DEVIATION",
+  "result_class": "full TRAIN validation OCR device qualification",
+  "status": "PASS_SOURCE_VALIDATION_ONLY",
+  "result_path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/source-ocr-device-qualification-v1/results.json",
+  "result_sha256": "592c08def73b04eaef875448d6885becebce1d6cc7309ef3b8bddbfe6a712139",
+  "script_sha256": "36fe899c0a0d6cc90c4fd671e255e3470a3b4f93a8921c84aaf239d29aa18fc2",
+  "unit_tests": {
+    "passed": 6,
+    "report": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/device-equivalence-unit-tests-v1.xml",
+    "sha256": "42a7c169f4a59cd4e9211e7eae25aa0941c6ae90253d6704f6661cf8d4dcac27"
+  },
+  "images": 100,
+  "care_words": 430,
+  "raw_proposals": 722,
+  "unique_crops": 722,
+  "text_differences": 0,
+  "token_id_differences": 0,
+  "output_policy_differences": 0,
+  "max_absolute_confidence_differences": {
+    "mean_token_log_probability": 1.436471939086914e-05,
+    "sequence_confidence_native": 8.38935375213623e-06
+  },
+  "peak_allocated_bytes": 205955584,
+  "peak_reserved_bytes": 249561088,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "input_shape": [
+    32,
+    3,
+    32,
+    128
+  ],
+  "final_model_qualification_pending": true,
+  "target_achieved": false,
+  "test_evaluations": 0
+}

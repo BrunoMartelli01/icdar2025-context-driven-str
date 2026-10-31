@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "baseline_root": "/extra1/bmartelli/context-str-artifacts/trainable-image-router-v1/full/be5bf92dea94",
+  "baseline_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/trainable_image_router_v1.json",
+  "baseline_paths": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/trainable_image_router_local_paths_v1.json",
+  "inventory_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--microsoft--Florence-2-large-ft/snapshots/4a12a2b54b7016a48a22037fbd62da90cd566f2a",
+  "verifier_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/grounded-context-router-v1"
+}

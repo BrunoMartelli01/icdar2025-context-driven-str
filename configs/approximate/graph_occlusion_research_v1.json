@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "word_root": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/qualified_word_data",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "gap_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/decoder/best.pt",
+    "split_protocol": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/protocol.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "source_word_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+    "input_restoration": "/extra1/bmartelli/context-str-runs/graph-occlusion-research-20261023-v1/input_restoration.json"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "gap_checkpoint": "7f5212429b8c2e670c24759e213c2833b7cd70dc9d289fb7b3f301db81fe0aa3",
+    "split_protocol": "5ee0289a23ff9ff31f9db76d21d764a70b93debc52ba8362a0341517ba57c65d",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "input_restoration": "f25504061f864d23306f97edda6618c8b2da86cf5ebe6f494b28284aef559c36"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "ocr_batch_size": 32,
+    "segmentation_batch_size": 1,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 8589934592
+  },
+  "metric_iou_threshold": 0.5,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+  "source_results_sha256": "34b3f1394cfa4317f6a78a46f63f2ed2482ba873066af63b622991ca76c74aa5",
+  "budget": 20,
+  "seed": 20261023,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "graph_occlusion_research_v1",
+  "scientific_ambiguity": "GRAPH-OCCLUSION-RESEARCH-001",
+  "bootstrap_draws": 2000,
+  "filter_source": "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full",
+  "filter_source_sha256": {
+    "selector/pointwise.pt": "b2a31adef35ec7ae7462e04940d1f86b61868df37faa2e21630515982078b6dc",
+    "selector/selection_frozen.json": "818d9cd57d81299c00dfcdc52d180a7819ac3841b06a1aaf6e3b82f76e0ce331",
+    "selector/test_results.json": "2c70e34a0b148c5ce8461dcda6e31cfa1b37f4bce3ddc4e49a7d32cf79e903e9",
+    "selector/calibration_predictions.json": "0619e64138ff71a866c10844a90ba50ad26ee2a5d011767bfcffc4fe5c3cafef",
+    "selector/evaluation_predictions.json": "f7aa5a31a5d9b0276e455963d899046d810a731baee479b02f858e9b10002951",
+    "selector/test_predictions.json": "18d0c0c0e4be00077c54b55bf43c88e789acb5881c26c2fa4ccfc068fadab5f9",
+    "independent_audit.json": "3c7a6058922513c4d4317c63aa5d140ff786004f711ffba80b3e8e6f10fa4cd5"
+  },
+  "filter": {
+    "hidden": 32,
+    "threshold": 0.5,
+    "overlap": 0.6
+  },
+  "frozen_source_files": [
+    "recognition/parseq.py",
+    "models/adaspot_gap.py",
+    "models/unet_word_research.py",
+    "models/totaltext_word_kernel.py",
+    "models/unet_adv.py",
+    "localize/occlusion_four_tests.py"
+  ],
+  "graph": {
+    "seed_threshold": 0.8,
+    "minimum_seed_area": 2,
+    "maximum_pieces": 8,
+    "maximum_nodes": 128,
+    "neighbors": 8,
+    "maximum_distance": 6.0,
+    "owner_purity": 0.6,
+    "hidden": 64,
+    "layers": 4,
+    "epochs": 30,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "edge_loss_weight": 1.0,
+    "minimum_feature_scale": 0.01,
+    "policies": [
+      {
+        "node": 0.3,
+        "edge": 0.3
+      },
+      {
+        "node": 0.3,
+        "edge": 0.5
+      },
+      {
+        "node": 0.3,
+        "edge": 0.7
+      },
+      {
+        "node": 0.5,
+        "edge": 0.3
+      },
+      {
+        "node": 0.5,
+        "edge": 0.5
+      },
+      {
+        "node": 0.5,
+        "edge": 0.7
+      }
+    ]
+  },
+  "segmentation": {
+    "epochs": 12,
+    "calibration_every": 3,
+    "batch_size": 4,
+    "learning_rate": 3e-06,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "brightness": 0.1,
+    "contrast": 0.1,
+    "occlusion_probability": 0.5,
+    "occlusion_width_fraction": 0.15,
+    "maximum_occluded_words": 4,
+    "teacher_confidence": 0.8,
+    "pixel_weight": 0.5,
+    "structure_weight": 0.5,
+    "encoder_frozen": true,
+    "teacher_update": "frozen qualified initial checkpoint; clean view",
+    "target_semantics": "Original clean text/kernel labels retained under synthetic RGB occlusion; natural amodal labels unavailable."
+  },
+  "smoke": {
+    "fit": 8,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Das pp5/7 describes component relations and graph boundary deformation with CNN priors; p10 describes pseudo boxes and EMA. Original paper section3.2 specifies AG-U-Net. Neither establishes these experimental choices."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse qualified M/K U-Net, original-RGB PARSeq, source preprocessing, 1030/100/125/300 populations, bboxIoU0.5 and exact Unicode casefold retaining punctuation, all care GT and outputs, no ignore neutralization. Frozen pre-OCR cap20 and pointwise filter reference60.700588% TEST F1."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Region/kernel-fragment graph with four residual aggregation layers; self-only equal-parameter control, GT word rather than line links, confident-kernel partition, mean/std CNN features, thresholds and caps. This is not the exact Das contour-point GCN. Graph final epoch fixed before calibration; calibration selects graph node/edge thresholds."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Twelve-epoch matched RGB occlusion pilots; frozen warm-start clean teacher instead of EMA, teacher confidence gated by TRAIN GT agreement, balanced pixel MSE plus word-wise row/column occupancy profiles and separation-band MSE. Profiles are not a connectivity guarantee. This does not repeat recognizer distillation. Epoch0 eligible; checkpoint selection on calibration word F1 every3epochs. Identical images, RNG, occlusions, optimizer and update budget in all three arms."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual RTX3090 qualification, FP32, no AMP/TF32, frozen ResNet50 encoder, batch4, sequential model stages. Record allocated/reserved VRAM and propagate OOM. These are component experiments, not full pipeline reproduction."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Strict original decoder and checkpoint provenance blockers remain. Historical TEST exploration, source calibration exposure, known duplicate TRAIN/TEST images, transfer from synthetic to real occlusions, fragment coverage, graph chaining across neighboring words, single-seed variance and convergence limit interpretation. Decoder replacement is deferred until evidence supports it."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Three original TRAIN JPEG paths drifted from pinned hashes. Use an isolated full copy with exact original bytes from the verified local acquisition mirror; preserve user data. Rebase TRAIN RGB paths to this explicitly configured root, retain all scientific hashes and populations."
+    }
+  ]
+}

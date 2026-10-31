@@ -1,0 +1,150 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "claim_label": "approximate reproduction",
+  "engineering_repair": "Original IC15 ceil-quota reference46/100 is exactly replayed, then both branches compared at hard-floor45/100; no assertions discarded. Previously completed actual exports reused with explicit receipt.",
+  "evidence_sha256": {
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-shared-validation-20261031-v20b/shared_selection_frozen.json": "e23d7e88623c46ecae61e9759d702dbb63dfd96249828865970650da38120949"
+  },
+  "goal_complete": false,
+  "mode": "approximate",
+  "preserved_original_failure_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-shared-validation-20261031-v20",
+  "shared_selection": {
+    "actual_new_deepsolo_calls": 0,
+    "claim_label": "approximate reproduction",
+    "config_sha256": "cde68ff8153b121b05126b5dd4084590cdd0eecfbe27e4cafdb10761b63eba5f",
+    "evidence_sha256": {
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-icdar2015-20261031-v20b/independent_audit.json": "68e061e5829c39727b380d2c1ef39928aa363e6f308208b7b4044bbdb468f814",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-icdar2015-20261031-v20b/independent_map_audit.json": "72825b9e3fe9d5ebc8f03cdf65f3b5e7957a6259ee284e438c31ae5db78cc283",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-icdar2015-20261031-v20b/selection_frozen.json": "033d6ed8cf05a6af781c4140cddbad82f6e9f5ead9059f7adca356d55e57465a",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-totaltext-20261031-v20b/independent_audit.json": "c99faeb6d08965291e80c2480116c9f201ac268cf15ec7a141a2713b6cfa8745",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-totaltext-20261031-v20b/independent_map_audit.json": "39f3982bc99bdb092d8d79dcf29a8fca46606229d5abc823cdf7c58e2eb0b4cd",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-blend-totaltext-20261031-v20b/selection_frozen.json": "bb206272f0911a6f9eb91cdb393fde06c21f39324cade37d43f08b0a8a95a9cd",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/independent_audit.json": "57fd3067f64895942d77fb1cec99308e4cdc37a972ee18cffec8b73fb483a621",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/independent_map_audit.json": "6a2986c0fc91309a05c77a994428fa81548caa3fea48968c7399347f926a010d",
+      "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/selection_frozen.json": "e074663ed741b31a672af4edd3d80f8afa280ea46a34991601f037bedcd6c764"
+    },
+    "macro_gain": -0.0014048547998694778,
+    "mode": "approximate",
+    "results": {
+      "icdar13": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 152,
+            "detected_words": 152,
+            "f1": 0.932475884244373,
+            "fn": 14,
+            "fp": 7,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 145
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        },
+        "gain": 0.0038298482397034483,
+        "probability_mean": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 155,
+            "detected_words": 155,
+            "f1": 0.9363057324840764,
+            "fn": 12,
+            "fp": 8,
+            "gt_words": 159,
+            "ignored_outputs": 0,
+            "images": 46,
+            "tp": 147
+          },
+          "deepsolo_images": 12,
+          "deepsolo_percentage": 26.08695652173913,
+          "total_images": 46
+        }
+      },
+      "icdar2015": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 374,
+            "detected_words": 366,
+            "f1": 0.8391959798994975,
+            "fn": 96,
+            "fp": 32,
+            "gt_words": 430,
+            "ignored_outputs": 8,
+            "images": 100,
+            "tp": 334
+          },
+          "deepsolo_images": 45,
+          "deepsolo_percentage": 45.0,
+          "total_images": 100
+        },
+        "gain": 0.00040301759423688743,
+        "probability_mean": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 375,
+            "detected_words": 368,
+            "f1": 0.8395989974937343,
+            "fn": 95,
+            "fp": 33,
+            "gt_words": 430,
+            "ignored_outputs": 7,
+            "images": 100,
+            "tp": 335
+          },
+          "deepsolo_images": 45,
+          "deepsolo_percentage": 45.0,
+          "total_images": 100
+        }
+      },
+      "totaltext": {
+        "baseline": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 853,
+            "detected_words": 847,
+            "f1": 0.7890710382513662,
+            "fn": 261,
+            "fp": 125,
+            "gt_words": 983,
+            "ignored_outputs": 6,
+            "images": 125,
+            "tp": 722
+          },
+          "deepsolo_images": 62,
+          "deepsolo_percentage": 49.6,
+          "total_images": 125
+        },
+        "gain": -0.00844743023354877,
+        "probability_mean": {
+          "actual_new_deepsolo_calls": 0,
+          "counts": {
+            "all_outputs": 823,
+            "detected_words": 813,
+            "f1": 0.7806236080178174,
+            "fn": 282,
+            "fp": 112,
+            "gt_words": 983,
+            "ignored_outputs": 10,
+            "images": 125,
+            "tp": 701
+          },
+          "deepsolo_images": 62,
+          "deepsolo_percentage": 49.6,
+          "total_images": 125
+        }
+      }
+    },
+    "scope": "Three-domain VAL inference screen with transferred original heads. Matching banks/refits and full TEST remain required; no goal-completion claim.",
+    "selected": "baseline",
+    "source_sha256": "2dc7557116b5e1a5eab9668144ac8a601d06c31a0906fed3360a26848b3b83eb",
+    "status": "FROZEN",
+    "test_used_for_selection": false
+  },
+  "source_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-shared-validation-20261031-v20b",
+  "status": "COMPLETED_AUDITED",
+  "test_used_for_selection": false
+}

@@ -1,0 +1,143 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "grounded_word_recovery_v1",
+  "seed": 20261025,
+  "matching_iou": 0.5,
+  "compatibility_iou": 0.6,
+  "maximum_bytes": 64,
+  "visual_dimensions": 384,
+  "visual_columns": 16,
+  "context_fraction": 0.5,
+  "paths": {
+    "graph_run": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "selective_run": "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full",
+    "evidence_run": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full",
+    "occlusion_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+    "segmentation_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "segmentation_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_bytes": 4294967296,
+    "encoding_batch_size": 64,
+    "ocr_batch_size": 32,
+    "head_batch_size": 64,
+    "editor_batch_size": 64,
+    "gpu_wait_seconds": 600,
+    "gpu_poll_seconds": 5
+  },
+  "verifier": {
+    "hidden": 64,
+    "layers": 2,
+    "epochs": 10,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "spelling_weight": 0.5,
+    "gradient_clip": 5.0,
+    "calibration_every": 5
+  },
+  "editor": {
+    "hidden": 64,
+    "layers": 2,
+    "epochs": 10,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "calibration_every": 5
+  },
+  "search": {
+    "hidden": 64,
+    "layers": 3,
+    "epochs": 10,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "gradient_clip": 5.0,
+    "calibration_every": 5,
+    "query_budget": 2,
+    "retrieval_candidates": 6,
+    "tile_fraction": 0.6,
+    "novelty_iou": 0.5,
+    "neighbors": 8,
+    "maximum_distance": 6.0,
+    "dimensions": 400,
+    "minimum_scale": 0.01,
+    "state_batch_size": 32
+  },
+  "policy": {
+    "thresholds": [
+      0.5,
+      0.65,
+      0.8,
+      0.9
+    ],
+    "margins": [
+      0.05,
+      0.15
+    ],
+    "raw_threshold": 0.5,
+    "raw_margin": 0.05
+  },
+  "smoke_images": {
+    "fit": 36,
+    "calibration": 10,
+    "evaluation": 8,
+    "test": 10
+  },
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "bootstrap_iterations": 1000,
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/prepared.pkl": "89a5700b4a3f5032db09720593abe643113be1139fd2073f20e011de42f24725",
+    "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full/artifact_manifest.json": "57dcafdb1abc1df4c6552645f43ba72b855ee415957ab26d39de5c98e3606847",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/protocol.json": "a8ad787bf2b32ae611aaaad620f5a2aa1f2486dba7b7c6c0f825a087d9786ae0",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "/extra1/bmartelli/.codex/attachments/7824bf4e-e660-4ad5-8884-0aca38e4fa15/Das_Occlusion_Detection_KBS.pdf": "c50a492403298df36a197439a42b805994c62454a1bbcbea2de0077f628711ac",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/final_artifact_manifest.json": "0aea02470190560d384ead91f3dd69654a386804b5e500184f7b7b6e84c22e71",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/selector_pre.pt": "86ba9dfc29d6a9fd6da513d5151a96d6f1d410fcdf6ef98bc27096b7bbbcb287"
+  },
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "ambiguity": "GROUNDED-WORD-RECOVERY-001",
+      "scope": "All new architectures, byte limits, losses, training budgets, thresholds and action bounds are explicit exploratory choices; none is an exact Das or Chakraborty recipe.",
+      "rationale": "Test measured frozen-box, protected-output and substitution-only limitations.",
+      "expected_effect": "May improve or regress exact word F1; identity remains a selection candidate."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "ambiguity": "GROUNDED-WORD-RECOVERY-001",
+      "scope": "Frozen native encoder columns averaged vertically, RGB/context joint verification; single-conflict replacement; UTF8 KEEP/DELETE/INSERT transducer; actual new-localization queries.",
+      "rationale": "No character GT or dictionary; compare confidence, text-only and same-budget fixed/self controls.",
+      "expected_effect": "Spatial pooling may lose detail; insertions and unlocked replacements can harm correct words."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "scope": "Measured RTX3090 single-GPU FP32; frozen model caches; explicit batches; CPU metrics; no AMP/TF32; deterministic algorithms.",
+      "rationale": "Execute on verified available host using existing environment.",
+      "expected_effect": "Different hardware and batching from the paper; timings are not an end-to-end latency benchmark."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "scope": "Historical TEST and internal evaluation reuse, inherited calibration exposure, one seed, duplicated TRAIN/TEST RGBs; strict artifacts remain unresolved.",
+      "rationale": "Exploratory interventions and matched controls, not independent validation.",
+      "expected_effect": "Observed gains cannot establish independent generalization."
+    }
+  ],
+  "relations": {
+    "neighbors": 8,
+    "maximum_distance": 6.0
+  }
+}

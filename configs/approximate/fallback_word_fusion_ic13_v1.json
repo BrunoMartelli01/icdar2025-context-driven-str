@@ -1,0 +1,42 @@
+{
+  "cpu_threads": 2,
+  "maximum_edit_distances": [
+    1,
+    2,
+    null
+  ],
+  "minimum_ious": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/ic13",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/case.json": "8030129d11a4c15d6e868c33735f267ffe977dde56dd0f79787dabef95d88d05",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/labels.json": "666940befe1dac7075a95941ddbede95b797090a0057c68c5e46f04f25b613a6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/oof/observations.json": "44b87a184140bab6bb6a7466adad7aadc59427eab5082320f7e533ef58bc63cf",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/models/oof/word_probabilities.json": "2f0ad2a3577c74f2315f3d2f264ab58a54f3a05c4ea81ba0e356ffa72296b1ea",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/ic13/deployment_qualification.json": "9007462a800d08083d04e49b81f1fe1d5f5fee3a614cb8832aa8534153681f2f",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/ic13/resolved_configuration.json": "34519f33f4757db9c28ac876058bafd3fbebea8280673c1163812a9a0acc94ae",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/ic13/selection_frozen.json": "e68ce143a42ddb2b889ead5604481cfb0aad50181f69ec8e126a4d71990e707c"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Only after an image is routed to DeepSolo, greedily match its words one-to-one to already available light words by predicted box IoU and replace a fallback transcript only when the trained word-correctness probability and optional edit-distance rule qualify. Preserve fallback instances/geometry and the existing optional light complement. Compare the same finite policy grid on TRAIN crossfold plus validation with a validation non-regression guard. No extra neural models, TEST information or changes to the fixed image budget.",
+    "HARDWARE_DEVIATION": "CPU postprocessing over authentic cached predictions; no new neural inference or online latency measurement.",
+    "PAPER_SPECIFIED": "PARSeq and DeepSolo fallback motivation only; this replacement policy is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Already qualified real light/DeepSolo predictions, existing trained word-risk probabilities and exact native256 lexical/ignore protocol.",
+    "UNRESOLVED": "Conditional non-nested folds, finite validation, vocabulary side information, historical/repeated TEST exploration, upstream exposure and cross-dataset performance."
+  },
+  "selection_tolerance": 0.001,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/risk_admission_gate_v1/ic13",
+  "validation_tolerance": 0.001,
+  "word_probabilities": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "frozen_single_unet_component_size_validation",
+  "source_multiview_results_sha256": "54ffa64c08df45a05dc98f5b72e7cd464a79cec1ba47fc14f776c040f35bda7f",
+  "source_multiview_profile_sha256": "73190ad1195ec1e6e267baa2d0187ef764001e61d52aba5541eac5268b10a93f",
+  "source_checkpoint_sha256": "c4676914dbcbf559a26fb98e51f5ae137b2a3ac66930d0191fca5b214fce5eb6",
+  "projected_component_area_minimums": [0, 4, 16, 64],
+  "original_box_height_minimums": [0, 4, 8],
+  "expected_source_policies": 216,
+  "expected_validation_images": 100,
+  "expected_care_words": 430,
+  "selection_metric": "alphanumeric_casefold_micro_f1_original_bbox_iou_0.5",
+  "scientific_choices": [
+    {"classification":"PAPER_SPECIFIED","component":"component_area_filter_type","rationale":"Paper3.3 Algorithm1 filters connected components by component area A(C), not box area; its numeric threshold is unspecified."},
+    {"classification":"ASSUMPTION","component":"projected_area_height_grid","rationale":"Finite area0/4/16/64 original-canvas square-pixel units and original unpadded box-height0/4/8 pixel grid. Area approximates original pixel area by scaling the actual native foreground-pixel count; boundary cells are not fractionally clipped. All original care words remain, all admitted hypotheses including ignore-area predictions count."},
+    {"classification":"REPOSITORY_SPECIFIED","component":"source_and_metric","rationale":"Frozen c467 one-U-Net source with prior216 validation-only view/policy cases, original-coordinate IoU>=0.5 and casefold+isalnum one-to-one word matching. No TEST reading, model retraining or OCR changes."},
+    {"classification":"UNRESOLVED","component":"generalization","rationale":"Reused fixed VAL100 can overfit selection; no selected candidate is a TEST result until separately frozen and evaluated."}
+  ]
+}

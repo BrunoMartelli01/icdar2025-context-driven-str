@@ -1,0 +1,44 @@
+{
+  "base_pipeline_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json",
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "confidence_thresholds": [
+    0.8,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_reread_validation_v7",
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7/complete.json": "38f6c1c1e0db448358c58c9ab1e4af40286ce9b3e6d915d3e145a3927e3d8386",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7/independent_audit.json": "df0613b9923f421e25b99037d16f6f3a924de0994b1eccfc0364d073ff2bd83a",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7/resolved_configuration.json": "58137f6e5882515585d868515da952988b1809c4c8951f517da2215e1e3afa10"
+  },
+  "reader_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/fallback_rereads_train_v7",
+  "reference_controls": {
+    "common80": {
+      "icdar13": 187,
+      "icdar2015": 400,
+      "totaltext": 240
+    },
+    "common90": {
+      "icdar13": 210,
+      "icdar2015": 450,
+      "totaltext": 270
+    },
+    "primary": {
+      "icdar13": 61,
+      "icdar2015": 228,
+      "totaltext": 150
+    }
+  },
+  "scope": "Native validation only; same finite confidence-qualified reread grid on all3 domains, identity baseline; no TEST or deployment choice from TEST",
+  "seed": 20261031,
+  "selection_tolerance": 0.001
+}

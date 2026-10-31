@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "backbones": [
+    "unet",
+    "yolo"
+  ],
+  "snapshot_packages": [
+    "scripts",
+    "recognition",
+    "deepsolo",
+    "segmentation",
+    "localize",
+    "models",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "diagnostics"
+  ],
+  "source_sha256": {
+    "token_root": {
+      "resolved_configuration.json": "828a93b4b245258d6697574df52e57404945612b990f25bc7b9687247f34f44e",
+      "results.json": "c7868186ea6d1e7af8022839921aae6133986a2a8d711e65d112f7b2422ed548",
+      "independent_audit.json": "55c57e4e09522f0154ac9db90815a3ec18c1d0be4f80015b2f9068ee60fbd5cd"
+    },
+    "cause_root": {
+      "resolved_configuration.json": "50f8d693c52398cc990f89f946fcd53c284c595411e7146ca574550a44f7983f",
+      "results.json": "c83e2bc6ce9ae428efc16bd66a3257b7cc9f64c3816e85156999c581757fecf3",
+      "independent_audit.json": "cfbfcc090ebaca67def2b76c453a1463cef6644c75411ebb3c9ec47d2e7196b8"
+    },
+    "improved_root": {
+      "processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+      "deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+      "independent_audit.json": "8ef32e9738423b8da683e9e13b8bcb9e3a6017dc6f85ca53181eb5f6f44ab3cd"
+    },
+    "unet_root": {
+      "run_manifest.json": "68915c97616d974ebc066bd53310edd7097458b8c5223c436d81091603e78ff8",
+      "run_contract.json": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622"
+    },
+    "unet_ranking_root": {
+      "threshold_selection.json": "29b3f179e0808c9e96987e05e77973139b6050b73adca803fb987b89c01f97b2",
+      "word_results.json": "957f0f651c7d61b8d8540336548d041dc6b6cfca4ee02320762abceb0810b4b5",
+      "analysis_selection.json": "570085a4438f758eff470f4d0e016d05dcec7d5d971b7fedbcacb9dd22a53777"
+    }
+  },
+  "assets": {
+    "unet_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "unet_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "deepsolo_profile": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+    "deepsolo_runtime": "493f9a188220ae2170d26f34ec2dc07c392ff7df216cb70866b25b546a083a38"
+  },
+  "architecture": {
+    "clip_dim": 512,
+    "heads": 4,
+    "hidden_dim": 64,
+    "initialization_std": 0.02,
+    "likelihood_dim": 14,
+    "mlp_dim": 128,
+    "query_count": 32,
+    "query_dim": 768,
+    "scalar_dim": 18,
+    "word_geometry_dim": 12
+  },
+  "clip": {
+    "clip_dim": 512,
+    "image_batch_size": 8,
+    "native_tolerance": 1e-05,
+    "padding_rgb": [
+      0,
+      0,
+      0
+    ],
+    "text_batch_size": 32,
+    "tile_grid": [
+      2,
+      2
+    ],
+    "word_template": "The printed word {word}."
+  },
+  "training": {
+    "auxiliary_word_weight": 0.1,
+    "batch_size": 8,
+    "checkpoints": [
+      5,
+      10,
+      20
+    ],
+    "epochs": 20,
+    "gradient_clip": 5.0,
+    "huber_beta": 1.0,
+    "learning_rate": 0.0003,
+    "minimum_target_scale": 1.0,
+    "ranking_weight": 0.2,
+    "seed_stride": 9973,
+    "weight_decay": 0.001
+  },
+  "labels": {
+    "auxiliary_iou": 0.5,
+    "policy": "spatial IoU and Unicode casefold+isalnum; TRAIN only"
+  },
+  "execution": {
+    "seed": 20280970,
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "parseq_batch_size": 32,
+    "log_every": 25,
+    "minimum_free_gpu_bytes": {
+      "unet": 4294967296,
+      "fallback": 6442450944,
+      "clip": 2147483648,
+      "router": 2147483648
+    },
+    "maximum_gpu_wait_seconds": 3600,
+    "gpu_poll_seconds": 5
+  },
+  "unet": {
+    "native_size": 256,
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "maximum_ocr_candidates": 20,
+    "minimum_transcript_probability": 0.7,
+    "skip_floor": 0.25,
+    "initial_gap_bias": -2.0
+  },
+  "fallback_policy": {
+    "decoder": "greedy",
+    "fusion_iou": null,
+    "recognition_rank_power": 0,
+    "recognition_threshold": 0.925,
+    "resolution": "native",
+    "same_text_nms_iou": null,
+    "score_threshold": 0.35
+  },
+  "metric": {
+    "name": "casefold_alnum_word_multiset_micro",
+    "native_ignore_size": 256,
+    "empty_normalized": "retain denominators; never match",
+    "localization_iou_for_primary": false
+  },
+  "cv_folds": 5,
+  "primary_bypass_fraction": 0.5,
+  "bypass_fractions": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "train_acceptance_targets": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "fixed_utility_thresholds": [
+    -5.0,
+    -2.0,
+    -1.0,
+    -0.5,
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "bootstrap_replicates": 1000,
+  "smoke": {
+    "cached_train": 8,
+    "fresh_train": 2,
+    "test": 4,
+    "cv_folds": 2,
+    "epochs": 2,
+    "checkpoints": [
+      1,
+      2
+    ]
+  },
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Sections3.2/3.3/3.5 motivate Attention U-Net with ResNet50, PARSeq crop recognition and complete DeepSolo fallback."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use qualified Text+Kernel control checkpoint36cd3303, warm-started from epoch61 e65691dd and selected at continuation epoch2. Its pixel_pil control ranks first for standalone TRAIN calibration100 and evaluation125 among15 completed candidates under the existing bbox protocol. Reuse declared20-crop kernel-BFS/PIL pipeline and TRAIN-selected transcript-probability0.7."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Best refers to this completed qualified validation comparison, not a universal optimum. Transfer this base pipeline to harmonized word-multiset/alphanumeric evaluation and native256 ignore rules; do not select model or thresholds on TEST."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Keep original token attention architecture220035 parameters and qualified frozen CLIP/PARSeq. Reuse exact image-only CLIP patch and BLIP2 query arrays after checksum/RGB/schema checks; regenerate U-Net word embeddings from original crops. No fresh captioning or BLIP language inference is needed."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Retrain U-Net and YOLO token heads on identical usable TRAIN1253/five RGB-disjoint folds/seeds/checkpoint grid with alphanumeric paired count targets and the same improved native DeepSolo0.35/0.925 profile. Align weak auxiliary word labels to the same normalization and spatialIoU0.5."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "U-Net detection-confidence feature is mean predicted text probability on its component. Existing TRAIN-selected recognition-product filter remains unchanged. Fit scalar threshold cuts only on selected TRAIN OOF scores; retain ties. Report transferred cuts separately from descriptive equal-budget batch ranking and GT oracle."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Observed RTX3090/24GB, FP32 sequential U-Net/CLIP/fallback stages, CPU qualified PARSeq batch32, reused FP32 scene arrays, math attention/TF32off deterministic token training. Legacy fallback keeps qualified cuDNN nondeterministic settings; record memory/shapes and explicit propagated failures. No package installation."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Inherited expert-training exposure, historical TEST exploration, one training seed and unspecified exact paper artifacts/protocol remain. Learned image routing is approximate research rather than strict training-free paper reproduction. Cached routing counts do not establish online latency savings."
+    }
+  ]
+}

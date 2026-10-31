@@ -1,0 +1,127 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 20261028,
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "minimum_free_gpu_bytes": 6442450944,
+  "image_hw": [
+    768,
+    768
+  ],
+  "canvas_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "skip_floor": 0.25,
+  "initial_gap_bias": -2.0,
+  "kernel_distance_fraction": 0.5,
+  "separation_weight": 3.0,
+  "kernel_loss_weight": 1.0,
+  "maximum_deepsolo_fraction": 0.3,
+  "target_f1": 0.9,
+  "partial_encoder_candidates": [
+    false,
+    true
+  ],
+  "parseq_batch_size": 32,
+  "training": {
+    "epochs": 100,
+    "seed": 20261028,
+    "physical_batch_size": 4,
+    "gradient_accumulation": 2,
+    "num_workers": 2,
+    "decoder_learning_rate": 1e-05,
+    "encoder_learning_rate": 1e-06,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1.0,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      -15.0,
+      15.0
+    ],
+    "minimum_learning_rate_ratio": 0.1
+  },
+  "validation_interval": 10,
+  "inference": {
+    "native_size": 384,
+    "text_threshold": 0.65,
+    "kernel_threshold": 0.5,
+    "maximum_ocr_candidates": 50,
+    "padding": 2,
+    "minimum_transcript_probability": 0.7
+  },
+  "policy_grid": {
+    "text_threshold": [
+      0.5,
+      0.65,
+      0.8
+    ],
+    "padding": [
+      0,
+      2,
+      4
+    ],
+    "minimum_transcript_probability": [
+      0.0,
+      0.4,
+      0.7,
+      0.9
+    ]
+  },
+  "features": {
+    "maps": {
+      "minimum_component_area": 4,
+      "probability_threshold": 0.5
+    },
+    "token_probability_cutoffs": [
+      0.5,
+      0.9
+    ]
+  },
+  "heads": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 30,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    },
+    {
+      "iterations": 60,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 40
+    }
+  ],
+  "selection_tolerance": 0.0025,
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "ResNet50 attention U-Net family, BCE/Adam, broad crop/DeepSolo routing only.",
+    "REPOSITORY_SPECIFIED": "Strict complete Text+Kernel state, group-to-word parser, word ownership/separators, deterministic paired transforms and PARSeq.",
+    "ASSUMPTION": "Word-hull supervision; transferred Text+Kernel warm start, frozen versus partial encoder control, 100 epochs and validation selection; finite OCR/crop grid; CPU gate utility; strict fallback fraction below30%; F1 target90% is aspirational.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32, RGB768/native384, physical4 accumulation2, staged GPU segmentation/PARSeq, CPU gates.",
+    "UNRESOLVED": "Native IC13 Task1 TRAIN polygons absent; limited validation; historical TEST exploration; no guarantee of target F1."
+  },
+  "probability_threshold": 0.5
+}

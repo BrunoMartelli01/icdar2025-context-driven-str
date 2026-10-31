@@ -1,0 +1,242 @@
+{
+  "accepted_for_other_domains": false,
+  "actual_trained_domains": [
+    "icdar13"
+  ],
+  "additional_online_neural_models": 0,
+  "cases": {
+    "control": {
+      "full": {
+        "actual_new_deepsolo_calls": 0,
+        "audit_sha256": "70b2ade0f93ba73cc4697d60f10fcd8b92529adf762f036e7f3443846eebe8a7",
+        "counts": {
+          "all_outputs": 160,
+          "detected_words": 160,
+          "f1": 0.8463949843260188,
+          "fn": 24,
+          "fp": 25,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 135
+        },
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "epoch_validation": [
+          {
+            "counts": {
+              "all_outputs": 163,
+              "detected_words": 163,
+              "f1": 0.8260869565217391,
+              "fn": 26,
+              "fp": 30,
+              "gt_words": 159,
+              "ignored_outputs": 0,
+              "images": 46,
+              "tp": 133
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 5,
+            "total_images": 46
+          },
+          {
+            "counts": {
+              "all_outputs": 166,
+              "detected_words": 166,
+              "f1": 0.8430769230769231,
+              "fn": 22,
+              "fp": 29,
+              "gt_words": 159,
+              "ignored_outputs": 0,
+              "images": 46,
+              "tp": 137
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 10,
+            "total_images": 46
+          }
+        ],
+        "epochs": 10,
+        "model_tensors_checked": 452,
+        "peak_allocated": 4948129792,
+        "peak_reserved": 6241124352,
+        "selected_epoch": 0,
+        "selected_model_tensors_equal_source": true,
+        "total_images": 46,
+        "training_image_epochs": 1830,
+        "training_seconds": 99.68067382927984
+      },
+      "smoke": {
+        "actual_new_deepsolo_calls": 0,
+        "audit_sha256": "6ad874628f43cf03b2bc404deada53e556014d0690986dd000dd8a6f11e7eb6a",
+        "counts": {
+          "all_outputs": 24,
+          "detected_words": 24,
+          "f1": 0.7111111111111111,
+          "fn": 5,
+          "fp": 8,
+          "gt_words": 21,
+          "ignored_outputs": 0,
+          "images": 4,
+          "tp": 16
+        },
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "epoch_validation": [
+          {
+            "counts": {
+              "all_outputs": 23,
+              "detected_words": 23,
+              "f1": 0.6818181818181818,
+              "fn": 6,
+              "fp": 8,
+              "gt_words": 21,
+              "ignored_outputs": 0,
+              "images": 4,
+              "tp": 15
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 1,
+            "total_images": 4
+          }
+        ],
+        "epochs": 1,
+        "model_tensors_checked": 452,
+        "peak_allocated": 4686154752,
+        "peak_reserved": 6232735744,
+        "selected_epoch": 0,
+        "selected_model_tensors_equal_source": true,
+        "total_images": 4,
+        "training_image_epochs": 8,
+        "training_seconds": 0.7052673529833555
+      }
+    },
+    "photometric": {
+      "full": {
+        "actual_new_deepsolo_calls": 0,
+        "audit_sha256": "2c03623964a676fc20d1d546a778279fd8b2dcc716501ba4316d3345fe7aa1c6",
+        "counts": {
+          "all_outputs": 160,
+          "detected_words": 160,
+          "f1": 0.8463949843260188,
+          "fn": 24,
+          "fp": 25,
+          "gt_words": 159,
+          "ignored_outputs": 0,
+          "images": 46,
+          "tp": 135
+        },
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "epoch_validation": [
+          {
+            "counts": {
+              "all_outputs": 165,
+              "detected_words": 165,
+              "f1": 0.8271604938271605,
+              "fn": 25,
+              "fp": 31,
+              "gt_words": 159,
+              "ignored_outputs": 0,
+              "images": 46,
+              "tp": 134
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 5,
+            "total_images": 46
+          },
+          {
+            "counts": {
+              "all_outputs": 163,
+              "detected_words": 163,
+              "f1": 0.8385093167701864,
+              "fn": 24,
+              "fp": 28,
+              "gt_words": 159,
+              "ignored_outputs": 0,
+              "images": 46,
+              "tp": 135
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 10,
+            "total_images": 46
+          }
+        ],
+        "epochs": 10,
+        "model_tensors_checked": 452,
+        "peak_allocated": 4948129792,
+        "peak_reserved": 6241124352,
+        "selected_epoch": 0,
+        "selected_model_tensors_equal_source": true,
+        "total_images": 46,
+        "training_image_epochs": 1830,
+        "training_seconds": 102.3336080936715
+      },
+      "smoke": {
+        "actual_new_deepsolo_calls": 0,
+        "audit_sha256": "f60d6bf7b268a76e5f7abc7bff59ea91d18878b69dfc51bb41ec1b9c45c53bc6",
+        "counts": {
+          "all_outputs": 24,
+          "detected_words": 24,
+          "f1": 0.7111111111111111,
+          "fn": 5,
+          "fp": 8,
+          "gt_words": 21,
+          "ignored_outputs": 0,
+          "images": 4,
+          "tp": 16
+        },
+        "deepsolo_images": 0,
+        "deepsolo_percentage": 0.0,
+        "epoch_validation": [
+          {
+            "counts": {
+              "all_outputs": 23,
+              "detected_words": 23,
+              "f1": 0.6818181818181818,
+              "fn": 6,
+              "fp": 8,
+              "gt_words": 21,
+              "ignored_outputs": 0,
+              "images": 4,
+              "tp": 15
+            },
+            "deepsolo_images": 0,
+            "deepsolo_percentage": 0.0,
+            "epoch": 1,
+            "total_images": 4
+          }
+        ],
+        "epochs": 1,
+        "model_tensors_checked": 452,
+        "peak_allocated": 4686154752,
+        "peak_reserved": 6232735744,
+        "selected_epoch": 0,
+        "selected_model_tensors_equal_source": true,
+        "total_images": 4,
+        "training_image_epochs": 8,
+        "training_seconds": 0.7511391993612051
+      }
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "config_sha256": "5248b44e086e03c5e9ee26a4128b0f34ac9b562bd1d1df2cd3c330fcb2b7cd65",
+  "dataset": "icdar13",
+  "full_budget_metric_results_unchanged": true,
+  "goal_complete": false,
+  "mode": "approximate",
+  "prepared_domains": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "scope": "Both matched ten-epoch controls select original weights; four state/count/order audits pass. No new TEST or three-domain target claim.",
+  "source_checkpoint_sha256": "152640ebe5263e08fc326e404b83030510d1bbd178a6888025201a45e42cf84f",
+  "status": "MATCHED_PILOT_AUDITED_NO_VALIDATION_GAIN",
+  "test_rgb_or_annotations_opened": false
+}

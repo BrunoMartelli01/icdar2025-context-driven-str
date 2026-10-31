@@ -1,0 +1,516 @@
+{
+  "actual_new_deepsolo_inference": 0,
+  "caption_review": {
+    "exact_figure4_scene": "total_text:1194",
+    "generated_words": 44,
+    "matched_paper_style": false,
+    "paper_words": 72,
+    "same_scene_mpnet_cosine": 0.6072951900910071,
+    "test_captions_repeated_trigrams_above20pct": 666,
+    "total_test_captions": 1033,
+    "words_with_candidate_tokenizer": 100
+  },
+  "claim_label": "approximate reproduction",
+  "completed_run": "full_v2",
+  "experiment_root": "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1",
+  "external_artifact_sha256": {
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/caption_review/caption_review.html": "6a50d62482a87f8584020466efca5054ae33ac7fd2e05efd80198aab252bc608",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/caption_review/caption_review.json": "33ce0a7d2c65b866b84b1fcdecf56e2b1a04dfdcc9421d8036cdac060ec3034f",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/caption_review_protocol.json": "d6fa577ccca047773f1731e28a904877fea8f575233eebe53a64cab04a089679",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/caption_visual_facts_before_reading_generated.json": "ebfee374cb5da12ea473684d24e197c997189e36195f4c5089056e1b5fc2eaf2",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/caption_visual_review.json": "d66634dcf7aec1cb204081cb19f4b0b57b479bcaeca4221eabbbef67aeccc42c",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/comparison.csv": "7c317381f4ee769cc32113750e0ef0c6d9d5b2c973545ce8c34406ea881fc349",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/comparison.md": "6cb33e111b2c05df45b1924a3d2bb646298398e44d469cd65e63dd1c0267bf23",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/independent_audit.json": "1d58c43c1b1de5322b2aacbff01d23bd8b3a32a77748cd91567a41b0624b5fcc",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/per_image_scores.json": "ae58323791e98edbfbc5648b98eaaf8227c7ac7fca41d8f77af13385000cdf6f",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/resolved_configuration.json": "fdd22f576fb12937b8b4c35ee2ac4a18dfbe64b7364fe08ac296f83887debcd7",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/results.json": "0fc1de166632715282de2bc8051be6b56410fe90b2635f25d3b35570e7fc8f58",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/full_v2/score_diagnostics.json": "c95d899cca68c9b4f5d5e1b495a0fcf05692ce6f09a19032c6dee154f43001a8",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/hardware_and_workspace_receipt.json": "76aff13e9c50088623335c69d005e71a5e29b4eb6dc243f4a3914ce59fd9b0d3",
+    "/extra1/bmartelli/context-str-runs/paper-caption-comparison-20261030-v1/scalar_batch8_caption_qualification.json": "d9115b668d93f24be4fde5e815d5abb2dd0a1d4d7ab2c3ac40b420861d5b9a49"
+  },
+  "focused_tests": {
+    "command": ".venvs/context-str-main-py311/bin/python -m pytest tests/caption/test_paper_batch_blip2.py tests/recognition/test_paper_caption_comparison.py tests/scoring/test_paper_image_router.py tests/recognition/test_paper_image_router_evaluation.py tests/caption/test_caption_foundation.py -q",
+    "failed": 0,
+    "passed": 72
+  },
+  "historical_test_exposure": true,
+  "independent_audit": {
+    "auditor_sha256": "bb0353c88102be2ea9a84e3b8fafb17033288c3da97c0eefdabe81b924b21926",
+    "cache_shards": 2608,
+    "gpu_peaks": {
+      "captions": {
+        "peak_allocated_bytes": 10077775872,
+        "peak_reserved_bytes": 10989076480
+      },
+      "t1": {
+        "peak_allocated_bytes": 131752448,
+        "peak_reserved_bytes": 153092096
+      }
+    },
+    "independent_score_decisions": 2608,
+    "independent_word_count_records": 4132,
+    "independently_replayed_policies": 54,
+    "max_semantic_error": 1.7491541048908488e-07,
+    "model_weight_and_processor_files_checked": 23,
+    "new_deepsolo_inference": 0,
+    "resolved_configuration_sha256": "fdd22f576fb12937b8b4c35ee2ac4a18dfbe64b7364fe08ac296f83887debcd7",
+    "result_sha256": "0fc1de166632715282de2bc8051be6b56410fe90b2635f25d3b35570e7fc8f58",
+    "semantic_reencoding": true,
+    "semantic_tolerance": 2e-06,
+    "status": "PASS"
+  },
+  "limitations": [
+    "Exact author checkpoints/prompt/decoding/aggregation/metric remain unresolved.",
+    "Best means qualified experts frozen in the user-confirmed common comparison, not a global checkpoint ranking.",
+    "Experts retain trained corrections and benchmark vocabulary extensions; only routing changes.",
+    "T1 is one sequence; metric removes punctuation without IoU.",
+    "Caption batch8 changes one of18 scalar smoke captions; no scalar-output equivalence.",
+    "Poor caption quality prevents a claim of matching the illustrated paper caption behavior.",
+    "Exact matched quotas are transductive diagnostic policies, separate from tau0.8.",
+    "Historical TEST/upstream selection exposure; point differences are not a statistical superiority claim."
+  ],
+  "logical_routing_not_online_latency": true,
+  "metric": "casefold + Unicode isalnum; per-image exact multiset micro word F1; no IoU; frozen care/ignore, all images",
+  "mode": "approximate",
+  "paper_sections": [
+    "3.3",
+    "3.4",
+    "3.5",
+    "Figure4",
+    "Algorithm2"
+  ],
+  "paper_sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+  "preserved_failures": [
+    "Asset-verifier argument shape in first smoke, corrected.",
+    "Singleton smoke exact-budget infeasibility on empty OCR, correctly failed and enlarged.",
+    "Cold CUDA peak-stat reset before initialization, corrected in final source.",
+    "Intermediate generated-navigation staleness before regeneration."
+  ],
+  "results": {
+    "icdar13__unet": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 1001,
+          "detected_words": 1001,
+          "f1": 0.791030534351145,
+          "fn": 266,
+          "fp": 172,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 829
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 982,
+          "detected_words": 982,
+          "f1": 0.7886374578719306,
+          "fn": 276,
+          "fp": 163,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 819
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 1072,
+          "detected_words": 1072,
+          "f1": 0.9017074296262113,
+          "fn": 118,
+          "fp": 95,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 977
+        },
+        "deepsolo_images": 233,
+        "deepsolo_percentage": 100.0,
+        "total_images": 233
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 973,
+          "detected_words": 973,
+          "f1": 0.844294003868472,
+          "fn": 222,
+          "fp": 100,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 873
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      }
+    },
+    "icdar13__yolo": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 1033,
+          "detected_words": 1033,
+          "f1": 0.8646616541353384,
+          "fn": 175,
+          "fp": 113,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 920
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 1005,
+          "detected_words": 1005,
+          "f1": 0.8571428571428571,
+          "fn": 195,
+          "fp": 105,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 900
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 1072,
+          "detected_words": 1072,
+          "f1": 0.9017074296262113,
+          "fn": 118,
+          "fp": 95,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 977
+        },
+        "deepsolo_images": 233,
+        "deepsolo_percentage": 100.0,
+        "total_images": 233
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 1018,
+          "detected_words": 1018,
+          "f1": 0.8660672030288689,
+          "fn": 180,
+          "fp": 103,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 915
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "total_images": 233
+      }
+    },
+    "icdar2015__unet": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 1659,
+          "detected_words": 1604,
+          "f1": 0.7574028796522684,
+          "fn": 683,
+          "fp": 210,
+          "gt_words": 2077,
+          "ignored_outputs": 55,
+          "images": 500,
+          "tp": 1394
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 1563,
+          "detected_words": 1517,
+          "f1": 0.7061769616026711,
+          "fn": 808,
+          "fp": 248,
+          "gt_words": 2077,
+          "ignored_outputs": 46,
+          "images": 500,
+          "tp": 1269
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 1872,
+          "detected_words": 1822,
+          "f1": 0.8279045909207489,
+          "fn": 463,
+          "fp": 208,
+          "gt_words": 2077,
+          "ignored_outputs": 50,
+          "images": 500,
+          "tp": 1614
+        },
+        "deepsolo_images": 500,
+        "deepsolo_percentage": 100.0,
+        "total_images": 500
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 1780,
+          "detected_words": 1721,
+          "f1": 0.7909426013691416,
+          "fn": 575,
+          "fp": 219,
+          "gt_words": 2077,
+          "ignored_outputs": 59,
+          "images": 500,
+          "tp": 1502
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      }
+    },
+    "icdar2015__yolo": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 2019,
+          "detected_words": 1943,
+          "f1": 0.7686567164179104,
+          "fn": 532,
+          "fp": 398,
+          "gt_words": 2077,
+          "ignored_outputs": 76,
+          "images": 500,
+          "tp": 1545
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 1912,
+          "detected_words": 1841,
+          "f1": 0.734558448187851,
+          "fn": 638,
+          "fp": 402,
+          "gt_words": 2077,
+          "ignored_outputs": 71,
+          "images": 500,
+          "tp": 1439
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 1872,
+          "detected_words": 1822,
+          "f1": 0.8279045909207489,
+          "fn": 463,
+          "fp": 208,
+          "gt_words": 2077,
+          "ignored_outputs": 50,
+          "images": 500,
+          "tp": 1614
+        },
+        "deepsolo_images": 500,
+        "deepsolo_percentage": 100.0,
+        "total_images": 500
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 1929,
+          "detected_words": 1874,
+          "f1": 0.8084029359655783,
+          "fn": 480,
+          "fp": 277,
+          "gt_words": 2077,
+          "ignored_outputs": 55,
+          "images": 500,
+          "tp": 1597
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "total_images": 500
+      }
+    },
+    "totaltext__unet": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 1935,
+          "detected_words": 1887,
+          "f1": 0.7611830848203374,
+          "fn": 647,
+          "fp": 330,
+          "gt_words": 2204,
+          "ignored_outputs": 48,
+          "images": 300,
+          "tp": 1557
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 1923,
+          "detected_words": 1875,
+          "f1": 0.7585192449129688,
+          "fn": 657,
+          "fp": 328,
+          "gt_words": 2204,
+          "ignored_outputs": 48,
+          "images": 300,
+          "tp": 1547
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 2071,
+          "detected_words": 2016,
+          "f1": 0.8265402843601896,
+          "fn": 460,
+          "fp": 272,
+          "gt_words": 2204,
+          "ignored_outputs": 55,
+          "images": 300,
+          "tp": 1744
+        },
+        "deepsolo_images": 300,
+        "deepsolo_percentage": 100.0,
+        "total_images": 300
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 1998,
+          "detected_words": 1961,
+          "f1": 0.7971188475390156,
+          "fn": 544,
+          "fp": 301,
+          "gt_words": 2204,
+          "ignored_outputs": 37,
+          "images": 300,
+          "tp": 1660
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      }
+    },
+    "totaltext__yolo": {
+      "joined_t3__matched_budget": {
+        "combined": {
+          "all_outputs": 2188,
+          "detected_words": 2122,
+          "f1": 0.7914932963476653,
+          "fn": 492,
+          "fp": 410,
+          "gt_words": 2204,
+          "ignored_outputs": 66,
+          "images": 300,
+          "tp": 1712
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      },
+      "paper_selected__matched_budget": {
+        "combined": {
+          "all_outputs": 2175,
+          "detected_words": 2109,
+          "f1": 0.7892418270345467,
+          "fn": 502,
+          "fp": 407,
+          "gt_words": 2204,
+          "ignored_outputs": 66,
+          "images": 300,
+          "tp": 1702
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      },
+      "paper_selected__tau0.8": {
+        "combined": {
+          "all_outputs": 2071,
+          "detected_words": 2016,
+          "f1": 0.8265402843601896,
+          "fn": 460,
+          "fp": 272,
+          "gt_words": 2204,
+          "ignored_outputs": 55,
+          "images": 300,
+          "tp": 1744
+        },
+        "deepsolo_images": 300,
+        "deepsolo_percentage": 100.0,
+        "total_images": 300
+      },
+      "trained_lightweight": {
+        "combined": {
+          "all_outputs": 2072,
+          "detected_words": 2014,
+          "f1": 0.8093883357041252,
+          "fn": 497,
+          "fp": 307,
+          "gt_words": 2204,
+          "ignored_outputs": 58,
+          "images": 300,
+          "tp": 1707
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "total_images": 300
+      }
+    }
+  },
+  "schema_version": 1,
+  "scientific_source_sha256": {
+    "caption/blip2_captioner.py": "c0e37b7c3cc38dd04bda91fa5ec703cd02084718348ab98101844df24d783a5e",
+    "caption/paper_batch_blip2.py": "ce7a5f495767c3707e5424d291dd792106269a38c4ba32be446431beb717c476",
+    "caption/paper_style_blip2.py": "824e0758bb408de730f27fffbd9b58d07f68175daf3a0c5229ade26a742e3a5b",
+    "recognition/clip_router_prompt_ablation.py": "6fd96abfd44c184a304c044879845e918ce6b56239408419c28c6b608c5b78b9",
+    "recognition/common_budget_pipeline.py": "23457bc55de6fc030c9fa91fbac0634a031251dcaa2255720397a669b87eb7aa",
+    "recognition/paper_caption_comparison.py": "41280598fff15a555807f5ff41329d853f9826c1de900423b7d7754c9f9163c4",
+    "recognition/parseq.py": "3d52e075fc50fe8c6d906ef450321b0370a27e3ae55602f1e1301a7229c9550a",
+    "scoring/lexical.py": "9bf85912b60e6cf3aa3b02315e485449fa4bdf8b561399e9bde3c66bb2d2f5bf",
+    "scoring/paper_image_router.py": "8f69d92c294c7c3fbbe64f35abe618eb4aeb20ee485be3043d504041189ea05c",
+    "scoring/semantic.py": "030d660962496337c5ebcf6e5210dce816ace58725a4cddedb92d064d928e97a",
+    "scripts/check_table5_assets.py": "81c6326416e84cf64c5b5cda3e28f13dc98402e1f02dba33e700b00021aceee7",
+    "scripts/run_paper_caption_comparison.py": "ad257a4a2b2f77f85bc109ef57947ee66e51d3cf15426ca4ba12e8f19121526f"
+  },
+  "status": "COMPLETE",
+  "strict_or_table5_claim": false,
+  "supplemental_source_sha256": {
+    "scripts/audit_paper_caption_comparison.py": "bb0353c88102be2ea9a84e3b8fafb17033288c3da97c0eefdabe81b924b21926",
+    "scripts/review_paper_captions.py": "6009a55136a06d9143e0b56c02db29dff51cae6fa7b776af0509259455ef4bd7",
+    "tests/caption/test_paper_batch_blip2.py": "811b2b7de050f7fa11315233aeadbe784ea881ee0b2d935f74408329fdd8c02d",
+    "tests/recognition/test_paper_caption_comparison.py": "60ea3ce8bd3f93a4cf0722258fad0c8f52d94a934d88da38893334a4b6628563"
+  },
+  "test_used_for_selection": false,
+  "total_caption_images": 1304,
+  "total_t1_images": 1304,
+  "total_test_images": 1033,
+  "user_confirmed_baseline": "common trained router20261029"
+}

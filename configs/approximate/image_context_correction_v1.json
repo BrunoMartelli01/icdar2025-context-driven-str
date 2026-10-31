@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "image_context_correction_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "IMAGE-CONTEXT-CORRECTION-001",
+  "seed": 20261025,
+  "folds": 3,
+  "paths": {
+    "boundary_run": "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full",
+    "text_run": "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full",
+    "bert_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+    "byt5_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d",
+    "spell_vocabulary": "/extra1/bmartelli/context-str-artifacts/neuspell-word-head-v1/vocabulary.json"
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/protocol.json": "28941716d37d7c8da427bcfcb5e502ec9838e427bc1c25455087550cd81c66fa",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/candidates.json": "42879e1cfbb007de4c8a4830aa208c2f087c84bfe561b9025fbbca63defe7da2",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/results.json": "6179386a9974300818cb74924fe6c8b013d8416c51b493b6b5399afac2a3b764",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/predictions.json": "6acf457421e56e542e10953876151baa5a3f99f44c2487f4adaf5b512e563131",
+    "/extra1/bmartelli/context-str-runs/text-reconstruction-tests-20261023-v1/full/resolved_config.json": "40588d624fe63e23ba3e4fdaee3ce07fcc0bef19cf0f7844fd87aba4dd534e61",
+    "/extra1/bmartelli/context-str-artifacts/neuspell-word-head-v1/vocabulary.json": "3f316ac8aee0603a3de5c8a4daf0b88c300457701519b1aaa258af4f3a3c4495",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/language_fit.json": "3390298bc2b2bf8064f269bc2074940dfc72248bc4c22715ad71344bc22d50b1",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/language_calibration.json": "d6ec93f86f9ae54c00319c5a6db88d9dde4eb193c7e74ec9626907bf0620bb2c",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/language_evaluation.json": "29156fe66ba4d24b9322688ffb16d995e9d7b756076a21188e78d4be42278367",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/language_test.json": "86e5d3965fa9d0c5bf280c2fba2fdb3f3e703a8c1bc7cd5cc37407160fdb5fc7",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/config.json": "7845fb21b320f3fa05392ce151143502cf08729c8c89732da3293615885d3e83",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/generation_config.json": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/pytorch_model.bin": "5c5aaf56299d6f2d4eaadad550a40765198828ead4d74f0a15f91cbe0961931a",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/special_tokens_map.json": "bda1d200ddf8b187ed2f2ff89a69c540e1bfde26993b762d534c20d82bfc8ec8",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google--byt5-small/snapshots/68377bdc18a2ffec8a0533fef03b1c513a4dd49d/tokenizer_config.json": "3b791189b080dc37ab27ebd5cba352720ff150146217f93da1612ee8f41a846e",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "minimum_free_bytes": 7000000000,
+    "cublas_workspace_config": ":4096:8",
+    "memory_rationale": "Shared GPU: bounded batch8, with identical update budgets across recipes; first batch16 smoke stopped at conservative18GB preflight before training.",
+    "maximum_queue_seconds": 3600,
+    "queue_log_seconds": 30,
+    "queue_poll_seconds": 5
+  },
+  "generator": {
+    "recipes": [
+      "historical",
+      "random",
+      "empirical"
+    ],
+    "training_pairs": 6000,
+    "maximum_real_pairs": 3000,
+    "smoke_pairs": 64,
+    "batch_size": 8,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "max_input_bytes": 128,
+    "max_target_bytes": 96,
+    "maximum_source_characters": 32,
+    "maximum_words": 3,
+    "maximum_relative_edit": 0.35,
+    "maximum_training_relative_edit": 0.6,
+    "beams": 2,
+    "returns": 2,
+    "identity_probability": 0.3,
+    "boundary_probability": 0.5,
+    "spurious_boundary_probability": 0.5,
+    "minimum_fragment_characters": 3,
+    "random_alphabet": "abcdefghijklmnopqrstuvwxyz"
+  },
+  "alignment": {
+    "minimum_gt_coverage": 0.8,
+    "partial_overlap_limit": 0.1,
+    "maximum_words": 3,
+    "maximum_center_heights": 0.75,
+    "presence_gt_coverage": 0.5
+  },
+  "geometry": {
+    "minimum_vertical_overlap": 0.5,
+    "maximum_gap_heights": 1.0
+  },
+  "context": {
+    "window_tokens": 64,
+    "target_reserve_tokens": 61,
+    "max_tokens": 128,
+    "batch_size": 48,
+    "confidence_floor": 0.01,
+    "allowed_unused_keys": [
+      "bert.pooler.dense.bias",
+      "bert.pooler.dense.weight",
+      "cls.seq_relationship.bias",
+      "cls.seq_relationship.weight"
+    ],
+    "local": {
+      "neighbours_per_side": 2,
+      "minimum_vertical_overlap": 0.5,
+      "maximum_gap_heights": 8.0,
+      "maximum_height_ratio": 2.5
+    }
+  },
+  "selector": {
+    "iterations": 120,
+    "max_leaf_nodes": 7,
+    "min_samples_leaf": 30,
+    "learning_rate": 0.06,
+    "l2_regularization": 1.0,
+    "thresholds": [
+      -1000000.0,
+      -0.5,
+      -0.25,
+      0.0,
+      0.1,
+      0.2,
+      0.35,
+      0.5,
+      0.65,
+      0.8,
+      0.9,
+      0.97,
+      1.01,
+      2.0,
+      4.0,
+      8.0,
+      1000000.0
+    ],
+    "damage_limits": [
+      0,
+      2
+    ],
+    "listwise_hidden": 64,
+    "listwise_learning_rate": 0.001,
+    "listwise_epochs": 12,
+    "listwise_batch_groups": 32
+  },
+  "filter": {
+    "thresholds": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "presence_thresholds": [
+      0.0,
+      0.1,
+      0.3,
+      0.5
+    ]
+  },
+  "bootstrap_draws": 2000,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "smoke_images": {
+    "fit": 30,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4
+  },
+  "classifications": {
+    "method": "ASSUMPTION",
+    "data_alignment": "ASSUMPTION",
+    "synthetic_noise": "ASSUMPTION",
+    "metrics": "ASSUMPTION",
+    "window_pooling": "ASSUMPTION",
+    "cuda_fp32_sequential_execution": "HARDWARE_DEVIATION"
+  },
+  "limitations": [
+    "Historical explored cohorts; not independent validation.",
+    "Neither faithful correction-paper reproduction nor a novelty claim.",
+    "All context is original OCR, not ground-truth transcription.",
+    "Care annotation coverage is not physical text presence."
+  ],
+  "reporting": {
+    "primary": "boundary_global_context_correct_cap2",
+    "primary_comparator": "boundary_word_correct_cap2",
+    "secondary": "expanded_global_correct_cap2",
+    "no_test_winner_promotion": true
+  }
+}

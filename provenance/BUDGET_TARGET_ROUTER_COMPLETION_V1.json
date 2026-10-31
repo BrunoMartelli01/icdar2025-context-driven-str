@@ -1,0 +1,20 @@
+{
+  "claim_label": "approximate reproduction",
+  "external_completion_path": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/completion.json",
+  "external_completion_sha256": "43b3eda8b0785ecaca800013d83a50a7524a86085c7b87a0b8d1dd55f79f0956",
+  "icdar13": {
+    "deepsolo_images": 61,
+    "f1": 0.8772748483434438,
+    "target_met": false,
+    "total_images": 233
+  },
+  "icdar2015": {
+    "deepsolo_images": 228,
+    "f1": 0.7994897959183673,
+    "target_met": true,
+    "total_images": 500
+  },
+  "mode": "approximate",
+  "report": "docs/BUDGET_TARGET_ROUTER.md",
+  "status": "EXPERIMENTS_AUDITED_TARGET_PARTIAL"
+}

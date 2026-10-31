@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "legacy_global_context_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source_run": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full",
+  "legacy_run": "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full",
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/protocol.json": "8bdb633356edd0d3cd98fc62b8e62e5cfc4c6916afbdab4d4491021adbc18ed4",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/resolved_config.json": "18cf23ebd724435b1a7c7448fd1098c510772ca53a4ca33e73c4d42ce129583b",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/candidates.json": "42879e1cfbb007de4c8a4830aa208c2f087c84bfe561b9025fbbca63defe7da2",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/fit_labels.json": "91d84e677005c234916d5f3e23d9bf02d9b3d6dbaf739c785f8f26758c7892da",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/predictions.json": "6acf457421e56e542e10953876151baa5a3f99f44c2487f4adaf5b512e563131",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/features_fit.json": "4382e39b121884b3eecfabdfbebf2925e8205ffb791ecbe3c744eb7279a1b82f",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/features_calibration.json": "337a4283331996a44a8b8b0382f1ce3f2c017e55f86295fbbfb0d69273ab60a0",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/features_evaluation.json": "5c556be67d597e50f6e77d645228df114b4847409c6f36a21bd8aebad71f70d9",
+    "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/full/features_test.json": "629863dd56beb6eeb5682093dcc084f1e93776444517879f48eec61700980c09"
+  },
+  "bootstrap_draws": 2000,
+  "seed": 20261025,
+  "classification": "ASSUMPTION",
+  "scientific_ambiguity": "IMAGE-CONTEXT-CORRECTION-001",
+  "declared_before_primary_results": true,
+  "rationale": "Add global context to the exact prior word-LM feature baseline, retaining its cut-casing cues; no new GPU inference or TEST-selected thresholds."
+}

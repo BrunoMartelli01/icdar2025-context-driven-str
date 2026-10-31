@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "quality_f1_thresholds": [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0],
+  "target_good_fractions": [0.8, 0.9, 0.95],
+  "objectives": ["max_bypass", "max_f1"],
+  "primary_purity": 0.9,
+  "primary_objective": "max_f1",
+  "minimum_bypass_fraction": 0.2,
+  "minimum_calibration_accepted": 5,
+  "bypass_fractions": [0.1, 0.2, 0.3, 0.4, 0.5],
+  "new_feature_settings": {"lower_quantile": 0.2, "duplicate_iou": 0.5},
+  "paper_nominal_targets": {"R50": 0.784, "ViTAE": 0.798},
+  "seed": 20261022,
+  "bootstrap_iterations": 10000,
+  "smoke_size_per_partition": 4,
+  "smoke_minimum_accepted": 2,
+  "sources": {
+    "coverage": {"plan": "0d74e407430c502a376e386550cd4024d241894443a3051153c44a07f113ce01", "results": "dceeff9307be7e6e11b6122ed750ab8f8d49f2c603e9d02e9ca37d578d7e5d79", "audit": "b63c5954c4515cf40fce64649bb3a03956ab8acbd8365c1665dc368464b08b31", "audit_file": "analysis/verification.json"},
+    "consistency": {"plan": "2545f239c2a426793023a2ec55d905ca904c4d70825f222546aa9ef210925128", "results": "aa72ced5f364090b84b390064f9f7c35d7e7feb1eec696def4a4f2519576478e", "audit": "b315f34ef6a6d4769d09abbef4a37c3d8bbce15052e8340f2067c26c1af97bd0", "audit_file": "independent_audit.json"},
+    "context": {"plan": "6a922ea6b7e377440fcbf14f8d63b368fb598fea4ad37942d2a95206478847eb", "results": "4aa89b7de8b1b66bfb2deb320db33997a0955d4005163dbec848594fa9d8c4c4", "audit": "cf4518b9ab9ac1dc523ba01d7eb8ec1925f92c6a23db2d582fb0aea5caba8966", "audit_file": "independent_audit.json"},
+    "vqa": {"plan": "86a514590bc09326e83653c7106c8313987551efd7f5490ae288d80afdf8a7df", "results": "7f28edd97e321027b4bf7797d8f6717d35c0bbc21421f74ae4f038393c954ba3", "audit": "2d0bbd5a6ac4956d78fc4ff382fafe0a40dccdaac6d91d3cb85cf2fa699fa8b4", "audit_file": "independent_audit.json"}
+  },
+  "scientific_choices": [
+    {"classification": "PAPER_SPECIFIED", "choice": "Local paper3.5/Algorithm2 uses context scores and whole-image DeepSolo fallback; Table5 nominal TotalText78.4/79.8 are comparison markers only, not a verified equivalent metric."},
+    {"classification": "REPOSITORY_SPECIFIED", "choice": "Reuse immutable audited425 YOLO640/PARSeq word sets, all38 prior score families, independent frozen probes and complete ViTAEv2-S+TextOCR DeepSolo branches, with original TRAIN80/45/TEST300 partition and care denominators983/2204."},
+    {"classification": "ASSUMPTION", "choice": "Study per-image actual wordF1 quality targets50..100%. Fractions of accepted images reaching that target, aggregate accepted-word F1, rejected DeepSolo F1 and final microF1/TN0 are distinct. No image-weighted approximation; sum actual branch counts."},
+    {"classification": "ASSUMPTION", "choice": "Thirteen new frozen rules use native mean/quantile/harmonic confidence, mean CLIP rank, per-word geometric agreement with perturbed-crop stability, coverage-based proxy2precision*coverage/(1+coverage), cross-scale agreement, MPNet combination and overlap penalty. Confidence/ranks/coverage are uncalibrated proxies, not ground truth or a certified F1 estimator. No learned weights or new model inference/training."},
+    {"classification": "ASSUMPTION", "choice": "Predeclare all families before new TEST derived features. For each quality target/purity/objective, select family/candidate cut onTRAIN80, independently calibrate scalar cut onTRAIN45. Require at least20% bypass and5 accepted calibration cases. Objectives maximize coverage or combined microF1 subject to empirical good-image purity. No qualifying cut means explicit all-image fallback, ineligible as a nontrivial routing win."},
+    {"classification": "ASSUMPTION", "choice": "For each fixed GT-free rank budget, choose family only onTRAIN80 by maximum good-image count, then combinedF1 and declared order. Report all transferred family policies, TRAIN-selected policies and full descriptive score curves. TEST post-hoc maxima are explicitly labeled and never deployed."},
+    {"classification": "ASSUMPTION", "choice": "GT threshold and best branch-choice oracles are diagnostic upper bounds, never inferable routing rules. Bootstrap selected fixed gates with paired image counts, no refitting/multiplicity correction. No official paper superiority claim from local lexical F1."},
+    {"classification": "UNRESOLVED", "choice": "Historically explored TEST, repeated TRAIN use,45-case calibration, DeepSolo TRAIN fine-tuning, official paper metric/checkpoints/ignore and whole-pipeline latency limit claims. A higher image-quality target need not improve final microF1; accepting fewer images alone does not establish a better router."}
+  ]
+}

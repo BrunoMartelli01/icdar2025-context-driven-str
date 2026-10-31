@@ -1,0 +1,494 @@
+{
+  "ambiguity_record": "DEEPSOLO-WORD-F1-20261025",
+  "baseline": {
+    "test": {
+      "localized": {
+        "all_outputs": 2228,
+        "detected_words": 2164,
+        "f1": 0.8136446886446886,
+        "fn": 427,
+        "fp": 387,
+        "gt_words": 2204,
+        "ignored_outputs": 64,
+        "images": 300,
+        "precision": 0.8211645101663586,
+        "recall": 0.8062613430127041,
+        "symbol_only_gt": 0,
+        "symbol_only_predictions": 0,
+        "tp": 1777
+      },
+      "word": {
+        "all_outputs": 2228,
+        "detected_words": 2164,
+        "f1": 0.8173076923076923,
+        "fn": 419,
+        "fp": 379,
+        "gt_words": 2204,
+        "ignored_outputs": 64,
+        "images": 300,
+        "precision": 0.8248613678373382,
+        "recall": 0.8098911070780399,
+        "symbol_only_gt": 0,
+        "symbol_only_predictions": 0,
+        "tp": 1785
+      }
+    },
+    "train": {
+      "localized": {
+        "all_outputs": 952,
+        "detected_words": 935,
+        "f1": 0.7778936392075079,
+        "fn": 237,
+        "fp": 189,
+        "gt_words": 983,
+        "ignored_outputs": 17,
+        "images": 125,
+        "precision": 0.7978609625668449,
+        "recall": 0.7589013224821973,
+        "symbol_only_gt": 1,
+        "symbol_only_predictions": 0,
+        "tp": 746
+      },
+      "word": {
+        "all_outputs": 952,
+        "detected_words": 935,
+        "f1": 0.786235662148071,
+        "fn": 229,
+        "fp": 181,
+        "gt_words": 983,
+        "ignored_outputs": 17,
+        "images": 125,
+        "precision": 0.8064171122994652,
+        "recall": 0.7670396744659207,
+        "symbol_only_gt": 1,
+        "symbol_only_predictions": 0,
+        "tp": 754
+      }
+    }
+  },
+  "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+  "claim_label": "approximate reproduction",
+  "date": "2026-10-25",
+  "external_evidence_sha256": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/deployment_independent_audit.json": "3ffd7e72687eb09603c61870a9453778ca1cde26c70923281e0f84ee8a17158b",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/error_change_analysis.json": "568867c2c71130f20a8d37e82731e3c90dae9728e02b83015a6475efb6a368d9",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/independent_audit.json": "8ef32e9738423b8da683e9e13b8bcb9e3a6017dc6f85ca53181eb5f6f44ab3cd",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/results.json": "14ba99dca9fb3dd8a97b15a7d05e2bbaebecc231a83f8bdb4bf50fcb01cabc08",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2/selection.json": "728df80bf6de31053a57d3b6ebdfc24fbe883895ae73fd62eb52eb0e2d7c1327",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/invalid_resolution_v1.json": "d21092821247686e8547b61e5133ea69c1952cb67ec7d1a8a57da4a7ad90f5a9",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/resolution-v2/export_train_test.json": "51286e25269ad678b7646f47568859479479617a163fc6932588cac30fe3efac",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/resolution-v2/memory_summary.json": "e9bd4a51d7c4dfc0e8876c92c00fb7ddbe219b3adc8fc6bc603eee5a7a855d00",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/resolution-v2/protocol.json": "0926ac4cc911e56c7992410ae2e99b046618cd7798322fa5ecd44fd4bc0facd4",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/resolution-v2/runtime.json": "f2b89adce5e287e23a523db0685c0c5646aa9c952837a829ec6c2928d3c4c454",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/resource-observation-after-corrected-export.json": "ca2758dfb8bd0061b9b3ed017a32f93caaf5ee35958187031a5cf307c4068c1b",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/smoke-global-final/resolved_configuration.json": "842380ece6dd397f599a374321ecee3514bceadb28ae5010dd5db6d6357c4bc3",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/smoke-global-final/results.json": "076c4f8cd6031b02948c2e1a5b78d170baf8f403e75fd3dc2a6c2693fd678394",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/smoke-native-final/resolved_configuration.json": "26af27f9c55740f92648ff61259d175220f75a0cb879121157e394543ae41e12",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/smoke-native-final/results.json": "42b9ed00e53a0c81ce390977982132d875e52d64f493dd0e7d805a08ff48ceca",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/tests-final.txt": "de1233b3961e5291d01e966d784f5065ea38121cafc8f7d89f4419439f68f07a"
+  },
+  "global_maximum_claim": false,
+  "guide": "docs/DEEPSOLO_WORD_F1_STUDY.md",
+  "hardware": {
+    "batch_size": 1,
+    "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+    "config_sha256": "4132f6862a7ddf4c8232a2cdfb125e22d38ef9a6ec6407610a561e1a5cd221b5",
+    "cuda_version": "11.1",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_enabled": true,
+    "gpu_name": "NVIDIA GeForce RTX 3090",
+    "load_validation": {
+      "backbone_builder": "build_vitaev2_backbone",
+      "incorrect_shapes": [],
+      "missing_keys": [],
+      "model_class": "TransformerPureDetector",
+      "strict_compatibility_check": true,
+      "total_parameters": 33748854,
+      "trainable_parameters": 33748854,
+      "unexpected_keys": []
+    },
+    "precision": "float32",
+    "protocol_sha256": "0926ac4cc911e56c7992410ae2e99b046618cd7798322fa5ecd44fd4bc0facd4",
+    "seed": 20261025,
+    "source_identity": {
+      "base_config_path": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/configs/ViTAEv2_S/Base_det.yaml",
+      "base_config_sha256": "1f8ee3635bc41829c9e3cd00f1abe247173eb3fa5977760bde5cbb10b5b11491",
+      "candidate": {
+        "artifact_id": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE",
+        "backbone": "ViTAEv2-S",
+        "benchmark": "Total-Text",
+        "config_relative_path": "configs/ViTAEv2_S/TotalText/finetune_150k_tt_mlt_13_15_textocr.yaml",
+        "qualified_checkpoint_sha256": null,
+        "qualified_config_sha256": null,
+        "training_variant": "Synth150K+MLT17+IC13+IC15+TextOCR"
+      },
+      "checkpoint_load": "PENDING: checkpoint and legacy runtime required",
+      "checkpoint_path": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/vitae_textocr.pth",
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "config_path": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo/configs/ViTAEv2_S/TotalText/finetune_150k_tt_mlt_13_15_textocr.yaml",
+      "config_sha256": "4132f6862a7ddf4c8232a2cdfb125e22d38ef9a6ec6407610a561e1a5cd221b5",
+      "inference_output": "PENDING: checkpoint and legacy runtime required",
+      "runtime_metadata": {
+        "artifact_id": "ART-DEEPSOLO-PAPER-HOST-RUNTIME-CANDIDATE",
+        "classification": "HARDWARE_DEVIATION",
+        "environment_report": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/qualification/env.json",
+        "environment_report_sha256": "1e1c5763bbb645eb55a877de77484acfd1ec13c52129e807ad960b800e8f2d76",
+        "kind": "host_subprocess",
+        "python_executable": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python",
+        "source_identity_verification": {
+          "host_source_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo",
+          "source_archive": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-dbadae995035246bad3376c7a44c015c69e9b313.tar.gz",
+          "source_archive_sha256": "828c63e1c19f07d03ae094e4dd39a1eb093b0660a604bef75324f8e716693bfb",
+          "source_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+          "source_revision_evidence": {
+            "commit_marker_path": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/source-commit.txt",
+            "commit_marker_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+            "commit_marker_sha256": "f1eb17487108d42b01a35b204d382351aac69a8a3b0391ab5581300f0a1b12ba",
+            "method": "github_commit_archive_marker_and_sha256"
+          },
+          "source_type": "github_commit_archive",
+          "verified": true
+        }
+      },
+      "source_archive": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-dbadae995035246bad3376c7a44c015c69e9b313.tar.gz",
+      "source_archive_sha256": "828c63e1c19f07d03ae094e4dd39a1eb093b0660a604bef75324f8e716693bfb",
+      "source_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+      "source_revision_evidence": {
+        "commit_marker_path": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/source-commit.txt",
+        "commit_marker_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+        "commit_marker_sha256": "f1eb17487108d42b01a35b204d382351aac69a8a3b0391ab5581300f0a1b12ba",
+        "method": "github_commit_archive_marker_and_sha256"
+      },
+      "source_type": "github_commit_archive",
+      "status": "source_and_config_identity_verified"
+    },
+    "torch_version": "1.9.0+cu111"
+  },
+  "limitations": [
+    "Repeated TEST exploration; this is a descriptive paired evaluation, not an untouched holdout.",
+    "Global TRAIN word winner is fusion82.4516% TEST. Native-only TRAIN winner is reported separately at82.6540%; TEST does not select parameters.",
+    "Fusion word and native localized conditional95% intervals include zero. Fixed-policy bootstraps do not remove exploration or upstream-training exposure.",
+    "Local metrics differ from official polygon/word-spotting F1; no83.6% paper-result reproduction is claimed.",
+    "Actual hardware is RTX3090; the large view exceeds8GiB allocation and is not an RTX3070 qualification.",
+    "Complete R50+TextOCR weights and exact context-driven-paper checkpoint/protocol remain unresolved."
+  ],
+  "memory": {
+    "large": {
+      "images": 425,
+      "peak_allocated_bytes": 9690508288,
+      "peak_allocated_sample": {
+        "allocated": 9690508288,
+        "reserved": 16651386880,
+        "sample": "total_text__611",
+        "shape": [
+          3,
+          1536,
+          2848
+        ]
+      },
+      "peak_reserved_bytes": 16651386880
+    },
+    "native": {
+      "images": 425,
+      "peak_allocated_bytes": 2117437952,
+      "peak_allocated_sample": {
+        "allocated": 2117437952,
+        "reserved": 4099932160,
+        "sample": "total_text__618",
+        "shape": [
+          3,
+          1024,
+          1920
+        ]
+      },
+      "peak_reserved_bytes": 4099932160
+    }
+  },
+  "metric": "Unicode casefold then isalnum; preserve every care denominator; report per-image word multiset and one-to-one bboxIoU>=0.5 separately; micro aggregation",
+  "official_evaluation": false,
+  "populations": {
+    "test": {
+      "care_words": 2204,
+      "images": 300
+    },
+    "train": {
+      "care_words": 983,
+      "images": 125
+    }
+  },
+  "profiles": {
+    "global_word": {
+      "config_path": "configs/approximate/deepsolo_word_f1_selected_global_word_v1.json",
+      "config_sha256": "208b3c85810a88ae46e680c6998244d8bded8c6595db7d34b5b7b3e95f569bda",
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": 0.3,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.95,
+        "resolution": "fused",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "selection_rule": "highest TRAIN word F1 within all declared policies",
+      "splits": {
+        "test": {
+          "localized": {
+            "delta_f1": -0.00031446259015588396,
+            "metrics": {
+              "all_outputs": 2150,
+              "detected_words": 2087,
+              "f1": 0.8133302260545328,
+              "fn": 459,
+              "fp": 342,
+              "gt_words": 2204,
+              "ignored_outputs": 63,
+              "images": 300,
+              "precision": 0.8361284139913752,
+              "recall": 0.7917422867513612,
+              "symbol_only_gt": 0,
+              "symbol_only_predictions": 0,
+              "tp": 1745
+            },
+            "uncertainty": {
+              "delta_f1_95_percentile_interval": [
+                -0.009907511880586556,
+                0.009440173774565139
+              ],
+              "limitation": "Conditional on these fixed fitted policies; repeated TEST exploration and upstream training exposure remain.",
+              "repetitions": 2000,
+              "seed": 20261025,
+              "unit": "paired image"
+            }
+          },
+          "word": {
+            "delta_f1": 0.007208737428965883,
+            "metrics": {
+              "all_outputs": 2150,
+              "detected_words": 2087,
+              "f1": 0.8245164297366582,
+              "fn": 435,
+              "fp": 318,
+              "gt_words": 2204,
+              "ignored_outputs": 63,
+              "images": 300,
+              "precision": 0.8476281744130331,
+              "recall": 0.8026315789473685,
+              "symbol_only_gt": 0,
+              "symbol_only_predictions": 0,
+              "tp": 1769
+            },
+            "uncertainty": {
+              "delta_f1_95_percentile_interval": [
+                -0.0017035627610040211,
+                0.016336578612782437
+              ],
+              "limitation": "Conditional on these fixed fitted policies; repeated TEST exploration and upstream training exposure remain.",
+              "repetitions": 2000,
+              "seed": 20261025,
+              "unit": "paired image"
+            }
+          }
+        },
+        "train": {
+          "localized": {
+            "delta_f1": 0.0038376406650358907,
+            "metrics": {
+              "all_outputs": 914,
+              "detected_words": 900,
+              "f1": 0.7817312798725438,
+              "fn": 247,
+              "fp": 164,
+              "gt_words": 983,
+              "ignored_outputs": 14,
+              "images": 125,
+              "precision": 0.8177777777777778,
+              "recall": 0.7487283825025433,
+              "symbol_only_gt": 1,
+              "symbol_only_predictions": 0,
+              "tp": 736
+            }
+          },
+          "word": {
+            "delta_f1": 0.016738315547096372,
+            "metrics": {
+              "all_outputs": 914,
+              "detected_words": 900,
+              "f1": 0.8029739776951673,
+              "fn": 227,
+              "fp": 144,
+              "gt_words": 983,
+              "ignored_outputs": 14,
+              "images": 125,
+              "precision": 0.84,
+              "recall": 0.7690742624618515,
+              "symbol_only_gt": 1,
+              "symbol_only_predictions": 0,
+              "tp": 756
+            }
+          }
+        }
+      }
+    },
+    "native_word": {
+      "config_path": "configs/approximate/deepsolo_word_f1_selected_native_word_v1.json",
+      "config_sha256": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+      "policy": {
+        "decoder": "greedy",
+        "fusion_iou": null,
+        "recognition_rank_power": 0,
+        "recognition_threshold": 0.925,
+        "resolution": "native",
+        "same_text_nms_iou": null,
+        "score_threshold": 0.35
+      },
+      "selection_rule": "highest TRAIN word F1 within declared native-only policies",
+      "splits": {
+        "test": {
+          "localized": {
+            "delta_f1": 0.007682325573320825,
+            "metrics": {
+              "all_outputs": 2071,
+              "detected_words": 2016,
+              "f1": 0.8213270142180095,
+              "fn": 471,
+              "fp": 283,
+              "gt_words": 2204,
+              "ignored_outputs": 55,
+              "images": 300,
+              "precision": 0.8596230158730159,
+              "recall": 0.7862976406533575,
+              "symbol_only_gt": 0,
+              "symbol_only_predictions": 0,
+              "tp": 1733
+            },
+            "uncertainty": {
+              "delta_f1_95_percentile_interval": [
+                -4.62046705526629e-06,
+                0.015753265427723918
+              ],
+              "limitation": "Conditional on these fixed fitted policies; repeated TEST exploration and upstream training exposure remain.",
+              "repetitions": 2000,
+              "seed": 20261025,
+              "unit": "paired image"
+            }
+          },
+          "word": {
+            "delta_f1": 0.009232592052497268,
+            "metrics": {
+              "all_outputs": 2071,
+              "detected_words": 2016,
+              "f1": 0.8265402843601896,
+              "fn": 460,
+              "fp": 272,
+              "gt_words": 2204,
+              "ignored_outputs": 55,
+              "images": 300,
+              "precision": 0.8650793650793651,
+              "recall": 0.7912885662431942,
+              "symbol_only_gt": 0,
+              "symbol_only_predictions": 0,
+              "tp": 1744
+            },
+            "uncertainty": {
+              "delta_f1_95_percentile_interval": [
+                0.001258728302560358,
+                0.01715179580924359
+              ],
+              "limitation": "Conditional on these fixed fitted policies; repeated TEST exploration and upstream training exposure remain.",
+              "repetitions": 2000,
+              "seed": 20261025,
+              "unit": "paired image"
+            }
+          }
+        },
+        "train": {
+          "localized": {
+            "delta_f1": 0.01753617580881417,
+            "metrics": {
+              "all_outputs": 866,
+              "detected_words": 855,
+              "f1": 0.795429815016322,
+              "fn": 252,
+              "fp": 124,
+              "gt_words": 983,
+              "ignored_outputs": 11,
+              "images": 125,
+              "precision": 0.8549707602339182,
+              "recall": 0.7436419125127162,
+              "symbol_only_gt": 1,
+              "symbol_only_predictions": 0,
+              "tp": 731
+            }
+          },
+          "word": {
+            "delta_f1": 0.01572298855921961,
+            "metrics": {
+              "all_outputs": 866,
+              "detected_words": 855,
+              "f1": 0.8019586507072906,
+              "fn": 246,
+              "fp": 118,
+              "gt_words": 983,
+              "ignored_outputs": 11,
+              "images": 125,
+              "precision": 0.8619883040935673,
+              "recall": 0.7497456765005086,
+              "symbol_only_gt": 1,
+              "symbol_only_predictions": 0,
+              "tp": 737
+            }
+          }
+        }
+      }
+    }
+  },
+  "recorded_utc": "2026-10-25T20:18:01.904708+00:00",
+  "reproduction_mode": "approximate",
+  "schema_version": 1,
+  "source_revision": "dbadae995035246bad3376c7a44c015c69e9b313",
+  "source_sha256": {
+    "configs/approximate/deepsolo_word_f1_fusion_v1.json": "e227144d4d98274f1c392b3d5b944d4bb5911511efe7b6a8ca8e145ba8ff4fa9",
+    "configs/approximate/deepsolo_word_f1_fusion_v2.json": "ff225f7d0e821f5465f8fed52bc00459a7b643f3f5f0d4d6df9d89699d146bed",
+    "configs/approximate/deepsolo_word_f1_resolution_v1.json": "855aa3b699f426e31324d4ae9c28666132f6d6e83feee8da4a587808eebab4a9",
+    "configs/approximate/deepsolo_word_f1_resolution_v2.json": "3ea30ceb20202bd08bb234884334672b6a8b724cb850dc21254173db0f243b3f",
+    "configs/approximate/deepsolo_word_f1_selected_global_word_v1.json": "208b3c85810a88ae46e680c6998244d8bded8c6595db7d34b5b7b3e95f569bda",
+    "configs/approximate/deepsolo_word_f1_selected_native_word_v1.json": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+    "configs/approximate/deepsolo_word_f1_v1.json": "80b7b12300d30d7f4e8f7374e227cf646814a0d3df0c9af6b4f52f85982884d1",
+    "configs/approximate/deepsolo_word_f1_v2.json": "e7320e74010a094d1035110845f5d0b0daa66c2da54d4dc7d82ffa19e4bd93fe",
+    "docs/DEEPSOLO_WORD_F1_STUDY.md": "08e9027829e7cbf70a57947a0b734164019f0e14266523fc68b390647613b426",
+    "recognition/deepsolo_word_f1.py": "588b6e83fcba6ef03f35cafa0558ab25704881f8c35d991bb1f06ee847030037",
+    "scripts/analyze_deepsolo_word_f1.py": "b6d39f6279ce3a8ce32e8b612c3bdbc45e6e0afe46861be7f31c0be50ec41365",
+    "scripts/audit_deepsolo_word_f1.py": "bb3775341fae12271fabba6ba9f20eaf44ed6702008412e146616781094ace6c",
+    "scripts/audit_deepsolo_word_f1_profiles.py": "1cb42e8c6c575079c0fd49d4eb824bbef5510fd6e7af3a65c8f596b4ca4d8c2a",
+    "scripts/evaluate_deepsolo_word_f1_fusion.py": "96b1576d30aad0cf3e9577bbf2ec15155573bc025526c59bf705a1282672b326",
+    "scripts/infer_deepsolo_word_f1.py": "7f499b1134a4bf2019dcd35bba5bdcabb57327710e36690c615f9eefb0bd155a",
+    "scripts/report_deepsolo_word_f1_profiles.py": "75c038655809812ffd3d3d3950ffcfd8dd58e192c191ed55981098a4caa6a72e",
+    "scripts/run_deepsolo_word_f1_study.py": "2b4fb64b0e26e83a1fdae57345c16fec424fb41bcd154839ba525332aa1a0ad3",
+    "tests/recognition/test_deepsolo_word_f1.py": "f3efeb55db61471c6392a739525f660e61d10e544efaaf5a17cc11acdb650e64",
+    "tests/scripts/test_audit_deepsolo_word_f1.py": "68db3f1c285401ede78d4855b0954ae444aee3805d8c67c84805101dd51c0493",
+    "tests/scripts/test_deepsolo_word_f1_fusion.py": "d29642b81f17734ea0acaa99cdbbeb4710a321e874528ad1b84ebb5cbce4cdd2",
+    "tests/scripts/test_deepsolo_word_f1_study.py": "bab3cbcd36f33ac1bd1fd00603ac262bdead5bc77f208c44a8f5e8e86115fe39",
+    "tests/scripts/test_infer_deepsolo_word_f1.py": "3a9d8956f65f7e955760fb0193a10f74a308eab5a7475aecd29e6382293f5c6a"
+  },
+  "status": "COMPLETE",
+  "superseded": {
+    "cached-analysis-v1": "Excluded one symbol-only TRAIN GT; replaced by cached-analysis-final preserving all983. TEST counts unaffected.",
+    "fusion-final-v1": "Candidate comparison invalid because of large-view geometry; superseded by fusion-final-v2.",
+    "resolution-v1": "Large view inverse coordinates were incorrect; native replay remains valid. Original raw bytes and invalidation receipt preserved. All inference repeated in v2."
+  },
+  "table_5_claim": false,
+  "verification": {
+    "baseline_replay": "PASS",
+    "corrected_gpu_inferences": 850,
+    "experiment_library_check": "PASS (11 generated views)",
+    "focused_tests": 73,
+    "gt_free_gpu_profile_image_replays": 6,
+    "independent_image_metric_checks": 2550,
+    "maximum_gpu_replay_confidence_difference": 0.0,
+    "verified_input_hashes": 1704
+  },
+  "workspace_scope": "Task source/config/tests and documentation plus generated navigation only; unrelated pre-existing/concurrent work preserved; no dependency installs, commits, model/core fallback or STRICT-default changes."
+}

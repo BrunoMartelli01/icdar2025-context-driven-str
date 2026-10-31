@@ -1,0 +1,127 @@
+{
+  "status": "COMPLETED_AND_AUDITED",
+  "claim_label": "approximate reproduction",
+  "unit_tests": {
+    "passed": 70,
+    "command": ".venvs/context-str-main-py311/bin/python -m pytest -q tests/localize/test_teacher_student_tests.py tests/localize/test_occlusion_four_tests.py tests/scripts/test_mask_crop_three_tests.py tests/segmentation/test_word_multitask.py tests/recognition/test_parseq_adapter.py"
+  },
+  "smoke": {
+    "source": "smoke-v4",
+    "audit": {
+      "status": "PASS",
+      "image_arm_checks": 144,
+      "qualified_cache_confidence_differences": 0,
+      "results_sha256": "7b69f0a1c70f31af98113bb4a85701ea34d399e165b11c73134f131fb1e6ad25"
+    },
+    "note": "Complete five-method CUDA smoke; both raw-final and calibration-selected outputs checked"
+  },
+  "preserved_events": {
+    "smoke-v1": "Selector-only qualification",
+    "smoke-v2": "All model stages succeeded; report stopped correctly on unrelated concurrent source-script modification. Superseded by immutable snapshot smoke-v3/v4.",
+    "smoke-v3": "144 image-arm independent matching checks passed before non-behavioral parameter exposure in config.",
+    "test_invocation": "One broader pytest invocation used a nonexistent historical test filename and collected no tests; corrected invocation passed70.",
+    "environment_metadata": "pip unavailable; direct importlib list sorting encountered one nameless distribution. JSON extraction now retains all71/87 records, including nameless metadata; no dependency changes."
+  },
+  "full_run": "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full",
+  "snapshot_manifest_sha256": "951632400dba7f8d1fb82e000aa62031d02df07e8286b50e19dedae722f2f217",
+  "dependencies_installed": false,
+  "commits_created": false,
+  "full_result_sha256": "2462e105ab200151de074680dd172ebda96196d88df9701b53522898604c555a",
+  "full_audit": {
+    "status": "PASS",
+    "image_arm_checks": 7650,
+    "qualified_cache_confidence_differences": 2,
+    "results_sha256": "2462e105ab200151de074680dd172ebda96196d88df9701b53522898604c555a"
+  },
+  "weight_audit_status": "PASS",
+  "source_components_unchanged": 26,
+  "snapshot_files_unchanged": 1449,
+  "full_artifact_manifest_sha256": "a94b642b9d96850adc1c4dd65025132bc5256ff17f0aabe22ddb131b8d96418d",
+  "result_class": "approximate reproduction; short-budget exploratory pilot",
+  "test_images": 300,
+  "test_care_words": 2204,
+  "fit_images": 1030,
+  "calibration_images": 100,
+  "evaluation_images": 125,
+  "maximum_cuda_allocated_bytes": 4505637888,
+  "maximum_cuda_reserved_bytes": 5643436032,
+  "oom": false,
+  "protocol_addenda": {
+    "serialization_provenance.json": "9acad3e761f254d9811c768ae16c5c60b83048424d1d2bc9bd9493811b744109",
+    "pseudo_label_supervision_scope.json": "661d6fe06f006faf1b3323c1ff14258bc443e0ad59327c0944c43b7fdb1db503"
+  },
+  "results_summary": {
+    "baseline_budget20": {
+      "gt_words": 2204,
+      "proposals": 2465,
+      "correct": 1255,
+      "localized": 1533,
+      "precision": 0.5091277890466531,
+      "recall": 0.5694192377495463,
+      "f1": 0.5375883486828015
+    },
+    "selector_pointwise": {
+      "gt_words": 2204,
+      "proposals": 1707,
+      "correct": 1187,
+      "localized": 1377,
+      "precision": 0.6953719976567077,
+      "recall": 0.5385662431941923,
+      "f1": 0.6070058808488877
+    },
+    "selector_set": {
+      "gt_words": 2204,
+      "proposals": 1719,
+      "correct": 1188,
+      "localized": 1384,
+      "precision": 0.6910994764397905,
+      "recall": 0.5390199637023594,
+      "f1": 0.6056589344889115
+    },
+    "rec_occlusion_ce": {
+      "gt_words": 2204,
+      "proposals": 2465,
+      "correct": 1269,
+      "localized": 1533,
+      "precision": 0.5148073022312373,
+      "recall": 0.5757713248638838,
+      "f1": 0.5435853501820518
+    },
+    "rec_occlusion_distill": {
+      "gt_words": 2204,
+      "proposals": 2465,
+      "correct": 1266,
+      "localized": 1533,
+      "precision": 0.5135902636916836,
+      "recall": 0.574410163339383,
+      "f1": 0.5423002784322125
+    },
+    "yolo_initial": {
+      "gt_words": 2204,
+      "proposals": 1779,
+      "correct": 1291,
+      "localized": 1485,
+      "precision": 0.7256885890949972,
+      "recall": 0.5857531760435571,
+      "f1": 0.6482550841074567
+    },
+    "yolo_gt_control": {
+      "gt_words": 2204,
+      "proposals": 1990,
+      "correct": 1446,
+      "localized": 1677,
+      "precision": 0.7266331658291457,
+      "recall": 0.6560798548094374,
+      "f1": 0.6895565092989986
+    },
+    "yolo_distilled": {
+      "gt_words": 2204,
+      "proposals": 1970,
+      "correct": 1436,
+      "localized": 1669,
+      "precision": 0.7289340101522843,
+      "recall": 0.6515426497277677,
+      "f1": 0.6880689985625299
+    }
+  }
+}

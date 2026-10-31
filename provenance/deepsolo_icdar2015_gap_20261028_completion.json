@@ -1,0 +1,613 @@
+{
+  "status": "PASS",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "date": "2026-10-28",
+  "completed_at_utc": "2026-10-28T16:01:06.284139+00:00",
+  "external_root": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-gap-20261028-v1",
+  "primary_metric": "Unchanged symbol-free word lexical microF1; Unicode casefold+isalnum, no lexicon, no spatial matching in primary metric.",
+  "dataset": {
+    "name": "ICDAR2015 TEST",
+    "images": 500,
+    "care_words": 2077,
+    "failed_or_omitted_images": 0
+  },
+  "model_selection": "All model/filter choices use the existing100 TRAIN calibration images, before new TEST inference; potential upstream TRAIN exposure explicitly retained.",
+  "selected_model": "ic15_official1440",
+  "actual_new_deepsolo_inferences": {
+    "test": 1000,
+    "calibration": 200,
+    "total": 1200,
+    "successful_smoke_reused": 2,
+    "historical_predictions_reused": 600
+  },
+  "sources": {
+    "predeclared_protocol.json": "ccaaf6fac11acdff52abf5c5a355011c33ad6aa0958fb08cfcb3a9706a5af354",
+    "resolved_configuration.json": "6592c31d0114283e2656952768c0c121551fdc056c3ea6249a2c25ec73756e65",
+    "runtime.json": "31bdcdd1e6043a04319bcabe4e76a91e2b2f0e76567be7718cd0427d7ed01696",
+    "evaluation_input_manifest.json": "cfe68486a8e4f22d5204924c1e4ed137b2cc44ca9d53616bd50d936165f9bb5f",
+    "checkpoint_receipt.json": "5e03b69679aaf04e8fcd929e925917483e6be5233bf0d5314bfe4cd52b326928",
+    "official_download_attempts.json": "51c9ff1b5548a6e3a59e1c54af1531e0dd802370a56b3b3b962758ca359a3763",
+    "frozen_calibration_policies.json": "ac18f1795c582ad92defed5bd9f292751543cf10c72e07f9a33f57e89ff4d48c",
+    "calibration_grid.json": "03bed7a271f2f7213a3d131aef96667f9730aae6981e6645068e6648cb962697",
+    "calibration_observations.json": "49e3c2b2b85597986cc07df4919f1a45328f034ea3b5493c72c44f08a58220b0",
+    "official_primary_endpoint.json": "c0228dd4a7f693ddc1ff1109d92eab2acb52e743136996861dda6c94ed89a894",
+    "results.json": "bc4022d0d694fd4151433cf5258ef3f5e3fce32eceb97ac6f5131fa3a38ad50d",
+    "independent_audit.json": "e837eb0498a59fdd8766d235b5976fcab46fa35af950c1d9155f6ce3047e5edb",
+    "word_length_error_analysis.json": "03eda294678b4e9949a9059d9eec1d4f7ce4b4a7f9c217237a98d21e1534afbf",
+    "memory_summary.json": "b12c598fa22eec196ed525e55009ca0261d34c914d5e8bfbff21f88d25735581",
+    "inference_settings.json": "9f9e937d48476237b384482a0523e44369b190a07d17ed48c49f57a25f9a3235",
+    "legacy_environment.json": "bd3953b5b0657ce5e0fca613c2da21eb210efebc84645f3b1c0c483b31c9a297",
+    "main_environment.json": "320cb25ac4c56c3ace873ff242110f900369e8f32a241e81f14582dafce0a0c6",
+    "focused_tests_final.txt": "50ca4d38253b2b32735d79e60d24212d5af103624c05512875fa470fb4afde9d",
+    "test_plan_pointer_repair.json": "ac264cd1bf3903d52434838000192e6288eb3a51228e8e5a2c5694df926c3646",
+    "git_diff_review.json": "7255be7e6e1bc0023368c5f4b02d4bb6f34af345a19c4b9025017dde77571e7d",
+    "source_snapshot_v1_manifest.json": "4253f241afcc5be3795d6a472a7c2ad5c7fde779ce437c91b0bd593854fe2027",
+    "ic15_official1440_profile.json": "c8db5f56c8c014c1516bec586bef637385c3bce0d468e26a0b662acd2aa514c9",
+    "tt_ic15resize1440_profile.json": "b3e2e9a5500f1a6909176243b1d1b7649162cdfdf2c0d076c74e697ea7959dfe",
+    "tt_native1024_profile.json": "f50309bbd010d83d43a22f32af0d42349ced0e69d25b5f050f2549e5a33c436c",
+    "ic15_official1440_test_plan.json": "d90a95b1a399117cd1caddcaa638fa6d85df9519f786f825ff54a43b5a16948c",
+    "ic15_official1440_validation_plan.json": "b8a8b9452ad9b494e00ce1917c9794801e3189e075b3383b9b5402d1cf4a16a1",
+    "tt_ic15resize1440_test_plan.json": "826e1eb21d590388db578a4bcbb92e5f54855ed028ce89c68f135af99b26dc40",
+    "tt_ic15resize1440_validation_plan.json": "ad59e0b881bff7f27fb67961c89cc816e83edafb667e93d5ed464d9fd8a543d3",
+    "tt_native1024_test_plan.json": "3625d9142140fab9fdcafdd5d9339342cf4cc5779106e2d45112191b8f2d3d1a",
+    "tt_native1024_validation_plan.json": "18a4f350c24d6268e8c506580c783a2eb80601f88f9783cc2fa97d6c84a56db5",
+    "tt_ic15resize1440/validation/protocol.json": "98a16c97b283be713b2be3772b0e36d4d8c1822b340801a6846dabde05f850ba",
+    "tt_ic15resize1440/validation/receipt_limit_0.json": "d0c064b80d77de1f1b58102d87294423e0576b44019a9ab935b28af3716a9aae",
+    "tt_ic15resize1440/test/protocol.json": "05e43cc12925f68e0bc3243efab1eda93f110da70dfdb3f2c4982127d578244c",
+    "tt_ic15resize1440/test/receipt_limit_0.json": "d54fe9913cfb784fc60c3f15f7c3f3f59c99fd836871ae946fdb75cf55e05e2a",
+    "ic15_official1440/validation/protocol.json": "96f07e0976c5eeae0387743c833b0dd6aefbded2f66facb97668aecddeb78174",
+    "ic15_official1440/validation/receipt_limit_0.json": "6ed39e575c66a072959f8d0bf849e20a8357178c8fb2f4aecfea4732ccc255c5",
+    "ic15_official1440/test/protocol.json": "a61eef15c35a6f0f58e4db252aeb804fee2532e4b3659bcbb171c2c7fdb532fd",
+    "ic15_official1440/test/receipt_limit_0.json": "be8c52bbadefbff60fb937732a47a196635f23407a20541fea1d852641a2c817"
+  },
+  "maintained_config_sha256": "fede5f25095ed809cbebbe1fbe93adec8375b131d7c32c25db6502c6f4cf647d",
+  "maintained_selected_profile_sha256": "a55d646230b3356477b3ac5ceed2140d7206bbf5fdb8513f8805170bc6dea631",
+  "paper_sha256": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd",
+  "focused_tests": {
+    "passed": 49,
+    "failed": 0
+  },
+  "audit_checks": {
+    "independent_calibration_grid_points": 162,
+    "independent_test_image_count_replays": 4500,
+    "independent_polygon_ignore_decisions": 19826,
+    "complete_test_metric_replays": 9,
+    "authenticated_new_inference_shards": 1200
+  },
+  "results": {
+    "tt_native1024__previous_tt_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1363,
+        "fp": 423,
+        "fn": 714,
+        "detected_words": 1786,
+        "gt_words": 2077,
+        "all_outputs": 1870,
+        "ignored_outputs": 84,
+        "precision": 0.7631578947368421,
+        "recall": 0.6562349542609534,
+        "f1": 0.7056691690396065,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.925,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          0.0,
+          0.0
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 1786,
+        "gt_words": 2077,
+        "geometry_tp": 1476,
+        "alphanumeric_casefold_tp": 1359
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 7,
+          "recognized": 6
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 333,
+          "recognized": 305
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1136,
+          "recognized": 1048
+        }
+      }
+    },
+    "tt_native1024__upstream_ic15_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1524,
+        "fp": 928,
+        "fn": 553,
+        "detected_words": 2452,
+        "gt_words": 2077,
+        "all_outputs": 2620,
+        "ignored_outputs": 168,
+        "precision": 0.6215334420880914,
+        "recall": 0.7337506018295619,
+        "f1": 0.6729962464120115,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.3,
+        "recognition_threshold": 0.0,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.04323592993080481,
+          -0.021989644673091512
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 2452,
+        "gt_words": 2077,
+        "geometry_tp": 1818,
+        "alphanumeric_casefold_tp": 1518
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 13,
+          "recognized": 9
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 439,
+          "recognized": 368
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1366,
+          "recognized": 1141
+        }
+      }
+    },
+    "tt_native1024__calibration_selected": {
+      "metrics": {
+        "images": 500,
+        "tp": 1454,
+        "fp": 601,
+        "fn": 623,
+        "detected_words": 2055,
+        "gt_words": 2077,
+        "all_outputs": 2155,
+        "ignored_outputs": 100,
+        "precision": 0.7075425790754258,
+        "recall": 0.7000481463649495,
+        "f1": 0.7037754114230397,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.8,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.009076299229760892,
+          0.005705361581925808
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 2055,
+        "gt_words": 2077,
+        "geometry_tp": 1675,
+        "alphanumeric_casefold_tp": 1450
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 9,
+          "recognized": 7
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 388,
+          "recognized": 337
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1278,
+          "recognized": 1106
+        }
+      }
+    },
+    "tt_ic15resize1440__previous_tt_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1268,
+        "fp": 430,
+        "fn": 809,
+        "detected_words": 1698,
+        "gt_words": 2077,
+        "all_outputs": 1838,
+        "ignored_outputs": 140,
+        "precision": 0.7467608951707891,
+        "recall": 0.6104959075589793,
+        "f1": 0.6717880794701987,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.925,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.04835015895943331,
+          -0.019258884701965625
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 1698,
+        "gt_words": 2077,
+        "geometry_tp": 1277,
+        "alphanumeric_casefold_tp": 1174
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 4,
+          "recognized": 4
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 267,
+          "recognized": 247
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1006,
+          "recognized": 923
+        }
+      }
+    },
+    "tt_ic15resize1440__upstream_ic15_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1508,
+        "fp": 1342,
+        "fn": 569,
+        "detected_words": 2850,
+        "gt_words": 2077,
+        "all_outputs": 3234,
+        "ignored_outputs": 384,
+        "precision": 0.5291228070175439,
+        "recall": 0.7260471834376505,
+        "f1": 0.6121372031662269,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.3,
+        "recognition_threshold": 0.0,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.11080044801241419,
+          -0.07746901137769122
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 2850,
+        "gt_words": 2077,
+        "geometry_tp": 1665,
+        "alphanumeric_casefold_tp": 1363
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 12,
+          "recognized": 6
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 378,
+          "recognized": 302
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1275,
+          "recognized": 1055
+        }
+      }
+    },
+    "tt_ic15resize1440__calibration_selected": {
+      "metrics": {
+        "images": 500,
+        "tp": 1340,
+        "fp": 447,
+        "fn": 737,
+        "detected_words": 1787,
+        "gt_words": 2077,
+        "all_outputs": 1918,
+        "ignored_outputs": 131,
+        "precision": 0.7498601007274762,
+        "recall": 0.6451612903225806,
+        "f1": 0.6935817805383023,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.4,
+        "recognition_threshold": 0.85,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.025802671005024015,
+          0.001780843491708432
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 1787,
+        "gt_words": 2077,
+        "geometry_tp": 1383,
+        "alphanumeric_casefold_tp": 1232
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 4,
+          "recognized": 4
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 285,
+          "recognized": 254
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1094,
+          "recognized": 974
+        }
+      }
+    },
+    "ic15_official1440__previous_tt_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1424,
+        "fp": 303,
+        "fn": 653,
+        "detected_words": 1727,
+        "gt_words": 2077,
+        "all_outputs": 1782,
+        "ignored_outputs": 55,
+        "precision": 0.8245512449334106,
+        "recall": 0.6856042368801155,
+        "f1": 0.7486855941114616,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.925,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          0.026888269165608783,
+          0.05872394030186872
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 1727,
+        "gt_words": 2077,
+        "geometry_tp": 1544,
+        "alphanumeric_casefold_tp": 1413
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 13,
+          "recognized": 12
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 392,
+          "recognized": 350
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1139,
+          "recognized": 1051
+        }
+      }
+    },
+    "ic15_official1440__upstream_ic15_filter": {
+      "metrics": {
+        "images": 500,
+        "tp": 1572,
+        "fp": 722,
+        "fn": 505,
+        "detected_words": 2294,
+        "gt_words": 2077,
+        "all_outputs": 2423,
+        "ignored_outputs": 129,
+        "precision": 0.6852659110723627,
+        "recall": 0.7568608570052962,
+        "f1": 0.7192862045298559,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.3,
+        "recognition_threshold": 0.0,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          -0.004098072953075555,
+          0.030352799470023943
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 2294,
+        "gt_words": 2077,
+        "geometry_tp": 1837,
+        "alphanumeric_casefold_tp": 1555
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 17,
+          "recognized": 15
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 475,
+          "recognized": 393
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1345,
+          "recognized": 1147
+        }
+      }
+    },
+    "ic15_official1440__calibration_selected": {
+      "metrics": {
+        "images": 500,
+        "tp": 1504,
+        "fp": 415,
+        "fn": 573,
+        "detected_words": 1919,
+        "gt_words": 2077,
+        "all_outputs": 1986,
+        "ignored_outputs": 67,
+        "precision": 0.7837415320479416,
+        "recall": 0.7241213288396726,
+        "f1": 0.7527527527527528,
+        "deepsolo_images": 500,
+        "total_images": 500,
+        "deepsolo_percent": 100.0,
+        "inference_scope": "Full-image DeepSolo; no router"
+      },
+      "policy": {
+        "resolution": "native",
+        "decoder": "greedy",
+        "score_threshold": 0.35,
+        "recognition_threshold": 0.85,
+        "same_text_nms_iou": null
+      },
+      "gain95_vs_reference": {
+        "repetitions": 2000,
+        "seed": 20261028,
+        "gain95": [
+          0.0312787030665936,
+          0.06282982939218096
+        ],
+        "scope": "Conditional paired image bootstrap; excludes fitting/selection uncertainty"
+      },
+      "spatial_diagnostic_counts": {
+        "predictions": 1919,
+        "gt_words": 2077,
+        "geometry_tp": 1684,
+        "alphanumeric_casefold_tp": 1493
+      },
+      "original_word_height": {
+        "small": {
+          "gt": 22,
+          "localized": 14,
+          "recognized": 12
+        },
+        "medium": {
+          "gt": 536,
+          "localized": 429,
+          "recognized": 375
+        },
+        "large": {
+          "gt": 1519,
+          "localized": 1241,
+          "recognized": 1106
+        }
+      }
+    }
+  },
+  "nominal_paper82_target_achieved": false,
+  "limitations": [
+    "Approximate reproduction, not verified equivalent to undefined paper82 accuracy or official lexicon E2E.",
+    "Word F1 normalization, care/ignore handling and all500 image denominators remain unchanged.",
+    "Calibration may overlap official checkpoint pretraining/fine-tuning.",
+    "No TEST threshold selection; historical TEST exposure acknowledged.",
+    "No complete online latency or8GB full-pipeline qualification.",
+    "Legacy FP32 storage retains enabled TF32 permissions; exact settings recorded.",
+    "One initial generated-plan pointer error failed before TEST inference; originals and correction receipt retained."
+  ],
+  "external_completion_sha256": "ee36a2acc879aec69d5d59deacd7d66895c34b8de30cd83db45b36c19dc6ffe9"
+}

@@ -1,0 +1,251 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "common_budget_pipeline_pooled_validation_v2",
+  "output_root": "/extra1/bmartelli/context-str-runs/common-budget-pipeline-20261029-v1",
+  "datasets": [
+    "totaltext",
+    "icdar2015"
+  ],
+  "experts": [
+    "unet",
+    "yolo"
+  ],
+  "seed": 20261029,
+  "cpu_threads": 4,
+  "folds": 5,
+  "snapshot_packages": [
+    "recognition",
+    "scripts",
+    "segmentation",
+    "localize",
+    "models",
+    "pipeline",
+    "caption",
+    "scoring",
+    "research"
+  ],
+  "sources": {
+    "totaltext": {
+      "features": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1",
+      "essential_choices": "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1/frozen_choices.json",
+      "yolo": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054"
+    },
+    "icdar2015": {
+      "original": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+      "prepared": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared",
+      "map_expert": "long768",
+      "prepared_files": {
+        "unet": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar2015__unet.json",
+        "yolo": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar2015__yolo.json"
+      }
+    }
+  },
+  "lexicons": {
+    "totaltext": null,
+    "icdar2015": {
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json",
+      "train_pair_format": "json",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt",
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt",
+      "distance_exclusive": 1.5
+    }
+  },
+  "budgets": {
+    "totaltext": {
+      "images": 300,
+      "fallback_images": 150,
+      "care_words": 2204,
+      "baseline_f1": {
+        "unet": 0.7999041456985382,
+        "yolo": 0.8095576058670452
+      }
+    },
+    "icdar2015": {
+      "images": 500,
+      "fallback_images": 228,
+      "care_words": 2077,
+      "baseline_f1": {
+        "unet": 0.7893333333333333,
+        "yolo": 0.7994897959183673
+      }
+    }
+  },
+  "map_features": {
+    "probability_threshold": 0.5,
+    "minimum_component_area": 4
+  },
+  "correction_confidence_caps": [
+    0.8,
+    0.9,
+    0.95,
+    1.01
+  ],
+  "unmatched_policies": [
+    "keep_unmatched",
+    "source_reject"
+  ],
+  "reference_grid": [
+    0.7,
+    0.75,
+    0.79,
+    0.8,
+    0.82,
+    0.85,
+    0.9
+  ],
+  "guards": [
+    false,
+    true
+  ],
+  "word_risk": {
+    "iterations": 100,
+    "leaves": 7,
+    "minimum_leaf": 20,
+    "l2": 10.0
+  },
+  "feature_groups": [
+    [
+      "raw_ocr"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "risk"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "risk",
+      "maps",
+      "geometry"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "maps",
+      "risk"
+    ]
+  ],
+  "head_recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 0.1
+    },
+    {
+      "kind": "ridge",
+      "alpha": 1.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 1000.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "minimum_leaf": 10,
+      "l2": 10.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "minimum_leaf": 30,
+      "l2": 10.0
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 5
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 15
+    }
+  ],
+  "ensemble_sizes": [
+    3,
+    5,
+    10
+  ],
+  "selection_tolerance": 0.001,
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/independent_audit.json": "00c0f33e870cf791261f75cf87d75af22955f8d71374a695088f6a9136e0e18d",
+    "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1/frozen_choices.json": "896a000dc5785ff59961955d401ea3154b79c5f7b2e39e1ac74049bff40ccfdc",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/frozen_choices.json": "cdac0907f115674681a9571181094c23843eb3044a3fbf9f7103306db61bcea1",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar2015__unet.json": "b5ac1be03668e079281bb17adcba9996e51c7d13dec50f5e9eddce49a5b53495",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/prepared/icdar2015__yolo.json": "44df6cdea3c07d45ff1243a1dfeaa98caf58963f238592acb65c062f0e5d68b2",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/results.json": "b77f939998310bcefb48a2172bb17df47eddb4c4e42132ca753b68dd29d041e8",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/independent_audit.json": "4dd2795b157462d593b928d466d1a3b6edb3c3faebaf602a1e3279237954c76f",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt": "5b7ccc0e3613e30d8ba05e66b90b18d7802f360d602ba59a3d0949c9a276daec",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json": "eacbd5ec76ccda1eae686447c726577f4cfc2a490c9a3be8cbd0a6a9cf24c7fa",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+    "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1/results.json": "b98ed72d0340304bbfce31b5f9e43dd0cf7d3c6c0166f5b1a04d210af8725e91",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/results.json": "7b746460760da1699c3489522ac6b30d330f3913071e18c2ea56146f0a3b4550",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar2015__unet.json": "48742fea031808f6a92794c5e5b68fc4760513309cfa58641571e6b44368cb9c",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar2015__yolo.json": "56c99be183ed2d65e8194230043b4a7d163bca707177fdc8381afd1877a3a824"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Attention U-Net/recognizer/fallback motivation only, paper3.2/3.3/3.5 inspected.",
+    "REPOSITORY_SPECIFIED": "Qualified light/PARSeq observations, all care and native256 ignore, benchmark Weak resources and per-dataset authenticated optimized DeepSolo. Existing expert weights/resolutions are retained.",
+    "ASSUMPTION": "Shared correction grid, raw/post OCR and explicit missing-channel map features, five-RGB-fold word-risk labels from FIT only, two normalized count-difference targets, common Ridge/HGB/ExtraTrees grid, reference grid, guard/ensemble selection and exact budget order. Same procedure and independently learned weights for all four cases. TT unused oldCAL100 joins1028 FIT, with expert-unseen selection62/CAL63; IC15 FIT900/selection50/CAL50. No TEST model/feature/threshold selection. Predeclared v2: exact batch quotas need no scalar-cut calibration; pool selection/CAL into one heldout validation population (TT125, IC15100), unchanged FIT/TEST. Same correction/feature/head/ensemble grid and criterion. Stage follows v1 TEST exposure and is exploratory; no TEST trial chooses a model.",
+    "HARDWARE_DEVIATION": "CPU float64 feature/head processing over authenticated caches; no new GPU or DeepSolo inference.",
+    "UNRESOLVED": "Historical TEST exploration, upstream expert/corrector fitting exposure, TRAIN Weak versus released TEST Weak side-information shift, paper-equivalent metric/weights, and whether one procedure meets all four existing baselines."
+  },
+  "baseline_artifacts": {
+    "totaltext__unet": {
+      "results": "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1/results.json",
+      "kind": "essential_exact_budget"
+    },
+    "totaltext__yolo": {
+      "results": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/results.json",
+      "kind": "token_exact_budget"
+    },
+    "icdar2015__unet": {
+      "results": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/results.json",
+      "branches": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar2015__unet.json",
+      "kind": "lexical_exact_budget"
+    },
+    "icdar2015__yolo": {
+      "results": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/results.json",
+      "branches": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension/branches/icdar2015__yolo.json",
+      "kind": "lexical_exact_budget"
+    }
+  },
+  "validation_policy": "pooled"
+}

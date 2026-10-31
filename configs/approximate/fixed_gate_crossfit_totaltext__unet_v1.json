@@ -1,0 +1,23 @@
+{
+  "cpu_threads": 2,
+  "minimum_validation_f1": 0.0,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/crossfit_retention_v1/totaltext__unet",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/data/seen/case.json": "5cbd496dec2f2b21afe196974b195daed03c3e3e08be73b32696440039d0dbfe",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/deployment_qualification.json": "6bbd2f4fe0a658d31e51a80cb573a2a59db81c3c50dd3cde5a1208d6eebf1f2a",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/models/seen/completed.json": "6584181c7a28df28764e2537da6642b0a18493129f1509566f7e1cd019aed038",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/resolved_configuration.json": "57f712d53463892994f0ee355be5dd4bc1dd078ab25727bb3e509a23db9b7771"
+  },
+  "require_expert_excluded": false,
+  "scientific_choices": {
+    "ASSUMPTION": "Fit the same finite image-count head families and word-risk features with five RGB-grouped FIT crossfolds. Select combined heldout-FIT and validation microF1 at separately scaled quotas, retaining an explicit validation floor; compare qualified fallback/complement variants with same cost-aware tie rule. No TEST labels or outputs enter fitting or selection. Sources and labels are conditionally stacked: source detectors and other word folds can have seen an outer-fold image; these scores are not fully nested unbiased CV. For this dataset retain its existing expert/fallback, pool existing selection/CAL, and use no hard validation floor because validation F1 and the required TEST floor are not the same population. Conditional feature/word stacking and pretrained-expert exposure remain explicit.",
+    "HARDWARE_DEVIATION": "CPU float64 crossfit and cached predictions; no new GPU/DeepSolo inference.",
+    "PAPER_SPECIFIED": "Broad fallback motivation only; supervised count utility is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Original real prediction caches, expert-image-excluded FIT outputs when available, native256 ignore/care, trained word risk, already qualified per-dataset fallback variants and available real map features.",
+    "UNRESOLVED": "Prior/repeated TEST exploration, benchmark TRAIN-vocabulary validation exposure, conditional stacking, small validation and final generalization."
+  },
+  "selection_tolerance": 0.001,
+  "source_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet",
+  "source_view": "seen"
+}

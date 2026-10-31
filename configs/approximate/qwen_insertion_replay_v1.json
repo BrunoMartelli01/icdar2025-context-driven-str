@@ -1,0 +1,24 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "source": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/diagnostics/ocr-target-bound-battery-train-v2/results.json",
+  "source_sha256": "53dc86cca57ff11ff0f03d1b1ed729db90a151ddfad5765e58375198614c0746",
+  "conditions": [
+    "FLORENCE32__PLAIN_TARGET_LAST",
+    "INSTRUCT32__COPY_REPAIR"
+  ],
+  "filters": [
+    {
+      "id": "letter_preservation",
+      "maximum_insertions": null,
+      "minimum_length": 1
+    },
+    {
+      "id": "old_length_bound",
+      "maximum_insertions": 2,
+      "minimum_length": 4
+    }
+  ],
+  "classification": "ASSUMPTION",
+  "selection": "Fixed from prior post-hoc analysis; historical ICDAR13 replay only, not Total-Text transfer or independent validation."
+}

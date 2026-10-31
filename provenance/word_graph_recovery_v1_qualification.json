@@ -1,0 +1,71 @@
+{
+  "status": "IMPLEMENTED_GPU_QUALIFIED_FULL_LAUNCHED",
+  "as_of_utc": "2026-10-23T22:40:35.552984+00:00",
+  "result_class": "approximate reproduction; research extension",
+  "scientific_decision": "WORD-GRAPH-RECOVERY-001",
+  "unit_tests": {
+    "passed": 65,
+    "report": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/qualification/unit_tests.xml"
+  },
+  "gpu_smoke": {
+    "root": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/smoke3",
+    "independent_image_arm_checks": 216,
+    "hashed_artifacts": 470,
+    "protocol_sha256": "e863f58c465936ecca492e1eeb587bb1aae41781e2cce81f1655308626c2da8b",
+    "audit_sha256": "a122744ad6eb4ddbadf96d775686acab0f8607cd5c3736c00dce56fefe8a8edc",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "precision": "float32",
+    "peak_allocated_bytes": 4310637056,
+    "peak_reserved_bytes": 5580521472,
+    "oom": false
+  },
+  "graph_gradient_probe": {
+    "path": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/gradient_probe/gradient_probe.json",
+    "sha256": "96385ad28ab8a683b15e7a7533923b36e5c93bc1cf1b48f9b8bc636b17fad33f",
+    "status": "PASS",
+    "fixture": "First FIT RGB with archived proposal windows; not a proposal-quality/spotting efficacy result"
+  },
+  "geometry_smoke_limit": "One epoch produced no valid predicted FIT contour. CNN-to-GCN gradients verified separately; full training explicitly fails if it never supervises its refiner.",
+  "preserved_failures": [
+    {
+      "path": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/smoke1/failure.json",
+      "reason": "Missing separation field in new trainer batches; corrected and regression-tested"
+    }
+  ],
+  "full_launch": {
+    "pid": 1795208,
+    "command": [
+      "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python",
+      "-u",
+      "-m",
+      "scripts.run_word_graph_recovery",
+      "--mode",
+      "approximate",
+      "--config",
+      "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/source_snapshot_v2/configs/approximate/word_graph_recovery_v1.json",
+      "--output",
+      "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full",
+      "--stage",
+      "all"
+    ],
+    "cwd": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/source_snapshot_v2",
+    "log": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full.log",
+    "qualified_smoke": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/smoke3",
+    "source_code_identity": "bit-identical to passing smoke3",
+    "configuration_equivalence_receipt": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/qualification/config_metadata_correction.json",
+    "metadata_smoke_replay": "PASS; all addition endpoints equal smoke3 exactly",
+    "result_class": "approximate reproduction; no complete efficacy result yet"
+  },
+  "performance_claim": "UNRESOLVED: no complete-run F1 gain claimed",
+  "source_files": {
+    "localize/word_graph_recovery.py": "2ea7762397947bcc81483b71c3d06cd31b7d8184bbd463dc09fbc956f6151dea",
+    "models/word_graph_decoder.py": "dcf67cba6eae94a2022c40a07acbbe5a59cdcd3aa4a0e73f0d03150bd8f12157",
+    "scripts/run_word_graph_recovery.py": "7312edfb56d721111a9cb66e8a9a95d667e0d46b497594fdb87016856d3a620e",
+    "scripts/word_graph_geometry_stages.py": "e069f4817fca87821f5ee78db3258f918248a2d00fd286e7caf875c50ca42895",
+    "scripts/word_graph_regional_stages.py": "c405c6a10c9b9de391ae8fc15015dd5561428f205f0e4c559f6041466cdb17e4",
+    "scripts/qualify_word_graph_decoder.py": "b548e9a5cf460862d84db3b7aad5f8334f385ad93e30a11e380b2085b4eddb87",
+    "scripts/run_word_graph_recovery.sh": "c64fe6da01ed6da2988a8bf9258d516cb98ad7e53ae99ff14d9002439f97dff5",
+    "configs/approximate/word_graph_recovery_v1.json": "3b27bc66bf18bd17781e1845dffd6f7076166c90c80b0a578bccf96126cd25c4"
+  },
+  "configuration_equivalence_receipt": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/qualification/config_metadata_correction.json"
+}

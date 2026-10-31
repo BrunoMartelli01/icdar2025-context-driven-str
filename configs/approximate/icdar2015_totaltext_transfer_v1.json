@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "icdar2015_totaltext_unet_transfer",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "dataset": "icdar2015",
+  "source_manifest": "manifests/icdar2015_train.yaml",
+  "source_manifest_sha256": "25fa81c39c8d1669937e82a8f099bd545619328d531d1cb4e74e04d9be48955a",
+  "source_sample_count": 1000,
+  "validation_count": 100,
+  "architecture": "practical-icdar2015-totaltext-transfer-agunet-v1",
+  "encoder_weights": "IMAGENET1K_V2",
+  "encoder_checkpoint_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+  "freeze_encoder": true,
+  "skip_floor": 0.25,
+  "image_size": [512, 512],
+  "mask_size": [256, 256],
+  "resize_geometry": "letterbox",
+  "canvas_fill_rgb": [124, 116, 104],
+  "probability_threshold": 0.5,
+  "checkpoint_selection": "validation_word_f1_then_fewer_fused_words_then_recall_then_iou_then_earliest",
+  "diagnostic_localization": {
+    "connectivity": 8,
+    "min_component_area": 0,
+    "padding": 0,
+    "max_blocks": null,
+    "classification": "ASSUMPTION",
+    "rationale": "Uncapped word-geometry diagnostic, separate from paper Algorithm 1."
+  },
+  "training": {
+    "epochs": 100,
+    "seed": 202503,
+    "batch_size": 8,
+    "num_workers": 4,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "adam_betas": [0.9, 0.999],
+    "adam_epsilon": 1e-8,
+    "precision": "float32",
+    "deterministic_algorithms": true,
+    "horizontal_flip_probability": 0.5,
+    "rotation_probability": 0.5,
+    "rotation_degrees": [-15.0, 15.0],
+    "separation_weight": 3.0
+  },
+  "transfer_evidence": [
+    {"report": "totaltext-v4-highres-ablation-v1/highres_baseline/validation_word_topology.json", "sha256": "6783585dc1aca015fa9b55200c5e18e746f26fe17bf1287ab2d6eb76661d5777"},
+    {"report": "totaltext-v4-highres-ablation-v1/highres_separator_residual/validation_word_topology.json", "sha256": "4dfead8ba1fc2a86ed9d57fc5354301b2d38be524cb25cbedc9d296ec516179e"},
+    {"report": "totaltext-letterbox-word-f1-separator-parseq-val-v1/results.json", "sha256": "92169d7338e6d5302bdf4ecd96981d2e29c3bcd543d9f23ef8e13320fbf0a1b1"}
+  ],
+  "scientific_choices": [
+    {"component": "resnet50_attention_unet_bce_adam", "classification": "PAPER_SPECIFIED", "rationale": "Local paper section 3.2 and implementation details specify these components."},
+    {"component": "shared_totaltext_operations", "classification": "REPOSITORY_SPECIFIED", "rationale": "Reuse existing disjoint polygon ownership, separator targets, paired letterbox and residual attention operations."},
+    {"component": "icdar2015_mask_and_architecture_transfer", "classification": "ASSUMPTION", "rationale": "Preserve official ICDAR quadrilaterals; transfer word separation, weight-3 separator BCE, floor-0.25 attention and 512-to-256 letterbox. No curved fitting or unavailable pixel GT is invented. Expected cross-dataset gain is unmeasured."},
+    {"component": "held_out_validation_and_selection", "classification": "ASSUMPTION", "rationale": "Freeze 900/100 from official TRAIN by SHA256(seed:sample_id); select by native bbox proposal F1 with declared tie breaks. No TEST or OCR enters selection."},
+    {"component": "execution_hardware", "classification": "HARDWARE_DEVIATION", "rationale": "Qualify actual GPU and peak allocated/reserved memory per run; PAPER currently has RTX 3090 rather than the paper GPU. FP32, batch 8; no quantization or offload."},
+    {"component": "official_icdar2015_improvement", "classification": "UNRESOLVED", "rationale": "Full matched training and official evaluation are required before claiming improved recognition or paper reproduction."}
+  ]
+}

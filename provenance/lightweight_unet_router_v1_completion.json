@@ -1,0 +1,1068 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETED_AUDIT_PASS",
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "selected_name": "ocr",
+  "feature_dimension": 18,
+  "head_coefficients": 19,
+  "normalization_scalars": 36,
+  "total_stored_inference_scalars": 55,
+  "previous_token_head_parameters": 220035,
+  "additional_clip_or_blip_required": false,
+  "fit_images": 1028,
+  "selection_images": 125,
+  "calibration_images": 100,
+  "test_images": 300,
+  "care_words": 2204,
+  "empirical_policies": {
+    "calibration_f1_budget_0.0": {
+      "images": 300,
+      "tp": 1734,
+      "fp": 272,
+      "fn": 470,
+      "detected_words": 2006,
+      "gt_words": 2204,
+      "all_outputs": 2054,
+      "ignored_outputs": 48,
+      "precision": 0.864406779661017,
+      "recall": 0.7867513611615246,
+      "f1": 0.8237529691211402,
+      "accepted_images": 26,
+      "deepsolo_images": 274,
+      "total_images": 300,
+      "deepsolo_percent": 91.33333333333333,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": -0.5748062159567313,
+        "upper95_points": -0.039759681748593484,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "calibration_f1_budget_0.0025": {
+      "images": 300,
+      "tp": 1711,
+      "fp": 271,
+      "fn": 493,
+      "detected_words": 1982,
+      "gt_words": 2204,
+      "all_outputs": 2028,
+      "ignored_outputs": 46,
+      "precision": 0.8632694248234107,
+      "recall": 0.7763157894736842,
+      "f1": 0.8174868609651218,
+      "accepted_images": 82,
+      "deepsolo_images": 218,
+      "total_images": 300,
+      "deepsolo_percent": 72.66666666666667,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": -1.5349379182324907,
+        "upper95_points": -0.35060577225046213,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "calibration_f1_budget_0.005": {
+      "images": 300,
+      "tp": 1625,
+      "fp": 304,
+      "fn": 579,
+      "detected_words": 1929,
+      "gt_words": 2204,
+      "all_outputs": 1966,
+      "ignored_outputs": 37,
+      "precision": 0.8424053913945049,
+      "recall": 0.7372958257713249,
+      "f1": 0.7863537382046939,
+      "accepted_images": 165,
+      "deepsolo_images": 135,
+      "total_images": 300,
+      "deepsolo_percent": 45.0,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": -5.611364792874947,
+        "upper95_points": -2.6635169380725787,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "calibration_f1_budget_0.01": {
+      "images": 300,
+      "tp": 1554,
+      "fp": 328,
+      "fn": 650,
+      "detected_words": 1882,
+      "gt_words": 2204,
+      "all_outputs": 1912,
+      "ignored_outputs": 30,
+      "precision": 0.8257173219978746,
+      "recall": 0.70508166969147,
+      "f1": 0.7606461086637298,
+      "accepted_images": 206,
+      "deepsolo_images": 94,
+      "total_images": 300,
+      "deepsolo_percent": 31.333333333333332,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": -8.61629015771847,
+        "upper95_points": -4.740617738012755,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "conformal_0.05": {
+      "images": 300,
+      "tp": 1744,
+      "fp": 272,
+      "fn": 460,
+      "detected_words": 2016,
+      "gt_words": 2204,
+      "all_outputs": 2071,
+      "ignored_outputs": 55,
+      "precision": 0.8650793650793651,
+      "recall": 0.7912885662431942,
+      "f1": 0.8265402843601896,
+      "accepted_images": 0,
+      "deepsolo_images": 300,
+      "total_images": 300,
+      "deepsolo_percent": 100.0,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": 0.0,
+        "upper95_points": 0.0,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "conformal_0.1": {
+      "images": 300,
+      "tp": 1744,
+      "fp": 272,
+      "fn": 460,
+      "detected_words": 2016,
+      "gt_words": 2204,
+      "all_outputs": 2071,
+      "ignored_outputs": 55,
+      "precision": 0.8650793650793651,
+      "recall": 0.7912885662431942,
+      "f1": 0.8265402843601896,
+      "accepted_images": 0,
+      "deepsolo_images": 300,
+      "total_images": 300,
+      "deepsolo_percent": 100.0,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": 0.0,
+        "upper95_points": 0.0,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "conformal_0.2": {
+      "images": 300,
+      "tp": 1744,
+      "fp": 272,
+      "fn": 460,
+      "detected_words": 2016,
+      "gt_words": 2204,
+      "all_outputs": 2071,
+      "ignored_outputs": 55,
+      "precision": 0.8650793650793651,
+      "recall": 0.7912885662431942,
+      "f1": 0.8265402843601896,
+      "accepted_images": 2,
+      "deepsolo_images": 298,
+      "total_images": 300,
+      "deepsolo_percent": 99.33333333333333,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": 0.0,
+        "upper95_points": 0.0,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    },
+    "raw_zero": {
+      "images": 300,
+      "tp": 1713,
+      "fp": 272,
+      "fn": 491,
+      "detected_words": 1985,
+      "gt_words": 2204,
+      "all_outputs": 2031,
+      "ignored_outputs": 46,
+      "precision": 0.8629722921914358,
+      "recall": 0.7772232304900182,
+      "f1": 0.8178562902840774,
+      "accepted_images": 72,
+      "deepsolo_images": 228,
+      "total_images": 300,
+      "deepsolo_percent": 76.0,
+      "routing_scope": "logical cached-output decisions",
+      "conditional95_delta_vs_all_deepsolo": {
+        "lower95_points": -1.4320222608841249,
+        "upper95_points": -0.3741983847958182,
+        "draws": 1000,
+        "conditional_on_fitted_models_and_routes": true,
+        "includes_training_or_selection_variance": false
+      }
+    }
+  },
+  "calibration_policies": {
+    "calibration_f1_budget_0.0": {
+      "threshold": 0.31465424338790576,
+      "summary": {
+        "images": 100,
+        "tp": 626,
+        "fp": 108,
+        "fn": 176,
+        "detected_words": 734,
+        "gt_words": 802,
+        "all_outputs": 766,
+        "ignored_outputs": 32,
+        "precision": 0.8528610354223434,
+        "recall": 0.7805486284289277,
+        "f1": 0.8151041666666666,
+        "accepted_images": 6,
+        "deepsolo_images": 94,
+        "total_images": 100,
+        "deepsolo_percent": 94.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "maximum_f1_loss": 0.0,
+      "guarantee": "Empirical CAL micro-F1 constraint only, no population guarantee"
+    },
+    "calibration_f1_budget_0.0025": {
+      "threshold": -0.06008955655878492,
+      "summary": {
+        "images": 100,
+        "tp": 623,
+        "fp": 109,
+        "fn": 179,
+        "detected_words": 732,
+        "gt_words": 802,
+        "all_outputs": 762,
+        "ignored_outputs": 30,
+        "precision": 0.8510928961748634,
+        "recall": 0.7768079800498753,
+        "f1": 0.8122555410691004,
+        "accepted_images": 30,
+        "deepsolo_images": 70,
+        "total_images": 100,
+        "deepsolo_percent": 70.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "maximum_f1_loss": 0.0025,
+      "guarantee": "Empirical CAL micro-F1 constraint only, no population guarantee"
+    },
+    "calibration_f1_budget_0.005": {
+      "threshold": -0.6707626693510242,
+      "summary": {
+        "images": 100,
+        "tp": 601,
+        "fp": 81,
+        "fn": 201,
+        "detected_words": 682,
+        "gt_words": 802,
+        "all_outputs": 708,
+        "ignored_outputs": 26,
+        "precision": 0.8812316715542522,
+        "recall": 0.7493765586034913,
+        "f1": 0.8099730458221024,
+        "accepted_images": 61,
+        "deepsolo_images": 39,
+        "total_images": 100,
+        "deepsolo_percent": 39.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "maximum_f1_loss": 0.005,
+      "guarantee": "Empirical CAL micro-F1 constraint only, no population guarantee"
+    },
+    "calibration_f1_budget_0.01": {
+      "threshold": -1.3191345439654727,
+      "summary": {
+        "images": 100,
+        "tp": 599,
+        "fp": 86,
+        "fn": 203,
+        "detected_words": 685,
+        "gt_words": 802,
+        "all_outputs": 709,
+        "ignored_outputs": 24,
+        "precision": 0.8744525547445255,
+        "recall": 0.7468827930174564,
+        "f1": 0.8056489576328177,
+        "accepted_images": 79,
+        "deepsolo_images": 21,
+        "total_images": 100,
+        "deepsolo_percent": 21.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "maximum_f1_loss": 0.01,
+      "guarantee": "Empirical CAL micro-F1 constraint only, no population guarantee"
+    },
+    "conformal_0.05": {
+      "alpha": 0.05,
+      "correction": 0.5989768057465309,
+      "summary": {
+        "images": 100,
+        "tp": 626,
+        "fp": 109,
+        "fn": 176,
+        "detected_words": 735,
+        "gt_words": 802,
+        "all_outputs": 768,
+        "ignored_outputs": 33,
+        "precision": 0.8517006802721089,
+        "recall": 0.7805486284289277,
+        "f1": 0.8145738451528952,
+        "accepted_images": 0,
+        "deepsolo_images": 100,
+        "total_images": 100,
+        "deepsolo_percent": 100.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "guarantee": "Nominal one-sided marginal normalized-utility coverage under exchangeability; not conditional accepted risk or global micro-F1 preservation."
+    },
+    "conformal_0.1": {
+      "alpha": 0.1,
+      "correction": 0.3550509833439206,
+      "summary": {
+        "images": 100,
+        "tp": 626,
+        "fp": 109,
+        "fn": 176,
+        "detected_words": 735,
+        "gt_words": 802,
+        "all_outputs": 768,
+        "ignored_outputs": 33,
+        "precision": 0.8517006802721089,
+        "recall": 0.7805486284289277,
+        "f1": 0.8145738451528952,
+        "accepted_images": 0,
+        "deepsolo_images": 100,
+        "total_images": 100,
+        "deepsolo_percent": 100.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "guarantee": "Nominal one-sided marginal normalized-utility coverage under exchangeability; not conditional accepted risk or global micro-F1 preservation."
+    },
+    "conformal_0.2": {
+      "alpha": 0.2,
+      "correction": 0.1988776689071779,
+      "summary": {
+        "images": 100,
+        "tp": 626,
+        "fp": 109,
+        "fn": 176,
+        "detected_words": 735,
+        "gt_words": 802,
+        "all_outputs": 768,
+        "ignored_outputs": 33,
+        "precision": 0.8517006802721089,
+        "recall": 0.7805486284289277,
+        "f1": 0.8145738451528952,
+        "accepted_images": 0,
+        "deepsolo_images": 100,
+        "total_images": 100,
+        "deepsolo_percent": 100.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "guarantee": "Nominal one-sided marginal normalized-utility coverage under exchangeability; not conditional accepted risk or global micro-F1 preservation."
+    },
+    "raw_zero": {
+      "threshold": 0.0,
+      "summary": {
+        "images": 100,
+        "tp": 622,
+        "fp": 110,
+        "fn": 180,
+        "detected_words": 732,
+        "gt_words": 802,
+        "all_outputs": 762,
+        "ignored_outputs": 30,
+        "precision": 0.8497267759562842,
+        "recall": 0.7755610972568578,
+        "f1": 0.8109517601043025,
+        "accepted_images": 28,
+        "deepsolo_images": 72,
+        "total_images": 100,
+        "deepsolo_percent": 72.0,
+        "routing_scope": "logical cached-output decisions"
+      },
+      "guarantee": "Uncalibrated control"
+    }
+  },
+  "original_predeclared_selected": "core",
+  "original_primary": {
+    "images": 300,
+    "tp": 1586,
+    "fp": 361,
+    "fn": 618,
+    "detected_words": 1947,
+    "gt_words": 2204,
+    "all_outputs": 1974,
+    "ignored_outputs": 27,
+    "precision": 0.8145865434001027,
+    "recall": 0.7196007259528131,
+    "f1": 0.7641532160925079,
+    "accepted_images": 211,
+    "deepsolo_images": 89,
+    "total_images": 300,
+    "deepsolo_percent": 29.666666666666668,
+    "routing_scope": "logical cached-output decisions"
+  },
+  "pruning": {
+    "selected_name": "ocr",
+    "selected_trial": 0,
+    "baseline_name": "ocr",
+    "comparisons": {
+      "ocr": {
+        "selection_delta_f1_points": 0.0,
+        "conditional95_interval": [
+          0.0,
+          0.0
+        ],
+        "simultaneous_interval": [
+          0.0,
+          0.0
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "ocr_tokens": {
+        "selection_delta_f1_points": 0.05042674407557124,
+        "conditional95_interval": [
+          -0.09049604125768551,
+          0.20541985945998656
+        ],
+        "simultaneous_interval": [
+          -0.15549910211937001,
+          0.2754614897776671
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "ocr_mask": {
+        "selection_delta_f1_points": 0.07235116502370964,
+        "conditional95_interval": [
+          -0.6402257225309099,
+          0.7017710894125693
+        ],
+        "simultaneous_interval": [
+          -1.0099229414179336,
+          0.9630134693382227
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "core": {
+        "selection_delta_f1_points": 0.09115690028935752,
+        "conditional95_interval": [
+          -0.3274068946107439,
+          0.5680090355581404
+        ],
+        "simultaneous_interval": [
+          -0.5479990437924588,
+          0.7583973146292828
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "core_local": {
+        "selection_delta_f1_points": -0.04566992475149023,
+        "conditional95_interval": [
+          -0.5917245775799698,
+          0.4863417502148047
+        ],
+        "simultaneous_interval": [
+          -0.8234296785371191,
+          0.7042144150487402
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "core_global": {
+        "selection_delta_f1_points": -0.011768621811703017,
+        "conditional95_interval": [
+          -0.7247943929059536,
+          0.7217646011642174
+        ],
+        "simultaneous_interval": [
+          -1.0662989545848596,
+          1.109093454872963
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "core_blip": {
+        "selection_delta_f1_points": -0.12756791416590474,
+        "conditional95_interval": [
+          -0.9543783051226564,
+          0.6224568632690034
+        ],
+        "simultaneous_interval": [
+          -1.3197574457915626,
+          0.8852316138738257
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "all": {
+        "selection_delta_f1_points": -0.2119337325618198,
+        "conditional95_interval": [
+          -0.8727213697970323,
+          0.4479546310086319
+        ],
+        "simultaneous_interval": [
+          -1.2414065561492662,
+          0.6705617704407312
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "all_no_mask": {
+        "selection_delta_f1_points": 0.3349681517216929,
+        "conditional95_interval": [
+          -0.09573663751347217,
+          0.8357334877695467
+        ],
+        "simultaneous_interval": [
+          -0.24934673645252903,
+          1.01305149853571
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      },
+      "all_no_tokens": {
+        "selection_delta_f1_points": 0.004797988315841106,
+        "conditional95_interval": [
+          -0.8692169333776913,
+          0.8086371555169062
+        ],
+        "simultaneous_interval": [
+          -1.2861142870463886,
+          1.0791900927573193
+        ],
+        "supported_extra_signal": false,
+        "selection_route_costs": [
+          {
+            "deepsolo_images": 113,
+            "total_images": 125,
+            "deepsolo_percent": 90.4
+          },
+          {
+            "deepsolo_images": 100,
+            "total_images": 125,
+            "deepsolo_percent": 80.0
+          },
+          {
+            "deepsolo_images": 87,
+            "total_images": 125,
+            "deepsolo_percent": 69.6
+          }
+        ]
+      }
+    },
+    "draws": 3000,
+    "seed": 20261027,
+    "family_error": 0.05,
+    "rule": "Retain extra signals only if the validation paired-bootstrap simultaneous lower interval exceeds zero; otherwise keep OCR-only. Conditional exploratory heuristic after candidate hyperparameter selection, not a confirmatory multiplicity guarantee.",
+    "test_used": false,
+    "calibration_used_for_feature_selection": false,
+    "mode": "approximate",
+    "claim_label": "approximate reproduction",
+    "source_run": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1",
+    "source_trial_sha256": "97dff85f89ee8ec337c9642091b72733ecd245c522e81c0aec0f75805644b328",
+    "source_frozen_choices_sha256": "73c77dfe9320b1fbb85f082eda1db49b4d56a9e8385a14256b10a85f99926e65",
+    "source_selection_sha256": "80fdfc0e32aa4d03dd5f02914a2beb68e101dbc2068706ab0cf81a512028d322",
+    "analysis_code_sha256": "0b9b785d6a79b4f2b222a62d3310e003cf81ca26b70ccbb57f8694ee07f3c63d",
+    "exploratory_followup": true,
+    "new_training": false,
+    "primary_original_run_preserved": true
+  },
+  "quotas": [
+    {
+      "fraction": 0.0,
+      "images": 300,
+      "tp": 1744,
+      "fp": 272,
+      "fn": 460,
+      "detected_words": 2016,
+      "gt_words": 2204,
+      "all_outputs": 2071,
+      "ignored_outputs": 55,
+      "precision": 0.8650793650793651,
+      "recall": 0.7912885662431942,
+      "f1": 0.8265402843601896,
+      "accepted_images": 0,
+      "deepsolo_images": 300,
+      "total_images": 300,
+      "deepsolo_percent": 100.0,
+      "routing_scope": "logical cached-output decisions"
+    },
+    {
+      "fraction": 0.1,
+      "images": 300,
+      "tp": 1734,
+      "fp": 272,
+      "fn": 470,
+      "detected_words": 2006,
+      "gt_words": 2204,
+      "all_outputs": 2054,
+      "ignored_outputs": 48,
+      "precision": 0.864406779661017,
+      "recall": 0.7867513611615246,
+      "f1": 0.8237529691211402,
+      "accepted_images": 30,
+      "deepsolo_images": 270,
+      "total_images": 300,
+      "deepsolo_percent": 90.0,
+      "routing_scope": "logical cached-output decisions"
+    },
+    {
+      "fraction": 0.2,
+      "images": 300,
+      "tp": 1717,
+      "fp": 278,
+      "fn": 487,
+      "detected_words": 1995,
+      "gt_words": 2204,
+      "all_outputs": 2041,
+      "ignored_outputs": 46,
+      "precision": 0.8606516290726817,
+      "recall": 0.7790381125226861,
+      "f1": 0.8178137651821862,
+      "accepted_images": 60,
+      "deepsolo_images": 240,
+      "total_images": 300,
+      "deepsolo_percent": 80.0,
+      "routing_scope": "logical cached-output decisions"
+    },
+    {
+      "fraction": 0.3,
+      "images": 300,
+      "tp": 1700,
+      "fp": 278,
+      "fn": 504,
+      "detected_words": 1978,
+      "gt_words": 2204,
+      "all_outputs": 2024,
+      "ignored_outputs": 46,
+      "precision": 0.8594539939332659,
+      "recall": 0.7713248638838476,
+      "f1": 0.8130081300813008,
+      "accepted_images": 90,
+      "deepsolo_images": 210,
+      "total_images": 300,
+      "deepsolo_percent": 70.0,
+      "routing_scope": "logical cached-output decisions"
+    },
+    {
+      "fraction": 0.4,
+      "images": 300,
+      "tp": 1693,
+      "fp": 280,
+      "fn": 511,
+      "detected_words": 1973,
+      "gt_words": 2204,
+      "all_outputs": 2013,
+      "ignored_outputs": 40,
+      "precision": 0.8580841358337558,
+      "recall": 0.7681488203266787,
+      "f1": 0.8106296384965286,
+      "accepted_images": 120,
+      "deepsolo_images": 180,
+      "total_images": 300,
+      "deepsolo_percent": 60.0,
+      "routing_scope": "logical cached-output decisions"
+    },
+    {
+      "fraction": 0.5,
+      "images": 300,
+      "tp": 1654,
+      "fp": 293,
+      "fn": 550,
+      "detected_words": 1947,
+      "gt_words": 2204,
+      "all_outputs": 1987,
+      "ignored_outputs": 40,
+      "precision": 0.8495120698510529,
+      "recall": 0.7504537205081669,
+      "f1": 0.796916405685377,
+      "accepted_images": 150,
+      "deepsolo_images": 150,
+      "total_images": 300,
+      "deepsolo_percent": 50.0,
+      "routing_scope": "logical cached-output decisions"
+    }
+  ],
+  "all_deepsolo": {
+    "images": 300,
+    "tp": 1744,
+    "fp": 272,
+    "fn": 460,
+    "detected_words": 2016,
+    "gt_words": 2204,
+    "all_outputs": 2071,
+    "ignored_outputs": 55,
+    "precision": 0.8650793650793651,
+    "recall": 0.7912885662431942,
+    "f1": 0.8265402843601896,
+    "accepted_images": 0,
+    "deepsolo_images": 300,
+    "total_images": 300,
+    "deepsolo_percent": 100.0,
+    "routing_scope": "logical cached-output decisions"
+  },
+  "no_refit_after_calibration": true,
+  "new_deepsolo_calls": 0,
+  "online_latency_measured": false,
+  "deployment_qualification": {
+    "status": "PASS",
+    "deployment_images": 300,
+    "policy_decisions": 2400,
+    "extra_encoder_calls": 0,
+    "map_reads_required": false,
+    "context_reads_required": false,
+    "maximum_batch_single_score_error": 3.552713678800501e-15,
+    "cpu_observation_to_decision_median_seconds_300_images": 0.08043196192011237,
+    "timing_repetitions": 5,
+    "timing_scope": "18-descriptor extraction, scalar head and decisions from supplied OCR rows; cached upstream expert/image/context costs excluded.",
+    "deployment_sha256": "5ada765d5c17381849978b0023582ef72fa260846e54ebce94ddb39c9b2d0e49",
+    "original_full_audit": {
+      "status": "PASS",
+      "checks": {
+        "source_files": 14,
+        "role_feature_populations": 4,
+        "fit_only_projections": 2,
+        "independent_weighted_ridge_solutions": 30,
+        "selection_route_points": 150,
+        "fitting_scopes": 50,
+        "boosted_tree_initialization_and_budget": 20,
+        "empirical_calibration_optima": 40,
+        "calibration_routes": 80,
+        "test_routes": 140,
+        "conformal_corrections": 30
+      },
+      "results_sha256": "9d13a2be139a08135b3fa56c087a7dc19882a809aba61b472e7d71e2f9ee393a",
+      "analysis_code_sha256": "aa33797e34b56572162195d87078c4c06acc95493d951937abb99185748b514f",
+      "scope": "Independent counts, selection, fit-only preprocessing, weighted ridge normal equations, tree budget, frozen-head CAL empirical optima and finite-sample conformal order statistics. No independent boosted-tree refit or untouched-dataset guarantee."
+    },
+    "pruning_choice_rule_replayed": true,
+    "analysis_code_sha256": "66dac1fa57f8bd0a983cbc5f2a73da12bc1a49cf33be24c5b52763363669586c"
+  },
+  "original_results_sha256": "9d13a2be139a08135b3fa56c087a7dc19882a809aba61b472e7d71e2f9ee393a",
+  "pruned_results_sha256": "7ef556db4dcf4ccaff835599190d5ab95f0337dd0536664e2c1e0f1b00c5d29c",
+  "pruned_deployment": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/validation_pruned_v1/selected_deployment.joblib",
+  "limitation": "Cheap predictor implemented; useful accuracy-preserving acceptance is not established. Empirical CAL constraints do not transfer reliably, while nominal conformal rules are nearly/all fallback. Historical exposure and exploratory pruning prevent confirmatory claims.",
+  "external_root": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1",
+  "full_result_sha256": "9d13a2be139a08135b3fa56c087a7dc19882a809aba61b472e7d71e2f9ee393a",
+  "frozen_choices_sha256": "73c77dfe9320b1fbb85f082eda1db49b4d56a9e8385a14256b10a85f99926e65",
+  "full_audit": {
+    "status": "PASS",
+    "checks": {
+      "source_files": 14,
+      "role_feature_populations": 4,
+      "fit_only_projections": 2,
+      "independent_weighted_ridge_solutions": 30,
+      "selection_route_points": 150,
+      "fitting_scopes": 50,
+      "boosted_tree_initialization_and_budget": 20,
+      "empirical_calibration_optima": 40,
+      "calibration_routes": 80,
+      "test_routes": 140,
+      "conformal_corrections": 30
+    },
+    "results_sha256": "9d13a2be139a08135b3fa56c087a7dc19882a809aba61b472e7d71e2f9ee393a",
+    "analysis_code_sha256": "aa33797e34b56572162195d87078c4c06acc95493d951937abb99185748b514f",
+    "scope": "Independent counts, selection, fit-only preprocessing, weighted ridge normal equations, tree budget, frozen-head CAL empirical optima and finite-sample conformal order statistics. No independent boosted-tree refit or untouched-dataset guarantee."
+  },
+  "expert_pair_metadata_audit": {
+    "status": "PASS",
+    "checks": {
+      "train_annotation_sha256": {
+        "matched": 1253,
+        "mismatched": []
+      },
+      "train_validity_sha256": {
+        "matched": 1253,
+        "mismatched": []
+      },
+      "train_rgb_sha256": {
+        "matched": 1253,
+        "mismatched": []
+      },
+      "test_annotation_sha256": {
+        "matched": 300,
+        "mismatched": []
+      },
+      "test_validity_sha256": {
+        "matched": 300,
+        "mismatched": []
+      },
+      "test_rgb_sha256": {
+        "matched": 300,
+        "mismatched": []
+      }
+    }
+  },
+  "smoke_audit": {
+    "status": "PASS",
+    "checks": {
+      "source_files": 14,
+      "role_feature_populations": 4,
+      "fit_only_projections": 2,
+      "independent_weighted_ridge_solutions": 30,
+      "selection_route_points": 150,
+      "fitting_scopes": 50,
+      "boosted_tree_initialization_and_budget": 20,
+      "empirical_calibration_optima": 40,
+      "calibration_routes": 80,
+      "test_routes": 140,
+      "conformal_corrections": 30
+    },
+    "results_sha256": "6869ee3a176fd85077a81fd28d065f6fb51be61dc82afecd1657ec8807e08eb8",
+    "analysis_code_sha256": "aa33797e34b56572162195d87078c4c06acc95493d951937abb99185748b514f",
+    "scope": "Independent counts, selection, fit-only preprocessing, weighted ridge normal equations, tree budget, frozen-head CAL empirical optima and finite-sample conformal order statistics. No independent boosted-tree refit or untouched-dataset guarantee."
+  },
+  "focused_tests": {
+    "passed": 34,
+    "seconds": 2.07,
+    "files": [
+      "tests/recognition/test_lightweight_validation_pruning.py",
+      "tests/recognition/test_lightweight_unet_router.py",
+      "tests/recognition/test_text_coverage_router.py",
+      "tests/recognition/test_unet_corrected_token_interfaces.py"
+    ]
+  },
+  "source_snapshot": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/source_snapshot_v2",
+  "pruning_source_snapshot": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/prune_source_v1",
+  "code_and_config_sha256": {
+    "recognition/lightweight_unet_router.py": "2abbf8540c6014d667c23269e9080e45b5fd23cf99092c8de1125232f8f39826",
+    "scripts/run_lightweight_unet_router.py": "9fb5af4583ec4899481cb0ebd2e693c175eee76c3d05577c55a695ff8ed1b44b",
+    "scripts/audit_lightweight_unet_router.py": "aa33797e34b56572162195d87078c4c06acc95493d951937abb99185748b514f",
+    "scripts/prune_lightweight_unet_router.py": "0b9b785d6a79b4f2b222a62d3310e003cf81ca26b70ccbb57f8694ee07f3c63d",
+    "configs/approximate/lightweight_unet_router_v1.json": "0c155c864bc625a6678d75dd6a70da79d2b3971eb8e753a527501e75bc0a5078",
+    "tests/recognition/test_lightweight_unet_router.py": "6408172803e6cfd3ce63c21ba72b0f4a2ad48eb177916a621555ac2d8830b849",
+    "tests/recognition/test_lightweight_validation_pruning.py": "1f4d280cb3d9b6e1cad9c2fd95a93f78e018e96fe12d2b04168126425d14d95a"
+  },
+  "source_input_sha256": {
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/resolved_configuration.json": "86e369380637a29bdced95e1e2225ec66566fecdddc28d5cb89affa2bd47fc96",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/results.json": "06c1694e52cce3294c3e94989d1049cb8ace25bd244de34aad7d2c90fee26b60",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/independent_audit.json": "b68cd39c7f5fc84f430574ed7e0a21b7d7881261562e64d287598e4967577d40",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/train/corrected.json": "b9eb44935a54932f243d463ecdc7fb3b9572e2f29846b88fe1e6b38f4526a76a",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/test/corrected.json": "be6da4be5d6c9c15f50473e634dbe4546cb17d3dfc5d50180d3dedbe2d0dd19d",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/train/branch_metrics_original.json": "4de6fc537cbe94c3beaf926c8eda7741494b31e73f15defc3e4c75de185ec16b",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/test/branch_metrics_native_word.json": "a13b74ca90f75136c786dc419f707258acbc58258958f93dd6998ce1fdce706d",
+    "/extra1/bmartelli/context-str-runs/unet-minimum-fallback-20261026-v1/full/prepared.pkl": "4db5413ee7fcaaaaf6a7f530d79af5643653fcf2d131ac0783a94c1488d2d503",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/resolved_configuration.json": "2f7254d5812c0a04c306713a7afdb6005dd7b78d31d3edd9d2d267df14dec3dc",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/results.json": "7b746460760da1699c3489522ac6b30d330f3913071e18c2ea56146f0a3b4550",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/completion.json": "a216984d3b964c14e6b8a4749b7abf390f03130f2b7c3d4a0a6cd3862f9231fa",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/independent_audit.json": "0e47a283fa0d87567bb2f5a56a56ec6182636317e0e863a9500df85fdb3e1f42",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/train/branches.json": "1716517bec367cb907adf403f8a4d1e8404de8c6f6fb4a8da7b9db878903e448",
+    "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf/test/branches.json": "5f0dad9b23c2dfd411329e1f1bcc32a365618ef6c86a9b14b4d0447e08b18912"
+  },
+  "runtime": {
+    "host": "paper",
+    "python": "3.11.11",
+    "numpy": "1.26.4",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3",
+    "device": "cpu",
+    "feature_dtype": "float64",
+    "cpu_threads": 4,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libopenblas",
+        "filepath": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/lib/python3.11/site-packages/numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so",
+        "version": "0.3.23.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "libgomp",
+        "filepath": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/lib/python3.11/site-packages/scikit_learn.libs/libgomp-e985bcbb.so.1.0.0",
+        "version": null
+      }
+    ],
+    "new_gpu_inference": false
+  },
+  "failed_scientific_primary": "Predeclared core38 CAL-no-loss rule loses6.2387 F1 points on TEST, DeepSolo89/300 (29.67%). Preserved; not qualified as accuracy preserving.",
+  "no_environment_installations": true,
+  "no_new_gpu_or_expert_inference": true,
+  "no_commit_or_push": true,
+  "documentation": "docs/LIGHTWEIGHT_UNET_ROUTER.md",
+  "scientific_decision": "LIGHTWEIGHT-UNET-ROUTER-001",
+  "resolved_estimators_sha256": "e19cf703faddbb2e7d04e405150421e5833312be8103ab6716fdea68614138fd",
+  "resolved_estimators_path": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/resolved_estimator_parameters.json"
+}

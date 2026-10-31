@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "metrics": [
+    "casefold_exact",
+    "casefold_alnum"
+  ],
+  "profiles": [
+    "original",
+    "confidence90",
+    "native_word",
+    "global_word"
+  ],
+  "original_policy": {
+    "resolution": "native",
+    "decoder": "greedy",
+    "score_threshold": 0.4,
+    "recognition_threshold": 0.0,
+    "same_text_nms_iou": null
+  },
+  "original_arms": [
+    "scalar",
+    "token_context",
+    "likelihood",
+    "dense",
+    "pooled_context",
+    "combined"
+  ],
+  "budget_fractions": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "interval_fractions": [
+    0.2,
+    0.3,
+    0.5
+  ],
+  "bootstrap_replicates": 1000,
+  "seed": 20261026,
+  "cpu_threads": 4,
+  "source_sha256": {
+    "token_root": {
+      "resolved_configuration.json": "828a93b4b245258d6697574df52e57404945612b990f25bc7b9687247f34f44e",
+      "results.json": "c7868186ea6d1e7af8022839921aae6133986a2a8d711e65d112f7b2422ed548",
+      "independent_audit.json": "55c57e4e09522f0154ac9db90815a3ec18c1d0be4f80015b2f9068ee60fbd5cd",
+      "frozen_choices.json": "e51c197fa15f24cdb443eb3b29fc80b61931ab98b6110dee40cd9764d57f09c7",
+      "cv_predictions.json": "1d0e5c4784c598e242352019b7066ddf548b56ee4bb6d2b52539fd0b44a47fd7"
+    },
+    "cause_root": {
+      "resolved_configuration.json": "50f8d693c52398cc990f89f946fcd53c284c595411e7146ca574550a44f7983f",
+      "results.json": "c83e2bc6ce9ae428efc16bd66a3257b7cc9f64c3816e85156999c581757fecf3",
+      "independent_audit.json": "cfbfcc090ebaca67def2b76c453a1463cef6644c75411ebb3c9ec47d2e7196b8",
+      "model_results.json": "53c10b8dee64bdb4340b39337c98f359f242f2fac2fe85274d72aef92e3a1fd1"
+    },
+    "improved_root": {
+      "results.json": "14ba99dca9fb3dd8a97b15a7d05e2bbaebecc231a83f8bdb4bf50fcb01cabc08",
+      "selection.json": "728df80bf6de31053a57d3b6ebdfc24fbe883895ae73fd62eb52eb0e2d7c1327",
+      "processed_predictions.json": "4389d3d3ac04defed6b0842bc62c451b61ba94714187f9e7679d263b96ee17f9",
+      "independent_audit.json": "8ef32e9738423b8da683e9e13b8bcb9e3a6017dc6f85ca53181eb5f6f44ab3cd",
+      "deployment_profiles.json": "dcf1c2291fa0a382081c51c5be0d6a63c5328c2425fa68c0171d148e86959675",
+      "deployment_independent_audit.json": "3ffd7e72687eb09603c61870a9453778ca1cde26c70923281e0f84ee8a17158b"
+    },
+    "confidence_root": {
+      "resolved_configuration.json": "a9d8c470e59ed2ed4a79090a3891759428eacd3e798cb99ff3fdfe62125f6c94",
+      "selection.json": "df8ed38303152b5203fe14c6fa5a13eb0787f5f179b6f7540a2f708250b35e81",
+      "results.json": "39c99edc14d2430907c7c7a03c97343e0ecdcb988740eda6dca4c129b22fe761"
+    }
+  },
+  "code_files": [
+    "scripts/replay_router_improved_deepsolo.py",
+    "recognition/deepsolo_word_f1.py",
+    "recognition/clip_router_evaluation.py",
+    "recognition/paper_image_router_evaluation.py",
+    "recognition/trainable_image_router.py",
+    "recognition/f1_quality_study.py",
+    "scripts/token_context_training.py",
+    "scripts/token_context_data.py"
+  ],
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper3.5/Algorithm2 motivates a complete DeepSolo fallback; no paper checkpoint or Table5 accuracy equivalence is inferred."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use audited saved original/confidence90/native_word/global_word DeepSolo policies without TEST reselection. Preserve original predictions, geometry/ignore rules and routing scores."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Report punctuation-retaining and casefold+isalnum metrics separately on identical images and care denominators. No word splitting, NFKC, accent removal, lexicon or GT filtering; empty normalized strings never match."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Frozen original and20 cause-test trial routers use original OOF TRAIN and final TEST scores; no retraining or threshold optimization against the improved fallback. Paired GT oracle recomputed per profile/metric/quota; oracle uses GT and is nondeployable."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Full TRAIN1253 is available only for original/confidence90; all four profiles evaluated on common TRAIN125 and TEST300. Do not fabricate low-threshold/fused predictions for missing TRAIN images. Conditional RGB-cluster bootstrap on frozen routes; historically explored TEST."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Paper accuracy/protocol and checkpoint are unresolved; prior learned targets use old fallback and punctuation-retaining labels. Recalculation is not a newly trained router or an official paper reproduction."
+    }
+  ]
+}

@@ -39,7 +39,9 @@
         "UNET_CROP_LINKS",
         "UNET_DETECTION",
         "UNET_AUXILIARY",
-        "UNET_SEEDED"
+        "UNET_SEEDED",
+        "WORD_GRAPH",
+        "ICDAR13_WORD_REFIT"
       ]
     },
     "crops": {
@@ -62,12 +64,16 @@
         "TOTALTEXT_BERT",
         "TOTALTEXT_NEUSPELL",
         "CONTEXTUAL_OCR",
+        "TEXT_RECONSTRUCTION",
         "OCR_",
         "PARSEQ_VISUAL",
         "CLIP_WORD",
         "CLIP_INNOVATIVE",
         "CLIP_VERIFICATION",
-        "CLIP_HIGH_RECALL"
+        "CLIP_HIGH_RECALL",
+        "SELECTIVE_WORD_REPAIR",
+        "CONTEXTUAL_BOUNDARY",
+        "IMAGE_CONTEXT"
       ]
     },
     "routing": {
@@ -81,9 +87,19 @@
         "TOTALTEXT_TEXT_DETECTORS",
         "ROUTER_",
         "BUDGETED_",
+        "SHADOW_INVENTORY_ROUTER",
         "PAPER_IMAGE",
         "TRAINING_FREE",
-        "CAPTION_"
+        "CAPTION_",
+        "TOKEN_CONTEXT_ROUTER",
+        "UNET_TOKEN_ROUTER",
+        "BUDGET_DISTILLED",
+        "ESSENTIAL_ROUTER_BUDGET50",
+        "ESSENTIAL_ROUTER_",
+        "ICDAR_TRAINED_BUDGET_ROUTER",
+        "ENCODER_FAMILY_ROUTER",
+        "PAPER_CAPTION_",
+        "DETAILED_SCENE"
       ]
     },
     "runtime": {
@@ -99,6 +115,37 @@
     }
   },
   "guide_links": {
+    "ICDAR13_WORD_REFIT": [
+      "scripts/recheck_icdar13_word_refit.py",
+      "segmentation/icdar13_word_refit.py",
+      "recognition/fallback_feasibility.py",
+      "scripts/prepare_icdar13_word_refit.py",
+      "scripts/train_icdar13_word_refit.py",
+      "scripts/finish_icdar13_word_refit.py",
+      "scripts/audit_icdar13_word_targets.py",
+      "scripts/analyze_icdar_fallback_target.py",
+      "configs/approximate/icdar13_word_refit_v1.json",
+      "configs/approximate/icdar13_word_refit_local_paths_v1.json",
+      "configs/approximate/icdar13_word_refit_finish_v1.json",
+      "configs/approximate/icdar13_word_refit_finish_smoke_v1.json",
+      "tests/segmentation/test_icdar13_word_refit.py",
+      "tests/recognition/test_fallback_feasibility.py",
+      "tests/scripts/test_finish_icdar13_word_refit.py"
+    ],
+    "ICDAR_TRAINED_BUDGET_ROUTER": [
+      "scripts/train_icdar_budget_router.py",
+      "scripts/icdar_budget_data.py",
+      "scripts/icdar_budget_stages.py",
+      "scripts/audit_icdar_budget_router.py",
+      "scripts/report_icdar_budget_router.py",
+      "recognition/icdar_budget_router.py",
+      "recognition/icdar_budget_deployment.py",
+      "configs/approximate/icdar_trained_budget_router_v1.json",
+      "configs/approximate/icdar_trained_budget_router_local_paths_v1.json",
+      "tests/recognition/test_icdar_budget_router.py",
+      "tests/recognition/test_icdar_budget_deployment.py",
+      "tests/scripts/test_audit_icdar_budget_router.py"
+    ],
     "ADASpot_GAP_DECODER": [
       "scripts/train_adaspot_gap_decoder.py",
       "models/adaspot_gap_decoder.py",
@@ -132,6 +179,92 @@
       "diagnostics/parseq_visual_margin_context_gate_train.py",
       "configs/approximate/parseq_visual_margin_context_gate_train_v1.json",
       "tests/recognition/test_parseq_visual_margin_context_gate_train.py"
+    ],
+    "WORD_GRAPH_RECOVERY": [
+      "localize/word_graph_recovery.py",
+      "models/word_graph_decoder.py",
+      "scripts/run_word_graph_recovery.py",
+      "scripts/word_graph_geometry_stages.py",
+      "scripts/word_graph_regional_stages.py",
+      "scripts/qualify_word_graph_decoder.py",
+      "scripts/run_word_graph_recovery.sh",
+      "configs/approximate/word_graph_recovery_v1.json",
+      "tests/localize/test_word_graph_recovery.py",
+      "tests/models/test_word_graph_decoder.py"
+    ],
+    "TOKEN_CONTEXT_ROUTER": [
+      "scripts/run_token_context_router.py",
+      "scripts/token_context_data.py",
+      "scripts/token_context_training.py",
+      "recognition/token_context_router.py",
+      "recognition/token_context_runtime.py",
+      "scripts/audit_token_context_router.py",
+      "configs/approximate/token_context_router_v1.json",
+      "configs/approximate/token_context_router_local_paths_v1.json",
+      "tests/recognition/test_token_context_router.py"
+    ],
+    "ROUTER_IMPROVED_DEEPSOLO_REPLAY": [
+      "scripts/replay_router_improved_deepsolo.py",
+      "configs/approximate/router_improved_deepsolo_replay_v1.json",
+      "configs/approximate/router_improved_deepsolo_replay_local_paths_v1.json",
+      "configs/approximate/router_improved_deepsolo_small_quota_analysis_v1.json",
+      "tests/recognition/test_router_improved_deepsolo_replay.py",
+      "provenance/router_improved_deepsolo_20261026_completion.json"
+    ],
+    "ROUTER_CAUSE_TESTS": [
+      "scripts/run_router_cause_tests.py",
+      "recognition/router_cause_tests.py",
+      "scripts/router_cause_observations.py",
+      "scripts/router_cause_training.py",
+      "scripts/router_cause_gpu.py",
+      "configs/approximate/router_cause_tests_v1.json",
+      "configs/approximate/router_cause_tests_local_paths_v1.json",
+      "tests/recognition/test_router_cause_tests.py",
+      "scripts/analyze_router_cause_tests.py",
+      "configs/approximate/router_cause_analysis_v1.json",
+      "tests/recognition/test_router_cause_analysis.py",
+      "scripts/analyze_router_learning_steps.py",
+      "configs/approximate/router_learning_steps_v1.json",
+      "provenance/router_cause_tests_20261026_completion.json"
+    ],
+    "UNET_TOKEN_ROUTER": [
+      "scripts/run_unet_token_router.py",
+      "scripts/unet_token_router_stages.py",
+      "scripts/report_unet_token_router.py",
+      "recognition/unet_token_routing.py",
+      "configs/approximate/unet_token_router_v1.json",
+      "configs/approximate/unet_token_router_local_paths_v1.json",
+      "tests/recognition/test_unet_token_routing.py",
+      "provenance/unet_token_router_20261027_completion.json"
+    ],
+    "ROUTER_VALIDATION_STUDY": [
+      "scripts/run_router_validation_study.py",
+      "scripts/diagnose_router_generalization.py",
+      "scripts/router_gt_crop_control.py",
+      "scripts/router_localization_control.py",
+      "scripts/report_router_validation.py",
+      "recognition/router_validation.py",
+      "configs/approximate/router_validation_v1.json",
+      "configs/approximate/router_validation_local_paths_v1.json",
+      "configs/approximate/router_gt_crop_control_v1.json",
+      "configs/approximate/router_localization_control_v1.json",
+      "tests/recognition/test_router_validation.py",
+      "tests/recognition/test_router_localization_control.py",
+      "provenance/router_validation_20261027_completion.json"
+    ],
+    "BUDGET_DISTILLED_ROUTER": [
+      "recognition/budget_distilled_router.py",
+      "scripts/run_budget_distilled_router.py",
+      "scripts/audit_budget_distilled_router.py",
+      "scripts/report_budget_distilled_router.py",
+      "configs/approximate/budget_distilled_router_v1.json",
+      "configs/approximate/budget_distilled_router_local_paths_v1.json",
+      "configs/approximate/budget_distilled_router_adapt_v2.json",
+      "configs/approximate/budget_distilled_router_unseen_v3.json",
+      "tests/recognition/test_budget_distilled_router.py",
+      "recognition/essential_portable_router.py",
+      "scripts/export_essential_portable_router.py",
+      "tests/recognition/test_essential_portable_router.py"
     ]
   }
 }

@@ -1,0 +1,36 @@
+{
+  "claim_label": "approximate reproduction",
+  "completed_icdar13_screen": "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19",
+  "jobs": {
+    "icdar2015": {
+      "blend_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_icdar2015_template_v20.json",
+      "resolved_blend_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_icdar2015_v20.json",
+      "scale_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_icdar2015_v20.json"
+    },
+    "totaltext": {
+      "blend_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_totaltext_template_v20.json",
+      "resolved_blend_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_totaltext_v20.json",
+      "scale_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_totaltext_v20.json"
+    }
+  },
+  "maximum_domain_loss": 0.001,
+  "minimum_macro_gain": 0.001,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-multiscale-shared-validation-20261031-v20",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/independent_audit.json": "57fd3067f64895942d77fb1cec99308e4cdc37a972ee18cffec8b73fb483a621",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/independent_map_audit.json": "6a2986c0fc91309a05c77a994428fa81548caa3fea48968c7399347f926a010d",
+    "/extra1/bmartelli/context-str-runs/uniform-multiscale-masks-20261031-v19/selection_frozen.json": "e074663ed741b31a672af4edd3d80f8afa280ea46a34991601f037bedcd6c764",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_icdar2015_template_v20.json": "bd76204a6c9370ac53a92552578d8cd6726dc8b0a82f1d216053218bd04fd074",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_blend_totaltext_template_v20.json": "fbcc35a89ef9ae7a932e0ff16d1739408ef9c2032f51f3a48b4d1d1aaf16bf36",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_icdar2015_v20.json": "729799a8236101217590fd5cc12fca8df1402176caccb46baaef7ad48fbd7b46",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_multiscale_scaled_totaltext_v20.json": "4feebcf09c92f877b8649320db8d7ad228bb85107e887abeb76f991749d02249",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_multiscale_masks.py": "84e3a76b4862163b4ecb3dacc30049c0ead510aa5604a4b1f0fef0a4bd353f65",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_multiscale_native_dependency.py": "95ef18caebac24cf2178226f0a62ccb58178bb95f0212040f49f167793dbfb56",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/qualify_uniform_shared_multiscale.py": "cb4eece84d565978cef975e9f0e0acf996470bedbffd6736d33f2660a5a22aef"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Before IC15/TT results, choose one shared equal-mean policy only if domain-macro validation F1 gain exceeds0.1percentage points and no domain loses more than0.1point. Otherwise retain baseline uniformly. IC13 pilot already exposed; validation is reused, not an unbiased quality estimate. Child selection diagnostics do not override this shared rule. Matching OOF/head refits and full TEST remain required.",
+    "UNRESOLVED": "Final hard-budget targets and generalization; no full TEST is opened."
+  }
+}

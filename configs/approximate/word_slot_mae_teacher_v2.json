@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "word_slot_mae_pretraining_preprocessing_v2",
+  "normalization_mean": [0.5, 0.5, 0.5],
+  "normalization_std": [0.5, 0.5, 0.5],
+  "crop_size_hw": [32, 128],
+  "pil_interpolation": "bicubic",
+  "batch_size": 16,
+  "evidence": {
+    "repository": "Mountchicken/Union14M",
+    "revision": "7fbb89a8e33b80e184d3aea8c3270f6d697827bf",
+    "path": "mae/main_pretrain.py",
+    "url": "https://github.com/Mountchicken/Union14M/blob/7fbb89a8e33b80e184d3aea8c3270f6d697827bf/mae/main_pretrain.py"
+  },
+  "classification": "ASSUMPTION",
+  "rationale": "Use the official MAE encoder pretraining recipe for the pretrained encoder teacher. Its original RGB, bicubic resize and Normalize(0.5,0.5) differ from the later MMOCR recognition fine-tuning config. Preserve the initial cache and publish corrected targets before the MAE branch is fitted."
+}

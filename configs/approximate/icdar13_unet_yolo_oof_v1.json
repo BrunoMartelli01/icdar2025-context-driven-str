@@ -1,0 +1,28 @@
+{
+  "claim_label": "approximate reproduction",
+  "fixed_epochs": 30,
+  "folds": 5,
+  "frozen_expert": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/policy/frozen.json",
+  "generated_config_prefix": "icdar13_unet_yolo_oof_fold_",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-yolo-procedure-20261030-v1",
+  "parent_plan": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/full/resolved_configuration.json": "e3f0ea78798a0362bdecf4d23cf634eda515b21353714a7c006695f2077fe672",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1/policy/frozen.json": "42a1b61d01af90c1174d1afacc48f20fb0d65fbcf025376f7d9af796782b4dfd",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/independent_audit.json": "709f8b801b2229f3481d9536cff84fe52fb2102593f18ab144c171d9fb4a95e1",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/text_encoder/best.pt": "08aadb81afe280baac3fdd2b9f0c85ca1822fda192cc911450cbc0183a8335ef",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_oof_v1/folds.json": "50a4a192fbed8a02aeaa1fbbe77d798426167a63d1d6fa8bcf900dc795231658",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar13_text_encoder_word_training_b4_v2.json": "791c33194407e1dcdd8e4be96cea1c7326077b87fc990ab057cf841dfa05fde7"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Train five independent U-Net decoders from the same original initialization on all1130 Total-Text and the corresponding146/147 IC13 FIT images, monitor the same46 validation images and export only the excluded36/37 FIT images at the globally fixed30th epoch. Reuse the already-qualified full-FIT expert for validation/test; compare the same finite emission/risk/fusion family and exact61/233 budget as YOLO.",
+    "HARDWARE_DEVIATION": "Single actual RTX3090, FP32 768 square, physical batch4 with accumulation2, sequential U-Net/PARSeq and measured GPU peaks; do not infer RTX3070 compatibility.",
+    "PAPER_SPECIFIED": "ResNet50 attention-gated U-Net, connected localization and PARSeq/DeepSolo motivation only; learned budgeted router is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Independently audited pretrained-encoder word U-Net, fixed 30 epochs, qualified source initialization and exact RGB-group YOLO folds.",
+    "UNRESOLVED": "The text-pretrained encoder already saw ICDAR2013 TRAIN including heldout and validation, so decoder-fold exclusion is not end-to-end OOF. Source checkpoint/word policy and training choices have historical TEST exposure. Validation vocabulary side information and non-nested word/router folds persist."
+  },
+  "training_audit": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/independent_audit.json",
+  "training_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar13_text_encoder_word_training_b4_v2.json",
+  "yolo_folds_manifest": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_oof_v1/folds.json"
+}

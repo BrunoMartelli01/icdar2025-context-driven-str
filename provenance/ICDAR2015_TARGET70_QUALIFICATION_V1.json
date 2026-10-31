@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "status": "TRAINING_IN_PROGRESS_GOAL_NOT_ACHIEVED",
+  "scientific_record": "ICDAR2015-TARGET70-001",
+  "profiles": {
+    "configs/approximate/icdar2015_target70_v1.json": "fe583b7adc156dad53abbaeacb50557ac1aac7b9a28ee687c45ceff2ef69330d",
+    "configs/approximate/icdar2015_target70_oracle_v1.json": "bb613f27649272f3038edbbb4fc4d8c5ec97ecfbfd779740e4a7a17bc58f2387",
+    "configs/approximate/icdar2015_target70_operating_policy_v1.json": "f3caa53798e6d0f29a1aa9566b7ba084d9c234e533f77863efa2212d77b1bb6d"
+  },
+  "preserved_baseline": {
+    "word_f1": 0.4075558099599313,
+    "test_images": 500,
+    "care_words": 2077,
+    "result_sha256": "b40cbab72d3f5a9a4c57a05faae7278e59bcae4a3dee693361597e51e8e73061",
+    "checkpoint_sha256": "79efc8f7f44c719be92c6d8b2a69ce9f204030ff77e2fa05194ac191fa10fe91"
+  },
+  "external_qualification": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/qualification-v1.json",
+    "sha256": "2eb89012c323eb93442d04ae6eeaa74003de021faa5aa02965e08b712b31ef66"
+  },
+  "focused_tests": {
+    "training_and_prior_regressions_passed": 52,
+    "oracle_geometry_passed": 2,
+    "operating_crop_geometry_passed": 6,
+    "unresolved_failures": 0
+  },
+  "oracle": {
+    "result_sha256": "37c6fa71c284870b6f7c764bc710941a3c44686a646c33dc9ed52a52aec819c7",
+    "images": 100,
+    "care_words": 430,
+    "failed_samples": 0,
+    "deployable": false,
+    "aggregate": {
+      "axis0": {
+        "accuracy": 0.9116279069767442,
+        "correct": 392,
+        "incorrect": 38,
+        "words": 430
+      },
+      "axis2": {
+        "accuracy": 0.913953488372093,
+        "correct": 393,
+        "incorrect": 37,
+        "words": 430
+      },
+      "axis4": {
+        "accuracy": 0.9069767441860465,
+        "correct": 390,
+        "incorrect": 40,
+        "words": 430
+      },
+      "quad0": {
+        "accuracy": 0.9325581395348838,
+        "correct": 401,
+        "incorrect": 29,
+        "words": 430
+      }
+    }
+  },
+  "goal": {
+    "minimum_test_word_f1": 0.7,
+    "aspirational_test_word_f1": 0.8,
+    "achieved": false
+  },
+  "test_evaluations_this_extension": 0
+}

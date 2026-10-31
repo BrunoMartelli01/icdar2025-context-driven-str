@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "seed": 20261022,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "paths": {
+    "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "word_root": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4",
+    "train_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+    "test_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "test_manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/total_text_test.yaml",
+    "source_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "gap_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/decoder/best.pt",
+    "split_protocol": "/extra1/bmartelli/context-str-runs/adaspot-gap-decoder-v1-20261019/protocol.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "bert_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594"
+  },
+  "input_sha256": {
+    "source_checkpoint": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "source_contract": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "gap_checkpoint": "7f5212429b8c2e670c24759e213c2833b7cd70dc9d289fb7b3f301db81fe0aa3",
+    "split_protocol": "5ee0289a23ff9ff31f9db76d21d764a70b93debc52ba8362a0341517ba57c65d",
+    "train_manifest": "7ad8525d66294e07b2d63be0dd68d08a2e83dbecc04a4d55fb65cd6110c51bea",
+    "test_manifest": "da2f87e7cae765f426af39c9641535138d6657d2e9332e6fdf9e80f2ba6b69bd",
+    "parseq_checkpoint": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "parseq_archive": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef"
+  },
+  "runtime": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "ocr_batch_size": 32,
+    "segmentation_batch_size": 1,
+    "cublas_workspace_config": ":4096:8",
+    "minimum_free_gpu_bytes": 4294967296
+  },
+  "metric_iou_threshold": 0.5,
+  "known_duplicate_test_ids": [
+    "total_text:578",
+    "total_text:656"
+  ],
+  "experiment_kind": "teacher_student_tests_v1",
+  "scientific_ambiguity": "TEACHER-STUDENT-TESTS-001",
+  "source_run": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+  "source_results_sha256": "34b3f1394cfa4317f6a78a46f63f2ed2482ba873066af63b622991ca76c74aa5",
+  "budget": 20,
+  "segmentation": {
+    "epochs": 3,
+    "batch_size": 4,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "ema_decay": 0.99,
+    "confidence": 0.9,
+    "consistency_weight": 0.5,
+    "brightness": 0.15,
+    "contrast": 0.15,
+    "pseudo_weight": 0.25
+  },
+  "recognition": {
+    "epochs": 3,
+    "batch_size": 32,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "occlusion_probability": 0.5,
+    "occlusion_width_fraction": 0.08,
+    "distillation_weight": 0.5,
+    "temperature": 2.0,
+    "freeze_encoder": true
+  },
+  "selector": {
+    "epochs": 60,
+    "hidden": 32,
+    "learning_rate": 0.005,
+    "weight_decay": 0.01,
+    "duplicate_weight": 0.5,
+    "coverage_weight": 0.25,
+    "overlap": 0.6,
+    "thresholds": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "minimum_feature_scale": 0.01
+  },
+  "pseudo": {
+    "manifest": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/icdar2015_train.yaml",
+    "data_root": "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1",
+    "maximum_images": 256,
+    "minimum_confidence": 0.85,
+    "iou": 0.7,
+    "minimum_accepted_boxes": 20,
+    "contrast": 0.2,
+    "manifest_sha256": "25fa81c39c8d1669937e82a8f099bd545619328d531d1cb4e74e04d9be48955a",
+    "map_confidence": 0.9,
+    "maximum_probability_difference": 0.1
+  },
+  "student": {
+    "checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+    "checkpoint_sha256": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af",
+    "epochs": 5,
+    "batch_size": 8,
+    "image_size": 640,
+    "learning_rate": 0.0001,
+    "score_thresholds": [
+      0.1,
+      0.25,
+      0.4,
+      0.55,
+      0.7
+    ],
+    "nms_iou": 0.5,
+    "max_detections": 100,
+    "python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-yolo-py311/bin/python",
+    "weight_decay": 0.01,
+    "augmentation": {
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "copy_paste": 0.0,
+      "degrees": 0.0,
+      "translate": 0.1,
+      "scale": 0.2,
+      "shear": 0.0,
+      "perspective": 0.0,
+      "flipud": 0.0,
+      "fliplr": 0.5,
+      "close_mosaic": 0
+    }
+  },
+  "smoke": {
+    "fit": 8,
+    "calibration": 4,
+    "evaluation": 4,
+    "test": 4,
+    "pseudo": 8
+  },
+  "scientific_decisions": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Das et al. p10 describes pseudo boxes and EMA teacher updates; exact decay/filter/recipe unresolved. Original reproduction paper sections3.2-3.5 retain strict components."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse pinned M/K, PARSeq AR/refine1 and 1030/100/125/300 populations. Same unpadded bbox IoU>=.5 exact Unicode casefold with punctuation; all outputs and care GT count, no ignored prediction neutralization."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Predeclared short-budget pilots, one seed, warm start, EMA and consistency weights, teacher-forced AR token KL plus CE, partial crop occlusion, set coverage/duplicate loss, ICDAR2015 TRAIN pseudo-labels, and YOLOv8s student. These are adaptations, not exact Das or SemiETS implementations. No GT overwritten. Extra images never use their annotations. Checkpoint/policy selection only on calibration word F1; include epoch0 where pretrained."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Actual RTX3090, FP32, fixed declared batches, frozen segmentation/recognition encoders, isolated YOLO process and sequential model stages. Record allocated/reserved peaks and OOM; no silent precision/device substitutions."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Historical eval/TEST exploration, M/K calibration exposure, two known TRAIN/TEST duplicates, limited pilot convergence, natural-occlusion transfer, source pretraining overlap and one-seed variance prevent independent/strict claims."
+    }
+  ],
+  "bootstrap_draws": 2000
+}

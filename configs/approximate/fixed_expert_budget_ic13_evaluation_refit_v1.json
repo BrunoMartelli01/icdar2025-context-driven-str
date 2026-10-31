@@ -1,0 +1,42 @@
+{
+  "care_words": 1095,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "expert_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_refit_v1",
+  "fallback_images": 61,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "frontend_inference_reused": false,
+  "frontend_refit_contract": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_final_refit_v1/full/independent_refit_qualification_v1.json",
+  "minimum_f1": 0.9,
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_refit_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json": "f9c08ba64888bd1fb069758945e1d6411d07359004856f0716f635b5c0fd35de",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_refit_v1/completion.json": "53ab79de64311b2f658f01c9539c593ceb59d28a8ad6987f583027286fac2138",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_refit_v1/index.json": "f066543ff0f007689693066bef0bd5e097c2b7852424342fdf418da5b4c1b808",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/deployment_qualification.json": "39811fc5b68c0adc18ddf32b9f32cd57fc825e9bb98a0fc8fd362fc97db887f4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/emission_frozen.json": "335a3529b9c7395f01ac049b3e6a0cd5be8c9cd56be9979985e1877182489b65",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/resolved_configuration.json": "89f466e4a46a8d533a342abb2ad51163923dab396b6aa8b92e43a3d74bd8041e",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/selection_frozen.json": "2638235b86ad89d4eb03c0896382d30ff91e9f00f32360838fd9d13675d59f3c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_final_refit_v1/full/completion.json": "106921f6e3bcbbd33c0d96cf23d3148b2ee4f48fb41280fb1a925029b31a7c91",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_final_refit_v1/full/dataset_manifest.json": "8ca9d7d4ba256c35f40e0ac7a6fac982e9aec5841a7ce23a43a95385623d9b03",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_final_refit_v1/full/head_only/candidates/epoch_030.pt": "5aeeb3eb5c0ebc855a22f121fee5c9648f70e44cb3262a7d553dec644206fbe1",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_final_refit_v1/full/independent_refit_qualification_v1.json": "040573d8b7c788255b04e9c4c22bc380110e25622f4a9a21bf3baa1aab379c45",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_test_root": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback",
+  "reread_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/reread_fixed_test_refit_v1/test",
+  "router_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full",
+  "scientific_choices": {
+    "ASSUMPTION": "Evaluate the sole fixed30-epoch final detector refit on all229 TRAIN images, bound by independent weight/manifest qualification to the existing v4 gate and expert-OOF-selected emission. Freeze61/233 decisions before any TEST fallback output or annotation. No post-refit checkpoint, gate or threshold selection.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 neural frontend and selected-box rereads measured independently; CPU gate over cached outputs; no actual new DeepSolo neural inference or online latency measurement.",
+    "PAPER_SPECIFIED": "Motivation only; metric and adapted YOLO learned gate are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Qualified frozen detector/reader/counts and native256 ignore; authenticated optimized DeepSolo with original released TEST Generic resource.",
+    "UNRESOLVED": "Refit distribution shift relative to frozen OOF gate, benchmark vocabulary side information, upstream fitting and repeated historical TEST exposure. TT/IC15 retention tested separately under same gate family."
+  },
+  "test_protocol": "/extra1/bmartelli/context-str-runs/essential-router-icdar-transfer-20261028-v1/fallback/protocol.json",
+  "total_images": 233
+}

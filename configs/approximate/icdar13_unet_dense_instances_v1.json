@@ -1,0 +1,106 @@
+{
+  "architecture": {
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "groups": 8,
+    "initial_probability": 0.01,
+    "initial_size": [
+      0.1,
+      0.035
+    ],
+    "input_channels": 66,
+    "width": 96
+  },
+  "canvas_fill_rgb": [
+    124,
+    116,
+    104
+  ],
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "experiment_kind": "icdar13_unet_dense_instances_v1",
+  "feature_hw": [
+    192,
+    192
+  ],
+  "image_hw": [
+    768,
+    768
+  ],
+  "inference": {
+    "maximum_candidates": 50,
+    "nms_iou": 0.5,
+    "padding": 2,
+    "peak_threshold": 0.1,
+    "sequence_threshold": 0.7
+  },
+  "initial_gap_bias": -2.0,
+  "loss": {
+    "center_weight": 1.0,
+    "focal_alpha": 2.0,
+    "focal_beta": 4.0,
+    "giou_weight": 2.0,
+    "log_size_bounds": [
+      -9.0,
+      0.6931471805599453
+    ],
+    "offset_weight": 1.0,
+    "size_weight": 0.5
+  },
+  "minimum_free_disk_bytes": 8589934592,
+  "minimum_free_gpu_bytes": 4294967296,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1",
+  "parent_plan": "/extra1/bmartelli/context-str-runs/icdar13-hypothesis-tests-20261029-v1/full/resolved_configuration.json",
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_batch_size": 32,
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/icdar13-hypothesis-tests-20261029-v1/full/resolved_configuration.json": "9f11782e31a7e672ecb9b1d4dca349ab5ea645ba109ea385dc2b4402d2426980"
+  },
+  "probability_threshold": 0.5,
+  "scientific_choices": {
+    "ASSUMPTION": "Objects-as-Points-inspired center/extent/offset decoder on frozen U-Net p0 features. New geometry head returns full word boxes without connected-component extents. Use original owner envelopes, no disappearing words, grouped center target collision failure. FP32 average-pooled64 features plus2 source probability channels at192. Fresh head only; TT1130 plus IC13FIT183, explicit IC loss weight4; fixed-policy selection includes all declared epochs. No YOLO/CLIP/BLIP in this light expert.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, FP32 cached frozen U-Net features, batch1 extraction, batch8 small-head training and PARSeq32; sequential model loading, no 8GB/online latency qualification.",
+    "PAPER_SPECIFIED": "ResNet50 Attention-Gated U-Net/PARSeq/DeepSolo family and local paper3.2/3.3/3.5 motivation only.",
+    "REPOSITORY_SPECIFIED": "Complete strictly loaded qualified TT Text+Kernel state, native RGB768 letterbox preprocessing, genuine PARSeq and full lexical care denominators; original IC13 FIT183/selection23/CAL23/TEST233.",
+    "UNRESOLVED": "Prior TEST exposure; tiny validation cohorts; new head generalization; exact paper PARSeq-S/checkpoints and metric; future oracle and routing quality unknown."
+  },
+  "seed": 20261029,
+  "skip_floor": 0.25,
+  "source_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+  "target": {
+    "f1": 0.9,
+    "fallback_images": 61,
+    "total_test_images": 233
+  },
+  "targets": {
+    "minimum_radius": 0,
+    "radius_fraction": 0.16666666666666666
+  },
+  "training": {
+    "batch_size": 8,
+    "epochs": 40,
+    "gradient_clip": 5.0,
+    "horizontal_flip_probability": 0.0,
+    "icdar_loss_weight": 4.0,
+    "learning_rate": 0.0003,
+    "num_workers": 2,
+    "rotation_degrees": [
+      0.0,
+      0.0
+    ],
+    "rotation_probability": 0.0,
+    "seed": 20261029,
+    "weight_decay": 0.0001
+  },
+  "validation_interval": 5
+}

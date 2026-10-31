@@ -1,0 +1,93 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "caveats": [
+    "Conditional decoder exclusion only",
+    "Historical adaptive TEST and reused validation",
+    "Benchmark vocabulary/upstream exposure"
+  ],
+  "datasets": {
+    "icdar13": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/icdar13/evaluation/independent_audit.json",
+      "audit_sha256": "2f9fcc93ad8a0250182ab752eb0328a5e85d09b757823b1954954713bd00db4a",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 939,
+          "detected_words": 939,
+          "f1": 0.8357915437561455,
+          "fn": 245,
+          "fp": 89,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 850
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "target": 0.897,
+        "target_met": false,
+        "total_images": 233
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/icdar13/evaluation/results.json",
+      "report_sha256": "52027665c0b56971c971e1efd800511fd859b87db2e6b525be1f06dffdfd2df4"
+    },
+    "icdar2015": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/icdar2015/evaluation/independent_audit.json",
+      "audit_sha256": "c9e8ac27199f2caf61d94273aa02c369777b7b38aac52f6547e82b029b75f386",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1732,
+          "detected_words": 1693,
+          "f1": 0.8074270557029177,
+          "fn": 555,
+          "fp": 171,
+          "gt_words": 2077,
+          "ignored_outputs": 39,
+          "images": 500,
+          "tp": 1522
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "target": 0.782,
+        "target_met": true,
+        "total_images": 500
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/icdar2015/evaluation/results.json",
+      "report_sha256": "b2c7b3ae8a494cc6b4138f38226b5a9c40d883759908275948562b779e5de951"
+    },
+    "totaltext": {
+      "audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/totaltext/evaluation/independent_audit.json",
+      "audit_sha256": "91dccd6a3a32ad0cf16f3ea8a14f5602055419175fd08bd9f73a9d9759b45120",
+      "primary": {
+        "actual_new_deepsolo_neural_calls": 0,
+        "counts": {
+          "all_outputs": 1990,
+          "detected_words": 1948,
+          "f1": 0.8005780346820809,
+          "fn": 542,
+          "fp": 286,
+          "gt_words": 2204,
+          "ignored_outputs": 42,
+          "images": 300,
+          "tp": 1662
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "target": 0.798,
+        "target_met": true,
+        "total_images": 300
+      },
+      "report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3/totaltext/evaluation/results.json",
+      "report_sha256": "8fc915f05777712b79f20e707d72e916b923c7e23efc1d289cf25ea001fc7112"
+    }
+  },
+  "goal_complete": false,
+  "logical_cached_routing": true,
+  "metric": "Casefold/alphanumeric per-image multiset micro F1, native256 care/ignore, no IoU",
+  "mode": "approximate",
+  "next_control": "Same HGB two-count image regression family across all3; no added neural model",
+  "operating_points_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_oof_supervision_v3/operating_points_before_test.json",
+  "paper_metric_equivalence": "UNRESOLVED",
+  "status": "V3_FULL_TEST_AUDITED_IC13_TARGET_UNMET"
+}

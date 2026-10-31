@@ -1,0 +1,131 @@
+{
+  "claim_label": "approximate reproduction",
+  "confidence_caps": [
+    1.01
+  ],
+  "consensus_features": true,
+  "experts": [
+    "yolo"
+  ],
+  "fixed_source_correction": true,
+  "group_sets": [
+    [
+      "raw_ocr",
+      "lexical",
+      "consensus"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "lexical",
+      "consensus"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical",
+      "consensus"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical",
+      "consensus"
+    ]
+  ],
+  "lexicons": {
+    "icdar13": {
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+      "train_pair_format": "json",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+    }
+  },
+  "mode": "approximate",
+  "original_router_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_resolution/fusion_staging",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_resolution/fusion_frozen.json": "0e8d87278158a4500f5af6e990f1af38eec99165f8a0d608cae211c7cb6740b8",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/teacher/icdar13/counts.json": "60bf9ba6727ab323ec804c0297efcedf53a85f9678e054a658fe4525d1212e65",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt": "1e7e60e9dc30534b117f1aebf17019d25a6b31163377d43d6d19d6183cc73e05",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/completion.json": "4ff35a427e68f7b4e8d3316e506b37b1fd376ca0055b988b0704a38cb807663d",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45"
+  },
+  "protect_numeric": false,
+  "protocol": "Three-resolution light fusion selected on original selection23; FIT183 and CAL23 remain separate; consensus is prediction-only. Fixed source Generic and exact61/233 DeepSolo; three light detector/reader passes, no new heavy encoder or fallback outputs.",
+  "recipes": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 5,
+      "trees": 200
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 15,
+      "trees": 200
+    }
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Multi-resolution canonical-word geometry fusion and scale-support descriptors; selection-only threshold/support, TRAIN-only Generic and target utility head.",
+    "HARDWARE_DEVIATION": "CPU cached extension, zero new neural inference or extra encoder.",
+    "PAPER_SPECIFIED": "Fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Existing PARSeq outputs, original confidence/word features, original Generic/Weak lexicon algorithm, native256 ignore and all care lexical F1.",
+    "UNRESOLVED": "Previously exposed TEST, small validation, teacher training exposure and TRAIN-only Weak versus released TEST Weak distribution shift; no strict/paper-equivalent claim."
+  },
+  "seed": 20261029,
+  "selection_tolerance": 0.001,
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_resolution/fusion_router",
+  "targets": {
+    "icdar13": {
+      "f1": 0.9,
+      "fallback_images": 61,
+      "test_images": 233
+    }
+  },
+  "teacher_neural": {
+    "recognition_threshold": 0.0,
+    "score_threshold": 0.4
+  },
+  "teacher_raw_train": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/fallback_train",
+  "teacher_reference": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "teacher_study": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic",
+  "train_generic_base": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt",
+  "train_teacher_unmatched_policy": "source_reject",
+  "unmatched_policies": [
+    "source_reject"
+  ]
+}

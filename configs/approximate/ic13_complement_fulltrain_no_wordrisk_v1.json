@@ -1,0 +1,90 @@
+{
+  "claim_label": "approximate reproduction",
+  "cv_folds": 5,
+  "fallback_images": 61,
+  "feature_groups": [
+    [
+      "raw_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical"
+    ]
+  ],
+  "mode": "approximate",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/complement_frozen.json": "f5ff66d3e8a8b168e29e1cf628aa00e6a48410035043b0225f9f45f4667a52d7",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/complement_receipt.json": "159094b2d6121fcd1d6cc691b5cb46cfb364b7481ec0e2343bc883d2dcaeecc8",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/branches/icdar13__yolo.json": "d1447cdda67c106cac9ddd25bbc59e0dd946dec25b55ddcca803ad485c7fcf7e",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/frozen.json": "ccf176b9dbdf9b13f279a8959b0578bc8bded50cb673abdeafad5c31f007de67",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router/models/icdar13__yolo__features.npz": "41e1a3461b2bc2327f44a531b88408fdc5f34539a54372f9f60e6498d07877ed",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/staging/resolved_configuration.json": "f65d01fbc346210ae2d0b31feffb8e78b166e5a40755e1f0580afc272bb9b04c"
+  },
+  "protocol": "Conditional five-fold RGB-group head selection on TRAIN229 without upstream word-risk features, then fit full TRAIN229 and fixed61/233 TEST. Shared TRAIN Generic dictionary and complement selected on selection23 remain fixed across CV folds; OOF score is not an unbiased end-to-end estimate. No TEST labels used for model selection in this run.",
+  "recipes": [
+    {
+      "alpha": 1.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 10.0,
+      "kind": "ridge"
+    },
+    {
+      "alpha": 100.0,
+      "kind": "ridge"
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 10
+    },
+    {
+      "iterations": 100,
+      "kind": "hgb",
+      "l2": 10.0,
+      "leaves": 7,
+      "minimum_leaf": 30
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 5,
+      "trees": 200
+    },
+    {
+      "depth": 8,
+      "kind": "extra_trees",
+      "minimum_leaf": 15,
+      "trees": 200
+    }
+  ],
+  "scientific_choices": {
+    "ASSUMPTION": "Remove upstream word-risk features from CV head to avoid their cross-fold label dependence. Keep the already frozen TRAIN dictionary and validation-selected complement; therefore internal OOF still conditions on TRAIN label-derived preprocessing and is descriptive only.",
+    "HARDWARE_DEVIATION": "CPU cached regression fitting, no neural inference",
+    "PAPER_SPECIFIED": "DeepSolo fallback motivation only",
+    "REPOSITORY_SPECIFIED": "Existing fixed experts, lexical micro F1, native256 ignore and fixed61-image budget",
+    "UNRESOLVED": "Conditional CV optimism from shared TRAIN dictionary and selection-chosen complement; prior TEST exposure; no paper-equivalent or independent performance guarantee."
+  },
+  "seed": 20261029,
+  "source_plan": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/staging/resolved_configuration.json",
+  "source_router_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/router",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_complement/fulltrain_no_wordrisk",
+  "target_f1": 0.9,
+  "test_images": 233
+}

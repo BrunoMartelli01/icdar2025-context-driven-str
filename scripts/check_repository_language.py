@@ -12,6 +12,13 @@ from scripts.collaboration import visible_files
 ROOT = Path(__file__).resolve().parents[1]
 MARKERS = re.compile(r"\b(?:risultati|parole|immagini|maschere|confronto|nessuna|nessuno|questa|questo|questi|queste|epoche|riproduzione|quindi|sorgenti|esperimenti|verificare|aggiornamento|perché|soltanto|raggio|soglia|corrette|recuperate|eseguito|senza)\b|[àèìòù]", re.IGNORECASE)
 
+# Exact synthetic Unicode inputs exercise byte encoding and edit reconstruction.
+# Keep their source bytes; surrounding comments and other strings remain checked.
+SCIENTIFIC_TEST_LITERALS = {
+    "tests/recognition/test_encoder_family_router.py": ("'citt\u00e0'", "'\u00e0'"),
+    "tests/recognition/test_grounded_word_recovery.py": ("'\u00e8!'",),
+}
+
 
 def find_leftovers(root):
     problems = []
@@ -26,6 +33,8 @@ def find_leftovers(root):
                 continue  # Original multilingual model input; changing it changes the experiment.
             if name == "diagnostics/project_storage_cleanup.py" and '"removed_empty_files"' in line:
                 continue  # Historical literal filenames, not interface labels.
+            for literal in SCIENTIFIC_TEST_LITERALS.get(name, ()):
+                line = line.replace(literal, "")
             if path.suffix == ".md":
                 line = re.sub(r"`[^`]*`", "", line)  # Scientific identifiers/payload examples.
             if MARKERS.search(line):

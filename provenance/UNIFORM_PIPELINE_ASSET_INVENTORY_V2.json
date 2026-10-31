@@ -1,0 +1,105 @@
+{
+  "all_distinct_neural_parameters_one_domain": 115736671,
+  "caution": "All images run U-Net/PARSeq before any conditional DeepSolo; offline decoder folds add training cost only; v2 primary policies do not meet all targets",
+  "datasets": {
+    "icdar13": {
+      "actual_parseq_crop_inferences": 1357,
+      "cpu_deployment_models": [
+        {
+          "bytes": 114912,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/word_model.joblib",
+          "sha256": "832ca42456568066d34aa08cc28bb1e42991b3d6bad5da135d42143d195d4b50"
+        },
+        {
+          "bytes": 5161,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar13/count_2_1.joblib",
+          "sha256": "f8d19ee02a9874eef37dce59513198c0625e0ad33f1aac2dfc81086757191ecc"
+        }
+      ],
+      "crops_max": 28,
+      "crops_mean": 5.824034334763948,
+      "crops_median": 5,
+      "deepsolo_percentage": 26.180257510729614,
+      "frontend_export_seconds_excludes_load": 92.66621428634971,
+      "frontend_peak_allocated_bytes": 763219968,
+      "frontend_peak_reserved_bytes": 855638016,
+      "images": 233,
+      "selected_deepsolo_images": 61,
+      "total_images": 233,
+      "unet_checkpoint_bytes": 232999570,
+      "unet_parameters": 58155146,
+      "unet_trainable_parameters": 32598114
+    },
+    "icdar2015": {
+      "actual_parseq_crop_inferences": 2944,
+      "cpu_deployment_models": [
+        {
+          "bytes": 114352,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/word_model.joblib",
+          "sha256": "84f817e8301aacd7c562878b866d1a3e717124a9f9f8db27966b1526a2616e39"
+        },
+        {
+          "bytes": 5161,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/icdar2015/count_2_4.joblib",
+          "sha256": "2113c116a0406be1555ce10e1a7c1a6567cdff610b8dee94e9f6127d4fb36116"
+        }
+      ],
+      "crops_max": 35,
+      "crops_mean": 5.888,
+      "crops_median": 5.0,
+      "deepsolo_percentage": 45.6,
+      "frontend_export_seconds_excludes_load": 117.90763301309198,
+      "frontend_peak_allocated_bytes": 763219968,
+      "frontend_peak_reserved_bytes": 857735168,
+      "images": 500,
+      "selected_deepsolo_images": 228,
+      "total_images": 500,
+      "unet_checkpoint_bytes": 232999570,
+      "unet_parameters": 58155146,
+      "unet_trainable_parameters": 32598114
+    },
+    "totaltext": {
+      "actual_parseq_crop_inferences": 2907,
+      "cpu_deployment_models": [
+        {
+          "bytes": 116544,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/word_model.joblib",
+          "sha256": "233f5c1ee274d83254c3e6ca01ddc4e7c60cb8ac75169267f271939dcf844211"
+        },
+        {
+          "bytes": 5161,
+          "path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v2/totaltext/count_2_0.joblib",
+          "sha256": "c6b020d8a9d42645561c17da62fd66b63a5dab00dea4a24073b7460ef346b02c"
+        }
+      ],
+      "crops_max": 50,
+      "crops_mean": 9.69,
+      "crops_median": 8.0,
+      "deepsolo_percentage": 50.0,
+      "frontend_export_seconds_excludes_load": 80.10244863014668,
+      "frontend_peak_allocated_bytes": 763219968,
+      "frontend_peak_reserved_bytes": 857735168,
+      "images": 300,
+      "selected_deepsolo_images": 150,
+      "total_images": 300,
+      "unet_checkpoint_bytes": 232999570,
+      "unet_parameters": 58155146,
+      "unet_trainable_parameters": 32598114
+    }
+  },
+  "deepsolo_parameter_source": "docs/DEEPSOLO_VITAE_GPU_20261019.md; qualified ViTAEv2-S/TextOCR strict load, 33748854 parameters",
+  "external_report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/asset_inventory_v2.json",
+  "external_report_sha256": "c269f99d63e69fc2a1b71e13fab021c7699777b16bc3207385d717b2f00919ff",
+  "frontend_combined_parameters": 81987817,
+  "frontend_timing_scope": "Shared-GPU native export including output serialization; model loading and DeepSolo excluded",
+  "mode": "approximate",
+  "online_latency_measured": false,
+  "parseq": {
+    "checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "device": "cpu",
+    "parameter_bytes": 95330684,
+    "parameters": 23832671,
+    "strict_load": true
+  },
+  "status": "QUALIFIED_ASSET_INVENTORY_ONLY"
+}

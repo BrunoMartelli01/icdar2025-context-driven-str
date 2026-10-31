@@ -1,0 +1,188 @@
+{
+  "actual_new_neural_calls_for_full_metric_replay": 0,
+  "budget_contract_tests_passed": true,
+  "claim_label": "approximate reproduction",
+  "config_sha256": "93b3f7f920fb3db88b03de68d1cec481c1d50a1e9c2badfd09928d71ced8b2e8",
+  "failed_smoke_preserved": {
+    "corrective_action": "Separate complete live snapshot, preserving the failed run; all3 v9b smokes then passed.",
+    "reason": "Incomplete CPU-study snapshot omitted deepsolo package; worker import failed before DeepSolo model loading.",
+    "root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_hard_budget_v9"
+  },
+  "focused_tests_passed": 22,
+  "full_metric_results_unchanged": true,
+  "goal_complete": false,
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "live_engineering_smokes": {
+    "icdar13": {
+      "actual_new_deepsolo_calls": 3,
+      "actual_new_unet_calls": 12,
+      "actual_parseq_crop_calls": 71,
+      "audit_sha256": "d5acef80cf499435dd5ca571f6915ea54e9c5df5be581b478ce6ec1f57973878",
+      "complete_sha256": "d81d377d3bf387bb972f241e12f37c3a2b4027345ff7b1490f588e86405eaf55",
+      "deepsolo_images": 3,
+      "deepsolo_percentage": 25.0,
+      "fallback_peak_allocated": 1173614080,
+      "fallback_peak_reserved": 3298820096,
+      "frontend_peak_allocated": 763219968,
+      "frontend_peak_reserved": 891289600,
+      "images": 12,
+      "mode": "approximate",
+      "no_ground_truth_in_runtime_input": true,
+      "out_of_memory": false,
+      "result_class": "smoke-test result",
+      "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+      "source_sha256": "bf5572298be7dd3ef4caabcf41743d1c9010f74e66d22922a5c067c0b49da8e9",
+      "status": "PASS",
+      "total_images": 12
+    },
+    "icdar2015": {
+      "actual_new_deepsolo_calls": 5,
+      "actual_new_unet_calls": 12,
+      "actual_parseq_crop_calls": 96,
+      "audit_sha256": "26be37c54d966bae914bfb2dffd83c09fa6e354f9b22376ddf5c63d5aa917273",
+      "complete_sha256": "686b022d3b36280cebceae47673035e619653a548e760cd0f9a974f7ab99281a",
+      "deepsolo_images": 5,
+      "deepsolo_percentage": 41.666666666666664,
+      "fallback_peak_allocated": 6947943936,
+      "fallback_peak_reserved": 12215910400,
+      "frontend_peak_allocated": 763219968,
+      "frontend_peak_reserved": 891289600,
+      "images": 12,
+      "mode": "approximate",
+      "no_ground_truth_in_runtime_input": true,
+      "out_of_memory": false,
+      "result_class": "smoke-test result",
+      "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+      "source_sha256": "bf5572298be7dd3ef4caabcf41743d1c9010f74e66d22922a5c067c0b49da8e9",
+      "status": "PASS",
+      "total_images": 12
+    },
+    "totaltext": {
+      "actual_new_deepsolo_calls": 6,
+      "actual_new_unet_calls": 12,
+      "actual_parseq_crop_calls": 95,
+      "audit_sha256": "e7164728ccd446fdf14a7e566d29696df647fe42e50e0c5eae39811f46ea0630",
+      "complete_sha256": "0346b1878f53d97e4d4e5d4eb3a107c910dbaecedfa7188b0d3fd019861472f2",
+      "deepsolo_images": 6,
+      "deepsolo_percentage": 50.0,
+      "fallback_peak_allocated": 1665184768,
+      "fallback_peak_reserved": 5129633792,
+      "frontend_peak_allocated": 763219968,
+      "frontend_peak_reserved": 893386752,
+      "images": 12,
+      "mode": "approximate",
+      "no_ground_truth_in_runtime_input": true,
+      "out_of_memory": false,
+      "result_class": "smoke-test result",
+      "scope": "Real neural calls and exact selected-only isolated handoff on a small RGB-only batch. Shared GPU activity allowed; no full-dataset quality or general speed claim.",
+      "source_sha256": "bf5572298be7dd3ef4caabcf41743d1c9010f74e66d22922a5c067c0b49da8e9",
+      "status": "PASS",
+      "total_images": 12
+    }
+  },
+  "mode": "approximate",
+  "next_scientific_component": "Improve light word predictions/admission before further image-router tuning; fixed current branches cannot meet the target with61 fallback images.",
+  "paper_metric_equivalence_verified": false,
+  "pooled_validation": {
+    "audit_sha256": "e8810f510840397dce5bb579ebff7e9cfa2692397f97152c050326efe1ae5574",
+    "fit_images": 2211,
+    "models_refitted": 4,
+    "new_test_replay_performed": false,
+    "selected_policy": "retain_existing_gate",
+    "source_sha256": "896c77c377b5b388ac876cc21c0b7cc3cf00444b4ff34ecef396fb67a9e6b541",
+    "validation_images": 271
+  },
+  "privileged_fixed_output_diagnostic": {
+    "actual_new_neural_calls": 0,
+    "dataset": "icdar13",
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "diagnostic_cache_access": {
+      "deepsolo_images": 233,
+      "deepsolo_percentage": 100.0,
+      "total_images": 233
+    },
+    "fixed_fusion_bound_f1": 0.8770053475935828,
+    "native_fallback_bound_f1": 0.8809756097560976,
+    "operational_selection": false,
+    "report_sha256": "62ee395d9856ce2f9b50b9e43f772bddb305a8698a485496acb853064f1ee0b8",
+    "test_ground_truth_used": true,
+    "total_images": 233
+  },
+  "retained_full_test": {
+    "icdar13": {
+      "actual_new_deepsolo_neural_calls": 0,
+      "counts": {
+        "all_outputs": 926,
+        "detected_words": 926,
+        "f1": 0.8461157842652153,
+        "fn": 240,
+        "fp": 71,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 855
+      },
+      "deepsolo_images": 61,
+      "deepsolo_percentage": 26.180257510729614,
+      "target": 0.897,
+      "target_met": false,
+      "total_images": 233
+    },
+    "icdar2015": {
+      "actual_new_deepsolo_neural_calls": 0,
+      "counts": {
+        "all_outputs": 1731,
+        "detected_words": 1689,
+        "f1": 0.7992565055762082,
+        "fn": 572,
+        "fp": 184,
+        "gt_words": 2077,
+        "ignored_outputs": 42,
+        "images": 500,
+        "tp": 1505
+      },
+      "deepsolo_images": 228,
+      "deepsolo_percentage": 45.6,
+      "target": 0.782,
+      "target_met": true,
+      "total_images": 500
+    },
+    "totaltext": {
+      "actual_new_deepsolo_neural_calls": 0,
+      "counts": {
+        "all_outputs": 2082,
+        "detected_words": 2039,
+        "f1": 0.8079189252887108,
+        "fn": 490,
+        "fp": 325,
+        "gt_words": 2204,
+        "ignored_outputs": 43,
+        "images": 300,
+        "tp": 1714
+      },
+      "deepsolo_images": 150,
+      "deepsolo_percentage": 50.0,
+      "target": 0.798,
+      "target_met": true,
+      "total_images": 300
+    }
+  },
+  "status": "ACTIVE_HARD_BUDGET_OBJECTIVE_NOT_MET"
+}

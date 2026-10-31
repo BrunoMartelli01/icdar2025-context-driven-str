@@ -1,0 +1,58 @@
+{
+  "arms": [
+    "text_encoder",
+    "imagenet_control"
+  ],
+  "claim_label": "approximate reproduction",
+  "common_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt",
+  "deepsolo_budget": 61,
+  "fixed_deepsolo_checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+  "fixed_deepsolo_counts": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json",
+  "inference_roles": [
+    "fit",
+    "selection",
+    "calibration",
+    "test"
+  ],
+  "lexical_policies": [
+    "none",
+    "keep",
+    "reject"
+  ],
+  "minimum_selection_f1": 0.8,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/expert_policy_v1",
+  "paddings": [
+    2,
+    4,
+    8
+  ],
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary.txt": "1e7e60e9dc30534b117f1aebf17019d25a6b31163377d43d6d19d6183cc73e05",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4/resolved_configuration.json": "0001c76cd4bc50daf8d418d522b7d15600e29b03193dec52ec7e5dd5025e3c2c",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar13/counts.json": "48a3bc519e2d232830d258cf0a541a3ff1a422683425af837fc5ae470c381a45"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Predeclared finite validation-only crop/sequence/lexical selection; F1 then fewer normalized lexical edits then declared order. Common base plus FIT-only labels for TRAIN vocabulary. Fixed released Generic on TEST. Promotion requires selection F1>=.8 in full experiment, above the previously qualified corrected pipeline on this cohort; not a significance guarantee. Save shared64-channel feature mean/std/text-weighted mean for later GT-free routing; no additional vision encoder.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32 deterministic sequential light expert inference; cached logical fallback and exact oracle; no new DeepSolo neural calls or latency claim.",
+    "PAPER_SPECIFIED": "Broad attention-U-Net/recognizer/fallback family only.",
+    "REPOSITORY_SPECIFIED": "Strictly loaded matched word U-Net states and fixed Generic fallback; unchanged per-image casefold/alnum lexical micro-F1 and native256 care/ignore.",
+    "UNRESOLVED": "Small selection, donor exposure to IC13 TRAIN validation, prior TEST exploration, train/test dictionary shift and generalization. Oracle uses GT and is never a deployable router."
+  },
+  "sequence_thresholds": [
+    0.7,
+    0.9,
+    0.95
+  ],
+  "target_f1": "9/10",
+  "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+  "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+  "text_thresholds": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "training_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/full_b4"
+}

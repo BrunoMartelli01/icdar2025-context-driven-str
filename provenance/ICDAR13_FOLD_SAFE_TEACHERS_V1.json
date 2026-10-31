@@ -1,0 +1,20 @@
+{
+  "claim_label": "approximate reproduction",
+  "focused_tests": {
+    "command": "OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 .venvs/context-str-main-py311/bin/python -m pytest -q tests/recognition/test_fold_safe_teacher.py",
+    "failed": 0,
+    "passed": 3
+  },
+  "goal_status": "active;90 percent on233 TEST with<=61 DeepSolo unproven",
+  "mode": "approximate",
+  "new_deepsolo_neural_calls": 0,
+  "report": "docs/ICDAR13_UNET_DENSE_INSTANCES.md",
+  "source_sha256": {
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/environment_launch.json": "2eac99afdf9cf4f9267cceaa7b0411f40393960f3fa6540470c15ea773aad916",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/independent_audit.json": "72dddf4e6ea8948a51c3023d7581816fd8c8582752d3e21a1e7d11c5112a9e77",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/resolved_configuration.json": "9c60db0a940d40a5686f99e4e8faeda5d8f3d5e2c108c6a1f1b0873f99c18c6d",
+    "/extra1/bmartelli/context-str-runs/icdar13-unet-dense-instances-20261029-v1/text_encoder_word_training/fold_safe_teachers_v1/results.json": "77f13f7af83decd44322b62f5c72c6eaf214b347774cb8608c2cfac8513d5f2e",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/tests/recognition/test_fold_safe_teacher.py": "d380b1c45b0363d0a61250a2f0de8af7c4d5644382c11bc0f6dfebb2131e4c57"
+  },
+  "status": "TEACHER_PREPARATION_AUDITED"
+}

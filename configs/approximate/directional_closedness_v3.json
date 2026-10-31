@@ -1,0 +1,66 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "directional_closedness_v3",
+  "scientific_ambiguity": "DIRECTIONAL-CLOSEDNESS-003",
+  "source_run": "/extra1/bmartelli/context-str-runs/directional-transport-unet-20261026-v1/frozen-v2-full",
+  "source_arm": "global_detail",
+  "input_sha256": {
+    "source_protocol": "0d86a1de319ae243dc1d96be92a3315df79316a6c6a2cf7c9a6e7765e609060a",
+    "checkpoint": "25d4bfce86456e8215bbd0c11b0cc60f573cd3b69e393c4b714e39350aeca624"
+  },
+  "fixed_geometry": {
+    "text_threshold": 0.65,
+    "padding256": 1
+  },
+  "confidence_thresholds": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    0.9
+  ],
+  "closedness_thresholds": [
+    -1.0,
+    -0.1,
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "folds": 5,
+  "seed": 20261027,
+  "minimum_calibration_gain_pp": 0.5,
+  "minimum_free_gpu_bytes": 2147483648,
+  "scientific_decisions": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Use winning frozen global-detail epoch6, same masks/crops/native PARSeq. Frozen-v2 TEST63.5371% versus matched source61.8375%; local spatial variant is not pursued."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Structural word completeness is mean internal learned same-word affinity minus mean outgoing affinity at the finest decoder stage. Exact nearest label mapping to that stage, four directions/radii1,4, invalid RGB/borders excluded; unavailable features bypass filtering. No annotations or text enter this feature."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Fixed source-selected mask threshold/padding; CAL100 jointly chooses closedness and OCR-confidence thresholds. Five image-group folds qualify this readout only if OOF F1 improves by at least0.5points over both OOF confidence-only and the fixed CAL confidence-only baseline. Only a qualified pilot proceeds to TEST300 after selection is sealed. Source/CAL/TEST have historical exposure; all results remain exploratory."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Verified shared RTX3090, FP32 batch1 segmentation; CAL OCR reused only after exact map, geometry and crop hash replay. TEST OCR is new native inference, batch32; record allocated/reserved memory and propagate OOM. No DeepSolo."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Whether learned ownership predicts crop completeness or mainly correlates with area; whether calibration gains transfer. This is a new readout of existing learned neural outputs, not a new backbone or worldwide novelty claim."
+    }
+  ]
+}

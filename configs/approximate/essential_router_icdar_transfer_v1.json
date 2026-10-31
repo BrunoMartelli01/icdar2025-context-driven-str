@@ -1,0 +1,100 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "essential_router_icdar_transfer_v1",
+  "paths": {
+    "router_deployment": "/extra1/bmartelli/context-str-artifacts/budget-distilled-router-v1/qualified_essential_portable_v2/deployment.json",
+    "corrected_source": "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full",
+    "graph_source": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full",
+    "occlusion_source": "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full",
+    "teacher_source": "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full",
+    "contour_source": "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full",
+    "unet_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+    "unet_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "yolo_cache": "/tmp/scene-text-yolo-transfer-v1/cuda-0/full",
+    "yolo_checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+    "yolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-yolo-py311/bin/python",
+    "deepsolo_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_word_f1_selected_native_word_v1.json",
+    "deepsolo_runtime": "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/runtime.json",
+    "deepsolo_source": "/extra1/bmartelli/context-str-artifacts/deepsolo-host/DeepSolo-upstream/DeepSolo",
+    "deepsolo_python": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-deepsolo-host/bin/python"
+  },
+  "seed": 20261028,
+  "cpu_threads": 4,
+  "device": "cuda:0",
+  "precision": "float32",
+  "parseq_batch_size": 32,
+  "minimum_free_gpu_bytes": 4294967296,
+  "calibration_acceptances": [
+    0.45,
+    0.5,
+    0.55
+  ],
+  "primary": "frozen_totaltext_cut_0.5",
+  "secondary": "unlabeled_target_validation_quantile_0.5",
+  "report_unet_acceptances": [
+    0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "bootstrap_draws": 2000,
+  "expected_test_images": {
+    "icdar13": 233,
+    "icdar2015": 500
+  },
+  "expected_care_words": {
+    "icdar13": 1095,
+    "icdar2015": 2077
+  },
+  "validation_images": {
+    "icdar13": 23,
+    "icdar2015": 100
+  },
+  "input_sha256": {
+    "/tmp/scene-text-yolo-transfer-v1/cuda-0/full/icdar13/resolved_configuration.json": "8494043c9bd67e4497516def73aba3b2c2687a5024c7c33418fcfbd12363b479",
+    "/tmp/scene-text-yolo-transfer-v1/cuda-0/full/icdar2015/resolved_configuration.json": "564c794c80cd67c65ae7233c21d442fa4f7959be8e458df87928ba645c9d99fb",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/manifests/icdar13_segmentation_validation.yaml": "a396d0f737ed553aafb2ecf04606fd92d9e2ffacbf79c6d4ec6e8777f9361d46",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-train/run_contract.json": "e1655244e8c0788d5716e1d330cbfb0b7c796be843b35681ede8a456eac86618",
+    "/extra1/bmartelli/datasets/context-str/scene-segmentation-v1/manifests/icdar2015_train.yaml": "25fa81c39c8d1669937e82a8f099bd545619328d531d1cb4e74e04d9be48955a",
+    "/extra1/bmartelli/context-str-artifacts/budget-distilled-router-v1/qualified_essential_portable_v2/deployment.json": "2f60c4fb198d2a915b5f2c2d9b1a504bf07655467f00229830689de6ba7db3ce",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json": "7d41e4c4fc72d89ef19573b343d7f2fbf49d5abf1b19b4b834b6fcfdb584f622",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/tmp/yolo-word-slots/yolov8_5k.pt": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_word_f1_selected_native_word_v1.json": "2cbe4fcd38d9c9db7ca5103df0df232e1ecab854595f62cb344980509658e32a",
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-textocr-gpu-20261019/full/2aeca3dc2a66/runtime.json": "493f9a188220ae2170d26f34ec2dc07c392ff7df216cb70866b25b546a083a38",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/resolved_config.json": "b612b2a227b4b38e5d9fadd4a61a6de08c0a46ac1613427836c1964bcdccc505",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/verifier/best.pt": "bd4c45c2b8a598a8f6ccf42c4b0035c255f5e12a734a8109d3e3618535d7c043",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/verifier/selection_frozen.json": "5905781fb91f4e7dc11f41e79b415c6b384104671d086041ea9f49f6846743dd",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/editor/text/best.pt": "972ebd085f99847653b973a7209540a816de2c2a856dce230a20bf623d626ef2",
+    "/extra1/bmartelli/context-str-runs/grounded-word-recovery-20261025-v1/full/editor/text/selection_frozen.json": "fefb75acfaec8f181679f8bd3af40ed697e63d0350325ed703786b147a594d70",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/resolved_config.json": "3b27bc66bf18bd17781e1845dffd6f7076166c90c80b0a578bccf96126cd25c4",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/gnn/best.pt": "67e10bb16046a15495babeddb9008dd1c665dd8683442eef15965cb6afa083f5",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/additions/gnn/selection_frozen.json": "2d8055b28a0c7db42b5ab22b6603ed835ba6cb15aa7a18cf0bc6bf8b1dea5b45",
+    "/extra1/bmartelli/context-str-runs/teacher-student-tests-20261022-v1/full/selector/pointwise.pt": "b2a31adef35ec7ae7462e04940d1f86b61868df37faa2e21630515982078b6dc",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/resolved_config.json": "3b3d3ba03908e884485055a3640162b3cd0d1310ae5092db99ac375f4a8da533",
+    "/extra1/bmartelli/context-str-runs/occlusion-four-tests-20261022-v1/full/selector_pre.pt": "86ba9dfc29d6a9fd6da513d5151a96d6f1d410fcdf6ef98bc27096b7bbbcb287",
+    "/extra1/bmartelli/context-str-runs/graph-occlusion-followups-20261023-v2/full/resolved_config.json": "8319ab3933b58011d4bb7415ad3ad6947c641af1431ff6c7717a88c22d9ac479"
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Sections3.4/3.5 and Algorithm2 motivate DeepSolo fallback; Table5 ICDAR benchmarks. No trained router specified.",
+    "REPOSITORY_SPECIFIED": "Frozen corrected TotalText U-Net/PARSeq/GNN/RGB verifier/text editor and essential30 Ridge. Qualified YOLO direct640/PARSeq joint0.60 cache. Native ViTAEv2S/TextOCR DeepSolo profile0.35/0.925.",
+    "ASSUMPTION": "Test unchanged TotalText head/cuts on two full ICDAR TEST sets; also unlabeled, disjoint target-validation score quantiles and exact-half rank diagnostic. YOLO retains shared U-Net maps required by the same30 input descriptors. All symbols removed by Unicode casefold+isalnum; native256 ignore; no IoU in primary lexical metric. No target-data training or TEST parameter selection.",
+    "HARDWARE_DEVIATION": "Observed RTX3090 FP32 sequential model processes and isolated legacy DeepSolo runtime; CPU head/metrics. Explicit batches and complete allocation/reservation peaks. Ported GT-blind corrected-expert inference must replay qualified source outputs before new-dataset evaluation.",
+    "UNRESOLVED": "Single small validation cohort, source expert and historical TEST exposure, direct detector feature/calibration shift, pretrained external corpus overlap, exact paper recognition metric and split IC13 233 versus229, whole online latency and8GB complete-pipeline fit."
+  }
+}

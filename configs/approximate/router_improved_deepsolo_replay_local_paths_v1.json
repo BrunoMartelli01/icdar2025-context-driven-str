@@ -1,0 +1,7 @@
+{
+  "reproduction_mode": "approximate",
+  "token_root": "/extra1/bmartelli/context-str-artifacts/token-context-router-v1/full/e8302d7d6054",
+  "cause_root": "/extra1/bmartelli/context-str-artifacts/router-cause-tests-v1/full/1115c7bd7812",
+  "improved_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/fusion-final-v2",
+  "confidence_root": "/extra1/bmartelli/context-str-artifacts/deepsolo-word-f1-20261025/cached-analysis-final"
+}

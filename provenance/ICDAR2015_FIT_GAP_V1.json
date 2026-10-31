@@ -1,0 +1,47 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-fit-gap-diagnostic-v1/evaluation/geometry.json": "2b45485803c7c4c6a9735433b32fe9249f86c475e0150d0794481b06d4026c61",
+    "/extra1/bmartelli/context-str-runs/icdar2015-fit-gap-diagnostic-v1/evaluation/results.json": "e78afb6d068bea2a27c278146cdc2e08fec758f76a40cb399baa10ed500d1303",
+    "/extra1/bmartelli/context-str-runs/icdar2015-fit-gap-diagnostic-v1/run_diagnostic_v1.py": "a9b4f4bcdf2cff4f6abba14fd73c66005c97bcf66a7322eedc0440a0d0aae2e0",
+    "/extra1/bmartelli/context-str-runs/icdar2015-fit-gap-diagnostic-v1/startup-failure-v1.json": "367b4e353fc0b4df0451351da775bdcc0166345c850b47daab92b4721df6c7ee"
+  },
+  "claim_label": "approximate reproduction",
+  "failed_samples": 0,
+  "fit": {
+    "foreground_iou": 0.8795668527896381,
+    "fragmented_words": 72,
+    "fused_components": 276,
+    "gt_words": 4018,
+    "gt_words_touched_by_fused_components": 587,
+    "lost_words": 41,
+    "matched_gt": 3492,
+    "proposal_f1_iou_50": 0.8866319664847023,
+    "proposal_precision_iou_50": 0.9048976418761338,
+    "proposals": 3859,
+    "word_recall_iou_50": 0.8690890990542558,
+    "words_touched_by_fused_components": 587
+  },
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "limitations": "Geometry only; does not measure correct-word F1. First launch import-path error was recorded and corrected before inference. Strong fitting/generalization gap motivates additional diverse training data.",
+  "peak_allocated_bytes": 903720448,
+  "peak_reserved_bytes": 1077936128,
+  "reproduction_mode": "approximate",
+  "result_class": "FIT900 localization diagnostic; not word F1 or generalization",
+  "schema_version": 1,
+  "status": "SUCCESS",
+  "test_data_used": false,
+  "validation": {
+    "foreground_iou": 0.6008490267517375,
+    "fragmented_words": 29,
+    "fused_components": 26,
+    "gt_words": 430,
+    "gt_words_touched_by_fused_components": 56,
+    "lost_words": 55,
+    "matched_gt": 282,
+    "proposal_f1_iou_50": 0.5714285714285714,
+    "proposal_precision_iou_50": 0.5062836624775583,
+    "proposals": 557,
+    "word_recall_iou_50": 0.6558139534883721,
+    "words_touched_by_fused_components": 56
+  }
+}

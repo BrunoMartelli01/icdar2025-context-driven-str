@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "source_study_root": "/extra1/bmartelli/context-str-artifacts/yolo-f1-quality-study-v1/full/134cead7c5ac",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/yolo-residual-cost-router-v1"
+}

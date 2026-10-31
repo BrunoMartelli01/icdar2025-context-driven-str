@@ -1,0 +1,1203 @@
+{
+  "claim_label": "approximate reproduction",
+  "evidence_sha256": {
+    "adapted_export_test_v3/completion.json": "28288c0108e70abe69a0baa5ae60229a47204c390b47716c267e76b740a6a542",
+    "crossfit_fixed_gate_v1/full/selection_frozen.json": "2ce8c1148e73a0070015962ffccc6fdb7a2792cc02073131d368c7d62a681503",
+    "crossfit_fixed_gate_v1/smoke/independent_audit_v1.json": "d5b34d33b5b454e769ac88f46eb08cebb4e98046c78b9dcb770db12e1d259ce1",
+    "fallback_word_fusion_v1/independent_selected_test_audit_v1.json": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+    "fallback_word_fusion_v2/independent_test_audit_v1.json": "c5fe0bad1b02b528873475f07ff9877f4c5e7882d4702fe190ddcf0f6bb65650",
+    "fixed_expert_budget_v3/full/independent_audit_v1.json": "5f6ecf2be88b5f6e7b658c9a13f9028855167df3d5a102da047e3cc7ad8ac682",
+    "fixed_expert_budget_v3/full/selection_frozen.json": "207fa15ed096dac35ec865fdf728ad30ec2b10d9625b7a9d9b17888df2402bda",
+    "fixed_expert_budget_v4/full/emission_frozen.json": "335a3529b9c7395f01ac049b3e6a0cd5be8c9cd56be9979985e1877182489b65",
+    "fixed_expert_budget_v4/full/independent_audit_v1.json": "cf87485fc5d37e3a781bcea38faca0db087303bcab08d8d5faca88edb09a8efa",
+    "fixed_expert_budget_v4/full/selection_frozen.json": "2638235b86ad89d4eb03c0896382d30ff91e9f00f32360838fd9d13675d59f3c",
+    "fixed_retention_v1/independent_test_audit_v1.json": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+    "fresh_deepsolo_selected_plan_v1.json": "aba2d9d0f41eebaee680bec33d1f021f9d9f5226a265d725affb5f131baadae1",
+    "fresh_deepsolo_selected_v1/protocol.json": "72a4587ba4f838729757bd9de5399685071d168e06aa6c1312c1b35f68dec457",
+    "fresh_deepsolo_selected_v1/receipt_limit_1.json": "6ae7ee590e204ee548a3dfde7be4e8d1e78218a90c7357e3ba924c0392e7123c",
+    "fresh_deepsolo_selected_v1/receipt_limit_61.json": "ae28a7b3d9dc0a7c8f170e3a9ae12e68801b11d0de0411f51d34b30f22d21205",
+    "reread_fixed_test_v3/test/completion.json": "b8f6cac0109351ae43843ec862058c8612b578667955605c277cd098f23beee5",
+    "risk_admission_gate_v1/independent_test_audit_v1.json": "d190a367acd221d08d22124b3f89dd24880e2342726810cb38b78f6f74101af4",
+    "router_reread_v2/independent_audit_v1.json": "1c4cdcc8a39bf8d8fe2068198e82d6581325a99176ba563b7e855a3cdabd1673",
+    "router_v1/independent_audit_v1.json": "838c76fbfb9658cb21ae1aa46468286160185d1ac19ff03464d9a8a0c0b1d5e9",
+    "test_fixed_fusion_fresh_v1/decisions_before_fallback.json": "e2233ee7327d3bff43d66d33aea274362f0e7594b9dfa63ec45c9ab7922c2712",
+    "test_fixed_fusion_fresh_v1/independent_test_audit_v1.json": "40cd50731cfcb3c5125437eea1906bed9db407b8c5b5b85130d5e0845816fb32",
+    "test_fixed_fusion_fresh_v1/results.json": "6374995f8d1d3c3a5b7f890e1fa318496bcc46dbd710418596247c3a9addc568",
+    "test_fixed_fusion_v2/decisions_before_fallback.json": "febf3bb474dcea1394ed75d11d53f48a845767c24bfaf65150047b60b241ba36",
+    "test_fixed_fusion_v2/independent_test_audit_v1.json": "543c9ceff15307af8c796198aeebc0f45c83b01df96632bce9c120bbceb8979f",
+    "test_fixed_fusion_v2/results.json": "dfdcb945eac6d9df5c57fd6bfd2c37e426b1d11bea677123cbce307a53a40356",
+    "test_fixed_refit_v1/independent_test_audit_v1.json": "0106ad6801996bdbb9901da4f208f0e4440ebb67988d6f0bb0928cec10d5922d",
+    "test_fixed_risk_admission_v1/independent_test_audit_v1.json": "455d85258f79e32a48656540b07425cfc22b4a4fc0fef95f4fed098556dc6ae7",
+    "test_fixed_risk_admission_v1/results.json": "14c13efd765bfad07dec3b27587ccf3b6afb711aad28b6641a1ea0276b978bdf",
+    "test_fixed_v3/decisions_before_fallback.json": "ebdb23ce06b226ab5b3adde783e3f36f845ed1b789acd444135e507c6493001a",
+    "test_fixed_v3/results.json": "6374f275217f5e304b90d3fed23e78c19488f7f6933803089e7e02f66c93cb97",
+    "test_fixed_v4/decisions_before_fallback.json": "a514391ea2b4aa390b42c3f6837802ec1577764eaa0dfbb33dab9a8c88eeefbe",
+    "test_fixed_v4/independent_test_audit_v1.json": "f03caba5054aa9c310376c9c8095179d35d75527a8e911a49ae415019672d41f",
+    "test_fixed_v4/results.json": "992b4c81af0bed670a1dcadf49599561d000855678b8c389447f083c40e168c7",
+    "test_v1/results.json": "0b5c746b5f2b6d36188fe278acd9469e7b9761bdee37e5f351ff448cb5d81d43",
+    "validated_budget_variant_no_extra_v1/deployment_qualification.json": "cc6d1156db0135c9a0e921e6a53d0dca38bfb834d1d7994918d3e728ddb8780d",
+    "validated_budget_variant_no_extra_v1/independent_audit_v1.json": "4d44c000d861ab4592881e004eff3892b0f5b9230a620913442cdff674eeeb42",
+    "validated_budget_variant_no_extra_v1/selection_frozen.json": "d26944c604113f818816ba0a9f8c24286d083ee1ca2f256870b0095ee977fa1c",
+    "validated_budget_variant_no_extra_v1/test_summary.json": "0d18141e515e72ec7d8d56e4a66830f1171e55193ca8f2430b54179c8fa131c3",
+    "validated_budget_variant_no_extra_v1/test_summary_fresh_v1.json": "a3f5377b44c99c548b2527db84f0a96ff287bda10e34c596758afd2eae331e70",
+    "yolo_final_refit_v1/full/independent_refit_qualification_v1.json": "040573d8b7c788255b04e9c4c22bc380110e25622f4a9a21bf3baa1aab379c45",
+    "yolo_oof_v1/folds.json": "50a4a192fbed8a02aeaa1fbbe77d798426167a63d1d6fa8bcf900dc795231658",
+    "yolo_oof_v1/independent_state_audit_v1.json": "b0e2a90d0d26eafad912e6ac1eb07a96022532ce9b538b82cf769fdf1d3e132c",
+    "yolo_word_adaptation_v1/full/completion.json": "6d5762471421dc0291d614c0e1e510cd93341597866858d71e623e69de442e2a",
+    "yolo_word_adaptation_v1/full/independent_state_audit_v1.json": "3885850e99b9504579bc4080d8f5ac384053d24c32a3fd394aa4ce8f00b14107",
+    "yolo_word_selection_v1/frozen.json": "0ccca05611047885be25f26b2698bb9ab064ac485ef6f013b788c43aa6cd023c"
+  },
+  "failures_preserved": [
+    "Raw-U-Net confidence schema",
+    "Reread launcher syntax error",
+    "YOLO serialized CPU loss device mismatch",
+    "Fixed-gate auditor vocabulary argument KeyError, corrected and smoke/full audits PASS",
+    "IC15 YOLO evaluation started before route completed; failed without results, then retried successfully after frozen decisions"
+  ],
+  "final229_refit_test": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "actual_new_detector_image_inferences": 233,
+    "actual_new_fallback_parseq_crop_inferences": 286,
+    "actual_new_frontend_parseq_crop_inferences": 1551,
+    "all_light": {
+      "counts": {
+        "all_outputs": 1019,
+        "detected_words": 1019,
+        "f1": 0.8495742667928098,
+        "fn": 197,
+        "fp": 121,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 898
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 1013,
+      "detected_words": 1013,
+      "f1": 0.889943074003795,
+      "fn": 157,
+      "fp": 75,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 938
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "frontend_cached_generator_image_inferences": 233,
+    "frontend_cached_generator_parseq_crop_inferences": 1551,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Logical exact routing over cached genuine DeepSolo; new real YOLO/PARSeq frontend and selected-box PARSeq rereads. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": false,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "first_test": {
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "f1": 0.8462998102466793,
+    "total_images": 233
+  },
+  "fixed_emission_test": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "actual_new_detector_image_inferences": 233,
+    "actual_new_fallback_parseq_crop_inferences": 279,
+    "actual_new_frontend_parseq_crop_inferences": 1573,
+    "all_light": {
+      "counts": {
+        "all_outputs": 844,
+        "detected_words": 844,
+        "f1": 0.8220732336255802,
+        "fn": 298,
+        "fp": 47,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 797
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 960,
+      "detected_words": 960,
+      "f1": 0.8768856447688564,
+      "fn": 194,
+      "fp": 59,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 901
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Logical exact routing over cached genuine DeepSolo; new real YOLO/PARSeq frontend and selected-box PARSeq rereads. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": false,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "fusion_v2_retention": {
+    "auditor_sha256": "41be70f9fdac68f7670e618e419341130cbd1973bbcdb1cd5301b3282a00f838",
+    "claim_label": "approximate reproduction",
+    "counters": {
+      "selected_fallback_replays": 756,
+      "test_image_recounts": 1600,
+      "test_scores_replayed": 1600
+    },
+    "historical_test_exposure": true,
+    "mode": "approximate",
+    "results": {
+      "icdar2015__unet": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.7909426013691416,
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "delta_f1_points": -0.7231706007760796,
+        "f1": 0.7837108953613808,
+        "qualification_sha256": "b15a5447a4ba729d6ba554466d90d4c8fa935fbcd39df90241a1c9c9f459548e",
+        "results_sha256": "a3ef5c1184b6802592351f0552b89f6371df68bda43070c2dafaa6098d0f23ef",
+        "total_images": 500
+      },
+      "icdar2015__yolo": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.8084029359655783,
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "delta_f1_points": -1.109514409397594,
+        "f1": 0.7973077918716024,
+        "qualification_sha256": "ccd8e317c52bf87cbbe7ae3c51108ccbfc8c65c9ef1aadb08c7c9b08bd044c9a",
+        "results_sha256": "ac14ffc36e7ca194a448eb821afb7daa8864a49b5df5202561b70aac0d8cd050",
+        "total_images": 500
+      },
+      "totaltext__unet": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.7971188475390156,
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "delta_f1_points": 0.3266416125805027,
+        "f1": 0.8003852636648207,
+        "qualification_sha256": "e19898d612e5a709911d2f34db8cc26900cc8e54c9b61129ed34670ad86dbaa2",
+        "results_sha256": "25fd9c4fb4ecf6334538f1d53e3d2d26d58edaf874d95f831dfbeae89625bc9b",
+        "total_images": 300
+      },
+      "totaltext__yolo": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.8093883357041252,
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "delta_f1_points": -1.1117442332367222,
+        "f1": 0.7982708933717579,
+        "qualification_sha256": "cf1d994ade5fad92e59e538c38c9f4080c4d34e2d047432934b37d8ab0cff3e2",
+        "results_sha256": "f0200cabdf4ee69cc30129b5e378c50c3671d90008d7cf85fce456b4cbc97b92",
+        "total_images": 300
+      }
+    },
+    "scope": "Independent count/deployment replay of frozen logical cached routes; no online latency claim",
+    "status": "PASS"
+  },
+  "goal_complete": true,
+  "latest_crossfit_test": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "actual_new_detector_image_inferences": 0,
+    "actual_new_fallback_parseq_crop_inferences": 358,
+    "actual_new_frontend_parseq_crop_inferences": 0,
+    "all_light": {
+      "counts": {
+        "all_outputs": 999,
+        "detected_words": 999,
+        "f1": 0.8548233046800382,
+        "fn": 200,
+        "fp": 104,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 895
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 1030,
+      "detected_words": 1030,
+      "f1": 0.8809411764705882,
+      "fn": 159,
+      "fp": 94,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 936
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "frontend_cached_generator_image_inferences": 233,
+    "frontend_cached_generator_parseq_crop_inferences": 1573,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Logical exact routing over cached genuine DeepSolo; reused cached YOLO/PARSeq frontend and new selected-box PARSeq rereads. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": false,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "latest_test": {
+    "actual_new_deepsolo_neural_inferences": 61,
+    "actual_new_detector_image_inferences": 0,
+    "actual_new_fallback_parseq_crop_inferences": 0,
+    "actual_new_frontend_parseq_crop_inferences": 0,
+    "all_light": {
+      "counts": {
+        "all_outputs": 999,
+        "detected_words": 999,
+        "f1": 0.8548233046800382,
+        "fn": 200,
+        "fp": 104,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 895
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 1027,
+      "detected_words": 1027,
+      "f1": 0.9000942507068803,
+      "fn": 140,
+      "fp": 72,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 955
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "fresh_deepsolo_evidence": {
+      "actual_new_deepsolo_neural_inferences": 61,
+      "batch_size": 1,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "gpu_peak_allocated_bytes": 1998766592,
+      "gpu_peak_reserved_bytes": 6956253184,
+      "input_chw_shapes": [
+        [
+          3,
+          1024,
+          1344
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1088,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1248,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1344
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1120
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          928,
+          1920
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1536,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1536
+        ],
+        [
+          3,
+          992,
+          1920
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1024,
+          1376
+        ],
+        [
+          3,
+          1376,
+          1024
+        ],
+        [
+          3,
+          1024,
+          1376
+        ]
+      ],
+      "precision": "float32",
+      "scope": "Selected DeepSolo subprocess image times only; no end-to-end latency claim",
+      "summed_image_inference_seconds": 13.383530570194125
+    },
+    "frontend_cached_generator_image_inferences": 233,
+    "frontend_cached_generator_parseq_crop_inferences": 1573,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Frozen exact routing with fresh selected DeepSolo; reused cached YOLO/PARSeq frontend. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": true,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "limitations": [
+    "ICDAR2013 90% margin is only 0.0094 F1 points",
+    "Prior and repeated TEST exposure and adaptive selector design; validation reused",
+    "Benchmark vocabulary side information and non-nested conditional expert/word features",
+    "Actual 61 DeepSolo inferences on RTX3090; frontend and other datasets cached; no online end-to-end latency"
+  ],
+  "mode": "approximate",
+  "new_expert_validation": {
+    "deepsolo_images": 0,
+    "deepsolo_percentage": 0.0,
+    "f1": 0.9196141479099679,
+    "scope": "Validation only, not a61-image TEST pipeline",
+    "total_images": 46
+  },
+  "ongoing": {
+    "status": "COMPLETE",
+    "summary": "Frozen common no-extra-neural validation selector, 61 fresh DeepSolo image inferences, complete TEST recount and independent audits."
+  },
+  "other_dataset_results": {
+    "icdar2015__unet": {
+      "additional_map_models": 0,
+      "baseline_f1": 0.7909426013691416,
+      "deepsolo_images": 228,
+      "deepsolo_percentage": 45.6,
+      "delta_f1_points": 0.22600130099433846,
+      "f1": 0.793202614379085,
+      "qualification_sha256": "8fb4ef234caa02ad30a831306dd25992372d72884b8525a93a1fecc5b16bacd8",
+      "results_sha256": "79e06678aef5d07ce5162f7113c2bbff86d7156e175e3aaa45d4216ad0026ee9",
+      "total_images": 500
+    },
+    "icdar2015__yolo": {
+      "additional_map_models": 1,
+      "baseline_f1": 0.8084029359655783,
+      "deepsolo_images": 228,
+      "deepsolo_percentage": 45.6,
+      "delta_f1_points": 0.5715906086224631,
+      "f1": 0.814118842051803,
+      "qualification_sha256": "97bf26847967c7c4b53703d31ccc71b46675c9c1d21697e14c49e659428e5733",
+      "results_sha256": "7a987754ae2f5d6bfa7cbb3bc334bc12b30e30b0c9633445c2ebee582d092583",
+      "total_images": 500
+    },
+    "totaltext__unet": {
+      "additional_map_models": 0,
+      "baseline_f1": 0.7971188475390156,
+      "deepsolo_images": 150,
+      "deepsolo_percentage": 50.0,
+      "delta_f1_points": 0.653851530987759,
+      "f1": 0.8036573628488932,
+      "qualification_sha256": "6bbd2f4fe0a658d31e51a80cb573a2a59db81c3c50dd3cde5a1208d6eebf1f2a",
+      "results_sha256": "9af7391fce925cbdaab2003e0aabf26f7c59c240accb21b29742da17a6e1f9f5",
+      "total_images": 300
+    },
+    "totaltext__yolo": {
+      "additional_map_models": 1,
+      "baseline_f1": 0.8093883357041252,
+      "deepsolo_images": 150,
+      "deepsolo_percentage": 50.0,
+      "delta_f1_points": -0.32013190648001455,
+      "f1": 0.806187016639325,
+      "qualification_sha256": "65a6935a07bf688c97e421e541d805434c4bb24470c2f2af14a6840ea303eaeb",
+      "results_sha256": "113f1573b3134162c816665a0b3127f62c045df9d4dc044505e973e266310622",
+      "total_images": 300
+    }
+  },
+  "preserved_previous_best": {
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "f1": 0.8772748483434438,
+    "total_images": 233
+  },
+  "prior_latest_test_before_fusion": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "actual_new_detector_image_inferences": 0,
+    "actual_new_fallback_parseq_crop_inferences": 0,
+    "actual_new_frontend_parseq_crop_inferences": 0,
+    "all_light": {
+      "counts": {
+        "all_outputs": 999,
+        "detected_words": 999,
+        "f1": 0.8548233046800382,
+        "fn": 200,
+        "fp": 104,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 895
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 1027,
+      "detected_words": 1027,
+      "f1": 0.8953817153628653,
+      "fn": 145,
+      "fp": 77,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 950
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "frontend_cached_generator_image_inferences": 233,
+    "frontend_cached_generator_parseq_crop_inferences": 1573,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Logical exact routing over cached genuine DeepSolo; reused cached YOLO/PARSeq frontend. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": false,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "prior_latest_test_before_risk_admission": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "actual_new_detector_image_inferences": 0,
+    "actual_new_fallback_parseq_crop_inferences": 303,
+    "actual_new_frontend_parseq_crop_inferences": 0,
+    "all_light": {
+      "counts": {
+        "all_outputs": 999,
+        "detected_words": 999,
+        "f1": 0.8548233046800382,
+        "fn": 200,
+        "fp": 104,
+        "gt_words": 1095,
+        "ignored_outputs": 0,
+        "images": 233,
+        "tp": 895
+      },
+      "deepsolo_images": 0,
+      "deepsolo_percentage": 0.0,
+      "total_images": 233
+    },
+    "claim_label": "approximate reproduction",
+    "counts": {
+      "all_outputs": 1001,
+      "detected_words": 1001,
+      "f1": 0.892175572519084,
+      "fn": 160,
+      "fp": 66,
+      "gt_words": 1095,
+      "ignored_outputs": 0,
+      "images": 233,
+      "tp": 935
+    },
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "fallback_cache_envelopes_loaded": 61,
+    "frontend_cached_generator_image_inferences": 233,
+    "frontend_cached_generator_parseq_crop_inferences": 1573,
+    "historical_test_exposure": true,
+    "minimum_f1": 0.9,
+    "mode": "approximate",
+    "result_class": "approximate reproduction",
+    "scope": "Logical exact routing over cached genuine DeepSolo; new real YOLO/PARSeq frontend and selected-box PARSeq rereads. No online latency measurement.",
+    "status": "COMPLETE",
+    "target_met": false,
+    "test_used_for_selection": false,
+    "total_images": 233
+  },
+  "privileged_oracle": {
+    "deepsolo_images": 61,
+    "deepsolo_percentage": 26.180257510729614,
+    "deepsolo_variant": "native qualified DeepSolo only, without additional PARSeq rereads",
+    "f1": 0.922429906542056,
+    "fallback_cache_images_inspected": 233,
+    "privileged_ground_truth_used": true,
+    "total_images": 233
+  },
+  "retention_test_audit": {
+    "counters": {
+      "selected_fallback_replays": 756,
+      "test_image_recounts": 1600,
+      "test_scores_replayed": 1600
+    },
+    "sha256": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+    "status": "PASS"
+  },
+  "risk_admission_retention_v1": {
+    "auditor_sha256": "41be70f9fdac68f7670e618e419341130cbd1973bbcdb1cd5301b3282a00f838",
+    "claim_label": "approximate reproduction",
+    "counters": {
+      "selected_fallback_replays": 756,
+      "test_image_recounts": 1600,
+      "test_scores_replayed": 1600
+    },
+    "historical_test_exposure": true,
+    "mode": "approximate",
+    "results": {
+      "icdar2015__unet": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.7909426013691416,
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "delta_f1_points": -1.5723303123527543,
+        "f1": 0.7752192982456141,
+        "qualification_sha256": "06c9dd5c616f4dea99195f77d71faafd143633b39b3c7ab184698f04fb7382b3",
+        "results_sha256": "4f57dbe01682797b8e73b4f0af7a6433d939b38c8e9a1163481aee63c21cf065",
+        "total_images": 500
+      },
+      "icdar2015__yolo": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.8084029359655783,
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "delta_f1_points": 0.1850763823005197,
+        "f1": 0.8102536997885835,
+        "qualification_sha256": "5a4b441bb5f5d64c281641da323d55641cbe6a4f8e32bf7397daa7196237362b",
+        "results_sha256": "0a23b461b8532eaa9f480f9d542d032a1e0849367933ab27b84743ab81df9d29",
+        "total_images": 500
+      },
+      "totaltext__unet": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.7971188475390156,
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "delta_f1_points": 0.4229575287856502,
+        "f1": 0.8013484228268721,
+        "qualification_sha256": "b043b182b47518582ceb06ee2339a3e52e74923413156cd68406c1073c287327",
+        "results_sha256": "5e45aa41a7f6e03af674f1ed43ac1abe35196d1cd03c4aa3ff7d6b41177ce5e5",
+        "total_images": 300
+      },
+      "totaltext__yolo": {
+        "additional_map_models": 0,
+        "baseline_f1": 0.8093883357041252,
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "delta_f1_points": -0.716932943302051,
+        "f1": 0.8022190062711047,
+        "qualification_sha256": "59b00864041a6cbe1d4731e03743ccf4ad240269851fd27d1c05139d254364e8",
+        "results_sha256": "2c258782430c12d7662f5c98bb19a534fa6d251c4d1f56cbf25b1eaf4a116098",
+        "total_images": 300
+      }
+    },
+    "scope": "Independent count/deployment replay of frozen logical cached routes; no online latency claim",
+    "status": "PASS"
+  },
+  "scientific_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1",
+  "status": "COMPLETE",
+  "tests_unique_passed": 76,
+  "validated_variant_cached_test": {
+    "actual_new_deepsolo_neural_inferences": 0,
+    "adaptive_research": true,
+    "cases": {
+      "ic13": {
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.47125353440150564,
+        "counts": {
+          "all_outputs": 1027,
+          "detected_words": 1027,
+          "f1": 0.9000942507068803,
+          "fn": 140,
+          "fp": 72,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 955
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/independent_test_audit_v1.json",
+        "independent_audit_sha256": "543c9ceff15307af8c796198aeebc0f45c83b01df96632bce9c120bbceb8979f",
+        "minimum_f1": 0.9,
+        "previous_common_f1": 0.8953817153628653,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/results.json",
+        "result_sha256": "dfdcb945eac6d9df5c57fd6bfd2c37e426b1d11bea677123cbce307a53a40356",
+        "selected_label": "conservative_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13",
+        "target_met": true,
+        "total_images": 233
+      },
+      "icdar2015__unet": {
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.0,
+        "counts": {
+          "all_outputs": 1809,
+          "detected_words": 1748,
+          "f1": 0.793202614379085,
+          "fn": 560,
+          "fp": 231,
+          "gt_words": 2077,
+          "ignored_outputs": 61,
+          "images": 500,
+          "tp": 1517
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+        "independent_audit_sha256": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+        "minimum_f1": 0.7909426013691416,
+        "previous_common_f1": 0.793202614379085,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test/results.json",
+        "result_sha256": "79e06678aef5d07ce5162f7113c2bbff86d7156e175e3aaa45d4216ad0026ee9",
+        "selected_label": "fixed_gate",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet",
+        "target_met": true,
+        "total_images": 500
+      },
+      "icdar2015__yolo": {
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": -0.38651422632194343,
+        "counts": {
+          "all_outputs": 1746,
+          "detected_words": 1707,
+          "f1": 0.8102536997885835,
+          "fn": 544,
+          "fp": 174,
+          "gt_words": 2077,
+          "ignored_outputs": 39,
+          "images": 500,
+          "tp": 1533
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+        "independent_audit_sha256": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+        "minimum_f1": 0.8084029359655783,
+        "previous_common_f1": 0.814118842051803,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/test/results.json",
+        "result_sha256": "0a23b461b8532eaa9f480f9d542d032a1e0849367933ab27b84743ab81df9d29",
+        "selected_label": "risk_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo",
+        "target_met": true,
+        "total_images": 500
+      },
+      "totaltext__unet": {
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.0,
+        "counts": {
+          "all_outputs": 1995,
+          "detected_words": 1952,
+          "f1": 0.8036573628488932,
+          "fn": 534,
+          "fp": 282,
+          "gt_words": 2204,
+          "ignored_outputs": 43,
+          "images": 300,
+          "tp": 1670
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+        "independent_audit_sha256": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+        "minimum_f1": 0.782,
+        "previous_common_f1": 0.8036573628488932,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test/results.json",
+        "result_sha256": "9af7391fce925cbdaab2003e0aabf26f7c59c240accb21b29742da17a6e1f9f5",
+        "selected_label": "fixed_gate",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet",
+        "target_met": true,
+        "total_images": 300
+      },
+      "totaltext__yolo": {
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": -0.3968010368220365,
+        "counts": {
+          "all_outputs": 1994,
+          "detected_words": 1942,
+          "f1": 0.8022190062711047,
+          "fn": 541,
+          "fp": 279,
+          "gt_words": 2204,
+          "ignored_outputs": 52,
+          "images": 300,
+          "tp": 1663
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+        "independent_audit_sha256": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+        "minimum_f1": 0.782,
+        "previous_common_f1": 0.806187016639325,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/test/results.json",
+        "result_sha256": "2c258782430c12d7662f5c98bb19a534fa6d251c4d1f56cbf25b1eaf4a116098",
+        "selected_label": "risk_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo",
+        "target_met": true,
+        "total_images": 300
+      }
+    },
+    "claim_label": "approximate reproduction",
+    "config_sha256": "734d2289bb98b37a249059afc7a6c0af54b35b0a80506546bb93f89d28674298",
+    "goal_met": true,
+    "historical_test_exposure": true,
+    "mode": "approximate",
+    "scope": "Logical complete-batch routing over authentic cached predictions; no online latency measurement",
+    "selector_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1",
+    "selector_sha256": "d26944c604113f818816ba0a9f8c24286d083ee1ca2f256870b0095ee977fa1c",
+    "status": "COMPLETE"
+  },
+  "validated_variant_fresh_test": {
+    "actual_new_deepsolo_neural_inferences": 61,
+    "adaptive_research": true,
+    "cases": {
+      "ic13": {
+        "actual_new_deepsolo_neural_inferences": 61,
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.47125353440150564,
+        "counts": {
+          "all_outputs": 1027,
+          "detected_words": 1027,
+          "f1": 0.9000942507068803,
+          "fn": 140,
+          "fp": 72,
+          "gt_words": 1095,
+          "ignored_outputs": 0,
+          "images": 233,
+          "tp": 955
+        },
+        "deepsolo_images": 61,
+        "deepsolo_percentage": 26.180257510729614,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/independent_test_audit_v1.json",
+        "independent_audit_sha256": "40cd50731cfcb3c5125437eea1906bed9db407b8c5b5b85130d5e0845816fb32",
+        "minimum_f1": 0.9,
+        "previous_common_f1": 0.8953817153628653,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/results.json",
+        "result_sha256": "6374995f8d1d3c3a5b7f890e1fa318496bcc46dbd710418596247c3a9addc568",
+        "selected_label": "conservative_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13",
+        "target_met": true,
+        "total_images": 233
+      },
+      "icdar2015__unet": {
+        "actual_new_deepsolo_neural_inferences": 0,
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.0,
+        "counts": {
+          "all_outputs": 1809,
+          "detected_words": 1748,
+          "f1": 0.793202614379085,
+          "fn": 560,
+          "fp": 231,
+          "gt_words": 2077,
+          "ignored_outputs": 61,
+          "images": 500,
+          "tp": 1517
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+        "independent_audit_sha256": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+        "minimum_f1": 0.7909426013691416,
+        "previous_common_f1": 0.793202614379085,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test/results.json",
+        "result_sha256": "79e06678aef5d07ce5162f7113c2bbff86d7156e175e3aaa45d4216ad0026ee9",
+        "selected_label": "fixed_gate",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet",
+        "target_met": true,
+        "total_images": 500
+      },
+      "icdar2015__yolo": {
+        "actual_new_deepsolo_neural_inferences": 0,
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": -0.38651422632194343,
+        "counts": {
+          "all_outputs": 1746,
+          "detected_words": 1707,
+          "f1": 0.8102536997885835,
+          "fn": 544,
+          "fp": 174,
+          "gt_words": 2077,
+          "ignored_outputs": 39,
+          "images": 500,
+          "tp": 1533
+        },
+        "deepsolo_images": 228,
+        "deepsolo_percentage": 45.6,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+        "independent_audit_sha256": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+        "minimum_f1": 0.8084029359655783,
+        "previous_common_f1": 0.814118842051803,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/test/results.json",
+        "result_sha256": "0a23b461b8532eaa9f480f9d542d032a1e0849367933ab27b84743ab81df9d29",
+        "selected_label": "risk_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo",
+        "target_met": true,
+        "total_images": 500
+      },
+      "totaltext__unet": {
+        "actual_new_deepsolo_neural_inferences": 0,
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": 0.0,
+        "counts": {
+          "all_outputs": 1995,
+          "detected_words": 1952,
+          "f1": 0.8036573628488932,
+          "fn": 534,
+          "fp": 282,
+          "gt_words": 2204,
+          "ignored_outputs": 43,
+          "images": 300,
+          "tp": 1670
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+        "independent_audit_sha256": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+        "minimum_f1": 0.782,
+        "previous_common_f1": 0.8036573628488932,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test/results.json",
+        "result_sha256": "9af7391fce925cbdaab2003e0aabf26f7c59c240accb21b29742da17a6e1f9f5",
+        "selected_label": "fixed_gate",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet",
+        "target_met": true,
+        "total_images": 300
+      },
+      "totaltext__yolo": {
+        "actual_new_deepsolo_neural_inferences": 0,
+        "additional_map_models": 0,
+        "change_vs_previous_common_points": -0.3968010368220365,
+        "counts": {
+          "all_outputs": 1994,
+          "detected_words": 1942,
+          "f1": 0.8022190062711047,
+          "fn": 541,
+          "fp": 279,
+          "gt_words": 2204,
+          "ignored_outputs": 52,
+          "images": 300,
+          "tp": 1663
+        },
+        "deepsolo_images": 150,
+        "deepsolo_percentage": 50.0,
+        "extra_reader_crops": 0,
+        "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+        "independent_audit_sha256": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+        "minimum_f1": 0.782,
+        "previous_common_f1": 0.806187016639325,
+        "result_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/test/results.json",
+        "result_sha256": "2c258782430c12d7662f5c98bb19a534fa6d251c4d1f56cbf25b1eaf4a116098",
+        "selected_label": "risk_fusion",
+        "selected_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo",
+        "target_met": true,
+        "total_images": 300
+      }
+    },
+    "claim_label": "approximate reproduction",
+    "config_sha256": "444166ed6cba1bd06baf05c8de4774f47658030e55299b05868e43f777cc7d23",
+    "goal_met": true,
+    "historical_test_exposure": true,
+    "mode": "approximate",
+    "scope": "Complete-batch routing, cached frontend and fresh selected DeepSolo outputs for explicitly recorded cases; no online latency measurement",
+    "selector_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1",
+    "selector_sha256": "d26944c604113f818816ba0a9f8c24286d083ee1ca2f256870b0095ee977fa1c",
+    "status": "COMPLETE"
+  },
+  "validation": {
+    "actual_new_deepsolo_neural_inferences": 61,
+    "focused_tests_passed": 76,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_peak_allocated_bytes": 1998766592,
+    "gpu_peak_reserved_bytes": 6956253184,
+    "icdar13_independent_test_audit": "PASS",
+    "online_end_to_end_latency_measured": false,
+    "oom": false,
+    "other_datasets_independent_test_audits": "PASS",
+    "selector_validation_audit": "PASS"
+  }
+}

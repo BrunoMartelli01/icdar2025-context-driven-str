@@ -1,0 +1,65 @@
+{
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "directional_affinity_split_v5",
+  "scientific_ambiguity": "DIRECTIONAL-AFFINITY-SPLIT-005",
+  "source_run": "/extra1/bmartelli/context-str-runs/directional-transport-unet-20261026-v1/frozen-v2-full",
+  "source_arm": "global_detail",
+  "input_sha256": {
+    "source_protocol": "0d86a1de319ae243dc1d96be92a3315df79316a6c6a2cf7c9a6e7765e609060a",
+    "checkpoint": "25d4bfce86456e8215bbd0c11b0cc60f573cd3b69e393c4b714e39350aeca624",
+    "ocr_cache": "74349253726fd1eeec0fbae8a33fb955c75260f774087ad9f0413078148dc664"
+  },
+  "fixed_geometry": {
+    "text_threshold": 0.65,
+    "padding256": 1
+  },
+  "confidence_thresholds": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    0.9
+  ],
+  "affinity_thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "split_guards": {
+    "minimum_cells": 4,
+    "minimum_fraction": 0.15,
+    "minimum_coverage": 0.7
+  },
+  "folds": 5,
+  "seed": 20261027,
+  "minimum_calibration_gain_pp": 0.5,
+  "minimum_free_gpu_bytes": 2147483648,
+  "scientific_decisions": [
+    {
+      "classification": "ASSUMPTION",
+      "choice": "New decoder reads learned same-word affinities as mutual graph edges within each existing word instance. Axial radius1/4 edges and two-step max-min diagonal paths avoid directional asymmetry; connected components of reliable edges yield candidate cores. Never merge existing instances. Split only if at least two cores each satisfy minimum4coarse cells/15%instance fraction and cover70%. Skip geometric-only coarse disconnections. Restore all fine pixels by seeded8-neighbor geodesic length flood; preserve foreground exactly."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Motivation is actual fused-word failures (AIRPORTS -> PACIFICAIRPORTS; Prydes -> Prydestport) and dilution of rare weak internal links by the rejected mean-closedness score. Keep winning v2 global epoch6 weights and parameters unchanged. This is a new instance decoder, not a newly trained backbone or worldwide novelty claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "CAL100 tunes four graph thresholds plus exact no-graph control and nine confidence cutoffs. Five image-group folds require >=0.5F1points over both cross-fitted no-graph and fixed CAL baseline. Only a qualified nontrivial decoder proceeds to TEST300, with matched no-graph control at the same selected confidence. No further TEST evaluation on failure."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Verified RTX3090 FP32 batch1, native PARSeq batch32. Inherit cache only with pinned SHA; exact CAL probability replay guards model/crop identity. Record actual new OCR calls and memory; cached timing is not online latency. No DeepSolo."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Whether ownership fields distinguish word boundaries, whether cuts recover merged words without splitting legitimate words, coarse-to-fine sampling and single-seed/historical CAL/TEST exposure. Local transport, mean closedness and long negative continuation are not reused as claimed successes."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "reproduction_mode": "approximate",
+  "source_root": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf",
+  "validation_root": "/extra1/bmartelli/context-str-artifacts/router-validation-v1/full/9dc6c9951d67",
+  "unet_checkpoint": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/budget-distilled-router-v1"
+}

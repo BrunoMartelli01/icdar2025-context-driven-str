@@ -13,6 +13,11 @@ and Cheng-Lin Liu. The historical introduction is preserved in
 · [external assets](docs/EXTERNAL_ASSETS.md) · [contributing](CONTRIBUTING.md)
 · [instructions for AI agents](AGENTS.md).
 
+**Present the shared pipeline:** follow the
+[guided code tour](docs/SHARED_PIPELINE_CODE_TOUR.md) from RGB input through
+U-Net/PARSeq, routing, conditional DeepSolo and word fusion, with links to
+configuration, tests and current evidence.
+
 ## What this repository contains
 
 The paper pipeline is AG-U-Net/ResNet-50 → localized text blocks → PARSeq-S,

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "metric": "per-image multiset exact matching after Unicode casefold and alphanumeric-only normalization; micro F1; no IoU; one detection per word; preserve all care denominators; empty normalized strings never match",
+  "selection_split": "train",
+  "evaluation_split": "test",
+  "baseline_score_threshold": 0.4,
+  "score_thresholds": [
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75
+  ],
+  "recognition_thresholds": [
+    0.0,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "same_text_nms_ious": [
+    null,
+    0.5
+  ],
+  "decoders": [
+    "greedy",
+    "beam"
+  ],
+  "beam_width": 10,
+  "diagnostic_bbox_iou": 0.5,
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "DeepSolo receives the full image in Algorithm 2."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Replay pinned native FP32 DeepSolo outputs and preserve care/ignore and invalid-envelope handling."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "User-requested symbol-free metric is a separate protocol; normalize both sides identically; do not split or collapse duplicate words. Fit confidence, lexicon-free CTC beam and optional same-text NMS only on TRAIN125; freeze before TEST300. TRAIN is diagnostic and overlaps upstream training. Final protocol preserves all original care denominators, including pure-symbol GT; matches the repository alphanumeric normalization boundary. The initial 982-word TRAIN diagnostic is superseded."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Paper checkpoint, multi-output policy and recognition accuracy protocol remain unidentified; local word F1 cannot establish official polygon F1 reproduction."
+    }
+  ],
+  "ambiguity_record": "DEEPSOLO-WORD-F1-20261025"
+}

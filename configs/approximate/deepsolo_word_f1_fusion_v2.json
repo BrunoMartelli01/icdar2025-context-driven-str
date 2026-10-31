@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_plan_sha256": "d21b32113271a9de2a9ef2d40c2d2b8b9a3e8f6a20331056d2c942522c244abe",
+  "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+  "candidate": "ART-DEEPSOLO-VITAEV2S-TOTALTEXT-TEXTOCR-CANDIDATE",
+  "device": "cuda:0",
+  "precision": "float32",
+  "batch_size": 1,
+  "cpu_threads": 4,
+  "seed": 20261025,
+  "inference_floor": 0.05,
+  "diagnostic_bbox_iou": 0.5,
+  "resolutions": {
+    "native": [
+      1024,
+      1892
+    ],
+    "large": [
+      1536,
+      2838
+    ]
+  },
+  "score_thresholds": [
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "recognition_thresholds": [
+    0.0,
+    0.7,
+    0.8,
+    0.85,
+    0.9,
+    0.925,
+    0.95
+  ],
+  "scientific_choices": [
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Pinned qualified ViTAEv2-S+TextOCR checkpoint, strict loading, 36 printing CTC labels, native BGR preprocessing and divisor32 padding."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Expand native detection floor and compare 1.5x test resize; select resolution and confidence thresholds on the frozen TRAIN125 population only. Keep greedy decoding because the first TRAIN study did not select beam search. Preserve symbol-free metric and all care words. Previously explored TEST300 is a descriptive paired evaluation, not an untouched holdout."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "Existing legacy host subprocess on observed RTX3090, FP32 batch1; retain one checkpoint in memory across images, one model at a time. Seed Python/NumPy/PyTorch/CUDA. cuDNN enabled, benchmark false, deterministic false. Record actual shape, memory and OOM; abort without alternate output."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Exact context-driven-paper checkpoint and metric, official polygon evaluation equivalence and any globally optimal configuration remain unresolved."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Select single-resolution and confidence-ranked cross-scale fusion policies independently for each metric on TRAIN125 only. Suppress overlapping predictions only across scales. Freeze selections before TEST metrics; preserve complete per-image evidence and paired image-bootstrap uncertainty. This finite search cannot establish a global maximum."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Correct the experiment wrapper to synchronize both resize and ViTAE inverse-coordinate attributes. Supersedes invalid large-view geometry in resolution-v1 and fusion-final-v1. No scientific model, weight or source modification."
+    }
+  ],
+  "ambiguity_record": "DEEPSOLO-WORD-F1-20261025",
+  "export_protocol_sha256": "0926ac4cc911e56c7992410ae2e99b046618cd7798322fa5ecd44fd4bc0facd4",
+  "matching_iou": 0.5,
+  "fusion_ious": [
+    0.3,
+    0.5
+  ],
+  "recognition_rank_powers": [
+    0,
+    1
+  ],
+  "bootstrap_repetitions": 2000,
+  "metric": "Report micro F1 for symbol-free per-image word multiset and one-to-one bbox IoU>=0.5 matching separately; preserve every care denominator, including empty normalized targets/outputs.",
+  "postprocess_resize_policy": "synchronize cached ViTAE min_size_test/max_size_test with each input resize"
+}

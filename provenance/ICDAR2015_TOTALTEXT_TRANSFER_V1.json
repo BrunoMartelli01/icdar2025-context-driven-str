@@ -1,0 +1,139 @@
+{
+  "ambiguity_id": "ICDAR2015-TOTALTEXT-TRANSFER-001",
+  "claim_label": "approximate reproduction",
+  "completed_at_utc": "2026-10-25T14:49:07.249337+00:00",
+  "config": {
+    "path": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar2015_totaltext_transfer_v1.json",
+    "sha256": "6afa0d0fc2e1fc36b35ff25b4fe0bf6529af2e0aaea767be666fdea2f6128341"
+  },
+  "full_training_complete": false,
+  "limitations": [
+    "Target topology is not predicted-mask or OCR accuracy.",
+    "Four words absent at native resolution and seven fragmented words remain; all care words stay in denominators.",
+    "No full 100-epoch training or official ICDAR2015 evaluation of the transferred model.",
+    "RTX 3090 qualification does not qualify RTX 3070 or isolated whole-pipeline latency."
+  ],
+  "official_test_evaluation_performed": false,
+  "prior_failure": {
+    "directory": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-smoke",
+    "error": "RuntimeError: Invalid device argument during peak reset before CUDA allocator initialization.",
+    "resolution": "Reuse segmentation.evaluate._prepare_cuda_memory_tracking before measuring peaks."
+  },
+  "reproduction_mode": "approximate",
+  "schema_version": 1,
+  "smoke": {
+    "batch_size": 8,
+    "checkpoint": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-qualification/best.pt",
+      "sha256": "6ce068025673eed36023010d92e16e6e475f0bfe5fe44a89bd81c7484f2c81bd"
+    },
+    "cuda_peak_allocated_bytes": 4220045824,
+    "cuda_peak_reserved_bytes": 4643094528,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "images_evaluated": 16,
+    "images_trained": 16,
+    "input_shape": [
+      8,
+      3,
+      512,
+      512
+    ],
+    "model_set": [
+      "PracticalICDAR2015AGUNet"
+    ],
+    "oom": false,
+    "output_shape": [
+      8,
+      1,
+      256,
+      256
+    ],
+    "precision": "float32",
+    "report": {
+      "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-qualification/run_manifest.json",
+      "sha256": "c1e0985ea3cc0eae12744742eb150cc7ca83a7511cf70c417b64225f496e95c7"
+    },
+    "result_class": "smoke-test result",
+    "resume_verification": "Completed-run checksum verification passed; no retraining.",
+    "training_complete": false,
+    "validation": {
+      "foreground_iou": 0.012945913794016082,
+      "gt_with_predicted_bbox_iou_ge_0_5": 2,
+      "gt_words": 101,
+      "gt_words_lost_in_native_target": 0,
+      "gt_words_split_across_predicted_components": 48,
+      "gt_words_touched_by_fused_components": 25,
+      "matched_gt_iou_ge_25": 19,
+      "matched_gt_iou_ge_50": 2,
+      "matched_gt_iou_ge_75": 0,
+      "predicted_components": 8106,
+      "predicted_components_touching_multiple_gt_words": 9,
+      "proposal_f1_iou_50": 0.0004873888144267089,
+      "proposal_precision_iou_50": 0.0002467308166790032,
+      "raw_proposals": 8106,
+      "word_recall_iou_50": 0.019801980198019802
+    }
+  },
+  "source_empty_words": 0,
+  "source_sha256": {
+    "models/icdar2015_unet.py": "1a08c2054a746344150af5ccb4e07f990c57d7df7a9570e65214d6b01d87882e",
+    "models/unet_adv.py": "473c11c015c260aa8cec1bb9ad92b8306a3646ed4784fdf9759981885553f2f7",
+    "recognition/scene_text_datasets.py": "1d6921fd05f57fbe0fc074b31728de6b319988810f232db98b60028cbde67428",
+    "recognition/scene_text_v1_evaluation.py": "a6e8674f975bbe4f04ccbd57f2820b85b754d642ef1351853a2a60f8736c49b2",
+    "scripts/prepare_icdar2015_word_regions.py": "84121a9be545a6fcfd66056b7800fe921b558b6f4af5b5d7af78fb0d99db99e1",
+    "scripts/train_icdar2015_totaltext_transfer.py": "f4e0a6de1bce2f7537c1b733e53afbc3262e8ecf79959cd4e6042b21cfb29fc3",
+    "scripts/train_totaltext_v4_highres_ablation.py": "b4610665bbaeb5faf8e2b3dae8d56579922ec758beb0744342a8068ef4adbcc4",
+    "scripts/train_totaltext_v4_image_frequency_ablation.py": "9cc84abe56f5f7d9c113899a1514dca8e1e23dd7365b36c68e253ffbef45a3b0",
+    "segmentation/data.py": "cee25a6bf3ba2ba4e14799422a5cd4d3f7d0788bedfb4e52b40fd65588a8c946",
+    "segmentation/evaluate.py": "f0af56d95c5991c21245bafe194ebca6aab5c5cc443bb04e28cbf7a0071d51f4",
+    "segmentation/icdar2015_transfer.py": "5b9d27e259a6d51f40ed7404c04b64b32580f4e7f45068c70f01595ebd829a11",
+    "segmentation/totaltext_image_frequency_augment.py": "be8b53c23703994bfda2440a659c22fd89dcf4c33f2978cdfd9d232a0c283365",
+    "segmentation/totaltext_word_regions.py": "2bb9ee7f642c6bdf6288ac0ea473c5e90115d726d079325dec5528343cfa1463",
+    "segmentation/train.py": "1d77b20d73aee8183f8a37105febc9424642654da74c91514015a8e918d7ebd0",
+    "segmentation/training.py": "1dacc84357ff7f6a30a08f00ad50b48ab37a6d6d6c34933d9140eed6a5ca44b2",
+    "segmentation/transforms.py": "e149c1838262637bfc86efd13d17e70dafbdd604ec427c204a9cd60cf6e84072"
+  },
+  "status": "implementation_and_target_qualification_passed",
+  "target_counts": {
+    "original_native128_stretch": {
+      "care_words": 4448,
+      "components": 2811,
+      "fragmented_words": 0,
+      "fused_components": 868,
+      "lost_words": 4,
+      "words_in_fused_components": 2501
+    },
+    "transferred_native256_letterbox": {
+      "care_words": 4448,
+      "components": 4451,
+      "fragmented_words": 7,
+      "fused_components": 0,
+      "lost_words": 4,
+      "words_in_fused_components": 0
+    }
+  },
+  "target_manifest": {
+    "path": "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1/manifests/icdar2015_train.yaml",
+    "sha256": "16badb79a0a099c63674f812547b76666d240a04749f806b3bf74330d7b85739"
+  },
+  "target_preview": {
+    "path": "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-transfer-v1-target-comparison.png",
+    "sha256": "ab2944a3a51e70bd0039c72c8e000d68ed8f0def91726999d4fad4b66e5a01bc"
+  },
+  "target_qualification": {
+    "path": "/extra1/bmartelli/datasets/context-str/icdar2015-word-regions-totaltext-transfer-v1/qualification.json",
+    "sha256": "64dd4111e7c4efbe84f0a4a9cd48a28025ff0e58325b806ee8efa429babbfcdd"
+  },
+  "tests": {
+    "failed": 0,
+    "includes": [
+      "ICDAR2015 transfer",
+      "Total-Text high-resolution, image/frequency, separator-head and word-region regressions",
+      "scene-text preparation",
+      "AG-UNet architecture",
+      "training completion",
+      "injected OOM propagation"
+    ],
+    "passed": 76
+  }
+}

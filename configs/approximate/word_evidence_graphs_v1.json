@@ -1,0 +1,135 @@
+{
+  "active": {
+    "actions": [
+      "left",
+      "right",
+      "vertical",
+      "isolate"
+    ],
+    "fixed_action_order": [
+      "right",
+      "left",
+      "vertical",
+      "isolate"
+    ],
+    "fraction": 0.25,
+    "isolation_periphery": 0.12,
+    "query_budget": 2
+  },
+  "analysis": {
+    "bootstrap_iterations": 1000
+  },
+  "base_crop_budget": 20,
+  "claim_label": "approximate reproduction",
+  "compatibility_iou": 0.6,
+  "consensus": {
+    "confidence_margin": 0.02,
+    "maximum_character_distance": 0.35,
+    "minimum_pair_iou": 0.5
+  },
+  "experiment_kind": "word_evidence_graphs_v1",
+  "input_sha256": {
+    "/extra1/bmartelli/.codex/attachments/7824bf4e-e660-4ad5-8884-0aca38e4fa15/Das_Occlusion_Detection_KBS.pdf": "c50a492403298df36a197439a42b805994c62454a1bbcbea2de0077f628711ac",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full/protocol.json": "1e7388fb1b5b7a50ffc5da1096e9bbbe4fafa60e4d7429c66c9ac9f62868b65e",
+    "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full/samples.json": "240be8c31e380e9bade5401335c560eec5f444148faf0ec85edcc813c202f70b",
+    "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full/source_ocr.pkl": "fea73eb638dfa60e6ed9d62357844754ac55c0940653f6d45129f1708b0922e0",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/artifact_manifest.json": "5da90487abf821a1ba35cdcb88f2a8b0f901c6ef43f523cdc4dfed2b8ac5784d",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/independent_audit.json": "9bb49515fc9002ffec2ee43c52839dbfb1eb8969ed0e5dd37e0d54b139efbc65",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/protocol.json": "4072c2dc5f0634b8f6a776cf78f15cb72ad4c4a20b81bb711bebcc9544a4c369",
+    "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full/resolved_config.json": "3b27bc66bf18bd17781e1845dffd6f7076166c90c80b0a578bccf96126cd25c4",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/papers/2503.15639v2.pdf": "ea8a1e8f922487fd373e78274187a5d8ce99a3a431de1c0a0745c0f61b1fa4bd"
+  },
+  "matching_iou": 0.5,
+  "new_decisions": [
+    {
+      "ambiguity": "WORD-EVIDENCE-GRAPHS-001",
+      "classification": "ASSUMPTION",
+      "expected_effect": "Separate corroborating evidence from duplicated evidence; word F1 may decrease.",
+      "rationale": "New research factors derived from the positive word-hypothesis graph; not specified in either paper.",
+      "scope": "Typed support/conflict relations, disjoint visual tiles and soft accepted-word ownership"
+    },
+    {
+      "ambiguity": "WORD-EVIDENCE-GRAPHS-001",
+      "classification": "ASSUMPTION",
+      "expected_effect": "May combine complementary reading errors; erroneous alignment can introduce false positives.",
+      "rationale": "No character GT, lexicon, invented glyphs or native OCR replacements. Centroids are an imperfect alignment proxy.",
+      "scope": "Monotone spatial character substitutions, including partial donor crops, using frozen native probabilities and causal cross-attention centroids; target template length stays fixed"
+    },
+    {
+      "ambiguity": "WORD-EVIDENCE-GRAPHS-001",
+      "classification": "ASSUMPTION",
+      "expected_effect": "May recover rejected words with new visual evidence at increased OCR cost.",
+      "rationale": "Different from the older independent rereading utility classifier; query choice and later graph states use only observations actually acquired.",
+      "scope": "Active FIT counterfactual supervision, sequential inference with <=2 new RGB observations, explicit action geometry and median neighbor isolation"
+    },
+    {
+      "ambiguity": "WORD-EVIDENCE-GRAPHS-001",
+      "classification": "ASSUMPTION",
+      "expected_effect": "Selection and historical-search variability limit generalization.",
+      "rationale": "Exploratory matched component tests, not an independent validation or strict reproduction.",
+      "scope": "All explicit numeric hyperparameters, same historical phases, one seed, source calibration exposure and old prefix admission policy"
+    },
+    {
+      "ambiguity": "WORD-EVIDENCE-GRAPHS-001",
+      "classification": "HARDWARE_DEVIATION",
+      "expected_effect": "Hardware and loading differ from the paper environment.",
+      "rationale": "Measured current hardware and explicit small-batch qualification; no RTX3070 qualification inferred.",
+      "scope": "Actual RTX3090 single GPU, FP32, deterministic algorithms, no AMP/TF32, frozen cached models and sequential loading"
+    }
+  ],
+  "paths": {
+    "graph_run": "/extra1/bmartelli/context-str-runs/word-graph-recovery-20261024-v1/full",
+    "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+    "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+    "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+    "selective_run": "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full"
+  },
+  "regions": {
+    "kernel_threshold": 0.5,
+    "maximum_regions": 96,
+    "minimum_pixels": 4,
+    "text_threshold": 0.5,
+    "tile_size": 32
+  },
+  "relations": {
+    "maximum_distance": 6.0,
+    "neighbors": 8
+  },
+  "reproduction_mode": "approximate",
+  "runtime": {
+    "alignment_batch_size": 32,
+    "cpu_threads": 4,
+    "cublas_workspace_config": ":4096:8",
+    "device": "cuda:0",
+    "minimum_free_bytes": 2147483648,
+    "ocr_batch_size": 32,
+    "precision": "float32"
+  },
+  "seed": 20261023,
+  "smoke_images": {
+    "calibration": 10,
+    "evaluation": 8,
+    "fit": 36,
+    "test": 10
+  },
+  "training": {
+    "calibration_every": 5,
+    "epochs": 10,
+    "gradient_clip": 5.0,
+    "hidden": 64,
+    "layers": 3,
+    "learning_rate": 0.0003,
+    "minimum_scale": 0.01,
+    "raw_threshold": 0.5,
+    "thresholds": [
+      "KEEP",
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "weight_decay": 0.01
+  }
+}

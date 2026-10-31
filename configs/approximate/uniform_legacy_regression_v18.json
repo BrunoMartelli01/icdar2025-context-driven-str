@@ -1,0 +1,44 @@
+{
+  "bootstrap_alpha": 0.05,
+  "bootstrap_draws": 2000,
+  "cases": {
+    "baseline": null
+  },
+  "dataset": "icdar13",
+  "hard_budgets": {
+    "icdar13": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 61,
+      "reference_images": 233
+    },
+    "icdar2015": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 228,
+      "reference_images": 500
+    },
+    "totaltext": {
+      "batch_rounding": "floor",
+      "maximum_fallback_images": 150,
+      "reference_images": 300
+    }
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-legacy-regression-20261031-v18",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/data/fallbacks.json": "3c7336994e2546a4742553c2c166f6ac38d9e184ab1b6d3f6956b646b14dbff4",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/best.pt": "2bfa227ba59cc02fe9bd348fdd24e0c2df59d7844b00a3c350df999c285de027",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/complete.json": "b023088365d92536068c1de84b13f20751a1753eaf910b085f8237691ba6a47e",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/independent_training_audit.json": "6f3922243859e79ed3644da250c9abcf30ecbb7c898219a793edf39321e3d208",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/last.pt": "266347523f234bc7293089d8d82dd704eebc94291a72f630d5775ae7f2ab2b6c",
+    "/extra1/bmartelli/context-str-runs/uniform-paper-geometry-20261031-v17/full/icdar13/resolved_configuration.json": "c506f762bbac003202e45a19b12d462bdf0835ae57986207280c1f9cd021399a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_geometric_training_v17.json": "1785291ce63a7519123c8014d2c472804c3078969b319814f6e724ecbbc67f9b",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json": "e1bd23cd39c5ed0353e43771a488ba259385a24af82aaf664324c175f8bad71a",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/scripts/replay_uniform_validation_checkpoints.py": "944684521c78ff09c29c0b1b95a4c639b2f603b7cf58414e24219de11952fe8c"
+  },
+  "scientific_choices": {
+    "REPOSITORY_SPECIFIED": "Regression only: unchanged retained baseline must reproduce exact complete-pipeline validation counts and routes after explicit adapted-context support. No new fitting, TEST access or performance claim."
+  },
+  "seed": 20261031,
+  "selection_tolerance": 0.001,
+  "utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_word_union_v6b.json"
+}

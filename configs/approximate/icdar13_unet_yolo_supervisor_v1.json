@@ -1,0 +1,8 @@
+{
+  "export_template": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/icdar13_unet_yolo_export_seen_v1.json",
+  "fixed_epochs": 30,
+  "minimum_free_gpu_bytes": 8589934592,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/icdar13-unet-yolo-procedure-20261030-v1",
+  "template_sha256": "7753003d27599f899817d00e3fe23aa7df7c6df6f28220e64fdf42b478829a7e"
+}

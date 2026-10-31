@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "SUCCESS",
+  "claim_label": "approximate reproduction / exploratory transcription experiment",
+  "external_root": "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1",
+  "guide": "docs/CONTEXTUAL_BOUNDARY_SELECTION.md",
+  "scientific_decisions": [
+    "CONTEXTUAL-BOUNDARY-SELECTION-001",
+    "CONTEXTUAL-BOUNDARY-RESULTS-001"
+  ],
+  "populations": {
+    "fit": 1030,
+    "calibration": 100,
+    "evaluation": 125,
+    "test": 300,
+    "test_care_words": 2204
+  },
+  "primary_result_sha256": "6179386a9974300818cb74924fe6c8b013d8416c51b493b6b5399afac2a3b764",
+  "supplementary_result_sha256": "f7d0834e04d1896d9b6177cfce886d38e17ee0e465facc413d6273e222c06539",
+  "primary_audit": {
+    "status": "PASS",
+    "checks": {
+      "oof_folds": 3,
+      "fold_prior_checks": 3,
+      "candidate_copy_checks": 17732,
+      "output_copy_checks": 143700,
+      "image_arm_checks": 15750,
+      "frozen_policy_replay_checks": 12600,
+      "calibration_curve_checks": 216,
+      "original_crop_hashes": 7076,
+      "exhaustive_oracle_checks": 36
+    },
+    "audit_code_sha256": "a9ca9f77777c0dc25d85e302e36c8f5671f02b2d9d4b737e09477694907ecbbf",
+    "results_sha256": "6179386a9974300818cb74924fe6c8b013d8416c51b493b6b5399afac2a3b764",
+    "scope": "Independent counting/copying/fold exclusion/calibration, source crop hashes and exhaustive oracle subset"
+  },
+  "supplementary_audit": {
+    "status": "PASS",
+    "checks": {
+      "calibration_breakpoints": 1942,
+      "image_policy_checks": 8400
+    },
+    "results_sha256": "f7d0834e04d1896d9b6177cfce886d38e17ee0e465facc413d6273e222c06539",
+    "audit_code_sha256": "a9ca9f77777c0dc25d85e302e36c8f5671f02b2d9d4b737e09477694907ecbbf"
+  },
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 .venvs/context-str-main-py311/bin/python -m pytest tests/recognition/test_contextual_boundary_selection.py tests/recognition/test_text_reconstruction.py tests/recognition/test_bert_correction.py -q",
+    "log": "/extra1/bmartelli/context-str-runs/contextual-boundary-selection-20261024-v1/final_tests.log",
+    "status": "PASS",
+    "passed": 75
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "precision": "float32",
+    "amp": false,
+    "tf32": false,
+    "oom": false,
+    "qualification_8GiB": false
+  },
+  "failures": {
+    "smoke_v1": "Insufficient free GPU memory preflight; other process preserved",
+    "smoke_v2": "SUCCESS with independent audit",
+    "full": "SUCCESS with independent audit"
+  },
+  "new_ocr_calls": 0,
+  "new_crops": 0,
+  "source_models_changed": false,
+  "strict_defaults_changed": false,
+  "policy_promoted": false,
+  "git_commit_created": false,
+  "limitations": [
+    "Historically explored cohorts and inherited calibration exposure.",
+    "Two known TRAIN/TEST RGB duplicates; separate sensitivity retained.",
+    "Three selector seeds reuse fixed OOF proposals.",
+    "Weak proportional RGB alignment and annotation-granularity conventions."
+  ]
+}

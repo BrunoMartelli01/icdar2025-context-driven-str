@@ -1,0 +1,96 @@
+{
+  "analysis_manifest_sha256": "50d85051aa930b08878d727e587f0c8fd85b28d8fc891e0d1da83e96353f7139",
+  "authoritative_run": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/full",
+  "claim_label": "approximate reproduction",
+  "decision": "WORD-EVIDENCE-GRAPHS-001",
+  "final_smoke": {
+    "errors": [],
+    "image_arm_checks": 378,
+    "status": "PASS"
+  },
+  "frozen_parseq": {
+    "encoder_decoder_state_after": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc",
+    "encoder_decoder_state_before": "c3118f05ee594a6c780b44d1dc9b18e13a7b1cc9744c8ddfab2b3edcbcb4cddc",
+    "extra_teacher_forcing_passes": 957,
+    "memory": {
+      "batch_size": 32,
+      "device": "cuda:0",
+      "free_before_bytes": 17030709248,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "input_shape": [
+        32,
+        3,
+        32,
+        128
+      ],
+      "label": "frozen PARSeq character alignment",
+      "model_set": "Frozen qualified PARSeq; read-only last decoder cross-attention hook",
+      "oom": false,
+      "other_processes": "1827877, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 6872 MiB\n1827922, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-yolo-py311/bin/python, 540 MiB\n1828837, /extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python, 450 MiB\n",
+      "peak_allocated_bytes": 239510016,
+      "peak_reserved_bytes": 287309824,
+      "precision": "float32",
+      "seconds": 11.211302396841347,
+      "total_gpu_bytes": 25326911488
+    },
+    "no_new_native_readings": true,
+    "pairs": 865,
+    "status": "PASS",
+    "unique_crops": 957
+  },
+  "full_audit": {
+    "errors": [],
+    "image_arm_checks": 8925,
+    "status": "PASS"
+  },
+  "immutable_source": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/source_snapshot_v2",
+  "independent_validation": false,
+  "integrity": {
+    "artifacts": 178,
+    "seconds": 0.22934469813480973,
+    "status": "PASS",
+    "verified_bytes": 136440307
+  },
+  "matched_acquisition_budget": {
+    "analysis": "post-hoc common per-image query cap, GT-dependent matching diagnostic; not achieved F1",
+    "classification": "ASSUMPTION",
+    "equal_queries_per_policy": 446,
+    "fixed_additional_pool_matches": 6,
+    "graph_additional_pool_matches": 44,
+    "original_TEST_unique_RGB_reads": 3418,
+    "selected_graph_cold_read_ratio": 1.130778232884728,
+    "selected_graph_extra_RGB_reads": 447,
+    "source_crop_hashes_with_conflicting_original_coordinates": 0
+  },
+  "memory": {
+    "actual_oom": false,
+    "peak_allocated_bytes": 336086016,
+    "peak_reserved_bytes": 480247808
+  },
+  "model_promoted": false,
+  "preserved_failures": [
+    {
+      "path": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/smoke4/failure.json",
+      "reason": "Missing isolation_periphery config field; corrected"
+    },
+    {
+      "path": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1/parameter_binding_correction.json",
+      "reason": "Earlier full launch intentionally stopped; equivalent explicit configuration binding"
+    },
+    {
+      "reason": "System Python preparation helper lacked rapidfuzz; corrected to existing qualified main Python, no installation"
+    }
+  ],
+  "primary_manifest_sha256": "57dcafdb1abc1df4c6552645f43ba72b855ee415957ab26d39de5c98e3606847",
+  "result_selection_uses_test": false,
+  "results_sha256": "e3c3e829bf9a3a17b38142425f83cee58985b2bc3ada776aa446a0124f6a10b8",
+  "run_root": "/extra1/bmartelli/context-str-runs/word-evidence-graphs-20261024-v1",
+  "scientific_mode": "approximate",
+  "source_dataset_modified": false,
+  "source_snapshot_manifest_sha256": "fd87157d224ea5bf8d3773c602045fc903eeaf542be382d40eaadc8ccc046bb7",
+  "status": "PASS",
+  "unit_tests": {
+    "passed": 61,
+    "xml_sha256": "dce437a2f80e6b587fae9a39e1ccfd3d2669d34715e5c066ab5874e1dd82c115"
+  }
+}

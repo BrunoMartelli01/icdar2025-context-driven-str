@@ -1,0 +1,49 @@
+{
+  "care_words": 1095,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "expert_export": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3",
+  "fallback_images": 61,
+  "fallback_profile": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json",
+  "fresh_deepsolo": {
+    "dataset": "icdar13",
+    "plan": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_plan_v1.json",
+    "prior_decisions": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/decisions_before_fallback.json",
+    "receipts": [
+      "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/receipt_limit_1.json",
+      "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/receipt_limit_61.json"
+    ]
+  },
+  "frontend_inference_reused": true,
+  "minimum_f1": 0.9,
+  "minimum_validation_f1": 0.9,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/completion.json": "28288c0108e70abe69a0baa5ae60229a47204c390b47716c267e76b740a6a542",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/adapted_export_test_v3/index.json": "45c2b5c2ef7d67e45ee214746e77ca408ed880bb92621447f8e9afb9ffd6bc8d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/deployment_qualification.json": "84dab8499f52b5855b9264a4d98d2d2bb072d431cd54ce551083fbff07f40f19",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/resolved_configuration.json": "65402bf1e4b671fa54c20087556ca8349d1b0f3e160b5847aa9171519fa995cb",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13/selection_frozen.json": "3b83f8f2af28a45da61c553dbd19adcd09aefd88f554e01fa1f9f6b8f92f0154",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_expert_budget_v4/full/emission_frozen.json": "335a3529b9c7395f01ac049b3e6a0cd5be8c9cd56be9979985e1877182489b65",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_plan_v1.json": "aba2d9d0f41eebaee680bec33d1f021f9d9f5226a265d725affb5f131baadae1",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/protocol.json": "72a4587ba4f838729757bd9de5399685071d168e06aa6c1312c1b35f68dec457",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/receipt_limit_1.json": "6ae7ee590e204ee548a3dfde7be4e8d1e78218a90c7357e3ba924c0392e7123c",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/receipt_limit_61.json": "ae28a7b3d9dc0a7c8f170e3a9ae12e68801b11d0de0411f51d34b30f22d21205",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_v2/decisions_before_fallback.json": "febf3bb474dcea1394ed75d11d53f48a845767c24bfaf65150047b60b241ba36",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/deepsolo_icdar13_generic_calibrated_v1.json": "07a7ef35b63e56ad0a44c0642636b660c8b5c3f7b2771c3baa91977627feed50"
+  },
+  "raw_test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1",
+  "router_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v2/ic13",
+  "scientific_choices": {
+    "ASSUMPTION": "Reuse the previously frozen exact 61/233 route and real cached YOLO/PARSeq frontend. Run the same domain-optimized DeepSolo anew only on those 61, with one smoke image reused; apply the identical selected fusion and benchmark Generic dictionary. No new TEST choice.",
+    "HARDWARE_DEVIATION": "Fresh isolated legacy DeepSolo process on the actual RTX3090, FP32 batch1 and qualified nondeterministic cuDNN settings. Per-image CUDA peaks and shapes are logged; frontend is cached, and no end-to-end online latency is claimed.",
+    "PAPER_SPECIFIED": "Motivation only; metric and adapted YOLO learned gate are approximate extensions.",
+    "REPOSITORY_SPECIFIED": "Qualified frozen detector/reader/counts and native256 ignore; authenticated optimized DeepSolo with original released TEST Generic resource.",
+    "UNRESOLVED": "Historical repeated TEST exploration and adaptive rule design, conditional expert/word folds, benchmark vocabulary side information, upstream training exposure and possible GPU inference differences."
+  },
+  "test_protocol": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fresh_deepsolo_selected_v1/protocol.json",
+  "total_images": 233
+}

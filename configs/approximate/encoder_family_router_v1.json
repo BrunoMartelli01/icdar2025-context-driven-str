@@ -1,0 +1,92 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "experiment_kind": "encoder_family_router_v1",
+  "paths": {
+    "lightweight_run": "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1",
+    "token_source": "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2",
+    "budget_reference": "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1",
+    "blip_snapshot": "/extra1/bmartelli/context-str-artifacts/huggingface/models--Salesforce--blip2-flan-t5-xl/snapshots/0eb0d3b46c14c1f8c7680bca2693baafdb90bb28"
+  },
+  "arms": [
+    "none",
+    "clip",
+    "blip",
+    "both"
+  ],
+  "seed": 20261027,
+  "selection_images": 62,
+  "calibration_images": 63,
+  "expert_fit_images": 1128,
+  "batch_size": 16,
+  "epochs": 30,
+  "checkpoints": [
+    10,
+    20,
+    30
+  ],
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "gradient_clip": 5.0,
+  "ranking_weight": 0.2,
+  "huber_beta": 1.0,
+  "minimum_target_scale": 1.0,
+  "architecture": {
+    "hidden": 128,
+    "heads": 4,
+    "blocks": 2,
+    "mlp": 256,
+    "dropout": 0.1,
+    "byte_embedding": 32,
+    "byte_channels": 64,
+    "byte_kernel": 3,
+    "geometry_dim": 12,
+    "scalar_dim": 30,
+    "clip_dim": 512,
+    "query_dim": 768,
+    "query_count": 32,
+    "global_patches": 196,
+    "initialization_std": 0.02
+  },
+  "selection_acceptance": 0.5,
+  "calibration_acceptances": [
+    0.45,
+    0.5,
+    0.55
+  ],
+  "selection_tolerance": 0.0025,
+  "selection_rule": "For each predeclared arm select earliest best checkpoint by selection62 microF1 at50% acceptance; choose least additional frozen encoder weight bytes among arms within0.25 F1 points of best. CAL63 freezes cuts of exactly those selected checkpoints. No refit.",
+  "minimum_free_gpu_bytes": 2147483648,
+  "thin_minimum_free_gpu_bytes": 6442450944,
+  "thin_qualification_images": 3,
+  "thin_tolerance": 1e-05,
+  "head_precision": "float32",
+  "cpu_threads": 4,
+  "bootstrap_draws": 1000,
+  "expected_frozen_encoder_bytes": {
+    "none": 0,
+    "clip": 598485140,
+    "blip": 4364457984,
+    "both": 4962943124
+  },
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "BLIP2 scene context and DeepSolo image fallback motivation only; trained byte/context router is an extension.",
+    "REPOSITORY_SPECIFIED": "Preserve qualified corrected U-Net/recognizer outputs and native DeepSolo. Reuse authenticated original CLIP and BLIP raw query caches.",
+    "ASSUMPTION": "Four matched router arms using cheap30 scalars plus learned OCR-byte/geometry tokens; CLIP uses one global patch view and its current word/crop embeddings; BLIP uses visual QFormer queries only; both uses both. Fit1128, select62, calibrate63 expert-holdout, fixed seed and full-byte inputs without truncation.",
+    "HARDWARE_DEVIATION": "RTX3090 FP32 single-GPU sequential heads; cached frozen context; deterministic math attention, no TF32/AMP. A thin BLIP vision/QFormer module is explicitly loaded and compared with native cached queries, excluding the unused T5 language model.",
+    "UNRESOLVED": "Historical expert/model-selection/TEST exposure, single-seed variance, small calibration split, exact paper metric equivalence and actual end-to-end latency."
+  },
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/resolved_configuration.json": "36111d991364007a28d30157d6c25a02b615dcffd89a8a68afd0b7628c424581",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/independent_audit.json": "00c0f33e870cf791261f75cf87d75af22955f8d71374a695088f6a9136e0e18d",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/fit_features.npz": "a15a878e08a200ec5c907cb74761e3ed51a1f172106124e61bfd0270be93d845",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/fit_feature_schema.json": "0e65db2ae5919d9afe3dfa92f1d53371b1c7490397b62e0be04f2f34120cffd6",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/calibration_features.npz": "a64bf257d15aa49bb77d90d05578f60e9af01ae0ebae3fe3c96c1fc59bad645a",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/calibration_feature_schema.json": "21b859aace787da5ddffcb4562b94e09873d74b6a3a3a5680dd0a02da3233faa",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/selection_features.npz": "abed62e031a851c7374126cf972b59c0c13849057055c0c5711eb63b31bade78",
+    "/extra1/bmartelli/context-str-runs/lightweight-unet-router-20261027-v1/full_v1/selection_feature_schema.json": "cbfd3ec044fadd5d8fd209cf400c3e14a3f188489993b0e490d03dfd0f6289f9",
+    "/extra1/bmartelli/context-str-runs/unet-corrected-token-router-20261026-v1/full_v2/resolved_configuration.json": "86e369380637a29bdced95e1e2225ec66566fecdddc28d5cb89affa2bd47fc96",
+    "/extra1/bmartelli/context-str-runs/essential-router-budget50-20261027-v1/budget_validation_v1/frozen_choices.json": "896a000dc5785ff59961955d401ea3154b79c5f7b2e39e1ac74049bff40ccfdc"
+  },
+  "weight_accounting": "Saved tensor bytes including CLIP buffers; CLIP parameters alone598413280bytes. Training cache inputs unchanged."
+}

@@ -1,0 +1,128 @@
+{
+  "mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "study_root": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/lexical_extension",
+  "original_router_root": "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full",
+  "teacher_study": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1",
+  "seed": 20261029,
+  "targets": {
+    "icdar13": {
+      "f1": 0.9,
+      "fallback_images": 61,
+      "test_images": 233
+    },
+    "icdar2015": {
+      "f1": 0.79,
+      "fallback_images": 228,
+      "test_images": 500
+    }
+  },
+  "lexicons": {
+    "icdar13": {
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+      "train_pair_format": "source",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt",
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt"
+    },
+    "icdar2015": {
+      "train_vocabulary": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt",
+      "train_pairs": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json",
+      "train_pair_format": "json",
+      "test_vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt",
+      "test_pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt"
+    }
+  },
+  "confidence_caps": [
+    0.8,
+    0.9,
+    0.95,
+    1.01
+  ],
+  "unmatched_policies": [
+    "keep_unmatched",
+    "source_reject"
+  ],
+  "protect_numeric": true,
+  "group_sets": [
+    [
+      "raw_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "post_ocr",
+      "lexical"
+    ],
+    [
+      "raw_ocr",
+      "tokens",
+      "post_ocr",
+      "lexical"
+    ]
+  ],
+  "recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 1.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "l2": 10.0,
+      "minimum_leaf": 10
+    },
+    {
+      "kind": "hgb",
+      "iterations": 100,
+      "leaves": 7,
+      "l2": 10.0,
+      "minimum_leaf": 30
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 5
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 200,
+      "depth": 8,
+      "minimum_leaf": 15
+    }
+  ],
+  "selection_tolerance": 0.001,
+  "protocol": "Select correction policy by standalone selection light F1, retaining the original no-correction control. Fit target-F1 paired-utility heads on FIT only; choose at the scaled exact61/228 budget on selection; calibrate quota on separate CAL without refit; evaluate exact batch budgets and scalar cuts. Every image is eligible including empty light predictions. TEST labels never select corrections, groups, weights or operational cuts.",
+  "scientific_choices": {
+    "PAPER_SPECIFIED": "Fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Existing PARSeq outputs, original confidence/word features, original Generic/Weak lexicon algorithm, native256 ignore and all care lexical F1.",
+    "ASSUMPTION": "Extend the benchmark dictionary also to light PARSeq output, conservative confidence/numeric gates, lexical-edit descriptors, target-F1 utility rather than fitting-teacher F1, broader tree heads and observable empty-output scoring.",
+    "HARDWARE_DEVIATION": "CPU cached extension, zero new neural inference or extra encoder.",
+    "UNRESOLVED": "Previously exposed TEST, small validation, teacher training exposure and TRAIN-only Weak versus released TEST Weak distribution shift; no strict/paper-equivalent claim."
+  },
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/icdar-native-budget-router-20261028-budget-v2/full/resolved_configuration.json": "bcd3c88ee48c09310d5318a60f416113fb66a060b2d94bb28f834876da77e36c",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/completion.json": "4ff35a427e68f7b4e8d3316e506b37b1fd376ca0055b988b0704a38cb807663d",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt": "5b7ccc0e3613e30d8ba05e66b90b18d7802f360d602ba59a3d0949c9a276daec",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json": "eacbd5ec76ccda1eae686447c726577f4cfc2a490c9a3be8cbd0a6a9cf24c7fa",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_kind": "image_context_joint_policy_v1",
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "scientific_ambiguity": "IMAGE-CONTEXT-CORRECTION-001",
+  "source_run": "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full",
+  "input_sha256": {
+    "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/protocol.json": "8bdb633356edd0d3cd98fc62b8e62e5cfc4c6916afbdab4d4491021adbc18ed4",
+    "/extra1/bmartelli/context-str-runs/image-context-correction-battery-20261025-v1/run_v2/full/resolved_config.json": "cc3a1d86bf752ccd1cb8d0e53adeec2926c258e536daa623a3aba3a59917a33e"
+  },
+  "correction_models": [
+    "boundary_global_context",
+    "expanded_global"
+  ],
+  "filter_policies": [
+    "exact",
+    "presence"
+  ],
+  "orders": [
+    "filter_first",
+    "correct_first"
+  ],
+  "damage_limits": [
+    0,
+    2
+  ],
+  "objectives": [
+    "correct",
+    "f1"
+  ],
+  "declared_before_primary_results": true,
+  "primary": "boundary_global_context__presence__correct_first__f1_cap2",
+  "classification": "ASSUMPTION",
+  "limitations": [
+    "Larger CAL policy search can overfit; thresholds are never chosen on TEST.",
+    "No independent-validation or strict-paper claim."
+  ]
+}

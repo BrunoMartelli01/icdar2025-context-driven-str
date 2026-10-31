@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "claim_label": "approximate reproduction",
+  "experiment": "selective_word_repair_tests_v1",
+  "full_run": "/extra1/bmartelli/context-str-runs/selective-word-repair-tests-20261024-v1/full",
+  "result_sha256": "662d2d0ed816b0f4a96a3d81cfa415deb7bf1b0fdadf830c7931498e071a4432",
+  "focused_regression_tests_passed": 60,
+  "smoke_audit": {
+    "status": "PASS",
+    "image_arm_checks": 172,
+    "aggregate_checks": 71,
+    "final_rgb_crop_checks": 105,
+    "routing_budget_checks": 36,
+    "exact_unicode_copy_checks": 182,
+    "input_hash_checks": 72,
+    "result_sha256": "4c085d934dc8ad10504843219304dfddffcacf5fbb42061c9def4422bb2086fe",
+    "audit_code_sha256": "41e332ec9780e12a65d9ab76f7f7d8d0df6f0d3253574f77b44e704097633bfd",
+    "scope": "Independent SciPy maximum matching and stdlib lexical replay; original RGB pixel hashes; locked-prefix and Unicode invariants."
+  },
+  "full_audit": {
+    "status": "PASS",
+    "image_arm_checks": 7675,
+    "aggregate_checks": 71,
+    "final_rgb_crop_checks": 4073,
+    "routing_budget_checks": 1555,
+    "exact_unicode_copy_checks": 9580,
+    "input_hash_checks": 1591,
+    "result_sha256": "662d2d0ed816b0f4a96a3d81cfa415deb7bf1b0fdadf830c7931498e071a4432",
+    "audit_code_sha256": "41e332ec9780e12a65d9ab76f7f7d8d0df6f0d3253574f77b44e704097633bfd",
+    "scope": "Independent SciPy maximum matching and stdlib lexical replay; original RGB pixel hashes; locked-prefix and Unicode invariants."
+  },
+  "historical_test_reuse": true,
+  "independent_validation": false,
+  "strict_or_table5_claim": false,
+  "execution_issues": [
+    "One unit fixture initially confused deduplicated synthetic/real provenance; corrected and all tests passed.",
+    "Smoke1 stopped on an incorrect nested-manifest expectation; corrected without weakening input hashes. Smoke2/3 passed."
+  ],
+  "actual_oom": false,
+  "dependency_installation": false,
+  "boundary_policy_scope": "The new gap head can split any Unicode sequence, including punctuation/numbers; the historical ByT5 policy has an alphabetic guard. This is a whole-method comparison, not an isolated encoder-freezing ablation.",
+  "addition_comparison_scope": "HGB and prior GNN share the frozen candidate population/control but differ in features and training; no isolated architecture superiority claim."
+}

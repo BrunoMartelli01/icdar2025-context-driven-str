@@ -1,0 +1,7 @@
+{
+  "reproduction_mode": "approximate",
+  "source_root": "/extra1/bmartelli/context-str-artifacts/unet-token-router-v1/full/0cdd1aa41bdf",
+  "unet_contract": "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/run_contract.json",
+  "expert_manifest": "/extra1/bmartelli/projects/icdar2025-context-driven-str/artifacts/totaltext-curved-word-boxes-v4/manifests/total_text_train.yaml",
+  "output_root": "/extra1/bmartelli/context-str-artifacts/router-validation-v1"
+}

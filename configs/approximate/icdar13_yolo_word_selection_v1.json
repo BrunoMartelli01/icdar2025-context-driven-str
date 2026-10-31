@@ -1,0 +1,62 @@
+{
+  "admission_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1",
+  "batch_size": 32,
+  "claim_label": "approximate reproduction",
+  "cpu_threads": 4,
+  "detector": {
+    "confidence_floor": 0.05,
+    "image_size": 640,
+    "max_detections": 300,
+    "nms_iou": 0.7
+  },
+  "device": "cuda:0",
+  "expected_arms": [
+    "head_only",
+    "full_network"
+  ],
+  "expected_epochs": 30,
+  "joint_thresholds": [
+    0.4,
+    0.6,
+    0.8
+  ],
+  "lexical_policies": [
+    "none",
+    "keep",
+    "reject"
+  ],
+  "minimum_free_gpu_bytes": 2147483648,
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_selection_v1",
+  "paddings": [
+    0,
+    2,
+    4
+  ],
+  "parseq_archive": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz",
+  "parseq_checkpoint": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt",
+  "parseq_source": "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/resolved_configuration.json": "1bcd4fd782b1105066a22b93040a12d7122066c50d1f10b42e2affd30da6c489",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/admission_v1/train_data.json": "272d96300ec01d2721a576a8b44b4fcb50d395df8b3bc82142f50ba967b7afc4",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_adaptation_v1/full/resolved_configuration.json": "1d68fec66112679e6fe0cf16c898cf8648fb86ff07bf1b2839e5e917ba1076ea",
+    "/tmp/yolo-word-slots/yolov8_5k.pt": "b9f153febb1de6a91a9b771e66a5a4b404bc78111b9c7ee3f18cbf1a9379c7af"
+  },
+  "same_text_nms_iou": 0.5,
+  "scientific_choices": {
+    "ASSUMPTION": "Compare predeclared source+8 fixed epoch candidates, three crop paddings and finite emission grid on validation46 only. Maximize lexical microF1, prefer earlier epochs/fewer lexical changes/lower padding on ties. Every reading and candidate remains saved. No TEST experiment or checkpoint selection from TEST.",
+    "HARDWARE_DEVIATION": "Actual RTX3090, sequential FP32 YOLO640 batch1 then PARSeq batch32, memory/OOM recording.",
+    "PAPER_SPECIFIED": "Localization/PARSeq motivation only; fine-tuned YOLO is an approximate extension.",
+    "REPOSITORY_SPECIFIED": "Existing qualified YOLO slot conversion, original stored RGB, pinned PARSeq and native256 care/ignore lexical counts.",
+    "UNRESOLVED": "Validation uncertainty, upstream overlap, final61-image gate, common cross-dataset retention and90% attainment."
+  },
+  "seed": 20261029,
+  "sequence_thresholds": [
+    0.0,
+    0.9
+  ],
+  "source_checkpoint": "/tmp/yolo-word-slots/yolov8_5k.pt",
+  "training_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/yolo_word_adaptation_v1/full"
+}

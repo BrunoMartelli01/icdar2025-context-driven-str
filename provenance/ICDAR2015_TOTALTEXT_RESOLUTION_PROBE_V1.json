@@ -1,0 +1,381 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/resolution-probe-tests-v1.xml": "ff2ec2ae24149299768cc6a56972b51ccf99a8764a0ce923217869f93d18105a",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/qualification/resolution2048-coordinate-smoke-v1.json": "6b717f25d0bcd05685c8b9f4a76cef82097497d72cc177f4924f0f414e34cc07",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/resolution-probe-job-spec-v1.json": "bacdaec213d148e56b0a09e23f58641305b5fed85d692ed272bcffccf8beeee4",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/resolution-probe-launch-v1.json": "f320fce92d1e120f87a3905d83daf0f7079038ad5510dd06189f4def7ffbb588",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-initial-val100-v1-cuda/results.json": "f59b26e5cac660c2d266d76c37466b16ebe90160dcbf3ab9708f321e2a625919",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt263-resolution2048-val100-v1/results.json": "406f51eefbe1978189cedc4430d883cf2ad8f4ed47c9d0661b1fc4411de600fd",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt_partial23-initial-val100-v1-cuda/results.json": "6e57736a6f283131ffbc43baf46ef4603069236baf86065f5c84ca0ab4aa3fd6",
+    "/extra1/bmartelli/context-str-runs/icdar2015-totaltext-weight-transfer-v1/tt_partial23-resolution2048-val100-v1/results.json": "be6f10195e90b3607c3639051380eb9c24c8cb067697065c1bec1dd62d55fecc"
+  },
+  "candidates": [
+    {
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.44931506849315067,
+          "fn": 266,
+          "fp": 136,
+          "precision": 0.5466666666666666,
+          "recall": 0.3813953488372093,
+          "tp": 164
+        },
+        "alphanumeric_casefold_tp": 164,
+        "casefold_exact": {
+          "f1": 0.4383561643835616,
+          "fn": 270,
+          "fp": 140,
+          "precision": 0.5333333333333333,
+          "recall": 0.37209302325581395,
+          "tp": 160
+        },
+        "casefold_exact_tp": 160,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5260273972602739,
+          "fn": 238,
+          "fp": 108,
+          "precision": 0.64,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "geometry_tp": 192,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 300,
+        "symbol_only_gt": 0
+      },
+      "geometry": {
+        "foreground_iou": 0.5721374289065664,
+        "fragmented_words": 25,
+        "fused_components": 71,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 171,
+        "lost_words": 10,
+        "matched_gt": 225,
+        "proposal_f1_iou_50": 0.2996005326231691,
+        "proposal_precision_iou_50": 0.20988805970149255,
+        "proposals": 1072,
+        "word_recall_iou_50": 0.5232558139534884,
+        "words_touched_by_fused_components": 171
+      },
+      "peak_allocated_bytes": 903720448,
+      "peak_reserved_bytes": 1077936128,
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.2396804260985353,
+          "fn": 250,
+          "fp": 892,
+          "precision": 0.16791044776119404,
+          "recall": 0.4186046511627907,
+          "tp": 180
+        },
+        "alphanumeric_casefold_tp": 180,
+        "casefold_exact": {
+          "f1": 0.22636484687083888,
+          "fn": 260,
+          "fp": 902,
+          "precision": 0.15858208955223882,
+          "recall": 0.3953488372093023,
+          "tp": 170
+        },
+        "casefold_exact_tp": 170,
+        "empty_normalized_predictions": 143,
+        "geometry": {
+          "f1": 0.2996005326231691,
+          "fn": 205,
+          "fp": 847,
+          "precision": 0.20988805970149255,
+          "recall": 0.5232558139534884,
+          "tp": 225
+        },
+        "geometry_tp": 225,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 1072,
+        "symbol_only_gt": 0
+      },
+      "results_sha256": "f59b26e5cac660c2d266d76c37466b16ebe90160dcbf3ab9708f321e2a625919",
+      "shape": "native1280",
+      "source": "tt263"
+    },
+    {
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.4880636604774536,
+          "fn": 246,
+          "fp": 140,
+          "precision": 0.5679012345679012,
+          "recall": 0.42790697674418604,
+          "tp": 184
+        },
+        "alphanumeric_casefold_tp": 184,
+        "casefold_exact": {
+          "f1": 0.47480106100795755,
+          "fn": 251,
+          "fp": 145,
+          "precision": 0.5524691358024691,
+          "recall": 0.41627906976744183,
+          "tp": 179
+        },
+        "casefold_exact_tp": 179,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5570291777188329,
+          "fn": 220,
+          "fp": 114,
+          "precision": 0.6481481481481481,
+          "recall": 0.4883720930232558,
+          "tp": 210
+        },
+        "geometry_tp": 210,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 324,
+        "symbol_only_gt": 0
+      },
+      "geometry": {
+        "foreground_iou": 0.5496536385078249,
+        "fragmented_words": 41,
+        "fused_components": 62,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 137,
+        "lost_words": 12,
+        "matched_gt": 247,
+        "proposal_f1_iou_50": 0.28888888888888886,
+        "proposal_precision_iou_50": 0.19296875,
+        "proposals": 1280,
+        "word_recall_iou_50": 0.5744186046511628,
+        "words_touched_by_fused_components": 137
+      },
+      "peak_allocated_bytes": 1897278976,
+      "peak_reserved_bytes": 2384461824,
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.23976608187134502,
+          "fn": 225,
+          "fp": 1075,
+          "precision": 0.16015625,
+          "recall": 0.47674418604651164,
+          "tp": 205
+        },
+        "alphanumeric_casefold_tp": 205,
+        "casefold_exact": {
+          "f1": 0.22690058479532163,
+          "fn": 236,
+          "fp": 1086,
+          "precision": 0.1515625,
+          "recall": 0.4511627906976744,
+          "tp": 194
+        },
+        "casefold_exact_tp": 194,
+        "empty_normalized_predictions": 164,
+        "geometry": {
+          "f1": 0.28888888888888886,
+          "fn": 183,
+          "fp": 1033,
+          "precision": 0.19296875,
+          "recall": 0.5744186046511628,
+          "tp": 247
+        },
+        "geometry_tp": 247,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 1280,
+        "symbol_only_gt": 0
+      },
+      "results_sha256": "406f51eefbe1978189cedc4430d883cf2ad8f4ed47c9d0661b1fc4411de600fd",
+      "shape": "larger2048",
+      "source": "tt263"
+    },
+    {
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.5070785070785071,
+          "fn": 233,
+          "fp": 150,
+          "precision": 0.5677233429394812,
+          "recall": 0.45813953488372094,
+          "tp": 197
+        },
+        "alphanumeric_casefold_tp": 197,
+        "casefold_exact": {
+          "f1": 0.49163449163449163,
+          "fn": 239,
+          "fp": 156,
+          "precision": 0.5504322766570605,
+          "recall": 0.4441860465116279,
+          "tp": 191
+        },
+        "casefold_exact_tp": 191,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5945945945945946,
+          "fn": 199,
+          "fp": 116,
+          "precision": 0.6657060518731989,
+          "recall": 0.5372093023255814,
+          "tp": 231
+        },
+        "geometry_tp": 231,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 347,
+        "symbol_only_gt": 0
+      },
+      "geometry": {
+        "foreground_iou": 0.5971103119777974,
+        "fragmented_words": 35,
+        "fused_components": 56,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 124,
+        "lost_words": 25,
+        "matched_gt": 256,
+        "proposal_f1_iou_50": 0.42244224422442245,
+        "proposal_precision_iou_50": 0.3273657289002558,
+        "proposals": 782,
+        "word_recall_iou_50": 0.5953488372093023,
+        "words_touched_by_fused_components": 124
+      },
+      "peak_allocated_bytes": 903720448,
+      "peak_reserved_bytes": 1077936128,
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.33828382838283827,
+          "fn": 225,
+          "fp": 577,
+          "precision": 0.26214833759590794,
+          "recall": 0.47674418604651164,
+          "tp": 205
+        },
+        "alphanumeric_casefold_tp": 205,
+        "casefold_exact": {
+          "f1": 0.32673267326732675,
+          "fn": 232,
+          "fp": 584,
+          "precision": 0.2531969309462916,
+          "recall": 0.4604651162790698,
+          "tp": 198
+        },
+        "casefold_exact_tp": 198,
+        "empty_normalized_predictions": 81,
+        "geometry": {
+          "f1": 0.42244224422442245,
+          "fn": 174,
+          "fp": 526,
+          "precision": 0.3273657289002558,
+          "recall": 0.5953488372093023,
+          "tp": 256
+        },
+        "geometry_tp": 256,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 782,
+        "symbol_only_gt": 0
+      },
+      "results_sha256": "6e57736a6f283131ffbc43baf46ef4603069236baf86065f5c84ca0ab4aa3fd6",
+      "shape": "native1280",
+      "source": "tt_partial23"
+    },
+    {
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.5065963060686016,
+          "fn": 238,
+          "fp": 136,
+          "precision": 0.5853658536585366,
+          "recall": 0.44651162790697674,
+          "tp": 192
+        },
+        "alphanumeric_casefold_tp": 192,
+        "casefold_exact": {
+          "f1": 0.49340369393139843,
+          "fn": 243,
+          "fp": 141,
+          "precision": 0.5701219512195121,
+          "recall": 0.43488372093023253,
+          "tp": 187
+        },
+        "casefold_exact_tp": 187,
+        "empty_normalized_predictions": 0,
+        "geometry": {
+          "f1": 0.5989445910290238,
+          "fn": 203,
+          "fp": 101,
+          "precision": 0.6920731707317073,
+          "recall": 0.5279069767441861,
+          "tp": 227
+        },
+        "geometry_tp": 227,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 328,
+        "symbol_only_gt": 0
+      },
+      "geometry": {
+        "foreground_iou": 0.5742953496700365,
+        "fragmented_words": 50,
+        "fused_components": 64,
+        "gt_words": 430,
+        "gt_words_touched_by_fused_components": 138,
+        "lost_words": 14,
+        "matched_gt": 267,
+        "proposal_f1_iou_50": 0.3306501547987616,
+        "proposal_precision_iou_50": 0.22531645569620254,
+        "proposals": 1185,
+        "word_recall_iou_50": 0.6209302325581395,
+        "words_touched_by_fused_components": 138
+      },
+      "peak_allocated_bytes": 1897278976,
+      "peak_reserved_bytes": 2384461824,
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.25758513931888544,
+          "fn": 222,
+          "fp": 977,
+          "precision": 0.17552742616033756,
+          "recall": 0.48372093023255813,
+          "tp": 208
+        },
+        "alphanumeric_casefold_tp": 208,
+        "casefold_exact": {
+          "f1": 0.2452012383900929,
+          "fn": 232,
+          "fp": 987,
+          "precision": 0.1670886075949367,
+          "recall": 0.4604651162790698,
+          "tp": 198
+        },
+        "casefold_exact_tp": 198,
+        "empty_normalized_predictions": 175,
+        "geometry": {
+          "f1": 0.3306501547987616,
+          "fn": 163,
+          "fp": 918,
+          "precision": 0.22531645569620254,
+          "recall": 0.6209302325581395,
+          "tp": 267
+        },
+        "geometry_tp": 267,
+        "gt_words": 430,
+        "images": 100,
+        "predictions": 1185,
+        "symbol_only_gt": 0
+      },
+      "results_sha256": "be6f10195e90b3607c3639051380eb9c24c8cb067697065c1bec1dd62d55fecc",
+      "shape": "larger2048",
+      "source": "tt_partial23"
+    }
+  ],
+  "claim_label": "approximate reproduction",
+  "decision": "Keep queued736x1280 training unchanged: larger inference increases false positives without a useful raw-F1 gain. No claim that scale changes cannot help after fine-tuning.",
+  "goal_achieved": false,
+  "model_set": "GPU AG-U-Net FP32 batch1; frozen CPU PARSeq FP32 batch32; existing encoder-training process shares GPU.",
+  "profile_sha256": "806bf1b93042207905d0b1ad5606e598aa80cd716cf744a8a618722dd5d67ca6",
+  "reproduction_mode": "approximate",
+  "result_class": "complete fixed TRAIN VAL100 resolution diagnostic; not TEST",
+  "schema_version": 1,
+  "status": "SUCCESS",
+  "test_data_used": false,
+  "tests_passed": 14
+}

@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "icdar13": {
+      "actual_new_deepsolo_calls": 12,
+      "deepsolo_images": 12,
+      "deepsolo_percentage": 100.0,
+      "heavy_only_cold_seconds": 8.929268721491098,
+      "heavy_only_neural_seconds": 2.377256385050714,
+      "peak_allocated": 2117065728,
+      "peak_reserved": 5515509760,
+      "pipeline_cold_seconds": 27.178726689890027,
+      "pipeline_deepsolo_images": 4,
+      "pipeline_deepsolo_percentage": 33.333333333333336,
+      "pipeline_to_heavy_wall_ratio": 3.0437796797934706,
+      "pipeline_total_images": 12,
+      "total_images": 12
+    },
+    "icdar2015": {
+      "actual_new_deepsolo_calls": 12,
+      "deepsolo_images": 12,
+      "deepsolo_percentage": 100.0,
+      "heavy_only_cold_seconds": 13.33400046825409,
+      "heavy_only_neural_seconds": 7.326040120795369,
+      "peak_allocated": 6947996160,
+      "peak_reserved": 12215910400,
+      "pipeline_cold_seconds": 14.323063340038061,
+      "pipeline_deepsolo_images": 6,
+      "pipeline_deepsolo_percentage": 50.0,
+      "pipeline_to_heavy_wall_ratio": 1.0741760039786077,
+      "pipeline_total_images": 12,
+      "total_images": 12
+    },
+    "totaltext": {
+      "actual_new_deepsolo_calls": 12,
+      "deepsolo_images": 12,
+      "deepsolo_percentage": 100.0,
+      "heavy_only_cold_seconds": 8.279650270938873,
+      "heavy_only_neural_seconds": 2.2124967565760016,
+      "peak_allocated": 1665184768,
+      "peak_reserved": 5129633792,
+      "pipeline_cold_seconds": 12.10087450221181,
+      "pipeline_deepsolo_images": 6,
+      "pipeline_deepsolo_percentage": 50.0,
+      "pipeline_to_heavy_wall_ratio": 1.4615200046172514,
+      "pipeline_total_images": 12,
+      "total_images": 12
+    }
+  },
+  "external_report_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/live_pipeline_smoke_v3/cold_batch_cost_comparison.json",
+  "external_report_sha256": "2f5ea361c56654c18fe256bcdcfda8cd7441cbeee95f108b577af53bfee96113",
+  "mode": "approximate",
+  "quality_targets_verified": false,
+  "result_class": "smoke-test result",
+  "scope": "One cold batch of12 per domain, original fresh pipeline versus subsequent heavy-only control. Includes startup/serialization; no repeated warm benchmark or full-dataset speed claim.",
+  "source_sha256": "39903694409649c1cd7d6a635141ce1cb500417ead70ebc102d133606c5eead5",
+  "status": "COMPLETE"
+}

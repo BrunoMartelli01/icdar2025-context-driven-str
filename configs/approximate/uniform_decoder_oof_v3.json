@@ -1,0 +1,58 @@
+{
+  "claim_label": "approximate reproduction",
+  "dataset_order": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "folds": 5,
+  "minimum_free_disk_bytes": 6442450944,
+  "minimum_free_gpu_bytes": 10737418240,
+  "mode": "approximate",
+  "neural_artifact_sha256": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca"
+  },
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-artifacts/deepsolo-host/checkpoints/tt_res50_finetune_synth-tt-mlt-13-15.pth": "ac2a01b3d8df0ee42e4632ff57a0d3a20a5706fb0ac1c5ae33b2455d0d90da68",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-1902db043c029a7e03a3818c616c06600af574be.tar.gz": "f57289cb1fc7fe41f488a52ea48f8a7f114252ef405b0b64efc1d528c29b48ef",
+    "/extra1/bmartelli/context-str-artifacts/parseq/parseq-bb5792a6.pt": "bb5792a68e367476abca029cbf8699abc805f3d3dc7e57aae45c8ec4f7b7cd00",
+    "/extra1/bmartelli/context-str-runs/adaspot-gap-v1-20261015T125256Z/control/best.pt": "36cd330376b53b5df6a717025bc59be2320b4879250b46b275ec526822e030ca",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/complete.json": "31f37e4480a0e514e514bbea5231508442594849b3e8a01354c795ed661cb8f3",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/emission_selection/frozen.json": "e2ab3eabd1abd26e22293f0ffa59a4a5251ecab37de7b148951cbf23185b1b2e",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/independent_training_audit.json": "63f731abfd39871d3ec958cb6a040f105f7e6c9f9ca17e029cff89a80cab7319",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar13/resolved_configuration.json": "4ddc71538949082a883d13a932788fe3fef998d4677edc0649c8dffd770c4a91",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/complete.json": "f7effaeeeb94dc2c4eae3b81154b41f1613809688b1d6a3d3922e5a2d4dceeae",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/emission_selection/frozen.json": "b95f46a54d772378f5dfd60a85610bf85ace31a42bac0fc120fdbd796c65c931",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/independent_training_audit.json": "f7f8c6bbb24615fef71ffeab0ea6366cdb25ce2703a67550bf25edac7f992d40",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/icdar2015/resolved_configuration.json": "cd0c0990a17de22ddb2a494702b9c6d15894a0a096460a31b01a54e6053b46b4",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/complete.json": "7bd30590c05ddd7120fb5bbed963600f5ec2c8c108022c97ca8057d67ca94b35",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/emission_selection/frozen.json": "b32ec660b6c9c25fe5ea954057a06e9d7e4d4b129fc183efe4e9f1ed6f0f9c46",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/independent_training_audit.json": "7ebafdfd26f8077423d4eb312326d556110cc4f67ac416b6e74efefc8d590ecc",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full/totaltext/resolved_configuration.json": "1c7a259f59956af11a12163707413265a5c75daf94493e7599e6ada8db068649"
+  },
+  "remove_redundant_completed_optimizer_checkpoint": true,
+  "scientific_choices": {
+    "ASSUMPTION": "Five RGB-grouped native FIT decoder folds per dataset, same original shared training recipe/initialization, fixed globally validation-selected epoch counts25/30/15. Heldout images excluded from gradients; no fold labels or TEST selects its weights. Qualify final inference checkpoints and retain model tensors/history while discarding only identical completed optimizer checkpoints after audits. Use full qualified expert unchanged on validation/test and fold exports only for native FIT router supervision.",
+    "HARDWARE_DEVIATION": "Actual RTX3090 FP32 physical4/accumulation2, sequential neural fits/exports and existing environment; measure allocated/reserved peaks/OOM. Extra offline training does not add deployment experts.",
+    "PAPER_SPECIFIED": "ResNet50 attention U-Net and crop/fallback motivation only.",
+    "REPOSITORY_SPECIFIED": "Same uniformly retrained full experts, initialization, source images/targets, selected global epochs and authentic native PARSeq.",
+    "UNRESOLVED": "Original text encoder had benchmark TRAIN exposure, source/word folds remain conditionally stacked, global epoch/policy and prior TEST are historically exposed, and improved routing/generalization/cost remain unproven."
+  },
+  "seed": 20261031,
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research"
+  ],
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full"
+}

@@ -1,0 +1,186 @@
+{
+  "artifacts": {
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/fixed-common-output-gate-baseline-diagnostic-v1.json": "b3959d72b76ed394cb5b8d8cb8dc7489891c5579cc83321439622ca447dee9ab",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/frozen-selection-v1.json": "be95876b5903be3dd1457ab5b1f94d60103ee7d87d622cb3273f050df4ee7936",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/qualification/final-evaluation-audit-unit-tests-v1.xml": "ee4c7140660087823062bf81cf11a5929c96bf69bc9c8ca728ed8399e34fc9fa",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/selected-ocr-device-qualification-v1/results.json": "2e937777ba18f9784f2a117b1808ea4a40ec401c42e37b2d9871b8e36177bc23",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/selected-test500-v1/independent_audit.json": "363feb393cf0388d46fd95b3cb635b1ab8e176f0c26535444d5265f2cc254457",
+    "/extra1/bmartelli/context-str-runs/icdar2015-target70-v1/selected-test500-v1/results.json": "f20ecf59be21832315651d8338b6160e8e6d40c22ef22508d192501959d97b48"
+  },
+  "cache_reopening": "Exact-protocol --resume succeeded with unchanged raw/emitted/per-image results; no new parameters.",
+  "claim_label": "approximate reproduction",
+  "comparison_limit": "Raw F1 improved 40.7556 to 43.5836 percent, with fewer correct words. Same frozen gate on old cached predictions gives 54.0819 percent; new emitted F1 is 54.7782 percent. Gate diagnostic does not match crop/detector policy.",
+  "emitted_aggregate": {
+    "alphanumeric_casefold": {
+      "f1": 0.5477815699658704,
+      "fn": 1114,
+      "fp": 476,
+      "precision": 0.6692147324530924,
+      "recall": 0.46364949446316805,
+      "tp": 963
+    },
+    "alphanumeric_casefold_tp": 963,
+    "casefold_exact": {
+      "f1": 0.5301478953356087,
+      "fn": 1145,
+      "fp": 507,
+      "precision": 0.6476719944405838,
+      "recall": 0.44872412132883965,
+      "tp": 932
+    },
+    "casefold_exact_tp": 932,
+    "empty_normalized_predictions": 0,
+    "geometry": {
+      "f1": 0.6353811149032992,
+      "fn": 960,
+      "fp": 322,
+      "precision": 0.7762334954829743,
+      "recall": 0.5377948964853153,
+      "tp": 1117
+    },
+    "geometry_tp": 1117,
+    "gt_words": 2077,
+    "images": 500,
+    "predictions": 1439,
+    "symbol_only_gt": 0
+  },
+  "failed_samples": 0,
+  "goal_achieved": false,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "ignored_gt": 3153,
+  "independent_audit": {
+    "auditor_sha256": "5bd1819886c85c0dbd9a0ee06a74065caba1f5e4a01b43d3364b01921ff5e284",
+    "care_words": 2077,
+    "claim_label": "approximate reproduction",
+    "emitted_predictions": 1439,
+    "ignored_gt": 3153,
+    "images": 500,
+    "independent_checks": [
+      "CSV annotations",
+      "SciPy components",
+      "inverse coordinates",
+      "output-policy membership",
+      "SciPy matching",
+      "micro F1"
+    ],
+    "independent_matcher_sha256": "7901f6fdb03238d80d438ad7c258df8b67b14845fafb3f186ca3578d394c997b",
+    "metrics": {
+      "emitted": {
+        "alphanumeric_casefold": {
+          "f1": 0.5477815699658704,
+          "fn": 1114,
+          "fp": 476,
+          "precision": 0.6692147324530924,
+          "recall": 0.46364949446316805,
+          "tp": 963
+        },
+        "casefold_exact": {
+          "f1": 0.5301478953356087,
+          "fn": 1145,
+          "fp": 507,
+          "precision": 0.6476719944405838,
+          "recall": 0.44872412132883965,
+          "tp": 932
+        },
+        "geometry": {
+          "f1": 0.6353811149032992,
+          "fn": 960,
+          "fp": 322,
+          "precision": 0.7762334954829743,
+          "recall": 0.5377948964853153,
+          "tp": 1117
+        }
+      },
+      "raw": {
+        "alphanumeric_casefold": {
+          "f1": 0.4358363990478252,
+          "fn": 1070,
+          "fp": 1537,
+          "precision": 0.3958333333333333,
+          "recall": 0.4848338950409244,
+          "tp": 1007
+        },
+        "casefold_exact": {
+          "f1": 0.41592728846570004,
+          "fn": 1116,
+          "fp": 1583,
+          "precision": 0.37775157232704404,
+          "recall": 0.4626865671641791,
+          "tp": 961
+        },
+        "geometry": {
+          "f1": 0.5336507249513093,
+          "fn": 844,
+          "fp": 1311,
+          "precision": 0.4846698113207547,
+          "recall": 0.5936446798266731,
+          "tp": 1233
+        }
+      }
+    },
+    "neural_inference_recomputed": false,
+    "raw_crop_hashes_verified": 2544,
+    "raw_predictions": 2544,
+    "reproduction_mode": "approximate",
+    "result_class": "complete TEST500 independent metric/population audit",
+    "shared_crop_renderer": "segmentation.icdar2015_operating_policy.component_crop; byte replay, not independent rendering",
+    "source_results_sha256": "f20ecf59be21832315651d8338b6160e8e6d40c22ef22508d192501959d97b48",
+    "status": "PASS"
+  },
+  "ocr_peak_bytes": {
+    "allocated": 205955584,
+    "reserved": 247463936
+  },
+  "parseq_batch_size": 32,
+  "precision": "float32",
+  "preserved_baseline_sha256": "b40cbab72d3f5a9a4c57a05faae7278e59bcae4a3dee693361597e51e8e73061",
+  "raw_aggregate": {
+    "alphanumeric_casefold": {
+      "f1": 0.4358363990478252,
+      "fn": 1070,
+      "fp": 1537,
+      "precision": 0.3958333333333333,
+      "recall": 0.4848338950409244,
+      "tp": 1007
+    },
+    "alphanumeric_casefold_tp": 1007,
+    "casefold_exact": {
+      "f1": 0.41592728846570004,
+      "fn": 1116,
+      "fp": 1583,
+      "precision": 0.37775157232704404,
+      "recall": 0.4626865671641791,
+      "tp": 961
+    },
+    "casefold_exact_tp": 961,
+    "empty_normalized_predictions": 127,
+    "geometry": {
+      "f1": 0.5336507249513093,
+      "fn": 844,
+      "fp": 1311,
+      "precision": 0.4846698113207547,
+      "recall": 0.5936446798266731,
+      "tp": 1233
+    },
+    "geometry_tp": 1233,
+    "gt_words": 2077,
+    "images": 500,
+    "predictions": 2544,
+    "symbol_only_gt": 0
+  },
+  "reproduction_mode": "approximate",
+  "result_class": "complete official TEST500 evaluation",
+  "schema_version": 1,
+  "segmentation_input_shape": [
+    1,
+    3,
+    736,
+    1280
+  ],
+  "segmentation_peak_bytes": {
+    "allocated": 903720448,
+    "reserved": 1077936128
+  },
+  "selection_scope": "All model/epoch/policy choices frozen on original TRAIN VAL100 before TEST.",
+  "status": "SUCCESS"
+}

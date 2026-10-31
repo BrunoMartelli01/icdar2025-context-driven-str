@@ -1,0 +1,68 @@
+{
+  "claim_label": "approximate reproduction",
+  "confidence_caps": [
+    0.8,
+    0.9,
+    0.95,
+    1.01
+  ],
+  "lexicons": {
+    "icdar13": {
+      "distance_exclusive": 1.5,
+      "test": {
+        "pair_format": "source_text",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt"
+      },
+      "train": {
+        "pair_format": "json",
+        "pairs": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt"
+      }
+    },
+    "icdar2015": {
+      "distance_exclusive": 1.5,
+      "test": {
+        "pair_format": "source_text",
+        "pairs": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt"
+      },
+      "train": {
+        "pair_format": "json",
+        "pairs": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json",
+        "vocabulary": "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt"
+      }
+    },
+    "totaltext": null
+  },
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/lexical_control_v2",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_pairs.json": "33b50f46c5ebdfd46b1789c642ebf57379048023e9084a8bccd7c15c7488e6cf",
+    "/extra1/bmartelli/context-str-runs/budget-target-router-20261029-v1/ic13_split_generic/train_generic_vocabulary.txt": "0b2af3db25d2b1b09f36cdc662cf81fab4324785c9dfd63b09b0831b43a46032",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_new.txt": "b626c99652d0efdee969c15180bc16c0f9274334ed421c1c3ba966e695ea81d2",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/official_lexicons/ic15/ch4_test_vocabulary_pair_list.txt": "601702a09cbb6729cf5c260f18b1820dc0aa33d25de45c3ba18fb688ac7ecf4e",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_new.txt": "d1d05221bd4f5f3ed5618630d6865de0bc48d0a0b8cbbf1a7180042f68bfe0ed",
+    "/extra1/bmartelli/context-str-runs/deepsolo-icdar2015-lexicon-20261028-v1/sptsv2_resources/lexicons/ic13/GenericVocabulary_pair_list.txt": "4d871ba4cba5ede933d1b94dd860e93acdfdc56b3d5a7437d3ad79b9d7307bd4",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_pairs.json": "eacbd5ec76ccda1eae686447c726577f4cfc2a490c9a3be8cbd0a6a9cf24c7fa",
+    "/extra1/bmartelli/context-str-runs/router-lexicon-retraining-20261028-v1/teacher/icdar2015/train_weak_vocabulary.txt": "5b7ccc0e3613e30d8ba05e66b90b18d7802f360d602ba59a3d0949c9a276daec"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Same prediction-only lexical correction and sequence-emission grid on all3 domains, identity eligible. Choose highest heldout TRAIN microF1 and earliest tie. Original U-Net/reader weights/maps/crops remain frozen. No TEST reading or label chooses a policy.",
+    "HARDWARE_DEVIATION": "CPU over actual frozen U-Net/PARSeq observations; no extra neural models/inference.",
+    "PAPER_SPECIFIED": "Lexical/context motivation only, not the paper router.",
+    "REPOSITORY_SPECIFIED": "Qualified original benchmark Generic/Weak lexicons; TRAIN resources include all official TRAIN transcripts, including validation, as declared benchmark-side-information condition. TT vocabulary explicitly unavailable.",
+    "UNRESOLVED": "Vocabulary shift and assistance, prior TEST exposure, seen-expert word risk and failure of initial uniform budgets."
+  },
+  "sequence_thresholds": [
+    0.0,
+    0.4,
+    0.7,
+    0.9
+  ],
+  "training_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/full",
+  "unmatched_policies": [
+    "keep_unmatched",
+    "source_reject"
+  ]
+}

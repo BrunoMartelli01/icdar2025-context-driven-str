@@ -1,0 +1,14 @@
+{
+  "goal_complete": false,
+  "inference_model_family_changed": false,
+  "mode": "approximate",
+  "neural_jobs": 15,
+  "neural_jobs_sha256": "d89ad85c5ea9b1d7c1f26ca66bbce5d34302c388b9b2de8950c7131ec3f8b2e5",
+  "neural_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3",
+  "qualified_smoke_pending": true,
+  "scope": "Five conditional decoder-heldout fits per dataset, same deployed full-FIT networks; actual state must be checked from live supervisors and final audits",
+  "source_manifest_sha256": "472ac6c15a54d4ac740006f175afd2505e7481005a6cf0bffb3dba26d4be8687",
+  "status": "QUEUED_NO_V3_QUALITY_RESULT",
+  "successor_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_oof_supervision_v3",
+  "training_image_epochs": 193980
+}

@@ -1,0 +1,97 @@
+{
+  "cases": {
+    "ic13": {
+      "care_words": 1095,
+      "deepsolo_images": 61,
+      "expected_new_deepsolo_inferences": 61,
+      "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/independent_test_audit_v1.json",
+      "kind": "ic13",
+      "minimum_f1": 0.9,
+      "previous_common_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_risk_admission_v1/independent_test_audit_v1.json",
+      "previous_common_result": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_risk_admission_v1/results.json",
+      "strictly_greater": false,
+      "test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1",
+      "total_images": 233
+    },
+    "icdar2015__unet": {
+      "care_words": 2077,
+      "deepsolo_images": 228,
+      "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "kind": "retention",
+      "minimum_f1": 0.7909426013691416,
+      "previous_common_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "previous_common_result": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test/results.json",
+      "strictly_greater": false,
+      "test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test",
+      "total_images": 500
+    },
+    "icdar2015__yolo": {
+      "care_words": 2077,
+      "deepsolo_images": 228,
+      "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+      "kind": "retention",
+      "minimum_f1": 0.8084029359655783,
+      "previous_common_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "previous_common_result": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/test/results.json",
+      "strictly_greater": false,
+      "test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/test",
+      "total_images": 500
+    },
+    "totaltext__unet": {
+      "care_words": 2204,
+      "deepsolo_images": 150,
+      "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "kind": "retention",
+      "minimum_f1": 0.782,
+      "previous_common_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "previous_common_result": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test/results.json",
+      "strictly_greater": true,
+      "test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test",
+      "total_images": 300
+    },
+    "totaltext__yolo": {
+      "care_words": 2204,
+      "deepsolo_images": 150,
+      "independent_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json",
+      "kind": "retention",
+      "minimum_f1": 0.782,
+      "previous_common_audit": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json",
+      "previous_common_result": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/test/results.json",
+      "strictly_greater": true,
+      "test_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/test",
+      "total_images": 300
+    }
+  },
+  "mode": "approximate",
+  "output_path": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/test_summary_fresh_v1.json",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/test/decisions_before_fallback.json": "01a1d7c0be1357a9fa40a0777e6822fd8cd14757dd796f71f166cfcac35a3f80",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/icdar2015__yolo/test/results.json": "0a23b461b8532eaa9f480f9d542d032a1e0849367933ab27b84743ab81df9d29",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/independent_selected_test_audit_v1.json": "168fe371cd45ce5ba5179ea2eed4c396f949fb07a9c66dcc17f47ae0d55e5fcc",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/test/decisions_before_fallback.json": "07df5aeaa9ef028f81132d30ee9940753219b719d05b67cc9da7f55279b9f8de",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fallback_word_fusion_v1/totaltext__yolo/test/results.json": "2c258782430c12d7662f5c98bb19a534fa6d251c4d1f56cbf25b1eaf4a116098",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test/decisions_before_fallback.json": "e3a2c1ce06757540474202d5780e902ef9f8e6112ebf394766e4a7290a97d8f2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__unet/test/results.json": "79e06678aef5d07ce5162f7113c2bbff86d7156e175e3aaa45d4216ad0026ee9",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/icdar2015__yolo/test/results.json": "7a987754ae2f5d6bfa7cbb3bc334bc12b30e30b0c9633445c2ebee582d092583",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/independent_test_audit_v1.json": "c24c0b45d5ae226041e60ad3902bd9fd535056b98ca5f672506c77933d7b6e19",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test/decisions_before_fallback.json": "1829b7c0e3c004dc0b0ad7288db065d1b59924f4e6f49cc7692940cef95f4ef6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__unet/test/results.json": "9af7391fce925cbdaab2003e0aabf26f7c59c240accb21b29742da17a6e1f9f5",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/fixed_retention_v1/totaltext__yolo/test/results.json": "113f1573b3134162c816665a0b3127f62c045df9d4dc044505e973e266310622",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/decisions_before_fallback.json": "e2233ee7327d3bff43d66d33aea274362f0e7594b9dfa63ec45c9ab7922c2712",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/independent_test_audit_v1.json": "40cd50731cfcb3c5125437eea1906bed9db407b8c5b5b85130d5e0845816fb32",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/resolved_configuration.json": "47bb09c1bb957e6cea087bd3d555d4aa6ab44dd4c4de3d6b075942da20c29ec2",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_fusion_fresh_v1/results.json": "6374995f8d1d3c3a5b7f890e1fa318496bcc46dbd710418596247c3a9addc568",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_risk_admission_v1/independent_test_audit_v1.json": "455d85258f79e32a48656540b07425cfc22b4a4fc0fef95f4fed098556dc6ae7",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/test_fixed_risk_admission_v1/results.json": "14c13efd765bfad07dec3b27587ccf3b6afb711aad28b6641a1ea0276b978bdf",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/deployment_qualification.json": "cc6d1156db0135c9a0e921e6a53d0dca38bfb834d1d7994918d3e728ddb8780d",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/independent_audit_v1.json": "4d44c000d861ab4592881e004eff3892b0f5b9230a620913442cdff674eeeb42",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/resolved_configuration.json": "08dbece346092705f6bc593cb2a60c0e93f6851567ece8a1e7541d73fad94df6",
+    "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1/selection_frozen.json": "d26944c604113f818816ba0a9f8c24286d083ee1ca2f256870b0095ee977fa1c"
+  },
+  "scientific_choices": {
+    "ASSUMPTION": "Bind only preselected candidates to their independently audited complete TEST results and exact user budgets. Compare ICDAR2015 to the original qualified baseline; Total-Text must exceed 78.2%.",
+    "HARDWARE_DEVIATION": "ICDAR2013 reruns DeepSolo on the 61 preselected images in the legacy RTX3090 FP32 batch1 subprocess; its YOLO/PARSeq frontend and all other dataset outputs remain cached. No end-to-end online latency is measured.",
+    "UNRESOLVED": "The common cost-constrained selector was proposed after historical TEST feedback and reused validation for candidate selection; this is not an independent holdout or paper-metric reproduction."
+  },
+  "selector_root": "/extra1/bmartelli/context-str-runs/lightweight-ic13-90-20261029-v1/validated_budget_variant_no_extra_v1"
+}

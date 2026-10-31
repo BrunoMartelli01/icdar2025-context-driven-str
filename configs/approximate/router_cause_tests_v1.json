@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "table_5_claim": false,
+  "source_pins": {
+    "plan": "828a93b4b245258d6697574df52e57404945612b990f25bc7b9687247f34f44e",
+    "results": "c7868186ea6d1e7af8022839921aae6133986a2a8d711e65d112f7b2422ed548",
+    "audit": "55c57e4e09522f0154ac9db90815a3ec18c1d0be4f80015b2f9068ee60fbd5cd"
+  },
+  "execution": {
+    "device": "cuda:0",
+    "precision": "float32",
+    "cpu_threads": 4,
+    "log_every": 50,
+    "attention_backend": "math"
+  },
+  "seeds": [
+    20280970,
+    20280971,
+    20280972
+  ],
+  "cv_folds": 5,
+  "checkpoints": [
+    5,
+    10,
+    20
+  ],
+  "primary_bypass_fraction": 0.5,
+  "budget_fractions": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "bootstrap_replicates": 1000,
+  "replay_tolerance": 1e-05,
+  "score_tie_tolerance": 1e-06,
+  "fixed_utility_reference": 0.8,
+  "affine_slopes": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "affine_offsets": [
+    -10.0,
+    0.0,
+    10.0
+  ],
+  "matching_scalar_indices": [
+    [
+      0
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "matching_quantiles": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "variants": [
+    {
+      "name": "baseline",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "small",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {
+        "hidden_dim": 16,
+        "heads": 2,
+        "mlp_dim": 32
+      },
+      "seed_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "decay",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.1,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "small_decay",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.1,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {
+        "hidden_dim": 16,
+        "heads": 2,
+        "mlp_dim": 32
+      },
+      "seed_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "learning25",
+      "crop": "native",
+      "training_fraction": 0.25,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "learning50",
+      "crop": "native",
+      "training_fraction": 0.5,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "crop_pad",
+      "crop": "pad",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "crop_stretch",
+      "crop": "stretch",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "aux_off",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.0,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "aux_lexical",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "lexical",
+      "shuffle_context": false,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "context_shuffle",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.1,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": true,
+      "shuffle_labels": false,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    },
+    {
+      "name": "label_shuffle",
+      "crop": "native",
+      "training_fraction": 1.0,
+      "weight_decay": 0.001,
+      "auxiliary_word_weight": 0.0,
+      "auxiliary_labels": "spatial",
+      "shuffle_context": false,
+      "shuffle_labels": true,
+      "architecture_overrides": {},
+      "seed_indices": [
+        0
+      ]
+    }
+  ],
+  "diagnostic_arms": [
+    "scalar",
+    "token_context",
+    "likelihood",
+    "dense",
+    "combined"
+  ],
+  "deletion_model_variants": [
+    "baseline",
+    "small_decay",
+    "crop_pad"
+  ],
+  "blip_probe_images": {
+    "train": 64,
+    "test": 64
+  },
+  "crop_settings": {
+    "variants": [
+      "pad",
+      "stretch",
+      "windows"
+    ],
+    "padding_rgb": [
+      0,
+      0,
+      0
+    ],
+    "image_size": 224,
+    "window_stride_fraction": 0.75,
+    "foil_alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    "minimum_foil_word_length": 3,
+    "foil_tie_tolerance": 1e-07,
+    "wide_aspect_threshold": 2.0
+  },
+  "unchanged_source_modules": [
+    "recognition/token_context_router.py",
+    "recognition/token_context_runtime.py",
+    "scripts/token_context_training.py",
+    "scripts/token_context_data.py"
+  ],
+  "snapshot_packages": [
+    "scripts",
+    "recognition",
+    "deepsolo",
+    "segmentation",
+    "localize",
+    "models",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research",
+    "diagnostics"
+  ],
+  "smoke": {
+    "images": {
+      "train": 20,
+      "test": 6
+    },
+    "cv_folds": 2,
+    "checkpoints": [
+      1,
+      2
+    ],
+    "bootstrap_replicates": 20,
+    "blip_probe_images": {
+      "train": 2,
+      "test": 2
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "claim": "Context-router overfitting materially limits held-out routing.",
+      "tests": [
+        "capacity x weight-decay factorial, three matched seeds",
+        "25/50/100percent learning curves",
+        "label/context shuffle negative controls",
+        "refit versus grouped OOF and TEST"
+      ]
+    },
+    {
+      "id": "H2",
+      "claim": "Native word center cropping loses useful literal evidence.",
+      "tests": [
+        "boundary markers through actual processor",
+        "native versus pad/stretch/windows word correctness AUC",
+        "prefix/middle/suffix character foil ranking",
+        "matched pad/stretch router refits"
+      ]
+    },
+    {
+      "id": "H3",
+      "claim": "Missing-word evidence is insufficient.",
+      "tests": [
+        "GT-safe one-word and half-word omissions, pixels unchanged",
+        "BLIP omissions with fixed and recomputed erasure masks",
+        "word-order negative control",
+        "privileged deltaTP versus deltaPred count ablations"
+      ]
+    },
+    {
+      "id": "H4",
+      "claim": "TRAIN/TEST benefit shift affects routing.",
+      "tests": [
+        "common-reference prevalence and cluster bootstrap",
+        "count/confidence stratum matching",
+        "strictly monotone calibration invariance at fixed quota"
+      ],
+      "unresolved": "Expert-training exposure cannot be causally isolated without counterfactual expert checkpoints or an unseen-expert dataset"
+    },
+    {
+      "id": "H5",
+      "claim": "Mandatory50percent acceptance amplifies ranking errors.",
+      "tests": [
+        "fixed budget curves and exact same-budget oracle",
+        "zero-utility gate",
+        "TRAIN-OOF-selected fraction transferred to TEST",
+        "harmful substitutions and count replay"
+      ]
+    },
+    {
+      "id": "H6",
+      "claim": "Weak spatial auxiliary supervision contributes to failure.",
+      "tests": [
+        "metric-consistent lexical versus spatial labels",
+        "auxiliary weight0 versus original0.1",
+        "patch-center coverage audit"
+      ]
+    }
+  ],
+  "scientific_choices": [
+    {
+      "classification": "PAPER_SPECIFIED",
+      "choice": "Paper3.5/Figure4/Algorithm2 motivates context with complete DeepSolo fallback. No new expert inference or edits to source predictions."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "choice": "Reuse completed audited token-context run and exact cached full TRAIN/TEST branches/features. Native CLIP/BLIP model identities and preprocessing are pinned through source plan."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "All interventions and three seeds are fixed before new TEST feature extraction. Epochs selected only on grouped TRAIN OOF final word microF1 at50percent. No TEST model winner selection."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Crop padding/stretch/windows, weak-label and regularization variants are approximate diagnostic interventions. Synthetic correct-word deletions and true-count ablations are privileged diagnostics, not deployable models or improved OCR predictions."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "choice": "Whole-image bootstrap and matched-seed contrasts quantify uncertainty; historically explored TEST, multiple comparisons and one dataset prevent independent confirmation claims."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "choice": "Observed distribution shift does not identify expert exposure causally. Native crop information loss does not establish a positive F1 effect before held-out intervention results."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "choice": "RTX3090/24GB, FP32, sequential frozen CLIP and BLIP2, deterministic math attention/TF32off, batch8 router/CLIP and BLIP vision1/language2. No8GB qualification or precision substitution."
+    }
+  ]
+}

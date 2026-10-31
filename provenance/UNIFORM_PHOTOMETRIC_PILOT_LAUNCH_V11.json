@@ -1,0 +1,48 @@
+{
+  "actual_new_deepsolo_calls": 0,
+  "claim_label": "approximate reproduction",
+  "control_smoke_audit": {
+    "audit_source_sha256": "de5c45172010a58f3dcdebaeeae2ab0067430263e6b715ba03bbb6878219ff73",
+    "best_checkpoint_sha256": "472dcff0bc0b5d7b531c785b0c0655b39ad790df109f244a3e41efeb7f7860ce",
+    "both_heads_learned": true,
+    "epochs": 1,
+    "frozen_encoder_tensors": 320,
+    "limitations": "Word recount shares declared annotation/ignore primitives; no independent neural refit",
+    "selected_epoch": 0,
+    "status": "PASS",
+    "validation_image_recounts": 8
+  },
+  "control_smoke_audit_sha256": "6ad874628f43cf03b2bc404deada53e556014d0690986dd000dd8a6f11e7eb6a",
+  "current_fitting_domain": "icdar13",
+  "experiment_root": "/extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11",
+  "goal_complete": false,
+  "mode": "approximate",
+  "observed_status": {
+    "arm": "control",
+    "child_pid": 2330093,
+    "dataset": "icdar13",
+    "pid": 2329882,
+    "role": "full",
+    "status": "TRAINING"
+  },
+  "photometric_unit_tests": "PASS",
+  "prepared_domains": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "scope": "Launch receipt and completed control smoke only; matched pilot training remains live. Other domains are prepared, not fitted.",
+  "status": "PILOT_RUNNING",
+  "test_opened": false,
+  "verified_processes": {
+    "child_pid": {
+      "command": "/extra1/bmartelli/projects/icdar2025-context-driven-str/.venvs/context-str-main-py311/bin/python -u -m scripts.run_uniform_unet_training --stage train --run-root /extra1/bmartelli/context-str-runs/uniform-photometric-continuation-20261031-v11/control/full/icdar13 ",
+      "pid": 2330093
+    },
+    "pid": {
+      "command": ".venvs/context-str-main-py311/bin/python -u -m scripts.run_uniform_photometric_pilot --config configs/approximate/uniform_photometric_continuation_v11.json --stage run ",
+      "pid": 2329882
+    }
+  },
+  "verified_utc": "2026-10-31T10:25:38.033739+00:00"
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "reproduction_mode": "approximate",
+  "claim_label": "approximate reproduction",
+  "seed": 20261027,
+  "inputs_sha256": {
+    "source": {
+      "resolved_configuration.json": "2f7254d5812c0a04c306713a7afdb6005dd7b78d31d3edd9d2d267df14dec3dc",
+      "results.json": "7b746460760da1699c3489522ac6b30d330f3913071e18c2ea56146f0a3b4550",
+      "independent_audit.json": "0e47a283fa0d87567bb2f5a56a56ec6182636317e0e863a9500df85fdb3e1f42",
+      "completion.json": "a216984d3b964c14e6b8a4749b7abf390f03130f2b7c3d4a0a6cd3862f9231fa",
+      "frozen_choices.json": "757f117ac79049eb896e4ca7d81be145b639c9cae62ffbe8474ce2d47e0aae50",
+      "train/branches.json": "1716517bec367cb907adf403f8a4d1e8404de8c6f6fb4a8da7b9db878903e448",
+      "test/branches.json": "5f0dad9b23c2dfd411329e1f1bcc32a365618ef6c86a9b14b4d0447e08b18912",
+      "train/unet_receipt.json": "fcdcaa8ea91fc5e1029cd37e9428ed9e489d1acff3884aaf4780c00c6e5a353b",
+      "train/features_receipt.json": "96f63c60c35e288f6b604c6236b620f8c33783cd45fed6b8c611cfacfc492658",
+      "train/fallback_receipt.json": "dadbb06439e1236b73add3092b5271ec2752f75966b955210c594f1df05507ad",
+      "test/unet_receipt.json": "a5876dfe018b1a2614fa940ec8a2d294ed9619b7fff348187292e6361d60ab7d",
+      "test/features_receipt.json": "a8faedb91aaebe950e64bc8049ca9950d5a991baa97eedd652749a90b991d44f",
+      "test/fallback_receipt.json": "e238366eb4c47b3bf9fc43e6a393cbd0c59af23e7709d131a87c631532222d36"
+    },
+    "validation": {
+      "resolved_configuration.json": "5ff2113ff02fd4a60ef49786213e77fb322c6baf670e82f0346c5fda39774b1b",
+      "results.json": "9501c29c4b780dfb0ee7d0bf9ade3a53bc967e3b88ed0c734e85917586c5659a",
+      "independent_audit.json": "b56f0203b7ca9c64e11f4cfc075d183bd65ec6326c8b335b2d53dde96d594af9"
+    }
+  },
+  "execution": {
+    "device": "cuda:0",
+    "cpu_threads": 4,
+    "minimum_free_gpu_bytes": 3221225472,
+    "log_every": 100
+  },
+  "features": {
+    "sequence_cuts": [
+      0.2,
+      0.5,
+      0.7,
+      0.9,
+      0.99
+    ],
+    "map_cuts": [
+      0.5,
+      0.65
+    ],
+    "grid_side": 3
+  },
+  "shared_context": {
+    "projection_dim": 32,
+    "pca_dimensions": 16,
+    "map_replay_tolerance": 0.001
+  },
+  "feature_sets": [
+    "ocr",
+    "layout",
+    "shared_context"
+  ],
+  "selection_quotas": [
+    0.5
+  ],
+  "acceptance_targets": [
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "augmentation": {
+    "arms": [
+      false,
+      true
+    ],
+    "drop_probabilities": [
+      0.15,
+      0.35,
+      0.55
+    ],
+    "add_rejected_probability": 0.25,
+    "total_weight": 1.0
+  },
+  "recipes": [
+    {
+      "kind": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "kind": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "kind": "extra_trees",
+      "trees": 64,
+      "depth": 4,
+      "minimum_leaf": 12
+    },
+    {
+      "kind": "boosted",
+      "trees": 64,
+      "depth": 2,
+      "minimum_leaf": 16,
+      "learning_rate": 0.05
+    }
+  ],
+  "smoke": {
+    "fit": 24,
+    "validation": 12,
+    "test": 8
+  },
+  "bootstrap_draws": 1000,
+  "scientific_choices": [
+    {
+      "classification": "ASSUMPTION",
+      "scope": "Cost-sensitive small heads, predicted-map layout and same-forward U-Net pooling; synthetic candidate subsets are not real extra OCR runs."
+    },
+    {
+      "classification": "REPOSITORY_SPECIFIED",
+      "scope": "Qualified frozen experts and exact1128/125/300 split; retain lexical care/ignore/empty metric."
+    },
+    {
+      "classification": "UNRESOLVED",
+      "scope": "Expert fitting exposure remains; augmentation does not replace expert OOF training; reused validation and historical TEST."
+    },
+    {
+      "classification": "HARDWARE_DEVIATION",
+      "scope": "RTX3090 FP32 frozen extraction and CPU four-thread small-head fitting; no strict or8GB claim."
+    },
+    {
+      "classification": "ASSUMPTION",
+      "scope": "Separate exploratory pure expert-unseen gate:75 FIT/50 VALIDATION; no1128 optimistic expert-fitting labels. Primary model selection uses exactly50percent budget. Same frozen experts and24 recipes; no TEST selection."
+    }
+  ],
+  "expert_unseen_adaptation": {
+    "training_count": 75,
+    "weight": 1.0,
+    "classification": "ASSUMPTION",
+    "protocol": "Only75 expert-unseen images fit the gate; separate50 select models and cuts.1128 expert-fitting outputs are excluded from all head/PCA fitting.",
+    "expert_unseen_only": true
+  },
+  "shared_cache_sha256": {
+    "train_shared.npz": "23034b8e91b3f709ee0ab6e442a290c9d0d0a66b3b36ad29bb9f28883efaee3f",
+    "train_shared_receipt.json": "05420086fdae4c6f96c73da014cde114b27696664b6cfe1f2852367b87cf6959",
+    "test_shared.npz": "2da49f74c19bbdc90477267e74aef0e2c2deec3631b8c8b230119b9d753360c3",
+    "test_shared_receipt.json": "c96e0fb9c3fd87086b40c4a5445eb6dbc3dc099e847fdc9386403be4f9bfaebd"
+  }
+}

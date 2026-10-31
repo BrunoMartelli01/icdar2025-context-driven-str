@@ -1,0 +1,37 @@
+{
+  "base_utility_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v2.json",
+  "claim_label": "approximate reproduction",
+  "dataset_order": [
+    "icdar13",
+    "icdar2015",
+    "totaltext"
+  ],
+  "decoder_folds": 5,
+  "decoder_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3",
+  "evaluation_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_unet_evaluation_v1.json",
+  "mode": "approximate",
+  "output_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_oof_supervision_v3",
+  "pinned_inputs": {
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/jobs_frozen.json": "d89ad85c5ea9b1d7c1f26ca66bbce5d34302c388b9b2de8950c7131ec3f8b2e5",
+    "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/decoder_oof_v3/source_manifest.json": "472ac6c15a54d4ac740006f175afd2505e7481005a6cf0bffb3dba26d4be8687",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_unet_evaluation_v1.json": "7541895be06ecceeaf6c0fdab47306c1194b6b46182a343388b08355e50a77ae",
+    "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v2.json": "3cec7fb3bdf6c2e4bf6bafe85e23c371da07d7ddfdcb76be1e65b4d2c78dcf7b"
+  },
+  "result_root": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/utility_fusion_v3",
+  "scientific_choices": {
+    "ASSUMPTION": "Same v2 common runtime family, complete qualified conditional decoder-heldout FIT substitution. Freeze shared fraction on validation before any v3 TEST evaluation. Preserve all earlier failures and profiles.",
+    "UNRESOLVED": "No pretraining-unseen or fully nested OOF claim; reused validation, TRAIN vocabulary and historical TEST exposure; target achievement and online cost pending."
+  },
+  "snapshot_packages": [
+    "models",
+    "segmentation",
+    "scripts",
+    "recognition",
+    "localize",
+    "caption",
+    "scoring",
+    "pipeline",
+    "research"
+  ],
+  "target_config": "/extra1/bmartelli/projects/icdar2025-context-driven-str/configs/approximate/uniform_utility_fusion_v3.json"
+}

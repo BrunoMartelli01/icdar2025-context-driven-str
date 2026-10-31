@@ -1,0 +1,36 @@
+{
+  "actual_new_neural_calls": 0,
+  "checks": {
+    "icdar13": {
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "exact_ids_text_score_geometry": true,
+      "ground_truth_used_by_postprocessor": false,
+      "images": 233,
+      "word_rows": 1072
+    },
+    "icdar2015": {
+      "checkpoint_sha256": "c0aac6fddc297ca1a7e3c2d0bbd5f7f8b2f55214795c7fa32f13fb51c9db95a8",
+      "exact_ids_text_score_geometry": true,
+      "ground_truth_used_by_postprocessor": false,
+      "images": 500,
+      "word_rows": 1872
+    },
+    "totaltext": {
+      "checkpoint_sha256": "54d3a454ecc704ef3168ebf9f23fc8390a3b2637d0ec83d5650e8df45e2aca4a",
+      "exact_ids_text_score_geometry": true,
+      "ground_truth_used_by_postprocessor": false,
+      "images": 300,
+      "word_rows": 2071
+    }
+  },
+  "claim_label": "approximate reproduction",
+  "config_sha256": "e24dbed93ceffda548141dcf6d787bf1440b9c7f6bed6bb4a886eeca10ba5e6e",
+  "external_audit_path": "/extra1/bmartelli/context-str-runs/uniform-unet-fusion-20261030-v1/deployment_boundary_v1/postprocessor_qualification.json",
+  "external_audit_sha256": "8d6dec1bb9450e353d6a23cdff942bb95749a875abb6cfaa8945c154f94cca45",
+  "full_online_pipeline_qualified": false,
+  "mode": "approximate",
+  "postprocessor_sha256": "00a23ceeee7aebd2158380e74b9fba3be49f886cf92b5afa739c470cfe7ee6ca",
+  "scope": "All1033 authenticated raw TEST responses; exact prediction-only admitted IDs/text/scores/geometry. Cached ignore labels used only in reference audit, never by the deployed postprocessor. No latency or target achievement claim.",
+  "source_sha256": "9184d703ff1111183affacc16d601b9e3373ac14fe779a307b093aff657265a0",
+  "status": "PASS"
+}
